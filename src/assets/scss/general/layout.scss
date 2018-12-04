@@ -1,0 +1,68 @@
+$elements-space: 90px;
+$border: 1px solid #ddd;
+
+.page-container{
+  width: 100%;
+  height: 100vh;
+  padding-top: $elements-space;
+  padding-right: $elements-space;
+}
+
+// STATUS SIDEBAR
+.status-bar{
+  position: fixed;
+  top: 0;
+  right: $elements-space;
+  height: $elements-space;
+  padding-right: 20px;
+
+  border-bottom: $border;
+  text-align: right;
+
+  &.out{
+    right: 100%;
+  }
+  &.halfed{
+    right: calc(50% + 90px);
+  }
+
+  transition: all 0.3s;
+}
+
+// NOTEBOOK SIDEBAR
+.notebook-btn{
+  position: fixed;
+  top: $elements-space;
+  right: 0;
+  z-index: 3;
+  width: $elements-space;
+  height: 100%;
+  border-left: $border;
+  background: white;
+
+  .close{
+    position: relative;
+    z-index: 4;
+  }
+}
+
+// CONTAINERS
+
+.notebook-container{
+  position: absolute;
+  top: 0;
+  right: -100%;
+  z-index: 2;
+
+  width: 50%;
+  min-height: 100vh;
+  
+  
+  background: #ddd;
+
+  &.in{
+    right: 90px;
+  }
+
+  transition: all 0.3s;
+}

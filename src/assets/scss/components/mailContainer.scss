@@ -1,0 +1,80 @@
+// MAIL SIDEBAR
+.mail-sidebar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  width: $elements-space;
+  height: $elements-space;
+  border-left: $border;
+  background: white;
+  overflow: hidden;
+
+  transition: all 0.3s;
+
+  &.in{
+    width: 100%;
+    padding: 0 0 0 40px;
+    border-left: none;
+
+    h2{
+      opacity: 1;
+    }
+  }
+
+  .mail-sidebar-open{
+    width: $elements-space;
+    height: $elements-space;
+    margin-right: 40px;
+    padding-top: 35px;
+    text-align: center;
+  }
+
+  h2{
+    opacity: 0;
+    padding-top: 30px;
+    transition: all 0.3s;
+  }
+
+  .mail-sidebar-close{
+    width: $elements-space;
+    height: $elements-space;
+    padding-top: 35px;
+    text-align: center;
+  }
+}
+
+// CONTAINERS
+.mail-container{
+  position: absolute;
+  top: $elements-space;
+  left: 100%;
+  z-index: 2;
+
+  width: calc(100% - 90px);
+  padding: 0 20px;
+  background: white;
+  
+  transform: translateX(-90px);
+
+  &.in{
+    left: 0%;
+    transform: translateX(0px);
+  }
+
+  transition: all 0.3s;
+
+  .mail-container-body{
+    border-top: $border;
+    min-height: 100vh;
+  }
+}
+.inbox-mail-subject-container{
+  width: 450px;
+  height: calc(100vh - 90px);
+}
+
+.inbox-mail-body-container{
+  width: 450px;
+  height: calc(100vh - 90px);
+}

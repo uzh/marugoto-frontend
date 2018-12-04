@@ -1,20 +1,36 @@
 <template>
   <div id="app">
-    <div id="nav">
-      <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+    <Test />
+    <!-- Layout concept -->
+    <Sidebars />
+    <div class="page-container">
+      <router-view/>
+      
     </div>
-    <router-view/>
+    <!-- #Layout concept -->
+
+    <!-- Can be moved to routed containers later on -->
+    <NotebookContainer v-if="get_loggedStatus" />
+    <MailContainer v-if="get_loggedStatus"/>
+    <!-- #Can be moved to routed containers later on -->
+
   </div>
 </template>
 
-<style>
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+<script>
+import { mapGetters } from 'vuex';
+
+import NotebookContainer from './components/notebookContainer';
+import MailContainer from './components/mailContainer';
+import Sidebars from './components/sidebars';
+import Test from './components/test';
+export default{
+  components: { NotebookContainer, MailContainer, Sidebars, Test },
+  computed: {
+    ...mapGetters([ 'get_loggedStatus' ]),
+  },
 }
-</style>
+
+</script>
+
+<style lang="sass">@import './assets/scss/main.scss'</style>
