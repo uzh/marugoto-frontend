@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <Test />
     <!-- Layout concept -->
     <Sidebars />
     <div class="page-container">
@@ -23,9 +22,9 @@ import { mapGetters } from 'vuex';
 import NotebookContainer from './components/notebookContainer';
 import MailContainer from './components/mailContainer';
 import Sidebars from './components/sidebars';
-import Test from './components/test';
+
 export default{
-  components: { NotebookContainer, MailContainer, Sidebars, Test },
+  components: { NotebookContainer, MailContainer, Sidebars },
   computed: {
     ...mapGetters([ 'get_loggedStatus' ]),
   },
