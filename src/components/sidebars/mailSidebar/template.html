@@ -1,0 +1,13 @@
+<div class="mail-sidebar clear-float" :class="get_layoutState.mail ? 'in' : ''">
+  <div
+    class="mail-sidebar-open go-left"
+    @click="LAYOUT_OPEN('mail')">
+    <img alt="Vue logo" src="@/assets/images/mail.svg">
+  </div>
+  <h2 class="go-left">Mail-inbox</h2>
+  <div
+    class="mail-sidebar-close go-right"
+    @click="LAYOUT_CLOSE('mail')">
+    <img alt="Vue logo" src="@/assets/images/close.svg">
+  </div>
+</div>

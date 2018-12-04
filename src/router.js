@@ -1,6 +1,9 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Home from './views/Home.vue'
+import LoginView from './views/LoginView.vue'
+import StorylineView from './views/StorylineView.vue'
+import SupervisorView from './views/SupervisorView.vue'
+import PageNotFound from './views/PageNotFound.vue'
 
 Vue.use(Router)
 
@@ -9,17 +12,29 @@ export default new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: '/',
-      name: 'home',
-      component: Home
+      path: '/login',
+      name: 'login',
+      component: LoginView
     },
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
-    }
+      path: '/storyline',
+      name: 'storyline',
+      component: StorylineView
+    },
+    {
+      path: '/overview',
+      name: 'overview',
+      component: SupervisorView
+    },
+    {
+      path: '/404',
+      name: 'pageNotFound',
+      component: PageNotFound,
+    },
+    // Redirects Unknown Urls to 404
+    {
+      path: '*',
+      redirect: '404',
+    },
   ]
 })

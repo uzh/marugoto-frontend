@@ -1,0 +1,23 @@
+<div>
+  <div v-if="loginForm">
+    <h1>Login</h1>
+    <p>Please login or create account to play the game:</p>
+    <input type="text" placeholder="Email" />
+    <input type="password" placeholder="Password" />
+    <button>Login</button>
+    <button @click="loginForm = !loginForm">Create account</button>
+  </div>
+  <div v-if="!loginForm">
+    <h1>Create Account</h1>
+    <p>Please login or create account to play the game:</p>
+    <input type="text" placeholder="First Name" />
+    <input type="text" placeholder="Last Name" />
+    <select>
+      <option>Male</option>
+      <option>Female</option>
+    </select>
+    <input type="text" placeholder="email" />
+    <input type="password" placeholder="password" />
+    <button>Create account</button>
+  </div>
+</div>

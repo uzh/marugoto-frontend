@@ -1,0 +1,11 @@
+.go-left{
+  float: left;
+}
+.go-right{
+  float: right;
+}
+.clear-float:after{
+  content: '';
+  display: block;
+  clear: both;
+}
