@@ -2,38 +2,17 @@
 
 // Actions
 
-import * as types from './types';
+import * as types from './types'
 import axios from 'axios'
 
 const API_URL = process.env.VUE_APP_API_PATH || 'http://localhost:8080/api'
 axios.defaults.baseURL = API_URL;
 
-// Interceptor for refresh token = works on response
-axios.interceptors.response.use(response => response, error => {
-  console.log('Interceptor');
-  
-  const status = error.response ? error.response.status : null
-
-  if (status === 401) {
-    return refreshToken(store).then(_ => {
-      error.config.headers['Authorization'] = 'Bearer ' + store.state.auth.token;
-      error.config.baseURL = undefined;
-      return customs.request(error.config);
-    });
-  }
-  if (status === 400) {
-    console.log(error.message);
-    alert(error);
-  }
-
-  return Promise.reject(error);
-});
-
 export default({
   [types.REGISTER]: ({commit}, userInfo) => {
     return new Promise((resolve, reject) => {
       axios({url: '/user/registration', data: userInfo, method: 'POST' })
-      .then(resp => {
+      .then(() => {
         resolve({
           mail: userInfo.mail,
           password: userInfo.password,

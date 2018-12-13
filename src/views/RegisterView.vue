@@ -42,7 +42,7 @@ export default {
         password: this.password,
         salutation: this.salutation,
       }).then(userInfo => {
-        this.$store.dispatch('LOGIN', userInfo).then(resp => this.$router.push('/'));
+        this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
       });
     },
   },

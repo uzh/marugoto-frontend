@@ -27,7 +27,7 @@ export default {
       this.$store.dispatch('LOGIN', {
         mail: this.mail,
         password: this.password,
-      }).then(resp => this.$router.push('/'));
+      }).then(() => this.$router.push('/'));
     },
   },
 }
