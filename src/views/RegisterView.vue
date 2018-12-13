@@ -1,35 +1,35 @@
 <template>
   <div>
     <h1>Sign in</h1>
-    <label>First Name</label>
-    <input v-model="firstName" type="text" placeholder="First Name"/>
-    <label>Last Name</label>
-    <input v-model="lastName" type="text" placeholder="Last Name"/>
-    <label>Email</label>
-    <input v-model="mail" type="email" placeholder="Email"/>
-    <label>Password</label>
-    <input v-model="password" type="password" placeholder="Password"/>
+    <InputField v-model="firstName" labelName="First Name" />
+    <InputField v-model="lastName" labelName="Last Name" />
+    <InputField v-model="mail" typeProp="email" labelName="Email" />
+    <InputField v-model="password" typeProp="password" labelName="Password" />
     <select v-model="salutation">
       <option>Mr</option>
       <option>Ms</option>
     </select>
     <hr/>
-    <button @click="register">Register</button>
+    <Btn :text="text" primary="true" @click="register" />
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import { mapActions } from 'vuex';
+import InputField from '../components/inputs';
+import Btn from '../components/buttons'
 
 export default {
   name: 'registerView',
+  components: { InputField, Btn },
   data(){
     return{
       firstName: '',
       lastName: '',
       mail: '',
       password: '',
-      salutation: ''
+      salutation: '',
+      text: 'Register'
     }
   },
   methods: {
@@ -42,7 +42,7 @@ export default {
         password: this.password,
         salutation: this.salutation,
       }).then(userInfo => {
-        this.$store.dispatch('LOGIN', userInfo).then(resp => this.$router.push('/'));
+        this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
       });
     },
   },
