@@ -9,7 +9,7 @@ export default{
       'mail': state.layout.mail,
     };
   },
-  get_loggedStatus: state => {
-    return state.user.logged;
+  get_status: state => {
+    return state.status;
   },
 };

@@ -7,7 +7,7 @@
 <script>
 
 export default {
-  name: 'supervisorView',
+  name: 'supervisor',
 }
 
 </script>

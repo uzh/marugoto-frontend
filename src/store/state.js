@@ -4,11 +4,13 @@
 
 export default ({
   global: {
-
+  
   },
-  user: {
-    logged: false,
+  status: {
+    isLoged: false,
     role: '',
+    token: '',
+    refreshToken: '',
   },
   layout: {
     notebook: false,

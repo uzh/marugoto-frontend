@@ -1,7 +1,7 @@
 <template>
   <div>
-    <h1>Page not found</h1>
-    <router-link to="/login">Go back to login page</router-link>
+    <h1>Page not found 404</h1>
+    <router-link to="/">Go back to home page</router-link>
   </div>
 </template>
 
