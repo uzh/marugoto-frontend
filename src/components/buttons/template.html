@@ -1,0 +1,9 @@
+<button
+	class="button"
+	v-bind:class="[
+		primary ? 'button--primary' : '',
+		secondary ? 'button--secondary' : '',
+		ghost ? 'button-ghost' : '',
+		text ? 'buttonText' : '']"
+>{{ text }}<Icon :iconPosition="iconPosition" />
+</button>

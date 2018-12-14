@@ -1,0 +1,17 @@
+.icon-right {
+    position: absolute;
+    top: 5px;
+    right: 0px;
+    height: $icon-height;
+    width: $icon-height;
+    background-color: $base-primary;
+}
+
+.icon-left {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    height: $icon-height;
+    width: $icon-height;
+    background-color: $base-primary;
+}

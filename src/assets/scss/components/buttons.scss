@@ -1,0 +1,38 @@
+$button-height: 50px;
+$button-width: 280px;
+
+.button {
+    position: relative;
+    display: block;
+    box-sizing: border-box;
+    width: $button-width;
+    height: $button-height;
+    font-size: 16px;
+    font-family: Helvetica;
+    text-align: center;
+    cursor: pointer;
+}
+
+.button--primary {
+    background-color: $base-primary;
+    color: $white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+}
+
+.button--secondary {
+    background-color: $base-secondary;
+    color: $white;
+}
+
+.button-ghost {
+    background-color: $base-ghost;
+    color: $black;
+    &--icon-right {
+        background-color: $black;
+        height: $icon-height;
+        width: $icon-width;
+        position: absolute;
+        top: 5px;
+        right: 0px;
+    }
+}

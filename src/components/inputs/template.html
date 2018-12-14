@@ -1,0 +1,14 @@
+<div class="input-field" v-bind:class="[
+	focused ? 'active' : '',
+	disabled ? 'disabled' : '',
+	]">
+	<Icon iconPosition="right" />
+	<label @click="inputFocus">{{ labelName }}</label>
+	<input
+		ref="inputField"
+		:type="typeProp"
+		v-on:blur="setFocus(false)"
+		v-on:focus="setFocus(true)"
+		v-model="val" />
+	<div class="errorMessage" :class="error ? 'errorMessage-active' : ''">* This field is required</div>
+</div>
