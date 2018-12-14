@@ -1,16 +1,17 @@
 <template>
   <div>
-    <h1>Sign in</h1>
-    <InputField v-model="firstName" labelName="First Name" />
-    <InputField v-model="lastName" labelName="Last Name" />
+    <h1>Create new account</h1>
+    <p>Please log in or create a new account to play the game:</p>
+    <br>
+    <InputField v-model="firstName" labelName="Name / Pseudonym" />
+    <InputField v-model="lastName" labelName="Lastname / Pseudonym" />
+    <InputField v-model="salutation" labelName="Gender" />
+    <!-- <select v-model="salutation" class="option-select">
+      <option>Male</option>
+      <option>Female</option>
+    </select> -->
     <InputField v-model="mail" typeProp="email" labelName="Email" />
-    <InputField v-model="password" typeProp="password" labelName="Password" />
-    <select v-model="salutation">
-      <option>Mr</option>
-      <option>Ms</option>
-    </select>
-    <hr/>
-    <Btn :text="text" primary="true" @click="register" />
+    <Btn text="Continue" primary="true" @click="register" />
   </div>
 </template>
 
@@ -29,7 +30,6 @@ export default {
       mail: '',
       password: '',
       salutation: '',
-      text: 'Register'
     }
   },
   methods: {
