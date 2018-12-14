@@ -3,7 +3,7 @@ $button-width: 280px;
 
 .button {
     position: relative;
-    display: inline-block;
+    display: block;
     box-sizing: border-box;
     width: $button-width;
     height: $button-height;

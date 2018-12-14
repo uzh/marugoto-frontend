@@ -1,12 +1,12 @@
 .input-field {
    position: relative;
-   display: inline-block;
+   display: block;
    margin: 0 10px 10px 0;
    height: $input-base-height;
    width: $input-base-width;
-   box-shadow: inset -2px -2px 0 0 $base-uicolor-2;
+   box-shadow: inset 0 -1px 0 0 $black;
    font-family: $input-font;
-    &:disabled, &--disabled{
+    &:disabled, &.disabled{
         border: $base-ghost-border;
         cursor: default;
         label {
@@ -45,36 +45,18 @@
        height: $input-base-height;
        line-height: $input-base-height;
        padding-left: 10px;
-       background: transparent;
        font-size: 16px;
    }
 
    &.active {
-       border-bottom: 1px solid $base-primary;
+       border: 2px solid $base-primary;
+       height: auto;
         label {
             top: 5px;
             font-size: 11px;
             color: $base-primary;
         }
    }
-}
-
-.icon-right {
-    position: absolute;
-    top: 5px;
-    right: 0px;
-    height: $icon-height;
-    width: $icon-height;
-    background-color: $base-primary;
-}
-
-.icon-left {
-    position: absolute;
-    top: 5px;
-    left: 0px;
-    height: $icon-height;
-    width: $icon-height;
-    background-color: $base-primary;
 }
 
 // //Option

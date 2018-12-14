@@ -1,10 +1,14 @@
 <template>
   <div>
-    <h1>Log in</h1>
-    <InputField v-model="mail" typeProp="email" labelName="Email" />
+    <h1>Login</h1>
+    <p>Please log in or create a new account to play the game:</p>
+    <br />
+    <InputField v-model="mail" typeProp="email" labelName="E-Mail" />
     <InputField v-model="password" typeProp="password" labelName="Password" />
-    <hr/>
-    <Btn :text="text" primary="true" @click="login" />
+    <br>
+    <Btn text="Login" primary="true" iconPosition="right" @click="login" />
+    <br>
+    <Btn text="Create Account" ghost="true" iconPosition="right" @click="createAccount" />
   </div>
 </template>
 
@@ -20,7 +24,6 @@ export default {
     return{
       mail: '',
       password: '',
-      text: 'Log in',
     }
   },
   methods: {

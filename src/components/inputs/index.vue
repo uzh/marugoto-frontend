@@ -15,6 +15,7 @@ export default {
     return {
       val: '',
       focused: false,
+      disabled: false,
       error: false,
     };
   },
