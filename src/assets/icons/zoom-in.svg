@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg width="28px" height="28px" viewBox="0 0 28 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>Color</title>
-    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M32,30.5857864 L32,27 L34,27 L34,34 L27,34 L27,32 L30.5857864,32 L24,25.4142136 L25.4142136,24 L32,30.5857864 Z M30.5857864,8 L27,8 L27,6 L34,6 L34,13 L32,13 L32,9.41421356 L25.4644661,15.9497475 L24.0502525,14.5355339 L30.5857864,8 Z M8,30.4852814 L14.4852814,24 L15.8994949,25.4142136 L9.3137085,32 L13,32 L13,34 L6,34 L6,27 L8,27 L8,30.4852814 Z M9.46446609,8 L16,14.5355339 L14.5857864,15.9497475 L8,9.36396103 L8,13 L6,13 L6,6 L13,6 L13,8 L9.46446609,8 Z" id="path-1"></path>
+    </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icon/ZoomIn" transform="translate(-6.000000, -6.000000)" fill="#FFFFFF">
-            <g id="Base/White">
-                <rect id="Rectangle-Copy-2" x="0" y="0" width="40" height="40"></rect>
-            </g>
+        <g id="Icon/ZoomIn" transform="translate(-6.000000, -6.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
         </g>
     </g>
 </svg>

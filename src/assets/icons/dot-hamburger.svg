@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg width="19px" height="16px" viewBox="0 0 19 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>Color</title>
-    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M17,12 L30,12 L30,14 L17,14 L17,12 Z M17,19 L30,19 L30,21 L17,21 L17,19 Z M17,26 L30,26 L30,28 L17,28 L17,26 Z M11,12 L15,12 L15,14 L11,14 L11,12 Z M11,19 L15,19 L15,21 L11,21 L11,19 Z M11,26 L15,26 L15,28 L11,28 L11,26 Z" id="path-1"></path>
+    </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icon/Kapitel" transform="translate(-11.000000, -12.000000)" fill="#8C8B89">
-            <g id="Base/Primary">
-                <rect id="Rectangle" x="0" y="0" width="40" height="40"></rect>
-            </g>
+        <g id="Icon/Kapitel" transform="translate(-11.000000, -12.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#D8D8D8" xlink:href="#path-1"></use>
         </g>
     </g>
 </svg>

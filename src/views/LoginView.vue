@@ -7,14 +7,19 @@
     <input v-model="password" type="password" placeholder="Password"/>
     <hr/>
     <button @click="login">Login</button>
+    <SvgIcon name="zoom-out" />
   </div>
 </template>
 
 <script>
-import { mapActions } from 'vuex'
+import SvgIcon from '@/components/svgicon';
+
+import { mapActions } from 'vuex';
+
 
 export default {
   name: 'loginView',
+  components: { SvgIcon },
   data(){
     return{
       mail: '',

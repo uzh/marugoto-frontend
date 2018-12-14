@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg width="21px" height="19px" viewBox="0 0 21 19" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>Color</title>
-    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M20.6213203,12.4142136 L12.8284271,20.2071068 L20.3751074,27.753787 L18.9608938,29.1680006 L10,20.2071068 L19.2071068,11 L20.6213203,12.4142136 Z M30.6213203,12.4142136 L22.8284271,20.2071068 L30.3751074,27.753787 L28.9608938,29.1680006 L20,20.2071068 L29.2071068,11 L30.6213203,12.4142136 Z" id="path-1"></path>
+    </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icon/Arrow/Last" transform="translate(-10.000000, -11.000000)" fill="#8C8B89">
-            <g id="Base/Primary">
-                <rect id="Rectangle" x="0" y="0" width="40" height="40"></rect>
-            </g>
+        <g id="Icon/Arrow/Last" transform="translate(-10.000000, -11.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Combined-Shape" fill="#979797" fill-rule="nonzero" transform="translate(20.310660, 20.084000) scale(-1, 1) translate(-20.310660, -20.084000) " xlink:href="#path-1"></use>
         </g>
     </g>
 </svg>

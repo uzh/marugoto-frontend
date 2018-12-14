@@ -1,13 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg width="20px" height="27px" viewBox="0 0 20 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>Color</title>
-    <desc>Created with Sketch.</desc>
+    <defs>
+        <path d="M19,26.8079378 L19,14 L21,14 L21,26.7789614 L24.2185329,23.5604285 L25.6327465,24.974642 L19.9855118,30.6218767 L14.3536494,24.9900142 L15.7678629,23.5758007 L19,26.8079378 Z M24,33 L26,31 L28,31 L28,8 L12,8 L12,31 L14,31 L16,33 L10,33 L10,6 L30,6 L30,33 L24,33 Z" id="path-1"></path>
+    </defs>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icon/Download_PDF_simple" transform="translate(-10.000000, -6.000000)" fill="#8C8B89">
-            <g id="Base/Primary">
-                <rect id="Rectangle" x="0" y="0" width="40" height="40"></rect>
-            </g>
+        <g id="Icon/Download_PDF_simple" transform="translate(-10.000000, -6.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Combined-Shape" fill="#8C8B89" fill-rule="nonzero" xlink:href="#path-1"></use>
         </g>
     </g>
 </svg>
