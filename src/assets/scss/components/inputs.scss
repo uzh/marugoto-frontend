@@ -1,0 +1,79 @@
+.input-field {
+   position: relative;
+   display: block;
+   margin: 0 10px 10px 0;
+   height: $input-base-height;
+   width: $input-base-width;
+   box-shadow: inset 0 -1px 0 0 $black;
+   font-family: $input-font;
+    &:disabled, &.disabled{
+        border: $base-ghost-border;
+        cursor: default;
+        label {
+            color: $base-uicolor-2;
+        }
+        .input-field--icon {
+            background-color: $base-uicolor-2;
+        }
+    }
+
+    .errorMessage {
+        position: absolute;
+        top: 48px;
+        width: 100%;
+        font-size: 12px;
+        display: none;
+        color: red;
+        border: 1px solid $base-uicolor-2;
+        border-top: 1px solid red;
+        &-active {
+            display: block;
+        }
+    }
+
+   label {
+       position: absolute;
+       top: 16px;
+       left: 10px;
+       font-size: 16px;
+       transition: all 0.3s;
+   }
+
+   input {
+       display: block;
+       width: 100%;
+       height: $input-base-height;
+       line-height: $input-base-height;
+       padding-left: 10px;
+       font-size: 16px;
+   }
+
+   &.active {
+       border: 2px solid $base-primary;
+       height: auto;
+        label {
+            top: 5px;
+            font-size: 11px;
+            color: $base-primary;
+        }
+   }
+}
+
+//Option
+.option-select {
+    @extend .input-field;
+    font-size: 16px;
+    padding-left: 10px; 
+    border-radius: 0;
+    border: none;
+    background-color: $white;
+    &--circle {
+        position: relative;
+        top: 10px;
+        left: 10px;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        border: 1px solid black;
+    }
+}

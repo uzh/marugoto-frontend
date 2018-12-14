@@ -1,0 +1,34 @@
+// Colors
+$black: #000000;
+$white: #FFFFFF;
+
+$base-primary: #8C8B89;
+$base-primary-border: #979797;
+$base-primary-hover: #737270;
+$base-primary-hover-border: $base-primary-border;
+
+$base-secondary: #16365E;
+$base-secondary-border: $base-primary-border;
+$base-secondary-hover: #0F2847;
+
+$base-accent: #EE1245;
+$base-accent-hover: #D4113E;
+
+$base-ghost: $white;
+$base-ghost-border: 1px solid #EAEDF0;
+
+$base-uicolor-1: $base-primary;
+
+$base-uicolor-2: #E6E3E1;
+
+$base-uicolor-3: #F2F4F6;
+$base-uicolor-3-border: 1px solid $base-primary-border;
+
+//Icons
+$icon-height: 40px;
+$icon-width: $icon-height;
+
+//Inputs
+$input-font: Helvetica;
+$input-base-height: 50px;
+$input-base-width: 290px;
