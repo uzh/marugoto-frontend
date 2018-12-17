@@ -12,6 +12,8 @@
       <option>Female</option>
     </select> -->
     <InputField v-model="mail" typeProp="email" labelName="Email" iconPosition="right" />
+    <br />
+    <br />
     <Btn text="Continue" primary="true" iconPosition="right" @click="register" />
   </div>
 </template>

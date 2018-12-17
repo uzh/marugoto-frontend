@@ -15,6 +15,7 @@ export default {
     return {
       val: '',
       focused: false,
+      filled: false,
       error: false,
     };
   },
@@ -34,10 +35,17 @@ export default {
       this.$refs.inputField.focus();
     },
     setFocus(foc) {
-      if (foc || this.val) {
+      if (foc) {
         this.focused = true;
       } else {
         this.focused = false;
+      }
+    },
+    isFilled() {
+      if (this.val) {
+        this.filled = true;
+      } else {
+        this.filled = false;
       }
     },
     hasError() {

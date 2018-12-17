@@ -6,7 +6,8 @@
     <br />
     <InputField v-model="mail" typeProp="email" labelName="E-Mail" iconPosition="right" />
     <InputField v-model="password" typeProp="password" labelName="Password" />
-    <br>
+    <br />
+    <br />
     <Btn text="Login" primary="true" iconPosition="right" @click="login" />
     <br>
     <Btn text="Create Account" ghost="true" iconPosition="right" iconColor="secondary" @click="createAccount" />
