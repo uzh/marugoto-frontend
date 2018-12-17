@@ -1,14 +1,15 @@
 <template>
-  <div>
-    <h1>Login</h1>
-    <p>Please log in or create a new account to play the game:</p>
+  <div class="main-container">
+    <h1 class="page-title">Login</h1>
     <br />
-    <InputField v-model="mail" typeProp="email" labelName="E-Mail" />
+    <p class="page-title-paragraph">Please log in or create a new account to play the game:</p>
+    <br />
+    <InputField v-model="mail" typeProp="email" labelName="E-Mail" iconPosition="right" />
     <InputField v-model="password" typeProp="password" labelName="Password" />
     <br>
     <Btn text="Login" primary="true" iconPosition="right" @click="login" />
     <br>
-    <Btn text="Create Account" ghost="true" iconPosition="right" @click="createAccount" />
+    <Btn text="Create Account" ghost="true" iconPosition="right" iconColor="secondary" @click="createAccount" />
   </div>
 </template>
 

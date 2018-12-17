@@ -4,7 +4,7 @@
     right: 0px;
     height: $icon-height;
     width: $icon-height;
-    background-color: $base-primary;
+    background-color: $white;
 }
 
 .icon-left {
@@ -13,5 +13,21 @@
     left: 0px;
     height: $icon-height;
     width: $icon-height;
+    background-color: $white;
+}
+
+.icon-none {
+    display: none;
+}
+
+.icon-primary {
+    background-color: $white;
+}
+
+.icon-secondary {
+    background-color: $black;
+}
+
+.icon-tertiary {
     background-color: $base-primary;
 }

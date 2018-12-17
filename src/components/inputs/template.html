@@ -2,7 +2,7 @@
 	focused ? 'active' : '',
 	disabled ? 'disabled' : '',
 	]">
-	<Icon iconPosition="right" />
+	<Icon :iconPosition="iconPosition" iconColor="tertiary" />
 	<label @click="inputFocus">{{ labelName }}</label>
 	<input
 		ref="inputField"

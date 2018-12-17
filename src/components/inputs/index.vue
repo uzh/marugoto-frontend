@@ -10,12 +10,11 @@ export default {
   // name of the component
   name: 'inputField',
   components: { Icon },
-  props: ['typeProp', 'idName', 'labelName'],
+  props: ['typeProp', 'idName', 'labelName', 'iconPosition'],
   data() {
     return {
       val: '',
       focused: false,
-      disabled: false,
       error: false,
     };
   },

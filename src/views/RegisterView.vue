@@ -1,17 +1,18 @@
 <template>
-  <div>
-    <h1>Create new account</h1>
-    <p>Please log in or create a new account to play the game:</p>
+  <div class="main-container">
+    <h1 class="page-title">Create new account</h1>
+    <br />
+    <p class="page-title-paragraph">Please log in or create a new account to play the game:</p>
     <br>
-    <InputField v-model="firstName" labelName="Name / Pseudonym" />
-    <InputField v-model="lastName" labelName="Lastname / Pseudonym" />
-    <InputField v-model="salutation" labelName="Gender" />
+    <InputField v-model="firstName" labelName="Name / Pseudonym" iconPosition="none" />
+    <InputField v-model="lastName" labelName="Lastname / Pseudonym" iconPosition="none" />
+    <InputField v-model="salutation" labelName="Gender" iconPosition="right" />
     <!-- <select v-model="salutation" class="option-select">
       <option>Male</option>
       <option>Female</option>
     </select> -->
-    <InputField v-model="mail" typeProp="email" labelName="Email" />
-    <Btn text="Continue" primary="true" @click="register" />
+    <InputField v-model="mail" typeProp="email" labelName="Email" iconPosition="right" />
+    <Btn text="Continue" primary="true" iconPosition="right" @click="register" />
   </div>
 </template>
 
