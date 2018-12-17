@@ -6,11 +6,12 @@
     <br>
     <InputField v-model="firstName" labelName="Name / Pseudonym" iconPosition="none" />
     <InputField v-model="lastName" labelName="Lastname / Pseudonym" iconPosition="none" />
-    <InputField v-model="salutation" labelName="Gender" iconPosition="right" />
-    <!-- <select v-model="salutation" class="option-select">
+    <!-- <InputField v-model="gender" labelName="Gender" iconPosition="right" /> -->
+    <select v-model="gender" class="option-select">
+      <option disabled>Gender</option>
       <option>Male</option>
       <option>Female</option>
-    </select> -->
+    </select>
     <InputField v-model="mail" typeProp="email" labelName="Email" iconPosition="right" />
     <br />
     <br />
@@ -32,7 +33,7 @@ export default {
       lastName: '',
       mail: '',
       password: '',
-      salutation: '',
+      gender: 'Gender',
     }
   },
   methods: {
@@ -43,7 +44,7 @@ export default {
         lastName: this.lastName,
         mail: this.mail,
         password: this.password,
-        salutation: this.salutation,
+        gender: this.gender,
       }).then(userInfo => {
         this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
       });
