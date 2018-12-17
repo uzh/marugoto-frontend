@@ -6,12 +6,11 @@
     <br>
     <InputField v-model="firstName" labelName="Name / Pseudonym" iconPosition="none" />
     <InputField v-model="lastName" labelName="Lastname / Pseudonym" iconPosition="none" />
-    <!-- <InputField v-model="gender" labelName="Gender" iconPosition="right" /> -->
-    <select v-model="gender" class="option-select">
-      <option disabled>Gender</option>
+    <InputField v-model="gender" labelName="Gender" iconPosition="right" />
+    <!-- <select v-model="gender" class="option-select">
       <option>Male</option>
       <option>Female</option>
-    </select>
+    </select> -->
     <InputField v-model="mail" typeProp="email" labelName="Email" iconPosition="right" />
     <br />
     <br />
@@ -33,7 +32,7 @@ export default {
       lastName: '',
       mail: '',
       password: '',
-      gender: 'Gender',
+      gender: '',
     }
   },
   methods: {
