@@ -1,6 +1,6 @@
 <div class="input-field" v-bind:class="[
 	focused ? 'focused' : '',
-	filled ? 'filled' : '',
+	verified ? 'verified' : '',
 	disabled ? 'disabled' : ''
 	]">
 	<Icon :iconPosition="iconPosition" iconColor="tertiary" />
@@ -10,11 +10,11 @@
 		:type="typeProp"
 		v-on:blur="[
 			setFocus(false),
-			isFilled()
+			verifyField()
 		]"
 		v-on:focus="setFocus(true)"
 		v-model="val" />
-	<div v-if="required"
+	<div v-if="required && error"
 		class="errorMessage"
 	>* This field is required</div>
 </div>

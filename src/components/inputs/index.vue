@@ -15,7 +15,7 @@ export default {
     return {
       val: '',
       focused: false,
-      filled: false,
+      verified: false,
       error: false,
     };
   },
@@ -41,11 +41,13 @@ export default {
         this.focused = false;
       }
     },
-    isFilled() {
-      if (this.val) {
-        this.filled = true;
+    verifyField() {
+      if ( this.val == '' ) {
+        this.error = true;
+        this.verified = false;
       } else {
-        this.filled = false;
+        this.error = false;
+        this.verified = true;        
       }
     }
   }
