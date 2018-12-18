@@ -10,7 +10,7 @@
     <br />
     <Btn text="Login" primary="true" iconPosition="right" @click="login" />
     <br>
-    <Btn text="Create Account" ghost="true" iconPosition="right" @click="createAccount" />
+    <Btn text="Create Account" />
     <SvgIcon name="zoom-out" />
   </div>
 </template>
@@ -21,7 +21,6 @@ import SvgIcon from '@/components/svgicon';
 import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
 import Btn from '../components/buttons'
-
 
 export default {
   name: 'loginView',

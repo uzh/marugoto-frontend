@@ -65,11 +65,3 @@
         }
     }
 }
-
-.option-select {
-    @extend .input-field;
-    border: none;
-    background-color: $white;
-    padding-left: 5px;
-    font-size: 16px;
-}

@@ -6,11 +6,7 @@
     <br>
     <InputField v-model="firstName" labelName="Name / Pseudonym" iconPosition="none" />
     <InputField v-model="lastName" labelName="Lastname / Pseudonym" iconPosition="none" />
-    <InputField v-model="gender" labelName="Gender" iconPosition="right" />
-    <!-- <select v-model="gender" class="option-select">
-      <option>Male</option>
-      <option>Female</option>
-    </select> -->
+    <SelectField :list="genderList" @selectChange="alertT" />
     <InputField v-model="mail" typeProp="email" labelName="Email" iconPosition="right" />
     <br />
     <br />
@@ -22,28 +18,38 @@
 import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
 import Btn from '../components/buttons'
+import SelectField from '../components/selectField'
 
 export default {
   name: 'registerView',
-  components: { InputField, Btn },
+  components: { InputField, Btn, SelectField },
   data(){
     return{
       firstName: '',
       lastName: '',
       mail: '',
       password: '',
-      gender: '',
+      genderList: [
+        {
+          name: 'Male'
+        },
+        {
+          name: 'Female'
+        }
+      ]
     }
   },
   methods: {
     ...mapActions(['REGISTER']),
+    alertT(value){
+      alert('Promenjen je select u ' + value);
+    },
     register(){
       this.$store.dispatch('REGISTER',{
         firstName: this.firstName,
         lastName: this.lastName,
         mail: this.mail,
         password: this.password,
-        gender: this.gender,
       }).then(userInfo => {
         this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
       });

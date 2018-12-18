@@ -61,7 +61,9 @@ $icon-width: $icon-height;
 //Inputs
 $input-base-height: 50px;
 $input-base-width: 100%;
+$input-max-width: 1000px;
 
 //Buttons
 $button-height: 50px;
 $button-width: 100%;
+$button-max-width: $input-max-width;
