@@ -21,7 +21,6 @@
         font-size: 12px;
         display: none;
         color: red;
-        // border: 1px solid $base-uicolor-2;
         border-top: 2px solid red;
         &-active {
             display: block;
@@ -39,7 +38,7 @@
    input {
        display: block;
        width: 100%;
-       height: $input-base-height - 2px;
+       height: $input-base-height;
        line-height: $input-base-height;
        padding-left: 10px;
        font-size: 16px;
@@ -56,7 +55,7 @@
    }
 
    &.filled {
-        border-bottom: 1px solid $base-primary;
+        border-bottom: 2px solid $base-primary;
         height: auto;
         label {
             top: 5px;
