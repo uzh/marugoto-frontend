@@ -10,7 +10,7 @@ export default {
   // name of the component
   name: 'btn',
   components: { Icon },
-  props: ['primary', 'secondary', 'text', 'ghost', 'iconPosition', 'iconColor'],
+  props: ['primary', 'secondary', 'text', 'ghost', 'disabled', 'iconPosition', 'iconColor'],
   data() {
     return {
       

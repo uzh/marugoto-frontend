@@ -10,7 +10,7 @@
     <InputField v-model="mail" typeProp="email" labelName="Email" iconPosition="right" required="true"/>
     <br />
     <br />
-    <Btn text="Continue" primary="true" iconPosition="right" @click="register" />
+    <Btn disabled="true" text="Continue" primary="true" iconPosition="right" @click="register" />
   </div>
 </template>
 
