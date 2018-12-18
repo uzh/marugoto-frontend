@@ -14,11 +14,17 @@
     background-color: $base-primary;
     color: $white;
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    &:hover {
+        background-color: $base-primary-hover;
+    }
 }
 
 .button--secondary {
     background-color: $base-secondary;
     color: $white;
+    &:hover {
+        background-color: $base-secondary-hover;
+    }
 }
 
 .button-ghost {

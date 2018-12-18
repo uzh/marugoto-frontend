@@ -1,3 +1,7 @@
+.select-div {
+    position: relative;
+}
+
 .select-field {
     @extend .input-field;
     border: none;
@@ -8,8 +12,9 @@
 }
 
 .select-list {
-    position: relative;
-    top: -10px;
+    position: absolute;
+    z-index: 1;
+    top: 0;
     left: 0;
     font-family: Helvetica;
     font-size: 16px;
@@ -22,8 +27,11 @@
         padding-left: 10px;
         padding-top: 16px;
         height: 50px;
-        border-bottom: 1px solid $base-primary;
+        border: 1px solid $base-primary;
         font-family: inherit;
         font-size: 16px;
+        &:hover {
+            background-color: #f3f3f3;
+        }
     }
 }

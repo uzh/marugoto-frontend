@@ -4,9 +4,9 @@
     <br />
     <p class="page-title-paragraph">Please log in or create a new account to play the game:</p>
     <br>
-    <InputField v-model="firstName" labelName="Name / Pseudonym" iconPosition="none" />
-    <InputField v-model="lastName" labelName="Lastname / Pseudonym" iconPosition="none" />
-    <SelectField :list="genderList" @selectChange="alertT" />
+    <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
+    <InputField v-model="lastName" labelName="Lastname / Pseudonym" />
+    <SelectField :list="genderList" @selectChange="logResult" />
     <InputField v-model="mail" typeProp="email" labelName="Email" iconPosition="right" />
     <br />
     <br />
@@ -41,8 +41,8 @@ export default {
   },
   methods: {
     ...mapActions(['REGISTER']),
-    alertT(value){
-      alert('Promenjen je select u ' + value);
+    logResult(value){
+      console.log(value);
     },
     register(){
       this.$store.dispatch('REGISTER',{
@@ -53,7 +53,7 @@ export default {
       }).then(userInfo => {
         this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
       });
-    },
+    }
   },
 }
 

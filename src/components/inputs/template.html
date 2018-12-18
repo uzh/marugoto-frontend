@@ -1,7 +1,7 @@
 <div class="input-field" v-bind:class="[
 	focused ? 'focused' : '',
 	filled ? 'filled' : '',
-	disabled ? 'disabled' : '',
+	disabled ? 'disabled' : ''
 	]">
 	<Icon :iconPosition="iconPosition" iconColor="tertiary" />
 	<label @click="inputFocus">{{ labelName }}</label>
@@ -10,10 +10,11 @@
 		:type="typeProp"
 		v-on:blur="[
 			setFocus(false),
-			isFilled(),
-			hasError()
+			isFilled()
 		]"
 		v-on:focus="setFocus(true)"
 		v-model="val" />
-	<div class="errorMessage" :class="error ? 'errorMessage-active' : ''">* This field is required</div>
+	<div v-if="required"
+		class="errorMessage"
+	>* This field is required</div>
 </div>

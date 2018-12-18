@@ -16,15 +16,11 @@
 
     .errorMessage {
         position: absolute;
-        top: 48px;
+        top: 49px;
         width: 100%;
         font-size: 12px;
-        display: none;
         color: red;
         border-top: 2px solid red;
-        &-active {
-            display: block;
-        }
     }
 
    label {

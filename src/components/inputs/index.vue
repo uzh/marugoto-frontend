@@ -10,7 +10,7 @@ export default {
   // name of the component
   name: 'inputField',
   components: { Icon },
-  props: ['typeProp', 'idName', 'labelName', 'iconPosition', 'disabled'],
+  props: ['typeProp', 'idName', 'labelName', 'iconPosition', 'disabled', 'required'],
   data() {
     return {
       val: '',
@@ -46,13 +46,6 @@ export default {
         this.filled = true;
       } else {
         this.filled = false;
-      }
-    },
-    hasError() {
-      if (this.val === '') {
-        this.error = true;
-      } else {
-        this.error = false;
       }
     }
   }
