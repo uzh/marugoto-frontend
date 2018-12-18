@@ -1,26 +1,24 @@
 <template>
   <div class="main-container">
     <h1 class="page-title">Login</h1>
-    <br />
     <p class="page-title-paragraph">Please log in or create a new account to play the game:</p>
-    <br />
-    <InputField v-model="mail" typeProp="email" labelName="E-Mail" iconPosition="right" />
-    <InputField v-model="password" typeProp="password" labelName="Password" />
-    <br />
-    <br />
-    <Btn text="Login" primary="true" iconPosition="right" @click="login" />
+    <form @keydown.enter="login">
+      <InputField v-model="mail" typeProp="email" labelName="E-Mail" />
+      <InputField v-model="password" typeProp="password" labelName="Password" />
+    </form>
     <br>
-    <Btn text="Create Account" />
-    <SvgIcon name="zoom-out" />
+    <Btn text="Login" primary="true" iconPosition="right" @click.native="login" />
+    <br>
+    <Btn text="Create Account" ghost="true" iconPosition="right" />
   </div>
 </template>
 
 <script>
-import SvgIcon from '@/components/svgicon';
 
 import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
 import Btn from '../components/buttons'
+
 
 export default {
   name: 'loginView',

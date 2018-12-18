@@ -1,19 +1,13 @@
-<?xml version="1.0" encoding="UTF-8"?>
 <svg width="28px" height="27px" viewBox="0 0 28 27" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <!-- Generator: Sketch 52.5 (67469) - http://www.bohemiancoding.com/sketch -->
-    <title>Group 2</title>
-    <desc>Created with Sketch.</desc>
     <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
         <g id="Mail/Message" transform="translate(-26.000000, -27.000000)" stroke-width="2">
-            <g id="Group-2" transform="translate(26.000000, 27.000000)">
-                <g id="Group">
-                    <rect id="Rectangle" stroke="#2F3133" x="1" y="9" width="26" height="16.6666667"></rect>
-                    <rect id="Rectangle-2" stroke="#EE1245" fill="#FFFFFF" x="5" y="1" width="18" height="12"></rect>
-                    <path d="M9,6 L17,6" id="Path-2" stroke="#EE1245"></path>
-                    <path d="M9,10 L19,10" id="Path-2-Copy" stroke="#EE1245"></path>
-                </g>
-                <polyline id="Line-2" stroke="#2F3133" points="0.875 12.0833333 13.7083333 18.7916667 27.125 12.6666667"></polyline>
+            <g id="Group" transform="translate(26.000000, 27.000000)">
+                <rect id="Rectangle" stroke="#2F3133" x="1" y="9" width="26" height="16.6666667"></rect>
+                <rect id="Rectangle-2" stroke="#EE1245" fill="#FFFFFF" x="5" y="1" width="18" height="12"></rect>
+                <path d="M9,6 L17,6" id="Path-2" stroke="#EE1245"></path>
+                <path d="M9,10 L19,10" id="Path-2-Copy" stroke="#EE1245"></path>
             </g>
+            <polyline id="Line-2" stroke="#2F3133" points="26.875 39.0833333 39.7083333 45.7916667 53.125 39.6666667"></polyline>
         </g>
     </g>
 </svg>

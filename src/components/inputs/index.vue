@@ -31,6 +31,9 @@ export default {
     },
   },
   methods: {
+    updateEmitVal() {
+      this.$emit('input', this.val);
+    },
     inputFocus: function() {
       this.$refs.inputField.focus();
     },
