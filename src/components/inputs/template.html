@@ -9,6 +9,7 @@
 		:type="typeProp"
 		v-on:blur="setFocus(false)"
 		v-on:focus="setFocus(true)"
-		v-model="val" />
+		v-model="val"
+		@input="updateEmitVal" />
 	<div class="errorMessage" :class="error ? 'errorMessage-active' : ''">* This field is required</div>
 </div>

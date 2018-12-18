@@ -2,19 +2,19 @@
   <div>
     <h1>Login</h1>
     <p>Please log in or create a new account to play the game:</p>
-    <br />
-    <InputField v-model="mail" typeProp="email" labelName="E-Mail" />
-    <InputField v-model="password" typeProp="password" labelName="Password" />
+    <form @keydown.enter="login">
+      <InputField v-model="mail" typeProp="email" labelName="E-Mail" />
+      <InputField v-model="password" typeProp="password" labelName="Password" />
+    </form>
     <br>
-    <Btn text="Login" primary="true" iconPosition="right" @click="login" />
+    <Btn text="Login" primary="true" iconPosition="right" @click.native="login" />
     <br>
-    <Btn text="Create Account" ghost="true" iconPosition="right" @click="createAccount" />
-    <SvgIcon name="zoom-out" />
+    <Btn text="Create Account" ghost="true" iconPosition="right" />
+    
   </div>
 </template>
 
 <script>
-import SvgIcon from '@/components/svgicon';
 
 import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
@@ -23,7 +23,7 @@ import Btn from '../components/buttons'
 
 export default {
   name: 'loginView',
-  components: { SvgIcon, InputField, Btn },
+  components: { InputField, Btn },
   data(){
     return{
       mail: '',
