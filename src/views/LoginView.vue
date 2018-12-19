@@ -10,7 +10,7 @@
     <Btn text="Login" primary="true" iconPosition="right" @click.native="login" />
     <br>
     <Btn text="Create Account" ghost="true" iconPosition="right" />
-    
+    <SVGIcon name="inbox-message" />
   </div>
 </template>
 
@@ -20,10 +20,12 @@ import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
 import Btn from '../components/buttons'
 
+import SVGIcon from '@/components/svgicon'
+
 
 export default {
   name: 'loginView',
-  components: { InputField, Btn },
+  components: { InputField, Btn, SVGIcon},
   data(){
     return{
       mail: '',
