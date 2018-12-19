@@ -8,7 +8,7 @@
 export default {
   // name of the component
   name: 'icon',
-  props: ['iconPosition'],
+  props: ['iconPosition', 'iconColor'],
   data() {
     return {
       

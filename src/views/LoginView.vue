@@ -1,7 +1,7 @@
 <template>
-  <div>
-    <h1>Login</h1>
-    <p>Please log in or create a new account to play the game:</p>
+  <div class="main-container">
+    <h1 class="page-title">Login</h1>
+    <p class="page-title-paragraph">Please log in or create a new account to play the game:</p>
     <form @keydown.enter="login">
       <InputField v-model="mail" typeProp="email" labelName="E-Mail" />
       <InputField v-model="password" typeProp="password" labelName="Password" />
@@ -10,7 +10,6 @@
     <Btn text="Login" primary="true" iconPosition="right" @click.native="login" />
     <br>
     <Btn text="Create Account" ghost="true" iconPosition="right" />
-    <SVGIcon name="inbox-message" />
   </div>
 </template>
 
@@ -20,12 +19,10 @@ import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
 import Btn from '../components/buttons'
 
-import SVGIcon from '@/components/svgicon'
-
 
 export default {
   name: 'loginView',
-  components: { InputField, Btn, SVGIcon},
+  components: { InputField, Btn },
   data(){
     return{
       mail: '',

@@ -1,11 +1,15 @@
+
+@import 'general/variables';
 @import 'general/typography';
 @import 'general/global';
 @import 'general/reset';
 @import 'general/layout';
-@import 'general/variables';
+@import 'general/grid';
+
 
 // Components
 @import 'components/mailContainer';
 @import 'components/buttons';
 @import 'components/inputs.scss';
 @import 'components/icons.scss';
+@import 'components/selects.scss';

@@ -1,3 +1,6 @@
+//Font
+$font: Helvetica;
+
 // Colors
 $black: #000000;
 $white: #FFFFFF;
@@ -5,7 +8,7 @@ $white: #FFFFFF;
 $base-primary: #8C8B89;
 $base-primary-border: #979797;
 $base-primary-hover: #737270;
-$base-primary-hover-border: $base-primary-border;
+$base-primary-border-hover: $base-primary-border;
 
 $base-secondary: #16365E;
 $base-secondary-border: $base-primary-border;
@@ -24,11 +27,43 @@ $base-uicolor-2: #E6E3E1;
 $base-uicolor-3: #F2F4F6;
 $base-uicolor-3-border: 1px solid $base-primary-border;
 
+// Breakpoints
+// very large desktop
+$bp-lg: 78rem;
+// desktop
+$bp-md: 64rem;
+// tablet
+$bp-sm: 37rem;
+
+$breakpoints:(
+    (name: large-desktop, size: $bp-lg),
+    (name: desktop, size: $bp-md),
+    (name: tablet, size: $bp-sm) 
+);
+
+
+// Layout
+$max-width: 940px;
+$max-width-inner: 620px;
+
+$column-gap: 20px;
+$outer-gap: 15px;
+
+$outer-width: $max-width + $outer-gap*2;
+$inner-width: $max-width-inner + $outer-gap*2;
+
+$title-font-size: 48px;
+
 //Icons
 $icon-height: 40px;
 $icon-width: $icon-height;
 
 //Inputs
-$input-font: Helvetica;
 $input-base-height: 50px;
-$input-base-width: 290px;
+$input-base-width: 100%;
+$input-max-width: 1000px;
+
+//Buttons
+$button-height: 50px;
+$button-width: 100%;
+$button-max-width: $input-max-width;

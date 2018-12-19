@@ -10,12 +10,12 @@ export default {
   // name of the component
   name: 'inputField',
   components: { Icon },
-  props: ['typeProp', 'idName', 'labelName'],
+  props: ['typeProp', 'idName', 'labelName', 'iconPosition', 'disabled', 'required'],
   data() {
     return {
       val: '',
       focused: false,
-      disabled: false,
+      verified: false,
       error: false,
     };
   },
@@ -38,17 +38,19 @@ export default {
       this.$refs.inputField.focus();
     },
     setFocus(foc) {
-      if (foc || this.val) {
+      if (foc) {
         this.focused = true;
       } else {
         this.focused = false;
       }
     },
-    hasError() {
-      if (this.val === '') {
+    verifyField() {
+      if ( this.val == '' ) {
         this.error = true;
+        this.verified = false;
       } else {
         this.error = false;
+        this.verified = true;        
       }
     }
   }
