@@ -22,7 +22,7 @@ import Btn from '../components/buttons'
 
 export default {
   name: 'loginView',
-  components: { SvgIcon, InputField, Btn },
+  components: { InputField, Btn },
   data(){
     return{
       mail: '',

@@ -12,11 +12,12 @@
 
 // Page title
 .page-title {
-  margin-bottom: $title-font-size;
-  font-size: $title-font-size;
+  margin-bottom: 48px;
+  font-size: $h1;
   font-weight: inherit;
   &-paragraph {
     font-size: 20px;
+    margin-bottom: 20px;
   }
 }
 
