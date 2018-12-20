@@ -1,3 +1,61 @@
-body, input, textarea, label{
+body, input, textarea, label, .genderLabel {
   font-family: 'Libre Baskerville', serif;
+}
+
+.h1, .h2, .h3, .h4, .h5, .h6, .lead, .lauftext, .small, .link, .button {
+  font-family: $font;
+}
+.h1 {
+  font-size: $h1;
+  line-height: 80px;
+}
+.h2 {
+  font-size: $h2;
+  line-height: 60px;
+}
+.h3 {
+  font-size: $h3;
+  line-height: 40px;
+}
+.h4 {
+  font-size: $h4;
+  line-height: 30px;
+}
+.h5 {
+  font-size: $h5;
+  line-height: 30px;
+}
+.h6 {
+  font-size: $h6;
+  line-height: 25px;
+}
+.lead {
+  font-size: 20px;
+  line-height: 30px;
+}
+.lauftext {
+  font-size: 17px;
+  line-height: 32px;
+  letter-spacing: 0.2;
+}
+.small {
+  font-size: 14px;
+  line-height: 20px;
+  color: $base-primary;
+}
+.link {
+  font-size: $base-size;
+  line-height: 20px;
+  color: $base-secondary;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+.button {
+  font-size: $base-size;
+  line-height: 20px;
+  &-inverted {
+    background-color: #D8D8D8;
+    border: 1px solid $base-primary-border;
+  }
 }

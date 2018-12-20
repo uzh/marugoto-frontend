@@ -29,23 +29,6 @@ $border: 1px solid #ddd;
   transition: all 0.3s;
 }
 
-// NOTEBOOK SIDEBAR
-.notebook-btn{
-  position: fixed;
-  top: $elements-space;
-  right: 0;
-  z-index: 3;
-  width: $elements-space;
-  height: 100%;
-  border-left: $border;
-  background: white;
-
-  .close{
-    position: relative;
-    z-index: 4;
-  }
-}
-
 // CONTAINERS
 .main-container {
   margin-left: 10%;

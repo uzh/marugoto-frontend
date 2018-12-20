@@ -8,7 +8,7 @@
 export default {
   // name of the component
   name: 'selectField',
-  props: [ 'list' ],
+  props: [ 'list', 'genderLabel' ],
   data() {
     return {
       selectedValue: 'Gender',
@@ -23,7 +23,7 @@ export default {
       this.selectedValue = value;
       this.$emit('selectChange', value);
     },
-    toggleList: function() {
+    openList: function() {
       if (this.listOpened) {
         this.listOpened = false;
       } else {

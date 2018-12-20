@@ -1,8 +1,13 @@
 <div class="select-div">
-	<div class="select-field" @click="toggleList" ref="selectBox" >
+	<p v-if="selectedValue != 'Gender'"
+		:class="genderLabel ? 'genderLabel' : ''" >Gender</p>
+	<div class="select-field"
+		@click="openList"
+		ref="selectBox" >
 		{{ selectedValue }}
 	</div>
-	<ul v-if="listOpened == true" class="select-list" >
+	<ul v-if="listOpened == true"
+		class="select-list" >
 		<li class="select-list-item"
 			@click="optionSelection(item.name)"
 			v-for="item in list">{{ item.name }}
