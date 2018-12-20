@@ -5,7 +5,6 @@
    height: $input-base-height + 1px;
    width: $input-base-width;
    box-shadow: inset 0 -1px 0 0 $base-primary;
-   font-family: $font;
     &:disabled, &.disabled {
         border: $base-ghost-border;
         cursor: default;
@@ -19,15 +18,15 @@
         top: 49px;
         width: 100%;
         font-size: 12px;
-        color: red;
-        border-top: 2px solid red;
+        color: $base-accent;
+        border-top: 2px solid $base-accent;
     }
 
    label {
        position: absolute;
        top: 16px;
        left: 10px;
-       font-size: 16px;
+       font-size: $base-size;
        transition: all 0.3s;
    }
 
@@ -38,7 +37,7 @@
        line-height: $input-base-height;
        border: none;
        padding-left: 10px;
-       font-size: 16px;
+       font-size: $base-size;
    }
 
    &.focused {
