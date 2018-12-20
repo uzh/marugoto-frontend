@@ -36,14 +36,13 @@ export default {
         {
           name: 'Female'
         }
-      ],
-      genderLabel: false
+      ]
     }
   },
   methods: {
     ...mapActions(['REGISTER']),
     logResult(value){
-      this.genderLabel = true;
+      console.log(value);
     },
     register(){
       this.$store.dispatch('REGISTER',{

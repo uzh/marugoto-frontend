@@ -9,6 +9,10 @@
     padding-left: 10px;
     padding-top: 16px;
     font-size: $base-size;
+    // &.active {
+    //     box-shadow: none;
+    //     border-bottom: 2px solid $base-primary;
+    // }
 }
 
 .select-list {
@@ -16,7 +20,6 @@
     z-index: 1;
     top: 0;
     left: 0;
-    font-family: Helvetica;
     font-size: $base-size;
     width: 100%;
     height: 100px;
@@ -28,7 +31,6 @@
         padding-left: 10px;
         padding-top: 16px;
         height: 49px;
-        font-family: inherit;
         font-size: inherit;
         &:hover {
             background-color: $select-item-hover;
@@ -41,4 +43,7 @@
     font-size: 11px;
     padding-left: 10px;
     color: $base-primary;
+    position: relative;
+    top: 16px;
+    z-index: 1;
 }
