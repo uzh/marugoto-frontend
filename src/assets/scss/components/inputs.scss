@@ -5,13 +5,6 @@
    height: $input-base-height + 1px;
    width: $input-base-width;
    box-shadow: inset 0 -1px 0 0 $base-primary;
-    &:disabled, &.disabled {
-        border: $base-ghost-border;
-        cursor: default;
-        label {
-            color: $base-uicolor-2;
-        }
-    }
 
     .errorMessage {
         position: absolute;

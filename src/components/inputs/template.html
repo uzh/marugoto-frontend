@@ -1,7 +1,6 @@
 <div class="input-field" v-bind:class="[
 	focused ? 'focused' : '',
-	verified ? 'verified' : '',
-	disabled ? 'disabled' : ''
+	verified ? 'verified' : ''
 	]">
 	<Icon :iconPosition="iconPosition" iconColor="tertiary" />
 	<label @click="inputFocus">{{ labelName }}</label>

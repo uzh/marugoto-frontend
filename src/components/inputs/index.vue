@@ -10,7 +10,7 @@ export default {
   // name of the component
   name: 'inputField',
   components: { Icon },
-  props: ['typeProp', 'labelName', 'iconPosition', 'disabled', 'required'],
+  props: ['typeProp', 'labelName', 'iconPosition', 'required'],
   data() {
     return {
       val: '',

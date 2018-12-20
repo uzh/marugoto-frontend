@@ -1,0 +1,31 @@
+.ordered-list {
+    position: relative;
+    background-color: $base-ghost;
+    padding-left: 10px;
+    margin-top: 20px;
+    list-style: decimal;
+    @extend .lauftext;
+}
+
+.unordered-list {
+    position: relative;
+    background-color: $base-ghost;
+    padding-left: 10px;
+    margin-top: 20px;
+    @extend .lauftext;
+}
+
+ol li {
+    counter-increment: list;
+    list-style-type: none;
+    position: relative;
+    @extend .lauftext;
+}
+ol li:before {
+    color: $base-primary;
+    content: counter(list) ".";
+    left:-32px;
+    position: absolute;
+    text-align: right;
+    width: 26px;
+}
