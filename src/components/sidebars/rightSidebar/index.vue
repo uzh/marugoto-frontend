@@ -4,7 +4,12 @@
 import { mapGetters, mapActions } from 'vuex';
 
 export default {
-  name: 'NotebookSidebar',
+  name: 'RightSidebar',
+  data(){
+    return{
+      title: 'RightSidebar',
+    }
+  },
   computed: {
     ...mapGetters([ 'get_layoutState' ]),
   },

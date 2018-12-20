@@ -1,23 +1,12 @@
 <template>
   <div id="app">
-    <!-- Layout concept -->
-    <router-link to="/">home | </router-link>
-    <router-link to="/login">Login | </router-link>
-    <router-link to="/register">Register | </router-link>
-    <router-link to="/overview">Supervisor | </router-link>
-    <router-link to="/storyline">Player</router-link>
-    <Sidebars />
     <div class="page-container">
-      <router-view />
+      <Topbar />
+      <div><router-view /></div>
     </div>
-    
-    <!-- #Layout concept -->
-
-    <!-- Can be moved to routed containers later on -->
+    <RightSidebar />
     <NotebookContainer v-if="get_status.isLoged" />
     <MailContainer v-if="get_status.isLoged"/>
-    <!-- #Can be moved to routed containers later on -->
-    
   </div>
 </template>
 
@@ -26,10 +15,11 @@ import { mapGetters } from 'vuex';
 
 import NotebookContainer from './components/notebookContainer';
 import MailContainer from './components/mailContainer';
-import Sidebars from './components/sidebars';
+import Topbar from './components/sidebars/topbar';
+import RightSidebar from './components/sidebars/rightSidebar';
 
 export default{
-  components: { NotebookContainer, MailContainer, Sidebars },
+  components: { NotebookContainer, MailContainer, Topbar, RightSidebar },
   computed: {
     ...mapGetters([ 'get_status' ]),
   },

@@ -36,13 +36,14 @@ export default {
         {
           name: 'Female'
         }
-      ]
+      ],
+      gender: '',
     }
   },
   methods: {
     ...mapActions(['REGISTER']),
     logResult(value){
-      console.log(value);
+      this.gender = value;
     },
     register(){
       this.$store.dispatch('REGISTER',{
@@ -50,6 +51,7 @@ export default {
         lastName: this.lastName,
         mail: this.mail,
         password: this.password,
+        salutation: this.gender
       }).then(userInfo => {
         this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
       });

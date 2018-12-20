@@ -24,6 +24,10 @@ export default({
     state.status.token = '';
     state.status.refreshToken = '';
   },
+  [types.UPDATE_TOKEN] (state, payload ) {
+    state.status.token = payload.token;
+    state.status.refreshToken = payload.refreshToken;
+  },
   // LAYOUT MUTATIONS
   [types.LAYOUT_OPEN] (state, payload) {
     switch(payload) {
