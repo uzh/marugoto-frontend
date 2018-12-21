@@ -7,10 +7,10 @@
     <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
     <InputField v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
     <SelectField :list="genderList" required="true" genderLabel="true" />
-    <InputField v-model="mail" typeProp="email" labelName="E-Mail" iconPosition="right" required="true"/>
+    <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
     <br />
     <br />
-    <Btn disabled="true" text="Continue" primary="true" iconPosition="right" @click="register" />
+    <Btn disabled="true" text="Continue" primary="true" @click="register" />
   </div>
 </template>
 

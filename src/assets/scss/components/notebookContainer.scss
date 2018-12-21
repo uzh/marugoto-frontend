@@ -20,8 +20,12 @@
         height: 100%;
     }
 
+    .notebook-sidebar-right {
+        height: 100%;
+    }
+
     .rotatedText {
-        position: relative;
+        position: absolute;
         top: 40%;
         transform: rotate(-90deg);
     }
