@@ -10,7 +10,6 @@
     <Btn text="Login" primary="true" iconPosition="right" @click.native="login" />
     <br>
     <Btn text="Create Account" ghost="true" iconPosition="right" />
-    <UnorderedList :ul="list" />
   </div>
 </template>
 
@@ -20,23 +19,13 @@ import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
 import Btn from '../components/buttons';
 
-import UnorderedList from '../components/lists/unorderedLists'
-
 export default {
   name: 'loginView',
-  components: { InputField, Btn, UnorderedList },
+  components: { InputField, Btn },
   data(){
     return{
       mail: '',
       password: '',
-      list: [
-        {
-          name: 'David'
-        },
-        {
-          name: 'Lee'
-        }
-      ]
     }
   },
   methods: {

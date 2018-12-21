@@ -1,26 +1,73 @@
 .ordered-list {
+    @extend .lauftext;
     position: relative;
     background-color: $base-ghost;
     padding-left: 10px;
     margin-top: 20px;
     list-style: decimal;
-    @extend .lauftext;
+    &-item {
+        width: 100%;
+        height: 50px;
+        padding-left: 40px;
+        padding-top: 10px;
+    }
 }
 
 .unordered-list {
+    @extend .lauftext;
     position: relative;
     background-color: $base-ghost;
     padding-left: 10px;
     margin-top: 20px;
+    &-item {
+        width: 100%;
+        height: 50px;
+        padding-left: 40px;
+        padding-top: 10px;
+    }
+}
+
+.download-list {
     @extend .lauftext;
+    position: relative;
+    background-color: $base-ghost;
+    margin-top: 20px;
+    &-item {
+        width: 100%;
+        height: 50px;
+        padding-left: 20px;
+        padding-top: 10px;
+        border: 1px solid $base-primary;
+        &:hover {
+            background-color: $select-item-hover;
+        }
+    }
+}
+
+.link-list {
+    @extend .lauftext;
+    position: relative;
+    background-color: $base-ghost;
+    margin-top: 20px;
+    &-item {
+        width: 100%;
+        height: 50px;
+        padding-left: 20px;
+        padding-top: 10px;
+        border: 1px solid $base-primary;
+        &:hover {
+            background-color: $select-item-hover;
+        }
+    }
 }
 
 ol li {
+    @extend .lauftext;
     counter-increment: list;
     list-style-type: none;
     position: relative;
-    @extend .lauftext;
 }
+
 ol li:before {
     color: $base-primary;
     content: counter(list) ".";
