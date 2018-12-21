@@ -4,13 +4,14 @@
 <!-- start JS -->
 <script>
 /* eslint-disable */
-import Icon from '@/components/icons';
+import svgIcon from '@/components/svgicon';
 
 export default {
   // name of the component
-  name: 'btn',
-  components: { Icon },
-  props: ['primary', 'secondary', 'text', 'ghost', 'disabled', 'iconPosition', 'iconColor'],
+  name: 'Btn',
+  components: { svgIcon },
+  props: ['primary', 'secondary', 'text', 'ghost',
+   'disabled', 'iconPosition', 'iconColor'],
   data() {
     return {
       

@@ -9,6 +9,21 @@ const apiService = axios.create({
   params: {} // do not remove this, its added to add params later in the config
 });
 
+let isRefreshing = false;
+let failedQueue = [];
+
+const processQueue = (error, token = null) => {
+  failedQueue.forEach(prom => {
+    if (error) {
+      prom.reject(error);
+    } else {
+      prom.resolve(token);
+    }
+  })
+  
+  failedQueue = [];
+}
+
 apiService.interceptors.response.use(function (response) {
   // Do something with response data
   console.log('GO trough token ok');
@@ -34,7 +49,7 @@ apiService.interceptors.response.use(function (response) {
     isRefreshing = true;
 
     return new Promise(function (resolve, reject) {
-      apiService.get('/auth/generate-token')
+      apiService.get('/auth/refresh-token')
         .then(({data}) => {
             store.dispatch('UPDATE_TOKEN', {
               token: data.token,
@@ -44,7 +59,7 @@ apiService.interceptors.response.use(function (response) {
             apiService.defaults.headers.common['Authorization'] = data.token;
             originalRequest.headers['Authorization'] = data.token;
             processQueue(null, data.token);
-            resolve(axios(originalRequest));
+            resolve(apiService(originalRequest));
         })
         .catch((err) => {
             processQueue(err, null);

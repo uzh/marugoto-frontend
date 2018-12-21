@@ -1,27 +1,32 @@
 <div>
+
+  <!-- MAIL SIDEBAR -->
   <div class="mail-sidebar clear-float" :class="get_layoutState.mail ? 'in' : ''">
     <div
       class="mail-sidebar-open go-left"
       @click="LAYOUT_OPEN('mail')">
-      <img alt="Vue logo" src="@/assets/images/mail.svg">
+      <img src="@/assets/images/mail.svg" />
     </div>
     <h2 class="go-left">Mail-inbox</h2>
     <div
       class="mail-sidebar-close go-right"
       @click="LAYOUT_CLOSE('mail')">
-      <img alt="Vue logo" src="@/assets/images/close.svg">
+      <img src="@/assets/images/close.svg" />
     </div>
   </div>
+
+  <!-- NOTEBOOK SIDEBAR -->
   <div class="notebook-btn">
     <div 
-    v-if="get_layoutState.notebook" 
-    @click="LAYOUT_CLOSE('notebook')"
-    class="close">
-    <img alt="Vue logo" src="@/assets/images/close.svg">
-  </div>
+      v-if="get_layoutState.notebook" 
+      @click="LAYOUT_CLOSE('notebook')"
+      class="close">
+      <img alt="dsa" src="@/assets/images/close.svg" />
+    </div>
 
-  <div @click="LAYOUT_OPEN('notebook')">
+    <div @click="LAYOUT_OPEN('notebook')">
       <p>Notebook</p> 
     </div>
   </div>
+
 </div>
