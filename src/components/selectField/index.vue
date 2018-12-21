@@ -18,6 +18,9 @@ export default {
   created () {
     document.addEventListener('click', this.blur)
   },
+  beforeDestroy () {
+    document.removeEventListener('click')
+  },
   methods: {
     optionSelection: function(value) {
       this.selectedValue = value;
