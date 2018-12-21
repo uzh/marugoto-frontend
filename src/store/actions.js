@@ -3,15 +3,12 @@
 // Actions
 
 import * as types from './types'
-import axios from 'axios'
-
-const API_URL = process.env.VUE_APP_API_PATH || 'http://localhost:8080/api'
-axios.defaults.baseURL = API_URL;
+import apiService from '../apiService'
 
 export default({
   [types.REGISTER]: ({commit}, userInfo) => {
     return new Promise((resolve, reject) => {
-      axios({url: '/user/registration', data: userInfo, method: 'POST' })
+      apiService({url: '/user/registration', data: userInfo, method: 'POST' })
       .then(() => {
         resolve({
           mail: userInfo.mail,
@@ -26,11 +23,11 @@ export default({
   },
   [types.LOGIN]: ({commit}, userInfo) => {
     return new Promise((resolve, reject) => {
-      axios({url: '/auth/generate-token', data: userInfo, method: 'POST' })
+      apiService({url: '/auth/generate-token', data: userInfo, method: 'POST' })
       .then(resp => {
         const token = resp.data.token;
         const refreshToken = resp.data.refreshToken;
-        axios.defaults.headers.common['Authorization'] = token;
+        apiService.defaults.headers.common['Authorization'] = token;
         commit('AUTH_SUCCESS', {
           token: token,
           refreshToken: refreshToken,
@@ -46,11 +43,13 @@ export default({
   [types.LOGOUT]: (context) => {
     context.commit(types.LOGOUT);
   },
+  [types.UPDATE_TOKEN]: (context, payload) => {
+    context.commit(types.UPDATE_TOKEN, payload);
+  },
   [types.LAYOUT_OPEN]: (context, payload) => {
     context.commit(types.LAYOUT_OPEN, payload);
   },
   [types.LAYOUT_CLOSE]: (context, payload) => {
     context.commit(types.LAYOUT_CLOSE, payload);
   },
-  
 });

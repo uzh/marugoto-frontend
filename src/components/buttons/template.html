@@ -6,6 +6,10 @@
 		ghost ? 'button-ghost' : '',
 		text ? 'buttonText' : '',
 		disabled ? 'disabled' : ''
-	]"
->{{ text }}<Icon :iconPosition="iconPosition" :iconColor="iconColor" />
+	]">
+	<span>{{ text }}</span>
+	<svgIcon 
+		name="arrow-right"
+		:customColor=" ghost ? '#000' : '#fff' "
+		sizeH="20px" />
 </button>

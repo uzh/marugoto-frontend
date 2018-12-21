@@ -36,7 +36,8 @@ export default {
         {
           name: 'Female'
         }
-      ]
+      ],
+      gender: '',
     }
   },
   methods: {
@@ -47,6 +48,7 @@ export default {
         lastName: this.lastName,
         mail: this.mail,
         password: this.password,
+        salutation: this.gender
       }).then(userInfo => {
         this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
       });

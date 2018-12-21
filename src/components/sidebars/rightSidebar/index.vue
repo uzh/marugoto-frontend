@@ -2,9 +2,16 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
+import svgIcon from '@/components/svgicon';
 
 export default {
-  name: 'NotebookSidebar',
+  name: 'RightSidebar',
+  components: { svgIcon },
+  data(){
+    return{
+      title: 'RightSidebar',
+    }
+  },
   computed: {
     ...mapGetters([ 'get_layoutState' ]),
   },

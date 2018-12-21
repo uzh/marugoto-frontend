@@ -15,5 +15,8 @@ export default ({
   layout: {
     notebook: false,
     mail: false,
-  }
+  },
+  mailBox: {
+    
+  },
 });
