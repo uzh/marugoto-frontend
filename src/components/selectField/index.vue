@@ -22,9 +22,9 @@ export default {
     document.removeEventListener('click')
   },
   methods: {
-    optionSelection: function(value) {
-      this.selectedValue = value;
-      this.$emit('selectChange', value);
+    optionSelection: function(item) {
+      this.selectedValue = item.name;
+      this.$emit('selectChange', item.value);
     },
     openList: function() {
       if (this.listOpened) {

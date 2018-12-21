@@ -1,16 +1,17 @@
 <template>
   <div class="main-container">
     <h1 class="page-title">Create new account</h1>
-    <br />
+    
     <p class="page-title-paragraph">Please log in or create a new account to play the game:</p>
-    <br>
+    
     <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
     <InputField v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
+
     <SelectField :list="genderList" required="true" genderLabel="true" />
     <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
-    <br />
-    <br />
-    <Btn disabled="true" text="Continue" primary="true" @click="register" />
+    <InputField v-model="password" typeProp="password" labelName="Password" required="true"/>
+    <Btn @click.native="register"
+      text="Continue" primary="true" iconPosition="right" />
   </div>
 </template>
 
@@ -31,10 +32,12 @@ export default {
       password: '',
       genderList: [
         {
-          name: 'Male'
+          name: 'Male',
+          value: 'Mr',
         },
         {
-          name: 'Female'
+          name: 'Female',
+          value: 'Ms',
         }
       ],
       gender: '',

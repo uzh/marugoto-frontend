@@ -9,7 +9,8 @@
     <br>
     <Btn text="Login" primary="true" @click.native="login" />
     <br>
-    <Btn text="Create Account" ghost="true" iconPosition="right" />
+    <Btn @click.native="goToRegister"
+      text="Create Account" ghost="true" iconPosition="right" />
   </div>
 </template>
 
@@ -35,6 +36,9 @@ export default {
         mail: this.mail,
         password: this.password,
       }).then(() => this.$router.push('/'));
+    },
+    goToRegister(){
+      this.$router.push('/register');
     },
   },
 }
