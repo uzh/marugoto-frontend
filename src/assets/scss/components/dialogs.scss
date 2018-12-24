@@ -32,9 +32,6 @@
     &-active {
       top: 8.33%;
       height: 83.33%;
-      &-scroll {
-        
-      }
     }
   }
   
@@ -45,9 +42,6 @@
     background-color: $base-primary;
     &-active {
       @extend .col-xs-2;
-      &-scroll {
-        
-      }
     }
   }
 
@@ -57,9 +51,6 @@
       margin: 20px;
       &-active {
         @extend .col-xs-6;
-        &-scroll {
-          
-        }
       }
   }
 
@@ -97,4 +88,5 @@
 
   .dialog-scrollbar {
     color: red;
+    margin-left: 30%;
   }
