@@ -14,8 +14,11 @@ export default {
   components: { Btn, DialogText, DialogTitle },
   data() {
     return {
-      dialogScroll: false
+      newDialog: false
     };
+  },
+  methods: {
+    
   }
 };
 </script>

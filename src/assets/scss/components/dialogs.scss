@@ -32,6 +32,9 @@
     &-active {
       top: 8.33%;
       height: 83.33%;
+      &-scroll {
+        
+      }
     }
   }
   
@@ -42,6 +45,9 @@
     background-color: $base-primary;
     &-active {
       @extend .col-xs-2;
+      &-scroll {
+        
+      }
     }
   }
 
@@ -51,6 +57,9 @@
       margin: 20px;
       &-active {
         @extend .col-xs-6;
+        &-scroll {
+          
+        }
       }
   }
 
@@ -69,6 +78,9 @@
 
   .dialog-footer {
     height: 20%;
+    &-inactive {
+      display: none;
+    }
   }
   
   .dialog-close-button {
@@ -81,4 +93,8 @@
   
   .dialog-enter, .dialog-leave-active {
     opacity: 0;
+  }
+
+  .dialog-scrollbar {
+    color: red;
   }
