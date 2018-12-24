@@ -14,7 +14,7 @@ export default {
   components: { Btn, DialogText, DialogTitle },
   data() {
     return {
-      newDialog: true
+      newDialog: false
     };
   },
   methods: {
