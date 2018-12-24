@@ -7,6 +7,8 @@
     <RightSidebar />
     <NotebookContainer v-if="get_status.isLoged" />
     <MailContainer v-if="get_status.isLoged"/>
+    <button id="show-dialog" @click="showDialog = true">Show Dialog</button>
+    <DialogContainer v-if="showDialog" @close="showDialog = false" />
   </div>
 </template>
 
@@ -18,8 +20,15 @@ import MailContainer from './components/mailContainer';
 import Topbar from './components/sidebars/topbar';
 import RightSidebar from './components/sidebars/rightSidebar';
 
+import DialogContainer from './components/dialog';
+
 export default{
-  components: { NotebookContainer, MailContainer, Topbar, RightSidebar },
+  components: { NotebookContainer, MailContainer, Topbar, RightSidebar, DialogContainer },
+  data() {
+    return {
+      showDialog: false
+    };
+  },
   computed: {
     ...mapGetters([ 'get_status' ]),
   },
