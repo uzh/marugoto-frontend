@@ -4,18 +4,15 @@
 <!-- start JS -->
 <script>
 /* eslint-disable */
-import svgIcon from '@/components/svgicon';
 
 export default {
   // name of the component
-  name: 'Btn',
-  components: { svgIcon },
-  props: ['primary', 'secondary', 'text', 'ghost',
-   'disabled'],
+  name: 'downloadList',
+  props: ['dl'],
   data() {
     return {
-      
+
     };
-  }
+  },
 };
 </script>

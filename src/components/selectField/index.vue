@@ -21,6 +21,9 @@ export default {
   beforeDestroy () {
     document.removeEventListener('click');
   },
+  beforeDestroy () {
+    document.removeEventListener('click')
+  },
   methods: {
     optionSelection: function(item) {
       this.selectedValue = item.name;

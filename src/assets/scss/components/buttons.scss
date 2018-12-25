@@ -7,6 +7,16 @@
     font-family: $font;
     text-align: center;
     cursor: pointer;
+    &:disabled, &.disabled {
+        opacity: 0.3;
+    }
+}
+
+.button-dialog {
+    @extend .button;
+    display: inline-block;
+    width: 45%;
+    margin-right: 5%;
 }
 
 .button--primary {

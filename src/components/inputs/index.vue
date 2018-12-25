@@ -8,7 +8,7 @@
 export default {
   // name of the component
   name: 'inputField',
-  props: ['typeProp', 'labelName', 'iconPosition', 'disabled', 'required'],
+  props: ['typeProp', 'labelName', 'required'],
   data() {
     return {
       val: '',

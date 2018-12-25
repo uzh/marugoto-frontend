@@ -6,12 +6,12 @@
     
     <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
     <InputField v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
-    <SelectField :list="genderList" @selectChange="logResult" required="true" genderLabel="true" />
-    <InputField v-model="mail" typeProp="email" labelName="E-Mail" iconPosition="right" required="true"/>
+
+    <SelectField :list="genderList" required="true" genderLabel="true" />
+    <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
     <InputField v-model="password" typeProp="password" labelName="Password" required="true"/>
-    
     <Btn @click.native="register"
-      text="Continue" primary="true" iconPosition="right" />
+      text="Continue" primary="true" />
   </div>
 </template>
 
@@ -45,9 +45,6 @@ export default {
   },
   methods: {
     ...mapActions(['REGISTER']),
-    logResult(value){
-      this.gender = value;
-    },
     register(){
       this.$store.dispatch('REGISTER',{
         firstName: this.firstName,

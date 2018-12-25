@@ -1,25 +1,13 @@
 .icon-right {
     position: absolute;
-    top: 5px;
+    top: 15px;
     right: 0px;
-    height: $icon-height;
-    width: $icon-height;
-    border-radius: 50%;
-    background-color: $white;
 }
 
 .icon-left {
     position: absolute;
-    top: 5px;
+    top: 15px;
     left: 0px;
-    height: $icon-height;
-    width: $icon-height;
-    border-radius: 50%;
-    background-color: $white;
-}
-
-.icon-none {
-    display: none;
 }
 
 .icon-primary {
@@ -28,8 +16,4 @@
 
 .icon-secondary {
     background-color: $black;
-}
-
-.icon-tertiary {
-    background-color: $base-primary;
 }

@@ -4,10 +4,13 @@
 		primary ? 'button--primary' : '',
 		secondary ? 'button--secondary' : '',
 		ghost ? 'button-ghost' : '',
-		text ? 'buttonText' : '']">
+		text ? 'buttonText' : '',
+		disabled ? 'disabled' : ''
+	]">
 	<span>{{ text }}</span>
 	<svgIcon 
 		name="arrow-right"
 		:customColor=" ghost ? '#000' : '#fff' "
-		sizeH="20px" />
+		sizeH="20px"
+		class="icon-right" />
 </button>
