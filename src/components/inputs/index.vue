@@ -4,12 +4,10 @@
 <!-- start JS -->
 <script>
 /* eslint-disable */
-import Icon from '../icons';
 
 export default {
   // name of the component
   name: 'inputField',
-  components: { Icon },
   props: ['typeProp', 'labelName', 'iconPosition', 'disabled', 'required'],
   data() {
     return {

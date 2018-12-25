@@ -2,34 +2,67 @@
   <div>
     <h1>Storyline view</h1>
     <Btn @click.native="logout" text="Logout" primary="true"/>
-    <Btn @click.native="request" text="make request" secondary="true"/>
+    <h1>{{ pageTitle }}</h1>
+    <PageTransitions 
+      @transitionChoosen="request"
+      :buttonsList="transitionsOptions" />
   </div>
 </template>
 
 <script>
 import { mapActions } from 'vuex'
-import Btn from '@/components/buttons'
 import apiService from '@/apiService'
+
+import Btn from '@/components/buttons'
+import PageTransitions from '@/components/pageTransitions'
 
 export default {
   name: 'player',
-  components: { Btn },
+  components: { Btn, PageTransitions },
+  data() {
+    return{
+      pageTitle: '',
+      transitionsOptions: [],
+    }
+  },
+  created() {
+    apiService.get('/pages/current')
+      .then(resp => {
+        this.transitionsOptions = this.generateTransitionList(resp.data.pageTransitionStates)
+        this.pageTitle = resp.data.page.title;
+      })
+      .catch(() => {
+        
+      });
+  },
   methods: {
-     ...mapActions(['LOGOUT']),
+    ...mapActions(['LOGOUT']),
+    generateTransitionList(list) {
+      const newArr = list.map( listItem => {
+        return{
+          id: listItem.pageTransition.id,
+          buttonText: listItem.pageTransition.buttonText,
+          available: listItem.available,
+        }
+      });
+
+      return newArr;
+    },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
     },
-    request(){
-      console.log('MAke request')
-      apiService.get('/pages/current')
-        .then(resp => {
-          console.log(resp)
-        })
-        .catch(err => {
-          console.log(err)
-        });
+    request(id){
+      apiService.post('pageTransitions/doPageTransition/' + id + '?chosenByPlayer=true')
+      .then(resp => {
+        this.transitionsOptions = this.generateTransitionList(resp.data.pageTransitionStates);
+        this.pageTitle = resp.data.page.title;
+      })
+      .catch(() => {
+        
+      });
     }
   },
 }
 
 </script>
+
