@@ -13,7 +13,20 @@ export default {
   components: { ImageComponent, TextComponent },
   data() {
     return {
-      
+      comps: [
+        {
+          type: 'text',
+          width: 7
+        },
+        {
+          type: 'image',
+          width: 4
+        },
+        {
+          type: 'text',
+          width: 4
+        }
+      ]
     };
   }
 };

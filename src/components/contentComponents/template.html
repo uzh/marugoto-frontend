@@ -1,4 +1,15 @@
 <div class="content-cmp-wrapper">
-	<TextComponent />
+
+	<div v-for="(comp, index) in comps"
+		:key="comp.index"
+		>{{ index + '. component' }}
+	</div>
+	
+	<!-- <TextComponent>
+		Lorem ipsum dolor sit amet consectetur, adipisicing elit. Tempore eos rem ea? Explicabo maxime alias amet? Non consectetur praesentium asperiores ad animi fugiat earum deserunt amet illo facilis libero quasi ipsum voluptate provident, eum corporis. Ratione eum eligendi alias ea vel beatae? Consectetur veniam culpa quod saepe delectus nesciunt sequi?
+	</TextComponent>
 	<ImageComponent />
+	<TextComponent>
+		Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa provident nemo cum. Hic in repudiandae laboriosam perspiciatis veritatis officia voluptatibus numquam sit. Maiores laborum dolores a cum totam sapiente? Atque obcaecati unde vero doloribus repudiandae accusantium officiis labore aut dolorum tenetur temporibus architecto repellendus ipsam nihil dolor voluptate suscipit ipsum, numquam odio inventore dolore cum. Quidem adipisci pariatur nobis cupiditate mollitia doloremque laborum animi recusandae natus explicabo aperiam fugit tempore minima excepturi ex temporibus amet accusantium, eligendi autem veritatis voluptatem nostrum possimus eius quae? Veniam blanditiis ipsum, impedit libero nisi perferendis? Optio amet temporibus soluta maxime distinctio natus dolore sapiente!
+	</TextComponent> -->
 </div>

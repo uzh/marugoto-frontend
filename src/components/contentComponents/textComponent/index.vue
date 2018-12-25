@@ -8,6 +8,7 @@
 export default {
   // name of the component
   name: 'textComponent',
+  props: ['colWidth'],
   data() {
     return {
       
