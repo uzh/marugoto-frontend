@@ -9,9 +9,7 @@
     <br>
     <Btn text="Login" primary="true" @click.native="login" />
     <br>
-    <Btn @click.native="goToRegister"
-      text="Create Account" ghost="true" />
-    <Dialog dialogTitle="prop title" dialogText="prop text" />
+    <Btn @click.native="goToRegister" text="Create Account" ghost="true" />
   </div>
 </template>
 
@@ -21,11 +19,9 @@ import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
 import Btn from '../components/buttons';
 
-import Dialog from '../components/dialog'
-
 export default {
   name: 'loginView',
-  components: { InputField, Btn, Dialog },
+  components: { InputField, Btn },
   data(){
     return{
       mail: '',

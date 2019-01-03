@@ -34,14 +34,22 @@ export default({
       case 'notebook':
         state.layout.notebook = true;
         state.layout.mail = false;
+        state.layout.dialog = false;
         break;
       case 'mail':
         state.layout.notebook = false;
         state.layout.mail = true;
+        state.layout.dialog = false;
+        break;
+      case 'dialog':
+        state.layout.notebook = false;
+        state.layout.mail = false;
+        state.layout.dialog = true;
         break;
       default:
         state.layout.notebook = false;
         state.layout.mail = false;
+        state.layout.dialog = false;
     }
   },
   [types.LAYOUT_CLOSE] (state, payload) {
@@ -52,9 +60,13 @@ export default({
       case 'mail':
         state.layout.mail = false;
         break;
+      case 'dialog':
+        state.layout.dialog = false;
+        break;
       default:
         state.layout.notebook = false;
         state.layout.mail = false;
+        state.layout.dialog = false;
     }
   },
 });

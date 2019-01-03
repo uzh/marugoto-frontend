@@ -18,8 +18,8 @@
 <script>
 import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
-import Btn from '../components/buttons'
-import SelectField from '../components/selectField'
+import Btn from '../components/buttons';
+import SelectField from '../components/selectField';
 
 export default {
   name: 'registerView',

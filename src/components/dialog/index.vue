@@ -8,16 +8,13 @@ import Btn from '../buttons';
 
 export default {
   // name of the component
-  name: 'dialogContainer',
-  props: ['dialogText', 'dialogTitle', ],
+  name: 'dialogComponent',
+  props: ['dialogText', 'dialogTitle' ],
   components: { Btn },
   data() {
     return {
       newDialog: false
     };
-  },
-  methods: {
-    
   }
 };
 </script>

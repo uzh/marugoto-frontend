@@ -7,6 +7,7 @@ export default{
     return {
       'notebook': state.layout.notebook,
       'mail': state.layout.mail,
+      'dialog': state.layout.dialog,
     };
   },
   get_status: state => {
