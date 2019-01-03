@@ -8,12 +8,16 @@
 			:class="newDialog ? 'dialog-content-active' : ''">
 			<div class="dialog-header">
 				<slot name="header">
-				<DialogTitle />
+				<div class="dialog-title">
+					{{ dialogTitle }}
+				</div>
 				</slot>
 			</div>
 			<div class="dialog-body">
 				<slot name="body">
-				<DialogText />
+				<div class="dialog-text">
+					{{ dialogText }}
+				</div>
 				</slot>
 			</div>
 			<div class="dialog-footer"

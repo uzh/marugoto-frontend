@@ -5,13 +5,12 @@
 <script>
 /* eslint-disable */
 import Btn from '../buttons';
-import DialogText from '../dialog/dialogText';
-import DialogTitle from '../dialog/dialogTitle';
 
 export default {
   // name of the component
   name: 'dialogContainer',
-  components: { Btn, DialogText, DialogTitle },
+  props: ['dialogText', 'dialogTitle', ],
+  components: { Btn },
   data() {
     return {
       newDialog: false

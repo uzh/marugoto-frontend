@@ -11,7 +11,7 @@
     <br>
     <Btn @click.native="goToRegister"
       text="Create Account" ghost="true" />
-    <ContentComponent />
+    <Dialog dialogTitle="prop title" dialogText="prop text" />
   </div>
 </template>
 
@@ -21,11 +21,11 @@ import { mapActions } from 'vuex';
 import InputField from '../components/inputs';
 import Btn from '../components/buttons';
 
-import ContentComponent from '../components/contentComponents';
+import Dialog from '../components/dialog'
 
 export default {
   name: 'loginView',
-  components: { InputField, Btn, ContentComponent },
+  components: { InputField, Btn, Dialog },
   data(){
     return{
       mail: '',
