@@ -13,7 +13,15 @@ export default {
   components: { Btn },
   data() {
     return {
-      newDialog: false
+      newDialog: false,
+      options: [
+        {
+          text: 'option A'
+        },
+        {
+          text: 'option B'
+        }
+      ]
     };
   }
 };

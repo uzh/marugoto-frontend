@@ -22,8 +22,10 @@
 			</div>
 			<div class="dialog-footer"
 			:class="newDialog ? 'dialog-footer-inactive' : ''">
-				<Btn secondary="true" text="Option A" class="button-dialog" />
-				<Btn secondary="true" text="Option B" class="button-dialog" />
+				<Btn secondary="true" class="button-dialog" 
+					v-for="(option, index) in options"
+					:key="index"
+					:text="option.text" />
 			</div>
 			<button v-if="newDialog"
 					class="dialog-scrollbar"

@@ -23,14 +23,13 @@
     @extend .col-xs-10;
     margin: 0 8.33%;
     position: relative;
-    top: 15%;
+    top: 90px;
     height: 70%;
     overflow: hidden;
     background-color: $white;
     box-shadow: 0 15px 30px 0 #2F3133;
     transition: all .3s ease;
     &-active {
-      top: 8.33%;
       height: 83.33%;
     }
   }
@@ -90,3 +89,12 @@
     color: red;
     margin-left: 30%;
   }
+
+  @media only screen and (max-width: $bp-md) {    
+    .dialog-container {
+      margin: 0;
+      height: 100%;
+      width: 100%;
+    }
+  }
+  
