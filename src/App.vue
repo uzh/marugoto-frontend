@@ -8,7 +8,7 @@
     <NotebookContainer v-if="get_status.isLoged" />
     <MailContainer v-if="get_status.isLoged" />
     <button id="show-dialog" @click="LAYOUT_OPEN('dialog')">Open Dialog</button>
-    <DialogComponent v-if="get_layoutState.dialog" @close="LAYOUT_CLOSE('dialog')" dialogTitle="Title" dialogText="Text" />
+    <DialogComponent v-if="get_layoutState.dialog" @close="LAYOUT_CLOSE('dialog')" />
   </div>
 </template>
 
@@ -31,7 +31,7 @@ export default{
   computed: {
     ...mapGetters([
       'get_status',
-      'get_layoutState' 
+      'get_layoutState'
     ]),
   },
   methods: {

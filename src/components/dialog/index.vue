@@ -9,10 +9,38 @@ import Btn from '../buttons';
 export default {
   // name of the component
   name: 'dialogComponent',
-  props: ['dialogText', 'dialogTitle', 'textWidth' ],
   components: { Btn },
   data() {
     return {
+      components: [
+        {
+          name: 'title',
+          width: '2',
+          text: 'Lorem ipsum dolor sit amet consectetur'
+        },
+        {
+          name: 'image',
+          width: '4',
+          source: '',
+          text: 'Image Placeholder'
+        },
+        {
+          name: 'text',
+          width: '8',
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quis inventore ab reprehenderit aut deleniti consequuntur. Assumenda aperiam nemo voluptatibus, eum quaerat doloremque totam distinctio molestias adipisci, labore in sequi.'
+        },
+        {
+          name: 'image',
+          width: '10',
+          source: '',
+          text: 'Image Placeholder'
+        },
+        {
+          name: 'text',
+          width: '8',
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quis inventore ab reprehenderit aut deleniti consequuntur. Assumenda aperiam nemo voluptatibus, eum quaerat doloremque totam distinctio molestias adipisci, labore in sequi.'
+        }
+      ],
       options: [
         {
           text: 'option A'
