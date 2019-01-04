@@ -1,4 +1,7 @@
 <div class="dialog-mask">
+	<button class="dialog-close-button" @click="$emit('close')">
+		Close Dialog
+	</button>
 	<div class="dialog-container">
 		<div class="dialog-image">
 		</div>
@@ -25,7 +28,4 @@
 			</div>
 		</div>
 	</div>
-	<button class="dialog-close-button" @click="$emit('close')">
-		Close Dialog
-	</button>
 </div>

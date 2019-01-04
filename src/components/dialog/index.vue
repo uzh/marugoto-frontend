@@ -9,11 +9,10 @@ import Btn from '../buttons';
 export default {
   // name of the component
   name: 'dialogComponent',
-  props: ['dialogText', 'dialogTitle' ],
+  props: ['dialogText', 'dialogTitle', 'textWidth' ],
   components: { Btn },
   data() {
     return {
-      newDialog: false,
       options: [
         {
           text: 'option A'

@@ -7,7 +7,7 @@
     <RightSidebar />
     <NotebookContainer v-if="get_status.isLoged" />
     <MailContainer v-if="get_status.isLoged" />
-    <button id="show-dialog" @click="LAYOUT_OPEN('dialog')">Show Dialog</button>
+    <button id="show-dialog" @click="LAYOUT_OPEN('dialog')">Open Dialog</button>
     <DialogComponent v-if="get_layoutState.dialog" @close="LAYOUT_CLOSE('dialog')" dialogTitle="Title" dialogText="Text" />
   </div>
 </template>
@@ -19,7 +19,6 @@ import NotebookContainer from './components/notebookContainer';
 import MailContainer from './components/mailContainer';
 import Topbar from './components/sidebars/topbar';
 import RightSidebar from './components/sidebars/rightSidebar';
-
 import DialogComponent from './components/dialog';
 
 export default{

@@ -1,4 +1,4 @@
-#show-dialog {
+#show-dialog, .dialog-close-button {
     position: absolute;
     top: 0;
     left: 0;
@@ -59,18 +59,6 @@
 
   .dialog-footer {
     height: 20%;
-  }
-  
-  .dialog-close-button {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    background-color: $black;
-    color: $white;
-  }
-  
-  .dialog-enter, .dialog-leave-active {
-    opacity: 0;
   }
 
   @media only screen and (max-width: $bp-md) {    
