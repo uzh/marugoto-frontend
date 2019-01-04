@@ -48,6 +48,7 @@
         }
         .dialog-image {
           margin-bottom: 8.33333333%;
+          height: 100%;
         }
         .dialog-text {
           margin-bottom: 8.33333333%;
@@ -60,43 +61,6 @@
         align-items: center;
       }
     }
-  }
-
-  .width-1 {
-    @extend .col-xs-1;
-  }
-  .width-2 {
-    @extend .col-xs-2;
-  }
-  .width-3 {
-    @extend .col-xs-3;
-  }
-  .width-4 {
-    @extend .col-xs-4;
-  }
-  .width-5 {
-    @extend .col-xs-5;
-  }
-  .width-6 {
-    @extend .col-xs-6;
-  }
-  .width-7 {
-    @extend .col-xs-7;
-  }
-  .width-8 {
-    @extend .col-xs-8;
-  }
-  .width-9 {
-    @extend .col-xs-9;
-  }
-  .width-10 {
-    @extend .col-xs-10;
-  }
-  .width-11 {
-    @extend .col-xs-11;
-  }
-  .width-12 {
-    @extend .col-xs-12;
   }
 
   @media only screen and (max-width: $bp-md) {    
