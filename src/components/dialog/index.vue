@@ -15,7 +15,7 @@ export default {
       components: [
         {
           name: 'title',
-          width: '2',
+          width: '12',
           text: 'Lorem ipsum dolor sit amet consectetur'
         },
         {
@@ -26,7 +26,7 @@ export default {
         },
         {
           name: 'text',
-          width: '8',
+          width: '6',
           text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quis inventore ab reprehenderit aut deleniti consequuntur. Assumenda aperiam nemo voluptatibus, eum quaerat doloremque totam distinctio molestias adipisci, labore in sequi.'
         },
         {
