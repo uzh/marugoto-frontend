@@ -1,11 +1,8 @@
 <div class="dialog-mask">
-	<div class="dialog-container"
-		:class="newDialog ? 'dialog-container-active' : ''">
-		<div class="dialog-image"
-			:class="newDialog ? 'dialog-image-active' : ''">
+	<div class="dialog-container">
+		<div class="dialog-image">
 		</div>
-		<div class="dialog-content"
-			:class="newDialog ? 'dialog-content-active' : ''">
+		<div class="dialog-content">
 			<div class="dialog-header">
 				<slot name="header">
 				<div class="dialog-title">
@@ -20,16 +17,12 @@
 				</div>
 				</slot>
 			</div>
-			<div class="dialog-footer"
-			:class="newDialog ? 'dialog-footer-inactive' : ''">
+			<div class="dialog-footer">
 				<Btn secondary="true" class="button-dialog" 
 					v-for="(option, index) in options"
 					:key="index"
 					:text="option.text" />
 			</div>
-			<button v-if="newDialog"
-					class="dialog-scrollbar"
-			>Scrollbar</button>
 		</div>
 	</div>
 	<button class="dialog-close-button" @click="$emit('close')">
