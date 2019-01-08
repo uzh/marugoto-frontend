@@ -4,7 +4,7 @@
 <!-- start JS -->
 <script>
 /* eslint-disable */
-import svgIcon from '@/components/svgicon';
+import svgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   // name of the component

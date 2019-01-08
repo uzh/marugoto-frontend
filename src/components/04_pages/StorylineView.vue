@@ -13,8 +13,8 @@
 import { mapActions } from 'vuex'
 import apiService from '@/apiService'
 
-import Btn from '@/components/buttons'
-import PageTransitions from '@/components/pageTransitions'
+import Btn from '@/components/01_atoms/buttons'
+import PageTransitions from '@/components/02_molecules/pageTransitions'
 
 export default {
   name: 'player',
@@ -65,4 +65,3 @@ export default {
 }
 
 </script>
-

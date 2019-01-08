@@ -15,12 +15,12 @@
 <script>
 import { mapGetters } from 'vuex';
 
-import NotebookContainer from './components/notebookContainer';
-import MailContainer from './components/mailContainer';
-import Topbar from './components/sidebars/topbar';
-import RightSidebar from './components/sidebars/rightSidebar';
+import NotebookContainer from '@/components/03_organisms/notebookContainer';
+import MailContainer from '@/components/03_organisms/mailContainer';
+import Topbar from '@/components/03_organisms/sidebars/topbar';
+import RightSidebar from '@/components/03_organisms/sidebars/rightSidebar';
 
-import DialogContainer from './components/dialog';
+import DialogContainer from '@/components/02_molecules/dialog';
 
 export default{
   components: { NotebookContainer, MailContainer, Topbar, RightSidebar, DialogContainer },

@@ -1,7 +1,7 @@
 <div>
 
   <!-- MAIL SIDEBAR -->
-  <div class="mail-sidebar clear-float" :class="get_layoutState.mail ? 'in' : ''">
+  <div class="mail-sidebar clear-float" :class="get_layoutState.mail.opened ? 'in' : ''">
     <div
       class="mail-sidebar-open go-left"
       @click="LAYOUT_OPEN('mail')">
@@ -18,7 +18,7 @@
   <!-- NOTEBOOK SIDEBAR -->
   <div class="notebook-btn">
     <div 
-      v-if="get_layoutState.notebook" 
+      v-if="get_layoutState.notebook.opened" 
       @click="LAYOUT_CLOSE('notebook')"
       class="close">
       <img alt="dsa" src="@/assets/images/close.svg" />

@@ -4,7 +4,7 @@
 <!-- start JS -->
 <script>
 /* eslint-disable */
-import Btn from '../buttons';
+import Btn from '@/components/01_atoms/buttons';
 import DialogText from '../dialog/dialogText';
 import DialogTitle from '../dialog/dialogTitle';
 
