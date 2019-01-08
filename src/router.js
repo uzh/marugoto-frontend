@@ -3,11 +3,11 @@ import Router from 'vue-router'
 import store from './store'
 
 // Import components
-import LoginView from './views/LoginView.vue'
-import RegisterView from './views/RegisterView.vue'
-import StorylineView from './views/StorylineView.vue'
-import SupervisorView from './views/SupervisorView.vue'
-import PageNotFound from './views/PageNotFound.vue'
+import LoginView from '@/components/04_pages/LoginView.vue'
+import RegisterView from '@/components/04_pages/RegisterView.vue'
+import StorylineView from '@/components/04_pages/StorylineView.vue'
+import SupervisorView from '@/components/04_pages/SupervisorView.vue'
+import PageNotFound from '@/components/04_pages/PageNotFound.vue'
 
 
 Vue.use(Router);

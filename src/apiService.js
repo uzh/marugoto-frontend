@@ -55,7 +55,6 @@ apiService.interceptors.response.use(function (response) {
               token: data.token,
               refreshToken: data.refreshToken,
             });
-
             apiService.defaults.headers.common['Authorization'] = data.token;
             originalRequest.headers['Authorization'] = data.token;
             processQueue(null, data.token);

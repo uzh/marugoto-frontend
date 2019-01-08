@@ -32,41 +32,41 @@ export default({
   [types.LAYOUT_OPEN] (state, payload) {
     switch(payload) {
       case 'notebook':
-        state.layout.notebook = true;
-        state.layout.mail = false;
-        state.layout.dialog = false;
+        state.layout.notebook.opened = true;
+        state.layout.mail.opened = false;
+        state.layout.dialog.opened = false;
         break;
       case 'mail':
-        state.layout.notebook = false;
-        state.layout.mail = true;
-        state.layout.dialog = false;
+        state.layout.notebook.opened = false;
+        state.layout.mail.opened = true;
+        state.layout.dialog.opened = false;
         break;
       case 'dialog':
-        state.layout.notebook = false;
-        state.layout.mail = false;
-        state.layout.dialog = true;
+        state.layout.notebook.opened = false;
+        state.layout.mail.opened = false;
+        state.layout.dialog.opened = true;
         break;
       default:
-        state.layout.notebook = false;
-        state.layout.mail = false;
-        state.layout.dialog = false;
+        state.layout.notebook.opened = false;
+        state.layout.mail.opened = false;
+        state.layout.dialog.opened = false;
     }
   },
   [types.LAYOUT_CLOSE] (state, payload) {
     switch(payload) {
       case 'notebook':
-        state.layout.notebook = false;
+        state.layout.notebook.opened = false;
         break;
       case 'mail':
-        state.layout.mail = false;
+        state.layout.mail.opened = false;
         break;
       case 'dialog':
-        state.layout.dialog = false;
+        state.layout.dialog.opened = false;
         break;
       default:
-        state.layout.notebook = false;
-        state.layout.mail = false;
-        state.layout.dialog = false;
+        state.layout.notebook.opened = false;
+        state.layout.mail.opened = false;
+        state.layout.dialog.opened = false;
     }
   },
 });

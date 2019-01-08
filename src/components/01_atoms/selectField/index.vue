@@ -16,7 +16,10 @@ export default {
     };
   },
   created () {
-    document.addEventListener('click', this.blur)
+    document.addEventListener('click', this.blur);
+  },
+  beforeDestroy () {
+    document.removeEventListener('click');
   },
   beforeDestroy () {
     document.removeEventListener('click')

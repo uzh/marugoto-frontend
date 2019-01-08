@@ -13,9 +13,17 @@ export default ({
     refreshToken: '',
   },
   layout: {
-    notebook: false,
-    mail: false,
-    dialog: false,
+    notebook: {
+      opened: false,
+      disabled: false,
+    },
+    mail: {
+      opened: false,
+      disabled: false,
+    },
+    dialog: {
+      opened: false,
+    }
   },
   mailBox: {
     

@@ -2,7 +2,7 @@
 
 <script>
 import { mapGetters, mapActions } from 'vuex';
-import svgIcon from '@/components/svgicon';
+import svgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   name: 'RightSidebar',
