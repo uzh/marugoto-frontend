@@ -9,8 +9,7 @@
     <br>
     <Btn text="Login" primary="true" @click.native="login" />
     <br>
-    <Btn @click.native="goToRegister"
-      text="Create Account" ghost="true" />
+    <Btn @click.native="goToRegister" text="Create Account" ghost="true" />
   </div>
 </template>
 

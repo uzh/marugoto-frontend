@@ -1,32 +1,23 @@
 <div class="dialog-mask">
-	<div class="dialog-container"
-		:class="newDialog ? 'dialog-container-active' : ''">
-		<div class="dialog-image"
-			:class="newDialog ? 'dialog-image-active' : ''">
-		</div>
-		<div class="dialog-content"
-			:class="newDialog ? 'dialog-content-active' : ''">
-			<div class="dialog-header">
-				<slot name="header">
-				<DialogTitle />
-				</slot>
-			</div>
-			<div class="dialog-body">
-				<slot name="body">
-				<DialogText />
-				</slot>
-			</div>
-			<div class="dialog-footer"
-			:class="newDialog ? 'dialog-footer-inactive' : ''">
-				<Btn secondary="true" text="Option A" class="button-dialog" />
-				<Btn secondary="true" text="Option B" class="button-dialog" />
-			</div>
-			<button v-if="newDialog"
-					class="dialog-scrollbar"
-			>Scrollbar</button>
-		</div>
-	</div>
 	<button class="dialog-close-button" @click="$emit('close')">
 		Close Dialog
 	</button>
+	<div class="dialog-container">
+		<div class="dialog-content">
+			<div class="dialog-body">
+				<div v-for="comp in components"
+					:class="[
+					comp.name == 'title' ? 'dialog-title' : comp.name == 'image' ? 'dialog-image' : comp.name == 'text' ? 'dialog-text' : '',
+					comp.width == 1 ? 'width-1' : comp.width == 2 ? 'width-2' : comp.width == 3 ? 'width-3' : comp.width == 4 ? 'width-4' : comp.width == 5 ? 'width-5' : comp.width == 6 ? 'width-6' : comp.width == 7 ? 'width-7' : comp.width == 8 ? 'width-8' : comp.width == 9 ? 'width-9' : comp.width == 10 ? 'width-10' : comp.width == 11 ? 'width-11' : comp.width == 12 ? 'width-12' : ''
+					]"
+				>{{ comp.text }}</div>
+			</div>
+			<div class="dialog-footer">
+				<Btn secondary="true" class="button-dialog" 
+					v-for="(option, index) in options"
+					:key="index"
+					:text="option.text" />
+			</div>
+		</div>
+	</div>
 </div>

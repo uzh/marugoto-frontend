@@ -21,6 +21,7 @@ import InputField from '@/components/01_atoms/inputs';
 import Btn from '@/components/01_atoms/buttons'
 import SelectField from '@/components/01_atoms/selectField'
 
+
 export default {
   name: 'registerView',
   components: { InputField, Btn, SelectField },

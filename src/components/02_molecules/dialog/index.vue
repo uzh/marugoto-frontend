@@ -5,20 +5,51 @@
 <script>
 /* eslint-disable */
 import Btn from '@/components/01_atoms/buttons';
-import DialogText from '../dialog/dialogText';
-import DialogTitle from '../dialog/dialogTitle';
 
 export default {
   // name of the component
-  name: 'dialogContainer',
-  components: { Btn, DialogText, DialogTitle },
+  name: 'dialogComponent',
+  components: { Btn },
   data() {
     return {
-      newDialog: false
+      components: [
+        {
+          name: 'title',
+          width: '12',
+          text: 'Lorem ipsum dolor sit amet consectetur'
+        },
+        {
+          name: 'image',
+          width: '4',
+          source: '',
+          text: 'Image Placeholder'
+        },
+        {
+          name: 'text',
+          width: '6',
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quis inventore ab reprehenderit aut deleniti consequuntur. Assumenda aperiam nemo voluptatibus, eum quaerat doloremque totam distinctio molestias adipisci, labore in sequi.'
+        },
+        {
+          name: 'image',
+          width: '10',
+          source: '',
+          text: 'Image Placeholder'
+        },
+        {
+          name: 'text',
+          width: '8',
+          text: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Deserunt, quis inventore ab reprehenderit aut deleniti consequuntur. Assumenda aperiam nemo voluptatibus, eum quaerat doloremque totam distinctio molestias adipisci, labore in sequi.'
+        }
+      ],
+      options: [
+        {
+          text: 'option A'
+        },
+        {
+          text: 'option B'
+        }
+      ]
     };
-  },
-  methods: {
-    
   }
 };
 </script>
