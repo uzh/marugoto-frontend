@@ -1,29 +1,38 @@
 <div class="mail-container" :class="get_layoutState.mail.opened ? 'in' : ''">
   <div class="mail-container-body">
     <ul class="inbox-mail-subject-container go-left">
-      <li>
-        
+      <li class="inbox-mail-subject-container-li"
+          v-for="(item, index) in list" :key="index"å>
+        <h4>{{ item.sender }}</h4>
+        <div class="current-date-time">{{ item.date }}, {{ item.time }}</div>
+        <p>{{ item.subject }} - {{ item.text }}</p>
       </li>
     </ul>
-    <div class="inbox-mail-body-container go-right">
+    <div class="inbox-mail-body-container go-right"
+        v-for="(item, index) in itemSelected" :key="index">
       <div class="sender">
-        <p></p>
+        <h3>{{ item.sender }}</h3>
+        <button>Respond to E-Mail</button>
       </div>
-      <div class="subject"></div>
+      <div class="subject">
+        <h4>{{ item.subject }}</h4>
+        <div class="current-date-time">{{ item.date }}, {{ item.time }}</div>
+      </div>
       <div class="message">
-        <p>
-          Dear Students, 
+          Dear Students,
+          <br>
           you will have to write a essay till the 22nd of Lorem ipsum dolor sit amet, consectetur adipiscing elit.
           Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
           Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur 
           ridiculus mus.Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus 
           pronin sapien nunc accuan eget.
-          
+          <br>
+          <br>
           All the best
+          <br>
           Prof. Martinus
-        </p>
       </div>
-      <button>Respond to E-mail</button>
+      <button>Respond to E-Mail</button>
     </div>
   </div>
 </div>

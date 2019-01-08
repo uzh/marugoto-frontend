@@ -6,7 +6,7 @@
     </div>
     <RightSidebar />
     <NotebookContainer v-if="get_status.isLoged" />
-    <MailContainer v-if="get_status.isLoged" />
+    <MailContainer class="return-v-if" />
     <button id="show-dialog" @click="LAYOUT_OPEN('dialog')">Open Dialog</button>
     <DialogComponent v-if="get_layoutState.dialog.opened" @close="LAYOUT_CLOSE('dialog')" />
   </div>
@@ -25,7 +25,7 @@ export default{
   components: { NotebookContainer, MailContainer, Topbar, RightSidebar, DialogComponent },
   data() {
     return {
-      
+
     };
   },
   computed: {

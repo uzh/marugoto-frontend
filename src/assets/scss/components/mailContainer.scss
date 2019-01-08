@@ -24,11 +24,60 @@
   }
 }
 .inbox-mail-subject-container{
-  width: 450px;
+  @extend .col-xs-4;
   height: calc(100vh - 90px);
+  &-li {
+    width: 100%;
+    padding: 20px 10px;
+    &:hover {
+      background-color: $base-uicolor-2;
+    }
+    h4 {
+      @extend .col-xs-8;
+      @extend .h6;
+    }
+    .current-date-time {
+      @extend .col-xs-4;
+      @extend .small;
+    }
+    p {
+      width: 66.66666667%;
+      padding: 20px 10px;
+      @extend .small;
+    }
+  }
 }
 
 .inbox-mail-body-container{
-  width: 450px;
+  @extend .col-xs-8;
   height: calc(100vh - 90px);
+  padding-top: 50px;
+  .sender {
+    @extend .col-xs-12;
+    @extend .h5;
+    padding: 20px 0;
+    button {
+      float: right;
+      font-size: initial;
+    }
+  }
+  .subject {
+    @extend .col-xs-12;
+    @extend .lead;
+    padding: 20px 0;
+    .current-date-time {
+      float: right;
+      @extend .small;
+    }
+  }
+  .message {
+    @extend .col-xs-12;
+    @extend .lauftext;
+  }
+  button {
+    margin: 0 auto;
+    display: block;
+    padding: 10px 30px;
+    border: $base-ghost-border;
+  }
 }
