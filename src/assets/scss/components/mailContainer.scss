@@ -27,14 +27,19 @@
   @extend .col-xs-4;
   height: calc(100vh - 90px);
   &-li {
-    width: 100%;
-    padding: 20px 10px;
+    margin-right: 4%;
+    padding: 10px 0;
+    box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
     &:hover {
       background-color: $base-uicolor-2;
+    }
+    &.active {
+      background-color: rgba(22, 54, 94, 0.06);
     }
     h4 {
       @extend .col-xs-8;
       @extend .h6;
+      padding-top: 20px;
     }
     .current-date-time {
       @extend .col-xs-4;
@@ -42,8 +47,14 @@
     }
     p {
       width: 66.66666667%;
-      padding: 20px 10px;
+      padding: 10px;
       @extend .small;
+    }
+    .shortMail {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 27ch;
     }
   }
 }
@@ -52,32 +63,55 @@
   @extend .col-xs-8;
   height: calc(100vh - 90px);
   padding-top: 50px;
+  border-left: $base-ghost-border;
   .sender {
-    @extend .col-xs-12;
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
     @extend .h5;
-    padding: 20px 0;
+    padding-top: 20px;
+    position: relative;
     button {
-      float: right;
+      position: absolute;
+      right: 0;
+      top: 25%;
       font-size: initial;
+      width: auto;
+      padding: 10px 30px;
+      border: $base-ghost-border;
+    }
+    .sendEmail {
+      z-index: 1;
+      width: 196px;
+      height: 40px;
+      padding: 0 30px;
     }
   }
   .subject {
-    @extend .col-xs-12;
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
     @extend .lead;
-    padding: 20px 0;
+    margin-top: 50px;
+    position: relative;
     .current-date-time {
-      float: right;
+      position: absolute;
+      right: 0;
+      top: 25%;
       @extend .small;
     }
   }
   .message {
-    @extend .col-xs-12;
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
     @extend .lauftext;
+    margin-top: 50px;
   }
-  button {
-    margin: 0 auto;
+  .respondMail {
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
     display: block;
     padding: 10px 30px;
+    position: absolute;
+    bottom: 100px;
     border: $base-ghost-border;
   }
 }
