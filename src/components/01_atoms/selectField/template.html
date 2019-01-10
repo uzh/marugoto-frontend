@@ -2,10 +2,17 @@
 	<p v-if="selectedValue != 'Gender'"
 		:class="genderLabel ? 'genderLabel' : ''" >Gender</p>
 	<div class="select-field"
-		@click="openList"
-		ref="selectBox" >
+		@click="openList()"
+		:blur="[
+			setFocus(false),
+			verifyField()
+		]"
+		v-on:focus="setFocus(true)"
+		ref="selectBox">
 		{{ selectedValue }}
 	</div>
+	<div v-if="required && error"
+		class="errorMessage">* Field required</div>
 	<ul v-if="listOpened == true"
 		class="select-list" >
 		<li class="select-list-item"
