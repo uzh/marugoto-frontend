@@ -6,8 +6,9 @@
           @click="selectMail(item)"
           :class="item.selected ? 'active' : ''">
         <h4>{{ item.sender }}</h4>
-        <p class="current-date-time">{{ item.date }}, {{ item.time }}</p>
-        <p class="shortMail">{{ item.subject }} - {{ item.text }}</p>
+        <p class="current-date-time"
+        :class="item.selected ? 'active' : ''">{{ item.date }}, {{ item.time }}</p>
+        <p class="shortMail" :class="item.selected ? 'active' : ''">{{ item.subject }} - {{ item.text }}</p>
       </li>
     </ul>
     <div class="inbox-mail-body-container go-right"
@@ -15,8 +16,8 @@
       <div class="sender">
         <div v-if="sendingMail" class="send-mail-text">To</div>
         <h3>{{ item.sender }}</h3>
-        <button @click="switchMail">Respond to E-Mail</button>
-        <Btn v-if="sendingMail" class="send-mail-button" secondary="true" text="Send E-Mail" />
+        <button v-if="!sendingMail" @click="switchMail">Respond to E-Mail</button>
+        <Btn v-if="sendingMail" class="send-mail-button" secondary="true" iconName="plane" text="Send E-Mail" />
       </div>
       <div class="subject">
         <div v-if="sendingMail" class="send-mail-text">Subject</div>
