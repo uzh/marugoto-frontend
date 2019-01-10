@@ -2,7 +2,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import Btn from '../../01_atoms/buttons';
+import Btn from '../../01_atoms/buttons'
 
 export default {
   name: 'MailContainer',
@@ -10,7 +10,7 @@ export default {
   data(){
     return{
       title: 'MailContainer',
-      sendingMail: true,
+      sendingMail: false,
       list: [
         {
           id: '333',
@@ -52,6 +52,9 @@ export default {
     selectMail(item) {
       this.list.forEach(i => i.selected = false);
       item.selected = true;
+    },
+    switchMail() {
+      this.sendingMail = true;
     }
   }
 }

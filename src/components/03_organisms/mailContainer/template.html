@@ -5,7 +5,7 @@
           v-for="(item, index) in list" :key="index"
           @click="selectMail(item)"
           :class="item.selected ? 'active' : ''">
-        <h4>{{ item.sender }}</h4> 
+        <h4>{{ item.sender }}</h4>
         <p class="current-date-time">{{ item.date }}, {{ item.time }}</p>
         <p class="shortMail">{{ item.subject }} - {{ item.text }}</p>
       </li>
@@ -13,17 +13,22 @@
     <div class="inbox-mail-body-container go-right"
         v-for="(item, index) in itemSelected" :key="index">
       <div class="sender">
+        <div v-if="sendingMail" class="send-mail-text">To</div>
         <h3>{{ item.sender }}</h3>
-        <button>Respond to E-Mail</button>
+        <button @click="switchMail">Respond to E-Mail</button>
+        <Btn v-if="sendingMail" class="send-mail-button" secondary="true" text="Send E-Mail" />
       </div>
       <div class="subject">
-        <h4>{{ item.subject }}</h4>
+        <div v-if="sendingMail" class="send-mail-text">Subject</div>
+        <h4 v-if="!sendingMail">{{ item.subject }}</h4>
+        <h4 v-if="sendingMail">Re: {{ item.subject }}</h4>
         <p class="current-date-time">{{ item.date }}, {{ item.time }}</p>
       </div>
-      <div class="message">
+      <div contenteditable="true" v-if="sendingMail" class="message-textarea"></div>
+      <div :class="!sendingMail ? 'message' : 'message-inactive'">
           {{ item.text }}
       </div>
-      <button class="respondMail">Respond to E-Mail</button>
+      <button v-if="!sendingMail" class="respondMail" @click="switchMail">Respond to E-Mail</button>
     </div>
   </div>
 </div>
