@@ -8,15 +8,19 @@
 export default {
   // name of the component
   name: 'selectField',
-  props: [ 'list', 'genderLabel' ],
+  props: [ 'list', 'genderLabel', 'required' ],
   data() {
     return {
+      value: 'gender',
       selectedValue: 'Gender',
       listOpened: false,
+      error: false,
+      focused: false,
     };
   },
   created () {
     document.addEventListener('click', this.blur);
+    this.setFocus();
   },
   beforeDestroy () {
     document.removeEventListener('click');
@@ -34,6 +38,7 @@ export default {
         this.listOpened = false;
       } else {
         this.listOpened = true;
+        this.value = '';
       }
     },
     blur(e) {
@@ -41,6 +46,20 @@ export default {
       let target = e.target;
       if (( el !== target) && !el.contains(target)) {
         this.listOpened = false;
+      }
+    },
+    setFocus(foc) {
+      if (foc) {
+        this.focused = true;
+      } else {
+        this.focused = false;
+      }
+    },
+    verifyField() {
+      if ( this.selectedValue == 'Gender' && this.value == '' ) {
+        this.error = true;
+      } else {
+        this.error = false;
       }
     }
   }

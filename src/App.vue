@@ -25,7 +25,7 @@ export default{
   components: { NotebookContainer, MailContainer, Topbar, RightSidebar, DialogComponent },
   data() {
     return {
-      
+
     };
   },
   computed: {

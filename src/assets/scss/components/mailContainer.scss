@@ -23,12 +23,142 @@
     min-height: 100vh;
   }
 }
+
 .inbox-mail-subject-container{
-  width: 450px;
+  @extend .col-xs-4;
   height: calc(100vh - 90px);
+  &-li {
+    margin-right: 4%;
+    padding: 10px 0;
+    box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
+    &:hover {
+      background-color: $base-uicolor-2;
+    }
+    &.active {
+      background-color: rgba(22, 54, 94, 0.06);
+    }
+
+    h4 {
+      @extend .col-xs-8;
+      @extend .h6;
+      padding-top: 7px;
+    }
+
+    .current-date-time {
+      @extend .col-xs-4;
+      @extend .small;
+      &.active {
+        color: rgba(22, 54, 94, 0.4);
+      }
+    }
+
+    p {
+      @extend .small;
+      width: 66.66666667%;
+      padding: 10px;
+    }
+
+    .shortMail {
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      max-width: 27ch;
+      &.active {
+        color: rgba(22, 54, 94, 0.4);
+      }
+    }
+  }
 }
 
 .inbox-mail-body-container{
-  width: 450px;
+  @extend .col-xs-8;
   height: calc(100vh - 90px);
+  padding-top: 50px;
+  border-left: $base-ghost-border;
+
+  .sender {
+    @extend .col-xs-10;
+    @extend .col-xs-push-1;
+    @extend .h5;
+    padding-top: 20px;
+    position: relative;
+
+    button {
+      position: absolute;
+      right: 0;
+      top: 25%;
+      font-size: initial;
+      width: auto;
+      padding: 10px 30px;
+      border: $base-ghost-border;
+    }
+
+    .send-mail-button {
+      z-index: 1;
+      width: 25%;
+    }
+  }
+
+  .subject {
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
+    @extend .lead;
+    margin-top: 50px;
+    position: relative;
+
+    .current-date-time {
+      position: absolute;
+      right: 0;
+      top: 25%;
+      @extend .small;
+    }
+  }
+
+  .message {
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
+    @extend .lauftext;
+    margin-top: 50px;
+    &-inactive {
+      @extend .lauftext;
+      color: $base-secondary;
+      position: relative;
+      top: 100px;
+      margin-left: 8.33%;
+      margin-bottom: 8.33%;
+      padding-left: 20px;
+      padding-right: 20px;
+      float: left;
+      border-left: 2px solid #3380DE;
+    }
+    &-textarea {
+      @extend .col-xs-10;
+      @extend .col-xs-offset-1;
+      @extend .lauftext;
+      border-top: $base-ghost-border;
+      margin-top: 30px;
+      padding-top: 50px;
+      min-height: 100px;
+      height: max-content;
+    }
+  }
+
+  .respondMail {
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
+    display: block;
+    padding: 10px 30px;
+    position: relative;
+    top: 50px;
+    border: $base-ghost-border;
+  }
+  
+  .send-mail-text {
+    @extend .col-xs-pull-12;
+    @extend .small;
+    position: absolute;
+    margin-left: -8.33%;
+    height: auto;
+    padding-top: 5px;
+  }
 }

@@ -1,7 +1,7 @@
 <template>
   <div>
-    <Btn @click.native="logout" text="Logout" primary="true"/>
     <h1>Storyline view</h1>
+    <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/>
     <h1>{{ pageTitle }}</h1>
     <Exercise :exercises="exerciseList" />
     <PageTransitions 
