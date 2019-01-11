@@ -1,0 +1,6 @@
+<div>
+  <h1>Radio Exercise</h1>
+  <div v-for="(item, index) in list" :key="index">
+    <input type="radio" value="item.text" name="group1"/><label>{{ item.text }}</label>
+  </div>
+</div>

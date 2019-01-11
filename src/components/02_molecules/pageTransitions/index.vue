@@ -6,7 +6,7 @@ import Btn from '@/components/01_atoms/buttons'
 export default {
   name: 'PageTransitions',
   components: { Btn },
-  props: [ 'buttonsList' ],
+  props: [ 'optionsList' ],
   methods: {
     emitTransition(id){
       this.$emit('transitionChoosen', id);

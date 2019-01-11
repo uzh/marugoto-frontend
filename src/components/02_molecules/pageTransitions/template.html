@@ -1,6 +1,6 @@
 <div>
   <Btn 
-    v-for="(item, index) in buttonsList"
+    v-for="(item, index) in optionsList"
     v-if="item.available"
     :key="index"
     @click.native="emitTransition(item.id)"

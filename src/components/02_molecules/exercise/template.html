@@ -1,0 +1,10 @@
+<div>
+    <h1>Exercise</h1>
+    <div v-for="(exercise, index) in exercises" :key="index">
+      <!-- Here are the exercise list checking type -->
+      <!-- Radio exercise -->
+      <ExerciseRadio v-if="exercise.exercise.options" :list="exercise.exercise.options" />
+      <!-- Text exercise -->
+      <ExerciseText v-if="exercise.exercise.textSolutions" :question="exercise.exercise.placeholderText" />
+    </div>
+  </div>

@@ -1,6 +1,6 @@
 /* eslint-disable */
 import axios from 'axios'
-import store from './store'
+import state from './store/state'
 
 const API_URL = process.env.VUE_APP_API_PATH || 'http://localhost:8080/api'
 
@@ -8,6 +8,8 @@ const apiService = axios.create({
   baseURL: API_URL,
   params: {} // do not remove this, its added to add params later in the config
 });
+
+apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.token;
 
 let isRefreshing = false;
 let failedQueue = [];
@@ -31,7 +33,7 @@ apiService.interceptors.response.use(function (response) {
 }, function (error) {
   // Do something with response error
   const originalRequest = error.config;
-
+  
   if (error.response.status === 401 && !originalRequest._retry) {
     console.log('Renew token');
     if (isRefreshing) {
@@ -47,10 +49,11 @@ apiService.interceptors.response.use(function (response) {
 
     originalRequest._retry = true;
     isRefreshing = true;
-
+    
     return new Promise(function (resolve, reject) {
       apiService.get('/auth/refresh-token')
         .then(({data}) => {
+          
             store.dispatch('UPDATE_TOKEN', {
               token: data.token,
               refreshToken: data.refreshToken,
