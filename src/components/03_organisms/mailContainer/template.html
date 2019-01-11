@@ -25,7 +25,7 @@
         <h4 v-if="sendingMail">Re: {{ item.subject }}</h4>
         <p class="current-date-time">{{ item.date }}, {{ item.time }}</p>
       </div>
-      <div contenteditable="true" v-if="sendingMail" class="message-textarea"></div>
+      <div contenteditable v-if="sendingMail" class="message-textarea"></div>
       <div :class="!sendingMail ? 'message' : 'message-inactive'">
           {{ item.text }}
       </div>
