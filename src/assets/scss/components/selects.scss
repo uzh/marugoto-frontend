@@ -1,40 +1,43 @@
 .select-div {
     position: relative;
+    &.active {
+        box-shadow: 0 0 0 2px $base-primary;
+    }
 }
 
 .select-field {
     @extend .input-field;
-    border: none;
     background-color: $white;
     padding-left: 10px;
     padding-top: 16px;
     font-size: $base-size;
-    // &.active {
-    //     box-shadow: none;
-    //     border-bottom: 2px solid $base-primary;
-    // }
 }
 
 .select-list {
     position: absolute;
     z-index: 1;
-    top: 0;
-    left: 0;
+    top: 0px;
     font-size: $base-size;
     width: 100%;
-    height: 100px;
+    height: auto;
     background-color: $white;
     display: block;
     list-style-type: none;
-    border: 1px solid $base-primary;
+    box-shadow: 0 0 0 2px $base-primary;
     &-item {
-        padding-left: 10px;
+        margin: 0 10px;
         padding-top: 16px;
-        height: 49px;
+        height: $input-base-height;
         font-size: inherit;
+        border-bottom: $base-ghost-border;
         &:hover {
             background-color: $select-item-hover;
             border: $base-ghost-border;
+            cursor: pointer;
+        }
+        &.disabled {
+            pointer-events: none;
+            color: #EAEDF0;
         }
     }
 }
@@ -43,14 +46,14 @@
     font-size: 11px;
     padding-left: 10px;
     color: $base-primary;
-    position: relative;
-    top: 16px;
+    position: absolute;
+    top: 5px;
     z-index: 1;
 }
 
 .errorMessage {
-    position: relative;
-    bottom: 16px;
+    position: absolute;
+    top: 50px;
     padding-top: 1px;
     width: 100%;
     font-size: 12px;

@@ -11,7 +11,7 @@ export default {
   props: [ 'list', 'genderLabel', 'required' ],
   data() {
     return {
-      value: 'gender',
+      value: true,
       selectedValue: 'Gender',
       listOpened: false,
       error: false,
@@ -21,9 +21,6 @@ export default {
   created () {
     document.addEventListener('click', this.blur);
     this.setFocus();
-  },
-  beforeDestroy () {
-    document.removeEventListener('click');
   },
   beforeDestroy () {
     document.removeEventListener('click')
@@ -38,7 +35,7 @@ export default {
         this.listOpened = false;
       } else {
         this.listOpened = true;
-        this.value = '';
+        this.value = false;
       }
     },
     blur(e) {
@@ -56,10 +53,13 @@ export default {
       }
     },
     verifyField() {
-      if ( this.selectedValue == 'Gender' && this.value == '' ) {
+      if ( this.selectedValue == 'Gender' && this.value == false ) {
         this.error = true;
       } else {
         this.error = false;
+        if (this.selectedValue != 'Gender') {
+          this.focused = true;
+        }
       }
     }
   }
