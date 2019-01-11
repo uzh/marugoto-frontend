@@ -6,7 +6,7 @@
     </div>
     <RightSidebar />
     <NotebookContainer v-if="get_status.isLoged" />
-    <MailContainer v-if="get_status.isLoged" />
+    <MailContainer />
     <button id="show-dialog" @click="LAYOUT_OPEN('dialog')">Open Dialog</button>
     <DialogComponent v-if="get_layoutState.dialog.opened" @close="LAYOUT_CLOSE('dialog')" />
   </div>
