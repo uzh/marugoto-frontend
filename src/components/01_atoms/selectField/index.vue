@@ -4,11 +4,13 @@
 <!-- start JS -->
 <script>
 /* eslint-disable */
+import svgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   // name of the component
   name: 'selectField',
-  props: [ 'list', 'genderLabel', 'required' ],
+  components: { svgIcon },
+  props: [ 'list', 'genderLabel', 'required', 'iconName' ],
   data() {
     return {
       value: true,

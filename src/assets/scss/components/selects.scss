@@ -25,7 +25,7 @@
     list-style-type: none;
     box-shadow: 0 0 0 2px $base-primary;
     &-item {
-        margin: 0 10px;
+        padding: 0 10px;
         padding-top: 16px;
         height: $input-base-height;
         font-size: inherit;
@@ -59,4 +59,10 @@
     font-size: 12px;
     color: $base-accent;
     border-top: 2px solid $base-accent;
+}
+
+.select-field-arrow {
+    z-index: 1;
+    width: 20px;
+    margin-right: 10px;
 }

@@ -10,12 +10,24 @@
 		v-on:focus="setFocus(true)"
 		ref="selectBox">
 		{{ selectedValue }}
+		<svgIcon 
+		name="arrow-bottom"
+		:customColor=" ghost ? '#000' : '#fff' "
+		sizeH="20px"
+		class="icon-right select-field-arrow"/>
 	</div>
 	<div v-if="required && error"
 		class="errorMessage">* Field required</div>
 	<ul v-if="listOpened == true"
 		class="select-list" >
-		<li class="select-list-item disabled">Gender</li>
+		<li class="select-list-item disabled">
+			Gender
+			<svgIcon 
+			name="arrow-up"
+			:customColor=" ghost ? '#000' : '#fff' "
+			sizeH="20px"
+			class="icon-right select-field-arrow"/>
+		</li>
 		<li class="select-list-item"
 			@click="optionSelection(item)"
 			v-for="item in list">{{ item.name }}
