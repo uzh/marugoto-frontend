@@ -1,6 +1,6 @@
 <div class="select-div" :class="focused ? 'active' : ''">
 	<p v-if="selectedValue != 'Gender'"
-		:class="genderLabel ? 'genderLabel' : ''" >Gender</p>
+		:class="genderLabel ? 'genderLabel' : ''">Gender</p>
 	<div class="select-field"
 		@click="openList()"
 		:blur="[
@@ -12,7 +12,6 @@
 		{{ selectedValue }}
 		<svgIcon 
 		name="arrow-bottom"
-		:customColor=" ghost ? '#000' : '#fff' "
 		sizeH="20px"
 		class="icon-right select-field-arrow"/>
 	</div>
@@ -24,7 +23,6 @@
 			Gender
 			<svgIcon 
 			name="arrow-up"
-			:customColor=" ghost ? '#000' : '#fff' "
 			sizeH="20px"
 			class="icon-right select-field-arrow"/>
 		</li>

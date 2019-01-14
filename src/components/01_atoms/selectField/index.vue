@@ -45,6 +45,8 @@ export default {
       let target = e.target;
       if (( el !== target) && !el.contains(target)) {
         this.listOpened = false;
+      } else {
+        this.value = true;
       }
     },
     setFocus(foc) {
@@ -61,6 +63,8 @@ export default {
         this.error = false;
         if (this.selectedValue != 'Gender') {
           this.focused = true;
+        } else {
+          this.focused = false;
         }
       }
     }

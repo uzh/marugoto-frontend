@@ -30,3 +30,45 @@
         transform: rotate(-90deg);
     }
 }
+
+.notebook-header {
+    width: 100%;
+    background-color: $select-item-hover;
+    height: 10vh;
+    font-size: $base-size;
+    line-height: 30px;
+    padding: 24px 75px 0;
+    &-icon {
+        position: relative !important;
+        float: right;
+    }
+}
+
+.notebook-body {
+    @extend .col-xs-12;
+    height: 80vh;
+}
+
+.notebook-footer {
+    @extend .col-xs-12;
+    height: 10vh;
+}
+
+.notebook-list {
+    background-color: #0C0C0D;
+    width: 100%;
+    height: 100%;
+}
+
+.notebook-chapter-menu {
+    background-color: #0C0C0D;
+    width: 100%;
+    height: 10vh;
+}
+
+.chapter-menu-icon {
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    padding-top: 28px;
+}
