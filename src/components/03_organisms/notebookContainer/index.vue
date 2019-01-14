@@ -12,12 +12,36 @@ export default {
   data(){
     return{
       title: 'Notebook',
-      list: true,
-      chapterMenu: true,
+      headerTitle: '',
+      listItems: [
+        {
+          text: 'First of a kind',
+          current: false
+        },
+        {
+          text: 'The one before',
+          current: false
+        },
+        {
+          text: 'Dancing at the rokumenikan',
+          current: false
+        },
+        {
+          text: 'Spreckensville',
+          current: false
+        },
+      ]
     }
   },
   computed: {
     ...mapGetters([ 'get_layoutState' ]),
   },
+  methods: {
+    chooseStory(item) {
+      this.headerTitle = item.text;
+      this.listItems.forEach(el => el.current = false);
+      item.current = true;
+    }
+  }
 }
 </script>

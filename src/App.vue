@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <div class="page-container">
+    <div class="page-container" :class="get_layoutState.notebook.opened ? 'halved' : ''">
       <Topbar />
       <div><router-view /></div>
     </div>

@@ -4,30 +4,14 @@
 
 export default {
   name: 'NotebookList',
+  props: [ 'list' ],
   data(){
     return{
-      list: [
-        {
-          text: 'First of a kind',
-          current: false
-        },
-        {
-          text: 'The one before',
-          current: false
-        },
-        {
-          text: 'Dancing at the rokumenikan',
-          current: true
-        },
-        {
-          text: 'Spreckensville',
-          current: false
-        },
-      ]
+      
     }
   },
   computed: {
     
-  },
+  }
 }
 </script>
