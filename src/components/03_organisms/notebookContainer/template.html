@@ -3,9 +3,7 @@
   :class="get_layoutState.notebook.opened ? 'in' : ''">
   <NotebookHeader text="Dancing at the Rokumenikan" />
   <div class="notebook-body">
-    <NotebookList />
+    <NotebookList v-if="list" />
   </div>
-  <div class="notebook-footer">
-    The key element of the Rokumenikan...
-  </div>
+  <NotebookChapterMenu v-if="chapterMenu"/>
 </div>
