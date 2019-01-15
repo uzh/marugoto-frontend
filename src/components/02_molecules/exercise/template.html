@@ -3,8 +3,16 @@
     <div v-for="(exercise, index) in exercises" :key="index">
       <!-- Here are the exercise list checking type -->
       <!-- Radio exercise -->
-      <ExerciseRadio v-if="exercise.exercise.options" :list="exercise.exercise.options" />
+      <ExerciseRadio 
+        v-if="exercise.exercise.options" 
+        :list="exercise.exercise.options" 
+        :exerciseId="exercise.id" 
+        @emitAnswer="submitAnswer" />
       <!-- Text exercise -->
-      <ExerciseText v-if="exercise.exercise.textSolutions" :question="exercise.exercise.placeholderText" />
+      <ExerciseText 
+        v-if="exercise.exercise.textSolutions" 
+        :question="exercise.exercise.placeholderText"
+        :exerciseId="exercise.id"
+        @emitAnswer="submitAnswer" />
     </div>
   </div>

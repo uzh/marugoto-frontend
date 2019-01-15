@@ -3,7 +3,7 @@
     <h1>Storyline view</h1>
     <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/>
     <h1>{{ pageTitle }}</h1>
-    <Exercise :exercises="exerciseList" />
+    <Exercise :exercises="exerciseList" @emitStatesChanged="checkState" />
     <PageTransitions 
       @transitionChoosen="request"
       :optionsList="transitionsOptions" />
@@ -52,9 +52,9 @@ export default {
           available: listItem.available,
         }
       });
-
       return newArr;
     },
+    checkState(){},
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
     },

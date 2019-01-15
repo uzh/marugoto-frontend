@@ -4,6 +4,11 @@
 
 export default {
   name: 'ExerciseRadio',
-  props: [ 'list' ],
+  props: [ 'list', 'exerciseId' ],
+  methods: {
+    submitAnswer: function(answer){
+      this.$emit('emitAnswer', answer, this.exerciseId);
+    },
+  },
 }
 </script>

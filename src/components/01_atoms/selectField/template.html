@@ -1,23 +1,26 @@
 <div class="select-div">
 	<p v-if="selectedValue != 'Gender'"
-		:class="genderLabel ? 'genderLabel' : ''" >Gender</p>
-	<div class="select-field"
-		@click="openList()"
-		:blur="[
-			setFocus(false),
-			verifyField()
-		]"
-		v-on:focus="setFocus(true)"
-		ref="selectBox">
+		:class="genderLabel ? 'genderLabel' : ''" >
+		Gender
+	</p>
+	<div 
+		class="select-field"
+		ref="selectWrapper"
+		@click="listOpened = true">
 		{{ selectedValue }}
 	</div>
-	<div v-if="required && error"
-		class="errorMessage">* Field required</div>
-	<ul v-if="listOpened == true"
+	<!-- Error mark -->
+	<div 
+		v-if="required && error"
+		class="errorMessage">* Field required
+	</div>
+	<!-- Dropdown list -->
+	<ul 
+		v-if="listOpened == true"
 		class="select-list" >
-		<li class="select-list-item"
-			@click="optionSelection(item)"
-			v-for="item in list">{{ item.name }}
+		<li v-for="item in list"
+			class="select-list-item"
+			@click.self="optionSelection(item)" >{{ item.name }}
 		</li>
 	</ul>
 </div>

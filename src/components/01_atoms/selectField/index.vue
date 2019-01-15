@@ -15,44 +15,21 @@ export default {
       selectedValue: 'Gender',
       listOpened: false,
       error: false,
-      focused: false,
     };
   },
-  created () {
-    document.addEventListener('click', this.blur);
-    this.setFocus();
-  },
-  beforeDestroy () {
-    document.removeEventListener('click');
-  },
-  beforeDestroy () {
-    document.removeEventListener('click')
+  created() {
+    document.addEventListener('click', this.blurSelect)
   },
   methods: {
     optionSelection: function(item) {
       this.selectedValue = item.name;
       this.$emit('selectChange', item.value);
     },
-    openList: function() {
-      if (this.listOpened) {
-        this.listOpened = false;
-      } else {
-        this.listOpened = true;
-        this.value = '';
-      }
-    },
-    blur(e) {
-      let el = this.$refs.selectBox;
+    blurSelect(e){
+      let el = this.$refs.selectWrapper;
       let target = e.target;
       if (( el !== target) && !el.contains(target)) {
         this.listOpened = false;
-      }
-    },
-    setFocus(foc) {
-      if (foc) {
-        this.focused = true;
-      } else {
-        this.focused = false;
       }
     },
     verifyField() {
@@ -62,6 +39,9 @@ export default {
         this.error = false;
       }
     }
+  },
+  destroyed () {
+    document.removeEventListener('click', this.blurSelect)
   }
 };
 </script>
