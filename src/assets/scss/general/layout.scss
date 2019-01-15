@@ -6,6 +6,10 @@ $border: 1px solid #ddd;
   height: 100vh;
   padding-top: $elements-space;
   padding-right: $elements-space;
+  &.halved {
+    width: calc(50% - 90px);
+  }
+  transition: all 0.3s;
 }
 
 // STATUS BAR

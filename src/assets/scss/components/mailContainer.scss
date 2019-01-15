@@ -20,13 +20,14 @@
 
   .mail-container-body{
     border-top: $border;
-    min-height: 100vh;
+    min-height: calc(100vh - 90px);
   }
 }
 
 .inbox-mail-subject-container{
   @extend .col-xs-4;
   height: calc(100vh - 90px);
+  overflow-y: scroll;
   &-li {
     margin-right: 4%;
     padding: 10px 0;
@@ -75,6 +76,7 @@
   height: calc(100vh - 90px);
   padding-top: 50px;
   border-left: $base-ghost-border;
+  overflow-y: scroll;
 
   .sender {
     @extend .col-xs-10;
