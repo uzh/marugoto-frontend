@@ -1,11 +1,11 @@
 <template>
   <div id="app">
-    <div class="page-container">
+    <div class="page-container" :class="get_layoutState.notebook.opened ? 'halved' : ''">
       <Topbar />
       <div><router-view /></div>
     </div>
     <RightSidebar />
-    <NotebookContainer v-if="get_status.isLoged" />
+    <NotebookContainer />
     <MailContainer v-if="get_status.isLoged" />
     <button id="show-dialog" @click="LAYOUT_OPEN('dialog')">Open Dialog</button>
     <DialogComponent v-if="get_layoutState.dialog.opened" @close="LAYOUT_CLOSE('dialog')" />
@@ -25,7 +25,7 @@ export default{
   components: { NotebookContainer, MailContainer, Topbar, RightSidebar, DialogComponent },
   data() {
     return {
-      
+
     };
   },
   computed: {

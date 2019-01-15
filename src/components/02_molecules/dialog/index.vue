@@ -21,8 +21,7 @@ export default {
         {
           name: 'image',
           width: '4',
-          source: '',
-          text: 'Image Placeholder'
+          background: 'https://picsum.photos/960/540',
         },
         {
           name: 'text',
@@ -32,8 +31,7 @@ export default {
         {
           name: 'image',
           width: '10',
-          source: '',
-          text: 'Image Placeholder'
+          background: 'https://picsum.photos/1920/1080',
         },
         {
           name: 'text',

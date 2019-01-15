@@ -38,6 +38,7 @@ apiService.interceptors.response.use(function (response) {
     console.log('Renew token');
     if (isRefreshing) {
       return new Promise(function(resolve, reject) {
+        console.log(resolve, reject)
         failedQueue.push({resolve, reject})
       }).then(token => {
         originalRequest.headers['Authorization'] = token;

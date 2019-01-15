@@ -41,6 +41,7 @@ export default({
     })
   },
   [types.LOGOUT]: (context) => {
+    delete apiService.defaults.headers.common["Authorization"];
     context.commit(types.LOGOUT);
   },
   [types.UPDATE_TOKEN]: (context, payload) => {

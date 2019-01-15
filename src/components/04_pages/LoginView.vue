@@ -7,9 +7,9 @@
       <InputField v-model="password" typeProp="password" labelName="Password" />
     </form>
     <br>
-    <Btn text="Login" primary="true" @click.native="login" />
+    <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" />
     <br>
-    <Btn @click.native="goToRegister" text="Create Account" ghost="true" />
+    <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" />
   </div>
 </template>
 

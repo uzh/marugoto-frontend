@@ -1,29 +1,35 @@
 <div class="mail-container" :class="get_layoutState.mail.opened ? 'in' : ''">
   <div class="mail-container-body">
     <ul class="inbox-mail-subject-container go-left">
-      <li>
-        
+      <li class="inbox-mail-subject-container-li"
+          v-for="(item, index) in list" :key="index"
+          @click="selectMail(item)"
+          :class="item.selected ? 'active' : ''">
+        <h4>{{ item.sender }}</h4>
+        <p class="current-date-time"
+        :class="item.selected ? 'active' : ''">{{ item.date }}, {{ item.time }}</p>
+        <p class="shortMail" :class="item.selected ? 'active' : ''">{{ item.subject }} - {{ item.text }}</p>
       </li>
     </ul>
-    <div class="inbox-mail-body-container go-right">
+    <div class="inbox-mail-body-container go-right"
+        v-for="(item, index) in itemSelected" :key="index">
       <div class="sender">
-        <p></p>
+        <div v-if="sendingMail" class="send-mail-text">To</div>
+        <h3>{{ item.sender }}</h3>
+        <button v-if="!sendingMail" @click="switchMail">Respond to E-Mail</button>
+        <Btn v-if="sendingMail" class="send-mail-button" secondary="true" iconName="plane" text="Send E-Mail" />
       </div>
-      <div class="subject"></div>
-      <div class="message">
-        <p>
-          Dear Students, 
-          you will have to write a essay till the 22nd of Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Aenean euismod bibendum laoreet. Proin gravida dolor sit amet lacus accumsan et viverra justo commodo.
-          Proin sodales pulvinar sic tempor. Sociis natoque penatibus et magnis dis parturient montes, nascetur 
-          ridiculus mus.Nam fermentum, nulla luctus pharetra vulputate, felis tellus mollis orci, sed rhoncus 
-          pronin sapien nunc accuan eget.
-          
-          All the best
-          Prof. Martinus
-        </p>
+      <div class="subject">
+        <div v-if="sendingMail" class="send-mail-text">Subject</div>
+        <h4 v-if="!sendingMail">{{ item.subject }}</h4>
+        <h4 v-if="sendingMail">Re: {{ item.subject }}</h4>
+        <p class="current-date-time">{{ item.date }}, {{ item.time }}</p>
       </div>
-      <button>Respond to E-mail</button>
+      <div contenteditable v-if="sendingMail" class="message-textarea"></div>
+      <div :class="!sendingMail ? 'message' : 'message-inactive'">
+          {{ item.text }}
+      </div>
+      <button v-if="!sendingMail" class="respondMail" @click="switchMail">Respond to E-Mail</button>
     </div>
   </div>
 </div>

@@ -8,41 +8,40 @@
 export default {
   // name of the component
   name: 'selectField',
-  props: [ 'list', 'genderLabel' ],
+  props: [ 'list', 'genderLabel', 'required' ],
   data() {
     return {
+      value: 'gender',
       selectedValue: 'Gender',
       listOpened: false,
+      error: false,
     };
   },
-  created () {
-    document.addEventListener('click', this.blur);
-  },
-  beforeDestroy () {
-    document.removeEventListener('click');
-  },
-  beforeDestroy () {
-    document.removeEventListener('click')
+  created() {
+    document.addEventListener('click', this.blurSelect)
   },
   methods: {
     optionSelection: function(item) {
       this.selectedValue = item.name;
       this.$emit('selectChange', item.value);
     },
-    openList: function() {
-      if (this.listOpened) {
-        this.listOpened = false;
-      } else {
-        this.listOpened = true;
-      }
-    },
-    blur(e) {
-      let el = this.$refs.selectBox;
+    blurSelect(e){
+      let el = this.$refs.selectWrapper;
       let target = e.target;
       if (( el !== target) && !el.contains(target)) {
         this.listOpened = false;
       }
+    },
+    verifyField() {
+      if ( this.selectedValue == 'Gender' && this.value == '' ) {
+        this.error = true;
+      } else {
+        this.error = false;
+      }
     }
+  },
+  destroyed () {
+    document.removeEventListener('click', this.blurSelect)
   }
 };
 </script>
