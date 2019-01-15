@@ -10,7 +10,7 @@ export default {
   name: 'notificationCmpt',
   data() {
     return {
-      // sender: 'Professor Eder'
+      sender: 'Professor Eder'
     };
   }
 };

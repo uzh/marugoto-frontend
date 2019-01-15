@@ -11,10 +11,10 @@ export default {
   props: [ 'list', 'genderLabel', 'required' ],
   data() {
     return {
-      value: 'gender',
       selectedValue: 'Gender',
       listOpened: false,
       error: false,
+      activatedValidation: false,
     };
   },
   created() {
@@ -31,9 +31,10 @@ export default {
       if (( el !== target) && !el.contains(target)) {
         this.listOpened = false;
       }
+      this.verifyField();
     },
     verifyField() {
-      if ( this.selectedValue == 'Gender' && this.value == '' ) {
+      if ( this.selectedValue == 'Gender' && this.activatedValidation == true ) {
         this.error = true;
       } else {
         this.error = false;
