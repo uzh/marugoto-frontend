@@ -1,9 +1,11 @@
 <template>
   <div>
-    <h1>Storyline view</h1>
     <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/>
     <h1>{{ pageTitle }}</h1>
+    <!-- Components -->
     <Exercise :exercises="exerciseList" @emitStatesChanged="checkState" />
+
+    <!-- Page transitions -->
     <PageTransitions 
       @transitionChoosen="request"
       :optionsList="transitionsOptions" />

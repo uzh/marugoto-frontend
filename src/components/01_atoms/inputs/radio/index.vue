@@ -6,7 +6,12 @@
 /* eslint-disable */
 
 export default {
-  // name of the component
   name: 'radioField',
+  props: ['item', 'name', 'value'],
+  methods: {
+    emitChange(value){
+      this.$emit('emitRadioChange', value);
+    },
+  },
 };
 </script>
