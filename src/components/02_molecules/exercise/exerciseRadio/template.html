@@ -1,10 +1,9 @@
 <div>
-  <h1>Radio Exercise</h1>
-  <div v-for="(item, index) in list" :key="index">
-    <input 
-      type="radio"
-      value="index"
-      name="group1"
-      @change="submitAnswer(index)" /><label>{{ item.text }}</label>
-  </div>
+  <InputRadio 
+    v-for="(item, index) in list"
+    :name="exerciseId"
+    :value="index"
+    :key="index"
+    :item="item"
+    @emitRadioChange="submitAnswer(index)" />
 </div>
