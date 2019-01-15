@@ -2,7 +2,7 @@ body, input, textarea, label, .genderLabel {
   font-family: 'Libre Baskerville', serif;
 }
 
-// .h1, .h2, .h3, .h4, .h5, .h6, .lead, .lauftext, .small, .link, .button {
+// .h1, .h2, .h3, .h4, .h5, .h6, .lead, .p, .small, .link, .button {
 //   font-family: $font;
 // }
 .h1 {
@@ -33,7 +33,7 @@ body, input, textarea, label, .genderLabel {
   font-size: 20px;
   line-height: 30px;
 }
-.lauftext {
+.p {
   font-size: 17px;
   line-height: 32px;
   letter-spacing: 0.2;

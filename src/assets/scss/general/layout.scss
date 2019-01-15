@@ -19,9 +19,34 @@ $border: 1px solid #ddd;
   right: $elements-space;
   height: $elements-space;
   padding-right: 20px;
+  width: 300px;
 
-  border-bottom: $border;
+  box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
   text-align: right;
+
+  &-icon {
+    width: 20%;
+    float: right;
+    padding-top: 35px;
+  }
+
+  .money {
+    width: 40%;
+    float: right;
+    line-height: $elements-space;
+  }
+
+  .time {
+    width: 40%;
+    float: right;
+    line-height: $elements-space;
+    position: relative;
+    .repeat {
+      position: absolute;
+      top: 20px;
+      right: 30px;
+    }
+  }
 
   &.out{
     right: 100%;
