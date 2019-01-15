@@ -3,6 +3,17 @@
   <div
     class="status-bar"
     :class="[get_layoutState.mail.opened ? 'out' : '', get_layoutState.notebook.opened ? 'halfed' : '']">
-    <p>Status bar</p>
+    <svgIcon v-if="timeIcon"
+      name="clock"
+      sizeH="20px"
+      class="status-bar-icon" />
+    <div v-if="time"
+        class="time">
+      3 min 5 sec <div class="repeat">5</div>
+    </div>
+    <div v-if="money"
+        class="money">
+      500 &pound;
+    </div>
   </div>
 </div>
