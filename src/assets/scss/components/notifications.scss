@@ -1,0 +1,14 @@
+.notification {
+    position: fixed;
+    top: 0;
+    right: 90px;
+    height: 90px;
+    width: 375px;
+    padding: 0 30px;
+    // font-size: 18px;
+    line-height: 90px;
+    text-align: right;
+    word-wrap: break-word;
+    background-color: $base-uicolor-3;
+    box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
+}
