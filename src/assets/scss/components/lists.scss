@@ -1,5 +1,5 @@
 .ordered-list {
-    @extend .lauftext;
+    @extend .p;
     position: relative;
     background-color: $base-ghost;
     padding-left: 10px;
@@ -14,7 +14,7 @@
 }
 
 .unordered-list {
-    @extend .lauftext;
+    @extend .p;
     position: relative;
     background-color: $base-ghost;
     padding-left: 10px;
@@ -28,7 +28,7 @@
 }
 
 .download-list {
-    @extend .lauftext;
+    @extend .p;
     position: relative;
     background-color: $base-ghost;
     margin-top: 20px;
@@ -45,7 +45,7 @@
 }
 
 .link-list {
-    @extend .lauftext;
+    @extend .p;
     position: relative;
     background-color: $base-ghost;
     margin-top: 20px;
@@ -62,7 +62,7 @@
 }
 
 ol li {
-    @extend .lauftext;
+    @extend .p;
     counter-increment: list;
     list-style-type: none;
     position: relative;

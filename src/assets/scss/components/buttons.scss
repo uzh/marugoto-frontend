@@ -12,13 +12,6 @@
     }
 }
 
-.button-dialog {
-    @extend .button;
-    display: inline-block;
-    width: 45%;
-    margin-right: 5%;
-}
-
 .button--primary {
     background-color: $base-primary;
     color: $white;
