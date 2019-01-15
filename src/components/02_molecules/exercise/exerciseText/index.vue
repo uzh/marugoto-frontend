@@ -1,7 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
-import InputField from '@/components/01_atoms/inputs';
+import InputField from '@/components/01_atoms/inputs/text';
 
 export default {
   name: 'ExerciseText',

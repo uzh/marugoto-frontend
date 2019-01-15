@@ -8,11 +8,5 @@
 export default {
   // name of the component
   name: 'radioField',
-  props: [ 'list' ],
-  data() {
-    return {
-      
-    };
-  }
 };
 </script>
