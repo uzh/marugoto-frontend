@@ -12,12 +12,12 @@ npm install
 npm run serve
 ```
 
-##### Compiles and hot-reloads for development
+##### Builds the application for production
 ```
 npm run build
 ```
 
-##### Compiles and hot-reloads for development
+##### Runs lint and checks if there are some errors
 ```
 npm run lint
 ```
