@@ -9,7 +9,7 @@ const apiService = axios.create({
   params: {} // do not remove this, its added to add params later in the config
 });
 
-apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.token;
+//apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.token;
 
 let isRefreshing = false;
 let failedQueue = [];

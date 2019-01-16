@@ -1,6 +1,6 @@
 <template>
   <div>
-    <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/>
+    <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
     <h1>{{ pageTitle }}</h1>
     <!-- Other components / until merge with exercises / text, image, video -->
     <div v-for="(item, index) in componentsList" :key="index">
