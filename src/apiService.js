@@ -8,7 +8,9 @@ const apiService = axios.create({
   baseURL: API_URL,
   params: {} // do not remove this, its added to add params later in the config
 });
-
+if( localStorage.getItem('UHZ') ){
+  apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.token;
+}
 //apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.token;
 
 let isRefreshing = false;
