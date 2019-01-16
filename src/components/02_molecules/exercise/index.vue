@@ -13,7 +13,9 @@ export default {
     submitAnswer: function(answer, id){
       apiService.put('states/' + id + '?inputState=' + answer)
       .then(resp => {
-        this.checkState();
+        if( resp.data.statesChanged ){
+          this.checkState();
+        }
       })
       .catch(() => {
         
