@@ -28,17 +28,17 @@ const processQueue = (error, token = null) => {
 
 apiService.interceptors.response.use(function (response) {
   // Do something with response data
-  console.log('GO trough token ok');
+  //console.log('GO trough token ok');
   return response;
 }, function (error) {
   // Do something with response error
   const originalRequest = error.config;
   
   if (error.response.status === 401 && !originalRequest._retry) {
-    console.log('Renew token');
+    //console.log('Renew token');
     if (isRefreshing) {
       return new Promise(function(resolve, reject) {
-        console.log(resolve, reject)
+        //console.log(resolve, reject)
         failedQueue.push({resolve, reject})
       }).then(token => {
         originalRequest.headers['Authorization'] = token;

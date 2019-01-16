@@ -18,9 +18,9 @@
 
 <script>
 import { mapActions } from 'vuex';
-import InputField from '@/components/01_atoms/inputs';
+import InputField from '@/components/01_atoms/inputs/text';
 import Btn from '@/components/01_atoms/buttons'
-import SelectField from '@/components/01_atoms/selectField'
+import SelectField from '@/components/01_atoms/inputs/select'
 
 
 export default {

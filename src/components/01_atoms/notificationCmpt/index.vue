@@ -7,11 +7,10 @@
 
 export default {
   // name of the component
-  name: 'radioField',
-  props: [ 'list' ],
+  name: 'notificationCmpt',
   data() {
     return {
-      
+      sender: 'Professor Eder'
     };
   }
 };

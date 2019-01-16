@@ -119,10 +119,10 @@
   .message {
     @extend .col-xs-10;
     @extend .col-xs-offset-1;
-    @extend .lauftext;
+    @extend .p;
     margin-top: 50px;
     &-inactive {
-      @extend .lauftext;
+      @extend .p;
       color: $base-secondary;
       position: relative;
       top: 100px;
@@ -136,7 +136,7 @@
     &-textarea {
       @extend .col-xs-10;
       @extend .col-xs-offset-1;
-      @extend .lauftext;
+      @extend .p;
       border-top: $base-ghost-border;
       margin-top: 30px;
       padding-top: 50px;
