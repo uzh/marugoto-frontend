@@ -9,7 +9,10 @@ const apiService = axios.create({
   params: {} // do not remove this, its added to add params later in the config
 });
 
-apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.token;
+if( localStorage.getItem('UHZ') ){
+  apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.token;
+}
+
 
 let isRefreshing = false;
 let failedQueue = [];
@@ -52,6 +55,7 @@ apiService.interceptors.response.use(function (response) {
     isRefreshing = true;
     
     return new Promise(function (resolve, reject) {
+      apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.refreshToken;
       apiService.get('/auth/refresh-token')
         .then(({data}) => {
           
