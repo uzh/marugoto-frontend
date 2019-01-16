@@ -17,6 +17,11 @@
             transform: rotate(180deg)
         }
     }
+
+    &.verified {
+        box-shadow: 0 0 0 2px $base-primary;
+        height: 50px;
+    }
 }
 
 .select-list {

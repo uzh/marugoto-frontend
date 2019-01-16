@@ -1,9 +1,10 @@
-@import 'general/reset';
 @import 'general/variables';
-@import 'general/typography';
+@import 'general/mixins.scss';
+@import 'general/reset';
 @import 'general/global';
-@import 'general/layout';
 @import 'general/grid';
+@import 'general/typography';
+@import 'general/layout';
 
 // Components
 @import 'components/01_atoms/buttons';

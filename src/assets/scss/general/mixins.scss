@@ -1,0 +1,49 @@
+// =============================================================================
+// Convert px to rem
+// =============================================================================
+
+@function calculateRemFromPixel($pixelSize) {
+	$remSize: $pixelSize / $base-size;
+	@return #{$remSize}rem;
+}
+@function calculateEmFromPixel($pixelSize) {
+	$emSize: $pixelSize / $base-size;
+	@return #{$emSize}em;
+}
+
+// =============================================================================
+// Breakpoint
+// =============================================================================
+
+@mixin breakpoint($size){
+	@each $point in $breakpoints {
+		@if($size == map-get($point, name)){
+				@media (min-width: map-get($point, size)){@content;}
+		}
+	}
+}
+
+// =============================================================================
+// Font Mixins
+// =============================================================================
+
+// Font smooting
+@mixin fontSmooting() {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+// Font size
+@mixin font-size($fs-map) {
+	@each $bp, $fs in $fs-map{
+		@if $bp == null {
+			@include font-format($fs);
+		}
+		@else {
+			@include breakpoint($bp){
+				@include font-format($fs);
+			}
+		}
+	}
+	@include fontSmooting();
+}

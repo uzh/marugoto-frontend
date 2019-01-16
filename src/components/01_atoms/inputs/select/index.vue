@@ -16,6 +16,7 @@ export default {
       listOpened: false,
       error: false,
       activatedValidation: false,
+      verified: false,
     };
   },
   created() {
@@ -39,6 +40,7 @@ export default {
         this.error = true;
       } else {
         this.error = false;
+        this.verified = true;
       }
     }
   },

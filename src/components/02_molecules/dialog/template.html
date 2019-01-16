@@ -4,9 +4,7 @@
 	</button>
 	<div class="dialog-container">
 		<div class="dialog-left">
-			<div v-for="image in images">
-				<img :src="image.background" alt="image" class="dialog-image">
-			</div>
+			<img v-for="image in images" :src="image.background" alt="image" class="dialog-image">
 		</div>
 		<div class="dialog-right">
 			<div v-for="comp in components"

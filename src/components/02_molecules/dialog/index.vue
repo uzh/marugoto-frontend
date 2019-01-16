@@ -15,7 +15,8 @@ export default {
       images: [
         {
           name: 'image',
-          background: 'https://picsum.photos/960/540',
+          width: '2',
+          background: 'https://picsum.photos/1600/900',
         }
       ],
       components: [
