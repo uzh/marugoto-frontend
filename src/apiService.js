@@ -1,6 +1,6 @@
 /* eslint-disable */
 import axios from 'axios'
-import state from './store/state'
+import store from './store'
 
 const API_URL = process.env.VUE_APP_API_PATH || 'http://localhost:8080/api'
 
@@ -30,18 +30,14 @@ const processQueue = (error, token = null) => {
 }
 
 apiService.interceptors.response.use(function (response) {
-  // Do something with response data
-  //console.log('GO trough token ok');
   return response;
 }, function (error) {
-  // Do something with response error
   const originalRequest = error.config;
   
   if (error.response.status === 401 && !originalRequest._retry) {
-    //console.log('Renew token');
     if (isRefreshing) {
       return new Promise(function(resolve, reject) {
-        //console.log(resolve, reject)
+        
         failedQueue.push({resolve, reject})
       }).then(token => {
         originalRequest.headers['Authorization'] = token;
@@ -58,11 +54,6 @@ apiService.interceptors.response.use(function (response) {
       apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.refreshToken;
       apiService.get('/auth/refresh-token')
         .then(({data}) => {
-          
-            store.dispatch('UPDATE_TOKEN', {
-              token: data.token,
-              refreshToken: data.refreshToken,
-            });
             apiService.defaults.headers.common['Authorization'] = data.token;
             originalRequest.headers['Authorization'] = data.token;
             processQueue(null, data.token);
@@ -72,7 +63,13 @@ apiService.interceptors.response.use(function (response) {
             processQueue(err, null);
             reject(err);
         })
-        .then(() => { isRefreshing = false })
+        .then(() => { 
+          isRefreshing = false;
+          store.dispatch('UPDATE_TOKEN', {
+            token: data.token,
+            refreshToken: data.refreshToken,
+          });
+        })
     })
   }
   return Promise.reject(error);
