@@ -1,15 +1,15 @@
 <template>
   <div id="app">
     <div class="page-container" :class="get_layoutState.notebook.opened ? 'halved' : ''">
-      <Topbar />
+      <Topbar v-if="get_status.isLoged"/>
       <div><router-view /></div>
     </div>
-    <RightSidebar />
-    <NotebookContainer />
+    <RightSidebar v-if="get_status.isLoged"/>
+    <NotebookContainer v-if="get_status.isLoged"/>
     <MailContainer v-if="get_status.isLoged" />
-    <button id="show-dialog" @click="LAYOUT_OPEN('dialog')">Open Dialog</button>
+    <!-- <button id="show-dialog" @click="LAYOUT_OPEN('dialog')">Open Dialog</button> -->
     <DialogComponent v-if="get_layoutState.dialog.opened" @close="LAYOUT_CLOSE('dialog')" />
-    <NotificationCmpt />
+    <!-- <NotificationCmpt /> -->
   </div>
 </template>
 
