@@ -8,6 +8,7 @@ $border: 1px solid #ddd;
   padding-right: $elements-space;
   &.halved {
     width: calc(50% - 90px);
+    padding-right: 0;
   }
   transition: all 0.3s;
 }

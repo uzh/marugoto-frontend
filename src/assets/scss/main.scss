@@ -1,22 +1,23 @@
+@import 'general/reset';
 @import 'general/variables';
 @import 'general/typography';
 @import 'general/global';
-@import 'general/reset';
 @import 'general/layout';
 @import 'general/grid';
 
-
 // Components
-@import 'components/rightSidebar';
-@import 'components/mailContainer';
-@import 'components/notebookContainer';
-@import 'components/transition.scss';
-@import 'components/buttons';
-@import 'components/inputs.scss';
-@import 'components/icons.scss';
-@import 'components/selects.scss';
-@import 'components/lists.scss';
-@import 'components/dialogs.scss';
-@import 'components/checkbox.scss';
-@import 'components/radio.scss';
-@import 'components/notifications.scss';
+@import 'components/01_atoms/buttons';
+@import 'components/01_atoms/checkbox.scss';
+@import 'components/01_atoms/icons.scss';
+@import 'components/01_atoms/inputs.scss';
+@import 'components/01_atoms/lists.scss';
+@import 'components/01_atoms/notifications.scss';
+@import 'components/01_atoms/radio.scss';
+@import 'components/01_atoms/selects.scss';
+
+@import 'components/02_molecules/dialogs.scss';
+@import 'components/02_molecules/transition.scss';
+
+@import 'components/03_organisms/mailContainer';
+@import 'components/03_organisms/notebookContainer';
+@import 'components/03_organisms/rightSidebar';
