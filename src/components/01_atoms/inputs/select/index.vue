@@ -36,9 +36,9 @@ export default {
       this.verifyField();
     },
     verifyField() {
-      if ( this.selectedValue == 'Gender' && this.activatedValidation == true ) {
+      if ( this.selectedValue == 'Gender' && this.activatedValidation) {
         this.error = true;
-      } else {
+      } else if (this.activatedValidation) {
         this.error = false;
         this.verified = true;
       }
