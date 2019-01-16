@@ -1,7 +1,7 @@
 <template>
   <div id="app">
     <div class="page-container" :class="get_layoutState.notebook.opened ? 'halved' : ''">
-      <!-- <Topbar /> -->
+      <Topbar v-if="get_status.isLoged"/>
       <div><router-view /></div>
     </div>
     <RightSidebar v-if="get_status.isLoged"/>
