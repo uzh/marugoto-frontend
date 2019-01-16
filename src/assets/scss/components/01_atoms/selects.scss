@@ -10,7 +10,6 @@
     background-color: $white;
     padding-left: 10px;
     padding-top: 16px;
-    font-size: $base-size;
 
     &.openedList{
         .select-field-arrow{
@@ -21,6 +20,7 @@
     &.verified {
         box-shadow: 0 0 0 2px $base-primary;
         height: 50px;
+        padding-top: 20px;
     }
 }
 
