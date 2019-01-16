@@ -5,7 +5,7 @@ import svgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   name: 'NotebookHeader',
-  props: [ 'text' ],
+  props: [ 'title' ],
   components: { svgIcon },
   data(){
     return{

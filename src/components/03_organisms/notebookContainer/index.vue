@@ -15,19 +15,19 @@ export default {
       headerTitle: '',
       listItems: [
         {
-          text: 'First of a kind',
+          title: 'First of a kind',
           current: false
         },
         {
-          text: 'The one before',
+          title: 'The one before',
           current: false
         },
         {
-          text: 'Dancing at the rokumenikan',
+          title: 'Dancing at the rokumenikan',
           current: false
         },
         {
-          text: 'Spreckensville',
+          title: 'Spreckensville',
           current: false
         },
       ]
@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     chooseStory(item) {
-      this.headerTitle = item.text;
+      this.headerTitle = item.title;
       this.listItems.forEach(el => el.current = false);
       item.current = true;
     }

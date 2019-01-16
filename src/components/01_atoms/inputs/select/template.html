@@ -5,9 +5,14 @@
 	</p>
 	<div 
 		class="select-field"
+		:class="{openedList : listOpened}"
 		ref="selectWrapper"
-		@click="listOpened = true">
+		@click="[listOpened = true, activatedValidation = true]">
 		{{ selectedValue }}
+		<SvgIcon 
+		name="arrow-bottom"
+		sizeH="20px"
+		class="icon-right select-field-arrow"/>
 	</div>
 	<!-- Error mark -->
 	<div 

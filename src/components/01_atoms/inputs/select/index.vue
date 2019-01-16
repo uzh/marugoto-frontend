@@ -4,17 +4,18 @@
 <!-- start JS -->
 <script>
 /* eslint-disable */
-
+import SvgIcon from '@/components/01_atoms/svgicon';
 export default {
   // name of the component
   name: 'selectField',
   props: [ 'list', 'genderLabel', 'required' ],
+  components: { SvgIcon},
   data() {
     return {
-      value: 'gender',
       selectedValue: 'Gender',
       listOpened: false,
       error: false,
+      activatedValidation: false,
     };
   },
   created() {
@@ -31,9 +32,10 @@ export default {
       if (( el !== target) && !el.contains(target)) {
         this.listOpened = false;
       }
+      this.verifyField();
     },
     verifyField() {
-      if ( this.selectedValue == 'Gender' && this.value == '' ) {
+      if ( this.selectedValue == 'Gender' && this.activatedValidation == true ) {
         this.error = true;
       } else {
         this.error = false;
