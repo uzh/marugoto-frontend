@@ -1,8 +1,12 @@
+$height: 50px;
+$width: 100%;
+$max-width: 1000px;
+
 .button {
     position: relative;
     display: block;
-    width: $button-width;
-    height: $button-height;
+    width: $width;
+    height: $height;
     font-size: $base-size;
     font-family: $font;
     text-align: center;
@@ -35,8 +39,8 @@
     box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.5);
     &--icon-right {
         background-color: $black;
-        height: $icon-height;
-        width: $icon-width;
+        height: 40px;
+        width: 40px;
         position: absolute;
         top: 5px;
         right: 0px;

@@ -1,3 +1,6 @@
+$height: 50px;
+$width: 100%;
+
 .radio {
     display: block;
     .container {
@@ -7,8 +10,8 @@
         position: relative;
         padding-left: 30px;
         padding-top: 17px;
-        height: $input-base-height;
-        width: $input-base-width;
+        height: $height;
+        width: $width;
         margin-bottom: 10px;
         cursor: pointer;
         font-size: $base-size;
