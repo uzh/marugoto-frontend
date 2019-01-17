@@ -2,9 +2,9 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import NotebookHeader from '../../01_atoms/notebookHeader';
-import NotebookList from '../../01_atoms/notebookList';
-import NotebookChapterMenu from '../../01_atoms/notebookChapterMenu';
+import NotebookHeader from './notebookHeader';
+import NotebookList from './notebookList';
+import NotebookChapterMenu from './notebookChapterMenu';
 
 export default {
   name: 'NotebookContainer',
