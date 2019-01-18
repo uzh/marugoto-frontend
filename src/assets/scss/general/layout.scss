@@ -58,8 +58,16 @@ $border: 1px solid #ddd;
 
 // CONTAINERS
 .main-container {
-  margin-left: 10%;
-  width: 60%;
+  width: 100%;
+  margin-left: 8.33%;
+  @include breakpoint(tablet) {
+    width: 80%;
+    margin-left: 8.33%;
+  }
+  @include breakpoint(desktop) {
+    width: 60%;
+    margin-left: 8.33%;
+  }
 }
 
 .notebook-container{

@@ -56,7 +56,7 @@ $height: 50px;
 }
 
 .genderLabel {
-    font-size: 11px;
+    @extend .label;
     padding-left: 10px;
     color: $base-primary;
     position: absolute;

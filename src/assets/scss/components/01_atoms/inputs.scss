@@ -26,10 +26,11 @@ $max-width: 1000px;
     }
 
    label {
-       position: absolute;
-       top: 16px;
-       left: 10px;
+       @extend .label;
        font-size: $base-size;
+       position: absolute;
+       top: 20px;
+       left: 10px;
        transition: all 0.3s;
    }
 
@@ -47,7 +48,7 @@ $max-width: 1000px;
        box-shadow: 0 2px 0 0 $base-primary;
         label {
             top: 5px;
-            font-size: 11px;
+            @extend .label;
             color: $base-primary;
         }
    }
@@ -57,7 +58,7 @@ $max-width: 1000px;
         height: auto;
         label {
             top: 5px;
-            font-size: 11px;
+            @extend .label;
             color: $base-primary;
         }
     }

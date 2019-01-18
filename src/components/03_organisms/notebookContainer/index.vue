@@ -5,16 +5,14 @@ import { mapGetters } from 'vuex';
 import NotebookHeader from './notebookHeader';
 import NotebookList from './notebookList';
 import NotebookChapterMenu from './notebookChapterMenu';
-import NotebookContent from './notebookContent';
 
 export default {
   name: 'NotebookContainer',
-  components: { NotebookHeader, NotebookList, NotebookChapterMenu, NotebookContent },
+  components: { NotebookHeader, NotebookList, NotebookChapterMenu },
   data(){
     return{
       title: 'Notebook',
       headerTitle: '',
-      showContent: true,
       listItems: [
         {
           title: 'First of a kind',

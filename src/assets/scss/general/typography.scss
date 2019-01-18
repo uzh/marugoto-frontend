@@ -44,6 +44,11 @@ body, input, textarea, label, .genderLabel {
     border: 1px solid $base-primary-border;
   }
 }
+.label {
+  font-size: 11px;
+  line-height: 13px;
+  letter-spacing: 0.4px;
+}
 
 h1 { @extend .h1; }
 h2 { @extend .h2; }
@@ -52,6 +57,6 @@ h4 { @extend .h4; }
 h5 { @extend .h5; }
 h6 { @extend .h6; }
 p { @extend .p; }
-small { @extend .small ; }
+small { @extend .small; }
 link { @extend .link; }
 button { @extend .button; }

@@ -8,9 +8,9 @@
       labelName="Password" />
     </form>
     <br>
-    <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" />
+    <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
     <br>
-    <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" />
+    <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
   </div>
 </template>
 
