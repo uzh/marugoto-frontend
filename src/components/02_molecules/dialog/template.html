@@ -10,7 +10,7 @@
 			<div v-for="comp in components"
 				:class="comp.name == 'title' ? 'dialog-title' : comp.name == 'subtitle' ? 'dialog-subtitle' : comp.name == 'text' ? 'dialog-text' : ''"
 			>{{ comp.text }}</div>
-			<Btn secondary="true" class="dialog-button" iconName="arrow-right"
+			<Btn secondary="true" class="dialog-button" iconName="arrow-right" iconColor="#979797" iconPosition="right"
 				v-for="(option, index) in options"
 				:key="index"
 				:text="option.text" />

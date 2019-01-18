@@ -17,7 +17,7 @@
         <div v-if="sendingMail" class="send-mail-text">To</div>
         <h5>{{ item.sender }}</h5>
         <button v-if="!sendingMail" @click="switchMail">Respond to E-Mail</button>
-        <Btn v-if="sendingMail" class="send-mail-button" secondary="true" iconName="plane" text="Send E-Mail" />
+        <Btn v-if="sendingMail" class="send-mail-button" secondary="true" iconName="plane" iconPosition="right" iconColor="white" text="Send E-Mail" />
       </div>
       <div class="subject">
         <div v-if="sendingMail" class="send-mail-text">Subject</div>

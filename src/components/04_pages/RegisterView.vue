@@ -11,8 +11,7 @@
       <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
       <InputField v-model="password" typeProp="password" labelName="Password" required="true"/>
     </form>
-    <Btn @click.native="register"
-      text="Continue" primary="true" iconName="arrow-right" iconColor="#979797" />
+    <Btn @click.native="register" text="Continue" primary="true" iconName="arrow-right" iconColor="#979797" iconPosition="right" />
   </div>
 </template>
 

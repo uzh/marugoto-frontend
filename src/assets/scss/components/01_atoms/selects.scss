@@ -75,6 +75,9 @@ $height: 50px;
 }
 
 .select-field-arrow {
+    position: absolute;
+    top: 15px;
+    right: 0;
     z-index: 2;
     width: 20px;
     margin-right: 10px;

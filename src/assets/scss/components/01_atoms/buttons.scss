@@ -9,6 +9,8 @@ $width: 100%;
     font-size: $base-size;
     line-height: 20px;
     text-align: center;
+    overflow: auto;
+    padding: 0 40px;
     cursor: pointer;
     &:disabled, &.disabled {
         opacity: 0.3;

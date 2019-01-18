@@ -11,7 +11,7 @@ export default {
   name: 'Btn',
   components: { SvgIcon },
   props: ['primary', 'secondary', 'text', 'ghost',
-   'disabled', 'iconName', 'iconColor'],
+   'disabled', 'iconName', 'iconColor', 'iconPosition'],
   data() {
     return {
       
