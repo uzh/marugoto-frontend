@@ -1,0 +1,15 @@
+<div class="notebook-content-cutout">
+  <div class="notebook-content-cutout-left">
+      <div v-for="(item, index) in list"
+          :key="index"
+          :class="item.name == 'text' ? 'notebook-content-cutout-text' : ''">
+          {{ item.text }}
+      </div>
+  </div>
+  <div class="notebook-content-cutout-right">
+      <img v-for="(image, index) in images"
+          :key="index"
+          :class="image.name == 'image' ? 'notebook-content-cutout-image' : ''"
+          :src="image.background" alt="image">
+  </div>
+</div>

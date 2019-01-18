@@ -6,6 +6,10 @@
 	$remSize: $pixelSize / $base-size;
 	@return #{$remSize}rem;
 }
+@function calculateEmFromPixel($pixelSize) {
+	$remSize: $pixelSize / $base-size;
+	@return #{$remSize}em;
+}
 
 // =============================================================================
 // Breakpoint
