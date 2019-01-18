@@ -69,4 +69,11 @@ export default({
         state.layout.dialog.opened = false;
     }
   },
+  // UPDATE TRANSITIONS
+  [types.TRANSITIONS_UPDATE] (state, payload) {
+    state.pageTransitionStates = payload;
+  },
+  [types.PAGE_COMPONENTS_UPDATE] (state, payload) {
+    state.pageComponents = payload;
+  },
 });

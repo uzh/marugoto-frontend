@@ -6,7 +6,7 @@ import InputField from '@/components/01_atoms/inputs/text';
 export default {
   name: 'ExerciseText',
   components: { InputField },
-  props: [ 'question', 'exerciseId' ],
+  props: [ 'exerciseId', 'placeholder' ],
   data(){
     return{
       answer: '',

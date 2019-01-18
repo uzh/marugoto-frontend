@@ -17,9 +17,9 @@ export default {
       error: false,
     };
   },
-  created: function() {
-      this.setFocus();
-  },
+  // created: function() {
+  //     this.setFocus();
+  // },
   computed: {
     computedType: function () {
       if( this.$props.typeProp === '' || this.$props.typeProp === undefined ){

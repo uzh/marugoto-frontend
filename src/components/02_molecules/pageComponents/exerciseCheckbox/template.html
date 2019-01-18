@@ -1,0 +1,9 @@
+<div>
+  <InputCheckbox
+    v-for="(item, index) in list"
+    :name="exerciseId"
+    :value="index"
+    :key="index"
+    :item="item"
+    @emitCheckboxChange="submitAnswer(index)" />
+</div>
