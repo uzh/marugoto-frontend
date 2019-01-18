@@ -5,7 +5,7 @@
           v-for="(item, index) in list" :key="index"
           @click="selectMail(item)"
           :class="item.selected ? 'active' : ''">
-        <h4>{{ item.sender }}</h4>
+        <h6>{{ item.sender }}</h6>
         <p class="current-date-time"
         :class="item.selected ? 'active' : ''">{{ item.date }}, {{ item.time }}</p>
         <p class="shortMail" :class="item.selected ? 'active' : ''">{{ item.subject }} - {{ item.text }}</p>

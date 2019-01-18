@@ -21,7 +21,7 @@
   
   .dialog-container {
     @extend .col-xs-10;
-    margin: 0 8.33%;
+    @extend .col-xs-offset-1;
     position: relative;
     top: 90px;
     height: 83.33333333%;
@@ -48,12 +48,12 @@
 
       .dialog-title {
         margin-bottom: 25px;
-        font-size: $h5;
+        @extend .h5;
       }
 
       .dialog-subtitle {
         margin-bottom: 25px;
-        font-size: $h6;
+        @extend .h6;
       }
 
       .dialog-text {
@@ -67,7 +67,6 @@
       display: inline-block;
       width: 45%;
       margin-right: 5%;
-      margin-bottom: 50px;
+      margin-bottom: 48px;
     }
   }
-  
