@@ -10,6 +10,7 @@ export default {
   name: 'notificationCmpt',
   data() {
     return {
+      mailArrived: true,
       sender: 'Professor Eder'
     };
   }

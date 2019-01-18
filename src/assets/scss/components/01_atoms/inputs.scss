@@ -1,10 +1,14 @@
+$height: 50px;
+$width: 100%;
+$max-width: 1000px;
+
 .input-field {
    position: relative;
    box-sizing: border-box;
    display: block;
    margin-bottom: 20px;
-   height: $input-base-height;
-   width: $input-base-width;
+   height: $height;
+   width: $width;
    box-shadow: 0 1px 0 0 $base-primary;
    &.disabled {
        color: $base-uicolor-2;
@@ -14,7 +18,7 @@
     .errorMessage {
         position: absolute;
         top: 50px;
-        padding-top: 1px;
+        padding-top: 3px;
         width: 100%;
         font-size: 12px;
         color: $base-accent;
@@ -32,10 +36,10 @@
    input {
        display: block;
        width: 100%;
-       height: $input-base-height;
-       line-height: $input-base-height;
+       height: $height;
        border: none;
        padding-left: 10px;
+       padding-top: 6px;
        font-size: $base-size;
    }
 

@@ -1,3 +1,43 @@
+// Typography
+$font : Helvetica;
+
+//Typo
+$base-size: 16px;
+$h1: ( null: (48px, 80px, 0px) );
+$h2: ( null: (36px, 60px, 0px) );
+$h3: ( null: (32px, 40px, 0px) );
+$h4: ( null: (28px, 30px, 0px) );
+$h5: ( null: (24px, 30px, 0px) );
+$h6: ( null: (18px, 25px, 0px) );
+$lead: ( null: (20px, 30px, 0px) );
+$p: ( null: (17px, 32px, 0px) );
+$small: ( null: (14px, 20px, 0px) );
+$link: ( null: ($base-size, 20px, 0px) );
+$button: ( null: ($base-size, 20px, 0px) );
+
+
+
+// obrisati nakon upotrebe miksina
+$h1: 48px; 
+$h2: 36px;
+$h3: 32px;
+$h4: 28px;
+$h5: 24px;
+$h6: 18px;
+// obrisati nakon upotrebe miksina
+
+
+
+// Layout
+$max-width: 940px;
+$max-width-inner: 620px;
+
+$column-gap: 20px;
+$outer-gap: 15px;
+
+$outer-width: $max-width + $outer-gap*2;
+$inner-width: $max-width-inner + $outer-gap*2;
+
 // Colors
 $black: #000000;
 $white: #FFFFFF;
@@ -27,18 +67,6 @@ $base-uicolor-3-border: 1px solid $base-primary-border;
 
 $select-item-hover: #F2F0EE;
 
-//Fonts
-$font: Helvetica;
-
-$base-size: 16px;
-
-$h1: 48px;
-$h2: 36px;
-$h3: 32px;
-$h4: 28px;
-$h5: 24px;
-$h6: 18px;
-
 // Breakpoints
 // very large desktop
 $bp-lg: 78rem;
@@ -52,27 +80,3 @@ $breakpoints:(
     (name: desktop, size: $bp-md),
     (name: tablet, size: $bp-sm) 
 );
-
-// Layout
-$max-width: 940px;
-$max-width-inner: 620px;
-
-$column-gap: 20px;
-$outer-gap: 15px;
-
-$outer-width: $max-width + $outer-gap*2;
-$inner-width: $max-width-inner + $outer-gap*2;
-
-//Icons
-$icon-height: 40px;
-$icon-width: $icon-height;
-
-//Inputs
-$input-base-height: 50px;
-$input-base-width: 100%;
-$input-max-width: 1000px;
-
-//Buttons
-$button-height: 50px;
-$button-width: 100%;
-$button-max-width: $input-max-width;

@@ -4,15 +4,11 @@
 	</button>
 	<div class="dialog-container">
 		<div class="dialog-left">
-			<div v-for="image in images"
-				class="dialog-image"
-				:style="{ 'background': 'url(' + image.background + ')' }">
-			</div>
+			<img v-for="image in images" :src="image.background" alt="image" class="dialog-image">
 		</div>
 		<div class="dialog-right">
 			<div v-for="comp in components"
 				:class="comp.name == 'title' ? 'dialog-title' : comp.name == 'subtitle' ? 'dialog-subtitle' : comp.name == 'text' ? 'dialog-text' : ''"
-				:style="{ 'background': 'url(' + comp.background + ')' }"
 			>{{ comp.text }}</div>
 			<Btn secondary="true" class="dialog-button" iconName="arrow-right"
 				v-for="(option, index) in options"
