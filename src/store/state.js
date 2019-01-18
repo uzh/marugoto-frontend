@@ -28,4 +28,7 @@ export default ({
   mailBox: {
     
   },
+  pageTransitionStates: [],
+  pageComponents: [],
+  page: {},
 });

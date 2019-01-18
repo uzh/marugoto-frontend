@@ -1,6 +1,10 @@
 <div class="checkbox">
 	<label class="container" v-for="(item, index) in list" :key="index">
-		<input type="checkbox">{{ item.text }}
+		<input 
+			type="checkbox"
+			@change="emitChange(value)"
+			:name="name"
+			:value="value">{{ item.text }}
 		<span class="checkmark"></span>
 	</label>
 </div>

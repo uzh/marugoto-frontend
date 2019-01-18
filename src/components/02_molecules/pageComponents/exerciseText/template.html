@@ -1,9 +1,8 @@
 <div>
-    <h1>Text Exercise</h1>
-    <p>{{ question }}</p>
     <InputField 
       v-model="answer" 
       typeProp="text" 
       labelName="Enter answer"
+      :labelName="placeholder"
       @keydown.native.enter="submitAnswer" />
   </div>

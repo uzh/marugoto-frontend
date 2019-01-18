@@ -53,4 +53,30 @@ export default({
   [types.LAYOUT_CLOSE]: (context, payload) => {
     context.commit(types.LAYOUT_CLOSE, payload);
   },
+  // UPDATE
+  [types.REQUEST_PAGE_CURRENT]: ({commit}) => {
+    return new Promise((resolve, reject) => {
+      apiService.get('/pages/current')
+      .then(resp => {
+        commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
+        commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
+        resolve(resp);
+      })
+      .catch(err => {
+        reject(err);
+      })
+    })
+  },
+  // [types.REQUEST_PAGE_TRANSITION]: (context, payload) => {
+  //   return new Promise((resolve, reject) => {
+  //     apiService.post('pageTransitions/doPageTransition/' + payload + '?chosenByPlayer=true')
+  //     .then(resp => {
+  //       commit(types.REQUEST_PAGE_TRANSITION, resp.data);
+  //       resolve(resp);
+  //     })
+  //     .catch(err => {
+  //       reject(err);
+  //     });
+  //   })
+  // },
 });

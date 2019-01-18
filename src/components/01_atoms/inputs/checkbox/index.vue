@@ -8,11 +8,11 @@
 export default {
   // name of the component
   name: 'checkboxField',
-  props: [ 'list' ],
-  data() {
-    return {
-      
-    };
-  }
+  props: ['item', 'name', 'value'],
+  methods: {
+    emitChange(value){
+      this.$emit('emitCheckboxChange', value);
+    },
+  },
 };
 </script>

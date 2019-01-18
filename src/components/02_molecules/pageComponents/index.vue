@@ -1,14 +1,19 @@
 <template src="./template.html"></template>
 
 <script>
+import { mapGetters } from 'vuex'
 import apiService from '@/apiService'
 import ExerciseRadio from './exerciseRadio'
 import ExerciseText from './exerciseText'
+import TextComponent from './text'
 
 export default {
-  name: 'Exercise',
-  components: { ExerciseRadio, ExerciseText },
+  name: 'PageComponents',
+  components: { ExerciseRadio, ExerciseText, TextComponent },
   props: [ 'exercises' ],
+  computed: {
+    ...mapGetters([ 'get_PageComponents' ]),
+  },
   methods: {
     submitAnswer: function(answer, id){
       apiService.put('states/' + id + '?inputState=' + answer)

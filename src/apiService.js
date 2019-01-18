@@ -62,7 +62,8 @@ apiService.interceptors.response.use(function (response) {
             processQueue(err, null);
             reject(err);
         })
-        .then(() => { 
+        .then(() => {
+          alert('Can I refresh token');
           isRefreshing = false;
           store.dispatch('UPDATE_TOKEN', {
             token: data.token,

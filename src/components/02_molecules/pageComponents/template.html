@@ -1,0 +1,19 @@
+<div>
+  <div 
+    v-for="(component, index) in get_PageComponents" 
+    :key="index"
+    :class="`col-xs-${component.numberOfColumns}`" >
+    <!-- Text -->
+    <TextComponent v-if="component.type == 'TextComponent'" :text="component.markdownContent" />
+    <!-- Exercise Radio -->
+    <ExerciseRadio 
+      v-if="component.type == 'RadioButtonExercise'"
+      :exerciseId="component.exerciseState.id"
+      :list="component.options" />
+    <!-- Exercise Text -->
+    <ExerciseText 
+      v-if="component.type == 'TextExercise'"
+      :exerciseId="component.exerciseState.id"
+      :placeholder="component.placeholderText" />
+  </div>
+</div>
