@@ -2,15 +2,16 @@
   <div class="main-container">
     <h1 class="page-title h1">Login</h1>
     <p class="lead">Please log in or create a new account to play the game:</p>
-    <form @keydown.enter="login">
+    <!-- <form @keydown.enter="login">
       <InputField v-model="mail" typeProp="email" labelName="E-Mail" />
       <InputField v-model="password" typeProp="password"
       labelName="Password" />
-    </form>
+    </form> -->
     <br>
-    <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
+    <!-- <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
     <br>
-    <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
+    <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" /> -->
+    <ExerciseUpload />
   </div>
 </template>
 
@@ -20,9 +21,11 @@ import { mapActions } from 'vuex';
 import InputField from '@/components/01_atoms/inputs/text';
 import Btn from '@/components/01_atoms/buttons';
 
+import ExerciseUpload from '../02_molecules/pageComponents/exerciseUpload';
+
 export default {
   name: 'loginView',
-  components: { InputField, Btn },
+  components: { InputField, Btn, ExerciseUpload },
   data(){
     return{
       mail: '',

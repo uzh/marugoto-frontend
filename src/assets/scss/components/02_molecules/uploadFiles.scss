@@ -1,0 +1,65 @@
+.upload-files-container {
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
+    height: 300px;
+    background-color: inherit;
+
+    .upload-files-header {
+        height: 40px;
+    }
+
+    .upload-files-main {
+        height: 140px;
+        background-color: $select-item-hover;
+        border: 1px solid $base-primary-border;
+        
+        .left {
+            display: inline-block;
+            width: 45%;
+            height: 138px;
+            line-height: 138px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 12px;
+            &:hover {
+                outline: 1px dashed $base-primary-border;
+            }
+        }
+
+        .right {
+            display: inline-block;
+            width: 45%;
+            height: 138px;
+            line-height: 138px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 12px;
+            input {
+                display: none;
+            }
+            label {
+                display: block;
+            }
+        }
+        
+        .center {
+            display: inline-block;
+            width: 10%;
+            height: 140px;
+            line-height: 140px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 12px;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                top: -6px;
+                right: 49%;
+                height: 148px;
+                border: 1px solid $white;
+                transform: rotate(24deg);
+            }
+        }
+    }
+}
