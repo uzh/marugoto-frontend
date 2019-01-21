@@ -27,7 +27,7 @@ export default {
       });
     },
     checkState(){
-      apiService.get('states')
+      apiService.get('states') 
       .then( resp => {
         this.$emit('emitStatesChanged');
       })
