@@ -2,6 +2,6 @@
   class="notebook-container"
   :class="get_layoutState.notebook.opened ? 'in' : ''">
   <NotebookHeader :title="headerTitle" />
-  <NotebookList v-if="!showContent" :list="listItems" @selectItem="chooseStory" />
-  <NotebookChapterMenu v-if="!showContent" />
+  <NotebookList :list="listItems" @selectItem="chooseStory" />
+  <NotebookChapterMenu />
 </div>

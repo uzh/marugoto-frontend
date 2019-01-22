@@ -11,7 +11,6 @@
     <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
     <br>
     <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
-    <ExerciseUpload />
   </div>
 </template>
 
@@ -21,11 +20,9 @@ import { mapActions } from 'vuex';
 import InputField from '@/components/01_atoms/inputs/text';
 import Btn from '@/components/01_atoms/buttons';
 
-import ExerciseUpload from '../02_molecules/pageComponents/exerciseUpload';
-
 export default {
   name: 'loginView',
-  components: { InputField, Btn, ExerciseUpload },
+  components: { InputField, Btn },
   data(){
     return{
       mail: '',

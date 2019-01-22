@@ -1,8 +1,55 @@
+$margin-bottom: 100px;
+
+// Test Container
+.test-container {
+    width: 100%;
+    height: auto;
+    margin-bottom: 7.5rem;
+}
+
+// Title
+.title-component {
+    width: 100%;
+    height: 100px;
+    margin-bottom: 60px;
+    .icon-title {
+        @extend .col-xs-2;
+        height: 100px;
+        line-height: 100px;
+        vertical-align: middle;
+        text-align: center;
+    }
+    h1 {
+        @extend .col-xs-10;
+    }
+}
+
+// Text
+.text-component {
+    margin-bottom: $margin-bottom;
+}
+
+// Image
+.image-component {
+    height: auto;
+    margin-bottom: $margin-bottom;
+    img {
+        width: 100%;
+    }
+    p {
+        @extend .small;
+        width: calc(75% - 10px);
+        float: right;
+    }
+}
+
+// Exercise Upload
 .upload-files-container {
     @extend .col-xs-10;
     @extend .col-xs-offset-1;
     height: 300px;
     background-color: inherit;
+    margin-bottom: $margin-bottom;
 
     .upload-files-header {
         height: 40px;
@@ -61,5 +108,14 @@
                 transform: rotate(24deg);
             }
         }
+    }
+}
+
+.button-component {
+    @extend .col-xs-8;
+    @extend .col-xs-offset-2;
+
+    h4 {
+        margin-bottom: 50px;
     }
 }

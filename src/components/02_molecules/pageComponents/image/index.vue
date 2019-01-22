@@ -2,7 +2,7 @@
 
 <script>
 export default {
-  name: 'TextComponent',
-  props: [ 'text', 'lead', 'width' ],
+  name: 'ImageComponent',
+  props: [ 'width' ],
 }
 </script>
