@@ -118,6 +118,10 @@ $margin-bottom: 100px;
     @extend .clear-float;
 
     h4 {
-        margin-bottom: 50px;
+        margin-bottom: 2.5rem;
+    }
+
+    button {
+        margin-bottom: 1.25rem;
     }
 }

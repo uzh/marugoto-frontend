@@ -6,5 +6,6 @@ import Btn from '@/components/01_atoms/buttons';
 export default {
   name: 'ButtonComponent',
   components: { Btn },
+  props: [ 'buttons' ],
 }
 </script>
