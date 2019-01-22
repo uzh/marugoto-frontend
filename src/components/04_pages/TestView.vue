@@ -1,6 +1,6 @@
 <template>
   <div class="test-container">
-    <TitleComponent />
+    <TitleComponent title="Elements" />
     <TextComponent text="Spreckelsville was founded in 1878 as a company town by German-American Spreckelsville was founded in 1878 as a company town by German-American" lead="true" width="7" />
     <ImageComponent width="4" source="https://picsum.photos/200/300" />
     <TextComponent text="He arrived Maui in 1876 after the passage of the Reciprocity Treaty of 1876 He arrived Maui in 1876 after the passage of the Reciprocity Treaty of 1876 He arrived Maui in 1876 after the passage of the Reciprocity Treaty of 1876 He arrived Maui in 1876 after the passage of the Reciprocity Treaty of 1876" width="4" />
