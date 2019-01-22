@@ -14,7 +14,7 @@ $width: 100%;
         width: $width;
         margin-bottom: 10px;
         cursor: pointer;
-        font-size: $base-size;
+        font-size: 1rem;
         user-select: none;
         &.disabled {
             opacity: 0.1;

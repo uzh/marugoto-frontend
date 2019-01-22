@@ -30,7 +30,6 @@ $height: 50px;
     position: absolute;
     z-index: 1;
     top: 0px;
-    font-size: $base-size;
     width: 100%;
     height: auto;
     background-color: $white;
@@ -69,7 +68,7 @@ $height: 50px;
     top: 50px;
     padding-top: 3px;
     width: 100%;
-    font-size: 12px;
+    font-size: 0.75rem;
     color: $base-accent;
     border-top: 2px solid $base-accent;
 }

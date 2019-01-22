@@ -1,8 +1,14 @@
 <template src="./template.html"></template>
 
 <script>
+
 export default {
-  name: 'TextComponent',
-  props: [ 'text', 'lead', 'width' ],
+  name: 'ExerciseUpload',
+  data(){
+    return{
+      
+    }
+  }
 }
+
 </script>
