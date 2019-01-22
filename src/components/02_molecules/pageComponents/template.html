@@ -4,14 +4,24 @@
     :key="index"
     :class="`col-xs-${component.numberOfColumns}`" >
     <!-- Text -->
-    <TextComponent v-if="component.type == 'TextComponent'" :text="component.markdownContent" />
+    <TextComponent
+      v-if="component.type == 'TextComponent'"
+      :text="component.markdownContent" />
     <!-- Exercise Radio -->
-    <ExerciseRadio 
+    <ExerciseRadio
+      @emitRadioChange="submitAnswer"
       v-if="component.type == 'RadioButtonExercise'"
       :exerciseId="component.exerciseState.id"
       :list="component.options" />
+    <!-- Exercise Checkbox -->
+    <ExerciseCheckbox
+      @emitCheckboxChange="submitAnswer"
+      v-if="component.type == 'CheckboxExercise'"
+      :exerciseId="component.exerciseState.id"
+      :optionsList="component.options" />
     <!-- Exercise Text -->
     <ExerciseText 
+      @emitInputAnswer="submitAnswer"
       v-if="component.type == 'TextExercise'"
       :exerciseId="component.exerciseState.id"
       :placeholder="component.placeholderText" />

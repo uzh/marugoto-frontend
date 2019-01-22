@@ -8,8 +8,8 @@ export default {
   props: [ 'list', 'exerciseId' ],
   components: { InputRadio },
   methods: {
-    submitAnswer: function(answer){
-      this.$emit('emitAnswer', answer, this.exerciseId);
+    emitAnswer: function(answer){
+      this.$emit('emitRadioChange', answer, this.exerciseId);
     },
   },
 }

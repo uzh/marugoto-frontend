@@ -3,9 +3,9 @@
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
     <h1>{{ pageTitle }}</h1>
     <!-- Components -->
-    <PageComponents @emitStatesChanged="stateChanged" />
+    <PageComponents />
     <!-- Page transitions -->
-    <PageTransitions @transitionChoosen="request" />
+    <PageTransitions @transitionChoosen="requestPageTransition" />
   </div>
 </template>
 
@@ -31,25 +31,12 @@ export default {
   },
   methods: {
     ...mapActions(['LOGOUT']),
-    generateTransitionList(list) {
-      const newArr = list.map( listItem => {
-        return{
-          id: listItem.pageTransition.id,
-          buttonText: listItem.pageTransition.buttonText,
-          available: listItem.available,
-        }
-      });
-      return newArr;
-    },
-    stateChanged(){
-
+    requestPageTransition(id){
+      this.$store.dispatch('REQUEST_PAGE_TRANSITION', id);
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
     },
-    request(id){
-      //this.$store.dispatch('REQUEST_PAGE_TRANSITION', id);
-    }
   },
 }
 

@@ -1,9 +1,14 @@
 <div>
-  <InputCheckbox
-    v-for="(item, index) in list"
-    :name="exerciseId"
-    :value="index"
-    :key="index"
-    :item="item"
-    @emitCheckboxChange="submitAnswer(index)" />
+  <div class="checkbox" v-for="(item, index) in optionsList">
+    <label class="container">
+      <input 
+        type="checkbox"
+        v-model="checkedFields"
+        :name="item.exerciseId"
+        :key="index"
+        :value="index">{{ item.text }}
+      <span class="checkmark"></span>
+    </label>
+  </div>
+  <!-- <div>CheckedFields: {{ checkedFields }}</div> -->
 </div>
