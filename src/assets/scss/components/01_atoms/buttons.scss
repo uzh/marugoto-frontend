@@ -1,11 +1,11 @@
-$height: 3.125rem;
 $width: 100%;
+$min-height: 3.125rem;
 
 .button {
     position: relative;
     display: block;
     width: $width;
-    height: $height;
+    min-height: $min-height;
     text-align: center;
     overflow: auto;
     padding: 0 2.5rem;

@@ -1,4 +1,4 @@
-$base-height: 50px;
+$base-height: 3.125rem;
 $base-width: 100%;
 
 .checkbox {
@@ -8,11 +8,11 @@ $base-width: 100%;
         box-sizing: border-box;
         box-shadow: inset -2px -2px 0 0 $base-uicolor-2;
         position: relative;
-        padding-left: 30px;
-        padding-top: 17px;
+        padding-left: 1.875rem;
+        padding-top: 1.2rem;
         height: $base-height;
         width: $base-width;
-        margin-bottom: 10px;
+        margin-bottom: 1rem;
         cursor: pointer;
         user-select: none;
         &.disabled {
@@ -34,10 +34,10 @@ $base-width: 100%;
     
     .checkmark {
         position: absolute;
-        top: 15px;
+        top: 1rem;
         left: 0;
-        height: 20px;
-        width: 20px;
+        height: 1.25rem;
+        width: 1.25rem;
         background-color: $white;
         border: 1px solid $base-primary;
     }
