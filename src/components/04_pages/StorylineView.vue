@@ -1,7 +1,7 @@
 <template>
-  <div>
+  <div class="storyline-container">
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
-    <h1>{{ get_page.title }}</h1>
+    <h1 class="storyline-title">{{ get_page.title }}</h1>
     <!-- Components -->
     <PageComponents />
     <!-- Page transitions -->

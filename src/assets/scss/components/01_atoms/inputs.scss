@@ -26,12 +26,15 @@ $max-width: 1000px;
     }
 
    label {
-       @extend .label;
        font-size: 1rem;
+       line-height: 1.1875rem;
        position: absolute;
        top: 20px;
        left: 10px;
        transition: all 0.3s;
+       overflow: hidden;
+       white-space: nowrap;
+       text-overflow: clip;
    }
 
    input {
