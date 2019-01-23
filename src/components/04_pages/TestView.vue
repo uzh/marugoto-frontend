@@ -13,7 +13,6 @@
       width="4"
       text="He arrived Maui in 1876 after the passage of the Reciprocity Treaty of 1876 He arrived Maui in 1876 after the passage of the Reciprocity Treaty of 1876 He arrived Maui in 1876 after the passage of the Reciprocity Treaty of 1876 He arrived Maui in 1876 after the passage of the Reciprocity Treaty of 1876"/>
     <ExerciseUpload />
-    <ButtonComponent :buttons="buttons" />
   </div>
 </template>
 
@@ -23,23 +22,13 @@ import TitleComponent from '@/components/02_molecules/pageComponents/title';
 import TextComponent from '@/components/02_molecules/pageComponents/text';
 import ImageComponent from '@/components/02_molecules/pageComponents/image';
 import ExerciseUpload from '@/components/02_molecules/pageComponents/exerciseUpload';
-import ButtonComponent from '@/components/02_molecules/pageComponents/button';
 
 export default {
   name: 'testView',
-  components: { TitleComponent, TextComponent, ImageComponent, ExerciseUpload, ButtonComponent },
+  components: { TitleComponent, TextComponent, ImageComponent, ExerciseUpload },
   data(){
     return{
-      buttons: [
-        {
-          text: 'Learn more',
-          id: '12345'
-        },
-        {
-          text: 'Learn even more',
-          id: '67890'
-        },
-      ]
+      
     }
   },
 }

@@ -1,12 +1,5 @@
-<div
-  class="text-component"
-  :class="[
-    'col-xs-' + width,
-    width != 12 ? 'col-xs-offset-2' : '',
-    lead ? 'lead' : 'col-xs-offset-1'
-  ]">
-  <p
-    :class="lead ? 'lead' : ''">
+<div class="text-component">
+  <p :class="lead ? 'lead' : ''">
     {{ text }}
   </p>
 </div>
