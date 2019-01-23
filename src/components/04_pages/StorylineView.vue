@@ -1,17 +1,17 @@
 <template>
   <div>
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
-    <h1>{{ pageTitle }}</h1>
+    <h1>{{ get_page.title }}</h1>
     <!-- Components -->
-    <PageComponents @emitStatesChanged="stateChanged" />
+    <PageComponents />
     <!-- Page transitions -->
-    <PageTransitions @transitionChoosen="request" />
+    <PageTransitions @transitionChoosen="requestPageTransition" />
   </div>
 </template>
 
 <script>
 /* eslint-disable */
-import { mapActions } from 'vuex'
+import { mapActions, mapGetters } from 'vuex'
 import apiService from '@/apiService'
 
 import Btn from '@/components/01_atoms/buttons'
@@ -21,35 +21,20 @@ import PageComponents from '@/components/02_molecules/pageComponents'
 export default {
   name: 'player',
   components: { Btn, PageTransitions, PageComponents },
-  data() {
-    return{
-      pageTitle: '',
-    }
-  },
   created() {
     this.$store.dispatch('REQUEST_PAGE_CURRENT');
   },
+  computed: {
+    ...mapGetters([ 'get_page' ]),
+  },
   methods: {
     ...mapActions(['LOGOUT']),
-    generateTransitionList(list) {
-      const newArr = list.map( listItem => {
-        return{
-          id: listItem.pageTransition.id,
-          buttonText: listItem.pageTransition.buttonText,
-          available: listItem.available,
-        }
-      });
-      return newArr;
-    },
-    stateChanged(){
-
+    requestPageTransition(id){
+      this.$store.dispatch('REQUEST_PAGE_TRANSITION', id);
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
     },
-    request(id){
-      //this.$store.dispatch('REQUEST_PAGE_TRANSITION', id);
-    }
   },
 }
 

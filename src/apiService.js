@@ -63,7 +63,7 @@ apiService.interceptors.response.use(function (response) {
             reject(err);
         })
         .then(() => {
-          alert('Can I refresh token');
+          alert('We need to refresh token');
           isRefreshing = false;
           store.dispatch('UPDATE_TOKEN', {
             token: data.token,

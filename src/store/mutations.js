@@ -70,6 +70,9 @@ export default({
     }
   },
   // UPDATE TRANSITIONS
+  [types.PAGE_UPDATE] (state, payload) {
+    state.page = payload;
+  },
   [types.TRANSITIONS_UPDATE] (state, payload) {
     state.pageTransitionStates = payload;
   },

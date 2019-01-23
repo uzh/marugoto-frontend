@@ -5,11 +5,23 @@ import InputCheckbox from '@/components/01_atoms/inputs/checkbox'
 
 export default {
   name: 'ExerciseCheckbox',
-  props: [ 'list', 'exerciseId' ],
+  props: [ 'optionsList', 'exerciseId' ],
   components: { InputCheckbox },
+  data() {
+    return {
+      checkedFields: [],
+    }
+  },
   methods: {
-    submitAnswer: function(answer){
-      this.$emit('emitAnswer', answer, this.exerciseId);
+    emitAnswer: function(){
+      this.$emit('emitCheckboxChange', this.checkedFields.toString(), this.exerciseId);
+    },
+  },
+  watch: {
+    checkedFields : function(val, oldVal) {
+      if (this.checkedFields.toString() != ''){
+        this.emitAnswer();
+      }
     },
   },
 }

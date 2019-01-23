@@ -54,12 +54,17 @@ export default({
     context.commit(types.LAYOUT_CLOSE, payload);
   },
   // UPDATE
+  [types.UPDATE_PAGE_STATE]: ({commit}, payload) => {
+    commit('TRANSITIONS_UPDATE', payload.pageTransitionStates);
+    commit('PAGE_COMPONENTS_UPDATE', payload.pageComponents);
+  },
   [types.REQUEST_PAGE_CURRENT]: ({commit}) => {
     return new Promise((resolve, reject) => {
       apiService.get('/pages/current')
       .then(resp => {
         commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
         commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
+        commit('PAGE_UPDATE', resp.data.page);
         resolve(resp);
       })
       .catch(err => {
@@ -67,16 +72,18 @@ export default({
       })
     })
   },
-  // [types.REQUEST_PAGE_TRANSITION]: (context, payload) => {
-  //   return new Promise((resolve, reject) => {
-  //     apiService.post('pageTransitions/doPageTransition/' + payload + '?chosenByPlayer=true')
-  //     .then(resp => {
-  //       commit(types.REQUEST_PAGE_TRANSITION, resp.data);
-  //       resolve(resp);
-  //     })
-  //     .catch(err => {
-  //       reject(err);
-  //     });
-  //   })
-  // },
+  [types.REQUEST_PAGE_TRANSITION]: ({commit}, id) => {
+    return new Promise((resolve, reject) => {
+      apiService.post('pageTransitions/doPageTransition/' + id + '?chosenByPlayer=true')
+      .then(resp => {
+        commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
+        commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
+        commit('PAGE_UPDATE', resp.data.page);
+        resolve(resp);
+      })
+      .catch(err => {
+        reject(err);
+      });
+    })
+  },
 });

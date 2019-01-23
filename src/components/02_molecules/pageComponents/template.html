@@ -4,16 +4,47 @@
     :key="index"
     :class="`col-xs-${component.numberOfColumns}`" >
     <!-- Text -->
-    <TextComponent v-if="component.type == 'TextComponent'" :text="component.markdownContent" />
+    <TextComponent
+      v-if="component.type == 'TextComponent'"
+      :text="component.markdownContent" />
+    <!-- Image -->
+    <ImageComponent
+      v-if="component.type == 'ImageComponent'"
+      :source="`http://localhost:8080/${component.image.path}`"
+      :text="component.markdownContent" />
+    <!-- Dialog -->
+    <DialogExercise
+      v-if="component.type == 'DialogExercise'"
+      :text="component.speech.markdownContent" />
     <!-- Exercise Radio -->
-    <ExerciseRadio 
+    <ExerciseRadio
+      @emitRadioChange="submitAnswer"
       v-if="component.type == 'RadioButtonExercise'"
       :exerciseId="component.exerciseState.id"
       :list="component.options" />
+    <!-- Exercise Checkbox -->
+    <ExerciseCheckbox
+      @emitCheckboxChange="submitAnswer"
+      v-if="component.type == 'CheckboxExercise'"
+      :exerciseId="component.exerciseState.id"
+      :optionsList="component.options" />
     <!-- Exercise Text -->
     <ExerciseText 
+      @emitInputAnswer="submitAnswer"
       v-if="component.type == 'TextExercise'"
       :exerciseId="component.exerciseState.id"
       :placeholder="component.placeholderText" />
+    <!-- PDF -->
+    <a
+      v-if="component.type == 'PdfComponent'"
+      :href="`http://localhost:8080/${component.pdf.path}`" target="_blank">PDF</a>
+    <!-- Audio -->
+    <a
+      v-if="component.type == 'AudioComponent'"
+      :href="`http://localhost:8080/${component.audio.path}`" target="_blank">Audio</a>
+    <!-- Video -->
+    <a
+      v-if="component.type == 'VideoComponent'"
+      :href="`http://localhost:8080/${component.video.path}`" target="_blank">Video</a>
   </div>
 </div>
