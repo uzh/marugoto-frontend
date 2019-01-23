@@ -64,6 +64,7 @@ export default({
       .then(resp => {
         commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
         commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
+        commit('PAGE_UPDATE', resp.data.page);
         resolve(resp);
       })
       .catch(err => {
@@ -77,6 +78,7 @@ export default({
       .then(resp => {
         commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
         commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
+        commit('PAGE_UPDATE', resp.data.page);
         resolve(resp);
       })
       .catch(err => {

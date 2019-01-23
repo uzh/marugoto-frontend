@@ -9,6 +9,9 @@ export default{
   get_status: state => {
     return state.status;
   },
+  get_page: state => {
+    return state.page;
+  },
   get_transitions: state => {
     return state.pageTransitionStates;
   },

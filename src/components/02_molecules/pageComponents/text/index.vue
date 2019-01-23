@@ -3,6 +3,6 @@
 <script>
 export default {
   name: 'TextComponent',
-  props: [ 'text', 'lead', 'width' ],
+  props: [ 'text', 'lead' ],
 }
 </script>

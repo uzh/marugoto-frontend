@@ -3,14 +3,17 @@
 <script>
 import { mapGetters, mapActions } from 'vuex'
 import apiService from '@/apiService'
+
+import DialogExercise from '../dialog'
 import ExerciseRadio from './exerciseRadio'
 import ExerciseCheckbox from './exerciseCheckbox'
 import ExerciseText from './exerciseText'
 import TextComponent from './text'
+import ImageComponent from './image'
 
 export default {
   name: 'PageComponents',
-  components: { ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent },
+  components: { DialogExercise, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent },
   props: [ 'exercises' ],
   computed: {
     ...mapGetters([ 'get_PageComponents' ]),
