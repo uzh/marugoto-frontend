@@ -39,12 +39,32 @@
       v-if="component.type == 'PdfComponent'"
       :href="`http://localhost:8080/${component.pdf.path}`" target="_blank">PDF</a>
     <!-- Audio -->
-    <a
-      v-if="component.type == 'AudioComponent'"
-      :href="`http://localhost:8080/${component.audio.path}`" target="_blank">Audio</a>
+    <audio v-if="component.type == 'AudioComponent'" controls>
+      <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/ogg">
+      <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
     <!-- Video -->
-    <a
-      v-if="component.type == 'VideoComponent'"
-      :href="`http://localhost:8080/${component.video.path}`" target="_blank">Video</a>
+    <video v-if="component.type == 'VideoComponent'" class="col-xs-10 col-xs-offset-1" controls>
+      <source :src="`http://localhost:8080/${component.video.path}`" type="video/mp4">
+      <source :src="`http://localhost:8080/${component.video.path}`" type="video/webm" />
+      <source :src="`http://localhost:8080/${component.video.path}`" type="video/ogg" />
+      <p>Your browser does not support the video tag.</p>
+    </video>
+
+    <!-- <div v-if="component.type == 'VideoComponent'" class="video-container">
+      <video class="video-screen">
+        <source :src="`http://localhost:8080/${component.video.path}`" type="video/mp4">
+        <source :src="`http://localhost:8080/${component.video.path}`" type="video/webm" />
+        <source :src="`http://localhost:8080/${component.video.path}`" type="video/ogg" />
+        <p>Your browser does not support the video tag.</p>
+      </video>
+      <div class="video-controls">
+        <button type="button" class="play-pause">
+          Play
+        </button>
+      </div>
+    </div> -->
   </div>
+
 </div>

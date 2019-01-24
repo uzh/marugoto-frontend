@@ -110,3 +110,18 @@ $margin-bottom: 7.5rem;
         }
     }
 }
+
+// Video Component
+.video-container {
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
+    position: relative;
+
+    .video-screen {
+        width: 100%;
+    }
+
+    .video-controls {
+        position: absolute;
+    }
+}
