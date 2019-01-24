@@ -119,9 +119,27 @@ $margin-bottom: 7.5rem;
 
     .video-screen {
         width: 100%;
+        position: relative;
     }
 
     .video-controls {
         position: absolute;
+        bottom: 0;
+        height: 3.125rem;
+        width: calc(100% - 20px);
+        background-color: $base-primary-border;
+        opacity: 0.5;
+        button {
+            display: inline;
+            width: auto;
+            background-color: $base-primary-border;
+            padding: 10px;
+        }
+        .play-pause {
+            float: left;
+        }
+        .full-screen {
+            float: right;
+        }
     }
 }
