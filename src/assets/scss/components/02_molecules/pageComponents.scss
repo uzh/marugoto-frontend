@@ -1,5 +1,40 @@
 $margin-bottom: 7.5rem;
 
+// Topic Component
+.topic-container {
+    .mb {
+        margin-bottom: 10rem;
+    }
+
+    .topic-title {
+        height: 40%;
+    }
+
+    .topics {
+        height: 60%;
+
+        .topic-folder {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            background: $base-primary-border;
+            padding: 20px;
+            margin: 50px;
+        }
+        &:before {
+            content: "";
+            position: absolute;
+            right: 10px;
+            top: 10px;
+            width: 10px;
+            height: 10px;
+            border-left: 10px solid red;
+            border-top: 10px solid transparent;
+            border-bottom: 10px solid transparent;
+        }
+    }
+}
+
 // Test Container
 .storyline-container {
     width: 100%;

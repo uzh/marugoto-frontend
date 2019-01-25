@@ -1,0 +1,15 @@
+<div class="topic-container">
+  <div class="topic-title">
+      <h1>Topic Selection</h1>
+      <p class="lead mb">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</p>
+  </div>
+  <div
+    class="topics"
+    v-for="(topic, index) in list"
+    :key="index">
+    <div class="topic-folder"
+      @click="$emit('openTopic', topic.id)">
+      {{ topic.title }}
+    </div>
+  </div>
+</div>
