@@ -1,7 +1,13 @@
-<div
+<!-- <div
   class="notebook-container"
   :class="get_layoutState.notebook.opened ? 'in' : ''">
   <NotebookHeader :title="headerTitle" />
   <NotebookList :list="listItems" @selectItem="chooseStory" />
   <NotebookChapterMenu />
+</div> -->
+<div class="notebook-container" :class="get_layoutState.notebook.opened ? 'in' : ''">
+  <div v-for="item in get_notebook">
+    <h1>{{ item.title }}</h1>
+    <p>{{ item.text }}</p>
+  </div>
 </div>

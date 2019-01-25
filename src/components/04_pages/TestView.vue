@@ -23,11 +23,10 @@ import TitleComponent from '@/components/02_molecules/pageComponents/title';
 import TextComponent from '@/components/02_molecules/pageComponents/text';
 import ImageComponent from '@/components/02_molecules/pageComponents/image';
 import ExerciseUpload from '@/components/02_molecules/pageComponents/exerciseUpload';
-import ButtonComponent from '@/components/02_molecules/pageComponents/button';
 
 export default {
   name: 'testView',
-  components: { TitleComponent, TextComponent, ImageComponent, ExerciseUpload, ButtonComponent },
+  components: { TitleComponent, TextComponent, ImageComponent, ExerciseUpload },
   data(){
     return{
       buttons: [

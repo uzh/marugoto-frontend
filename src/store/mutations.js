@@ -69,7 +69,15 @@ export default({
         state.layout.dialog.opened = false;
     }
   },
-  // UPDATE TRANSITIONS
+  // TOPIC MUTATIONS
+  [types.UPDATE_TOPIC_LIST] (state, payload) {
+    state.topic.list = payload;
+  },
+  [types.CHOOSE_TOPIC] (state, payload) {
+    state.topic.selected = true;
+    state.topic.id = payload;
+  },
+  // UPDATE PAGE / STORYLINE MUTATIONS
   [types.PAGE_UPDATE] (state, payload) {
     state.page = payload;
   },
@@ -78,5 +86,18 @@ export default({
   },
   [types.PAGE_COMPONENTS_UPDATE] (state, payload) {
     state.pageComponents = payload;
+  },
+  // DIALOG MUTATIONS
+  [types.DIALOG_UPDATE] (state, payload) {
+    state.pageComponents.map( component => {
+      if( component.type == 'DialogExercise' ){
+        component.speech = payload;
+      }
+      return component;
+    } );
+  },
+  // NOTEBOOK MUTATIONS
+  [types.UPDATE_NOTEBOOK] (state, payload) {
+    state.notebook = payload;
   },
 });

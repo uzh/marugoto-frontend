@@ -10,24 +10,16 @@ export default {
   // name of the component
   name: 'dialogComponent',
   components: { Btn },
-  props: ['text'],
+  props: ['text', 'source', 'options'],
   data() {
     return {
-      images: [
-        {
-          name: 'image',
-          background: 'https://picsum.photos/960/540',
-        }
-      ],
-      options: [
-        {
-          text: 'option A'
-        },
-        {
-          text: 'option B'
-        }
-      ]
+      opened: false,
     };
-  }
+  },
+  methods: {
+    emitOption: function(dialogId) {
+      this.$emit('emitDialog', dialogId);
+    },
+  },
 };
 </script>

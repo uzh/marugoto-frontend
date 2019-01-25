@@ -53,6 +53,28 @@ export default({
   [types.LAYOUT_CLOSE]: (context, payload) => {
     context.commit(types.LAYOUT_CLOSE, payload);
   },
+  // TOPIC
+  [types.UPDATE_TOPIC_LIST]: ({commit}) => {
+    return apiService.get('/topics/list')
+    .then(resp => {
+      commit('UPDATE_TOPIC_LIST', resp.data);
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.CHOOSE_TOPIC]: ({commit}, payload) => {
+    let id = payload.replace('topic/', '')
+    return apiService.get(`/topics/select/${id}`)
+    .then(() => {
+      commit('CHOOSE_TOPIC', id);
+    })
+    .catch(err => {
+      throw(err);
+    });
+
+  },
   // UPDATE
   [types.UPDATE_PAGE_STATE]: ({commit}, payload) => {
     commit('TRANSITIONS_UPDATE', payload.pageTransitionStates);
@@ -85,5 +107,12 @@ export default({
         reject(err);
       });
     })
+  },
+  [types.DIALOG_UPDATE]: (context, payload) => {
+    context.commit(types.DIALOG_UPDATE, payload);
+  },
+  // NOTEBOOK
+  [types.UPDATE_NOTEBOOK]: (context, payload) => {
+    context.commit(types.UPDATE_NOTEBOOK, payload);
   },
 });
