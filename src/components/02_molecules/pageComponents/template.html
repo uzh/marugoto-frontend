@@ -7,11 +7,21 @@
     <TextComponent
       v-if="component.type == 'TextComponent'"
       :text="component.markdownContent" />
+    <!-- Link -->
+    <a :href="component.url" target="_blank"
+      v-if="component.type == 'LinkComponent'">{{ component.url }}</a>
     <!-- Image -->
     <ImageComponent
       v-if="component.type == 'ImageComponent'"
       :source="`http://localhost:8080/${component.image.path}`"
       :text="component.markdownContent" />
+    <!-- Date Component -->
+    <v-date-picker
+      v-if="component.type == 'DateExercise'"
+      :formats='formats'
+      @dayclick="dateEmit($event, component.exerciseState.id)"
+      v-model='selectedDate'>
+    </v-date-picker>
     <!-- Dialog -->
     <DialogExercise
       @emitDialog="dialogOptionEmited"

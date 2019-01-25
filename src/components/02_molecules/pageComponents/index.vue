@@ -18,7 +18,27 @@ export default {
   computed: {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
   },
+  data: function() {
+    return {
+      selectedDate: null,
+      formats: {
+        title: 'MMMM YYYY',
+        weekdays: 'WW',
+        navMonths: 'MMM',
+        input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
+        dayPopover: 'L',
+        data: ['YYYY-MM-DD']
+      },
+      dateFormated: '',
+    };
+  },
   methods: {
+    dateEmit: function(event, id) {
+      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
+      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
+      this.dateFormated = `${d}/${m}/${event.year}.`;
+      this.submitAnswer(this.dateFormated, id);
+    },
     submitAnswer: function(answer, excersiseId) {
       apiService.put(`states/${excersiseId}?inputState=${answer}`)
       .then(resp => {
