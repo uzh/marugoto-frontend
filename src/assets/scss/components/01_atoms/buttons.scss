@@ -8,7 +8,7 @@ $min-height: 3.125rem;
     min-height: $min-height;
     text-align: center;
     overflow: auto;
-    padding: 0.9375rem 2.5rem;
+    padding: 0.9375rem 2rem;
     cursor: pointer;
     &:disabled, &.disabled {
         opacity: 0.3;

@@ -3,13 +3,21 @@
       <h1>Topic Selection</h1>
       <p class="lead mb">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</p>
   </div>
+  <!-- Topics -->
   <div
     class="topics"
     v-for="(topic, index) in list"
     :key="index">
-    <div class="topic-folder"
-      @click="$emit('openTopic', topic.id)">
-      {{ topic.title }}
+    <div class="topics-div" @click="$emit('openTopic', topic.id)">
+      <div class="topic-image">
+        <div class="image">
+          {{ topic.icon }}
+        </div>
+      </div>
+      <div class="topic-folder">
+        {{ topic.title }}
+        <Btn class="topic-button" text="Preview this Topic" primary="true" iconName="arrow-right" />
+      </div>
     </div>
   </div>
 </div>

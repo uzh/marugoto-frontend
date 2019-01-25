@@ -5,33 +5,84 @@ $margin-bottom: 7.5rem;
     .mb {
         margin-bottom: 10rem;
     }
-
     .topic-title {
-        height: 40%;
+        height: 60vh;
     }
 
     .topics {
-        height: 60%;
+        height: 40vh;
+        width: 100%;
+        position: relative;
 
-        .topic-folder {
-            width: 200px;
-            height: 200px;
+        .topics-div {
+            @extend .col-xs-3;
             position: relative;
-            background: $base-primary-border;
-            padding: 20px;
-            margin: 50px;
+            .topic-image {
+                background-color: #D8D8D8;
+                width: 210px;
+                height: 130px;
+                position: absolute;
+                left: 30px;
+                top: -120px;
+                text-align: center;
+                padding: 20px;
+    
+                .image {
+                    outline: 5px solid $white;
+                    background-color: $base-primary-border;
+                    width: 190px;
+                    height: 110px;
+                    position: absolute;
+                    left: 10px;
+                    top: 10px;
+                    text-align: center;
+                    padding: 20px;
+                    transform: rotate(2deg);
+                }
+            }
+    
+            .topic-folder {
+                width: 250px;
+                height: 200px;
+                position: relative;
+                background-color: $select-item-hover;
+                padding: 20px;
+                text-align: center;
+                border-top-right-radius: 6px;
+                z-index: 10;
+                &:before {
+                    content: "";
+                    position: absolute;
+                    left: 0;
+                    top: -20px;
+                    width: 150px;
+                    height: 20px;
+                    background-color: $select-item-hover;
+                    border-top-left-radius: 6px;
+                    z-index: 10;
+                }
+                &:after {
+                    content: "";
+                    position: absolute;
+                    left: 150px;
+                    top: -20px;
+                    width: 0;
+                    height: 0;
+                    border-bottom: 20px solid $select-item-hover;
+                    border-right: 20px solid transparent;
+                    border-top-left-radius: 2px;
+                    border-bottom-right-radius: 2px;
+                    z-index: 10;
+                }
+            }
+
+            .topic-button {
+                position: absolute;
+                bottom: 20px;
+                width: calc(100% - 40px);
+            }
         }
-        &:before {
-            content: "";
-            position: absolute;
-            right: 10px;
-            top: 10px;
-            width: 10px;
-            height: 10px;
-            border-left: 10px solid red;
-            border-top: 10px solid transparent;
-            border-bottom: 10px solid transparent;
-        }
+
     }
 }
 
