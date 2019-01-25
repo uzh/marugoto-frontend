@@ -18,4 +18,10 @@ export default{
   get_PageComponents: state => {
     return state.pageComponents;
   },
+  get_notebook: state => {
+    return state.notebook;
+  },
+  get_topic: state => {
+    return state.topic;
+  },
 };

@@ -34,6 +34,11 @@ apiService.interceptors.response.use(function (response) {
   const originalRequest = error.config;
   
   if (error.response.status === 401 && !originalRequest._retry) {
+
+    // Untill bug is resolved leave this code here
+    
+    // #Untill bug is resolved leave this code here
+
     if (isRefreshing) {
       return new Promise(function(resolve, reject) {
         

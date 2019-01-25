@@ -14,8 +14,11 @@
       :text="component.markdownContent" />
     <!-- Dialog -->
     <DialogExercise
+      @emitDialog="dialogOptionEmited"
       v-if="component.type == 'DialogExercise'"
-      :text="component.speech.markdownContent" />
+      :text="component.speech.markdownContent"
+      :source="`http://localhost:8080/${component.speaker.image.path}`"
+      :options="component.speech.answers" /><!--  -->
     <!-- Exercise Radio -->
     <ExerciseRadio
       @emitRadioChange="submitAnswer"

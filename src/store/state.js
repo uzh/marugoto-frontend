@@ -25,9 +25,15 @@ export default ({
       opened: false,
     }
   },
+  topic: {
+    selected: false,
+    id: undefined,
+    list: [],
+  },
   mailBox: {
     
   },
+  notebook: [],
   pageTransitionStates: [],
   pageComponents: [],
   page: {},

@@ -12,10 +12,6 @@ export default {
   components: { SvgIcon },
   props: ['primary', 'secondary', 'text', 'ghost',
    'disabled', 'iconName', 'iconColor', 'iconPosition'],
-  data() {
-    return {
-      
-    };
-  }
+
 };
 </script>

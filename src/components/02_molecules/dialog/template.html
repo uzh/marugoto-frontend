@@ -1,21 +1,23 @@
 <div class="dialog-mask">
-	<button class="dialog-close-button" @click="$emit('close')">
+	<!-- <button class="dialog-close-button" @click="$emit('close')">
 		Close Dialog
-	</button>
+	</button> -->
 	<div class="dialog-container">
 		<div class="dialog-left">
-			<img 
-				v-for="image in images" 
-				:src="image.background" alt="image" class="dialog-image">
+			<img :src="source" alt="image" class="dialog-image" />
 		</div>
 		<div class="dialog-right">
-			<div 
-				:class="comp.name == 'title' ? 'dialog-title' : comp.name == 'subtitle' ? 'dialog-subtitle' : comp.name == 'text' ? 'dialog-text' : ''"
-			>{{ text }}</div>
-			<Btn secondary="true" class="dialog-button" iconName="arrow-right" iconColor="#979797" iconPosition="right"
+			<div>{{ text }}</div>
+			<Btn 
 				v-for="(option, index) in options"
 				:key="index"
-				:text="option.text" />
+				:text="option.buttonText"
+				@click.native="emitOption(option.id)"
+				secondary="true" 
+				class="dialog-button" 
+				iconName="arrow-right" 
+				iconColor="#979797" 
+				iconPosition="right" />
 		</div>
 	</div>
 </div>

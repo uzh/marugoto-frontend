@@ -13,7 +13,7 @@ import VuexPersist from 'vuex-persist'
 
 const vuexPersist = new VuexPersist({
   key: 'UHZ',
-  storage: localStorage
+  storage: localStorage,
 })
 
 Vue.use(Vuex);

@@ -9,6 +9,7 @@ import NotebookChapterMenu from './notebookChapterMenu';
 export default {
   name: 'NotebookContainer',
   components: { NotebookHeader, NotebookList, NotebookChapterMenu },
+  props: ['entryList'],
   data(){
     return{
       title: 'Notebook',
@@ -34,7 +35,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([ 'get_layoutState' ]),
+    ...mapGetters([ 'get_layoutState', 'get_notebook' ]),
   },
   methods: {
     chooseStory(item) {
