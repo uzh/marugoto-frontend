@@ -1,18 +1,14 @@
-$margin-bottom: 100px;
+$margin-bottom: 7.5rem;
 
 // Test Container
-.test-container {
+.storyline-container {
     width: 100%;
-    height: 100vh;
-    margin-bottom: 7.5rem;
 }
 
 // Title
-.title-component {
-    @extend .clear-float;
+.storyline-title {
     width: 100%;
-    height: 5rem;
-    margin-bottom: 60px;
+    margin-bottom: 3rem;
     .icon-title {
         @extend .col-xs-2;
         text-align: center;
@@ -22,17 +18,21 @@ $margin-bottom: 100px;
     }
 }
 
+// Lead Text
+.lead-text {
+    @extend .lead;
+    margin-bottom: $margin-bottom;
+}
+
 // Text
 .text-component {
-    margin-bottom: $margin-bottom;
-    @extend .clear-float;
+    margin-bottom: 2.5rem;
 }
 
 // Image
 .image-component {
     height: auto;
     margin-bottom: $margin-bottom;
-    @extend .clear-float;
     img {
         width: 100%;
     }
@@ -47,7 +47,6 @@ $margin-bottom: 100px;
 .upload-files-container {
     @extend .col-xs-10;
     @extend .col-xs-offset-1;
-    @extend .clear-float;
     background-color: inherit;
     margin-bottom: $margin-bottom;
 
@@ -109,19 +108,5 @@ $margin-bottom: 100px;
                 transform: rotate(24deg);
             }
         }
-    }
-}
-
-.button-component {
-    @extend .col-xs-8;
-    @extend .col-xs-offset-2;
-    @extend .clear-float;
-
-    h4 {
-        margin-bottom: 2.5rem;
-    }
-
-    button {
-        margin-bottom: 1.25rem;
     }
 }

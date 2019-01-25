@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="storyline-container">
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
     <div v-if="!get_topic.selected">
       <div v-for="(topic, index) in get_topic.list" :key="index">
@@ -7,7 +7,7 @@
       </div>
     </div>
     <div v-if="get_topic.selected">
-      <h1>{{ get_page.title }}</h1>
+      <h1 class="storyline-title">{{ get_page.title }}</h1>
       <!-- Components -->
       <PageComponents />
       <!-- Page transitions -->

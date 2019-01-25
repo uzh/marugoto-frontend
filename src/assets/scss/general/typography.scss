@@ -38,7 +38,7 @@ body, input, textarea, label, .genderLabel {
   }
 }
 .button {
-  @include font-size($p);
+  @include font-size($button);
   &-inverted {
     background-color: #D8D8D8;
     border: 1px solid $base-primary-border;

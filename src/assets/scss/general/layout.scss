@@ -20,25 +20,27 @@ $border: 1px solid #ddd;
   right: $elements-space;
   height: $elements-space;
   padding-right: 20px;
-  width: 300px;
+  width: 100%;
+  background-color: $white;
 
   box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
   text-align: right;
 
   &-icon {
-    width: 10%;
+    width: auto;
     float: right;
     margin-top: 38px;
   }
 
   .money {
-    width: 30%;
+    width: auto;
     float: right;
+    padding-left: 30px;
     margin-top: 40px;
   }
 
   .time {
-    width: 60%;
+    width: auto;
     float: right;
     margin-top: 40px;
     padding-right: 30px;
