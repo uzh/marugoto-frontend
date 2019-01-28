@@ -1,9 +1,15 @@
 <template>
+<div>
   <div class="main-container">
-    <h1 class="page-title">Create new account</h1>
-    
-    <p class="page-title-paragraph">Please log in or create a new account to play the game:</p>
-    <form @keydown.enter="register">
+    <h1 class="col-xs-10 col-xs-offset-1">Welcome to Lives in Transit!</h1>
+    <p class="lead-text col-xs-10 col-xs-offset-1">Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
+    <p class="col-xs-10 col-xs-offset-1">As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
+  </div>
+  <div class="main-container">
+    <h1 class="col-xs-12">Create LiT Account</h1>
+    <svgIcon class="back-to-login-arrow" name="arrow-left" sizeH="20" />
+    <p class="lead col-xs-6">Enter your Data</p>
+    <form class="col-xs-12" @keydown.enter="register">
       <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
       <InputField v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
 
@@ -11,20 +17,22 @@
       <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
       <InputField v-model="password" typeProp="password" labelName="Password" required="true"/>
     </form>
-    <Btn @click.native="register" text="Continue" primary="true" iconName="arrow-right" iconColor="#979797" />
+    <Btn class="col-xs-12" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
   </div>
+  <div class="origin-background"></div>
+</div>
 </template>
 
 <script>
 import { mapActions } from 'vuex';
 import InputField from '@/components/01_atoms/inputs/text';
-import Btn from '@/components/01_atoms/buttons'
-import SelectField from '@/components/01_atoms/inputs/select'
-
+import Btn from '@/components/01_atoms/buttons';
+import SelectField from '@/components/01_atoms/inputs/select';
+import SvgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   name: 'registerView',
-  components: { InputField, Btn, SelectField },
+  components: { InputField, Btn, SelectField, SvgIcon },
   data(){
     return{
       firstName: '',
