@@ -9,22 +9,15 @@
       v-for="(topic, index) in list"
       :key="index"
       class="topics-div"
-      @click="$emit('openTopic', topic.id)"
-      @mouseover="topic.active = true"
-      @mouseleave="topic.active = false">
-      <div v-if="topic.active" class="topic-image">
-        <div class="image-active">
-          {{ topic.icon }}
-        </div>
-      </div>
-      <div v-if="!topic.active" class="topic-image">
+      @click="$emit('openTopic', topic.id)">
+      <div class="topic-image">
         <div class="image">
           {{ topic.icon }}
         </div>
       </div>
       <div :class="list.length > 4 ? 'topic-folder-more' : 'topic-folder'">
         {{ topic.title }}
-        <Btn v-if="topic.active" class="topic-button" text="Preview this Topic" primary="true" iconName="arrow-right" />
+        <Btn class="topic-button" text="Preview this Topic" primary="true" iconName="arrow-right" />
       </div>
     </div>
   </div>
