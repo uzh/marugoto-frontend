@@ -7,7 +7,7 @@
   </div>
   <div class="main-container">
     <h1 class="col-xs-12">Create LiT Account</h1>
-    <svgIcon class="back-to-login-arrow" name="arrow-left" sizeH="20" />
+    <svgIcon @click.native="goToLogin" class="back-to-login-arrow" name="arrow-left" sizeH="20" />
     <p class="lead col-xs-6">Enter your Data</p>
     <form class="col-xs-12" @keydown.enter="register">
       <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
@@ -67,6 +67,9 @@ export default {
     },
     setGender(value){
       this.gender = value;
+    },
+    goToLogin(){
+      this.$router.push('/login');
     },
   },
 }
