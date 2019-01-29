@@ -74,8 +74,7 @@ $border: 1px solid #ddd;
 
 // Main container on login/create account
 .origin-background {
-  @extend .col-xs-10;
-  @extend .col-xs-offset-1;
+  @extend .col-xs-12;
   background-color: $select-item-hover;
   height: 70vh;
   position: absolute;

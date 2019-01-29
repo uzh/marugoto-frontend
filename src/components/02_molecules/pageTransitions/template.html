@@ -1,11 +1,4 @@
 <div class="transition-wrapper col-xs-8 col-xs-offset-2">
-  <Btn
-    text="Go back to Topic Selection"
-    primary="true"
-    iconPosition="left"
-    iconName="arrow-left"
-    iconColor="#979797"
-  />
   <Btn 
     v-for="(item, index) in get_transitions"
     v-if="item.available"
