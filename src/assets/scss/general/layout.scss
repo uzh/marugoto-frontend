@@ -22,6 +22,7 @@ $border: 1px solid #ddd;
   padding-right: 20px;
   width: 100%;
   background-color: $white;
+  z-index: 10;
 
   box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
   text-align: right;
@@ -60,16 +61,31 @@ $border: 1px solid #ddd;
 
 // CONTAINERS
 .main-container {
-  width: 100%;
-  margin-left: 8.33%;
-  @include breakpoint(tablet) {
-    width: 80%;
-    margin-left: 8.33%;
+  @extend .col-xs-6;
+  z-index: 1;
+  height: 70vh;
+  opacity: 0.7;
+
+  .lead-text {
+    @extend .lead;
+    margin-bottom: 55px;
   }
-  @include breakpoint(desktop) {
-    width: 60%;
-    margin-left: 8.33%;
-  }
+}
+
+// Main container on login/create account
+.origin-background {
+  @extend .col-xs-10;
+  @extend .col-xs-offset-1;
+  background-color: $select-item-hover;
+  height: 70vh;
+  position: absolute;
+  bottom: 0;
+}
+
+.back-to-login-arrow {
+  position: relative;
+  bottom: 50px;
+  right: 370px;
 }
 
 .notebook-container{
