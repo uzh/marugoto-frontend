@@ -4,7 +4,7 @@
 
 export default {
   name: 'NotebookList',
-  props: [ 'list' ],
+  props: [ 'list', 'selected' ],
   data(){
     return{
       
