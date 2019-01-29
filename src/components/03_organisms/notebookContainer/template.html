@@ -1,10 +1,3 @@
-<!-- <div
-  class="notebook-container"
-  :class="get_layoutState.notebook.opened ? 'in' : ''">
-  <NotebookHeader :title="headerTitle" />
-  <NotebookList :list="listItems" @selectItem="chooseStory" />
-  
-</div> -->
 <div class="notebook-container" :class="get_layoutState.notebook.opened ? 'in' : ''">
   <!-- Notebook List -->
   <NotebookList :list="get_notebook" @selectItem="setCurrentEntry"/>
@@ -13,7 +6,7 @@
   <!-- Notebook entries -->
   <div v-for="(item, index) in get_notebook" :key="index">
     <div v-if="index == currentEntry">
-      <h1>{{ item.title }}</h1>
+      <NotebookHeader :title="item.title" />
       <p>{{ item.text }}</p>
     </div>
   </div>
