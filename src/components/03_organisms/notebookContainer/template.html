@@ -1,13 +1,36 @@
-<div class="notebook-container" :class="get_layoutState.notebook.opened ? 'in' : ''">
+<div 
+  class="notebook-container"
+  :class="[get_layoutState.notebook.opened ? 'in' : '', 
+  !entriesMenuOpened ? 'open-entries-menu' : '']"
+  ref="notebookContainer">
   <!-- Notebook List -->
-  <NotebookList :selected="currentEntry" :list="get_notebook" @selectItem="setCurrentEntry"/>
+  <NotebookList
+    :selected="currentEntry"
+    :list="get_notebook"
+    @selectItem="setCurrentEntry"/>
   <!-- Notebook Navigation -->
   <NotebookChapterMenu @changeCurrentEntryTo="switchCurrentEntryTo"/>
   <!-- Notebook entries -->
-  <div v-for="(item, index) in get_notebook" :key="index">
-    <div v-if="index == currentEntry">
-      <NotebookHeader :title="item.title" />
-      <p>{{ item.text }}</p>
+  <div class="notebook-content" >
+    <!-- Notebook entries in the background
+    <div class="background-entries">
+      <div class="second-behind"></div>
+      <div class="first-behind"></div>
+    </div> -->
+    <div v-for="(item, index) in get_notebook" :key="index">
+      <div v-if="index == currentEntry">
+        <NotebookHeader
+          :title="item.title"
+          @toggleScroll="openEntriesMenu" />
+        <p>{{ item.text }}</p>
+      </div>
     </div>
   </div>
+  <!-- Notebook entries in the background
+  <div class="background-entries">
+    <div class="first-behind"></div>
+    <div class="second-behind"></div>
+  </div> -->
+  <!-- Notebook Navigation -->
+  <NotebookChapterMenu @changeCurrentEntryTo="switchCurrentEntryTo"/>
 </div>

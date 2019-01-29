@@ -1,6 +1,6 @@
-<div class="notebook-header">
+<div class="notebook-header" @click="$emit('toggleScroll')" >
   {{ title }}
-  <svgIcon 
+  <svgIcon
   name="dot-hamburger"
   sizeH="20px"
   class="notebook-header-icon" />

@@ -13,16 +13,23 @@ export default {
   data(){
     return {
       currentEntry: 0,
+      entriesMenuOpened: true,
     };
   },
   computed: {
     ...mapGetters([ 'get_layoutState', 'get_notebook' ]),
   },
+  mounted: function() {
+    this.$refs.notebookContainer.scrollTop = 90;
+  },
   methods: {
-    chooseStory(item) {
-      this.headerTitle = item.title;
-      this.listItems.forEach(el => el.current = false);
-      item.current = true;
+    openEntriesMenu: function() {
+      this.entriesMenuOpened = !this.entriesMenuOpened;
+      if (this.entriesMenuOpened) {
+        this.$refs.notebookContainer.scrollTop = 90;
+      } else {
+        this.$refs.notebookContainer.scrollTop = 0;
+      }
     },
     nextEntry: function() {
       if( this.currentEntry == this.get_notebook.length - 1 ){
@@ -40,6 +47,7 @@ export default {
     },
     setCurrentEntry: function(index) {
       this.currentEntry = index;
+      this.openEntriesMenu(); // na klik se vraca na notebook entry
     },
     lastEntry: function() {
       this.currentEntry = this.get_notebook.length - 1;

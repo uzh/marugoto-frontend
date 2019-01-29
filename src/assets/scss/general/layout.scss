@@ -6,6 +6,8 @@ $border: 1px solid #ddd;
   height: 100vh;
   padding-top: $elements-space;
   padding-right: $elements-space;
+  overflow: scroll;
+  
   &.halved {
     width: calc(50% - 90px);
     padding-right: 0;
@@ -92,12 +94,10 @@ $border: 1px solid #ddd;
   top: 0;
   right: -100%;
   z-index: 2;
+  overflow: scroll;
 
   width: 50%;
-  min-height: 100vh;
-  
-  
-  background: #ddd;
+  height: 100vh;
 
   &.in{
     right: 90px;
