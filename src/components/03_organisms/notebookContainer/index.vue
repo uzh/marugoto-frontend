@@ -47,7 +47,7 @@ export default {
     },
     setCurrentEntry: function(index) {
       this.currentEntry = index;
-      this.openEntriesMenu(); // na klik se vraca na notebook entry
+      this.openEntriesMenu();
     },
     lastEntry: function() {
       this.currentEntry = this.get_notebook.length - 1;

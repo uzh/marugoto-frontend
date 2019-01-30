@@ -7,66 +7,24 @@ $border: 1px solid #ddd;
   padding-top: $elements-space;
   padding-right: $elements-space;
   overflow: scroll;
+  transition: all 0.3s;
   
   &.halved {
     width: calc(50% - 90px);
     padding-right: 0;
   }
-  transition: all 0.3s;
 }
 
-// STATUS BAR
-.status-bar{
-  position: fixed;
-  top: 0;
-  right: $elements-space;
-  height: $elements-space;
-  padding-right: 20px;
-  width: 100%;
-  background-color: $white;
-  z-index: 10;
-
-  box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
-  text-align: right;
-
-  &-icon {
-    width: auto;
-    float: right;
-    margin-top: 38px;
-  }
-
-  .money {
-    width: auto;
-    float: right;
-    padding-left: 30px;
-    margin-top: 40px;
-  }
-
-  .time {
-    width: auto;
-    float: right;
-    margin-top: 40px;
-    padding-right: 30px;
-    position: relative;
-    border-right: 1px solid $base-uicolor-2;
-  }
-
-  &.out{
-    right: 100%;
-  }
-  &.halfed{
-    right: calc(50% + 90px);
-  }
-
-  transition: all 0.3s;
-}
-
-// CONTAINERS
+// Main container - login/create account
 .main-container {
-  @extend .col-xs-6;
   z-index: 1;
   height: 70vh;
   opacity: 0.7;
+
+  .page-title {
+    margin-bottom: 3rem;
+    font-weight: inherit;
+  }
 
   .lead-text {
     @extend .lead;
@@ -74,71 +32,15 @@ $border: 1px solid #ddd;
   }
 }
 
-// Main container on login/create account
+.back-to-login {
+  position: relative;
+  top: 30px;
+}
+
 .origin-background {
   @extend .col-xs-12;
   background-color: $select-item-hover;
   height: 70vh;
   position: absolute;
   bottom: 0;
-}
-
-.back-to-login-arrow {
-  position: relative;
-  bottom: 50px;
-  right: 370px;
-}
-
-.notebook-container{
-  position: absolute;
-  top: 0;
-  right: -100%;
-  z-index: 2;
-  overflow: scroll;
-
-  width: 50%;
-  height: 100vh;
-
-  &.in{
-    right: 90px;
-  }
-
-  transition: all 0.3s;
-}
-
-
-// Floatings
-.floating-no {
-  width: 380px;
-  height: 140px;
-  background-color: $white;
-  border: 1px solid rgba( 71, 75, 89, 0.20);
-}
-.floating-10 {
-  @extend .floating-no;
-  border: 1px solid $base-primary;
-  box-shadow: 0 5px 10px 0 rgba( 71, 75, 89, 0.50)
-}
-
-//UI Materials
-.line-bottom {
-  background: $white;
-  box-shadow: inset 0 -1px 0 0 $black;
-  &-error {
-    box-shadow: inset 0 -2px 0 0 $base-accent;
-  }
-}
-.line-top {
-  background: $white;
-  box-shadow: inset 0 1px 0 0 $black;
-  &-purple {
-    box-shadow: inset 0 2px 0 0 #8420FF;
-  }
-  &-soft {
-    box-shadow: inset 0 1px 0 0 #EAEDF0;
-  }
-}
-.hover-soft-bg {
-  background-color: #EAEDF0;
-  box-shadow: inset 0 1px 0 0 #EAEDF0;
 }
