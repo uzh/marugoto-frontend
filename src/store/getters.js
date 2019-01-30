@@ -24,4 +24,7 @@ export default{
   get_topic: state => {
     return state.topic;
   },
+  get_mails: state => {
+    return state.mails;
+  },
 };
