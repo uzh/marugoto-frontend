@@ -10,13 +10,11 @@
   <div class="main-container col-xs-4">
     <h1 class="page-title">Login</h1>
     <div
-      class="lead"
-      :class="accountType == 'guest' ? 'disabled' : ''"
+      class="lead choose-account"
       @click="accountType = 'university'">University Account
     </div>
     <div
-      class="lead"
-      :class="accountType == 'university' ? 'disabled' : ''"
+      class="lead choose-account"
       @click="accountType = 'guest'">Guest Account
     </div>
     <!-- Guest Account Form -->
@@ -59,7 +57,7 @@ export default {
     return{
       mail: '',
       password: '',
-      accountType: 'university',
+      accountType: 'guest',
       uniList: [
         {
           name: 'UZH Frontend',

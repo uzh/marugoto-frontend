@@ -19,7 +19,6 @@ $border: 1px solid #ddd;
 .main-container {
   z-index: 1;
   height: 70vh;
-  opacity: 0.7;
 
   .page-title {
     margin-bottom: 3rem;
@@ -29,6 +28,10 @@ $border: 1px solid #ddd;
   .lead-text {
     @extend .lead;
     margin-bottom: 55px;
+  }
+
+  .choose-account {
+    width: 50%;
   }
 }
 
