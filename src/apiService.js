@@ -31,14 +31,10 @@ const processQueue = (error, token = null) => {
 apiService.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
+  console.log(error);
   const originalRequest = error.config;
   
   if (error.response.status === 401 && !originalRequest._retry) {
-
-    // Untill bug is resolved leave this code here
-    
-    // #Untill bug is resolved leave this code here
-
     if (isRefreshing) {
       return new Promise(function(resolve, reject) {
         

@@ -29,3 +29,6 @@ export const DIALOG_UPDATE = 'DIALOG_UPDATE';
 
 // Notebook
 export const UPDATE_NOTEBOOK = 'UPDATE_NOTEBOOK';
+
+// Mail Component
+export const REQUEST_MAIL_LIST = 'REQUEST_MAIL_LIST';

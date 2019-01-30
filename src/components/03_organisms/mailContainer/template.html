@@ -1,35 +1,8 @@
 <div class="mail-container" :class="get_layoutState.mail.opened ? 'in' : ''">
   <div class="mail-container-body">
-    <ul class="inbox-mail-subject-container go-left">
-      <li class="inbox-mail-subject-container-li"
-          v-for="(item, index) in list" :key="index"
-          @click="selectMail(item)"
-          :class="item.selected ? 'active' : ''">
-        <h6>{{ item.sender }}</h6>
-        <p class="current-date-time"
-        :class="item.selected ? 'active' : ''">{{ item.date }}, {{ item.time }}</p>
-        <p class="shortMail" :class="item.selected ? 'active' : ''">{{ item.subject }} - {{ item.text }}</p>
-      </li>
-    </ul>
-    <div class="inbox-mail-body-container go-right"
-        v-for="(item, index) in itemSelected" :key="index">
-      <div class="sender">
-        <div v-if="sendingMail" class="send-mail-text">To</div>
-        <h5>{{ item.sender }}</h5>
-        <button v-if="!sendingMail" @click="switchMail">Respond to E-Mail</button>
-        <Btn v-if="sendingMail" class="send-mail-button" secondary="true" iconName="plane" iconPosition="right" iconColor="white" text="Send E-Mail" />
-      </div>
-      <div class="subject">
-        <div v-if="sendingMail" class="send-mail-text">Subject</div>
-        <h4 class="lead" v-if="!sendingMail">{{ item.subject }}</h4>
-        <p class="lead" v-if="sendingMail">Re: {{ item.subject }}</p>
-        <p class="current-date-time">{{ item.date }}, {{ item.time }}</p>
-      </div>
-      <div contenteditable v-if="sendingMail" class="message-textarea"></div>
-      <div :class="!sendingMail ? 'message' : 'message-inactive'">
-          {{ item.text }}
-      </div>
-      <button v-if="!sendingMail" class="respondMail" @click="switchMail">Respond to E-Mail</button>
-    </div>
+    <!-- Mail list -->
+    <MailList :list="get_mails" :selectedIndex="selectedIndex" @selectedMail="selectByIndex" />
+    <!-- Subject container -->
+    <MailBody :selectedIndex="selectedIndex" />
   </div>
 </div>
