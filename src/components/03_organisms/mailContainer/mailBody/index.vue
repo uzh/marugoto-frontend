@@ -18,7 +18,7 @@ export default {
         if( index == this.selectedIndex){
           return item;
         }
-      });
+      })[0];
     },
   },
   methods: {

@@ -10,12 +10,11 @@ export default {
   data() {
     return {
       timeIcon: true,
-      time: true,
       money: true,
     };
   },
   computed: {
-    ...mapGetters([ 'get_layoutState' ]),
+    ...mapGetters([ 'get_layoutState', 'get_page' ]),
   },
 }
 </script>

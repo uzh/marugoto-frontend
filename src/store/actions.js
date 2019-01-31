@@ -81,32 +81,27 @@ export default({
     commit('PAGE_COMPONENTS_UPDATE', payload.pageComponents);
   },
   [types.REQUEST_PAGE_CURRENT]: ({commit}) => {
-    return new Promise((resolve, reject) => {
-      apiService.get('/pages/current')
-      .then(resp => {
-        commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
-        commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
-        commit('PAGE_UPDATE', resp.data.page);
-        resolve(resp);
-      })
-      .catch(err => {
-        reject(err);
-      })
+    return apiService.get('/pages/current')
+    .then(resp => {
+      commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
+      commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
+      commit('PAGE_UPDATE', resp.data.page);
+    })
+    .catch(err => {
+      throw(err);
     })
   },
   [types.REQUEST_PAGE_TRANSITION]: ({commit}, id) => {
-    return new Promise((resolve, reject) => {
-      apiService.post('pageTransitions/doPageTransition/' + id + '?chosenByPlayer=true')
-      .then(resp => {
-        commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
-        commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
-        commit('PAGE_UPDATE', resp.data.page);
-        resolve(resp);
-      })
-      .catch(err => {
-        reject(err);
-      });
+    return apiService.post('pageTransitions/doPageTransition/' + id + '?chosenByPlayer=true')
+    .then(resp => {
+      commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
+      commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
+      commit('PAGE_UPDATE', resp.data.page);
     })
+    .catch(err => {
+      throw(err);
+    });
+
   },
   [types.DIALOG_UPDATE]: (context, payload) => {
     context.commit(types.DIALOG_UPDATE, payload);
@@ -114,5 +109,15 @@ export default({
   // NOTEBOOK
   [types.UPDATE_NOTEBOOK]: (context, payload) => {
     context.commit(types.UPDATE_NOTEBOOK, payload);
+  },
+  // MAIL
+  [types.REQUEST_MAIL_LIST]: ({commit}) => {
+    return apiService.get('/mails/list/')
+    .then(resp => {
+      commit('REQUEST_MAIL_LIST', resp.data);
+    })
+    .catch(err => {
+      throw(err);
+    });
   },
 });

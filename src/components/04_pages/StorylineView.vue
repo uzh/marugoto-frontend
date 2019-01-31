@@ -36,6 +36,7 @@ export default {
       this.$store.dispatch('UPDATE_TOPIC_LIST');
     }else{
       this.$store.dispatch('REQUEST_PAGE_CURRENT');
+      this.$store.dispatch('REQUEST_MAIL_LIST');
       apiService.get('notebook/list')
       .then(resp => {
         this.$store.dispatch('UPDATE_NOTEBOOK', resp.data);
@@ -54,10 +55,12 @@ export default {
       this.$store.dispatch('CHOOSE_TOPIC', id)
       .then(() => {
         this.$store.dispatch('REQUEST_PAGE_CURRENT');
+        this.$store.dispatch('REQUEST_MAIL_LIST');
       });
     },
     requestPageTransition(id){
       this.$store.dispatch('REQUEST_PAGE_TRANSITION', id);
+      this.$store.dispatch('REQUEST_MAIL_LIST');
       apiService.get('notebook/list')
       .then(resp => {
         this.$store.dispatch('UPDATE_NOTEBOOK', resp.data);

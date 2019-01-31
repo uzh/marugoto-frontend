@@ -100,4 +100,8 @@ export default({
   [types.UPDATE_NOTEBOOK] (state, payload) {
     state.notebook = payload;
   },
+  // MAIL MUTATIONS
+  [types.REQUEST_MAIL_LIST] (state, payload) {
+    state.mails = payload;
+  },
 });
