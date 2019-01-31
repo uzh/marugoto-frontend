@@ -30,7 +30,7 @@ export default ({
     id: undefined,
     list: [],
   },
-  mails: [],
+  mailNotifications: [],
   notebook: [],
   pageTransitionStates: [],
   pageComponents: [],

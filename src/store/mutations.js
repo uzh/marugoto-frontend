@@ -101,7 +101,7 @@ export default({
     state.notebook = payload;
   },
   // MAIL MUTATIONS
-  [types.REQUEST_MAIL_LIST] (state, payload) {
-    state.mails = payload;
+  [types.MAIL_LIST_UPDATE] (state, payload) {
+    state.mailNotifications = payload;
   },
 });

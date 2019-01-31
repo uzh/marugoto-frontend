@@ -86,6 +86,7 @@ export default({
       commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
+      commit('MAIL_LIST_UPDATE', resp.data.mailNotifications);
     })
     .catch(err => {
       throw(err);
@@ -97,6 +98,7 @@ export default({
       commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
+      commit('MAIL_LIST_UPDATE', resp.data.mailNotifications);
     })
     .catch(err => {
       throw(err);
@@ -110,14 +112,5 @@ export default({
   [types.UPDATE_NOTEBOOK]: (context, payload) => {
     context.commit(types.UPDATE_NOTEBOOK, payload);
   },
-  // MAIL
-  [types.REQUEST_MAIL_LIST]: ({commit}) => {
-    return apiService.get('/mails/list/')
-    .then(resp => {
-      commit('REQUEST_MAIL_LIST', resp.data);
-    })
-    .catch(err => {
-      throw(err);
-    });
-  },
+  
 });

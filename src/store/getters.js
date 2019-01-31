@@ -19,12 +19,12 @@ export default{
     return state.pageComponents;
   },
   get_notebook: state => {
-    return state.notebook;
+    return state.notebook.notebookEntries;
   },
   get_topic: state => {
     return state.topic;
   },
   get_mails: state => {
-    return state.mails;
+    return state.mailNotifications;
   },
 };

@@ -1,8 +1,15 @@
 <div class="mail-container" :class="get_layoutState.mail.opened ? 'in' : ''">
   <div class="mail-container-body">
     <!-- Mail list -->
-    <MailList :list="get_mails" :selectedIndex="selectedIndex" @selectedMail="selectByIndex" />
+    <MailList
+      v-if="get_mails.length > 0"
+      :list="get_mails" 
+      :selectedIndex="selectedIndex" 
+      @selectedMail="selectByIndex" />
     <!-- Subject container -->
-    <MailBody :selectedIndex="selectedIndex" />
+    <MailBody
+      v-if="get_mails.length > 0"
+      :list="get_mails" 
+      :selectedIndex="selectedIndex" />
   </div>
 </div>

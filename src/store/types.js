@@ -31,4 +31,4 @@ export const DIALOG_UPDATE = 'DIALOG_UPDATE';
 export const UPDATE_NOTEBOOK = 'UPDATE_NOTEBOOK';
 
 // Mail Component
-export const REQUEST_MAIL_LIST = 'REQUEST_MAIL_LIST';
+export const MAIL_LIST_UPDATE = 'MAIL_LIST_UPDATE';
