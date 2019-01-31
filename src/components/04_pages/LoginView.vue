@@ -33,10 +33,10 @@
     <!-- University Account Form -->
     <div v-if="accountType == 'university'" class="mt">
       <p class="lead">Account</p>
-      <SelectField required="true" labelName="Select University" :list="uniList" />
+      <SelectField labelName="Select University" :list="uniList" />
       <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
       <p class="lead">I'm a first time User</p>
-      <SelectField required="true" labelName="Select University" :list="uniList" />
+      <SelectField labelName="Select University" :list="uniList" />
       <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>
   </div>

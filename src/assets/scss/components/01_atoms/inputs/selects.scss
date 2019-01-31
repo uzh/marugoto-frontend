@@ -27,7 +27,7 @@ $height: 50px;
                 transform: rotate(180deg)
             }
         }
-        &.verified {
+        &.selectedOption {
             box-shadow: 0 0 0 2px $base-primary;
             height: 50px;
             padding-top: 20px;
