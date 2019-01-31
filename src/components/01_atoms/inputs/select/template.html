@@ -5,11 +5,11 @@
 	</div>
 	<div 
 		class="select-field"
-		:class="{openedList : listOpened, verified : verified}"
+		:class="{'openedList' : listOpened ,  'selectedOption' : optionSelected}"
 		ref="selectWrapper"
 		@click="[listOpened = true, activatedValidation = true]">
 			<div v-if="!selectedValue">{{ labelName }}</div>
-			<div else>{{ selectedValue }}</div>
+			<div v-else>{{ selectedValue }}</div>
 			<SvgIcon name="arrow-bottom" sizeH="20px" class="select-field-arrow"/>
 	</div>
 	<!-- Dropdown list -->

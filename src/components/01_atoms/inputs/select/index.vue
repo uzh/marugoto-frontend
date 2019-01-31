@@ -16,7 +16,7 @@ export default {
       listOpened: false,
       error: false,
       activatedValidation: false,
-      verified: false,
+      optionSelected: false,
     };
   },
   created() {
@@ -33,19 +33,19 @@ export default {
       if (( el !== target) && !el.contains(target)) {
         this.listOpened = false;
       }
-      this.verifyField();
+      this.onOptionSelected();
     },
-    verifyField() {
+    onOptionSelected() {
       if ( this.selectedValue == '' && this.activatedValidation) {
         this.error = true;
       } else if (this.activatedValidation) {
         this.error = false;
-        this.verified = true;
+        this.optionSelected = true;
       }
     }
   },
   destroyed () {
-    document.removeEventListener('click', this.blurSelect)
+    document.removeEventListener('click', this.blurSelect);
   }
 };
 </script>
