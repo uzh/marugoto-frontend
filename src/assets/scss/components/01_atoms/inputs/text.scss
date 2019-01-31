@@ -46,22 +46,17 @@ $max-width: 1000px;
        padding-top: 6px;
    }
 
-   &.focused {
+   &.inputFocused {
        box-shadow: 0 2px 0 0 $base-primary;
         label {
-            top: 5px;
             @extend .label;
+            top: 5px;
             color: $base-primary;
         }
    }
 
-   &.verified {
+   &.bordered {
         box-shadow: 0 0 0 2px $base-primary;
         height: auto;
-        label {
-            top: 5px;
-            @extend .label;
-            color: $base-primary;
-        }
     }
 }

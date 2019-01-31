@@ -1,17 +1,14 @@
 <div class="input-field" v-bind:class="[
-	focused ? 'focused' : '',
-	verified ? 'verified' : ''
+	focused ? 'inputFocused' : '',
+	filledInput ? 'bordered' : ''
 	]">
 	<label @click="inputFocus">{{ labelName }}</label>
 	<input
+		:value="value"
 		ref="inputField"
 		:type="typeProp"
-		v-on:blur="[
-			setFocus(false),
-			verifyField()
-		]"
+		v-on:blur="setFocus(false)"
 		v-on:focus="setFocus(true)"
-		v-model="val"
 		@input="updateEmitVal" />
 	<div v-if="required && error"
 		class="errorMessage">* Field required</div>

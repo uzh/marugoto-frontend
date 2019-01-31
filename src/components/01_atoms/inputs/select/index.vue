@@ -8,11 +8,11 @@ import SvgIcon from '@/components/01_atoms/svgicon';
 export default {
   // name of the component
   name: 'selectField',
-  props: [ 'list', 'genderLabel', 'required' ],
+  props: [ 'list', 'labelName', 'required' ],
   components: { SvgIcon},
   data() {
     return {
-      selectedValue: 'Gender',
+      selectedValue: '',
       listOpened: false,
       error: false,
       activatedValidation: false,
@@ -36,7 +36,7 @@ export default {
       this.verifyField();
     },
     verifyField() {
-      if ( this.selectedValue == 'Gender' && this.activatedValidation) {
+      if ( this.selectedValue == '' && this.activatedValidation) {
         this.error = true;
       } else if (this.activatedValidation) {
         this.error = false;

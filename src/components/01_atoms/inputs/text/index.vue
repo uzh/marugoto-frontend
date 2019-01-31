@@ -8,18 +8,18 @@
 export default {
   // name of the component
   name: 'inputField',
-  props: ['typeProp', 'labelName', 'required'],
+  props: ['typeProp', 'labelName', 'required', 'value'],
   data() {
     return {
-      val: '',
+      wasInFocus: false,
       focused: false,
-      verified: false,
+      filledInput: false,
       error: false,
     };
   },
-  // created: function() {
-  //     this.setFocus();
-  // },
+  mounted: function() {
+    this.checkInputState();
+  },
   computed: {
     computedType: function () {
       if( this.$props.typeProp === '' || this.$props.typeProp === undefined ){
@@ -29,28 +29,39 @@ export default {
     },
   },
   methods: {
+    checkInputState: function() {
+      if( this.$refs.inputField.value == '' ) {
+        this.focused = false;
+        this.filledInput = false;
+      }else{
+        this.focused = true;
+        this.filledInput = true;
+      }
+
+      if( this.wasInFocus && !this.focused && !this.filledInput ){
+        this.error = true;
+      }else{
+        this.error = false;
+      }
+    },
     updateEmitVal() {
-      this.$emit('input', this.val);
+      this.$emit('input', this.$refs.inputField.value);
     },
     inputFocus: function() {
       this.$refs.inputField.focus();
     },
     setFocus(foc) {
+      this.checkInputState();
+      if( this.$refs.inputField.value != '' ) {
+        return;
+      }
+      this.wasInFocus = true;
       if (foc) {
         this.focused = true;
       } else {
         this.focused = false;
       }
     },
-    verifyField() {
-      if ( this.val == '' ) {
-        this.error = true;
-        this.verified = false;
-      } else {
-        this.error = false;
-        this.verified = true;        
-      }
-    }
   }
 };
 </script>

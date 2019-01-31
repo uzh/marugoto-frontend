@@ -1,23 +1,27 @@
 <template>
 <div>
-  <div class="main-container">
-    <h1 class="col-xs-10 col-xs-offset-1">Welcome to Lives in Transit!</h1>
-    <p class="lead-text col-xs-10 col-xs-offset-1">Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
-    <p class="col-xs-10 col-xs-offset-1">As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
+  <div class="col-xs-1"></div>
+  <div class="main-container col-xs-6">
+    <h1 class="page-title">Welcome to Lives in Transit!</h1>
+    <p class="lead-text">Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
+    <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
   </div>
-  <div class="main-container">
-    <h1 class="col-xs-12">Create LiT Account</h1>
-    <svgIcon @click.native="goToLogin" class="back-to-login-arrow" name="arrow-left" sizeH="20" />
-    <p class="lead col-xs-6">Enter your Data</p>
-    <form class="col-xs-12" @keydown.enter="register">
-      <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
-      <InputField v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
-
-      <SelectField :list="genderList" required="true" genderLabel="true" @selectChange="setGender" />
-      <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
-      <InputField v-model="password" typeProp="password" labelName="Password" required="true"/>
-    </form>
-    <Btn class="col-xs-12" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
+  <div class="col-xs-1">
+    <svgIcon @click.native="goToLogin" name="arrow-left" sizeH="20" class="back-to-login" />
+  </div>
+  <div class="main-container col-xs-4">
+    <h1 class="page-title">Create Account</h1>
+    <p class="lead">Enter your Data</p>
+    <div class="mt">
+      <form class="col-xs-12" @keydown.enter="register">
+        <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
+        <InputField v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
+        <SelectField :list="genderList" required="true" labelName="Gender" @selectChange="setGender" />
+        <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
+        <InputField v-model="password" typeProp="password" labelName="Password" required="true"/>
+      </form>
+      <Btn class="col-xs-12" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
+    </div>
   </div>
   <div class="origin-background"></div>
 </div>

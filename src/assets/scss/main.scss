@@ -8,13 +8,13 @@
 
 // Components
 @import 'components/01_atoms/buttons';
-@import 'components/01_atoms/checkbox.scss';
-@import 'components/01_atoms/icons.scss';
-@import 'components/01_atoms/inputs.scss';
+@import 'components/01_atoms/inputs/checkbox.scss';
+@import 'components/01_atoms/inputs/text.scss';
+@import 'components/01_atoms/inputs/radio.scss';
+@import 'components/01_atoms/inputs/selects.scss';
 @import 'components/01_atoms/lists.scss';
 @import 'components/01_atoms/notifications.scss';
-@import 'components/01_atoms/radio.scss';
-@import 'components/01_atoms/selects.scss';
+@import 'components/01_atoms/svgicon.scss';
 @import 'components/01_atoms/tooltip.scss';
 
 @import 'components/02_molecules/dialogs.scss';
@@ -24,4 +24,5 @@
 
 @import 'components/03_organisms/mailContainer';
 @import 'components/03_organisms/notebookContainer';
-@import 'components/03_organisms/rightSidebar';
+@import 'components/03_organisms/sidebars/rightSidebar.scss';
+@import 'components/03_organisms/sidebars/statusbar.scss';

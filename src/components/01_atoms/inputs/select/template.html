@@ -1,23 +1,16 @@
 <div class="select-div">
-	<p v-if="selectedValue != 'Gender'"
-		:class="genderLabel ? 'genderLabel' : ''" >
-		Gender
-	</p>
+	<div v-if="selectedValue != ''"
+		:class="labelName ? 'label-name' : ''" >
+		{{ labelName }}
+	</div>
 	<div 
 		class="select-field"
 		:class="{openedList : listOpened, verified : verified}"
 		ref="selectWrapper"
 		@click="[listOpened = true, activatedValidation = true]">
-		{{ selectedValue }}
-		<SvgIcon 
-		name="arrow-bottom"
-		sizeH="20px"
-		class="select-field-arrow"/>
-	</div>
-	<!-- Error mark -->
-	<div 
-		v-if="required && error"
-		class="errorMessage">* Field required
+			<div v-if="!selectedValue">{{ labelName }}</div>
+			<div else>{{ selectedValue }}</div>
+			<SvgIcon name="arrow-bottom" sizeH="20px" class="select-field-arrow"/>
 	</div>
 	<!-- Dropdown list -->
 	<ul 
@@ -28,4 +21,9 @@
 			@click.self="optionSelection(item)" >{{ item.name }}
 		</li>
 	</ul>
+	<!-- Error mark -->
+	<div 
+		v-if="required && error"
+		class="errorMessage">* Field required
+	</div>
 </div>
