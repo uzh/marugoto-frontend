@@ -18,7 +18,7 @@ $border: 1px solid #ddd;
 // Main container - login/create account
 .main-container {
   z-index: 1;
-  height: 70vh;
+  background: transparent;
 
   .page-title {
     margin-bottom: 3rem;
@@ -32,6 +32,7 @@ $border: 1px solid #ddd;
 
   .choose-account {
     width: 50%;
+    display: inline-block;
   }
 }
 

@@ -8,6 +8,12 @@
   opacity: 0.1;
   pointer-events: none;
 }
+.opacity {
+  opacity: 0.1;
+}
+.mt {
+  margin-top: 50px;
+}
 .clear-float:after{
   content: '';
   display: block;

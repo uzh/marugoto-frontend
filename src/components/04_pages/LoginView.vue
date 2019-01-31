@@ -11,26 +11,27 @@
     <h1 class="page-title">Login</h1>
     <div
       class="lead choose-account"
+      :class="accountType == 'university' ? '' : 'opacity'"
       @click="accountType = 'university'">University Account
     </div>
     <div
       class="lead choose-account"
+      :class="accountType == 'guest' ? '' : 'opacity'"
       @click="accountType = 'guest'">Guest Account
     </div>
     <!-- Guest Account Form -->
-    <div v-if="accountType == 'guest'">
+    <div v-if="accountType == 'guest'" class="mt">
       <p class="lead">Account</p>
       <form @keydown.enter="login">
         <InputField v-model="mail" typeProp="email" labelName="E-Mail" />
-        <InputField v-model="password" typeProp="password"
-        labelName="Password" />
+        <InputField v-model="password" typeProp="password" labelName="Password" />
       </form>
       <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
       <p class="lead">I'm a first time User</p>
       <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>
     <!-- University Account Form -->
-    <div v-if="accountType == 'university'">
+    <div v-if="accountType == 'university'" class="mt">
       <p class="lead">Account</p>
       <SelectField required="true" labelName="Select University" :list="uniList" />
       <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
