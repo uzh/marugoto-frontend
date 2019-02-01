@@ -1,11 +1,11 @@
 <div class="notebook-chapter-menu">
-  <div class="chapter-menu-icon" @click="$emit('changeCurrentEntryTo', 'first')">
+  <div class="chapter-menu-icon" @click="emitChange('first')">
     <svgIcon
     name="rewind"
     customColor="#FFF"
     sizeH="20px" />
   </div>
-  <div class="chapter-menu-icon" @click="$emit('changeCurrentEntryTo', 'prev')">
+  <div class="chapter-menu-icon" @click="emitChange('prev')">
     <svgIcon
     name="arrow-left"
     customColor="#979797"
@@ -17,13 +17,13 @@
     customColor="#FFF"
     sizeH="20px" />
   </div>
-  <div class="chapter-menu-icon" @click="$emit('changeCurrentEntryTo', 'next')">
+  <div class="chapter-menu-icon" @click="emitChange('next')">
     <svgIcon
     name="arrow-right"
     customColor="#979797"
     sizeH="20px" />
   </div>
-  <div class="chapter-menu-icon" @click="$emit('changeCurrentEntryTo', 'last')">
+  <div class="chapter-menu-icon" @click="emitChange('last')">
     <svgIcon
     name="forward"
     customColor="#FFF"

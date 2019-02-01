@@ -5,10 +5,11 @@ import { mapGetters } from 'vuex';
 import NotebookHeader from './notebookHeader';
 import NotebookList from './notebookList';
 import NotebookChapterMenu from './notebookChapterMenu';
+import NotebookPages from './notebookPages';
 
 export default {
   name: 'NotebookContainer',
-  components: { NotebookHeader, NotebookList, NotebookChapterMenu },
+  components: { NotebookHeader, NotebookList, NotebookChapterMenu, NotebookPages },
   props: ['entryList'],
   data(){
     return {
