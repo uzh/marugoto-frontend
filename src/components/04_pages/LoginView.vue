@@ -20,22 +20,22 @@
       @click="accountType = 'guest'">Guest Account
     </div>
     <!-- Guest Account Form -->
-    <div v-if="accountType == 'guest'" class="mt">
+    <div v-if="accountType == 'guest'" class="mt-50">
       <p class="lead">Account</p>
       <form @keydown.enter="login">
         <InputField v-model="mail" typeProp="email" labelName="E-Mail" />
         <InputField v-model="password" typeProp="password" labelName="Password" />
       </form>
       <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
-      <p class="lead">I'm a first time User</p>
+      <p class="lead mt-30">I'm a first time User</p>
       <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>
     <!-- University Account Form -->
-    <div v-if="accountType == 'university'" class="mt">
+    <div v-if="accountType == 'university'" class="mt-50">
       <p class="lead">Account</p>
       <SelectField labelName="Select University" :list="uniList" />
       <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
-      <p class="lead">I'm a first time User</p>
+      <p class="lead mt-30">I'm a first time User</p>
       <SelectField labelName="Select University" :list="uniList" />
       <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>

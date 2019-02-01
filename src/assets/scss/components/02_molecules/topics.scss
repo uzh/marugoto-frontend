@@ -113,14 +113,13 @@
                 }
     
                 .topic-button {
-                    display: block;
                     @extend .lead;
+                    display: block;
                     position: absolute;
                     bottom: 10px;
                     left: 20px;
                     width: calc(100% - 40px);
                     overflow: hidden;
-                    max-height: 30px;
                     transition: all 0.3s;
                 }
             }

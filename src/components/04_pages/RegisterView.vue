@@ -12,7 +12,7 @@
   <div class="main-container col-xs-4">
     <h1 class="page-title">Create Account</h1>
     <p class="lead">Enter your Data</p>
-    <div class="mt">
+    <div class="mt-50">
       <form class="col-xs-12" @keydown.enter="register">
         <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
         <InputField v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
@@ -20,7 +20,7 @@
         <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
         <InputField v-model="password" typeProp="password" labelName="Password" required="true"/>
       </form>
-      <Btn class="col-xs-12" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
+      <Btn class="col-xs-12 mt-30" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
   </div>
   <div class="origin-background"></div>
