@@ -61,7 +61,7 @@ $height: 50px;
             font-size: inherit;
             border-bottom: $base-ghost-border;
             &:hover {
-                background-color: $select-item-hover;
+                background-color: $background-hover;
                 border: $base-ghost-border;
                 cursor: pointer;
             }

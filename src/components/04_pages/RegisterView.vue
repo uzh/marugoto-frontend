@@ -1,13 +1,17 @@
 <template>
 <div>
-  <div class="col-xs-1"></div>
+  <div class="col-xs-1 rotated-text-login-page">
+    <div class="item">Welcome</div>
+    <div class="item disabled">Reviews</div>
+    <div class="item disabled">Collaborations</div>
+  </div>
   <div class="main-container col-xs-6">
     <h1 class="page-title">Welcome to Lives in Transit!</h1>
     <p class="lead-text">Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
     <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
   </div>
   <div class="col-xs-1">
-    <svgIcon @click.native="goToLogin" name="arrow-left" sizeH="20" class="back-to-login" />
+    <SvgIcon @click.native="goToLogin" name="arrow-left" sizeH="20" class="back-to-login" />
   </div>
   <div class="main-container col-xs-4">
     <h1 class="page-title">Create Account</h1>
@@ -23,7 +27,15 @@
       <Btn class="col-xs-12 mt-30" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
   </div>
-  <div class="origin-background"></div>
+  <div class="origin-background col-xs-12">
+    <div class="col-xs-10 col-xs-offset-1 login-page-bottom-icons">
+      <SvgIcon name="blind" sizeH="20" iconPosition="left" class="col-xs-1" />
+      <div class="col-xs-1">Universitat Zurich</div>
+      <div class="col-xs-8"></div>
+      <div class="col-xs-1">Impressum</div>
+      <div class="col-xs-1">Datenschutz</div>
+    </div>
+  </div>
 </div>
 </template>
 
