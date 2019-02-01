@@ -28,7 +28,7 @@ export default{
   components: { NotebookContainer, MailContainer, Topbar, RightSidebar, DialogComponent, NotificationCmpt },
   data() {
     return {
-
+      
     };
   },
   computed: {
@@ -42,7 +42,7 @@ export default{
   },
   created(){
     
-  }
+  },
 }
 
 </script>

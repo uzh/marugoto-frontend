@@ -3,7 +3,7 @@
   <div
     class="status-bar"
     :class="[get_layoutState.mail.opened ? 'out' : '', get_layoutState.notebook.opened ? 'halfed' : '']">
-    <!-- <svgIcon v-if="timeIcon"
+    <!-- <svgIcon
       name="clock"
       sizeH="20px"
       class="status-bar-icon" /> -->
@@ -11,9 +11,9 @@
         class="money">
       500 &pound;
     </div>
-    <div v-if="get_page.timerVisible"
+    <div v-if="!get_page.timerVisible"
         class="time">
-      3 min 55 sec 
+        3 min 55 sec
     </div>
   </div>
 </div>
