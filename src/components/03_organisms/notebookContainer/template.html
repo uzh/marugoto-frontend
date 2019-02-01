@@ -12,11 +12,6 @@
   <NotebookChapterMenu @changeCurrentEntryTo="switchCurrentEntryTo"/>
   <!-- Notebook entries -->
   <div class="notebook-content">
-    <!-- Notebook background entries -->
-    <div class="background-entries">
-      <div class="second-behind"></div>
-      <div class="first-behind"></div>
-    </div>
     <div v-for="(item, index) in get_notebook" :key="index">
       <div v-if="index == currentEntry">
         <NotebookHeader

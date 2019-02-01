@@ -17,17 +17,18 @@ $border: 1px solid #ddd;
 
 // Main container - login/create account
 .main-container {
+  height: 70vh;
+  overflow: scroll;
   z-index: 1;
-  background: transparent;
 
   .page-title {
-    margin-bottom: 3rem;
     font-weight: inherit;
   }
 
   .lead-text {
     @extend .lead;
     margin-bottom: 55px;
+    margin-top: 30px;
   }
 
   .choose-account {
@@ -41,10 +42,26 @@ $border: 1px solid #ddd;
   top: 30px;
 }
 
+.rotated-text-login-page {
+  top: 90px;
+  transform: rotate(90deg);
+  z-index: 1;
+  & .item {
+    display: inline;
+    margin-right: 30px;
+  }
+}
+
 .origin-background {
   @extend .col-xs-12;
-  background-color: $select-item-hover;
-  height: 70vh;
+  background-color: $background-hover;
+  height: 70%;
   position: absolute;
   bottom: 0;
+
+  .login-page-bottom-icons {
+    position: absolute;
+    bottom: 50px;
+    height: 50px;
+  }
 }
