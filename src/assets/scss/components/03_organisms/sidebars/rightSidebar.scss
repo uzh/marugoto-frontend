@@ -61,13 +61,12 @@
     z-index: 4;
   }
 
-  .notebook-sidebar {
+  .notebook-sidebar-right {
       height: 100%;
-  }
-
-  .rotated-text {
-      position: relative;
-      top: 40%;
-      transform: rotate(-90deg);
+      .rotated-text {
+        position: relative;
+        top: 40%;
+        transform: rotate(-90deg);
+    }
   }
 }
