@@ -31,7 +31,10 @@ export default ({
     list: [],
   },
   mailNotifications: [],
-  notebook: [],
+  notebook: {
+    notebookEntries: [],
+    personalNotes: [],
+  },
   pageTransitionStates: [],
   pageComponents: [],
   page: {},

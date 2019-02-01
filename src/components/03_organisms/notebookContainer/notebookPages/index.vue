@@ -2,17 +2,31 @@
 
 <script>
 import NotebookHeader from '../notebookHeader'
+import svgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   name: 'NotebookPages',
-  components: { NotebookHeader },
+  components: { NotebookHeader, svgIcon },
   props: [ 'currentEntry', 'list', 'direction' ],
   data(){
     return {
       transitionTime: 300,
     }
   },
+  mounted: function() {
+    if( this.list.length > 0){
+      this.populatePage('.np-front', this.list[this.currentEntry]);
+    }
+  },
   methods: {
+    toggleScroll: function() {
+      this.$emit('toggleScroll');
+    },
+    populatePage: function(element, value) {
+      let pageElement = document.querySelector(element);
+      pageElement.querySelector('.notebook-header .title').innerText = value.title;
+      pageElement.querySelector('.text').innerText = value.text;
+    },
     animateNextPage: function() {
       let front = document.querySelector('.np-front');
       let middle = document.querySelector('.np-middle');
@@ -53,22 +67,19 @@ export default {
     openEntriesMenu: function() {},
   },
   watch: {
+    list: function(newVal, oldVal) {
+      if( newVal != oldVal ){
+        this.populatePage('.np-front', this.list[this.list.length - 1]);
+      }
+    },
     currentEntry: function (newValue, oldValue) {
-      let front = document.querySelector('.np-front');
-      let middle = document.querySelector('.np-middle');
-      let back = document.querySelector('.np-back');
-
       if( newValue > oldValue ){
         // Middle element gets newValue
-        middle.querySelector('h1').innerText = this.list[newValue].title;
-        middle.querySelector('p').innerText = this.list[newValue].text;
-
+        this.populatePage('.np-middle', this.list[newValue]);
         this.animateNextPage();
       }else if( newValue < oldValue ){
         // Back element gets newValue
-        back.querySelector('h1').innerText = this.list[newValue].title;
-        back.querySelector('p').innerText = this.list[newValue].text;
-
+        this.populatePage('.np-back', this.list[newValue]);
         this.animatePrevPage();
       }
     }

@@ -103,14 +103,19 @@ export default({
     .catch(err => {
       throw(err);
     });
-
   },
   [types.DIALOG_UPDATE]: (context, payload) => {
     context.commit(types.DIALOG_UPDATE, payload);
   },
   // NOTEBOOK
-  [types.UPDATE_NOTEBOOK]: (context, payload) => {
-    context.commit(types.UPDATE_NOTEBOOK, payload);
+  [types.UPDATE_NOTEBOOK]: ({commit}, payload) => {
+    return apiService.get('notebook/list')
+    .then(resp => {
+      commit(types.UPDATE_NOTEBOOK, resp.data);
+    })
+    .catch(err => {
+      throw(err);
+    });
   },
   
 });
