@@ -9,18 +9,12 @@
     :list="get_notebook"
     @selectItem="setCurrentEntry"/>
   <!-- Notebook Navigation -->
-  <NotebookChapterMenu @changeCurrentEntryTo="switchCurrentEntryTo"/>
+  <NotebookChapterMenu 
+    @changeCurrentEntryTo="switchCurrentEntryTo" 
+    :currentEntry="currentEntry"
+    :list="get_notebook" />
   <!-- Notebook entries -->
-  <div class="notebook-content">
-    <div v-for="(item, index) in get_notebook" :key="index">
-      <div v-if="index == currentEntry">
-        <NotebookHeader
-          :title="item.title"
-          @toggleScroll="openEntriesMenu" />
-        <p>{{ item.text }}</p>
-      </div>
-    </div>
-  </div>
+  <NotebookPages :currentEntry="currentEntry" :list="get_notebook" />
   <!-- Notebook Navigation -->
   <NotebookChapterMenu @changeCurrentEntryTo="switchCurrentEntryTo"/>
 </div>
