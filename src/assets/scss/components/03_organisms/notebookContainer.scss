@@ -91,7 +91,7 @@ $chapterHeight: 90px;
     // Height is set using JS as it is dinamic
     position: relative;
     z-index: 10;
-    background-color: $background-hover;
+    background-color: #000;
     min-height: calc(100vh + 10px);
 
     .notebook-header {
