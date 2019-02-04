@@ -12,6 +12,9 @@ export default{
   get_page: state => {
     return state.page;
   },
+  get_storyline: state => {
+    return state.storylineState;
+  },
   get_transitions: state => {
     return state.pageTransitionStates;
   },

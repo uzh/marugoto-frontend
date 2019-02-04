@@ -84,6 +84,9 @@ export default({
   [types.TRANSITIONS_UPDATE] (state, payload) {
     state.pageTransitionStates = payload;
   },
+  [types.STORYLINE_UPDATE] (state, payload) {
+    state.storylineState = payload;
+  },
   [types.PAGE_COMPONENTS_UPDATE] (state, payload) {
     state.pageComponents = payload;
   },

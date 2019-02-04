@@ -35,6 +35,7 @@ export default ({
     notebookEntries: [],
     personalNotes: [],
   },
+  storylineState: {},
   pageTransitionStates: [],
   pageComponents: [],
   page: {},

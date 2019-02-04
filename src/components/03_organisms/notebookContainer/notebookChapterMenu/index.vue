@@ -20,7 +20,7 @@ export default {
        * Directions
        * Next, Prev, First Last
        */
-      if( this.currentEntry < this.list.notebookEntries.length - 1 && direction == 'next' ){
+      if( this.currentEntry < this.list.length - 1 && direction == 'next' ){
         // Next
         this.$emit('changeCurrentEntryTo', 'next');
       }else if(this.currentEntry != 0 && direction == 'prev') {

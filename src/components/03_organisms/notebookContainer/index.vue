@@ -32,7 +32,7 @@ export default {
       }
     },
     nextEntry: function() {
-      if( this.currentEntry == this.get_notebook.notebookEntries.length - 1 ){
+      if( this.currentEntry == this.get_notebook.length - 1 ){
         this.currentEntry = 0;
       }else{
         this.currentEntry++;
@@ -40,7 +40,7 @@ export default {
     },
     prevEntry: function() {
       if( this.currentEntry == 0 ){
-        this.currentEntry = this.get_notebook.notebookEntries.length - 1;
+        this.currentEntry = this.get_notebook.length - 1;
       }else{
         this.currentEntry--;
       }
@@ -50,7 +50,7 @@ export default {
       this.openEntriesMenu();
     },
     lastEntry: function() {
-      this.currentEntry = this.get_notebook.notebookEntries.length - 1;
+      this.currentEntry = this.get_notebook.length - 1;
     },
     firstEntry: function() {
       this.currentEntry = 0;

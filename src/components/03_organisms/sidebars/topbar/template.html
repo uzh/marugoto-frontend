@@ -7,9 +7,9 @@
       name="clock"
       sizeH="20px"
       class="status-bar-icon" /> -->
-    <div v-if="money"
+    <div v-if="get_storyline.moneyBalance > 0"
         class="money">
-      500 &pound;
+        {{ get_storyline.moneyBalance }} &pound;
     </div>
     <div v-if="get_page.timerVisible"
         class="time">

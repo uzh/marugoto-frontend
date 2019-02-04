@@ -84,6 +84,7 @@ export default({
     return apiService.get('/pages/current')
     .then(resp => {
       commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
+      commit('STORYLINE_UPDATE', resp.data.storylineState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
       commit('MAIL_LIST_UPDATE', resp.data.mailNotifications);
@@ -96,6 +97,7 @@ export default({
     return apiService.post('pageTransitions/doPageTransition/' + id + '?chosenByPlayer=true')
     .then(resp => {
       commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
+      commit('STORYLINE_UPDATE', resp.data.storylineState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
       commit('MAIL_LIST_UPDATE', resp.data.mailNotifications);

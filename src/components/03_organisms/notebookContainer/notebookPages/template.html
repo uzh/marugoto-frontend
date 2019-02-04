@@ -1,7 +1,7 @@
 <div class="notebook-content">
   <div 
     class="pageDisplay"
-    v-for="(page, index) in list.notebookEntries" 
+    v-for="(page, index) in list" 
     :key="index"
     :class="[ index == currentEntry ? 'np-front' : '', 
               index == currentEntry + 1 ? 'np-middle' : '', 
@@ -22,7 +22,7 @@
     <ul>
       <li
         style="border-top: 1px solid gray;" 
-        v-for="(personalNote, index) in list.personalNotes" 
+        v-for="(personalNote, index) in page.personalNotes" 
         :key="index"
         v-if="personalNote.notebookEntry.id == page.id">
           {{ personalNote.markdownContent }}
