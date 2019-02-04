@@ -1,12 +1,11 @@
 <template src="./template.html"></template>
 
 <script>
-import NotebookHeader from '../notebookHeader'
 import svgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   name: 'NotebookPages',
-  components: { NotebookHeader, svgIcon },
+  components: { svgIcon },
   props: [ 'currentEntry', 'list', 'direction' ],
   data(){
     return {
