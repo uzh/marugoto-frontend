@@ -11,11 +11,23 @@
 .opacity {
   opacity: 0.1;
 }
+.full-width {
+  width: 100%;
+}
 .mt-50 {
   margin-top: 50px;
 }
 .mt-30 {
   margin-top: 30px;
+}
+.mt-100 {
+  margin-top: 100px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+.mb-100 {
+  margin-bottom: 100px;
 }
 .clear-float:after{
   content: '';

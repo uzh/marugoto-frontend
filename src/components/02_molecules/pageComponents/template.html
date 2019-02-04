@@ -4,66 +4,74 @@
     :key="index"
     :class="`col-xs-${component.numberOfColumns}`" >
     <!-- Text -->
-    <TextComponent
+    <TextComponent class="mb-30"
       v-if="component.type == 'TextComponent'"
       :text="component.markdownContent" />
     <!-- Link -->
-    <a :href="component.url" target="_blank"
+    <div class="mb-30">
+      <a :href="component.url" target="_blank"
       v-if="component.type == 'LinkComponent'">{{ component.url }}</a>
+    </div>
     <!-- Image -->
-    <ImageComponent
+    <ImageComponent class="mb-30"
       v-if="component.type == 'ImageComponent'"
       :source="`http://localhost:8080/${component.image.path}`"
       :text="component.markdownContent" />
     <!-- Date Component -->
-    <v-date-picker
+    <v-date-picker class="mt-30"
       v-if="component.type == 'DateExercise'"
       :formats='formats'
       @dayclick="dateEmit($event, component.exerciseState.id)"
       v-model='selectedDate'>
     </v-date-picker>
     <!-- Dialog -->
-    <DialogExercise
+    <DialogExercise class="mt-30"
       @emitDialog="dialogOptionEmited"
       v-if="component.type == 'DialogExercise'"
       :text="component.speech.markdownContent"
       :source="`http://localhost:8080/${component.speaker.image.path}`"
       :options="component.speech.answers" /><!--  -->
     <!-- Exercise Radio -->
-    <ExerciseRadio
+    <ExerciseRadio class="mt-30"
       @emitRadioChange="submitAnswer"
       v-if="component.type == 'RadioButtonExercise'"
       :exerciseId="component.exerciseState.id"
       :list="component.options" />
     <!-- Exercise Checkbox -->
-    <ExerciseCheckbox
+    <ExerciseCheckbox class="mt-30"
       @emitCheckboxChange="submitAnswer"
       v-if="component.type == 'CheckboxExercise'"
       :exerciseId="component.exerciseState.id"
       :optionsList="component.options" />
     <!-- Exercise Text -->
-    <ExerciseText 
+    <ExerciseText  class="mt-30"
       @emitInputAnswer="submitAnswer"
       v-if="component.type == 'TextExercise'"
       :exerciseId="component.exerciseState.id"
       :placeholder="component.placeholderText" />
     <!-- PDF -->
-    <a
+    <div class="mt-30">
+      <a
       v-if="component.type == 'PdfComponent'"
       :href="`http://localhost:8080/${component.pdf.path}`" target="_blank">PDF</a>
+    </div>
     <!-- Audio -->
-    <audio v-if="component.type == 'AudioComponent'" controls>
-      <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/ogg">
-      <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/mpeg">
-      Your browser does not support the audio tag.
-    </audio>
+    <div>
+      <audio v-if="component.type == 'AudioComponent'" class="full-width mt-30" controls>
+        <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/ogg">
+        <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/mpeg">
+        Your browser does not support the audio tag.
+      </audio>
+    </div>
     <!-- Video -->
-    <video v-if="component.type == 'VideoComponent'" class="col-xs-10 col-xs-offset-1" controls>
-      <source :src="`http://localhost:8080/${component.video.path}`" type="video/mp4">
-      <source :src="`http://localhost:8080/${component.video.path}`" type="video/webm" />
-      <source :src="`http://localhost:8080/${component.video.path}`" type="video/ogg" />
-      <p>Your browser does not support the video tag.</p>
-    </video>
+    <div>
+      <video v-if="component.type == 'VideoComponent'" class="full-width mt-30" controls>
+        <source :src="`http://localhost:8080/${component.video.path}`" type="video/mp4">
+        <source :src="`http://localhost:8080/${component.video.path}`" type="video/webm" />
+        <source :src="`http://localhost:8080/${component.video.path}`" type="video/ogg" />
+        <p>Your browser does not support the video tag.</p>
+      </video>
+    </div>
 
     <!-- Video with custom controls -->
     <!-- <div v-if="component.type == 'VideoComponent'" class="video-container">

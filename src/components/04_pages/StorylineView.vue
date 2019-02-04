@@ -1,15 +1,20 @@
 <template>
   <div class="storyline-container">
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
-    <div v-if="!get_topic.selected">
-      <TopicComponent :list="get_topic.list" @openTopic="chooseTopic" />
-    </div>
-    <div v-if="get_topic.selected">
-      <h1 class="storyline-title">{{ get_page.title }}</h1>
-      <!-- Components -->
-      <PageComponents />
-      <!-- Page transitions -->
-      <PageTransitions @transitionChoosen="requestPageTransition" />
+    <div>
+      <div class="col-xs-1"></div>
+      <div class="col-xs-10">
+        <div v-if="!get_topic.selected">
+          <TopicComponent :list="get_topic.list" @openTopic="chooseTopic" />
+        </div>
+        <div v-if="get_topic.selected">
+          <h1 class="storyline-title">{{ get_page.title }}</h1>
+          <!-- Components -->
+          <PageComponents />
+          <!-- Page transitions -->
+          <PageTransitions @transitionChoosen="requestPageTransition" />
+        </div>
+      </div>
     </div>
   </div>
 </template>

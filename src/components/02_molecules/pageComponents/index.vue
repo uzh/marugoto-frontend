@@ -1,7 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
-import { mapGetters, mapActions } from 'vuex'
+import { mapGetters } from 'vuex'
 import apiService from '@/apiService'
 
 import DialogExercise from '../dialog'
