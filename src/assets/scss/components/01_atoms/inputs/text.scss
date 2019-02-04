@@ -34,7 +34,8 @@ $max-width: 1000px;
        transition: all 0.3s;
        overflow: hidden;
        white-space: nowrap;
-       text-overflow: clip;
+       text-overflow: ellipsis;
+       width: 95%;
    }
 
    input {

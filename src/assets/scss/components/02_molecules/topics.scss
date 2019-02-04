@@ -42,7 +42,7 @@
                     padding: 20px;
                     text-align: center;
                     border-top-right-radius: 6px;
-                    z-index: 10;
+                    z-index: 2;
                     transition: all 0.3s;
     
                     &-more {
@@ -53,7 +53,7 @@
                         padding: 20px;
                         text-align: center;
                         border-top-right-radius: 6px;
-                        z-index: 10;
+                        z-index: 2;
                         transition: all 0.3s;
                         height: 130px;
     
@@ -66,7 +66,7 @@
                             height: 20px;
                             background-color: $background-hover;
                             border-top-left-radius: 6px;
-                            z-index: 10;
+                            z-index: 2;
                         }
     
                         &:after {
@@ -78,7 +78,7 @@
                             height: 0;
                             border-bottom: 20px solid $background-hover;
                             border-right: 20px solid transparent;
-                            z-index: 10;
+                            z-index: 2;
                         }
                     }
                     
@@ -91,7 +91,7 @@
                         height: 20px;
                         background-color: $background-hover;
                         border-top-left-radius: 6px;
-                        z-index: 10;
+                        z-index: 2;
                     }
     
                     &:after {
@@ -103,12 +103,11 @@
                         height: 0;
                         border-bottom: 20px solid $background-hover;
                         border-right: 20px solid transparent;
-                        z-index: 10;
+                        z-index: 2;
                     }
                 }
     
                 .topic-button {
-                    @extend .lead;
                     display: block;
                     position: absolute;
                     bottom: 10px;
@@ -155,7 +154,7 @@
                 padding: 20px;
                 text-align: center;
                 border-top-right-radius: 6px;
-                z-index: 10;
+                z-index: 2;
                 transition: all 0.3s;
 
                 &-more {
@@ -166,7 +165,7 @@
                     padding: 20px;
                     text-align: center;
                     border-top-right-radius: 6px;
-                    z-index: 10;
+                    z-index: 2;
                     transition: all 0.3s;
                     height: 130px;
 
@@ -179,7 +178,7 @@
                         height: 20px;
                         background-color: $background-hover;
                         border-top-left-radius: 6px;
-                        z-index: 10;
+                        z-index: 2;
                     }
 
                     &:after {
@@ -191,7 +190,7 @@
                         height: 0;
                         border-bottom: 20px solid $background-hover;
                         border-right: 20px solid transparent;
-                        z-index: 10;
+                        z-index: 2;
                     }
                 }
                 
@@ -204,7 +203,7 @@
                     height: 20px;
                     background-color: $background-hover;
                     border-top-left-radius: 6px;
-                    z-index: 10;
+                    z-index: 2;
                 }
 
                 &:after {
@@ -216,7 +215,7 @@
                     height: 0;
                     border-bottom: 20px solid $background-hover;
                     border-right: 20px solid transparent;
-                    z-index: 10;
+                    z-index: 2;
                 }
             }
 

@@ -95,6 +95,7 @@ $chapterHeight: 90px;
     min-height: calc(100vh + 10px);
 
     .notebook-header {
+        @extend .mb-40;
         width: 100%;
         background-color: $background-hover;
         height: 90px;

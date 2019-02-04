@@ -56,7 +56,9 @@
   background: white;
 
   .close{
-    position: relative;
+    height: 90px;
+    line-height: 90px;
+    vertical-align: middle;
     text-align: center;
     z-index: 4;
   }
@@ -65,7 +67,7 @@
       height: 100%;
       .rotated-text {
         position: relative;
-        top: 40%;
+        top: calc(50% - 90px);
         transform: rotate(-90deg);
       }
   }

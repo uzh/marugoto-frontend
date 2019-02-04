@@ -16,7 +16,7 @@
   <div class="main-container col-xs-4">
     <h1 class="page-title">Create Account</h1>
     <p class="lead">Enter your Data</p>
-    <div class="mt-50">
+    <div class="mt-30">
       <form class="col-xs-12" @keydown.enter="register">
         <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
         <InputField v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
@@ -24,16 +24,16 @@
         <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
         <InputField v-model="password" typeProp="password" labelName="Password" required="true"/>
       </form>
-      <Btn class="col-xs-12 mt-30" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
+      <Btn class="col-xs-12" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
   </div>
-  <div class="origin-background col-xs-12">
-    <div class="col-xs-10 col-xs-offset-1 login-page-bottom-icons">
-      <SvgIcon name="blind" sizeH="20" iconPosition="left" class="col-xs-1" />
+  <div class="origin-background full-width">
+    <div class="col-xs-11 col-xs-offset-1 login-page-bottom-icons">
+      <!-- <SvgIcon name="blind" sizeH="20" iconPosition="left" class="col-xs-1" /> -->
       <div class="col-xs-1">Universitat Zurich</div>
-      <div class="col-xs-8"></div>
-      <div class="col-xs-1">Impressum</div>
-      <div class="col-xs-1">Datenschutz</div>
+      <div class="col-xs-6"></div>
+      <div class="col-xs-2">Impressum</div>
+      <div class="col-xs-2">Datenschutz</div>
     </div>
   </div>
 </div>

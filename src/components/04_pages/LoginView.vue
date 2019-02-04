@@ -44,13 +44,13 @@
       <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>
   </div>
-  <div class="origin-background col-xs-12">
-    <div class="col-xs-10 col-xs-offset-1 login-page-bottom-icons">
-      <SvgIcon name="blind" sizeH="20" iconPosition="left" class="col-xs-1" />
+  <div class="origin-background full-width">
+    <div class="col-xs-11 col-xs-offset-1 login-page-bottom-icons">
+      <!-- <SvgIcon name="blind" sizeH="20" iconPosition="left" class="col-xs-1" /> -->
       <div class="col-xs-1">Universitat Zurich</div>
-      <div class="col-xs-8"></div>
-      <div class="col-xs-1">Impressum</div>
-      <div class="col-xs-1">Datenschutz</div>
+      <div class="col-xs-6"></div>
+      <div class="col-xs-2">Impressum</div>
+      <div class="col-xs-2">Datenschutz</div>
     </div>
   </div>
 </div>
