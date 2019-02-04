@@ -19,7 +19,7 @@ export default{
     return state.pageComponents;
   },
   get_notebook: state => {
-    return state.notebook.notebookEntries;
+    return state.notebook;
   },
   get_topic: state => {
     return state.topic;

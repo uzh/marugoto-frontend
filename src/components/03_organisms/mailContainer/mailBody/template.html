@@ -18,9 +18,9 @@
     <p class="lead" v-if="sendingMail">Re: {{ selectedMail.subject }}</p>
     <p class="current-date-time">Today, 14:28</p>
   </div>
-  <textarea ref="mailArea" v-if="sendingMail" class="message-textarea">Div</textarea>
+  <textarea ref="mailArea" v-if="sendingMail" class="message-textarea"></textarea>
   <div :class="!sendingMail ? 'message' : 'message-inactive'">
-      {{ selectedMail.mailBody }}
+      {{ selectedMail.body }}
   </div>
   <button 
     v-if="!sendingMail" 

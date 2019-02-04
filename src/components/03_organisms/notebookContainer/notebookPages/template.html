@@ -1,38 +1,32 @@
 <div class="notebook-content">
-  <div class="np-back">
+  <div 
+    class="pageDisplay"
+    v-for="(page, index) in list.notebookEntries" 
+    :key="index"
+    :class="[ index == currentEntry ? 'np-front' : '', 
+              index == currentEntry + 1 ? 'np-middle' : '', 
+              index == currentEntry - 1 ? 'np-back' : '']">
+    <!-- Notebook page header -->
     <div class="notebook-header" @click="toggleScroll" >
-      <h2 class="title"></h2>
+      <h2 class="title">{{ page.title }}</h2>
       <svgIcon
       name="dot-hamburger"
       sizeH="20px"
       class="notebook-header-icon" />
     </div>
-    <div>
-      <p class="text p-lr-75"></p>
-    </div>
-  </div>
-  <div class="np-middle">
-    <div class="notebook-header" @click="toggleScroll" >
-      <h2 class="title"></h2>
-      <svgIcon
-      name="dot-hamburger"
-      sizeH="20px"
-      class="notebook-header-icon" />
-    </div>
-    <div>
-      <p class="text p-lr-75"></p>
-    </div>
-  </div>
-  <div class="np-front">
-    <div class="notebook-header" @click="toggleScroll" >
-      <h2 class="title"></h2>
-      <svgIcon
-      name="dot-hamburger"
-      sizeH="20px"
-      class="notebook-header-icon" />
-    </div>
-    <div>
-      <p class="text p-lr-75"></p>
-    </div>
+    <!-- Notebook page body -->
+    <p class="text p-lr-75">{{ page.text }}</p>
+
+    <!-- Personal notes -->
+    <button>+ Add personal note</button>
+    <ul>
+      <li
+        style="border-top: 1px solid gray;" 
+        v-for="(personalNote, index) in list.personalNotes" 
+        :key="index"
+        v-if="personalNote.notebookEntry.id == page.id">
+          {{ personalNote.markdownContent }}
+      </li>
+    </ul>
   </div>
 </div>

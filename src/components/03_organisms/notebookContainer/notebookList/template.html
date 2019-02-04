@@ -1,5 +1,5 @@
 <div class="notebook-list">
-    <li v-for="(item, index) in list"
+    <li v-for="(item, index) in list.notebookEntries"
         :key="index"
         class="notebook-list-item"
         @click="$emit('selectItem', index)" >

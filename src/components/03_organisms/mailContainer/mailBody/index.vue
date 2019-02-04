@@ -37,8 +37,7 @@ export default {
       }else{
         setTimeout(function(){
           self.$refs.mailArea.focus();
-        }, 100)
-        
+        }, 100);
       }
     },
   },
