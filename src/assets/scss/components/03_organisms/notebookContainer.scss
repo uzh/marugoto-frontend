@@ -12,7 +12,9 @@ $chapterHeight: 90px;
     transition: all 0.3s;
 
     &.in{
-      right: 90px;
+        right: 90px;
+        width: calc(50% - 45px);
+        padding-right: 0;
     }
 
     &.open-entries-menu{
@@ -38,7 +40,7 @@ $chapterHeight: 90px;
         position: relative;
         cursor: pointer;
         &-current {
-            border: 1px solid white;
+            border-bottom: 1px solid white;
         }
         &-line {
             height: 32px;
