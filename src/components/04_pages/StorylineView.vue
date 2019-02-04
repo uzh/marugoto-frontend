@@ -36,33 +36,20 @@ export default {
       this.$store.dispatch('UPDATE_TOPIC_LIST');
     }else{
       this.$store.dispatch('REQUEST_PAGE_CURRENT');
-      apiService.get('notebook/list')
-      .then(resp => {
-        this.$store.dispatch('UPDATE_NOTEBOOK', resp.data);
-      })
-      .catch(err => {});
+      this.$store.dispatch('UPDATE_NOTEBOOK');
     }
   },
   methods: {
-    ...mapActions(['LOGOUT']),
-
-    alertTopic: function(id) {
-      alert(id);
-    },
-
     chooseTopic: function(id){
       this.$store.dispatch('CHOOSE_TOPIC', id)
       .then(() => {
         this.$store.dispatch('REQUEST_PAGE_CURRENT');
+        this.$store.dispatch('UPDATE_NOTEBOOK');
       });
     },
     requestPageTransition(id){
       this.$store.dispatch('REQUEST_PAGE_TRANSITION', id);
-      apiService.get('notebook/list')
-      .then(resp => {
-        this.$store.dispatch('UPDATE_NOTEBOOK', resp.data);
-      })
-      .catch(err => {});
+      this.$store.dispatch('UPDATE_NOTEBOOK');
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
