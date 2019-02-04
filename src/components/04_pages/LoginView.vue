@@ -63,6 +63,7 @@ import InputField from '@/components/01_atoms/inputs/text';
 import Btn from '@/components/01_atoms/buttons';
 import SelectField from '@/components/01_atoms/inputs/select';
 import SvgIcon from '@/components/01_atoms/svgicon';
+import {Timer} from '@/timer';
 
 export default {
   name: 'loginView',

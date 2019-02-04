@@ -9,7 +9,6 @@ export default {
   components: { svgIcon },
   data() {
     return {
-      timeIcon: true,
       money: true,
     };
   },
