@@ -14,11 +14,14 @@
 .full-width {
   width: 100%;
 }
-.mt-50 {
-  margin-top: 50px;
-}
 .mt-30 {
   margin-top: 30px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+.mt-50 {
+  margin-top: 50px;
 }
 .mt-100 {
   margin-top: 100px;
@@ -32,8 +35,14 @@
 .mb-100 {
   margin-bottom: 100px;
 }
+.pt-40 {
+  padding-top: 40px;
+}
 .p-lr-75 {
   padding: 0 75px;
+}
+.border-top {
+  border-top: 1px solid $base-uicolor-2;
 }
 .clear-float:after{
   content: '';
