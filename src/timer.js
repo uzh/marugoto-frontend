@@ -1,19 +1,40 @@
-export default function timer(duration) {
-    let seconds = duration;
-    let days        = Math.floor(seconds / 24 / 60 / 60);
-    let hoursLeft   = Math.floor((seconds) - (days * 86400));
-    let hours       = Math.floor(hoursLeft / 3600);
-    let minutesLeft = Math.floor((hoursLeft) - (hours * 3600));
-    let minutes     = Math.floor(minutesLeft / 60);
-    let secondsLeft = seconds % 60;
-    function pad(n) {
-        return (n < 10 ? "0" + n : n);
-    }
-    console.log(pad(days) + ":" + pad(hours) + ":" + pad(minutes) + ":" + pad(secondsLeft));
-    if (seconds == 0) {
-        clearInterval(countdownTimer);
-    } else {
-        seconds--;
-    }
-}
-var countdownTimer = setInterval('timer(132801)', 1000);
+export function Timer(time){
+    var self = this;
+    this.duration = time;
+    this.days        = Math.floor(this.duration / 24 / 60 / 60);
+    this.hoursLeft   = Math.floor((this.duration) - (this.days * 86400));
+    this.hours       = Math.floor(this.hoursLeft / 3600);
+    this.minutesLeft = Math.floor((this.hoursLeft) - (this.hours * 3600));
+    this.minutes     = Math.floor(this.minutesLeft / 60);
+    this.seconds = this.duration % 60;
+
+    this.pad = function(n) { return (n < 10 ? "0" + n : n); };
+
+    this.logIt = function() {
+        return console.log('Timer: ', this.pad(this.days) + ":" + this.pad(this.hours) + ":" + this.pad(this.minutes) + ":" + this.pad(this.seconds));
+    };
+
+    this.clearedInterval = function() {
+        if (this.duration == 0) {
+            clearInterval(this.start);
+            return true;
+        } else {
+            this.duration--;
+            this.days        = Math.floor(this.duration / 24 / 60 / 60);
+            this.hoursLeft   = Math.floor((this.duration) - (this.days * 86400));
+            this.hours       = Math.floor(this.hoursLeft / 3600);
+            this.minutesLeft = Math.floor((this.hoursLeft) - (this.hours * 3600));
+            this.minutes     = Math.floor(this.minutesLeft / 60);
+            this.seconds = this.duration % 60;
+        }
+    };  
+
+    this.start = setInterval(function(){
+        self.clearedInterval();
+        if( self.clearedInterval() ){
+            return;
+        }
+        self.logIt();
+    }, 1000);
+    
+};
