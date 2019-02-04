@@ -15,18 +15,22 @@
       class="notebook-header-icon" />
     </div>
     <!-- Notebook page body -->
-    <p class="text p-lr-75">{{ page.text }}</p>
+    <div class="mb-40 col-xs-10 col-xs-offset-1">
+      <p class="text">{{ page.text }}</p>
+    </div>
 
     <!-- Personal notes -->
-    <button>+ Add personal note</button>
-    <ul>
-      <li
-        style="border-top: 1px solid gray;" 
-        v-for="(personalNote, index) in list.personalNotes" 
-        :key="index"
-        v-if="personalNote.notebookEntry.id == page.id">
-          {{ personalNote.markdownContent }}
-      </li>
-    </ul>
+    <div class="pt-40 border-top col-xs-10 col-xs-offset-1">
+      <Btn text="Add a personal note" primary="true" iconName="plus" iconColor="white" />
+      <ul>
+        <li
+          style="border-top: 1px solid gray;" 
+          v-for="(personalNote, index) in list.personalNotes" 
+          :key="index"
+          v-if="personalNote.notebookEntry.id == page.id">
+            {{ personalNote.markdownContent }}
+        </li>
+      </ul>
+    </div>
   </div>
 </div>
