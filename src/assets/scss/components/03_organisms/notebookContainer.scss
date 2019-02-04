@@ -123,11 +123,11 @@ $chapterHeight: 90px;
     }
     .np-back{
         z-index: 1;
-        transform: scale(0.8, 1.06);
+        transform: scale(0.9, 1.02);
     }
     .np-middle{
         z-index: 2;
-        transform: scale(0.9, 1.03);
+        transform: scale(0.95, 1.01);
         box-shadow: 0 0 15px #000;
     }
     .np-front{
@@ -144,11 +144,11 @@ $chapterHeight: 90px;
         transform: scale(1,1);
     }
     .np-back.next-in{
-        transform: scale(0.9, 1.03);
+        transform: scale(0.95, 1.01);
     }
     .np-front.next-out.scale-back{
         z-index: 1;
-        transform: scale(0.8, 1.06);
+        transform: scale(0.9, 1.02);
     }
 
     // Prev animation classes
@@ -156,10 +156,10 @@ $chapterHeight: 90px;
         left: 101%;
     }
     .np-front.prev-back{
-        transform: scale(0.9, 1.03);
+        transform: scale(0.95, 1.01);
     }
     .np-middle.prev-back{
-        transform: scale(0.8, 1.06);
+        transform: scale(0.9, 1.02);
     }
     .np-back.prev-out.scale-in{
         transform: scale(1, 1);
