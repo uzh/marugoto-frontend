@@ -30,6 +30,7 @@ export const DIALOG_UPDATE = 'DIALOG_UPDATE';
 
 // Notebook
 export const UPDATE_NOTEBOOK = 'UPDATE_NOTEBOOK';
+export const ADD_PERSONAL_NOTE = 'ADD_PERSONAL_NOTE';
 
 // Mail Component
 export const MAIL_LIST_UPDATE = 'MAIL_LIST_UPDATE';

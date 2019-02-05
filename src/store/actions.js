@@ -87,7 +87,6 @@ export default({
       commit('STORYLINE_UPDATE', resp.data.storylineState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
-      commit('MAIL_LIST_UPDATE', resp.data.mailNotifications);
     })
     .catch(err => {
       throw(err);
@@ -100,7 +99,6 @@ export default({
       commit('STORYLINE_UPDATE', resp.data.storylineState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
-      commit('MAIL_LIST_UPDATE', resp.data.mailNotifications);
     })
     .catch(err => {
       throw(err);
@@ -109,11 +107,31 @@ export default({
   [types.DIALOG_UPDATE]: (context, payload) => {
     context.commit(types.DIALOG_UPDATE, payload);
   },
+  // MAIL
+  [types.MAIL_LIST_UPDATE]: ({commit}, payload) => {
+    return apiService.get('mail/list')
+    .then(resp => {
+      commit(types.MAIL_LIST_UPDATE, resp.data);
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
   // NOTEBOOK
   [types.UPDATE_NOTEBOOK]: ({commit}, payload) => {
     return apiService.get('notebook/list')
     .then(resp => {
       commit(types.UPDATE_NOTEBOOK, resp.data);
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.ADD_PERSONAL_NOTE]: ({commit}, payload) => {
+    
+    return apiService.post(`notebook/${payload.id}/personalNote?markdownContent=${payload.text}`)
+    .then(resp => {
+      commit(types.ADD_PERSONAL_NOTE, resp.data);
     })
     .catch(err => {
       throw(err);

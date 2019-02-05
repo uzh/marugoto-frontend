@@ -42,6 +42,7 @@ export default {
     }else{
       this.$store.dispatch('REQUEST_PAGE_CURRENT');
       this.$store.dispatch('UPDATE_NOTEBOOK');
+      this.$store.dispatch('MAIL_LIST_UPDATE');
     }
   },
   methods: {
@@ -50,11 +51,13 @@ export default {
       .then(() => {
         this.$store.dispatch('REQUEST_PAGE_CURRENT');
         this.$store.dispatch('UPDATE_NOTEBOOK');
+        this.$store.dispatch('MAIL_LIST_UPDATE');
       });
     },
     requestPageTransition(id){
       this.$store.dispatch('REQUEST_PAGE_TRANSITION', id);
       this.$store.dispatch('UPDATE_NOTEBOOK');
+      this.$store.dispatch('MAIL_LIST_UPDATE');
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));

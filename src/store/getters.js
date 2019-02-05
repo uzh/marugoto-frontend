@@ -28,6 +28,6 @@ export default{
     return state.topic;
   },
   get_mails: state => {
-    return state.mailNotifications;
+    return state.mails;
   },
 };

@@ -3,6 +3,7 @@
 // Mutations
 
 import * as types from './types';
+import store from '.';
 
 export default({
   // AUTH MUTATIONS
@@ -103,8 +104,15 @@ export default({
   [types.UPDATE_NOTEBOOK] (state, payload) {
     state.notebook = payload;
   },
+  [types.ADD_PERSONAL_NOTE] (state, payload) {
+    for( let ii=0; ii < state.notebook.length; ii++ ){
+      if( state.notebook[ii].id == payload.notebookEntry.id ){
+        state.notebook[ii].personalNotes.push(payload);
+      }
+    }
+  },
   // MAIL MUTATIONS
   [types.MAIL_LIST_UPDATE] (state, payload) {
-    state.mailNotifications = payload;
+    state.mails = payload;
   },
 });

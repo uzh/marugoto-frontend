@@ -16,11 +16,13 @@
     </div>
     <!-- Notebook page body -->
     <div class="mb-40 col-xs-10 col-xs-offset-1">
+      <img v-if="page.image" :src="page.image" />
       <p class="text">{{ page.text }}</p>
     </div>
     <!-- Personal notes -->
     <div class="pt-40 border-top col-xs-10 col-xs-offset-1">
-      <Btn text="Add a personal note" primary="true" iconName="plus" iconColor="white" />
+      <Btn @click.native="addPersonalNote(page.id)"
+        text="Add a personal note" primary="true" iconName="plus" iconColor="white" />
       <ul>
         <li
           style="border-top: 1px solid gray;" 
@@ -31,5 +33,11 @@
         </li>
       </ul>
     </div>
+  </div>
+  <!-- Add personal note box -->
+  <div class="personal-note-box" :class="openedPersonalNote ? 'opened' : ''">
+    <textarea v-model="personalNoteText"></textarea>
+    <button class="cancel" @click="cancelPersonalNote">Cancel</button>
+    <button @click="submitPersonalNote">Done</button>
   </div>
 </div>
