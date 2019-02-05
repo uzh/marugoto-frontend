@@ -7,12 +7,11 @@
               index == currentEntry + 1 ? 'np-middle' : '', 
               index == currentEntry - 1 ? 'np-back' : '']">
     <!-- Notebook page header -->
-    <div class="notebook-header" @click="toggleScroll" >
+    <div class="notebook-header">
       <h2 class="title">{{ page.title }}</h2>
-      <svgIcon
-      name="dot-hamburger"
-      sizeH="20px"
-      class="notebook-header-icon" />
+      <div class="notebook-header-icon" @click="toggleScroll">
+        <svgIcon name="dot-hamburger" sizeH="20px" />
+      </div>
     </div>
     <!-- Notebook page body -->
     <div class="mb-40 col-xs-10 col-xs-offset-1">
