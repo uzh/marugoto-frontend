@@ -1,0 +1,74 @@
+// MAIL SIDEBAR
+.mail-sidebar{
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 3;
+  width: $elements-space;
+  height: $elements-space;
+  border-left: $border;
+  background: white;
+  overflow: hidden;
+
+  transition: all 0.3s;
+
+  &.in{
+    width: 100%;
+    padding: 0 0 0 40px;
+    border-left: none;
+
+    h5{
+      opacity: 1;
+    }
+  }
+
+  .mail-sidebar-open{
+    width: $elements-space;
+    height: $elements-space;
+    margin-right: 40px;
+    padding-top: 35px;
+    text-align: center;
+  }
+
+  h5 {
+    opacity: 0;
+    padding-top: 30px;
+    transition: all 0.3s;
+  }
+
+  .mail-sidebar-close{
+    width: $elements-space;
+    height: $elements-space;
+    padding-top: 35px;
+    text-align: center;
+  }
+}
+
+// NOTEBOOK SIDEBAR
+.notebook-btn{
+  position: fixed;
+  top: $elements-space;
+  right: 0;
+  z-index: 3;
+  width: $elements-space;
+  height: 100%;
+  border-left: $border;
+  background: white;
+
+  .close{
+    height: 90px;
+    line-height: 90px;
+    vertical-align: middle;
+    text-align: center;
+    z-index: 4;
+  }
+
+  .notebook-sidebar-right {
+      height: 100%;
+      .rotated-text {
+        position: relative;
+        top: calc(50% - 90px);
+        transform: rotate(-90deg);
+      }
+  }
+}

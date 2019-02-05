@@ -1,0 +1,13 @@
+<svg width="17px" height="26px" viewBox="0 0 17 26" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M6.73205081,4.12435565 L10.7320508,4.12435565 L10.7320508,21.1243557 L6.73205081,21.1243557 L6.73205081,4.12435565 Z M6.73205081,-0.875644347 L10.7320508,-0.875644347 L10.7320508,2.12435565 L6.73205081,2.12435565 L6.73205081,-0.875644347 Z M6.73205081,23.1243557 L10.7320508,23.1243557 L8.73205081,27.1243557 L6.73205081,23.1243557 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Combined-Shape-2" transform="translate(-1.000000, 0.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Combined-Shape" fill="#D8D8D8" transform="translate(8.732051, 13.124356) rotate(30.000000) translate(-8.732051, -13.124356) " xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

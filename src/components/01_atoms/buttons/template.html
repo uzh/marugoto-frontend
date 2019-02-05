@@ -1,0 +1,16 @@
+<button
+	class="button"
+	v-bind:class="[
+		primary ? 'button--primary' : '',
+		secondary ? 'button--secondary' : '',
+		ghost ? 'button-ghost' : '',
+		text ? 'buttonText' : '',
+		disabled ? 'disabled' : ''
+	]">
+	<span>{{ text }}</span>
+	<svgIcon 
+		:name="iconName"
+		:customColor="iconColor"
+		sizeH="20px"
+		:class="iconPosition == 'left' ? 'icon-left' : 'icon-right'" />
+</button>

@@ -4,8 +4,84 @@
 .go-right{
   float: right;
 }
+.disabled {
+  opacity: 0.1;
+  pointer-events: none;
+}
+.opacity {
+  opacity: 0.1;
+}
+.full-width {
+  width: 100%;
+}
+.mt-30 {
+  margin-top: 30px;
+}
+.mt-40 {
+  margin-top: 40px;
+}
+.mt-50 {
+  margin-top: 50px;
+}
+.mt-100 {
+  margin-top: 100px;
+}
+.mb-30 {
+  margin-bottom: 30px;
+}
+.mb-40 {
+  margin-bottom: 40px;
+}
+.mb-100 {
+  margin-bottom: 100px;
+}
+.pt-40 {
+  padding-top: 40px;
+}
+.p-lr-75 {
+  padding: 0 75px;
+}
+.border-top {
+  border-top: 1px solid $base-uicolor-2;
+}
 .clear-float:after{
   content: '';
   display: block;
   clear: both;
+}
+
+// Floatings
+.floating-no {
+  width: 380px;
+  height: 140px;
+  background-color: $white;
+  border: 1px solid rgba( 71, 75, 89, 0.20);
+}
+.floating-10 {
+  @extend .floating-no;
+  border: 1px solid $base-primary;
+  box-shadow: 0 5px 10px 0 rgba( 71, 75, 89, 0.50)
+}
+
+//UI Materials
+.line-bottom {
+  background: $white;
+  box-shadow: inset 0 -1px 0 0 $black;
+  &-error {
+    box-shadow: inset 0 -2px 0 0 $base-accent;
+  }
+}
+.line-top {
+  background: $white;
+  box-shadow: inset 0 1px 0 0 $black;
+  &-purple {
+    box-shadow: inset 0 2px 0 0 #8420FF;
+  }
+  &-soft {
+    box-shadow: inset 0 1px 0 0 #EAEDF0;
+  }
+}
+.hover-soft-bg {
+  background-color: #EAEDF0;
+  box-shadow: inset 0 1px 0 0 #EAEDF0;
 }

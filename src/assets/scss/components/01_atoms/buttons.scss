@@ -1,0 +1,40 @@
+$width: 100%;
+$min-height: 3.125rem;
+
+.button {
+    position: relative;
+    display: block;
+    width: $width;
+    min-height: $min-height;
+    text-align: center;
+    overflow: auto;
+    padding: 0.9375rem 2.5rem;
+    overflow: hidden;
+    cursor: pointer;
+    &:disabled, &.disabled {
+        opacity: 0.3;
+    }
+}
+
+.button--primary {
+    background-color: $base-primary;
+    color: $white;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+    &:hover {
+        background-color: $base-primary-hover;
+    }
+}
+
+.button--secondary {
+    background-color: $base-secondary;
+    color: $white;
+    &:hover {
+        background-color: $base-secondary-hover;
+    }
+}
+
+.button-ghost {
+    background-color: $base-ghost;
+    color: $black;
+    box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.5);
+}

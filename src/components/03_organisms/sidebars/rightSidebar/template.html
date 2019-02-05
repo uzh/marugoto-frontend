@@ -1,0 +1,31 @@
+<div>
+
+  <!-- MAIL SIDEBAR -->
+  <div class="mail-sidebar clear-float" :class="get_layoutState.mail.opened ? 'in' : ''">
+    <div
+      class="mail-sidebar-open go-left"
+      @click="LAYOUT_OPEN('mail')">
+      <img src="@/assets/images/mail.svg" />
+    </div>
+    <h5 class="go-left">Mail-Inbox</h5>
+    <div
+      class="mail-sidebar-close go-right"
+      @click="LAYOUT_CLOSE('mail')">
+      <img src="@/assets/images/close.svg" />
+    </div>
+  </div>
+
+  <!-- NOTEBOOK SIDEBAR -->
+  <div class="notebook-btn">
+    <div 
+      v-if="get_layoutState.notebook.opened" 
+      @click="LAYOUT_CLOSE('notebook')"
+      class="close">
+      <img alt="dsa" src="@/assets/images/close.svg" />
+    </div>
+    <div class="notebook-sidebar-right" @click="LAYOUT_OPEN('notebook')">
+      <p class="rotated-text">Notebook</p>
+    </div>
+  </div>
+
+</div>

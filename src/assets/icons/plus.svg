@@ -1,0 +1,13 @@
+<svg width="16px" height="16px" viewBox="0 0 16 16" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path d="M20,18.5857864 L24.9497475,13.636039 L26.363961,15.0502525 L21.4142136,20 L26.363961,24.9497475 L24.9497475,26.363961 L20,21.4142136 L15.0502525,26.363961 L13.636039,24.9497475 L18.5857864,20 L13.636039,15.0502525 L15.0502525,13.636039 L20,18.5857864 Z" id="path-1"></path>
+    </defs>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Icon/Plus" transform="translate(-12.000000, -12.000000)">
+            <mask id="mask-2" fill="white">
+                <use xlink:href="#path-1"></use>
+            </mask>
+            <use id="Mask" fill="#D8D8D8" transform="translate(20.000000, 20.000000) rotate(45.000000) translate(-20.000000, -20.000000) " xlink:href="#path-1"></use>
+        </g>
+    </g>
+</svg>

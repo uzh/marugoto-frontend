@@ -1,0 +1,15 @@
+<div class="notebook-list">
+    <li v-for="(item, index) in list"
+        :key="index"
+        class="notebook-list-item"
+        @click="$emit('selectItem', index)" >
+        <div v-if="index != '0'" class="notebook-list-item-line"></div>
+        <div v-if="index != '0'" class="notebook-list-item-arrow"></div>
+        <span class="notebook-list-item-index">
+          {{ index + 1}}
+        </span>
+        <span :class="index == selected ? 'notebook-list-item-current' : ''">
+          {{ item.title }}
+        </span>
+    </li>
+</div>

@@ -1,0 +1,84 @@
+$height: 50px;
+
+.select-div {
+    position: relative;
+
+    &.active {
+        box-shadow: 0 0 0 2px $base-primary;
+    }
+
+    .label-name {
+        @extend .label;
+        padding-left: 10px;
+        color: $base-primary;
+        position: absolute;
+        top: 5px;
+        z-index: 1;
+    }
+
+    .select-field {
+        @extend .input-field;
+        background-color: $white;
+        padding-left: 10px;
+        padding-top: 20px;
+    
+        &.openedList{
+            .select-field-arrow{
+                transform: rotate(180deg)
+            }
+        }
+        &.selectedOption {
+            box-shadow: 0 0 0 2px $base-primary;
+            height: 50px;
+            padding-top: 20px;
+        }
+    
+        .select-field-arrow {
+            position: absolute;
+            top: 15px;
+            right: 0;
+            z-index: 2;
+            width: 20px;
+            margin-right: 10px;
+            transition: all 0.3s;
+        }
+    }
+
+    .select-list {
+        position: absolute;
+        z-index: 1;
+        top: 0px;
+        width: 100%;
+        height: auto;
+        background-color: $white;
+        display: block;
+        list-style-type: none;
+        box-shadow: 0 0 0 2px $base-primary;
+        &-item {
+            padding: 0 10px;
+            padding-top: 16px;
+            height: $height;
+            font-size: inherit;
+            border-bottom: $base-ghost-border;
+            &:hover {
+                background-color: $background-hover;
+                border: $base-ghost-border;
+                cursor: pointer;
+            }
+            // &.disabled {
+            //     pointer-events: none;
+            //     color: #EAEDF0;
+            // }
+        }
+    }
+
+    .errorMessage {
+        position: absolute;
+        top: 50px;
+        padding-top: 3px;
+        width: 100%;
+        font-size: 0.75rem;
+        color: $base-accent;
+        border-top: 2px solid $base-accent;
+    }
+}

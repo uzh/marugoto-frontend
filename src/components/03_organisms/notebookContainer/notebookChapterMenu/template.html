@@ -1,0 +1,33 @@
+<div class="notebook-chapter-menu">
+  <div
+    class="chapter-menu-icon" @click="emitChange('first')">
+    <svgIcon
+    name="rewind"
+    customColor="#FFF"
+    sizeH="20px" />
+  </div>
+  <div class="chapter-menu-icon" @click="emitChange('prev')">
+    <svgIcon
+    name="arrow-left"
+    customColor="#979797"
+    sizeH="20px" />
+  </div>
+  <div class="chapter-menu-icon">
+    <svgIcon
+    name="download-pdf"
+    customColor="#FFF"
+    sizeH="20px" />
+  </div>
+  <div class="chapter-menu-icon" @click="emitChange('next')">
+    <svgIcon
+    name="arrow-right"
+    customColor="#979797"
+    sizeH="20px" />
+  </div>
+  <div class="chapter-menu-icon" @click="emitChange('last')">
+    <svgIcon
+    name="forward"
+    customColor="#FFF"
+    sizeH="20px" />
+  </div>
+</div>

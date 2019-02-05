@@ -1,0 +1,9 @@
+<div>
+  <InputRadio 
+    v-for="(item, index) in list"
+    :name="exerciseId"
+    :value="index"
+    :key="index"
+    :item="item"
+    @emitRadioChange="emitAnswer(index)" />
+</div>

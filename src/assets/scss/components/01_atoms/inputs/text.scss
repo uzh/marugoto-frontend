@@ -1,0 +1,63 @@
+$height: 50px;
+$width: 100%;
+$max-width: 1000px;
+
+.input-field {
+   position: relative;
+   box-sizing: border-box;
+   display: block;
+   margin-bottom: 20px;
+   height: $height;
+   width: $width;
+   box-shadow: 0 1px 0 0 $base-primary;
+   &.disabled {
+       color: $base-uicolor-2;
+       border: $base-ghost-border;
+   }
+
+    .errorMessage {
+        position: absolute;
+        top: 50px;
+        padding-top: 3px;
+        width: 100%;
+        font-size: 0.75rem;
+        color: $base-accent;
+        border-top: 2px solid $base-accent;
+    }
+
+   label {
+       font-size: 1rem;
+       line-height: 1.1875rem;
+       position: absolute;
+       top: 20px;
+       left: 10px;
+       transition: all 0.3s;
+       overflow: hidden;
+       white-space: nowrap;
+       text-overflow: ellipsis;
+       width: 95%;
+   }
+
+   input {
+       display: block;
+       width: 100%;
+       height: $height;
+       border: none;
+       padding-left: 10px;
+       padding-top: 6px;
+   }
+
+   &.inputFocused {
+       box-shadow: 0 2px 0 0 $base-primary;
+        label {
+            @extend .label;
+            top: 5px;
+            color: $base-primary;
+        }
+   }
+
+   &.bordered {
+        box-shadow: 0 0 0 2px $base-primary;
+        height: auto;
+    }
+}

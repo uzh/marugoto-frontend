@@ -1,0 +1,11 @@
+.tooltip {
+    @extend .small;
+    position: absolute;
+    top: 0;
+    right: -330px;
+    border: 1px solid $base-primary;
+    padding: 20px 0;
+    width: 20.375rem;
+    height: 7.5rem;
+    box-shadow: 0 5px 10px 0 #474B59;
+}

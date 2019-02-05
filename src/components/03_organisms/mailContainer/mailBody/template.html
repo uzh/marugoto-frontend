@@ -1,0 +1,28 @@
+<div class="inbox-mail-body-container go-right">
+  <div class="sender">
+    <div v-if="sendingMail" class="send-mail-text">To</div>
+    <h5>{{ `${selectedMail.from.salutation} ${selectedMail.from.firstName} ${selectedMail.from.lastName}` }}</h5>
+    <button v-if="!sendingMail" @click="respondToMail">Respond to E-Mail</button>
+    <Btn 
+      v-if="sendingMail" 
+      class="send-mail-button" 
+      secondary="true" 
+      iconName="plane" 
+      iconPosition="right" 
+      iconColor="white" 
+      text="Send E-Mail" />
+  </div>
+  <div class="subject">
+    <div v-if="sendingMail" class="send-mail-text">Subject</div>
+    <h4 class="lead" v-if="!sendingMail">{{ selectedMail.subject }}</h4>
+    <p class="lead" v-if="sendingMail">Re: {{ selectedMail.subject }}</p>
+    <p class="current-date-time">Today, 14:28</p>
+  </div>
+  <textarea ref="mailArea" v-if="sendingMail" class="message-textarea"></textarea>
+  <div :class="!sendingMail ? 'message' : 'message-inactive'">
+      {{ selectedMail.body }}
+  </div>
+  <button 
+    v-if="!sendingMail" 
+    class="respondMail" @click="switchMail" text="Send E-Mail">Respond to E-Mail</button>
+</div>

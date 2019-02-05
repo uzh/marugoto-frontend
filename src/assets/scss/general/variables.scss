@@ -1,0 +1,69 @@
+// Typography
+$font : Helvetica;
+
+//Typo
+$base-size: 16px;
+$h1: ( null: (48px, 80px, 0px) );
+$h2: ( null: (36px, 60px, 0px) );
+$h3: ( null: (32px, 40px, 0px) );
+$h4: ( null: (28px, 30px, 0px) );
+$h5: ( null: (24px, 30px, 0px) );
+$h6: ( null: (18px, 25px, 0px) );
+$lead: ( null: (20px, 30px, 0px) );
+$p: ( null: (17px, 32px, 0px) );
+$small: ( null: (14px, 20px, 0px) );
+$link: ( null: (16px, 20px, 0px) );
+$button: ( null: (16px, 20px, 0px) );
+
+// Layout
+$max-width: 940px;
+$max-width-inner: 620px;
+
+$column-gap: 20px;
+$outer-gap: 15px;
+
+$outer-width: $max-width + $outer-gap*2;
+$inner-width: $max-width-inner + $outer-gap*2;
+
+// Colors
+$black: #000000;
+$white: #FFFFFF;
+
+$base-primary: #8C8B89;
+$base-primary-border: #979797;
+$base-primary-hover: #737270;
+$base-primary-border-hover: $base-primary-border;
+
+$base-secondary: #16365E;
+$base-secondary-border: $base-primary-border;
+$base-secondary-hover: #0F2847;
+$base-secondary-border-hover: $base-secondary-hover;
+
+$base-accent: #EE1245;
+$base-accent-hover: #D4113E;
+
+$base-ghost: $white;
+$base-ghost-border: 1px solid #EAEDF0;
+
+$base-uicolor-1: $base-primary;
+
+$base-uicolor-2: #E6E3E1;
+
+$base-uicolor-3: #F2F4F6;
+$base-uicolor-3-border: 1px solid $base-primary-border;
+
+$background-hover: #F2F0EE;
+
+// Breakpoints
+// very large desktop
+$bp-lg: 78rem;
+// desktop
+$bp-md: 64rem;
+// tablet
+$bp-sm: 37rem;
+
+$breakpoints:(
+    (name: large-desktop, size: $bp-lg),
+    (name: desktop, size: $bp-md),
+    (name: tablet, size: $bp-sm) 
+);

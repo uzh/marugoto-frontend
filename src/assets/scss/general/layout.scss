@@ -6,63 +6,63 @@ $border: 1px solid #ddd;
   height: 100vh;
   padding-top: $elements-space;
   padding-right: $elements-space;
-}
-
-// STATUS SIDEBAR
-.status-bar{
-  position: fixed;
-  top: 0;
-  right: $elements-space;
-  height: $elements-space;
-  padding-right: 20px;
-
-  border-bottom: $border;
-  text-align: right;
-
-  &.out{
-    right: 100%;
-  }
-  &.halfed{
-    right: calc(50% + 90px);
-  }
-
+  overflow: scroll;
   transition: all 0.3s;
-}
-
-// NOTEBOOK SIDEBAR
-.notebook-btn{
-  position: fixed;
-  top: $elements-space;
-  right: 0;
-  z-index: 3;
-  width: $elements-space;
-  height: 100%;
-  border-left: $border;
-  background: white;
-
-  .close{
-    position: relative;
-    z-index: 4;
+  
+  &.halved {
+    width: calc(50% - 90px);
+    padding-right: 0;
   }
 }
 
-// CONTAINERS
+// Main container - login/create account
+.main-container {
+  min-height: 70%;
+  overflow: scroll;
+  z-index: 1;
 
-.notebook-container{
+  .page-title {
+    font-weight: inherit;
+  }
+
+  .lead-text {
+    @extend .lead;
+    margin-bottom: 55px;
+    margin-top: 30px;
+  }
+
+  .choose-account {
+    width: 50%;
+    display: inline-block;
+    cursor: pointer;
+  }
+}
+
+.back-to-login {
+  position: relative;
+  top: 30px;
+}
+
+.rotated-text-login-page {
+  top: 90px;
+  transform: rotate(90deg);
+  z-index: 1;
+  & .item {
+    display: inline;
+    margin-right: 30px;
+  }
+}
+
+.origin-background {
+  @extend .col-xs-12;
+  background-color: $background-hover;
+  height: 70%;
   position: absolute;
-  top: 0;
-  right: -100%;
-  z-index: 2;
+  top: 30%;
 
-  width: 50%;
-  min-height: 100vh;
-  
-  
-  background: #ddd;
-
-  &.in{
-    right: 90px;
+  .login-page-bottom-icons {
+    position: relative;
+    top: calc(70% + 90px);
+    height: 50px;
   }
-
-  transition: all 0.3s;
 }
