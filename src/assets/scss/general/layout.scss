@@ -10,7 +10,7 @@ $border: 1px solid #ddd;
   transition: all 0.3s;
   
   &.halved {
-    width: calc(50% - 90px);
+    width: calc(50% - 45px);
     padding-right: 0;
   }
 }
