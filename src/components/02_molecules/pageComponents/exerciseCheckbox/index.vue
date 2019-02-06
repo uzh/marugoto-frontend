@@ -18,7 +18,7 @@ export default {
     },
   },
   watch: {
-    checkedFields : function(val) {
+    checkedFields : function() {
       if (this.checkedFields.toString() != ''){
         this.emitAnswer();
       }
