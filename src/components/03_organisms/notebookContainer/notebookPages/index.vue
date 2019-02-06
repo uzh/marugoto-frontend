@@ -1,7 +1,6 @@
 <template src="./template.html"></template>
 
 <script>
-import { mapActions } from 'vuex'
 import svgIcon from '@/components/01_atoms/svgicon';
 import Btn from '@/components/01_atoms/buttons';
 
