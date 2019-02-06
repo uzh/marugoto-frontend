@@ -9,7 +9,6 @@
     <!-- Subject container -->
     <MailBody
       v-if="get_mails.length > 0"
-      :list="get_mails" 
-      :selectedIndex="selectedIndex" />
+      :mail="get_mails[selectedIndex]" />
   </div>
 </div>

@@ -6,30 +6,23 @@ import Btn from "@/components/01_atoms/buttons"
 export default {
   name: 'MailBody',
   components: { Btn },
-  props: ['list', 'selectedIndex'],
+  props: ['mail', 'selectedIndex'],
   data() {
     return {
       sendingMail: false,
     };
   },
-  computed: {
-    selectedMail: function() {
-      return this.list.filter( (item, index) => {
-        if( index == this.selectedIndex){
-          return item;
-        }
-      })[0];
-    },
-  },
   methods: {
-    switchMail: function() {
-      this.sendingMail = true;
-    },
     respondToMail: function() {
       this.sendingMail = true;
     },
   },
   watch: {
+    mail: function(oldVal, newVal) {
+      if( newVal != oldVal ) {
+        this.sendingMail = false;
+      }
+    },
     sendingMail: function(oldVal, newVal) {
       let self = this;
       if( newVal == true ){

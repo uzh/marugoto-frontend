@@ -10,7 +10,7 @@
         <div v-if="get_topic.selected">
           <h1 class="storyline-title">{{ get_page.title }}</h1>
           <!-- Components -->
-          <PageComponents />
+          <PageComponents ref="pageComponentsContainer"/>
           <!-- Page transitions -->
           <PageTransitions @transitionChoosen="requestPageTransition" />
         </div>
@@ -44,6 +44,10 @@ export default {
       this.$store.dispatch('UPDATE_NOTEBOOK');
       this.$store.dispatch('MAIL_LIST_UPDATE');
     }
+  },
+  updated: function() {
+    this.$refs.pageComponentsContainer.$el.scrollTop = 180;
+    console.log('After mounted', this.$refs.pageComponentsContainer.$el.scrollTop);
   },
   methods: {
     chooseTopic: function(id){

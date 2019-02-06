@@ -1,7 +1,7 @@
 <div class="inbox-mail-body-container go-right">
   <div class="sender">
     <div v-if="sendingMail" class="send-mail-text">To</div>
-    <h5>{{ `${selectedMail.from.salutation} ${selectedMail.from.firstName} ${selectedMail.from.lastName}` }}</h5>
+    <h5>{{ `${mail.from.salutation} ${mail.from.firstName} ${mail.from.lastName}` }}</h5>
     <button v-if="!sendingMail" @click="respondToMail">Respond to E-Mail</button>
     <Btn 
       v-if="sendingMail" 
@@ -14,8 +14,8 @@
   </div>
   <div class="subject">
     <div v-if="sendingMail" class="send-mail-text">Subject</div>
-    <h4 class="lead" v-if="!sendingMail">{{ selectedMail.subject }}</h4>
-    <p class="lead" v-if="sendingMail">Re: {{ selectedMail.subject }}</p>
+    <h4 class="lead" v-if="!sendingMail">{{ mail.subject }}</h4>
+    <p class="lead" v-if="sendingMail">Re: {{ mail.subject }}</p>
     <p class="current-date-time">Today, 14:28</p>
   </div>
   <textarea
@@ -24,12 +24,12 @@
     class="message-textarea">
   </textarea>
   <div :class="!sendingMail ? 'message' : 'message-inactive'">
-      {{ selectedMail.body }}
+      {{ mail.body }}
   </div>
   <button 
     v-if="!sendingMail" 
     class="respondMail"
-    @click="switchMail">
+    @click="respondToMail">
     Respond to E-Mail
   </button>
 </div>
