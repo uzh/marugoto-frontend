@@ -30,4 +30,7 @@ export default{
   get_mails: state => {
     return state.mails;
   },
+  get_newMails: state => {
+    return state.mails;
+  },
 };

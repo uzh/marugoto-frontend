@@ -16,7 +16,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([ 'get_layoutState', 'get_mails' ]),
+    ...mapGetters([ 'get_layoutState', 'get_mails', 'get_newMails' ]),
   },
   methods: {
     selectMail(item) {

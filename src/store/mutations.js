@@ -112,6 +112,9 @@ export default({
     }
   },
   // MAIL MUTATIONS
+  [types.NEW_MAIL_UPDATE] (state, payload) {
+    state.mailNotifications = payload;
+  },
   [types.MAIL_LIST_UPDATE] (state, payload) {
     state.mails = payload;
   },

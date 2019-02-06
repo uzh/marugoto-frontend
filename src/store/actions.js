@@ -87,6 +87,7 @@ export default({
       commit('STORYLINE_UPDATE', resp.data.storylineState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
+      commit('NEW_MAIL_UPDATE', resp.data.mailNotifications);
     })
     .catch(err => {
       throw(err);
@@ -99,6 +100,7 @@ export default({
       commit('STORYLINE_UPDATE', resp.data.storylineState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
+      commit('NEW_MAIL_UPDATE', resp.data.mailNotifications);
     })
     .catch(err => {
       throw(err);

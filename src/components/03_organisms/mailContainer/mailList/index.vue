@@ -3,6 +3,6 @@
 <script>
 export default {
   name: 'MailList',
-  props: ['list', 'selectedIndex'],
+  props: ['list', 'selectedIndex', 'newMails'],
 }
 </script>

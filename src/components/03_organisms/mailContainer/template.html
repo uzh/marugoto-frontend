@@ -3,13 +3,15 @@
     <!-- Mail list -->
     <MailList
       v-if="get_mails.length > 0"
-      :list="get_mails" 
+      :list="get_mails"
+      :newMails="get_newMails"
       :selectedIndex="selectedIndex" 
       @selectedMail="selectByIndex" />
     <!-- Subject container -->
     <MailBody
       v-if="get_mails.length > 0"
-      :list="get_mails" 
+      :list="get_mails"
+      :newMails="get_newMails"
       :selectedIndex="selectedIndex" />
   </div>
 </div>
