@@ -11,7 +11,7 @@ export function Timer(time){
     this.pad = function(n) { return (n < 10 ? "0" + n : n); };
 
     this.logIt = function() {
-        return console.log('Timer: ', this.pad(this.days) + ":" + this.pad(this.hours) + ":" + this.pad(this.minutes) + ":" + this.pad(this.seconds));
+        return; //console.log('Timer: ', this.pad(this.days) + ":" + this.pad(this.hours) + ":" + this.pad(this.minutes) + ":" + this.pad(this.seconds));
     };
 
     this.clearedInterval = function() {
