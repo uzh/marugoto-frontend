@@ -10,13 +10,13 @@ script:
 # - npm run test:coveralls
   - npm run build
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then
-    if [$(docker build -t uzhlit/marugoto-frontend .) -eq 0]; then
-      docker tag uzhlit/marugoto-frontend uzhlit/marugoto-frontend:$(git rev-parse --short HEAD);
-      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-      docker push uzhlit/marugoto-frontend;
-    fi
-    fi
+  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - export REPO=uzhlit/marugoto-frontend
+  - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
+  - docker build -f Dockerfile -t $REPO:$COMMIT .
+  - docker tag $REPO:$COMMIT $REPO:$TAG
+  - docker tag $REPO:$COMMIT $REPO:travis-$TRAVIS_BUILD_NUMBER
+  - docker push $REPO
 env:
   global:
     - secure: A263OTFMnIU55QLPfQOLwYAnVVgdqID6QdQn/omQHuT3Ugv30PLnvN/S3qq9Q2hvt8W1WGJNFaGX/j/t8q5osilsNL7myZr172uZR+rCEXy2tMK+ob6q9bEV40nAi482xMW4ioUT4Ka3pT/4yIMIVTkq1yxP/EEdhiR+6F14CyxytQPMSedc+j2DBmT3BJ4IqHPdtzWeHRB1gRKHvius7RIeUmUfe9roEKFwW6nuFNLp+/Bf6u8hf1viLKri3QD4oA34jfR9DxoXXh8FQnGMZbp0+k+fysWJREKGmtUozr85lOKlvVITs5dXOwBQp6ZCS8wJ/xs8/hwblgGl6t04DDU0k0pt1odvKusqIsF3U61Q3ptUy9sjl6POfVOwEDdlVJg3YOrRUkie3YcgtSxmyxBik6dhEK0YxH0aC88zrP0QuBYZJAqPi/cQiQR++8HkmBurWN74GQiDz+TMFVlde84k4WgAV2Smp10aqIxTi8D+lmeWg790rRqAjZ6XfW0LW/y7xmdlbfCHGSleVaN5bx1eA8u4DXgx2bFndbjC/U+Gnjd7gPyEOYF4QUGUC4hZIpdsgXpGcdSYJnDAIliYw0HuY/BUZRd9rIt8v0JXl9XdfZRiUedTToUxLSK8aBh0xXnGDyPr28pGfK0BYKpkJsSlpaLL54AivY7jvIEzK1g=
