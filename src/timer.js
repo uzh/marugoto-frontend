@@ -11,7 +11,7 @@ export function Timer(time){
     this.pad = function(n) { return (n < 10 ? "0" + n : n); };
 
     this.logIt = function() {
-        return; //console.log('Timer: ', this.pad(this.days) + ":" + this.pad(this.hours) + ":" + this.pad(this.minutes) + ":" + this.pad(this.seconds));
+        console.log(this.pad(this.days) + ":" + this.pad(this.hours) + ":" + this.pad(this.minutes) + ":" + this.pad(this.seconds));
     };
 
     this.clearedInterval = function() {
@@ -20,7 +20,7 @@ export function Timer(time){
             return true;
         } else {
             this.duration--;
-            this.days        = Math.floor(this.duration / 24 / 60 / 60);
+            this.days        = Math.floor(this.duration / 86400);
             this.hoursLeft   = Math.floor((this.duration) - (this.days * 86400));
             this.hours       = Math.floor(this.hoursLeft / 3600);
             this.minutesLeft = Math.floor((this.hoursLeft) - (this.hours * 3600));
@@ -31,10 +31,6 @@ export function Timer(time){
 
     this.start = setInterval(function(){
         self.clearedInterval();
-        if( self.clearedInterval() ){
-            return;
-        }
         self.logIt();
-    }, 1000);
-    
-};
+    }, 1000);   
+}
