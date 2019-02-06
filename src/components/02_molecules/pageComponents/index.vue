@@ -65,7 +65,6 @@ export default {
     dialogOptionEmited: function(dialogId) {
       apiService.get(`dialog/${dialogId}`)
       .then(resp => {
-        console.log(resp)
         this.$store.dispatch('DIALOG_UPDATE', resp.data.speech);
       })
       .catch(() => {

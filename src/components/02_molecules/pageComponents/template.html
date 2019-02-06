@@ -4,7 +4,7 @@
     :key="index"
     :class="`col-xs-${component.numberOfColumns}`" >
     <!-- Text -->
-    <TextComponent class="mb-30"
+    <TextComponent class="mt-30"
       v-if="component.type == 'TextComponent'"
       :text="component.markdownContent" />
     <!-- Link -->
@@ -13,7 +13,7 @@
       v-if="component.type == 'LinkComponent'">{{ component.url }}</a>
     </div>
     <!-- Image -->
-    <ImageComponent class="mb-30"
+    <ImageComponent class="mt-30"
       v-if="component.type == 'ImageComponent'"
       :source="`http://localhost:8080/${component.image.path}`"
       :text="component.markdownContent" />

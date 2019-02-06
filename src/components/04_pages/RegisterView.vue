@@ -18,11 +18,11 @@
     <p class="lead">Enter your Data</p>
     <div class="mt-30">
       <form class="col-xs-12" @keydown.enter="register">
-        <InputField v-model="firstName" labelName="Name / Pseudonym" required="true" />
-        <InputField v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
-        <SelectField :list="genderList" required="true" labelName="Gender" @selectChange="setGender" />
-        <InputField v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
-        <InputField v-model="password" typeProp="password" labelName="Password" required="true"/>
+        <InputField tabindex="-5" v-model="firstName" labelName="Name / Pseudonym" required="true" />
+        <InputField tabindex="-4" v-model="lastName" labelName="Lastname / Pseudonym" required="true" />
+        <SelectField tabindex="-3" :list="genderList" required="true" labelName="Gender" @selectChange="setGender" />
+        <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" required="true"/>
+        <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" required="true"/>
       </form>
       <Btn class="col-xs-12 mt-30" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
