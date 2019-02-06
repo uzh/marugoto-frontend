@@ -12,9 +12,11 @@ script:
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then
     docker build -t uzhlit/marugoto-frontend .;
-    tag uzhlit/marugoto-frontend uzhlit/marugoto-frontend:$(git rev-parse --short HEAD);
-    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
-    docker push uzhlit/marugoto-frontend;
+    if [$? -eq 0]; then
+      docker tag uzhlit/marugoto-frontend uzhlit/marugoto-frontend:$(git rev-parse --short HEAD);
+      docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+      docker push uzhlit/marugoto-frontend;
+    fi
     fi
 env:
   global:
