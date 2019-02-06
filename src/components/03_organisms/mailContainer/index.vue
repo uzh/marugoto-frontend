@@ -19,10 +19,6 @@ export default {
     ...mapGetters([ 'get_layoutState', 'get_mails', 'get_newMails' ]),
   },
   methods: {
-    selectMail(item) {
-      this.list.forEach(i => i.selected = false);
-      item.selected = true;
-    },
     selectByIndex: function(index) {
       this.selectedIndex = index;
     },

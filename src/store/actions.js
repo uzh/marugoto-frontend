@@ -119,6 +119,9 @@ export default({
       throw(err);
     });
   },
+  [types.MAIL_LIST_ADD]: ({commit}, payload) => {
+    commit(types.MAIL_LIST_ADD, payload);
+  },
   // NOTEBOOK
   [types.UPDATE_NOTEBOOK]: ({commit}, payload) => {
     return apiService.get('notebook/list')

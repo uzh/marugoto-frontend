@@ -34,4 +34,5 @@ export const ADD_PERSONAL_NOTE = 'ADD_PERSONAL_NOTE';
 
 // Mail Component
 export const MAIL_LIST_UPDATE = 'MAIL_LIST_UPDATE';
+export const MAIL_LIST_ADD = 'MAIL_LIST_ADD';
 export const NEW_MAIL_UPDATE = 'NEW_MAIL_UPDATE';
