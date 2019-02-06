@@ -1,5 +1,5 @@
 # build stage
-FROM node:9.11.1-alpine as build-stage
+FROM node:8.15-alpine as build-stage
 
 # install simple http server for serving static content
 RUN npm install -g http-server

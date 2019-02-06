@@ -9,6 +9,18 @@ script:
 # - npm run test:unit
 # - npm run test:coveralls
   - npm run build
+after_success:
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then
+    docker build -t uzhlit/marugoto-frontend .;
+    tag uzhlit/marugoto-frontend uzhlit/marugoto-frontend:$(git rev-parse --short HEAD);
+    docker login -u="$DOCKER_USERNAME" -p="$DOCKER_PASSWORD";
+    docker push uzhlit/marugoto-frontend;
+    fi
+env:
+  global:
+    - secure: A263OTFMnIU55QLPfQOLwYAnVVgdqID6QdQn/omQHuT3Ugv30PLnvN/S3qq9Q2hvt8W1WGJNFaGX/j/t8q5osilsNL7myZr172uZR+rCEXy2tMK+ob6q9bEV40nAi482xMW4ioUT4Ka3pT/4yIMIVTkq1yxP/EEdhiR+6F14CyxytQPMSedc+j2DBmT3BJ4IqHPdtzWeHRB1gRKHvius7RIeUmUfe9roEKFwW6nuFNLp+/Bf6u8hf1viLKri3QD4oA34jfR9DxoXXh8FQnGMZbp0+k+fysWJREKGmtUozr85lOKlvVITs5dXOwBQp6ZCS8wJ/xs8/hwblgGl6t04DDU0k0pt1odvKusqIsF3U61Q3ptUy9sjl6POfVOwEDdlVJg3YOrRUkie3YcgtSxmyxBik6dhEK0YxH0aC88zrP0QuBYZJAqPi/cQiQR++8HkmBurWN74GQiDz+TMFVlde84k4WgAV2Smp10aqIxTi8D+lmeWg790rRqAjZ6XfW0LW/y7xmdlbfCHGSleVaN5bx1eA8u4DXgx2bFndbjC/U+Gnjd7gPyEOYF4QUGUC4hZIpdsgXpGcdSYJnDAIliYw0HuY/BUZRd9rIt8v0JXl9XdfZRiUedTToUxLSK8aBh0xXnGDyPr28pGfK0BYKpkJsSlpaLL54AivY7jvIEzK1g=
+    - secure: 14eUnmpW1s1Tt42JqtJRZHeKaWzRuel7aRk6b50GmyCzrLihLNRYva0ZTVu05tAo6GjHFByB7CVHtwPVXWw1qEhKwimCO7CgdfGHT7Uz3JcCaiEMoRzyTjFOoQ6ho3dSgCp1UwWDa/vyi3/K7l0EZNYnYjSJHlztfQ8UsERE1nUroFCUL1d5sG/lHktFoYlvCtrWPj2l1vxREqvOG8bQ5d7xDCsmx87uA+kOWPgyDyehvwEg8hZJdYj3jWZBQikYdh9wUy1Wt/bZooeSVvLinWgJNpi7/zvPFApMUo6MEXoEJ3j/OqJlmgLqDESPkTl66Oa5/hCRO7eU666fjX0zCKjTYKXW0x3vvo2pqGLL8gP+6fs+6miXj25qBJ+O1IyBpG9EdcMiqR9ZFNl3njZ4jai1z+7RexHWmfe0ROeERe83c+a6vWYDVGf2eRu3PkZd8BjSZznsMMDMvdQSo5ve1qvs+KBNpdA+znjkLcubCH5Ub/pcCDPuHss6WsB1qIYvjFicAo8ZpIIZaAvStDd7aAB2bzIzcEIy8UUgCvNb1N+pYoyoPyXURE5ntuNtZ6b45sPWmNIlIZiSgknH7cMaQg/nzVQYjVLR0UItnHYmUodTl37ZAOOEF4kVuOkeSikRlb1hoxNt6a16JSCGahoNqD5uACkI9a2LYSQqVGO8VfY=
+    - secure: fcEbktKDUW38u8SEeEbMsIspMDcUZ2MZKjvABo0SncLQ4D7dJ8SUoF8vUaF57xTx0Qd+viyk4Tw2TdTHKGVU/FLNQJVe+Uzart3QyzlC0XRgvUQkIXUEdhn/nuf7z+9mqndMZTIWKJL1Z/mqDJOiAIM9haHcqGZJAdpcQzJzVjkDprr+UZ9Dsgt01k29M3zk5PRA5RBYOYiaRfjPFyI0mSqa7C8rsu6JHacjgB5zLD9yd/EPUyIK/Uhr5Nut2OEwqAvIk9eUEZOxn5WeO6wLAESm/VBW+cY6WTG0MMIqIIrxqSLsChNrxULmtuakjqDe+lu9v1uOQu+XjUrOkhWHw3CpD8rLwKO8SdxaGpER4fc3crFavVljsIHGKqZfPGaclTIHYieKCbAUPCCgL3edUn5spwjkUNfVuT9FZC/FBjE8UIR1Mxg0tOcgEQOAvlWi/UX3ou58wt0smZyJXCk93aiRYNHMc98Vl9MfpRmvAT88L/h0WtENTmqJYpViJlpuKcHCukHRkiTOL6rfLhOONPB8huLbNfWf6n7BSjrbUQp4y1u7uLboocUaCGwneiHo0xF1+N5JJKiRISU0yvRwwBtrdvkVQ5aHd2nV+K50a5bhIGGdqmOp1oCns0DRlvAZZJ21Hcay+jHci0WcXOOStRNlUOQ0DEL5oAM4ILR+gqQ=
 # deploy:
 #   skip_cleanup: true
 #   provider: script
