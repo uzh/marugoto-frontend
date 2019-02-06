@@ -10,7 +10,7 @@ script:
 # - npm run test:coveralls
   - npm run build
 after_success:
-  - docker login -u "$DOCKER_USERNAME" -p "$DOCKER_PASSWORD"
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
   - export REPO=uzhlit/marugoto-frontend
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
   - docker build -f Dockerfile -t $REPO:$COMMIT .
