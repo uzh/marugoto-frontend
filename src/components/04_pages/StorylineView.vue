@@ -10,7 +10,7 @@
         <div v-if="get_topic.selected">
           <h1 class="storyline-title">{{ get_page.title }}</h1>
           <!-- Components -->
-          <PageComponents ref="pageComponentsContainer"/>
+          <PageComponents />
           <!-- Page transitions -->
           <PageTransitions @transitionChoosen="requestPageTransition" />
         </div>
@@ -43,7 +43,7 @@ export default {
       this.$store.dispatch('REQUEST_PAGE_CURRENT');
       this.$store.dispatch('UPDATE_NOTEBOOK');
       this.$store.dispatch('MAIL_LIST_UPDATE');
-    }
+    };
   },
   methods: {
     chooseTopic: function(id){
@@ -61,7 +61,7 @@ export default {
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
-    },
+    }
   },
 }
 

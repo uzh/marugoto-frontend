@@ -20,6 +20,36 @@
     h5{
       opacity: 1;
     }
+
+    .mailIconActive {
+      position: absolute;
+      top: 25px;
+      left: 88px;
+      height: 20px;
+      width: 20px;
+      color: $white;
+      background-color: $base-accent;
+      border-radius: 50%;
+      font-size: 16px;
+      text-align: center;
+      line-height: 20px;
+      vertical-align: middle;
+    }
+  }
+
+  .mailIconActive {
+    position: absolute;
+    top: 25px;
+    left: 47px;
+    height: 20px;
+    width: 20px;
+    color: $white;
+    background-color: $base-accent;
+    border-radius: 50%;
+    font-size: 16px;
+    text-align: center;
+    line-height: 20px;
+    vertical-align: middle;
   }
 
   .mail-sidebar-open{
@@ -42,6 +72,7 @@
     height: $elements-space;
     padding-top: 35px;
     text-align: center;
+    position: relative;
   }
 
   .new-mail-notification{
