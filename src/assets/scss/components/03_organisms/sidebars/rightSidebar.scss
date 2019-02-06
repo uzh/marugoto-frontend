@@ -23,6 +23,7 @@
   }
 
   .mail-sidebar-open{
+    position: relative;
     width: $elements-space;
     height: $elements-space;
     margin-right: 40px;
@@ -41,6 +42,20 @@
     height: $elements-space;
     padding-top: 35px;
     text-align: center;
+  }
+
+  .new-mail-notification{
+    position: absolute;
+    right: 25px;
+    top: 28px;
+    width: 15px;
+    height: 15px;
+    font-size: 10px;
+    color: #fff;
+    padding-top: 3px;
+    text-align: center;
+    background: red;
+    border-radius: 50%;
   }
 }
 

@@ -2,7 +2,7 @@
 import axios from 'axios'
 import store from './store'
 
-const API_URL = process.env.VUE_APP_API_PATH || 'http://localhost:8080/api'
+const API_URL = process.env.VUE_APP_API_PATH;
 
 const apiService = axios.create({
   baseURL: API_URL,

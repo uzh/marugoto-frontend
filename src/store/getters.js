@@ -31,6 +31,6 @@ export default{
     return state.mails;
   },
   get_newMails: state => {
-    return state.mails;
+    return state.mailNotifications;
   },
 };

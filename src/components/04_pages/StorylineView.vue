@@ -45,10 +45,6 @@ export default {
       this.$store.dispatch('MAIL_LIST_UPDATE');
     }
   },
-  updated: function() {
-    this.$refs.pageComponentsContainer.$el.scrollTop = 180;
-    console.log('After mounted', this.$refs.pageComponentsContainer.$el.scrollTop);
-  },
   methods: {
     chooseTopic: function(id){
       this.$store.dispatch('CHOOSE_TOPIC', id)
