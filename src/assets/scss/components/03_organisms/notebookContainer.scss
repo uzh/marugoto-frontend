@@ -176,9 +176,8 @@ $chapterHeight: 90px;
 .added-personal-notes-box{
     position: relative;
     z-index: 9;
-    bottom: 0;
+    top: 0;
     height: 12vh;
-    min-height: 12vh;
     width: 100%;
     border-left: 2px solid #2F3133;
 
@@ -198,13 +197,12 @@ $chapterHeight: 90px;
 }
 
 .personal-note-box{
-    position: absolute;
+    position: relative;
     z-index: 9;
-    bottom: 120px;
-    right: -100%;
+    top: 40px;
+    right: -150%;
     height: 12vh;
     width: 100%;
-    padding: 0 65px;
     transition: all 0.3s;
 
     &.opened{
@@ -238,4 +236,9 @@ $chapterHeight: 90px;
             left: 0;
         }
     }
+}
+
+.button-personal-note {
+    position: relative;
+    top: 80px;
 }

@@ -17,36 +17,36 @@
     <div class="mb-40 col-xs-10 col-xs-offset-1">
       <img v-if="page.image" :src="page.image" />
       <p class="text">{{ page.text }}</p>
-    </div>
-    <!-- Personal notes -->
-    <div class="pt-40 border-top col-xs-10 col-xs-offset-1">
-      <ul>
-        <li 
-          v-for="(personalNote, index) in page.personalNotes" 
-          :key="index"
-          v-if="personalNote.notebookEntry.id == page.id">
-            <div class="added-personal-notes-box mt-40">
-              <!-- <p style="visibility: visible">20.5.2018 - 10:48 - Spreckensville</p> -->
-              <textarea>{{ personalNote.markdownContent }}</textarea>
-            </div>
-        </li>
-      </ul>
+      <!-- Personal notes -->
+      <div class="pt-40 border-top">
+        <ul>
+          <li 
+            v-for="(personalNote, index) in page.personalNotes" 
+            :key="index"
+            v-if="personalNote.notebookEntry.id == page.id">
+              <div class="added-personal-notes-box mt-40">
+                <!-- <p style="visibility: visible">20.5.2018 - 10:48 - Spreckensville</p> -->
+                <textarea>{{ personalNote.markdownContent }}</textarea>
+              </div>
+          </li>
+        </ul>
+      </div>
+      <!-- Add personal note box -->
+      <div class="personal-note-box" :class="openedPersonalNote ? 'opened' : ''">
+        <!-- <p style="visibility: visible">20.5.2018 - 10:48 - Spreckensville</p> -->
+        <textarea v-model="personalNoteText"></textarea>
+        <div class="col-xs-10 col-xs-push-1">
+          <button class="cancel" @click="cancelPersonalNote">Cancel</button>
+          <button @click="submitPersonalNote">Done</button>
+        </div>
+      </div>
       <Btn
         @click.native="addPersonalNote(page.id)"
-        class="mt-40"
+        class="mt-40 button-personal-note"
         text="Add a personal note"
         primary="true"
         iconName="plus"
         iconColor="white" />
-    </div>
-  </div>
-  <!-- Add personal note box -->
-  <div class="personal-note-box" :class="openedPersonalNote ? 'opened' : ''">
-    <!-- <p style="visibility: visible">20.5.2018 - 10:48 - Spreckensville</p> -->
-    <textarea v-model="personalNoteText"></textarea>
-    <div class="col-xs-10 col-xs-push-1">
-      <button class="cancel" @click="cancelPersonalNote">Cancel</button>
-      <button @click="submitPersonalNote">Done</button>
     </div>
   </div>
 </div>
