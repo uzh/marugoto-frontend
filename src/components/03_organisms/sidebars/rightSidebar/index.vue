@@ -10,6 +10,7 @@ export default {
   data(){
     return{
       title: 'RightSidebar',
+      unreadMails: 1,
     }
   },
   computed: {

@@ -6,6 +6,9 @@
       class="mail-sidebar-open go-left"
       @click="LAYOUT_OPEN('mail')">
       <img src="@/assets/images/mail.svg" />
+      <div
+        v-if="unreadMails > 0"
+        class="mailIconActive">{{ unreadMails }}</div>
     </div>
     <h5 class="go-left">Mail-Inbox</h5>
     <div
