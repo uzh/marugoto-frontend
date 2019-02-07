@@ -4,9 +4,11 @@
     :key="index"
     :class="`col-xs-${component.numberOfColumns}`" >
     <!-- Text -->
-    <TextComponent class="mt-30"
+    <vue-markdown v-if="component.type == 'TextComponent'" 
+    :source="component.markdownContent" />
+    <!-- <TextComponent class="mt-30"
       v-if="component.type == 'TextComponent'"
-      :text="component.markdownContent" />
+      :text="component.markdownContent" /> -->
     <!-- Link -->
     <div class="mb-30">
       <a :href="component.url" target="_blank"

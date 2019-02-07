@@ -4,6 +4,7 @@
 import { mapGetters } from 'vuex'
 import apiService from '@/apiService'
 
+import VueMarkdown from 'vue-markdown'
 import DialogExercise from '../dialog'
 import ExerciseRadio from './exerciseRadio'
 import ExerciseCheckbox from './exerciseCheckbox'
@@ -13,7 +14,7 @@ import ImageComponent from './image'
 
 export default {
   name: 'PageComponents',
-  components: { DialogExercise, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent },
+  components: { VueMarkdown, DialogExercise, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent },
   props: [ 'exercises' ],
   computed: {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
