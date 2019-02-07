@@ -10,9 +10,10 @@
       v-if="component.type == 'TextComponent'"
       :text="component.markdownContent" /> -->
     <!-- Link -->
-    <div class="mb-30">
-      <a :href="component.url" target="_blank"
-      v-if="component.type == 'LinkComponent'">{{ component.url }}</a>
+    <div v-if="component.type == 'LinkComponent'" class="mb-30">
+      <a :href="component.url" target="_blank">
+        {{ component.url }}
+      </a>
     </div>
     <!-- Image -->
     <ImageComponent class="mt-30"
@@ -52,10 +53,8 @@
       :exerciseId="component.exerciseState.id"
       :placeholder="component.placeholderText" />
     <!-- PDF -->
-    <div class="mt-30">
-      <a
-      v-if="component.type == 'PdfComponent'"
-      :href="`http://localhost:8080/${component.pdf.path}`" target="_blank">PDF</a>
+    <div v-if="component.type == 'PdfComponent'" class="mt-30">
+      <a :href="`http://localhost:8080/${component.pdf.path}`" target="_blank">PDF</a>
     </div>
     <!-- Audio -->
     <div v-if="component.type == 'AudioComponent'" class="full-width mt-30">
