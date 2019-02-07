@@ -59,6 +59,7 @@
     margin-right: 40px;
     padding-top: 35px;
     text-align: center;
+    cursor: pointer;
   }
 
   h5 {
@@ -73,6 +74,7 @@
     padding-top: 35px;
     text-align: center;
     position: relative;
+    cursor: pointer;
   }
 
   .new-mail-notification{
@@ -100,6 +102,7 @@
   height: 100%;
   border-left: $border;
   background: white;
+  cursor: pointer;
 
   .close{
     height: 90px;
@@ -107,6 +110,7 @@
     vertical-align: middle;
     text-align: center;
     z-index: 4;
+    cursor: pointer;
   }
 
   .notebook-sidebar-right {

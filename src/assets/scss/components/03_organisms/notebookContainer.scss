@@ -84,6 +84,10 @@ $chapterHeight: 90px;
         width: 20%;
         text-align: center;
         padding-top: 28px;
+        
+        .svg-icon {
+            cursor: pointer;
+        }
     }
 }
 
@@ -114,6 +118,7 @@ $chapterHeight: 90px;
             position: relative;
             top: 10px;
             float: right;
+            cursor: pointer;
         }
     }
 
@@ -240,5 +245,6 @@ $chapterHeight: 90px;
 
 .button-personal-note {
     position: relative;
-    top: 80px;
+    bottom: 60px;
+    box-shadow: none;
 }

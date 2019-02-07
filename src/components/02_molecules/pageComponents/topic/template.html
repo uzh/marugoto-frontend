@@ -17,7 +17,12 @@
       </div>
       <div :class="list.length > 4 ? 'topic-folder-more' : 'topic-folder'">
         {{ topic.title }}
-        <Btn class="topic-button" text="Preview this Topic" primary="true" iconName="arrow-right" />
+        <Btn
+          @click="$emit('openTopic', topic.id)"
+          class="topic-button"
+          text="Preview this Topic" 
+          primary="true" 
+          iconName="arrow-right" />
       </div>
     </div>
   </div>
