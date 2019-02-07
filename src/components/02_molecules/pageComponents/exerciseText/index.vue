@@ -17,6 +17,13 @@ export default {
       //console.log('Answer: ', this.answer, ', ID: ', this.exerciseId);
       this.$emit('emitInputAnswer', this.answer, this.exerciseId);
     },
-  }
+  },
+  watch: {
+    exerciseId: function(newVal, oldVal) {
+      if( newVal != oldVal ){
+        this.answer = '';
+      }
+    },
+  },
 }
 </script>

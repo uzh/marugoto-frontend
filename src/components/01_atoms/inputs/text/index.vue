@@ -17,9 +17,6 @@ export default {
       error: false,
     };
   },
-  mounted: function() {
-    this.checkInputState();
-  },
   computed: {
     computedType: function () {
       if( this.$props.typeProp === '' || this.$props.typeProp === undefined ){
@@ -27,6 +24,9 @@ export default {
       }
       return this.$props.typeProp;
     },
+  },
+  mounted: function() {
+    this.checkInputState();
   },
   methods: {
     checkInputState: function() {
