@@ -41,27 +41,36 @@ export default {
       this.$store.dispatch('UPDATE_TOPIC_LIST');
     }else{
       this.$store.dispatch('REQUEST_PAGE_CURRENT');
-      this.$store.dispatch('UPDATE_NOTEBOOK');
-      this.$store.dispatch('MAIL_LIST_UPDATE');
+      this.requester();
     };
+    
   },
   methods: {
+    requester: function() {
+      this.$store.dispatch('UPDATE_NOTEBOOK');
+      this.$store.dispatch('MAIL_LIST_UPDATE');
+    },
     chooseTopic: function(id){
       this.$store.dispatch('CHOOSE_TOPIC', id)
       .then(() => {
         this.$store.dispatch('REQUEST_PAGE_CURRENT');
-        this.$store.dispatch('UPDATE_NOTEBOOK');
-        this.$store.dispatch('MAIL_LIST_UPDATE');
+        this.requester();
       });
     },
     requestPageTransition(id){
       this.$store.dispatch('REQUEST_PAGE_TRANSITION', id);
-      this.$store.dispatch('UPDATE_NOTEBOOK');
-      this.$store.dispatch('MAIL_LIST_UPDATE');
+      this.requester();
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
     }
+  },
+  watch: {
+    get_page: function(oldVal, newVal) {
+      if( newVal != oldVal ){
+        document.querySelector('.page-container').scrollTop = 0;
+      }
+    },
   },
 }
 

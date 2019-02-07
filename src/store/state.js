@@ -32,6 +32,7 @@ export default ({
   },
   mailNotifications: [],
   mails: [],
+  mailNotificationState : 0,
   notebook: {
     notebookEntries: [],
     personalNotes: [],

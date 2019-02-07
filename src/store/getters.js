@@ -33,4 +33,7 @@ export default{
   get_newMails: state => {
     return state.mailNotifications;
   },
+  get_mailNotificationState: state => {
+    return state.mailNotificationState;
+  },
 };
