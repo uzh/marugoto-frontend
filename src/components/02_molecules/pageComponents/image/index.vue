@@ -3,6 +3,6 @@
 <script>
 export default {
   name: 'ImageComponent',
-  props: [ 'source', 'imageText' ],
+  props: [ 'source', 'text' ],
 }
 </script>

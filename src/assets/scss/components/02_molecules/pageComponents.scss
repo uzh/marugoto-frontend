@@ -38,8 +38,6 @@ $margin-bottom: 7.5rem;
     }
     p {
         @extend .small;
-        width: calc(75% - 10px);
-        float: right;
     }
 }
 

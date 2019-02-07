@@ -16,7 +16,7 @@
     <ImageComponent class="mt-30"
       v-if="component.type == 'ImageComponent'"
       :source="`http://localhost:8080/${component.image.path}`"
-      :text="component.markdownContent" />
+      :text="component.caption" />
     <!-- Date Component -->
     <v-date-picker class="mt-30"
       v-if="component.type == 'DateExercise'"
