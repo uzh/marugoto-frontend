@@ -1,20 +1,140 @@
 $margin-bottom: 7.5rem;
 
-// Storyline Container
-.storyline-container {
+// Main Container
+.main-container {
     width: 100%;
-}
 
-// Title
-.storyline-title {
-    width: 100%;
-    margin: 3rem 0;
-    .icon-title {
-        @extend .col-xs-2;
-        text-align: center;
-    }
-    h1 {
-        @extend .col-xs-10;
+    .storyline-container {
+        width: 100%;
+
+        .storyline-title {
+
+            .icon-title {
+                @extend .col-xs-2;
+                text-align: center;
+            }
+            h1 {
+                @extend .col-xs-10;
+            }
+        }
+
+        .page-components-wrapper {
+            width: 100%;
+
+            .text-component {
+                margin-bottom: 2.5rem;
+            }
+            
+            .image-component {
+                height: auto;
+                margin-bottom: $margin-bottom;
+                img {
+                    width: 100%;
+                }
+                p {
+                    @extend .small;
+                }
+            }
+            
+            .upload-files-container {
+                @extend .col-xs-10;
+                @extend .col-xs-offset-1;
+                background-color: inherit;
+                margin-bottom: $margin-bottom;
+            
+                .upload-files-header {
+                    height: 40px;
+                    margin-left: calc(8.33% + 20px);
+                }
+            
+                .upload-files-main {
+                    height: 140px;
+                    background-color: $background-hover;
+                    border: 1px solid $base-primary-border;
+                    
+                    .left {
+                        display: inline-block;
+                        width: 45%;
+                        height: 138px;
+                        line-height: 138px;
+                        vertical-align: middle;
+                        text-align: center;
+                        font-size: 12px;
+                        &:hover {
+                            outline: 1px dashed $base-primary-border;
+                        }
+                    }
+            
+                    .right {
+                        display: inline-block;
+                        width: 45%;
+                        height: 138px;
+                        line-height: 138px;
+                        vertical-align: middle;
+                        text-align: center;
+                        font-size: 12px;
+                        input {
+                            display: none;
+                        }
+                        label {
+                            display: block;
+                        }
+                    }
+                    
+                    .center {
+                        display: inline-block;
+                        width: 10%;
+                        height: 140px;
+                        line-height: 140px;
+                        vertical-align: middle;
+                        text-align: center;
+                        font-size: 12px;
+                        position: relative;
+                        &:before {
+                            content: '';
+                            position: absolute;
+                            top: -6px;
+                            right: 49%;
+                            height: 148px;
+                            border: 1px solid $white;
+                            transform: rotate(24deg);
+                        }
+                    }
+                }
+            }
+            
+            .video-container {
+                @extend .col-xs-10;
+                @extend .col-xs-offset-1;
+                position: relative;
+            
+                .video-screen {
+                    width: 100%;
+                    position: relative;
+                }
+            
+                .video-controls {
+                    position: absolute;
+                    bottom: 0;
+                    height: 3.125rem;
+                    width: calc(100% - 20px);
+                    background-color: $base-primary-border;
+                    opacity: 0.5;
+                    button {
+                        display: inline;
+                        width: auto;
+                        background-color: $base-primary-border;
+                        padding: 10px;
+                    }
+                    .play-pause {
+                        float: left;
+                    }
+                    .full-screen {
+                        float: right;
+                    }
+                }
+            }
+        }
     }
 }
 
@@ -22,122 +142,4 @@ $margin-bottom: 7.5rem;
 .lead-text {
     @extend .lead;
     margin-bottom: $margin-bottom;
-}
-
-// Text
-.text-component {
-    margin-bottom: 2.5rem;
-}
-
-// Image
-.image-component {
-    height: auto;
-    margin-bottom: $margin-bottom;
-    img {
-        width: 100%;
-    }
-    p {
-        @extend .small;
-    }
-}
-
-// Exercise Upload
-.upload-files-container {
-    @extend .col-xs-10;
-    @extend .col-xs-offset-1;
-    background-color: inherit;
-    margin-bottom: $margin-bottom;
-
-    .upload-files-header {
-        height: 40px;
-        margin-left: calc(8.33% + 20px);
-    }
-
-    .upload-files-main {
-        height: 140px;
-        background-color: $background-hover;
-        border: 1px solid $base-primary-border;
-        
-        .left {
-            display: inline-block;
-            width: 45%;
-            height: 138px;
-            line-height: 138px;
-            vertical-align: middle;
-            text-align: center;
-            font-size: 12px;
-            &:hover {
-                outline: 1px dashed $base-primary-border;
-            }
-        }
-
-        .right {
-            display: inline-block;
-            width: 45%;
-            height: 138px;
-            line-height: 138px;
-            vertical-align: middle;
-            text-align: center;
-            font-size: 12px;
-            input {
-                display: none;
-            }
-            label {
-                display: block;
-            }
-        }
-        
-        .center {
-            display: inline-block;
-            width: 10%;
-            height: 140px;
-            line-height: 140px;
-            vertical-align: middle;
-            text-align: center;
-            font-size: 12px;
-            position: relative;
-            &:before {
-                content: '';
-                position: absolute;
-                top: -6px;
-                right: 49%;
-                height: 148px;
-                border: 1px solid $white;
-                transform: rotate(24deg);
-            }
-        }
-    }
-}
-
-// Video Component
-.video-container {
-    @extend .col-xs-10;
-    @extend .col-xs-offset-1;
-    position: relative;
-
-    .video-screen {
-        width: 100%;
-        position: relative;
-    }
-
-    .video-controls {
-        position: absolute;
-        bottom: 0;
-        height: 3.125rem;
-        width: calc(100% - 20px);
-        background-color: $base-primary-border;
-        opacity: 0.5;
-        button {
-            display: inline;
-            width: auto;
-            background-color: $base-primary-border;
-            padding: 10px;
-        }
-        .play-pause {
-            float: left;
-        }
-        .full-screen {
-            float: right;
-        }
-    }
 }

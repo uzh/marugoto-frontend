@@ -5,7 +5,7 @@
     <div class="item disabled">Reviews</div>
     <div class="item disabled">Collaborations</div>
   </div>
-  <div class="main-container col-xs-6">
+  <div class="wrapper-container col-xs-6">
     <h1 class="page-title">Welcome to Lives in Transit!</h1>
     <p class="lead-text">Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
     <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
@@ -13,7 +13,7 @@
   <div class="col-xs-1">
     <SvgIcon @click.native="goToLogin" name="arrow-left" sizeH="20" class="back-to-login" />
   </div>
-  <div class="main-container col-xs-4">
+  <div class="wrapper-container col-xs-4">
     <h1 class="page-title">Create Account</h1>
     <p class="lead">Enter your Data</p>
     <div class="mt-30">

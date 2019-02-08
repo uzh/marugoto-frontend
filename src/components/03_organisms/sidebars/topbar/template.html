@@ -1,19 +1,17 @@
-<div>
-  <!-- Status bar -->
-  <div
-    class="status-bar"
-    :class="[get_layoutState.mail.opened ? 'out' : '', get_layoutState.notebook.opened ? 'halfed' : '']">
-    <!-- <svgIcon
-      name="clock"
-      sizeH="20px"
-      class="status-bar-icon" /> -->
-    <div v-if="get_storyline.moneyBalance > 0"
-        class="money">
-        {{ get_storyline.moneyBalance }} &pound;
-    </div>
-    <div v-if="get_page.timerVisible"
-        class="time">
-        3 min 55 sec
-    </div>
+<!-- Status bar -->
+<div
+  class="status-bar"
+  :class="[get_layoutState.mail.opened ? 'out' : '', get_layoutState.notebook.opened ? 'halfed' : '']">
+  <!-- <svgIcon
+    name="clock"
+    sizeH="20px"
+    class="status-bar-icon" /> -->
+  <div v-if="get_storyline.moneyBalance > 0"
+      class="money">
+      {{ get_storyline.moneyBalance }} &pound;
+  </div>
+  <div v-if="get_page.timerVisible"
+      class="time">
+      3 min 55 sec
   </div>
 </div>

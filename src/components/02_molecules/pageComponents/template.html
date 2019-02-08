@@ -1,78 +1,93 @@
-<div>
+<div class="page-components-wrapper">
   <div 
     v-for="(component, index) in get_PageComponents" 
     :key="index"
     :class="`col-xs-${component.numberOfColumns}`" >
     <!-- Text -->
-    <vue-markdown v-if="component.type == 'TextComponent'" 
-    :source="component.markdownContent" />
+    <vue-markdown
+      v-if="component.type == 'TextComponent'" 
+      :source="component.markdownContent" />
     <!-- <TextComponent class="mt-30"
       v-if="component.type == 'TextComponent'"
       :text="component.markdownContent" /> -->
     <!-- Link -->
-    <div class="mb-30">
-      <a :href="component.url" target="_blank"
-      v-if="component.type == 'LinkComponent'">{{ component.url }}</a>
+    <div v-if="component.type == 'LinkComponent'">
+      <a
+        class="mb-30"
+        :href="component.url"
+        target="_blank">
+        {{ component.url }}
+      </a>
     </div>
     <!-- Image -->
-    <ImageComponent class="mt-30"
+    <ImageComponent
+      class="mt-30"
       v-if="component.type == 'ImageComponent'"
       :source="`http://localhost:8080/${component.image.path}`"
       :text="component.caption" />
     <!-- Date Component -->
-    <v-date-picker class="mt-30"
+    <v-date-picker
+      class="mt-30"
       v-if="component.type == 'DateExercise'"
       :formats='formats'
       @dayclick="dateEmit($event, component.exerciseState.id)"
       v-model='selectedDate'>
     </v-date-picker>
     <!-- Dialog -->
-    <DialogExercise class="mt-30"
+    <DialogExercise
+      class="mt-30"
       @emitDialog="dialogOptionEmited"
       v-if="component.type == 'DialogExercise'"
       :text="component.speech.markdownContent"
       :source="`http://localhost:8080/${component.speaker.image.path}`"
       :options="component.speech.answers" /><!--  -->
     <!-- Exercise Radio -->
-    <ExerciseRadio class="mt-30"
+    <ExerciseRadio
+      class="mt-30"
       @emitRadioChange="submitAnswer"
       v-if="component.type == 'RadioButtonExercise'"
       :exerciseId="component.exerciseState.id"
       :list="component.options" />
     <!-- Exercise Checkbox -->
-    <ExerciseCheckbox class="mt-30"
+    <ExerciseCheckbox
+      class="mt-30"
       @emitCheckboxChange="submitAnswer"
       v-if="component.type == 'CheckboxExercise'"
       :exerciseId="component.exerciseState.id"
       :optionsList="component.options" />
     <!-- Exercise Text -->
-    <ExerciseText  class="mt-30"
+    <ExerciseText
+      class="mt-30"
       @emitInputAnswer="submitAnswer"
       v-if="component.type == 'TextExercise'"
       :exerciseId="component.exerciseState.id"
       :placeholder="component.placeholderText" />
     <!-- PDF -->
-    <div class="mt-30">
+    <div v-if="component.type == 'PdfComponent'" >
       <a
-      v-if="component.type == 'PdfComponent'"
-      :href="`http://localhost:8080/${component.pdf.path}`" target="_blank">PDF</a>
+        class="mt-30"
+        :href="`http://localhost:8080/${component.pdf.path}`"
+        target="_blank">
+        PDF
+      </a>
     </div>
     <!-- Audio -->
-    <div>
-      <audio v-if="component.type == 'AudioComponent'" class="full-width mt-30" controls>
+    <div v-if="component.type == 'AudioComponent'">
+      <audio class="full-width mt-30" controls>
         <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/ogg">
         <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/mpeg">
         Your browser does not support the audio tag.
       </audio>
     </div>
     <!-- Video -->
-    <div>
-      <video v-if="component.type == 'VideoComponent'" class="full-width mt-30" controls>
+    <div v-if="component.type == 'VideoComponent'">
+      <video class="full-width mt-30" controls>
         <source :src="`http://localhost:8080/${component.video.path}`" type="video/mp4">
         <source :src="`http://localhost:8080/${component.video.path}`" type="video/webm" />
         <source :src="`http://localhost:8080/${component.video.path}`" type="video/ogg" />
         <p>Your browser does not support the video tag.</p>
       </video>
+      <div class="small mb-30">{{ component.caption }}</div>
     </div>
 
     <!-- Video with custom controls -->
