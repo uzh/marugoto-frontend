@@ -148,6 +148,7 @@
   .respondMail {
     @extend .col-xs-10;
     @extend .col-xs-offset-1;
+    @extend .mb-100;
     display: block;
     padding: 10px 30px;
     position: relative;
