@@ -16,15 +16,16 @@
     <div v-if="sendingMail" class="send-mail-text">Subject</div>
     <h4 class="lead" v-if="!sendingMail">{{ mail.subject }}</h4>
     <p class="lead" v-if="sendingMail">Re: {{ mail.subject }}</p>
-    <p class="current-date-time">Today, 14:28</p>
   </div>
   <textarea
     ref="mailArea"
     v-if="sendingMail"
     class="message-textarea">
   </textarea>
+  
   <div :class="!sendingMail ? 'message' : 'message-inactive'">
-      {{ mail.body }}
+      <vue-markdown
+      :source="mail.body" />
   </div>
   <button 
     v-if="!sendingMail" 

@@ -85,8 +85,8 @@ export default({
   [types.TRANSITIONS_UPDATE] (state, payload) {
     state.pageTransitionStates = payload;
   },
-  [types.STORYLINE_UPDATE] (state, payload) {
-    state.storylineState = payload;
+  [types.TOPIC_STATE_UPDATE] (state, payload) {
+    state.topicState = payload;
   },
   [types.PAGE_COMPONENTS_UPDATE] (state, payload) {
     state.pageComponents = payload;
@@ -102,12 +102,12 @@ export default({
   },
   // NOTEBOOK MUTATIONS
   [types.UPDATE_NOTEBOOK] (state, payload) {
-    state.notebook = payload;
+    state.notebook.list = payload;
   },
   [types.ADD_PERSONAL_NOTE] (state, payload) {
     for( let ii=0; ii < state.notebook.length; ii++ ){
       if( state.notebook[ii].id == payload.notebookEntry.id ){
-        state.notebook[ii].personalNotes.push(payload);
+        state.notebook.personalNotes.push(payload);
       }
     }
   },
@@ -118,7 +118,11 @@ export default({
   [types.MAIL_LIST_ADD] (state, payload) {
     state.mail.push(payload);
   },
-  [types.NEW_MAIL_UPDATE] (state, payload) {
+  [types.MAIL_NOTIFICATION_UPDATE] (state, payload) {
     state.mailNotifications = payload;
+  },
+  [types.HANDLE_NEW_MAIL] (state, payload) {
+    state.mailNotificationState++;
+    state.mails.push(payload)
   },
 });

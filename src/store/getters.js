@@ -13,7 +13,7 @@ export default{
     return state.page;
   },
   get_storyline: state => {
-    return state.storylineState;
+    return state.topicState;
   },
   get_transitions: state => {
     return state.pageTransitionStates;

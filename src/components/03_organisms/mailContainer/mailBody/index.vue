@@ -1,11 +1,12 @@
 <template src="./template.html"></template>
 
 <script>
+import VueMarkdown from 'vue-markdown'
 import Btn from "@/components/01_atoms/buttons"
 
 export default {
   name: 'MailBody',
-  components: { Btn },
+  components: { Btn, VueMarkdown },
   props: ['mail', 'selectedIndex'],
   data() {
     return {

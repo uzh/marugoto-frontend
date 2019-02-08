@@ -6,21 +6,21 @@
   <!-- Notebook List -->
   <NotebookList
     :selected="currentEntry"
-    :list="get_notebook"
+    :list="get_notebook.list"
     @selectItem="setCurrentEntry"/>
   <!-- Notebook Navigation -->
   <NotebookChapterMenu 
     @changeCurrentEntryTo="switchCurrentEntryTo" 
     :currentEntry="currentEntry"
-    :list="get_notebook" />
+    :list="get_notebook.list" />
   <!-- Notebook entries -->
   <NotebookPages 
     :currentEntry="currentEntry"
-    :list="get_notebook" 
+    :list="get_notebook.list" 
     @toggleScroll="openEntriesMenu" />
   <!-- Notebook Navigation -->
   <NotebookChapterMenu 
     @changeCurrentEntryTo="switchCurrentEntryTo" 
     :currentEntry="currentEntry"
-    :list="get_notebook" />
+    :list="get_notebook.list" />
 </div>
