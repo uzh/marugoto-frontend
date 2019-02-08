@@ -1,18 +1,23 @@
 /* eslint-disable */
+import store from './store'
+
 export default class Timer{
-    constructor(time, callback) {
+    constructor(time, payload) {
         this.time = time;
-        this.callback = callback;
+        this.payload = payload;
     }
     
     start() {
         var cTime = this.time;
-        var callback = this.callback;
+        var payload = this.payload;
         var timer = setInterval( function(){
             if( cTime > 0 ){
+                console.log('timer: ', cTime);
                 cTime--;
             }else{
-                callback();
+                if(payload){
+                    store.dispatch('HANDLE_NEW_MAIL', payload)
+                }
                 clearInterval(timer);
             }
         }, 1000 );

@@ -118,7 +118,11 @@ export default({
   [types.MAIL_LIST_ADD] (state, payload) {
     state.mail.push(payload);
   },
-  [types.NEW_MAIL_UPDATE] (state, payload) {
+  [types.MAIL_NOTIFICATION_UPDATE] (state, payload) {
     state.mailNotifications = payload;
+  },
+  [types.HANDLE_NEW_MAIL] (state, payload) {
+    state.mailNotificationState++;
+    state.mails.push(payload)
   },
 });

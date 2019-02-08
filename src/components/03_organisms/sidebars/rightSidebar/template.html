@@ -8,8 +8,8 @@
       <img src="@/assets/images/mail.svg" />
       <div 
         class="new-mail-notification"
-        v-if="get_newMails.length > 0">
-        {{ get_newMails.length }}
+        v-if="get_mailNotificationState > 0">
+        {{ get_mailNotificationState }}
       </div>
     </div>
     <h5 class="go-left">Mail-Inbox</h5>
