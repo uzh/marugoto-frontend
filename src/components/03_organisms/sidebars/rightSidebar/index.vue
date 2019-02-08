@@ -13,7 +13,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([ 'get_layoutState', 'get_newMails' ]),
+    ...mapGetters([ 'get_layoutState', 'get_mailNotificationState' ]),
   },
   methods: {
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),

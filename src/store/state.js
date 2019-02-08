@@ -34,10 +34,10 @@ export default ({
   mails: [],
   mailNotificationState : 0,
   notebook: {
-    notebookEntries: [],
+    list: [],
     personalNotes: [],
   },
-  storylineState: {},
+  topicState: {},
   pageTransitionStates: [],
   pageComponents: [],
   page: {},

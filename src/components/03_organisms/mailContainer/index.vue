@@ -20,12 +20,12 @@ export default {
     ...mapGetters([ 'get_layoutState', 'get_mails', 'get_newMails' ]),
   },
   methods: {
-    // handleNewMails: function() {
-    //   // Handele new mails update here
-    //   for( var ii = 0; ii < this.get_newMails.length; ii++){
-    //     new Timer(3, this.$store.dispatch('HANDLE_NEW_MAIL', id));
-    //   }
-    // },
+    handleNewMails: function() {
+      // Handele new mails update here
+      for( var ii = 0; ii < this.get_newMails.length; ii++){
+        new Timer(3, this.get_newMails[ii]).start();
+      }
+    },
     selectByIndex: function(index) {
       this.selectedIndex = index;
     },
@@ -33,7 +33,7 @@ export default {
   watch: {
     get_newMails: function(newVal, oldVal) {
       if( newVal != oldVal ){
-        //this.handleNewMails();
+        this.handleNewMails();
       }
     },
   },

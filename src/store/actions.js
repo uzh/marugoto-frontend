@@ -84,10 +84,10 @@ export default({
     return apiService.get('/pages/current')
     .then(resp => {
       commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
-      commit('STORYLINE_UPDATE', resp.data.storylineState);
+      commit('TOPIC_STATE_UPDATE', resp.data.topicState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
-      commit('NEW_MAIL_UPDATE', resp.data.mailNotifications);
+      commit('MAIL_NOTIFICATION_UPDATE', resp.data.mailNotifications);
     })
     .catch(err => {
       throw(err);
@@ -97,10 +97,10 @@ export default({
     return apiService.post('pageTransitions/doPageTransition/' + id + '?chosenByPlayer=true')
     .then(resp => {
       commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
-      commit('STORYLINE_UPDATE', resp.data.storylineState);
+      commit('TOPIC_STATE_UPDATE', resp.data.topicState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
-      commit('NEW_MAIL_UPDATE', resp.data.mailNotifications);
+      commit('MAIL_NOTIFICATION_UPDATE', resp.data.mailNotifications);
     })
     .catch(err => {
       throw(err);
@@ -108,19 +108,6 @@ export default({
   },
   [types.DIALOG_UPDATE]: (context, payload) => {
     context.commit(types.DIALOG_UPDATE, payload);
-  },
-  // MAIL
-  [types.MAIL_LIST_UPDATE]: ({commit}, payload) => {
-    return apiService.get('mail/list')
-    .then(resp => {
-      commit(types.MAIL_LIST_UPDATE, resp.data);
-    })
-    .catch(err => {
-      throw(err);
-    });
-  },
-  [types.MAIL_LIST_ADD]: ({commit}, payload) => {
-    commit(types.MAIL_LIST_ADD, payload);
   },
   // NOTEBOOK
   [types.UPDATE_NOTEBOOK]: ({commit}, payload) => {
@@ -133,7 +120,6 @@ export default({
     });
   },
   [types.ADD_PERSONAL_NOTE]: ({commit}, payload) => {
-    
     return apiService.post(`notebook/${payload.id}/personalNote?markdownContent=${payload.text}`)
     .then(resp => {
       commit(types.ADD_PERSONAL_NOTE, resp.data);
@@ -142,5 +128,27 @@ export default({
       throw(err);
     });
   },
-  
+  // MAIL
+  [types.MAIL_LIST_UPDATE]: ({commit}) => {
+    return apiService.get('mail/list')
+    .then(resp => {
+      commit(types.MAIL_LIST_UPDATE, resp.data);
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.MAIL_LIST_ADD]: ({commit}, payload) => {
+    commit(types.MAIL_LIST_ADD, payload);
+  },
+  [types.HANDLE_NEW_MAIL]: ({commit}, payload) => {
+    return apiService.put(`mail/sync/${payload.id}`)
+    .then(() => {
+      commit(types.HANDLE_NEW_MAIL, payload);
+    })
+    .catch(err => {
+      throw(err);
+    });
+    
+  },
 });
