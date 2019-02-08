@@ -84,7 +84,7 @@ export default({
     return apiService.get('/pages/current')
     .then(resp => {
       commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
-      commit('STORYLINE_UPDATE', resp.data.storylineState);
+      commit('TOPIC_STATE_UPDATE', resp.data.topicState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
       commit('MAIL_NOTIFICATION_UPDATE', resp.data.mailNotifications);
@@ -97,7 +97,7 @@ export default({
     return apiService.post('pageTransitions/doPageTransition/' + id + '?chosenByPlayer=true')
     .then(resp => {
       commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
-      commit('STORYLINE_UPDATE', resp.data.storylineState);
+      commit('TOPIC_STATE_UPDATE', resp.data.topicState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
       commit('MAIL_NOTIFICATION_UPDATE', resp.data.mailNotifications);
@@ -120,7 +120,6 @@ export default({
     });
   },
   [types.ADD_PERSONAL_NOTE]: ({commit}, payload) => {
-    
     return apiService.post(`notebook/${payload.id}/personalNote?markdownContent=${payload.text}`)
     .then(resp => {
       commit(types.ADD_PERSONAL_NOTE, resp.data);
@@ -143,7 +142,7 @@ export default({
     commit(types.MAIL_LIST_ADD, payload);
   },
   [types.HANDLE_NEW_MAIL]: ({commit}, payload) => {
-    return apiService.put(`mail/new/${payload.id}`)
+    return apiService.put(`mail/sync/${payload.id}`)
     .then(() => {
       commit(types.HANDLE_NEW_MAIL, payload);
     })
