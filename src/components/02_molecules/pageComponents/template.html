@@ -13,7 +13,7 @@
     <!-- Link -->
     <div v-if="component.type == 'LinkComponent'">
       <a
-        class="mb-30"
+        class="mb-40"
         :href="component.url"
         target="_blank">
         {{ component.url }}
@@ -21,13 +21,12 @@
     </div>
     <!-- Image -->
     <ImageComponent
-      class="mt-30"
       v-if="component.type == 'ImageComponent'"
       :source="`http://localhost:8080/${component.image.path}`"
       :text="component.caption" />
     <!-- Date Component -->
     <v-date-picker
-      class="mt-30"
+      class="mb-40"
       v-if="component.type == 'DateExercise'"
       :formats='formats'
       @dayclick="dateEmit($event, component.exerciseState.id)"
@@ -35,7 +34,7 @@
     </v-date-picker>
     <!-- Dialog -->
     <DialogExercise
-      class="mt-30"
+      class="mb-40"
       @emitDialog="dialogOptionEmited"
       v-if="component.type == 'DialogExercise'"
       :text="component.speech.markdownContent"
@@ -43,21 +42,21 @@
       :options="component.speech.answers" /><!--  -->
     <!-- Exercise Radio -->
     <ExerciseRadio
-      class="mt-30"
+      class="mb-40"
       @emitRadioChange="submitAnswer"
       v-if="component.type == 'RadioButtonExercise'"
       :exerciseId="component.exerciseState.id"
       :list="component.options" />
     <!-- Exercise Checkbox -->
     <ExerciseCheckbox
-      class="mt-30"
+      class="mb-40"
       @emitCheckboxChange="submitAnswer"
       v-if="component.type == 'CheckboxExercise'"
       :exerciseId="component.exerciseState.id"
       :optionsList="component.options" />
     <!-- Exercise Text -->
     <ExerciseText
-      class="mt-30"
+      class="mb-40"
       @emitInputAnswer="submitAnswer"
       v-if="component.type == 'TextExercise'"
       :exerciseId="component.exerciseState.id"
@@ -65,7 +64,7 @@
     <!-- PDF -->
     <div v-if="component.type == 'PdfComponent'" >
       <a
-        class="mt-30"
+        class="mb-40"
         :href="`http://localhost:8080/${component.pdf.path}`"
         target="_blank">
         PDF
@@ -73,7 +72,7 @@
     </div>
     <!-- Audio -->
     <div v-if="component.type == 'AudioComponent'">
-      <audio class="full-width mt-30" controls>
+      <audio class="full-width mb-40" controls>
         <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/ogg">
         <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/mpeg">
         Your browser does not support the audio tag.
@@ -81,13 +80,13 @@
     </div>
     <!-- Video -->
     <div v-if="component.type == 'VideoComponent'">
-      <video class="full-width mt-30" controls>
+      <video class="full-width" controls>
         <source :src="`http://localhost:8080/${component.video.path}`" type="video/mp4">
         <source :src="`http://localhost:8080/${component.video.path}`" type="video/webm" />
         <source :src="`http://localhost:8080/${component.video.path}`" type="video/ogg" />
         <p>Your browser does not support the video tag.</p>
       </video>
-      <div class="small mb-30">{{ component.caption }}</div>
+      <div class="small video-caption">{{ component.caption }}</div>
     </div>
 
     <!-- Video with custom controls -->
