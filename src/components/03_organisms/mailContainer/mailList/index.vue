@@ -15,7 +15,7 @@ export default {
   methods: {
     emitMailListClick: function(index, id) {
       this.$emit('selectedMail', {index, id});
-    },
+    }
   },
 }
 </script>
