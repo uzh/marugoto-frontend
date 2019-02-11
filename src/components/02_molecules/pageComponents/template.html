@@ -4,10 +4,10 @@
     :key="index"
     :class="`col-xs-${component.numberOfColumns}`" >
     <!-- Text -->
-    <vue-markdown
+    <vue-markdown class="mb-40"
       v-if="component.type == 'TextComponent'" 
       :source="component.markdownContent" />
-    <!-- <TextComponent class="mt-30"
+    <!-- <TextComponent class="mb-30"
       v-if="component.type == 'TextComponent'"
       :text="component.markdownContent" /> -->
     <!-- Link -->

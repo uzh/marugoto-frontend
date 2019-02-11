@@ -9,7 +9,7 @@ export default {
   props: ['list', 'selectedIndex', 'newMails'],
   data() {
     return {
-      falseHtml :false,
+      falseHtml: false,
     };
   },
 }

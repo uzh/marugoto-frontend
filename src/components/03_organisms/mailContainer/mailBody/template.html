@@ -24,7 +24,7 @@
   </textarea>
   
   <div :class="!sendingMail ? 'message' : 'message-inactive'">
-      <vue-markdown
+      <vue-markdown :linkify="trueLinks"
       :source="mail.body" />
   </div>
   <button 

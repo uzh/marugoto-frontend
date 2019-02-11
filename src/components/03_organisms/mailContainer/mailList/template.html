@@ -6,8 +6,8 @@
     <h6>{{ `${item.from.salutation} ${item.from.firstName} ${item.from.lastName}` }}</h6>
     <!-- <p class="current-date-time">Today, 14:28</p> -->
     <p class="shortMail">
-      <vue-markdown
-      :source="item.body" :html="falseHtml" />
+      <vue-markdown :html="falseHtml"
+      :source="item.body" />
     </p>
   </li>
   <li v-for="(item, index) in newMails" :key="index"
