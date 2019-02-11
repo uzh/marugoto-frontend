@@ -32,8 +32,10 @@ export default {
     if( !this.get_topic.selected ){
       this.$store.dispatch('UPDATE_TOPIC_LIST');
     }else{
-      this.$store.dispatch('REQUEST_PAGE_CURRENT');
-      this.requester();
+      this.$store.dispatch('REQUEST_PAGE_CURRENT')
+      .then(() => {
+        this.requester();
+      }); 
     };
     
   },
@@ -46,13 +48,18 @@ export default {
     chooseTopic: function(id){
       this.$store.dispatch('CHOOSE_TOPIC', id)
       .then(() => {
-        this.$store.dispatch('REQUEST_PAGE_CURRENT');
+        this.$store.dispatch('REQUEST_PAGE_CURRENT')
+      .then(() => {
         this.requester();
+      });
+        
       });
     },
     requestPageTransition(id){
-      this.$store.dispatch('REQUEST_PAGE_TRANSITION', id);
-      this.requester();
+      this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
+      .then(() => {
+        this.requester();
+      });
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
