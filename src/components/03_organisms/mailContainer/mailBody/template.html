@@ -40,7 +40,7 @@
 
     <!-- Original message -->
     <div :class="[!sendingMail ? 'message' : 'message-inactive', !isEmpty(mail.replied) ? 'message-inactive' : '']">
-        <vue-markdown
+        <vue-markdown :linkify="trueLinks"
         :source="mail.body" />
     </div>
 

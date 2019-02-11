@@ -16,7 +16,7 @@
         </div>
       </div>
       <div :class="list.length > 4 ? 'topic-folder-more' : 'topic-folder'">
-        {{ topic.title }}
+        <vue-markdown :source="topic.title" />
         <Btn
           @click="$emit('openTopic', topic.id)"
           class="topic-button"

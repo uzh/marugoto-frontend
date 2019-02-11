@@ -5,6 +5,12 @@
     .storyline-container {
         width: 100%;
 
+        .h1 {
+            p {
+                @extend .h1;
+            }
+        }
+
         .storyline-title {
 
             .icon-title {
@@ -29,11 +35,13 @@
                     width: 100%;
                 }
                 .image-caption {
-                    @extend .small;
-                    @extend .mb-40;
-                    text-align: center;
-                    // @extend .col-xs-offset-1;
-                    margin-top: 20px;
+                    p {
+                        @extend .small;
+                        @extend .mb-40;
+                        text-align: center;
+                        // @extend .col-xs-offset-1;
+                        margin-top: 20px;
+                    }
                 }
             }
             
@@ -105,10 +113,13 @@
             }
 
             .video-caption {
-                @extend .mb-40;
-                text-align: center;
-                // @extend .col-xs-offset-1;
-                margin-top: 20px;
+                p {
+                    @extend .small;
+                    @extend .mb-40;
+                    text-align: center;
+                    // @extend .col-xs-offset-1;
+                    margin-top: 20px;
+                }
             }
             
             // .video-container {

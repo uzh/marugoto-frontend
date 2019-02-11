@@ -3,9 +3,7 @@
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
     <TopicComponent v-if="!get_topic.selected" :list="get_topic.list" @openTopic="chooseTopic" />
     <div class="storyline-container" v-if="get_topic.selected">
-      <h1 class="storyline-title col-xs-10 col-xs-offset-1 mb-40 mt-30">
-        {{ get_page.title }}
-      </h1>
+      <vue-markdown class="storyline-title col-xs-10 col-xs-offset-1 mb-40 mt-30 h1" :source="get_page.title" />
       <!-- Components -->
       <PageComponents />
       <!-- Page transitions -->
@@ -16,18 +14,17 @@
 
 <script>
 /* eslint-disable */
-import { mapActions, mapGetters } from 'vuex'
-import apiService from '@/apiService'
-
-import Btn from '@/components/01_atoms/buttons'
-import PageTransitions from '@/components/02_molecules/pageTransitions'
-import PageComponents from '@/components/02_molecules/pageComponents'
-
-import TopicComponent from '@/components/02_molecules/pageComponents/topic'
+import { mapActions, mapGetters } from 'vuex';
+import apiService from '@/apiService';
+import Btn from '@/components/01_atoms/buttons';
+import PageTransitions from '@/components/02_molecules/pageTransitions';
+import PageComponents from '@/components/02_molecules/pageComponents';
+import TopicComponent from '@/components/02_molecules/pageComponents/topic';
+import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'player',
-  components: { Btn, PageTransitions, PageComponents, TopicComponent },
+  components: { Btn, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
   computed: {
     ...mapGetters([ 'get_page', 'get_topic' ]),
   },
