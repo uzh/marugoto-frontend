@@ -107,7 +107,7 @@ export default({
   [types.ADD_PERSONAL_NOTE] (state, payload) {
     for( let ii=0; ii < state.notebook.length; ii++ ){
       if( state.notebook[ii].id == payload.notebookEntry.id ){
-        state.notebook.personalNotes.push(payload);
+        state.notebook.personalNotes.unshift(payload);
       }
     }
   },
@@ -121,9 +121,19 @@ export default({
   },
   [types.HANDLE_NEW_MAIL] (state, payload) {
     state.mailNotificationState++;
-    state.mails.push(payload)
+    state.mails.unshift(payload);
   },
-  [types.SET_NEW_MAIL_AS_READ] (state ) {
-    state.mailNotificationState--;
+  [types.SET_NEW_MAIL_AS_READ] (state) {
+    if( state.mailNotificationState > 0){
+      state.mailNotificationState--;
+    }
+  },
+  [types.SAVE_MAIL_REPLY] (state, payload) {
+    state.mails = state.mails.map( item => {
+      if( item.id == payload.id ){
+        item.replied = { text: payload.text };
+      }
+      return item;
+    });
   },
 });

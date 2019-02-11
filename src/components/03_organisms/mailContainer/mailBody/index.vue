@@ -15,8 +15,21 @@ export default {
     };
   },
   methods: {
+    isEmpty: function(obj) {
+      for(var key in obj) {
+        if(obj.hasOwnProperty(key))
+          return false;
+      }
+      return true;
+    },
     respondToMail: function() {
       this.sendingMail = true;
+    },
+    sendReply: function(id) {
+      this.$store.dispatch('SAVE_MAIL_REPLY', {
+        id, 
+        text: this.$refs[`mailArea${id}`].value,
+      });
     },
   },
   watch: {
@@ -25,13 +38,13 @@ export default {
         this.sendingMail = false;
       }
     },
-    sendingMail: function(oldVal, newVal) {
+    sendingMail: function(newVal) {
       let self = this;
-      if( newVal == true ){
-        this.$refs.mailArea.blur();
+      if( newVal != true ){
+       
       }else{
         setTimeout(function(){
-          self.$refs.mailArea.focus();
+          self.$refs[`mailArea${self.mail.id}`].focus();
         }, 100);
       }
     },

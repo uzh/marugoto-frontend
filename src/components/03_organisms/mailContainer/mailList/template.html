@@ -1,8 +1,9 @@
 <ul class="inbox-mail-subject-container go-left">
-  <li v-for="(item, index) in list" :key="index"
-    class="inbox-mail-subject-container-li"
+  <!-- New mails -->
+  <li v-for="(item, index) in newMails" :key="index"
+    class="inbox-mail-subject-container-li new-mail"
     :class="index == selectedIndex ? 'active' : ''"
-    @click="$emit('selectedMail', index, item.id)">
+    @click="emitMailListClick(index, item.id)">
     <h6>{{ `${item.from.salutation} ${item.from.firstName} ${item.from.lastName}` }}</h6>
     <!-- <p class="current-date-time">Today, 14:28</p> -->
     <p class="shortMail">
@@ -10,14 +11,17 @@
       :source="item.body" />
     </p>
   </li>
-  <li v-for="(item, index) in newMails" :key="index"
-    class="inbox-mail-subject-container-li new-mail"
+
+  <!-- Old mails -->
+  <li v-for="(item, index) in list" :key="index"
+    class="inbox-mail-subject-container-li"
     :class="index == selectedIndex ? 'active' : ''"
-    @click="$emit('selectedMail', index, item.id)">
+    @click="emitMailListClick(index, item.id)">
     <h6>{{ `${item.from.salutation} ${item.from.firstName} ${item.from.lastName}` }}</h6>
     <!-- <p class="current-date-time">Today, 14:28</p> -->
     <p class="shortMail">
-      {{ `${item.subject} - ${item.body}` }}
+      <vue-markdown
+      :source="item.body" :html="falseHtml" />
     </p>
   </li>
 </ul>
