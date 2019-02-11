@@ -15,7 +15,7 @@
     </div>
     <!-- Notebook page body -->
     <div class="mb-40 col-xs-10 col-xs-offset-1">
-      <img v-if="page.image" :src="page.image" />
+      <img v-if="page.image" :src="`http://localhost:8080/${page.image.path}`" />
       <p class="text" v-if="page.text">{{ page.text }}</p>
       <!-- Personal notes -->
       <div class="pt-40 border-top">
