@@ -138,17 +138,16 @@ export default({
       throw(err);
     });
   },
-  [types.MAIL_LIST_ADD]: ({commit}, payload) => {
-    commit(types.MAIL_LIST_ADD, payload);
-  },
   [types.HANDLE_NEW_MAIL]: ({commit}, payload) => {
+    commit(types.HANDLE_NEW_MAIL, payload);
+  },
+  [types.SET_NEW_MAIL_AS_READ]: ({commit}, payload) => {
     return apiService.put(`mail/sync/${payload.id}`)
     .then(() => {
-      commit(types.HANDLE_NEW_MAIL, payload);
+      commit(types.SET_NEW_MAIL_AS_READ, payload);
     })
     .catch(err => {
       throw(err);
     });
-    
   },
 });

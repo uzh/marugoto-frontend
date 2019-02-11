@@ -39,6 +39,7 @@ export default {
   },
   methods: {
     requester: function() {
+      // Request notebook & mail lists
       this.$store.dispatch('UPDATE_NOTEBOOK');
       this.$store.dispatch('MAIL_LIST_UPDATE');
     },

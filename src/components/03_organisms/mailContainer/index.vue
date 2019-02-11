@@ -1,6 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
+// TODO will be important to add list of mail trigring que to be able to reset timers
 import Timer from '@/timer';
 import { mapGetters } from 'vuex';
 import Btn from '../../01_atoms/buttons'
@@ -26,8 +27,10 @@ export default {
         new Timer(3, this.get_newMails[ii]).start();
       }
     },
-    selectByIndex: function(index) {
+    selectByIndex: function(index, id) {
+      console.log('Select by index: ', index, id);
       this.selectedIndex = index;
+      this.$store.dispatch('SET_NEW_MAIL_AS_READ', id);
     },
   },
   watch: {
