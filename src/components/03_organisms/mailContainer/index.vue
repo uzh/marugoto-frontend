@@ -22,7 +22,7 @@ export default {
   },
   methods: {
     handleNewMails: function() {
-      // Handele new mails update here
+      // Handle new mails update here
       for( var ii = 0; ii < this.get_newMails.length; ii++){
         new Timer(3, this.get_newMails[ii]).start();
       }
