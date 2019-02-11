@@ -1,12 +1,13 @@
 <div class="transition-wrapper col-xs-8 col-xs-offset-2">
   <Btn 
     v-for="(item, index) in get_transitions"
-    v-if="item.visible"
+    
     :key="index"
     @click.native="emitTransition(item.pageTransition.id)"
-    :text="item.pageTransition.buttonText"
+    :text="item.pageTransition.id"
     secondary="true"
     iconName="arrow-right"
     iconColor="#979797"
   />
 </div>
+<!-- item.visible-->

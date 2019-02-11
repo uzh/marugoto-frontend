@@ -142,9 +142,18 @@ export default({
     commit(types.HANDLE_NEW_MAIL, payload);
   },
   [types.SET_NEW_MAIL_AS_READ]: ({commit}, payload) => {
-    return apiService.put(`mail/sync/${payload.id}`)
+    return apiService.put(`mail/sync/${payload}`)
     .then(() => {
       commit(types.SET_NEW_MAIL_AS_READ, payload);
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.SAVE_MAIL_REPLY]: ({commit}, payload) => {
+    return apiService.put(`mail/reply/${payload.id}?replyText=${payload.text}`)
+    .then(() => {
+      commit(types.SAVE_MAIL_REPLY, payload);
     })
     .catch(err => {
       throw(err);

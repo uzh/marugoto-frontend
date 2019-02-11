@@ -1,36 +1,55 @@
 <div class="inbox-mail-body-container go-right">
-  <div class="sender">
-    <div v-if="sendingMail" class="send-mail-text">To</div>
-    <h5>{{ `${mail.from.salutation} ${mail.from.firstName} ${mail.from.lastName}` }}</h5>
-    <button v-if="!sendingMail" @click="respondToMail">Respond to E-Mail</button>
-    <Btn 
-      v-if="sendingMail" 
-      class="send-mail-button" 
-      secondary="true" 
-      iconName="plane" 
-      iconPosition="right" 
-      iconColor="white" 
-      text="Send E-Mail" />
+  <div v-if="!mail">
+    <h2>No mail selected</h2>
   </div>
-  <div class="subject">
-    <div v-if="sendingMail" class="send-mail-text">Subject</div>
-    <h4 class="lead" v-if="!sendingMail">{{ mail.subject }}</h4>
-    <p class="lead" v-if="sendingMail">Re: {{ mail.subject }}</p>
+  <div v-if="mail">
+    <!-- Mail Heading -->
+    <div class="sender">
+      <div v-if="sendingMail" class="send-mail-text">To</div>
+      <h5>{{ `${mail.from.salutation} ${mail.from.firstName} ${mail.from.lastName}` }}</h5>
+      <button v-if="!sendingMail && isEmpty(mail.replied)" @click="respondToMail">Respond to E-Mail</button>
+      <Btn 
+        v-if="sendingMail" 
+        class="send-mail-button" 
+        secondary="true" 
+        iconName="plane" 
+        iconPosition="right" 
+        iconColor="white" 
+        text="Send E-Mail" 
+        @click.native="sendReply(mail.id)" />
+    </div>
+
+    <!-- Mail Body Heading -->
+    <div class="subject">
+      <div v-if="sendingMail" class="send-mail-text">Subject</div>
+      <h4 class="lead" v-if="!sendingMail">{{ mail.subject }}</h4>
+      <p class="lead" v-if="sendingMail">Re: {{ mail.subject }}</p>
+    </div>
+
+    <!-- Mail Body Content -->
+    <textarea
+      :ref="`mailArea${mail.id}`"
+      v-if="sendingMail && isEmpty(mail.replied)"
+      class="message-textarea">
+    </textarea>
+
+    <!-- Reply message -->
+    <div v-if="!isEmpty(mail.replied)" class="go-left">
+      <p>{{ mail.replied.text }}</p>
+    </div>
+
+    <!-- Original message -->
+    <div :class="[!sendingMail ? 'message' : 'message-inactive', !isEmpty(mail.replied) ? 'message-inactive' : '']">
+        <vue-markdown
+        :source="mail.body" />
+    </div>
+
+    <!-- Respond to mail -->
+    <button 
+      v-if="!sendingMail && isEmpty(mail.replied)" 
+      class="respondMail"
+      @click="respondToMail">
+      Respond to E-Mail
+    </button>
   </div>
-  <textarea
-    ref="mailArea"
-    v-if="sendingMail"
-    class="message-textarea">
-  </textarea>
-  
-  <div :class="!sendingMail ? 'message' : 'message-inactive'">
-      <vue-markdown
-      :source="mail.body" />
-  </div>
-  <button 
-    v-if="!sendingMail" 
-    class="respondMail"
-    @click="respondToMail">
-    Respond to E-Mail
-  </button>
 </div>
