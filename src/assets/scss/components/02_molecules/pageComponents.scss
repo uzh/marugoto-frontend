@@ -1,5 +1,3 @@
-$margin-bottom: 7.5rem;
-
 // Main Container
 .main-container {
     width: 100%;
@@ -27,20 +25,23 @@ $margin-bottom: 7.5rem;
             
             .image-component {
                 height: auto;
-                margin-bottom: $margin-bottom;
                 img {
                     width: 100%;
                 }
-                p {
+                .image-caption {
                     @extend .small;
+                    @extend .mb-40;
+                    text-align: center;
+                    // @extend .col-xs-offset-1;
+                    margin-top: 20px;
                 }
             }
             
             .upload-files-container {
                 @extend .col-xs-10;
                 @extend .col-xs-offset-1;
+                @extend .mb-40;
                 background-color: inherit;
-                margin-bottom: $margin-bottom;
             
                 .upload-files-header {
                     height: 40px;
@@ -102,38 +103,45 @@ $margin-bottom: 7.5rem;
                     }
                 }
             }
-            
-            .video-container {
-                @extend .col-xs-10;
-                @extend .col-xs-offset-1;
-                position: relative;
-            
-                .video-screen {
-                    width: 100%;
-                    position: relative;
-                }
-            
-                .video-controls {
-                    position: absolute;
-                    bottom: 0;
-                    height: 3.125rem;
-                    width: calc(100% - 20px);
-                    background-color: $base-primary-border;
-                    opacity: 0.5;
-                    button {
-                        display: inline;
-                        width: auto;
-                        background-color: $base-primary-border;
-                        padding: 10px;
-                    }
-                    .play-pause {
-                        float: left;
-                    }
-                    .full-screen {
-                        float: right;
-                    }
-                }
+
+            .video-caption {
+                @extend .mb-40;
+                text-align: center;
+                // @extend .col-xs-offset-1;
+                margin-top: 20px;
             }
+            
+            // .video-container {
+            //     @extend .col-xs-10;
+            //     @extend .col-xs-offset-1;
+            //     position: relative;
+            
+            //     .video-screen {
+            //         width: 100%;
+            //         position: relative;
+            //     }
+            
+            //     .video-controls {
+            //         position: absolute;
+            //         bottom: 0;
+            //         height: 3.125rem;
+            //         width: calc(100% - 20px);
+            //         background-color: $base-primary-border;
+            //         opacity: 0.5;
+            //         button {
+            //             display: inline;
+            //             width: auto;
+            //             background-color: $base-primary-border;
+            //             padding: 10px;
+            //         }
+            //         .play-pause {
+            //             float: left;
+            //         }
+            //         .full-screen {
+            //             float: right;
+            //         }
+            //     }
+            // }
         }
     }
 }
@@ -141,5 +149,5 @@ $margin-bottom: 7.5rem;
 // Lead Text
 .lead-text {
     @extend .lead;
-    margin-bottom: $margin-bottom;
+    margin-bottom: 100px;
 }
