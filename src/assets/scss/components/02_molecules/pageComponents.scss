@@ -5,6 +5,12 @@
     .storyline-container {
         width: 100%;
 
+        .markdown-h1 {
+            p {
+                @extend .h1;
+            }
+        }
+
         .storyline-title {
 
             .icon-title {

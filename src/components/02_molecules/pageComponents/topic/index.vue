@@ -2,10 +2,11 @@
 
 <script>
 import Btn from '@/components/01_atoms/buttons';
+import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'TopicComponent',
-  components: { Btn },
-  props: [ 'list' ],
+  components: { Btn, VueMarkdown },
+  props: [ 'list' ]
 }
 </script>

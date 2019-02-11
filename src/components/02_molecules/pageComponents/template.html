@@ -86,7 +86,7 @@
         <source :src="`http://localhost:8080/${component.video.path}`" type="video/ogg" />
         <p>Your browser does not support the video tag.</p>
       </video>
-      <div class="small video-caption">{{ component.caption }}</div>
+      <vue-markdown class="small video-caption" :source="component.caption" />
     </div>
 
     <!-- Video with custom controls -->
