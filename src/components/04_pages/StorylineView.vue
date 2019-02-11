@@ -3,7 +3,7 @@
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
     <TopicComponent v-if="!get_topic.selected" :list="get_topic.list" @openTopic="chooseTopic" />
     <div class="storyline-container" v-if="get_topic.selected">
-      <vue-markdown class="storyline-title col-xs-10 col-xs-offset-1 mb-40 mt-30 markdown-h1" :source="get_page.title" />
+      <vue-markdown class="storyline-title col-xs-10 col-xs-offset-1 mb-40 mt-30 h1" :source="get_page.title" />
       <!-- Components -->
       <PageComponents />
       <!-- Page transitions -->
