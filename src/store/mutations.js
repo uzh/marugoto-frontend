@@ -113,10 +113,8 @@ export default({
   },
   // MAIL MUTATIONS
   [types.MAIL_LIST_UPDATE] (state, payload) {
+    // Update from mailList
     state.mails = payload;
-  },
-  [types.MAIL_LIST_ADD] (state, payload) {
-    state.mail.push(payload);
   },
   [types.MAIL_NOTIFICATION_UPDATE] (state, payload) {
     state.mailNotifications = payload;
@@ -124,5 +122,8 @@ export default({
   [types.HANDLE_NEW_MAIL] (state, payload) {
     state.mailNotificationState++;
     state.mails.push(payload)
+  },
+  [types.SET_NEW_MAIL_AS_READ] (state ) {
+    state.mailNotificationState--;
   },
 });

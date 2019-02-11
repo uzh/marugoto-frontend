@@ -6,12 +6,12 @@
     name="clock"
     sizeH="20px"
     class="status-bar-icon" /> -->
-  <div v-if="get_storyline.moneyBalance > 0"
+  <div v-if="get_topicState.moneyBalance"
       class="money">
-      {{ get_storyline.moneyBalance }} &pound;
+      {{ get_topicState.moneyBalance }} &pound;
   </div>
-  <div v-if="get_page.timerVisible"
+  <div v-if="get_topicState.timeBalance"
       class="time">
-      3 min 55 sec
+      {{ get_topicState.timeBalance }}
   </div>
 </div>

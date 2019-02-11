@@ -12,7 +12,7 @@ export default{
   get_page: state => {
     return state.page;
   },
-  get_storyline: state => {
+  get_topicState: state => {
     return state.topicState;
   },
   get_transitions: state => {
