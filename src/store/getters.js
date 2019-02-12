@@ -21,6 +21,9 @@ export default{
   get_PageComponents: state => {
     return state.pageComponents;
   },
+  get_dialog: state => {
+    return state.dialogNotifications;
+  },
   get_notebook: state => {
     return state.notebook;
   },

@@ -7,7 +7,7 @@
       <!-- Components -->
       <PageComponents />
       <!-- Dialog -->
-      <Dialog v-for="(dialog, index) in get_page.dialogNotifications" :key="index"
+      <DialogComponent v-for="(dialog, index) in get_dialog" :key="index"
         class="mb-40"
         @emitDialog="dialogOptionEmited"
         :text="dialog.speech.markdownContent"
@@ -27,14 +27,14 @@ import Btn from '@/components/01_atoms/buttons';
 import PageTransitions from '@/components/02_molecules/pageTransitions';
 import PageComponents from '@/components/02_molecules/pageComponents';
 import TopicComponent from '@/components/02_molecules/pageComponents/topic';
-import Dialog from '@/components/03_organisms/dialog';
+import DialogComponent from '@/components/03_organisms/dialog';
 import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'player',
-  components: { Btn, Dialog, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
+  components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
   computed: {
-    ...mapGetters([ 'get_page', 'get_topic' ]),
+    ...mapGetters([ 'get_page', 'get_topic', 'get_dialog' ]),
   },
   created() {
     if( !this.get_topic.selected ){
@@ -75,7 +75,9 @@ export default {
     dialogOptionEmited: function(dialogId) {
       apiService.get(`dialog/${dialogId}`)
       .then(resp => {
-        //this.$store.dispatch('DIALOG_UPDATE', resp.data.speech);
+        if( resp.data.stateChanged ){
+          this.$store.dispatch('REQUEST_PAGE_CURRENT');
+        }
       })
       .catch(() => {
         

@@ -4,12 +4,13 @@
 <!-- start JS -->
 <script>
 /* eslint-disable */
+import VueMarkdown from 'vue-markdown';
 import Btn from '@/components/01_atoms/buttons';
 
 export default {
   // name of the component
   name: 'dialogComponent',
-  components: { Btn },
+  components: { Btn, VueMarkdown },
   props: ['text', 'source', 'options'],
   data() {
     return {

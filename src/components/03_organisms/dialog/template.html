@@ -7,7 +7,7 @@
 			<img :src="source" alt="image" class="dialog-image" />
 		</div>
 		<div class="dialog-right">
-			<div>{{ text }}</div>
+				<vue-markdown :source="text" />
 			<Btn 
 				v-for="(option, index) in options"
 				:key="index"

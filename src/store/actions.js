@@ -78,30 +78,25 @@ export default({
   // UPDATE
   [types.UPDATE_PAGE_STATE]: ({commit}, payload) => {
     commit('TRANSITIONS_UPDATE', payload.pageTransitionStates);
+    commit('TOPIC_STATE_UPDATE', payload.topicState);
     commit('PAGE_COMPONENTS_UPDATE', payload.pageComponents);
+    commit('PAGE_UPDATE', payload.page);
+    commit('DIALOG_UPDATE', payload.dialogNotifications);
+    commit('MAIL_NOTIFICATION_UPDATE', payload.mailNotifications);
   },
-  [types.REQUEST_PAGE_CURRENT]: ({commit}) => {
+  [types.REQUEST_PAGE_CURRENT]: ({commit, dispatch}) => {
     return apiService.get('/pages/current')
     .then(resp => {
-      commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
-      commit('TOPIC_STATE_UPDATE', resp.data.topicState);
-      commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
-      commit('PAGE_UPDATE', resp.data.page);
-      commit('DIALOG_UPDATE', resp.data.dialogNotifications);
-      commit('MAIL_NOTIFICATION_UPDATE', resp.data.mailNotifications);
+      dispatch('UPDATE_PAGE_STATE', resp.data);
     })
     .catch(err => {
       throw(err);
     })
   },
-  [types.REQUEST_PAGE_TRANSITION]: ({commit}, id) => {
+  [types.REQUEST_PAGE_TRANSITION]: ({commit, dispatch}, id) => {
     return apiService.post('pageTransitions/doPageTransition/' + id + '?chosenByPlayer=true')
     .then(resp => {
-      commit('TRANSITIONS_UPDATE', resp.data.pageTransitionStates);
-      commit('TOPIC_STATE_UPDATE', resp.data.topicState);
-      commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
-      commit('PAGE_UPDATE', resp.data.page);
-      commit('MAIL_NOTIFICATION_UPDATE', resp.data.mailNotifications);
+      dispatch('UPDATE_PAGE_STATE', resp.data);
     })
     .catch(err => {
       throw(err);
