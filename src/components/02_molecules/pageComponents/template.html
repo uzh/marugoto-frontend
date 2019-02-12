@@ -55,9 +55,16 @@
       :exerciseId="component.exerciseState.id"
       :optionsList="component.options" />
     <!-- Exercise Text -->
-    <ExerciseText
+    <!-- <ExerciseText
       class="mb-40"
       @emitInputAnswer="submitAnswer"
+      v-if="component.type == 'TextExercise'"
+      :exerciseId="component.exerciseState.id"
+      :placeholder="component.placeholderText" /> -->
+    <!-- Exercise Text Area -->
+    <ExerciseTextArea
+      class="mb-40"
+      @emitInputAreaAnswer="submitAnswer"
       v-if="component.type == 'TextExercise'"
       :exerciseId="component.exerciseState.id"
       :placeholder="component.placeholderText" />
