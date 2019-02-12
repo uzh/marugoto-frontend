@@ -3,7 +3,8 @@
     width: 100%;
 
     .storyline-container {
-        width: 100%;
+        @extend .col-xs-10;
+        @extend .col-xs-offset-1;
 
         .h1 {
             p {
@@ -27,6 +28,28 @@
 
             .text-component {
                 margin-bottom: 2.5rem;
+            }
+
+            .text-area-exercise {
+                position: relative;
+                box-sizing: border-box;
+                height: 50px;
+                width: 100%;
+                box-shadow: 0 1px 0 0 $base-primary;
+                &.bordered {
+                    box-shadow: 0 0 0 2px $base-primary;
+                }
+
+                textarea {
+                    width: 100%;
+                    height: 50px;
+                    resize: none;
+                    padding: 10px;
+                    &:focus {
+                        box-shadow: 0 2px 0 0 $base-primary;
+                    }
+                }
+
             }
             
             .image-component {

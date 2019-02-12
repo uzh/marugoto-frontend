@@ -27,8 +27,8 @@
     <div v-show="accountType == 'guest'" class="mt-50">
       <p class="lead">Account</p>
       <form @keydown.enter="login">
-        <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" />
-        <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" />
+        <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" />
+        <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
       </form>
       <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
       <p class="lead mt-30">I'm a first time User</p>
@@ -37,10 +37,10 @@
     <!-- University Account Form -->
     <div v-show="accountType == 'university'" class="mt-50">
       <p class="lead">Account</p>
-      <SelectField labelName="Select University" :list="uniList" />
+      <SelectField labelName="Select University" :required="errorMessage" :list="uniList" />
       <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
       <p class="lead mt-30">I'm a first time User</p>
-      <SelectField labelName="Select University" :list="uniList" />
+      <SelectField labelName="Select University" :required="errorMessage" :list="uniList" />
       <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>
   </div>
@@ -80,6 +80,12 @@ export default {
           name: 'UZH Backend',
         }
       ],
+      errorMessage: false,
+    }
+  },
+  computed: {
+    logErrorMessage: function() {
+      this.errorMessage = true;
     }
   },
   methods: {
@@ -88,7 +94,8 @@ export default {
       this.$store.dispatch('LOGIN', {
         mail: this.mail,
         password: this.password,
-      }).then(() => this.$router.push('/'));
+      }).then(() => this.$router.push('/'))
+      .catch(() => this.logErrorMessage);
     },
     goToRegister(){
       this.$router.push('/register');

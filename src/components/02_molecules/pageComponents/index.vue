@@ -10,10 +10,11 @@ import ExerciseCheckbox from './exerciseCheckbox'
 import ExerciseText from './exerciseText'
 import TextComponent from './text'
 import ImageComponent from './image'
+import ExerciseTextArea from './exerciseTextArea'
 
 export default {
   name: 'PageComponents',
-  components: { VueMarkdown, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent },
+  components: { VueMarkdown, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent, ExerciseTextArea },
   props: [ 'exercises' ],
   computed: {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),

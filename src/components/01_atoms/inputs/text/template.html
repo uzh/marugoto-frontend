@@ -10,6 +10,6 @@
 		v-on:blur="setFocus(false)"
 		v-on:focus="setFocus(true)"
 		@input="updateEmitVal" />
-	<div v-if="required && error"
+	<div v-if="required && !filledInput && !focused"
 		class="errorMessage">* Field required</div>
 	</div>

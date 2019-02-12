@@ -1,0 +1,10 @@
+<div class="text-area-exercise">
+    <textarea
+        autofocus
+        :placeholder="placeholder"
+        :id="exerciseId"
+        maxlength="250"
+        v-model="answer"
+        @keydown.native.enter="submitAnswer">
+    </textarea>
+</div>

@@ -14,7 +14,6 @@ export default {
     return {
       selectedValue: '',
       listOpened: false,
-      error: false,
       activatedValidation: false,
       optionSelected: false,
     };
@@ -36,10 +35,7 @@ export default {
       this.onOptionSelected();
     },
     onOptionSelected() {
-      if ( this.selectedValue == '' && this.activatedValidation) {
-        this.error = true;
-      } else if (this.activatedValidation) {
-        this.error = false;
+      if (this.activatedValidation) {
         this.optionSelected = true;
       }
     }
