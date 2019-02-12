@@ -7,17 +7,19 @@
 			<img :src="source" alt="image" class="dialog-image" />
 		</div>
 		<div class="dialog-right">
-				<vue-markdown :source="text" />
-			<Btn 
+			<vue-markdown :source="text" />
+			<div class="dialog-buttons-div">
+				<Btn 
 				v-for="(option, index) in options"
 				:key="index"
 				:text="option.buttonText"
 				@click.native="emitOption(option.id)"
-				secondary="true" 
-				class="dialog-button" 
+				secondary="true"
+				class="dialog-button"
 				iconName="arrow-right" 
 				iconColor="#979797" 
 				iconPosition="right" />
+			</div>
 		</div>
 	</div>
 </div>
