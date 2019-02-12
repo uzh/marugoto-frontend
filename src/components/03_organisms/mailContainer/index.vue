@@ -25,7 +25,6 @@ export default {
   },
   methods: {
     handleMail: function(payload) {
-      console.log('loged')
       this.$store.dispatch('HANDLE_NEW_MAIL', payload);
     },
     handleNewMails: function() {
@@ -33,7 +32,13 @@ export default {
       for( var ii = 0; ii < this.get_newMails.length; ii++){
         let mail = this.get_newMails[ii];
         let callback = this.handleMail;
-        new Timer(mail.receiveAfter, callback, mail).start();
+
+        if( mail.receiveAfter == 0 || mail.openOnReceive ){
+          callback(mail);
+          this.$store.dispatch('LAYOUT_OPEN','mail');
+        }else{
+          new Timer(mail.receiveAfter, callback, mail).start();
+        }
       }
     },
     selectByIndex: function(obj) {

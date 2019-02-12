@@ -1,6 +1,4 @@
 /* eslint-disable */
-import store from './store'
-
 export default class Timer{
     constructor(time, callback, callbackPayload) {
         this.time = time;
@@ -11,13 +9,17 @@ export default class Timer{
     start() {
         var self = this;
         var timer = setInterval( function(){
+            console.log(`Timer started: ${self.time}`);
             if( self.time > 0 ){
-                console.log('timer: ', self.time);
                 self.time--;
             }else{
                 if(self.callback && typeof self.callback === "function"){
-                    console.log('timer DOne ');
-                    self.callback(self.payload);
+                    console.log('timer Done ');
+                    if( self.payload ){
+                        self.callback(self.payload);
+                    }else{
+                        self.callback();
+                    }
                 }
                 clearInterval(timer);
             }
