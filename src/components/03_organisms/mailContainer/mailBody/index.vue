@@ -26,9 +26,9 @@ export default {
     },
     sendReply: function(id) {
       this.$store.dispatch('SAVE_MAIL_REPLY', {
-        id, 
+        id,
         text: this.$refs[`mailArea${id}`].value,
-      });
+      }).then(() => this.sendingMail = false);
     },
   },
   watch: {

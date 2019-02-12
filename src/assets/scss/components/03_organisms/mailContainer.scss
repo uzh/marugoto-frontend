@@ -127,11 +127,20 @@
       position: relative;
       top: 100px;
       margin-left: 8.33%;
-      margin-bottom: 8.33%;
-      padding-left: 20px;
-      padding-right: 20px;
+      margin-bottom: 30px;
+      padding: 30px 20px 0 20px;
       float: left;
       border-left: 2px solid #3380DE;
+    }
+    &-reply {
+      @extend .p;
+      color: $base-secondary;
+      position: relative;
+      top: 100px;
+      margin-left: 8.33%;
+      padding: 30px 20px 0 20px;
+      float: left;
+      border-left: 2px solid $base-accent;
     }
     &-textarea {
       @extend .col-xs-10;
@@ -139,8 +148,8 @@
       @extend .p;
       border-top: $base-ghost-border;
       margin-top: 30px;
-      padding-top: 50px;
-      min-height: 100px;
+      padding-top: 30px;
+      min-height: 300px;
       height: max-content;
     }
   }
