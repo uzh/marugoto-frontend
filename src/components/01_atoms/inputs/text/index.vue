@@ -11,10 +11,8 @@ export default {
   props: ['typeProp', 'labelName', 'required', 'value'],
   data() {
     return {
-      wasInFocus: false,
       focused: false,
       filledInput: false,
-      error: false,
     };
   },
   computed: {
@@ -36,12 +34,6 @@ export default {
       }else{
         this.focused = true;
         this.filledInput = true;
-      }
-
-      if( this.wasInFocus && !this.focused && !this.filledInput ){
-        this.error = true;
-      }else{
-        this.error = false;
       }
     },
     updateEmitVal() {

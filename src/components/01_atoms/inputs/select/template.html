@@ -23,7 +23,7 @@
 	</ul>
 	<!-- Error mark -->
 	<div 
-		v-if="required && error"
+		v-if="required && !selectedValue"
 		class="errorMessage">* Field required
 	</div>
 </div>
