@@ -11,7 +11,6 @@ export default {
   data() {
     return {
       sendingMail: false,
-      trueLinks: true,
     };
   },
   methods: {
