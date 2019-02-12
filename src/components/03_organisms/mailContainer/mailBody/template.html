@@ -34,14 +34,13 @@
     </textarea>
 
     <!-- Reply message -->
-    <div v-if="!isEmpty(mail.replied)" class="go-left">
+    <div v-if="!isEmpty(mail.replied)" class="message go-left">
       <p>{{ mail.replied.text }}</p>
     </div>
 
     <!-- Original message -->
     <div :class="[!sendingMail ? 'message' : 'message-inactive', !isEmpty(mail.replied) ? 'message-inactive' : '']">
-        <vue-markdown :linkify="trueLinks"
-        :source="mail.body" />
+        <vue-markdown :source="mail.body" />
     </div>
 
     <!-- Respond to mail -->

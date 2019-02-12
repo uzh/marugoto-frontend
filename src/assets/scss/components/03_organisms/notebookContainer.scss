@@ -101,6 +101,36 @@ $chapterHeight: 90px;
 
     .pageDisplay{
         display: none;
+
+        .notebook-page-image {
+            height: auto;
+            margin-bottom: 20px;
+            position: relative;
+            .image-sticker {
+                position: absolute;
+                top: -10px;
+                left: calc(50% - 50px);
+                height: 30px;
+                width: 100px;
+                background-color: $white;
+                opacity: 0.6;
+                z-index: 1;
+            }
+            img {
+                width: 100%;
+                transform: rotate(-3deg);
+                margin-bottom: 10px;
+                border: 5px solid $white;
+            }
+            .image-caption {
+                p {
+                    @extend .small;
+                    @extend .mb-40;
+                    text-align: center;
+                    margin-top: 20px;
+                }
+            }
+        }
     }
     .notebook-header {
         @extend .mb-40;

@@ -15,8 +15,12 @@
     </div>
     <!-- Notebook page body -->
     <div class="mb-40 col-xs-10 col-xs-offset-1">
-      <img v-if="page.image" :src="`http://localhost:8080/${page.image.path}`" />
-      <p class="text" v-if="page.text">{{ page.text }}</p>
+      <div v-if="page.image" class="notebook-page-image">
+        <div class="image-sticker"></div>
+        <img :src="`http://localhost:8080/${page.image.path}`" />
+        <vue-markdown class="small" v-if="page.caption" :source="page.caption" />
+        <vue-markdown class="mb-40" v-if="page.text" :source="page.text" />
+      </div>
       <!-- Personal notes -->
       <div class="pt-40 border-top">
         <ul>
