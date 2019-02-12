@@ -93,12 +93,7 @@ export default({
   },
   // DIALOG MUTATIONS
   [types.DIALOG_UPDATE] (state, payload) {
-    state.pageComponents.map( component => {
-      if( component.type == 'DialogExercise' ){
-        component.speech = payload;
-      }
-      return component;
-    } );
+    state.dialogNotifications = payload;
   },
   // NOTEBOOK MUTATIONS
   [types.UPDATE_NOTEBOOK] (state, payload) {

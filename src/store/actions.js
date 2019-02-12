@@ -87,6 +87,7 @@ export default({
       commit('TOPIC_STATE_UPDATE', resp.data.topicState);
       commit('PAGE_COMPONENTS_UPDATE', resp.data.pageComponents);
       commit('PAGE_UPDATE', resp.data.page);
+      commit('DIALOG_UPDATE', resp.data.dialogNotifications);
       commit('MAIL_NOTIFICATION_UPDATE', resp.data.mailNotifications);
     })
     .catch(err => {

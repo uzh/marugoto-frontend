@@ -38,6 +38,7 @@ export default ({
     personalNotes: [],
   },
   topicState: {},
+  dialogNotifications: [],
   pageTransitionStates: [],
   pageComponents: [],
   page: {},

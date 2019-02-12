@@ -32,14 +32,6 @@
       @dayclick="dateEmit($event, component.exerciseState.id)"
       v-model='selectedDate'>
     </v-date-picker>
-    <!-- Dialog -->
-    <DialogExercise
-      class="mb-40"
-      @emitDialog="dialogOptionEmited"
-      v-if="component.type == 'DialogExercise'"
-      :text="component.speech.markdownContent"
-      :source="`http://localhost:8080/${component.speaker.image.path}`"
-      :options="component.speech.answers" /><!--  -->
     <!-- Exercise Radio -->
     <ExerciseRadio
       class="mb-40"

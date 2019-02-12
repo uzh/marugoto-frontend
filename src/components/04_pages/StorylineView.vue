@@ -6,6 +6,13 @@
       <vue-markdown class="storyline-title col-xs-10 col-xs-offset-1 mb-40 mt-30 h1" :source="get_page.title" />
       <!-- Components -->
       <PageComponents />
+      <!-- Dialog -->
+      <Dialog v-for="(dialog, index) in get_page.dialogNotifications" :key="index"
+        class="mb-40"
+        @emitDialog="dialogOptionEmited"
+        :text="dialog.speech.markdownContent"
+        :source="`http://localhost:8080/${dialog.from.image.path}`"
+        :options="dialog.answers" />
       <!-- Page transitions -->
       <PageTransitions @transitionChoosen="requestPageTransition" />
     </div>
@@ -20,11 +27,12 @@ import Btn from '@/components/01_atoms/buttons';
 import PageTransitions from '@/components/02_molecules/pageTransitions';
 import PageComponents from '@/components/02_molecules/pageComponents';
 import TopicComponent from '@/components/02_molecules/pageComponents/topic';
+import Dialog from '@/components/03_organisms/dialog';
 import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'player',
-  components: { Btn, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
+  components: { Btn, Dialog, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
   computed: {
     ...mapGetters([ 'get_page', 'get_topic' ]),
   },
@@ -63,7 +71,16 @@ export default {
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
-    }
+    },
+    dialogOptionEmited: function(dialogId) {
+      apiService.get(`dialog/${dialogId}`)
+      .then(resp => {
+        //this.$store.dispatch('DIALOG_UPDATE', resp.data.speech);
+      })
+      .catch(() => {
+        
+      });
+    },
   },
   watch: {
     get_page: function(oldVal, newVal) {

@@ -5,7 +5,6 @@ import { mapGetters } from 'vuex'
 import apiService from '@/apiService'
 
 import VueMarkdown from 'vue-markdown'
-import DialogExercise from '../dialog'
 import ExerciseRadio from './exerciseRadio'
 import ExerciseCheckbox from './exerciseCheckbox'
 import ExerciseText from './exerciseText'
@@ -14,7 +13,7 @@ import ImageComponent from './image'
 
 export default {
   name: 'PageComponents',
-  components: { VueMarkdown, DialogExercise, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent },
+  components: { VueMarkdown, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent },
   props: [ 'exercises' ],
   computed: {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
@@ -58,15 +57,6 @@ export default {
           pageTransitionStates: resp.data.pageTransitionStates, 
           pageComponents: resp.data.pageComponents
         });
-      })
-      .catch(() => {
-        
-      });
-    },
-    dialogOptionEmited: function(dialogId) {
-      apiService.get(`dialog/${dialogId}`)
-      .then(resp => {
-        this.$store.dispatch('DIALOG_UPDATE', resp.data.speech);
       })
       .catch(() => {
         
