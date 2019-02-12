@@ -24,10 +24,16 @@ export default {
     ...mapGetters([ 'get_layoutState', 'get_mails', 'get_newMails' ]),
   },
   methods: {
+    handleMail: function(payload) {
+      console.log('loged')
+      this.$store.dispatch('HANDLE_NEW_MAIL', payload);
+    },
     handleNewMails: function() {
       // HANDLE_NEW_MAIL is part of timer & update here
       for( var ii = 0; ii < this.get_newMails.length; ii++){
-        new Timer(3, this.get_newMails[ii]).start();
+        let mail = this.get_newMails[ii];
+        let callback = this.handleMail;
+        new Timer(mail.receiveAfter, callback, mail).start();
       }
     },
     selectByIndex: function(obj) {

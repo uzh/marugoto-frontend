@@ -2,21 +2,22 @@
 import store from './store'
 
 export default class Timer{
-    constructor(time, payload) {
+    constructor(time, callback, callbackPayload) {
         this.time = time;
-        this.payload = payload;
+        this.callback = callback;
+        this.payload = callbackPayload;
     }
     
     start() {
-        var cTime = this.time;
-        var payload = this.payload;
+        var self = this;
         var timer = setInterval( function(){
-            if( cTime > 0 ){
-                console.log('timer: ', cTime);
-                cTime--;
+            if( self.time > 0 ){
+                console.log('timer: ', self.time);
+                self.time--;
             }else{
-                if(payload){
-                    store.dispatch('HANDLE_NEW_MAIL', payload)
+                if(self.callback && typeof self.callback === "function"){
+                    console.log('timer DOne ');
+                    self.callback(self.payload);
                 }
                 clearInterval(timer);
             }
