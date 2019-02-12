@@ -3,7 +3,8 @@
     width: 100%;
 
     .storyline-container {
-        width: 100%;
+        @extend .col-xs-10;
+        @extend .col-xs-offset-1;
 
         .h1 {
             p {
