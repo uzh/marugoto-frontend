@@ -1,72 +1,61 @@
+$padding-top: 90px;
+
 #show-dialog, .dialog-close-button {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: $black;
-    color: $white;
-    width: 100px;
-    height: 50px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: $black;
+  color: $white;
+  width: 100px;
+  height: 50px;
 }
 
 .dialog-mask {
-    position: fixed;
-    z-index: 9998;
-    top: 0;
-    left: 0;
-    width: calc(100% - 90px);
-    height: 100%;
-    background-color: rgba(240, 243, 245, 0.9);
-    transition: opacity .3s ease;
-  }
+  position: fixed;
+  z-index: 9998;
+  top: 0;
+  left: 0;
+  width: calc(100% - 90px);
+  height: 100%;
+  background-color: rgba(240, 243, 245, 0.9);
+  transition: opacity .3s ease;
+}
   
-  .dialog-container {
-    @extend .col-xs-10;
-    @extend .col-xs-offset-1;
-    position: relative;
-    top: 90px;
-    height: 83.33333333%;
-    overflow: scroll;
-    background-color: $white;
-    box-shadow: 0 15px 30px 0 #2F3133;
-    transition: all .3s ease;
+.dialog-container {
+  @extend .col-xs-10;
+  @extend .col-xs-offset-1;
+  position: relative;
+  top: 90px;
+  height: calc(100% - 180px);
+  overflow: scroll;
+  background-color: $white;
+  box-shadow: 0 15px 30px 0 #2F3133;
+  transition: all .3s ease;
 
-    .dialog-left {
-      @extend .col-xs-2;
-      padding-top: 8.33333333%;
-      height: 100%;
+  .dialog-left {
+    @extend .col-xs-3;
+    padding-top: $padding-top;
+    height: 100%;
 
-      .dialog-image {
-        margin-bottom: 8.33333333%;
-        width: 100%;
-      }
-    }
-
-    .dialog-right {
-      @extend .col-xs-8;
-      height: 100%;
-      padding-top: 8.33333333%;
-
-      .dialog-title {
-        margin-bottom: 25px;
-        @extend .h5;
-      }
-
-      .dialog-subtitle {
-        margin-bottom: 25px;
-        @extend .h6;
-      }
-
-      .dialog-text {
-        @extend .p;
-        margin-bottom: 8.33333333%;
-      }
-    }
-
-    .dialog-button {
-      @extend .button;
-      display: inline-block;
-      width: 45%;
-      margin-right: 5%;
-      margin-bottom: 48px;
+    .dialog-image {
+      // margin-bottom: 90px;
+      width: 100%;
     }
   }
+
+  .dialog-right {
+    @extend .col-xs-7;
+    height: 100%;
+    padding-top: $padding-top;
+
+    .dialog-buttons-div {
+      margin: 50px 0;
+
+      .dialog-button {
+        width: 40%;
+        margin: 0 5%;
+        display: inline-block;
+      }
+    }
+  }
+}
