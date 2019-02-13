@@ -85,7 +85,8 @@ export default {
   },
   computed: {
     logErrorMessage: function() {
-      this.errorMessage = true;
+      // eslint-disable-next-line
+      return this.errorMessage = true;
     }
   },
   methods: {
