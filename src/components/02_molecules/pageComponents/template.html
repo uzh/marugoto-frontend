@@ -24,7 +24,7 @@
       v-if="component.type == 'ImageComponent'"
       :source="`http://localhost:8080/${component.image.path}`"
       :text="component.caption"
-      @emitZoom="toggleZoom" />
+      :zoomable="component.zoomable" />
     <!-- Date Component -->
     <v-date-picker
       class="mb-40"

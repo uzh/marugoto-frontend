@@ -8,9 +8,14 @@ export default {
   name: 'ImageComponent',
   components: { VueMarkdown, SvgIcon },
   props: [ 'source', 'text', 'zoomable' ],
+  data() {
+    return {
+      imageZoomed: false,
+    }
+  },
   methods: {
-    emitZoom() {
-      this.$emit('zoomImage');
+    toggleZoom() {
+      this.imageZoomed = !this.imageZoomed;
     },
   },
 }

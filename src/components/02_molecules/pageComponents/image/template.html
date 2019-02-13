@@ -1,13 +1,17 @@
-<div class="image-component">
+<div
+  class="image-component"
+  :class="imageZoomed ? 'zoomed-in' : 'zoomed-out'">
   <img 
-    :src="source"
-    :class="imageZoomed ? 'zoomed-in' : ''">
+    :src="source">
   <vue-markdown
     class="image-caption"
     :source="text"/>
-  <SvgIcon
-    v-if="!zoomable"
-    class="zoom-button"
-    :name="imageZoomed ? 'zoom-out' : 'zoom-in'"
-    @click="$emit('zoomImage')" />
+    <div
+      v-if="zoomable"
+      class="zoom-button"
+      @click="toggleZoom">
+      <SvgIcon
+        class="zoom-icon"
+        :name="imageZoomed ? 'zoom-out' : 'zoom-in'" />
+    </div>
 </div>
