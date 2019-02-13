@@ -45,12 +45,15 @@
     </div>
   </div>
   <div class="origin-background full-width">
-    <div class="col-xs-11 col-xs-offset-1 login-page-bottom-icons">
-      <!-- <SvgIcon name="blind" sizeH="20" iconPosition="left" class="col-xs-1" /> -->
-      <div class="col-xs-1">Universitat Zurich</div>
-      <div class="col-xs-6"></div>
-      <div class="col-xs-2">Impressum</div>
-      <div class="col-xs-2">Datenschutz</div>
+    <div class="col-xs-10 col-xs-offset-1 login-page-bottom-icons">
+      <div class="footer-logo">
+        <!-- <SvgIcon name="blind" sizeH="20" iconPosition="left" class="logo" /> -->
+        <div class="logo-caption">Universitat Zurich</div>
+      </div>
+      <div class="footer-menu-right">
+        <div class="item">Datenschutz</div>
+        <div class="item">Impressum</div>
+      </div>
     </div>
   </div>
 </div>

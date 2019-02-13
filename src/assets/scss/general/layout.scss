@@ -17,7 +17,7 @@ $border: 1px solid #ddd;
 
 // Main container - login/create account
 .wrapper-container {
-  min-height: 70%;
+  height: 75vh;
   overflow: scroll;
   z-index: 1;
 
@@ -64,5 +64,30 @@ $border: 1px solid #ddd;
     position: relative;
     top: calc(70% + 90px);
     height: 50px;
+
+    .footer-logo{
+      float: left;
+      width: 50%;
+
+      .logo {
+        float: left;
+        padding-right: 10px;
+      }
+
+      .logo-caption {
+        float: left;
+        padding-right: 10px;
+      }
+    }
+
+    .footer-menu-right {
+      width: 50%;
+      float: right;
+
+      .item {
+        float: right;
+        padding-left: 20px;
+      }
+    }
   }
 }
