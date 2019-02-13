@@ -119,15 +119,14 @@ $chapterHeight: 90px;
             img {
                 width: 100%;
                 transform: rotate(-3deg);
-                margin-bottom: 10px;
                 border: 5px solid $white;
             }
             .image-caption {
+                margin-bottom: 40px;
                 p {
                     @extend .small;
-                    @extend .mb-40;
                     text-align: center;
-                    margin-top: 20px;
+                    margin-top: 10px;
                 }
             }
         }
