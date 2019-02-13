@@ -40,7 +40,7 @@ export default {
     sendingMail: function(newVal) {
       let self = this;
       if( newVal != true ){
-       return;
+        return;
       }else{
         setTimeout(function(){
           self.$refs[`mailArea${self.mail.id}`].focus();
