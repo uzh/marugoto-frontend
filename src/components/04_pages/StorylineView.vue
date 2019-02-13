@@ -8,7 +8,7 @@
       <PageComponents />
       <!-- Dialog -->
       <DialogComponent v-for="(dialog, index) in get_dialog" :key="index"
-        class="mb-40"
+        class="mb-40" v-if="dialogVisible"
         @emitDialog="dialogOptionEmited"
         :text="dialog.speech.markdownContent"
         :source="`http://localhost:8080/${dialog.from.image.path}`"
@@ -23,6 +23,8 @@
 /* eslint-disable */
 import { mapActions, mapGetters } from 'vuex';
 import apiService from '@/apiService';
+import Timer from '@/timer';
+
 import Btn from '@/components/01_atoms/buttons';
 import PageTransitions from '@/components/02_molecules/pageTransitions';
 import PageComponents from '@/components/02_molecules/pageComponents';
@@ -34,7 +36,12 @@ export default {
   name: 'player',
   components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
   computed: {
-    ...mapGetters([ 'get_page', 'get_topic', 'get_dialog' ]),
+    ...mapGetters([ 'get_page', 'get_topic', 'get_dialog', 'get_transitions', 'get_dialog' ]),
+  },
+  data() {
+    return {
+      dialogVisible: false,
+    };
   },
   created() {
     if( !this.get_topic.selected ){
@@ -67,6 +74,7 @@ export default {
       this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
       .then(() => {
         this.requester();
+        this.setDialogVisibility(false);
       });
     },
     logout(){
@@ -83,11 +91,34 @@ export default {
         
       });
     },
+    setDialogVisibility(visibility) {
+      if( visibility ){
+        this.dialogVisible = true;
+      }else{
+        this.dialogVisible = false;
+      }
+    },
   },
   watch: {
-    get_page: function(oldVal, newVal) {
+    get_page: function(newVal, oldVal) {
       if( newVal != oldVal ){
         document.querySelector('.page-container').scrollTop = 0;
+      }
+
+      // Check if page got timeLimit for transition trigger
+      if( newVal.hasOwnProperty('timeLimit') ){
+        new Timer(newVal.timeLimit, // Transition time
+                  this.requestPageTransition, // Callback
+                  this.get_transitions[0].pageTransition.id) // Callback payload
+                  .start();
+      }
+    },
+    get_dialog: function(newVal, oldVal) {
+      if( newVal.length > 0 && newVal[0].hasOwnProperty('receiveAfter') ){
+        new Timer(newVal[0].receiveAfter, // Transition time
+                  this.setDialogVisibility, // Callback
+                  true) // Callback payload
+                  .start();
       }
     },
   },
