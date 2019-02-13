@@ -136,18 +136,20 @@ $chapterHeight: 90px;
         width: 100%;
         background-color: $background-hover;
         height: 90px;
-        padding: 24px 50px 0;
+        line-height: 90px;
+        padding: 0 50px;
         border-bottom: 1px solid $base-uicolor-2;
         border-top: 1px solid $base-uicolor-2;
         .title{
             @extend .h5;
+            width: 90%;
             display: inline-block;
         }
         &-icon {
-            position: relative;
-            top: 10px;
-            float: right;
+            width: 10%;
+            display: inline-block;
             cursor: pointer;
+            vertical-align: middle;
         }
     }
 
