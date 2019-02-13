@@ -31,6 +31,7 @@ export default {
         data: ['YYYY-MM-DD']
       },
       dateFormated: '',
+      imageZoomed: false,
     };
   },
   methods: {
@@ -50,6 +51,9 @@ export default {
       .catch(() => {
         
       });
+    },
+    toggleZoom: function() {
+      this.imageZoomed = !this.imageZoomed;
     },
     checkState: function() {
       apiService.get('states') 
