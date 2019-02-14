@@ -6,12 +6,20 @@
   <vue-markdown
     class="image-caption"
     :source="text"/>
-    <div
-      v-if="zoomable"
-      class="zoom-button"
-      @click="toggleZoom">
-      <SvgIcon
-        class="zoom-icon"
-        :name="imageZoomed ? 'zoom-out' : 'zoom-in'" />
-    </div>
+  <div
+    v-if="zoomable"
+    class="zoom-button zoom-in-out"
+    @click="toggleZoom">
+    <SvgIcon class="icon" :name="imageZoomed ? 'zoom-out' : 'zoom-in'" />
+  </div>
+  <div
+    v-if="zoomable"
+    class="zoom-button zoom-plus">
+    <SvgIcon class="icon" name="plus" />
+  </div>
+  <div
+    v-if="zoomable"
+    class="zoom-button zoom-minus">
+    <SvgIcon class="icon" name="minus" />
+  </div>
 </div>
