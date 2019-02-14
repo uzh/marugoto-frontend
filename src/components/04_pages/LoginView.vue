@@ -29,10 +29,8 @@
       <form @keydown.enter="login">
         <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" />
         <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
-        <!-- <InputField v-model="newPassword" typeProp="password" labelName="New Password" /> -->
       </form>
       <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
-      <!-- <Btn text="Reset Password" ghost="true" @click.native="resetPassword" /> -->
       <p class="lead mt-30">I'm a first time User</p>
       <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>
@@ -76,7 +74,6 @@ export default {
     return{
       mail: '',
       password: '',
-      newPassword: '',
       accountType: 'guest',
       uniList: [
         {
@@ -104,13 +101,6 @@ export default {
       }).then(() => this.$router.push('/'))
       .catch(() => this.logErrorMessage);
     },
-    // resetPassword(){
-    //   this.$store.dispatch('RESET_PASSWORD', {
-    //     mail: this.mail,
-    //     password: this.password,
-    //     newPassword: this.newPassword,
-    //   });
-    // },
     goToRegister(){
       this.$router.push('/register');
     },

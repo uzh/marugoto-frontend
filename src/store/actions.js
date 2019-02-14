@@ -40,32 +40,6 @@ export default({
       })
     })
   },
-  // [types.RESET_PASSWORD]: ({commit}, userInfo) => {
-  //   return new Promise((resolve, reject) => {
-  //     apiService({url: '/auth/generate-token', data: userInfo, method: 'POST' })
-  //     .then(resp => {
-  //       const token = resp.data.token;
-  //       const refreshToken = resp.data.refreshToken;
-  //       apiService.defaults.headers.common['Authorization'] = token;
-  //       commit('AUTH_SUCCESS', {
-  //         token: token,
-  //         refreshToken: refreshToken,
-  //       });
-  //       apiService({url: '/user/password-reset', data: userInfo, method: 'POST' })
-  //       .then(resp => {
-  //         console.log(resp);
-  //         resolve(resp);
-  //       })
-  //       .catch(err => {
-  //         reject(err);
-  //       })
-  //     })
-  //     .catch(err => {
-  //       commit('AUTH_ERROR');
-  //       reject(err);
-  //     });
-  //   })
-  // },
   [types.LOGOUT]: (context) => {
     delete apiService.defaults.headers.common["Authorization"];
     context.commit(types.LOGOUT);
