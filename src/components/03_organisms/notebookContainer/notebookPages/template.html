@@ -19,7 +19,9 @@
         <div class="image-sticker"></div>
         <img :src="`http://localhost:8080/${page.image.path}`" />
         <vue-markdown class="image-caption" v-if="page.caption" :source="page.caption" />
-        <vue-markdown class="mb-40" v-if="page.text" :source="page.text" />
+      </div>
+      <div class="notebook-page-text">
+        <vue-markdown v-if="page.text" :source="page.text" />
       </div>
       <!-- Personal notes -->
       <div class="pt-40 border-top">

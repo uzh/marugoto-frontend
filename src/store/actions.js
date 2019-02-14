@@ -40,6 +40,19 @@ export default({
       })
     })
   },
+  [types.RESET_PASSWORD]: ({commit}, userInfo) => {
+    return new Promise((resolve, reject) => {
+      apiService({url: '/user/password-reset', data: userInfo, method: 'POST' })
+      .then(resp => {
+        console.log(resp.data);
+        resolve(resp);
+      })
+      .catch(err => {
+        commit('AUTH_ERROR');
+        reject(err);
+      })
+    })
+  },
   [types.LOGOUT]: (context) => {
     delete apiService.defaults.headers.common["Authorization"];
     context.commit(types.LOGOUT);
