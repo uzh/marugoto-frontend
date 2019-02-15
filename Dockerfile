@@ -25,6 +25,8 @@ FROM nginx:1.13.12-alpine as production-stage
 # continued
 COPY --from=build-stage /src/dist /usr/share/nginx/html
 
+COPY default.conf /etc/nginx/conf.d/default.conf
+
 # open port
 EXPOSE 80
 
