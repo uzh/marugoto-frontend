@@ -10,25 +10,25 @@ export default {
   props: [ 'source', 'text', 'zoomable' ],
   data() {
     return {
-      imageZoomed: "0",
+      imageZoomed: 0,
     }
   },
   methods: {
     toggleZoom() {
-      if(this.imageZoomed < "5") {
-        this.imageZoomed = "5";
+      if(this.imageZoomed < 5) {
+        this.imageZoomed = 5;
       } else {
-        this.imageZoomed = "0";
+        this.imageZoomed = 0;
       }
     },
     incZoom() {
-      if(this.imageZoomed < "5") {
-        this.imageZoomed = this.imageZoomed + "1";
+      if(this.imageZoomed < 5) {
+        this.imageZoomed++;
       }
     },
     decZoom() {
-      if(this.imageZoomed > "0") {
-        this.imageZoomed = this.imageZoomed - "1";
+      if(this.imageZoomed > 0) {
+        this.imageZoomed--;
       }
     },
   }

@@ -7,9 +7,6 @@
     <vue-markdown class="mb-40"
       v-if="component.type == 'TextComponent'" 
       :source="component.markdownContent" />
-    <!-- <TextComponent class="mb-30"
-      v-if="component.type == 'TextComponent'"
-      :text="component.markdownContent" /> -->
     <!-- Link -->
     <div v-if="component.type == 'LinkComponent'">
       <a
@@ -88,24 +85,6 @@
       </video>
       <vue-markdown class="video-caption" :source="component.caption" />
     </div>
-
-    <!-- Video with custom controls -->
-    <!-- <div v-if="component.type == 'VideoComponent'" class="video-container">
-      <video class="video-screen">
-        <source :src="`http://localhost:8080/${component.video.path}`" type="video/mp4">
-        <source :src="`http://localhost:8080/${component.video.path}`" type="video/webm" />
-        <source :src="`http://localhost:8080/${component.video.path}`" type="video/ogg" />
-        <p>Your browser does not support the video tag.</p>
-      </video>
-      <div class="video-controls">
-        <button type="button" class="play-pause">
-          Play
-        </button>
-        <button type="button" class="full-screen">
-          Full
-        </button>
-      </div>
-    </div> -->
   </div>
 
 </div>
