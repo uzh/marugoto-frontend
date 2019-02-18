@@ -1,6 +1,7 @@
 <div
   class="image-component"
   :style="{width: imageZoomed == 0 ? '100%' : imageZoomed == 1 ? '120%' : imageZoomed == 2 ? '140%' : imageZoomed == 3 ? '160%' : imageZoomed == 4 ? '180%' : imageZoomed == 5 ? '200%' : ''}">
+  <div v-if="imageZoomed != 0" class="image-mask"></div>
   <img 
     :src="source">
   <vue-markdown
