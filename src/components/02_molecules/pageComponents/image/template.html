@@ -1,6 +1,6 @@
 <div
   class="image-component"
-  :class="imageZoomed ? 'zoomed-in' : 'zoomed-out'">
+  :style="{width: imageZoomed == 0 ? '100%' : imageZoomed == 1 ? '120%' : imageZoomed == 2 ? '140%' : imageZoomed == 3 ? '160%' : imageZoomed == 4 ? '180%' : imageZoomed == 5 ? '200%' : ''}">
   <img 
     :src="source">
   <vue-markdown
@@ -8,18 +8,20 @@
     :source="text"/>
   <div
     v-if="zoomable"
-    class="zoom-button zoom-in-out"
+    class="zoom-in-out"
     @click="toggleZoom">
-    <SvgIcon class="icon" :name="imageZoomed ? 'zoom-out' : 'zoom-in'" />
+    <SvgIcon class="icon" :name="imageZoomed < 5 ? 'zoom-in' : 'zoom-out'" />
   </div>
   <div
     v-if="zoomable"
-    class="zoom-button zoom-plus">
+    class="zoom-plus"
+    @click="incZoom">
     <SvgIcon class="icon" name="plus" />
   </div>
   <div
     v-if="zoomable"
-    class="zoom-button zoom-minus">
+    class="zoom-minus"
+    @click="decZoom">
     <SvgIcon class="icon" name="minus" />
   </div>
 </div>

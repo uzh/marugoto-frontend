@@ -53,21 +53,14 @@
             }
             
             .image-component {
-                height: auto;
                 position: relative;
+                height: auto;
+                min-width: 100%;
+                max-width: 200%;
                 z-index: 1;
-
-                &.zoomed-in {
-                    width: calc(200% + 20px);
-                    margin: 0 auto;
-                    transition: all 0.5s;
-                }
-                &.zoomed-out {
-                    width: 100%;
-                    transition: all 0.5s;
-                }
+                transition: all 0.5s;
                 &:hover {
-                    .zoom-button {
+                    .zoom-in-out, .zoom-plus, .zoom-minus {
                         display: block;
                     }
                 }
@@ -77,7 +70,7 @@
                 }
 
                 .zoom-in-out {
-                    display: block;
+                    display: none;
                     position: absolute;
                     top: 10px;
                     right: 10px;
@@ -96,9 +89,9 @@
                 }
 
                 .zoom-plus {
-                    display: block;
+                    display: none;
                     position: absolute;
-                    bottom: 55px;
+                    bottom: 51px;
                     right: 10px;
                     width: 40px;
                     height: 40px;
@@ -115,7 +108,7 @@
                 }
 
                 .zoom-minus {
-                    display: block;
+                    display: none;
                     position: absolute;
                     bottom: 10px;
                     right: 10px;
