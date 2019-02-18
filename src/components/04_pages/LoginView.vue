@@ -23,24 +23,52 @@
       :class="accountType == 'guest' ? '' : 'opacity'"
       @click="accountType = 'guest'">Guest Account
     </div>
-    <!-- Guest Account Form -->
-    <div v-show="accountType == 'guest'" class="mt-50">
-      <p class="lead">Account</p>
-      <form @keydown.enter="login">
-        <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" />
-        <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
-      </form>
-      <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
-      <p class="lead mt-30">I'm a first time User</p>
-      <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
-    </div>
+
     <!-- University Account Form -->
     <div v-show="accountType == 'university'" class="mt-50">
       <p class="lead">Account</p>
-      <SelectField labelName="Select University" :required="errorMessage" :list="uniList" />
-      <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
+      <div v-show="!passwordForgotten">
+        <SelectField labelName="Select University" :required="errorMessage" :list="uniList" />
+        <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
+        <Btn v-if="!passwordForgotten" class="mt-10" text="Forgot Password?" ghost="true" @click.native="passwordForgotten = true" iconName="arrow-right" iconColor="#979797" />
+      </div>
+
+      <!-- If Password Forgotten -->
+      <div v-if="passwordForgotten">
+        <form class="mt-10">
+          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" />
+          <InputField tabindex="-1" v-model="newPassword" typeProp="password" labelName="New Password" :required="errorMessage" />
+        </form>
+        <Btn class="mt-10" text="Reset Password" ghost="true" @click.native="resetPassword" iconName="arrow-right" iconColor="#979797" />
+      </div>
+
       <p class="lead mt-30">I'm a first time User</p>
       <SelectField labelName="Select University" :required="errorMessage" :list="uniList" />
+      <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
+    </div>
+
+    <!-- Guest Account Form -->
+    <div v-show="accountType == 'guest'" class="mt-50">
+      <p class="lead">Account</p>
+      <div v-show="!passwordForgotten">
+        <form @keydown.enter="login">
+          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" />
+          <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
+        </form>
+        <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
+        <Btn v-show="!passwordForgotten" class="mt-10" text="Forgot Password?" ghost="true" @click.native="passwordForgotten = true" iconName="arrow-right" iconColor="#979797" />
+      </div>
+
+      <!-- If Password Forgotten -->
+      <div v-if="passwordForgotten">
+        <form class="mt-10">
+          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" />
+          <InputField tabindex="-1" v-model="newPassword" typeProp="password" labelName="New Password" :required="errorMessage" />
+        </form>
+        <Btn class="mt-10" text="Reset Password" ghost="true" @click.native="resetPassword" iconName="arrow-right" iconColor="#979797" />
+      </div>
+      
+      <p class="lead mt-30">I'm a first time User</p>
       <Btn @click.native="goToRegister" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>
   </div>
@@ -74,6 +102,7 @@ export default {
     return{
       mail: '',
       password: '',
+      newPassword: '',
       accountType: 'guest',
       uniList: [
         {
@@ -84,6 +113,7 @@ export default {
         }
       ],
       errorMessage: false,
+      passwordForgotten: false,
     }
   },
   computed: {
@@ -104,6 +134,27 @@ export default {
     goToRegister(){
       this.$router.push('/register');
     },
+    resetPassword(){
+      const newPass = this.newPassword;
+      const userEmail = this.mail;
+      this.$store.dispatch('FORGOT_PASSWORD', {
+        email: userEmail,
+        newPassword: newPass,
+        passwordResetUrl: 'string',
+      }).then((resp) => {
+        const token = resp.data.resetToken;
+        const newPassword = newPass;
+        const payload = {newPassword, token, userEmail};
+        this.$store.dispatch('RESET_PASSWORD', payload)
+        .then(() => {
+          const mail = userEmail;
+          const password = newPass;
+          const payload = {mail, password};
+          this.$store.dispatch('LOGIN', payload)
+          .then(() => this.$router.push('/'))
+        })
+      });
+    }
   },
 }
 
