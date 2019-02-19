@@ -36,6 +36,15 @@ export default{
   },
   methods: {
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),
+    alertAccount(val) {
+      if(val == 'university') {
+        alert('University Account');
+      } else if(val == 'guest') {
+        alert('guest Account');
+      } else {
+        return;
+      }
+    }
   },
   created(){
     

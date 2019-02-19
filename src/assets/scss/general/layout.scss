@@ -55,15 +55,15 @@ $border: 1px solid #ddd;
 }
 
 .origin-background {
-  @extend .col-xs-12;
-  background-color: $background-hover;
-  height: 70%;
+  width: 100%;
+  background: url('assets/images/Login_Map.jpg') center;
+  min-height: calc(100% - 90px);
   position: absolute;
   top: 30%;
 
   .login-page-bottom-icons {
-    position: relative;
-    top: calc(70% + 90px);
+    position: absolute;
+    bottom: 50px;
     height: 50px;
 
     .footer-logo{
