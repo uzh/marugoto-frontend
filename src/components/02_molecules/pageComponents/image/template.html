@@ -17,12 +17,12 @@
     v-if="zoomable"
     class="zoom-plus"
     @click="incZoom">
-    <SvgIcon class="icon" name="plus" />
+    <SvgIcon :class="imageZoomed != 5 ? 'icon' : 'icon-inactive'" name="plus" />
   </div>
   <div
     v-if="zoomable"
     class="zoom-minus"
     @click="decZoom">
-    <SvgIcon class="icon" name="minus" />
+    <SvgIcon :class="imageZoomed != 0 ? 'icon' : 'icon-inactive'" name="minus" />
   </div>
 </div>

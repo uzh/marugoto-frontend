@@ -115,6 +115,16 @@
                         height: 30px;
                         width: 30px;
                         cursor: pointer;
+
+                        &-inactive {
+                            position: relative;
+                            top: 5px;
+                            left: 5px;
+                            height: 30px;
+                            width: 30px;
+                            pointer-events: none;
+                            opacity: 0.3;
+                        }
                     }
                 }
 
@@ -134,6 +144,16 @@
                         height: 30px;
                         width: 30px;
                         cursor: pointer;
+
+                        &-inactive {
+                            position: relative;
+                            top: 5px;
+                            left: 5px;
+                            height: 30px;
+                            width: 30px;
+                            pointer-events: none;
+                            opacity: 0.3;
+                        }
                     }
                 }
 
