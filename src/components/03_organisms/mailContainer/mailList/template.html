@@ -3,11 +3,11 @@
   <li v-for="(item, index) in newMails" :key="index"
     class="inbox-mail-list-container-li new-mail"
     :class="index == selectedIndex ? 'active' : ''"
-    @click="emitMailListClick(index, item.id)">
-    <h6>{{ `${item.from.salutation} ${item.from.firstName} ${item.from.lastName}` }}</h6>
+    @click="emitMailListClick(index, item.mail.id)">
+    <h6>{{ item.mail.from.name }}</h6>
     <!-- <p class="current-date-time">Today, 14:28</p> -->
     <div class="shortMail">
-      <vue-markdown :html="falseHtml" :source="item.body" />
+      <vue-markdown :html="falseHtml" :source="item.mail.body" />
     </div>
   </li>
 
@@ -15,11 +15,11 @@
   <li v-for="(item, index) in list" :key="index"
     class="inbox-mail-list-container-li"
     :class="index == selectedIndex ? 'active' : ''"
-    @click="emitMailListClick(index, item.id)">
-    <h6>{{ `${item.from.salutation} ${item.from.firstName} ${item.from.lastName}` }}</h6>
+    @click="emitMailListClick(index, item.mail.id)">
+    <h6>{{ item.mail.from.name }}</h6>
     <!-- <p class="current-date-time">Today, 14:28</p> -->
     <div class="shortMail">
-      <vue-markdown :html="!falseHtml" :source="item.body" />
+      <vue-markdown :html="!falseHtml" :source="item.mail.body" />
     </div>
   </li>
 </ul>

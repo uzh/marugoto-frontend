@@ -6,8 +6,8 @@
     <!-- Mail Heading -->
     <div class="sender">
       <div v-if="sendingMail" class="send-mail-text">To</div>
-      <h5>{{ `${mail.from.salutation} ${mail.from.firstName} ${mail.from.lastName}` }}</h5>
-      <button v-if="!sendingMail && isEmpty(mail.replied)" @click="respondToMail">Respond to E-Mail</button>
+      <h5>{{ mail.mail.from.name }}</h5>
+      <button v-if="!sendingMail && isEmpty(mail.mailReplyList)" @click="respondToMail">Respond to E-Mail</button>
       <Btn 
         v-if="sendingMail" 
         class="send-mail-button" 
@@ -22,30 +22,30 @@
     <!-- Mail Body Heading -->
     <div class="subject">
       <div v-if="sendingMail" class="send-mail-text">Subject</div>
-      <h4 class="lead" v-if="!sendingMail">{{ mail.subject }}</h4>
-      <p class="lead" v-if="sendingMail">Re: {{ mail.subject }}</p>
+      <h4 class="lead" v-if="!sendingMail">{{ mail.mail.subject }}</h4>
+      <p class="lead" v-if="sendingMail">Re: {{ mail.mail.subject }}</p>
     </div>
 
     <!-- Mail Body Content -->
     <textarea
-      :ref="`mailArea${mail.id}`"
-      v-if="sendingMail && isEmpty(mail.replied)"
+      :ref="`mailArea${mail.mail.id}`"
+      v-if="sendingMail && isEmpty(mail.mailReplyList)"
       class="message-textarea">
     </textarea>
 
     <!-- Reply message -->
-    <div v-if="!isEmpty(mail.replied)" class="message-reply go-left">
+    <div v-if="!isEmpty(mail.mailReplyList)" class="message-reply go-left">
       <p>{{ mail.replied.text }}</p>
     </div>
 
     <!-- Original message -->
-    <div :class="[!sendingMail ? 'message' : 'message-inactive', !isEmpty(mail.replied) ? 'message-inactive' : '']">
-        <vue-markdown :source="mail.body" />
+    <div :class="[!sendingMail ? 'message' : 'message-inactive', !isEmpty(mail.mail.mailReplyList) ? 'message-inactive' : '']">
+        <vue-markdown :source="mail.mail.body" />
     </div>
 
     <!-- Respond to mail -->
     <button 
-      v-if="!sendingMail && isEmpty(mail.replied)" 
+      v-if="!sendingMail && isEmpty(mail.mail.mailReplyList)" 
       class="respondMail"
       @click="respondToMail">
       Respond to E-Mail

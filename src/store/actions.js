@@ -106,7 +106,7 @@ export default({
     context.commit(types.DIALOG_UPDATE, payload);
   },
   // NOTEBOOK
-  [types.UPDATE_NOTEBOOK]: ({commit}, payload) => {
+  [types.UPDATE_NOTEBOOK]: ({commit}) => {
     return apiService.get('notebook/list')
     .then(resp => {
       commit(types.UPDATE_NOTEBOOK, resp.data);
@@ -115,10 +115,24 @@ export default({
       throw(err);
     });
   },
-  [types.ADD_PERSONAL_NOTE]: ({commit}, payload) => {
-    return apiService.post(`notebook/${payload.id}/personalNote?markdownContent=${payload.text}`)
+  [types.ADD_PERSONAL_NOTE]: ({commit, dispatch}, payload) => {
+    let id = payload.id;
+    return apiService.post(`notebook/${id}/personalNote?markdownContent=${payload.text}`)
+    .then(() => {
+      dispatch('REQUEST_PERSONAL_NOTE', `notebookEntry/${id}`);
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.REQUEST_PERSONAL_NOTE]: ({commit}, payload) => {
+    let path = payload.split('/')[1];
+    return apiService.get(`notebook/${path}/personalNote/list`)
     .then(resp => {
-      commit(types.ADD_PERSONAL_NOTE, resp.data);
+      commit(types.UPDATE_PERSONAL_NOTE_LIST, {
+        serverData: resp.data,
+        id: payload,
+      });
     })
     .catch(err => {
       throw(err);
@@ -138,7 +152,7 @@ export default({
     commit(types.HANDLE_NEW_MAIL, payload);
   },
   [types.SET_NEW_MAIL_AS_READ]: ({commit}, payload) => {
-    return apiService.put(`mail/sync/${payload}`)
+    return apiService.put(`mail/sync/${payload}?isRead=true`)
     .then(() => {
       commit(types.SET_NEW_MAIL_AS_READ, payload);
     })

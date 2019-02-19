@@ -7,8 +7,8 @@
       <!-- Components -->
       <PageComponents />
       <!-- Dialog -->
-      <DialogComponent v-for="(dialog, index) in get_dialog" :key="index"
-        class="mb-40" v-if="dialogVisible"
+      <DialogComponent v-if="dialogVisible" v-for="(dialog, index) in get_dialog" :key="index"
+        class="mb-40" 
         @emitDialog="dialogOptionEmited"
         :text="dialog.speech.markdownContent"
         :source="`http://localhost:8080/${dialog.from.image.path}`"

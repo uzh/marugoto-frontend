@@ -99,12 +99,13 @@ export default({
   [types.UPDATE_NOTEBOOK] (state, payload) {
     state.notebook.list = payload;
   },
-  [types.ADD_PERSONAL_NOTE] (state, payload) {
-    for( let ii=0; ii < state.notebook.length; ii++ ){
-      if( state.notebook[ii].id == payload.notebookEntry.id ){
-        state.notebook.personalNotes.unshift(payload);
+  [types.UPDATE_PERSONAL_NOTE_LIST] (state, payload) {
+    state.notebook.list = state.notebook.list.map( entry => {
+      if( entry.id == payload.id ){
+        entry.personalNotes = payload.serverData;
       }
-    }
+      return entry;
+    })
   },
   // MAIL MUTATIONS
   [types.MAIL_LIST_UPDATE] (state, payload) {

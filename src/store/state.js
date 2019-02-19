@@ -35,7 +35,6 @@ export default ({
   mails: [],
   notebook: {
     list: [],
-    personalNotes: [],
   },
   topicState: {},
   dialogNotifications: [],

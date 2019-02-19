@@ -17,6 +17,14 @@ export default {
       personalNoteText: '',
     }
   },
+  created() {
+    var self = this;
+    if( this.list.length > 0 ){
+      setTimeout(function(){
+        self.$store.dispatch('REQUEST_PERSONAL_NOTE', self.list[self.currentEntry].id);
+      }, 1000);
+    }
+  },
   methods: {
     toggleScroll: function() {
       this.$emit('toggleScroll');
@@ -39,6 +47,11 @@ export default {
     },
   },
   watch: {
+    currentEntry: function(newVal, oldVal) {
+      if( newVal != oldVal ){
+        this.$store.dispatch('REQUEST_PERSONAL_NOTE', this.list[this.currentEntry].id);
+      }
+    },
     personalNoteNotebookEntryId: function(newVal, oldVal) {
       if( newVal != oldVal ){
         this.personalNoteText = '';
