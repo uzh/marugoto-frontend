@@ -2,32 +2,32 @@
   <div 
     v-for="(component, index) in get_PageComponents" 
     :key="index"
-    :class="`col-xs-${component.numberOfColumns}`" >
+    :class="`col-xs-${component.component.numberOfColumns}`" >
     <!-- Text -->
     <vue-markdown class="mb-40"
       v-if="component.type == 'TextComponent'" 
-      :source="component.markdownContent" />
+      :source="component.component.markdownContent" />
     <!-- Link -->
     <div v-if="component.type == 'LinkComponent'">
       <a
         class="mb-40"
-        :href="component.url"
+        :href="component.component.url"
         target="_blank">
-        {{ component.url }}
+        {{ component.component.url }}
       </a>
     </div>
     <!-- Image -->
     <ImageComponent
       v-if="component.type == 'ImageComponent'"
-      :source="`http://localhost:8080/${component.image.path}`"
-      :text="component.caption"
-      :zoomable="component.zoomable" />
+      :source="`http://localhost:8080/${component.component.image.path}`"
+      :text="component.component.caption"
+      :zoomable="component.component.zoomable" />
     <!-- Date Component -->
     <v-date-picker
       class="mb-40"
       v-if="component.type == 'DateExercise'"
       :formats='formats'
-      @dayclick="dateEmit($event, component.exerciseState.id)"
+      @dayclick="dateEmit($event, component.state.id)"
       v-model='selectedDate'>
     </v-date-picker>
     <!-- Exercise Radio -->
@@ -35,15 +35,15 @@
       class="mb-40"
       @emitRadioChange="submitAnswer"
       v-if="component.type == 'RadioButtonExercise'"
-      :exerciseId="component.exerciseState.id"
-      :list="component.options" />
+      :exerciseId="component.state.id"
+      :list="component.component.options" />
     <!-- Exercise Checkbox -->
     <ExerciseCheckbox
       class="mb-40"
       @emitCheckboxChange="submitAnswer"
       v-if="component.type == 'CheckboxExercise'"
-      :exerciseId="component.exerciseState.id"
-      :optionsList="component.options" />
+      :exerciseId="component.state.id"
+      :optionsList="component.component.options" />
     <!-- Exercise Text -->
     <!-- <ExerciseText
       class="mb-40"
@@ -56,13 +56,13 @@
       class="mb-40"
       @emitInputAreaAnswer="submitAnswer"
       v-if="component.type == 'TextExercise'"
-      :exerciseId="component.exerciseState.id"
-      :placeholder="component.placeholderText" />
+      :exerciseId="component.state.id"
+      :placeholder="component.component.placeholderText" />
     <!-- PDF -->
     <div v-if="component.type == 'PdfComponent'" >
       <a
         class="mb-40"
-        :href="`http://localhost:8080/${component.pdf.path}`"
+        :href="`http://localhost:8080/${component.component.pdf.path}`"
         target="_blank">
         PDF
       </a>
@@ -70,20 +70,20 @@
     <!-- Audio -->
     <div v-if="component.type == 'AudioComponent'">
       <audio class="full-width mb-40" controls>
-        <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/ogg">
-        <source :src="`http://localhost:8080/${component.audio.path}`" type="audio/mpeg">
+        <source :src="`http://localhost:8080/${component.component.audio.path}`" type="audio/ogg">
+        <source :src="`http://localhost:8080/${component.component.audio.path}`" type="audio/mpeg">
         Your browser does not support the audio tag.
       </audio>
     </div>
     <!-- Video -->
     <div v-if="component.type == 'VideoComponent'">
       <video class="full-width" controls>
-        <source :src="`http://localhost:8080/${component.video.path}`" type="video/mp4">
-        <source :src="`http://localhost:8080/${component.video.path}`" type="video/webm" />
-        <source :src="`http://localhost:8080/${component.video.path}`" type="video/ogg" />
+        <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/mp4">
+        <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/webm" />
+        <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/ogg" />
         <p>Your browser does not support the video tag.</p>
       </video>
-      <vue-markdown class="video-caption" :source="component.caption" />
+      <vue-markdown class="video-caption" :source="component.component.caption" />
     </div>
   </div>
 
