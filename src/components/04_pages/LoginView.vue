@@ -45,13 +45,21 @@
     <!-- Guest Account Form -->
     <div v-show="accountType == 'guest'" class="mt-50">
       <p class="lead">Account</p>
-      <div>
+      <div v-if="!enterNewPassword">
         <form @keydown.enter="login">
           <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" />
           <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
         </form>
         <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
         <Btn text="Forgot Password?" ghost="true" @click.native="forgotPassword" class="mt-10" />
+      </div>
+      <!-- Enter New Password -->
+      <div v-if="enterNewPassword">
+        <form>
+          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" />
+          <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Enter New Password" />
+        </form>
+        <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
       </div>
       <p class="lead mt-30">I'm a first time User</p>
       <Btn @click.native="goToRegister('guest')" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
@@ -98,6 +106,7 @@ export default {
       accountType: 'guest',
       errorMessage: false,
       forgottenPassword: false,
+      enterNewPassword: false,
     }
   },
   methods: {
@@ -117,7 +126,10 @@ export default {
       this.$store.dispatch('FORGOT_PASSWORD', {
         email: this.mail,
         passwordResetUrl: '/api/user/password-reset',
-      }).then(resp => console.log(resp.data))
+      }).then(resp => {
+        console.log(resp.data.resetToken);
+        alert('Please check your email inbox.');
+      })
       .catch(err => {
         console.log(err);
         this.forgottenPassword = true;
