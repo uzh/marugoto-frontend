@@ -1,7 +1,10 @@
 <!-- Status bar -->
 <div
   class="status-bar"
-  :class="[get_layoutState.mail.opened ? 'out' : '', get_layoutState.notebook.opened ? 'halfed' : '']">
+  :class="[
+    get_layoutState.mail.opened ? 'out' : '',
+    get_layoutState.notebook.opened ? 'halfed' : ''
+  ]">
   <!-- <svgIcon
     name="clock"
     sizeH="20px"

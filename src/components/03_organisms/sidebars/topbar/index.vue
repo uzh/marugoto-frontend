@@ -9,7 +9,7 @@ export default {
   components: { svgIcon },
   data() {
     return {
-      money: true,
+      
     };
   },
   computed: {

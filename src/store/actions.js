@@ -40,6 +40,28 @@ export default({
       })
     })
   },
+  [types.FORGOT_PASSWORD]: ({commit}, info) => {
+    return new Promise((resolve, reject) => {
+      apiService({url: '/user/password-forget', data: info, method: 'POST' })
+      .then(resp => {
+        resolve(resp);
+      })
+      .catch(err => {
+        reject(err);
+      })
+    })
+  },
+  [types.RESET_PASSWORD]: ({commit}, info) => {
+    return new Promise((resolve, reject) => {
+      apiService({url: '/user/password-reset', data: info, method: 'POST' })
+      .then(resp => {
+        resolve(resp);
+      })
+      .catch(err => {
+        reject(err);
+      })
+    })
+  },
   [types.LOGOUT]: (context) => {
     delete apiService.defaults.headers.common["Authorization"];
     context.commit(types.LOGOUT);

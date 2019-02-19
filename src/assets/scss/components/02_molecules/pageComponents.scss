@@ -53,28 +53,34 @@
             }
             
             .image-component {
-                height: auto;
                 position: relative;
+                height: auto;
+                min-width: 100%;
+                max-width: 200%;
                 z-index: 1;
-
-                &.zoomed-in {
-                    width: 210%;
-                    transition: all 0.5s;
-                }
-                &.zoomed-out {
-                    width: 100%;
-                    transition: all 0.5s;
-                }
+                transition: all 0.5s;
                 &:hover {
-                    .zoom-button {
+                    .zoom-in-out, .zoom-plus, .zoom-minus {
                         display: block;
                     }
+                }
+
+                .image-mask {
+                    position: fixed;
+                    top: 0;
+                    left: 0;
+                    width: calc(100% - 90px);
+                    height: 100%;
+                    background-color: rgba(#000000, 0.7);
+                    z-index: -1;
+                    transition: opacity .5s ease;
                 }
                 
                 img {
                     width: 100%;
                 }
-                .zoom-button {
+
+                .zoom-in-out {
                     display: none;
                     position: absolute;
                     top: 10px;
@@ -83,11 +89,74 @@
                     height: 40px;
                     background-color: rgba(#000000, 0.4);
 
-                    .zoom-icon {
-                        height: 40px;
+                    .icon {
+                        position: relative;
+                        top: 5px;
+                        left: 5px;
+                        height: 30px;
+                        width: 30px;
                         cursor: pointer;
                     }
                 }
+
+                .zoom-plus {
+                    display: none;
+                    position: absolute;
+                    bottom: 51px;
+                    right: 10px;
+                    width: 40px;
+                    height: 40px;
+                    background-color: rgba(#000000, 0.4);
+
+                    .icon {
+                        position: relative;
+                        top: 5px;
+                        left: 5px;
+                        height: 30px;
+                        width: 30px;
+                        cursor: pointer;
+
+                        &-inactive {
+                            position: relative;
+                            top: 5px;
+                            left: 5px;
+                            height: 30px;
+                            width: 30px;
+                            pointer-events: none;
+                            opacity: 0.3;
+                        }
+                    }
+                }
+
+                .zoom-minus {
+                    display: none;
+                    position: absolute;
+                    bottom: 10px;
+                    right: 10px;
+                    width: 40px;
+                    height: 40px;
+                    background-color: rgba(#000000, 0.4);
+
+                    .icon {
+                        position: relative;
+                        top: 5px;
+                        left: 5px;
+                        height: 30px;
+                        width: 30px;
+                        cursor: pointer;
+
+                        &-inactive {
+                            position: relative;
+                            top: 5px;
+                            left: 5px;
+                            height: 30px;
+                            width: 30px;
+                            pointer-events: none;
+                            opacity: 0.3;
+                        }
+                    }
+                }
+
                 .image-caption {
                     p {
                         @extend .small;
@@ -95,73 +164,6 @@
                         text-align: center;
                         // @extend .col-xs-offset-1;
                         margin-top: 20px;
-                    }
-                }
-            }
-            
-            .upload-files-container {
-                @extend .col-xs-10;
-                @extend .col-xs-offset-1;
-                @extend .mb-40;
-                background-color: inherit;
-            
-                .upload-files-header {
-                    height: 40px;
-                    margin-left: calc(8.33% + 20px);
-                }
-            
-                .upload-files-main {
-                    height: 140px;
-                    background-color: $background-hover;
-                    border: 1px solid $base-primary-border;
-                    
-                    .left {
-                        display: inline-block;
-                        width: 45%;
-                        height: 138px;
-                        line-height: 138px;
-                        vertical-align: middle;
-                        text-align: center;
-                        font-size: 12px;
-                        &:hover {
-                            outline: 1px dashed $base-primary-border;
-                        }
-                    }
-            
-                    .right {
-                        display: inline-block;
-                        width: 45%;
-                        height: 138px;
-                        line-height: 138px;
-                        vertical-align: middle;
-                        text-align: center;
-                        font-size: 12px;
-                        input {
-                            display: none;
-                        }
-                        label {
-                            display: block;
-                        }
-                    }
-                    
-                    .center {
-                        display: inline-block;
-                        width: 10%;
-                        height: 140px;
-                        line-height: 140px;
-                        vertical-align: middle;
-                        text-align: center;
-                        font-size: 12px;
-                        position: relative;
-                        &:before {
-                            content: '';
-                            position: absolute;
-                            top: -6px;
-                            right: 49%;
-                            height: 148px;
-                            border: 1px solid $white;
-                            transform: rotate(24deg);
-                        }
                     }
                 }
             }
@@ -215,4 +217,74 @@
 .lead-text {
     @extend .lead;
     margin-bottom: 100px;
+}
+
+
+
+.upload-files-container {
+    width: 50%;
+    margin-left: 50px;
+    background-color: inherit;
+
+    .upload-files-header {
+        height: 40px;
+        margin-left: 50px;
+    }
+
+    .upload-files-main {
+        height: 140px;
+        background-color: $background-hover;
+        border: 1px solid $base-primary-border;
+        
+        .left {
+            display: inline-block;
+            width: 45%;
+            height: 138px;
+            line-height: 138px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 12px;
+            &:hover {
+                outline: 2px dashed $base-primary-border;
+            }
+        }
+
+        .right {
+            display: inline-block;
+            width: 45%;
+            height: 138px;
+            line-height: 138px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 12px;
+            input {
+                display: none;
+            }
+            label {
+                display: inline-block;
+                cursor: pointer;
+                height: 20px;
+            }
+        }
+        
+        .center {
+            display: inline-block;
+            width: 10%;
+            height: 140px;
+            line-height: 140px;
+            vertical-align: middle;
+            text-align: center;
+            font-size: 12px;
+            position: relative;
+            &:before {
+                content: '';
+                position: absolute;
+                top: -6px;
+                right: 49%;
+                height: 148px;
+                border: 1px solid $white;
+                transform: rotate(24deg);
+            }
+        }
+    }
 }
