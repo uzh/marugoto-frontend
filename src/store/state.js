@@ -31,7 +31,6 @@ export default ({
     list: [],
   },
   mailNotifications: [],
-  mailNotificationState: 0,
   mails: [],
   notebook: {
     list: [],

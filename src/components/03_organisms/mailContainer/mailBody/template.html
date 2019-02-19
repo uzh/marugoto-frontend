@@ -7,7 +7,7 @@
     <div class="sender">
       <div v-if="sendingMail" class="send-mail-text">To</div>
       <h5>{{ mail.mail.from.name }}</h5>
-      <button v-if="!sendingMail && isEmpty(mail.mailReplyList)" @click="respondToMail">Respond to E-Mail</button>
+      <button v-if="!sendingMail" @click="respondToMail">Respond to E-Mail</button>
       <Btn 
         v-if="sendingMail" 
         class="send-mail-button" 
@@ -16,7 +16,7 @@
         iconPosition="right" 
         iconColor="white" 
         text="Send E-Mail" 
-        @click.native="sendReply(mail.id)" />
+        @click.native="sendReply(mail.mail.id)" />
     </div>
 
     <!-- Mail Body Heading -->
@@ -29,23 +29,23 @@
     <!-- Mail Body Content -->
     <textarea
       :ref="`mailArea${mail.mail.id}`"
-      v-if="sendingMail && isEmpty(mail.mailReplyList)"
+      v-if="sendingMail"
       class="message-textarea">
     </textarea>
 
     <!-- Reply message -->
-    <div v-if="!isEmpty(mail.mailReplyList)" class="message-reply go-left">
-      <p>{{ mail.replied.text }}</p>
+    <div v-if="mail.mailReplyList.length > 0" class="message-reply go-left">
+      <p v-for="(reply, index) in mail.mailReplyList">{{ reply.body }}</p>
     </div>
 
     <!-- Original message -->
-    <div :class="[!sendingMail ? 'message' : 'message-inactive', !isEmpty(mail.mail.mailReplyList) ? 'message-inactive' : '']">
+    <div :class="[!sendingMail ? 'message' : 'message-inactive']">
         <vue-markdown :source="mail.mail.body" />
     </div>
 
     <!-- Respond to mail -->
     <button 
-      v-if="!sendingMail && isEmpty(mail.mail.mailReplyList)" 
+      v-if="!sendingMail" 
       class="respondMail"
       @click="respondToMail">
       Respond to E-Mail

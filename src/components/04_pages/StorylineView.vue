@@ -50,6 +50,7 @@ export default {
       this.$store.dispatch('REQUEST_PAGE_CURRENT')
       .then(() => {
         this.requester();
+        this.$store.dispatch('MAIL_LIST_UPDATE');
       }); 
     };
     
@@ -58,7 +59,7 @@ export default {
     requester: function() {
       // Request notebook & mail lists
       this.$store.dispatch('UPDATE_NOTEBOOK');
-      this.$store.dispatch('MAIL_LIST_UPDATE');
+      // this.$store.dispatch('MAIL_LIST_UPDATE');
     },
     chooseTopic: function(id){
       this.$store.dispatch('CHOOSE_TOPIC', id)

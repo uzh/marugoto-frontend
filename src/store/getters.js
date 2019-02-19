@@ -37,6 +37,12 @@ export default{
     return state.mailNotifications;
   },
   get_mailNotificationState: state => {
-    return state.mailNotificationState;
+    var notificationNumber = 0;
+    for( var ii = 0; ii < state.mails.length; ii++){
+      if( !state.mails[ii].read ){
+        notificationNumber++;
+      }
+    }
+    return notificationNumber;
   },
 };
