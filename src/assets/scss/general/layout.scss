@@ -64,7 +64,7 @@ $border: 1px solid #ddd;
   .login-page-bottom-icons {
     position: absolute;
     bottom: 50px;
-    height: 50px;
+    height: 66px;
 
     .footer-logo{
       float: left;
@@ -73,17 +73,16 @@ $border: 1px solid #ddd;
       .logo {
         float: left;
         padding-right: 10px;
-      }
-
-      .logo-caption {
-        float: left;
-        padding-right: 10px;
+        height: 66px;
+        width: 192px;
+        background: url('assets/images/University_Logo.png') center;
       }
     }
 
     .footer-menu-right {
       width: 50%;
       float: right;
+      line-height: 66px;
 
       .item {
         float: right;

@@ -12,47 +12,32 @@
     <p class="lead-text">Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
     <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
   </div>
-  <!-- Empty column -->
-  <div class="col-xs-1"></div>
-  <!-- Empty column -->
-  <div class="col-xs-1">
-    <SvgIcon v-if="passwordForgotten" @click.native="goBack" name="arrow-left" sizeH="20" class="back-to-login" />
-  </div>
+  <!-- Empty columns -->
+  <div class="col-xs-2"></div>
   <!-- Login Form -->
   <div class="wrapper-container col-xs-4">
     <h1 class="page-title">Login</h1>
     <div
       class="lead choose-account"
       :class="accountType == 'university' ? '' : 'opacity'"
-      @click="accountType = 'university'; errorLoginMessage = false; errorRegisterMessage = false;">University Account
+      @click="accountType = 'university'">University Account
     </div>
     <div
       class="lead choose-account"
       :class="accountType == 'guest' ? '' : 'opacity'"
-      @click="accountType = 'guest'; errorLoginMessage = false; errorRegisterMessage = false;">Guest Account
+      @click="accountType = 'guest'">Guest Account
     </div>
 
     <!-- University Account Form -->
     <div v-show="accountType == 'university'" class="mt-50">
       <p class="lead">Account</p>
-      <div v-show="!passwordForgotten">
-        <SelectField labelName="Select University" :required="errorLoginMessage" :list="uniList" />
-        <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
-        <Btn v-if="!passwordForgotten" class="mt-10" text="Forgot Password?" ghost="true" @click.native="passwordForgotten = true; errorLoginMessage = false; errorRegisterMessage = false;" iconName="arrow-right" iconColor="#979797" />
+      <div>
+        <SelectField labelName="Select University" :list="uniList" />
+        <Btn text="Login" primary="true" iconName="arrow-right" iconColor="#979797" />
       </div>
-
-      <!-- If Password Forgotten -->
-      <div v-if="passwordForgotten">
-        <form class="mt-10">
-          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorLoginMessage" />
-          <InputField tabindex="-1" v-model="newPassword" typeProp="password" labelName="New Password" :required="errorLoginMessage" />
-        </form>
-        <Btn class="mt-10" text="Reset Password" ghost="true" @click.native="resetPassword" iconName="arrow-right" iconColor="#979797" />
-      </div>
-
       <p class="lead mt-30">I'm a first time User</p>
       <form class="mt-10">
-        <SelectField labelName="Select University" :required="errorRegisterMessage" :list="uniList" />
+        <SelectField labelName="Select University" :list="uniList" />
       </form>
       <Btn @click.native="goToRegister('university')" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>
@@ -60,24 +45,14 @@
     <!-- Guest Account Form -->
     <div v-show="accountType == 'guest'" class="mt-50">
       <p class="lead">Account</p>
-      <div v-show="!passwordForgotten">
+      <div>
         <form @keydown.enter="login">
-          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorLoginMessage" />
-          <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorLoginMessage" />
+          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" />
+          <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
         </form>
         <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
-        <Btn v-show="!passwordForgotten" class="mt-10" text="Forgot Password?" ghost="true" @click.native="passwordForgotten = true; errorLoginMessage = false; errorRegisterMessage = false;" iconName="arrow-right" iconColor="#979797" />
+        <Btn text="Forgot Password?" ghost="true" @click.native="forgotPassword" class="mt-10" />
       </div>
-
-      <!-- If Password Forgotten -->
-      <div v-if="passwordForgotten">
-        <form class="mt-10">
-          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorLoginMessage" />
-          <InputField tabindex="-1" v-model="newPassword" typeProp="password" labelName="New Password" :required="errorLoginMessage" />
-        </form>
-        <Btn class="mt-10" text="Reset Password" ghost="true" @click.native="resetPassword" iconName="arrow-right" iconColor="#979797" />
-      </div>
-      
       <p class="lead mt-30">I'm a first time User</p>
       <Btn @click.native="goToRegister('guest')" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
     </div>
@@ -86,8 +61,7 @@
   <div class="origin-background full-width">
     <div class="col-xs-10 col-xs-offset-1 login-page-bottom-icons">
       <div class="footer-logo">
-        <!-- <SvgIcon name="blind" sizeH="20" iconPosition="left" class="logo" /> -->
-        <div class="logo-caption">Universitat Zurich</div>
+        <div class="logo"></div>
       </div>
       <div class="footer-menu-right">
         <div class="item">Datenschutz</div>
@@ -113,7 +87,6 @@ export default {
     return{
       mail: '',
       password: '',
-      newPassword: '',
       uniList: [
         {
           name: 'UZH Frontend',
@@ -123,19 +96,8 @@ export default {
         }
       ],
       accountType: 'guest',
-      errorLoginMessage: false,
-      errorRegisterMessage: false,
-      passwordForgotten: false,
-    }
-  },
-  computed: {
-    logErrorLoginMessage: function() {
-      // eslint-disable-next-line
-      return this.errorLoginMessage = true;
-    },
-    logErrorRegisterMessage: function() {
-      // eslint-disable-next-line
-      return this.errorRegisterMessage = true;
+      errorMessage: false,
+      forgottenPassword: false,
     }
   },
   methods: {
@@ -145,33 +107,20 @@ export default {
         mail: this.mail,
         password: this.password,
       }).then(() => this.$router.push('/'))
-      .catch(() => this.logErrorLoginMessage);
+      .catch(() => this.errorMessage = true);
     },
     goToRegister(val){
       this.$router.push({ name: 'register', params: { type: val }});
     },
-    goBack(){
-      this.passwordForgotten = false;
-    },
-    resetPassword(){
-      const newPass = this.newPassword;
-      const userEmail = this.mail;
+    forgotPassword(){
+      this.errorMessage = false;
       this.$store.dispatch('FORGOT_PASSWORD', {
-        email: userEmail,
-        newPassword: newPass,
-        passwordResetUrl: 'string',
-      }).then((resp) => {
-        const token = resp.data.resetToken;
-        const newPassword = newPass;
-        const payload = {newPassword, token, userEmail};
-        this.$store.dispatch('RESET_PASSWORD', payload)
-        .then(() => {
-          const mail = userEmail;
-          const password = newPass;
-          const payload = {mail, password};
-          this.$store.dispatch('LOGIN', payload)
-          .then(() => this.$router.push('/'))
-        })
+        email: this.mail,
+        passwordResetUrl: '/api/user/password-reset',
+      }).then(resp => console.log(resp.data))
+      .catch(err => {
+        console.log(err);
+        this.forgottenPassword = true;
       });
     }
   },

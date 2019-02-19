@@ -25,21 +25,21 @@
     <!-- From Guest Account -->
     <div v-show="accountType == 'guest'" class="mt-30">
       <form class="col-xs-12" @keydown.enter="register">
-        <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorRegisterMessage" />
-        <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorRegisterMessage" />
-        <SelectField :list="genderList" labelName="Gender" :required="errorRegisterMessage" @selectChange="setGender" />
-        <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorRegisterMessage"/>
-        <InputField v-model="password" typeProp="password" labelName="Password" :required="errorRegisterMessage"/>
+        <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
+        <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
+        <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
+        <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage"/>
+        <InputField v-model="password" typeProp="password" labelName="Password" :required="errorMessage"/>
       </form>
       <Btn class="col-xs-12 mt-30" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
     <!-- From University Account -->
     <div v-show="accountType == 'university'" class="mt-30">
       <form class="col-xs-12" @keydown.enter="register">
-        <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorRegisterMessage" />
-        <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorRegisterMessage" />
-        <SelectField :list="genderList" labelName="Gender" :required="errorRegisterMessage" @selectChange="setGender" />
-        <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorRegisterMessage"/>
+        <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
+        <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
+        <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
+        <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage"/>
       </form>
       <Btn class="col-xs-12 mt-30" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
@@ -48,8 +48,7 @@
   <div class="origin-background full-width">
     <div class="col-xs-10 col-xs-offset-1 login-page-bottom-icons">
       <div class="footer-logo">
-        <!-- <SvgIcon name="blind" sizeH="20" iconPosition="left" class="logo" /> -->
-        <div class="logo-caption">Universitat Zurich</div>
+        <div class="logo"></div>
       </div>
       <div class="footer-menu-right">
         <div class="item">Datenschutz</div>
@@ -87,17 +86,17 @@ export default {
         }
       ],
       gender: '',
-      errorRegisterMessage: false,
-      accountType: 'guest',
+      accountType: '',
+      errorMessage: false,
     }
   },
   created() {
-    this.accountType = this.$route.params.type;
+    this.accountType = this.$route.params.type || 'guest';
   },
   computed: {
-    logErrorRegisterMessage: function() {
+    logErrorMessage: function() {
       // eslint-disable-next-line
-      return this.errorRegisterMessage = true;
+      return this.errorMessage = true;
     }
   },
   methods: {
@@ -112,7 +111,7 @@ export default {
       }).then(userInfo => {
         this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
       })
-      .catch(() => this.logErrorRegisterMessage);
+      .catch(() => this.logErrorMessage);
     },
     setGender(value){
       this.gender = value;
