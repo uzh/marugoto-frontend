@@ -115,15 +115,6 @@ export default({
   [types.MAIL_NOTIFICATION_UPDATE] (state, payload) {
     state.mailNotifications = payload;
   },
-  [types.HANDLE_NEW_MAIL] (state, payload) {
-    state.mailNotificationState++;
-    state.mails.unshift(payload);
-  },
-  [types.SET_NEW_MAIL_AS_READ] (state) {
-    if( state.mailNotificationState > 0){
-      state.mailNotificationState--;
-    }
-  },
   [types.SAVE_MAIL_REPLY] (state, payload) {
     state.mails = state.mails.map( item => {
       if( item.id == payload.id ){

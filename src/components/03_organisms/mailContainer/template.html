@@ -10,5 +10,7 @@
     <MailBody
       v-if="get_mails.length > 0"
       :mail="get_mails[selectedIndex]" />
+    <!-- Empty mailbox display -->
+    <div v-if="get_mails.length == 0"> No mails in inbox </div>
   </div>
 </div>

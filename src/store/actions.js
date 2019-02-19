@@ -137,7 +137,7 @@ export default({
       throw(err);
     });
   },
-  [types.ADD_PERSONAL_NOTE]: ({commit, dispatch}, payload) => {
+  [types.ADD_PERSONAL_NOTE]: ({dispatch}, payload) => {
     let id = payload.id;
     return apiService.post(`notebook/${id}/personalNote?markdownContent=${payload.text}`)
     .then(() => {
@@ -170,13 +170,10 @@ export default({
       throw(err);
     });
   },
-  [types.HANDLE_NEW_MAIL]: ({commit}, payload) => {
-    commit(types.HANDLE_NEW_MAIL, payload);
-  },
-  [types.SET_NEW_MAIL_AS_READ]: ({commit}, payload) => {
-    return apiService.put(`mail/sync/${payload}?isRead=true`)
+  [types.SYNC_MAIL]: ({dispatch}, payload) => {
+    return apiService.put(`mail/sync/${payload.id}?isRead=${payload.read}`)
     .then(() => {
-      commit(types.SET_NEW_MAIL_AS_READ, payload);
+      dispatch('MAIL_LIST_UPDATE');
     })
     .catch(err => {
       throw(err);
