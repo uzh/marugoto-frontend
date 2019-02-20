@@ -34,12 +34,12 @@
     </textarea>
 
     <!-- Reply message -->
-    <div v-if="mail.mailReplyList.length > 0" class="message-reply go-left">
-      <p v-for="(reply, index) in mail.mailReplyList">{{ reply.body }}</p>
+    <div v-if="mail.mailReplyList.length > 0">
+      <div v-for="(reply, index) in mail.mailReplyList" class="message-reply go-left">{{ reply.body }}</div>
     </div>
 
     <!-- Original message -->
-    <div :class="[!sendingMail ? 'message' : 'message-inactive']">
+    <div :class="!sendingMail ? 'message' : 'message-inactive'">
         <vue-markdown :source="mail.mail.body" />
     </div>
 
