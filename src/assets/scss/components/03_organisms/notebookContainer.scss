@@ -20,6 +20,14 @@ $chapterHeight: 90px;
     &.open-entries-menu{
         padding-top:  calc(100vh - 180px);
     }
+
+    .empty-notebook {
+        @extend .h2;
+        line-height: 100vh;
+        text-align: center;
+        border-left: $border;
+        background-color: $background-hover;
+    }
 }
 
 .notebook-list {

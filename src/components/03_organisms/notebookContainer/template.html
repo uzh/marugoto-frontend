@@ -3,24 +3,28 @@
   :class="[get_layoutState.notebook.opened ? 'in' : '', 
   !entriesMenuOpened ? 'open-entries-menu' : '']"
   ref="notebookContainer">
-  <!-- Notebook List -->
-  <NotebookList
-    :selected="currentEntry"
-    :list="get_notebook.list"
-    @selectItem="setCurrentEntry"/>
-  <!-- Notebook Navigation -->
-  <NotebookChapterMenu 
-    @changeCurrentEntryTo="switchCurrentEntryTo" 
-    :currentEntry="currentEntry"
-    :list="get_notebook.list" />
-  <!-- Notebook entries -->
-  <NotebookPages 
-    :currentEntry="currentEntry"
-    :list="get_notebook.list" 
-    @toggleScroll="openEntriesMenu" />
-  <!-- Notebook Navigation -->
-  <NotebookChapterMenu 
-    @changeCurrentEntryTo="switchCurrentEntryTo" 
-    :currentEntry="currentEntry"
-    :list="get_notebook.list" />
+  <!-- Empty Notebook -->
+  <div v-if="get_notebook.list.length == 0" class="empty-notebook">No Notebook entries yet!</div>
+  <div v-if="get_notebook.list.length > 0">
+    <!-- Notebook List -->
+    <NotebookList
+      :selected="currentEntry"
+      :list="get_notebook.list"
+      @selectItem="setCurrentEntry"/>
+    <!-- Notebook Navigation -->
+    <NotebookChapterMenu 
+      @changeCurrentEntryTo="switchCurrentEntryTo" 
+      :currentEntry="currentEntry"
+      :list="get_notebook.list" />
+    <!-- Notebook entries -->
+    <NotebookPages 
+      :currentEntry="currentEntry"
+      :list="get_notebook.list" 
+      @toggleScroll="openEntriesMenu" />
+    <!-- Notebook Navigation -->
+    <NotebookChapterMenu 
+      @changeCurrentEntryTo="switchCurrentEntryTo" 
+      :currentEntry="currentEntry"
+      :list="get_notebook.list" />
+  </div>
 </div>

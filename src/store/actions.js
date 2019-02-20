@@ -179,10 +179,13 @@ export default({
       throw(err);
     });
   },
-  [types.SAVE_MAIL_REPLY]: ({commit}, payload) => {
+  [types.SAVE_MAIL_REPLY]: ({commit, dispatch}, payload) => {
     return apiService.put(`mail/reply/${payload.id}?replyText=${payload.text}`)
     .then(() => {
       commit(types.SAVE_MAIL_REPLY, payload);
+    })
+    .then(() => {
+      dispatch('MAIL_LIST_UPDATE');
     })
     .catch(err => {
       throw(err);

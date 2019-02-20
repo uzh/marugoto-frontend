@@ -8,7 +8,8 @@
 		disabled ? 'disabled' : ''
 	]">
 	<span>{{ text }}</span>
-	<svgIcon 
+	<svgIcon
+		v-if="iconName"
 		:name="iconName"
 		:customColor="iconColor"
 		sizeH="20px"
