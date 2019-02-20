@@ -1,15 +1,23 @@
 .topic-container {
-    height: calc(100vh - 90px);
-    width: 100%;
+    position: absolute;
+    top: 0;
+    height: 100vh;
+    z-index: 11;
+    background-color: $white;
+
+    .topic-header {
+        height: 30%;
+        padding: 100px 0;
+    }
 
     .topics {
+        height: 70%;
         width: 100%;
-        position: relative;
 
         .topics-div {
             @extend .col-xs-3;
-            position: relative;
-            margin-top: 130px;
+            position: absolute;
+            bottom: 0;
 
             &:hover {
                 .topic-image {
@@ -158,6 +166,12 @@
                 z-index: 2;
                 transition: all 0.3s;
 
+                .title {
+                    p {
+                        @extend .h5;
+                    }
+                }
+
                 &-more {
                     width: 100%;
                     height: 200px;
@@ -169,6 +183,12 @@
                     z-index: 2;
                     transition: all 0.3s;
                     height: 130px;
+
+                    .title {
+                        p {
+                            @extend .h5;
+                        }
+                    }
 
                     &:before {
                         content: "";

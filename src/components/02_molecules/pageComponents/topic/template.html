@@ -1,7 +1,7 @@
 <div class="topic-container">
-  <div class="col-xs-10 col-xs-offset-1">
-      <h1 class="storyline-title mb-40 mt-30">Topic Selection</h1>
-      <p class="lead mb-100">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</p>
+  <div class="topic-header col-xs-10 col-xs-offset-1">
+      <h1 class="storyline-title mb-40">Topic Selection</h1>
+      <p class="lead">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</p>
   </div>
   <!-- Topics -->
   <div class="topics">
@@ -16,7 +16,7 @@
         </div>
       </div>
       <div :class="list.length > 4 ? 'topic-folder-more' : 'topic-folder'">
-        <vue-markdown :source="topic.title" />
+        <vue-markdown class="title" :source="topic.title" />
         <Btn
           @click="$emit('openTopic', topic.id)"
           class="topic-button"

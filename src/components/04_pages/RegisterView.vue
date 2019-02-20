@@ -2,14 +2,17 @@
 <div>
   <!-- Left menu -->
   <div class="col-xs-1 rotated-text-login-page">
-    <div class="item">Welcome</div>
-    <div class="item disabled">Reviews</div>
-    <div class="item disabled">Collaborations</div>
+    <h6 class="item">Welcome</h6>
+    <h6 class="item disabled">Reviews</h6>
+    <h6 class="item disabled">Collaborations</h6>
   </div>
   <!-- Left Text -->
   <div class="wrapper-container col-xs-5">
-    <h1 class="page-title">Welcome to Lives in Transit!</h1>
-    <p class="lead-text">Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
+    <h2 class="page-title mb-50">Welcome to Lives in Transit!</h2>
+    <p>Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
+    <br>
+    <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
+    <br>
     <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
   </div>
   <!-- Empty column -->
@@ -20,28 +23,28 @@
   </div>
   <!-- Register Form -->
   <div class="wrapper-container col-xs-4">
-    <h1 class="page-title">Create Account</h1>
-    <p class="lead">Enter your Data</p>
+    <h3 class="page-title mb-60">Create Account</h3>
+    <p class="lead mb-10">Enter your Data</p>
     <!-- From Guest Account -->
     <div v-show="accountType == 'guest'" class="mt-30">
-      <form class="col-xs-12" @keydown.enter="register">
+      <form class="full-width" @keydown.enter="register">
         <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
         <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
         <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
         <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage"/>
         <InputField v-model="password" typeProp="password" labelName="Password" :required="errorMessage"/>
       </form>
-      <Btn class="col-xs-12 mt-30" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
+      <Btn class="full-width" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
     <!-- From University Account -->
     <div v-show="accountType == 'university'" class="mt-30">
-      <form class="col-xs-12" @keydown.enter="register">
+      <form class="full-width" @keydown.enter="register">
         <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
         <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
         <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
         <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage"/>
       </form>
-      <Btn class="col-xs-12 mt-30" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
+      <Btn class="full-width" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
   </div>
   <!-- Background Image/Footer menu -->

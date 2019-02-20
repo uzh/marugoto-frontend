@@ -17,35 +17,49 @@ $border: 1px solid #ddd;
 
 // Main container - login/create account
 .wrapper-container {
-  height: 75vh;
-  overflow: scroll;
   z-index: 1;
 
   .page-title {
     font-weight: inherit;
   }
 
-  .lead-text {
+  .lead {
     @extend .lead;
-    margin-bottom: 55px;
-    margin-top: 30px;
+  }
+
+  p {
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: 0.2px;
   }
 
   .choose-account {
-    width: 50%;
+    width: 48%;
     display: inline-block;
     cursor: pointer;
+  }
+
+  .middle-arrow {
+    display: inline-block;
+    position: relative;
+    right: 10px;
+    bottom: 0;
+    width: 4%;
+    height: 20px;
+    border-right: $border;
+    
+    transform: rotate(30deg);
   }
 }
 
 .back-to-login {
   position: relative;
-  top: 30px;
+  top: 10px;
   cursor: pointer;
 }
 
 .rotated-text-login-page {
-  top: 90px;
+  top: 40px;
   transform: rotate(90deg);
   z-index: 1;
   & .item {
@@ -59,7 +73,7 @@ $border: 1px solid #ddd;
   background: url('assets/images/Login_Map.jpg') center;
   min-height: calc(100% - 90px);
   position: absolute;
-  top: 30%;
+  top: 40%;
 
   .login-page-bottom-icons {
     position: absolute;
