@@ -1,7 +1,5 @@
 <div class="inbox-mail-body-container go-right">
-  <div v-if="!mail">
-    <h2>No mail selected</h2>
-  </div>
+  <div v-if="!mail" class="no-mails">No mail selected</div>
   <div v-if="mail">
     <!-- Mail Heading -->
     <div class="sender">

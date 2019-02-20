@@ -3,12 +3,9 @@
   position: absolute;
   top: $elements-space;
   left: 100%;
-  z-index: 2;
-
   width: calc(100% - 90px);
-  padding: 0 20px;
   background: white;
-  
+  z-index: 2;
   transform: translateX(-90px);
 
   &.in{
@@ -45,15 +42,23 @@
         color: rgba(22, 54, 94, 0.4);
       }
     }
-    &.active {
-      background-color: rgba(22, 54, 94, 0.06);
-      p{
-        color: rgba(22, 54, 94, 0.4);
+
+    .mail-unread-dot {
+      @extend .col-xs-1;
+
+      .dot {
+        position: absolute;
+        top: 14px;
+        left: 14px;
+        width: 14px;
+        height: 14px;
+        background-color: $base-accent;
+        border-radius: 50%;
       }
     }
 
     h6 {
-      @extend .col-xs-8;
+      @extend .col-xs-7;
       @extend .h6;
       padding-top: 10px;
     }
@@ -83,30 +88,37 @@
 .inbox-mail-body-container{
   @extend .col-xs-8;
   height: calc(100vh - 90px);
-  padding-top: 50px;
   border-left: $base-ghost-border;
   overflow-y: scroll;
+
+  .no-mails {
+    @extend .h1;
+    line-height: 100vh;
+    text-align: center;
+    background-color: $background-hover;
+  }
 
   .sender {
     @extend .col-xs-10;
     @extend .col-xs-push-1;
-    @extend .h5;
-    padding-top: 20px;
+    padding-top: 50px;
     position: relative;
 
+    h5 {
+      @extend .h5;
+      float: left;
+      width: 70%;
+    }
+
     button {
-      position: absolute;
-      right: 0;
-      top: 25%;
-      font-size: initial;
-      width: auto;
-      padding: 10px 30px;
+      float: left;
+      width: 30%;
+      padding: 10px;
       border: $base-ghost-border;
     }
 
     .send-mail-button {
       z-index: 1;
-      width: 25%;
     }
   }
 
@@ -136,12 +148,14 @@
     @extend .col-xs-offset-1;
     @extend .p;
     margin-top: 50px;
+    margin-bottom: 50px;
     &-inactive {
       @extend .p;
       color: $base-secondary;
       position: relative;
       top: 20px;
       margin-left: 8.33%;
+      margin-bottom: 50px;
       padding: 30px 20px 0 20px;
       float: left;
       border-left: 2px solid #3380DE;
@@ -162,7 +176,8 @@
       margin-top: 30px;
       padding-top: 30px;
       min-height: 300px;
-      height: max-content;
+      resize: none;
+      white-space: pre-wrap;
     }
   }
 
