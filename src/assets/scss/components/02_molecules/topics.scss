@@ -1,14 +1,8 @@
 .topic-container {
-    position: absolute;
-    top: 0;
-    height: 100%;
-    z-index: 11;
-    background-color: $white;
+    height: calc(100vh - 90px);
 
     .topic-header {
-        padding-top: 140px;
-        z-index: 12;
-        background-color: white;
+        padding-top: 50px;
     }
 
     .topics {

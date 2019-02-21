@@ -46,7 +46,7 @@
             .text-area-exercise {
                 position: relative;
                 box-sizing: border-box;
-                height: 50px;
+                height: 100px;
                 width: 100%;
                 box-shadow: 0 1px 0 0 $base-primary;
                 &.bordered {
@@ -55,7 +55,7 @@
 
                 textarea {
                     width: 100%;
-                    height: 50px;
+                    height: 100px;
                     resize: none;
                     padding: 10px;
                     &:focus {
