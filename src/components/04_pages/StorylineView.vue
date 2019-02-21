@@ -46,6 +46,40 @@ export default {
   data() {
     return {
       dialogVisible: false,
+      topicList: [
+        {
+          id: '11431513',
+          title: 'Topic 1',
+        },
+        {
+          id: '1cr3d13r1f',
+          title: 'Topic 2',
+        },
+        {
+          id: 'etsrgvfd',
+          title: 'Topic 3',
+        },
+        {
+          id: '45tgwd',
+          title: 'Topic 4',
+        },
+        {
+          id: 'ty4thetserg',
+          title: 'Topic 5',
+        },
+        {
+          id: '5grtwh6th4',
+          title: 'Topic 6',
+        },
+        {
+          id: 'h46j7k6tjy',
+          title: 'Topic 7',
+        },
+        {
+          id: 'wdscwe',
+          title: 'Topic 8',
+        },
+      ]
     };
   },
   created() {

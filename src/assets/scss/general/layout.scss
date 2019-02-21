@@ -43,7 +43,7 @@ $border: 1px solid #ddd;
     display: inline-block;
     position: relative;
     right: 10px;
-    bottom: 0;
+    bottom: 2px;
     width: 4%;
     height: 20px;
     border-right: $border;
@@ -63,6 +63,7 @@ $border: 1px solid #ddd;
   transform: rotate(90deg);
   z-index: 1;
   & .item {
+    @extend .h6;
     display: inline;
     margin-right: 30px;
   }

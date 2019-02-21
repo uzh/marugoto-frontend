@@ -2,9 +2,9 @@
 <div>
   <!-- Left menu -->
   <div class="col-xs-1 rotated-text-login-page">
-    <h6 class="item">Welcome</h6>
-    <h6 class="item disabled">Reviews</h6>
-    <h6 class="item disabled">Collaborations</h6>
+    <p class="item">Welcome</p>
+    <p class="item disabled">Reviews</p>
+    <p class="item disabled">Collaborations</p>
   </div>
   <!-- Left Text -->
   <div class="wrapper-container col-xs-5">
