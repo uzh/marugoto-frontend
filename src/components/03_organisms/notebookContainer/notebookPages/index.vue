@@ -50,6 +50,7 @@ export default {
     currentEntry: function(newVal, oldVal) {
       if( newVal != oldVal ){
         this.$store.dispatch('REQUEST_PERSONAL_NOTE', this.list[this.currentEntry].id);
+        this.openedPersonalNote= false;
       }
     },
     personalNoteNotebookEntryId: function(newVal, oldVal) {

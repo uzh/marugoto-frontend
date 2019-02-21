@@ -14,8 +14,6 @@ export default {
     return {
       selectedValue: '',
       listOpened: false,
-      activatedValidation: false,
-      optionSelected: false,
     };
   },
   created() {
@@ -32,13 +30,7 @@ export default {
       if (( el !== target) && !el.contains(target)) {
         this.listOpened = false;
       }
-      this.onOptionSelected();
     },
-    onOptionSelected() {
-      if (this.activatedValidation) {
-        this.optionSelected = true;
-      }
-    }
   },
   destroyed () {
     document.removeEventListener('click', this.blurSelect);

@@ -10,11 +10,7 @@
                     <use xlink:href="#path-1"></use>
                 </mask>
                 <use id="Mask" fill="#2B2B2A" fill-rule="nonzero" xlink:href="#path-1"></use>
-                <g id="Base/Primary" mask="url(#mask-2)" fill="#8C8B89">
-                    <g transform="translate(-18.000000, -14.000000)" id="Rectangle">
-                        <rect x="0" y="0" width="40" height="40"></rect>
-                    </g>
-                </g>
+                <g id="Base/Primary" mask="url(#mask-2)" fill="#8C8B89"></g>
             </g>
         </g>
     </g>

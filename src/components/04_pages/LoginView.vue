@@ -20,18 +20,20 @@
   <!-- Login Form -->
   <div class="wrapper-container col-xs-4">
     <h3 class="page-title mb-60">Login</h3>
-    <p class="lead choose-account"
-      :class="accountType == 'university' ? '' : 'opacity'"
-      @click="accountType = 'university'">University Account
-    </p>
-    <div class="middle-arrow"></div>
-    <p class="lead choose-account"
-      :class="accountType == 'guest' ? '' : 'opacity'"
-      @click="accountType = 'guest'">Guest Account
-    </p>
+    <div>
+      <p class="lead choose-account"
+        :class="accountType == 'university' ? '' : 'opacity'"
+        @click="accountType = 'university'">University Account
+      </p>
+      <div class="middle-arrow"></div>
+      <p class="lead choose-account"
+        :class="accountType == 'guest' ? '' : 'opacity'"
+        @click="accountType = 'guest'">Guest Account
+      </p>
+    </div>
 
     <!-- University Account Form -->
-    <div v-show="accountType == 'university'" class="mt-50">
+    <div v-show="accountType == 'university'" class="mt-40">
       <p class="lead mb-10">Account</p>
       <div>
         <SelectField labelName="Select University" :list="uniList" />
@@ -45,11 +47,11 @@
     </div>
 
     <!-- Guest Account Form -->
-    <div v-show="accountType == 'guest'" class="mt-50">
+    <div v-show="accountType == 'guest'" class="mt-40">
       <p class="lead mb-10">Account</p>
       <div v-if="!enterNewPassword">
         <form @keydown.enter="login">
-          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" />
+          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" iconName="info" />
           <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
         </form>
         <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />

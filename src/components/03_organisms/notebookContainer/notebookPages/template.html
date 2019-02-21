@@ -3,9 +3,11 @@
     class="pageDisplay"
     v-for="(page, index) in list" 
     :key="index"
-    :class="[ index == currentEntry ? 'np-front' : '', 
-              index == currentEntry + 1 ? 'np-middle' : '', 
-              index == currentEntry - 1 ? 'np-back' : '']">
+    :class="[ index == currentEntry ? 'np-front' : '',
+              index == currentEntry + 1 ? 'np-middle' : '',
+              index == currentEntry - 1 ? 'np-back' : '',
+              index == currentEntry - 1 && currentEntry == list.length - 1 ? 'np-middle' : ''
+            ]">
     <!-- Notebook page header -->
     <div class="notebook-header">
       <h2 class="title">{{ page.title }}</h2>
@@ -48,7 +50,8 @@
       </div>
       <Btn
         @click.native="addPersonalNote(page.id)"
-        class="mt-40 button-personal-note"
+        class="button-personal-note"
+        :class="openedPersonalNote ? 'inactive' : ''"
         text="Add a personal note"
         primary="true"
         iconName="plus"
