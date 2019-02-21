@@ -56,9 +56,6 @@ export default {
         this.focused = false;
       }
     },
-    showTooltip: function () {
-      
-    }
   }
 };
 </script>

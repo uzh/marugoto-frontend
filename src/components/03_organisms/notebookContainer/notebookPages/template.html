@@ -43,7 +43,17 @@
       <div class="personal-note-box" :class="openedPersonalNote ? 'opened' : ''">
         <!-- <p style="visibility: visible">20.5.2018 - 10:48 - Spreckensville</p> -->
         <textarea v-model="personalNoteText"></textarea>
-        <div class="col-xs-10 col-xs-push-1">
+        <div v-if="personalNoteText != ''">
+          <div class="small go-right autosave-confirm">Typing...</div>
+        </div>
+        <!-- <div v-if="personalNoteText != ''">
+          <div class="small go-right autosave-confirm">Autosaving...</div>
+        </div> -->
+        <!-- <div v-if="personalNoteText != ''">
+          <svgIcon name="check" sizeH="35px" class="go-right" />
+          <div class="small go-right autosave-confirm">Autosaved</div>
+        </div> -->
+        <div class="col-xs-10 col-xs-push-1 mt-30">
           <button class="cancel" @click="cancelPersonalNote">Cancel</button>
           <button @click="submitPersonalNote">Done</button>
         </div>

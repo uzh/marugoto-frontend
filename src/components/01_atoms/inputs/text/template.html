@@ -11,7 +11,7 @@
 			v-on:blur="setFocus(false)"
 			v-on:focus="setFocus(true)"
 			@input="updateEmitVal" />
-			<div @mouseover="showTooltip">
+			<div>
 				<svgIcon v-if="iconName" :name="iconName" sizeH="20px" class="input-icon" />
 			</div>
 	</div>

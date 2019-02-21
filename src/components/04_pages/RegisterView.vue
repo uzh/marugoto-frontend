@@ -31,7 +31,7 @@
         <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
         <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
         <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
-        <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage"/>
+        <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
         <InputField v-model="password" typeProp="password" labelName="Password" :required="errorMessage"/>
       </form>
       <Btn class="full-width" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
@@ -42,7 +42,7 @@
         <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
         <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
         <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
-        <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage"/>
+        <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
       </form>
       <Btn class="full-width" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
