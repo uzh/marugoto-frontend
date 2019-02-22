@@ -9,6 +9,7 @@
 	]">
 	<span>{{ text }}</span>
 	<svgIcon 
+		v-if="iconName"
 		:name="iconName"
 		:customColor="iconColor"
 		sizeH="20px"

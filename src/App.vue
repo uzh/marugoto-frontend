@@ -23,11 +23,6 @@ import NotificationCmpt from './components/01_atoms/notificationCmpt';
 
 export default{
   components: { NotebookContainer, MailContainer, Topbar, RightSidebar, NotificationCmpt },
-  data() {
-    return {
-      
-    };
-  },
   computed: {
     ...mapGetters([
       'get_status',
@@ -45,9 +40,6 @@ export default{
         return;
       }
     }
-  },
-  created(){
-    
   },
 }
 
