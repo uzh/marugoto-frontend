@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "axios": "^0.18.0",
+    "lodash": "^4.17.11",
     "v-calendar": "^0.9.7",
     "vue": "^2.5.17",
     "vue-markdown": "^2.2.4",

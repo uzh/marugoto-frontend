@@ -1,6 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
+import {_debounce} from 'lodash';
 import svgIcon from '@/components/01_atoms/svgicon';
 import Btn from '@/components/01_atoms/buttons';
 import VueMarkdown from 'vue-markdown';
@@ -15,6 +16,8 @@ export default {
       openedPersonalNote: false,
       personalNoteNotebookEntryId: '',
       personalNoteText: '',
+      autosaveText: '',
+      autosavedText: '',
     }
   },
   created() {
@@ -45,6 +48,19 @@ export default {
     cancelPersonalNote: function() {
       this.openedPersonalNote = false;
     },
+    updateNoteText: function() {
+      this.autosaveText = this.personalNoteText;
+    },
+    updatedNoteText: function() {
+      this.autosaveText = '';
+      this.autosavedText = this.personalNoteText;
+    },
+    checkTyping: _.debounce(function() {
+      this.updateNoteText();
+      setTimeout(() => {
+        this.updatedNoteText()
+      }, 1000);
+    }, 2000),
   },
   watch: {
     currentEntry: function(newVal, oldVal) {
