@@ -50,6 +50,14 @@ $border: 1px solid #ddd;
     
     transform: rotate(30deg);
   }
+
+  .login-error-message {
+    margin: 10px 0;
+    color: $base-accent;
+    font-size: 17px;
+    line-height: 26px;
+    letter-spacing: 0.2px;
+  }
 }
 
 .back-to-login {
@@ -71,7 +79,7 @@ $border: 1px solid #ddd;
 
 .origin-background {
   width: 100%;
-  background: url('assets/images/Login_Map.jpg') center;
+  background: url('assets/images/Login_Map.jpg') center no-repeat;
   min-height: calc(100% - 90px);
   position: absolute;
   top: 40%;

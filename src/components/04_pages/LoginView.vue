@@ -54,6 +54,7 @@
           <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" iconName="info" />
           <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
         </form>
+        <div v-if="errorText" class="login-error-message">{{ errorText }}</div>
         <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
         <Btn text="Forgot Password?" ghost="true" @click.native="forgotPassword" class="mt-10 mb-40" />
       </div>
@@ -109,6 +110,7 @@ export default {
       ],
       accountType: 'guest',
       errorMessage: false,
+      errorText: '',
       forgottenPassword: false,
       enterNewPassword: false,
     }
@@ -116,26 +118,38 @@ export default {
   methods: {
     ...mapActions(['LOGIN']),
     login(){
-      this.$store.dispatch('LOGIN', {
-        mail: this.mail,
-        password: this.password,
-      }).then(() => this.$router.push('/'))
-      .catch(() => this.errorMessage = true);
+      if ( this.mail == '' || this.password == '') {
+        this.errorMessage = true;
+        this.errorText = '';
+      } else {
+        this.$store.dispatch('LOGIN', {
+          mail: this.mail,
+          password: this.password,
+        }).then(() => this.$router.push('/'))
+        .catch((err) => {
+          this.errorText = err.response.data.message;
+          this.errorMessage = true
+        });
+      }
     },
     goToRegister(val){
       this.$router.push({ name: 'register', params: { type: val }});
     },
     forgotPassword(){
       this.errorMessage = false;
-      this.$store.dispatch('FORGOT_PASSWORD', {
-        email: this.mail,
-        passwordResetUrl: '/api/user/password-reset',
-      }).then(() => {
-        alert('Please check your own email inbox for further information.');
-      })
-      .catch(() => {
+      if ( this.mail == '' ) {
         this.forgottenPassword = true;
-      });
+      } else {
+        this.$store.dispatch('FORGOT_PASSWORD', {
+          email: this.mail,
+          passwordResetUrl: '/api/user/password-reset',
+        }).then(() => {
+          alert('Please check your email inbox for further information.');
+        })
+        .catch(() => {
+          this.forgottenPassword = true;
+        });
+      }
     }
   },
 }
