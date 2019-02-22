@@ -65,20 +65,17 @@ $height: 50px;
                 border: $base-ghost-border;
                 cursor: pointer;
             }
-            // &.disabled {
-            //     pointer-events: none;
-            //     color: #EAEDF0;
-            // }
         }
     }
+}
 
-    .errorMessage {
-        position: absolute;
-        top: 50px;
-        padding-top: 3px;
-        width: 100%;
-        font-size: 0.75rem;
-        color: $base-accent;
-        border-top: 2px solid $base-accent;
-    }
+.errorMessage {
+    position: relative;
+    top: -10px;
+    height: 20px;
+    width: 100%;
+    padding-top: 3px;
+    font-size: 0.75rem;
+    color: $base-accent;
+    border-top: 2px solid $base-accent;
 }

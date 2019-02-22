@@ -1,11 +1,13 @@
 <div class="notebook-content">
-  <div 
+  <div
     class="pageDisplay"
     v-for="(page, index) in list" 
     :key="index"
-    :class="[ index == currentEntry ? 'np-front' : '', 
-              index == currentEntry + 1 ? 'np-middle' : '', 
-              index == currentEntry - 1 ? 'np-back' : '']">
+    :class="[ index == currentEntry ? 'np-front' : '',
+              index == currentEntry + 1 ? 'np-middle' : '',
+              index == currentEntry - 1 ? 'np-back' : '',
+              index == currentEntry - 1 && currentEntry == list.length - 1 ? 'np-middle' : ''
+            ]">
     <!-- Notebook page header -->
     <div class="notebook-header">
       <h2 class="title">{{ page.title }}</h2>
@@ -41,14 +43,25 @@
       <div class="personal-note-box" :class="openedPersonalNote ? 'opened' : ''">
         <!-- <p style="visibility: visible">20.5.2018 - 10:48 - Spreckensville</p> -->
         <textarea v-model="personalNoteText"></textarea>
-        <div class="col-xs-10 col-xs-push-1">
+        <div v-if="personalNoteText != ''">
+          <div class="small go-right autosave-confirm">Typing...</div>
+        </div>
+        <!-- <div v-if="personalNoteText != ''">
+          <div class="small go-right autosave-confirm">Autosaving...</div>
+        </div> -->
+        <!-- <div v-if="personalNoteText != ''">
+          <svgIcon name="check" sizeH="35px" class="go-right" />
+          <div class="small go-right autosave-confirm">Autosaved</div>
+        </div> -->
+        <div class="col-xs-10 col-xs-push-1 mt-30">
           <button class="cancel" @click="cancelPersonalNote">Cancel</button>
           <button @click="submitPersonalNote">Done</button>
         </div>
       </div>
       <Btn
         @click.native="addPersonalNote(page.id)"
-        class="mt-40 button-personal-note"
+        class="button-personal-note"
+        :class="openedPersonalNote ? 'inactive' : ''"
         text="Add a personal note"
         primary="true"
         iconName="plus"

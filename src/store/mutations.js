@@ -117,8 +117,8 @@ export default({
   },
   [types.SAVE_MAIL_REPLY] (state, payload) {
     state.mails = state.mails.map( item => {
-      if( item.id == payload.id ){
-        item.replied = { text: payload.text };
+      if( item.mail.id == payload.id ){
+        item.mailReplyList = { text: payload.text };
       }
       return item;
     });

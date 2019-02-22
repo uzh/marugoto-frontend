@@ -1,4 +1,4 @@
-$padding-top: 90px;
+$top: 90px;
 
 #show-dialog, .dialog-close-button {
   position: absolute;
@@ -12,7 +12,7 @@ $padding-top: 90px;
 
 .dialog-mask {
   position: fixed;
-  z-index: 0;
+  z-index: 1;
   top: 0;
   left: 0;
   width: calc(100% - 90px);
@@ -33,20 +33,21 @@ $padding-top: 90px;
   transition: all .3s ease;
 
   .dialog-left {
-    @extend .col-xs-3;
-    padding-top: $padding-top;
+    position: fixed;
+    padding-top: $top;
+    width: 20%;
     height: 100%;
 
     .dialog-image {
-      // margin-bottom: 90px;
       width: 100%;
     }
   }
 
   .dialog-right {
-    @extend .col-xs-7;
+    width: 50%;
     height: 100%;
-    padding-top: $padding-top;
+    padding-top: $top;
+    margin-left: 30%;
 
     .dialog-buttons-div {
       margin: 50px 0;
@@ -54,6 +55,7 @@ $padding-top: 90px;
       .dialog-button {
         width: 40%;
         margin: 0 5%;
+        padding: 0 2rem;
         display: inline-block;
       }
     }

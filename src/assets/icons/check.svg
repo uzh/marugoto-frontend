@@ -1,13 +1,7 @@
-<svg width="18px" height="14px" viewBox="0 0 18 14" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <polygon id="path-1" points="22 10 24 10 24 26 16 26 16 24 22 24"></polygon>
-    </defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icon/OK" transform="translate(-11.000000, -13.000000)">
-            <mask id="mask-2" fill="white">
-                <use xlink:href="#path-1"></use>
-            </mask>
-            <path stroke="#979797" d="M22.5,10.5 L22.5,24.5 L16.5,24.5 L16.5,25.5 L23.5,25.5 L23.5,10.5 L22.5,10.5 Z"></path>
-        </g>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs></defs>
+    <g id="Icon/OK" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Base/Black"></g>
+        <path d="M22.5,10.5 L22.5,24.5 L16.5,24.5 L16.5,25.5 L23.5,25.5 L23.5,10.5 L22.5,10.5 Z" id="Rectangle-4" stroke="#979797" fill="#D8D8D8" transform="translate(20.000000, 18.000000) rotate(40.000000) translate(-20.000000, -18.000000) "></path>
     </g>
 </svg>

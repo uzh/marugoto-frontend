@@ -3,12 +3,17 @@
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
     <TopicComponent v-if="!get_topic.selected" :list="get_topic.list" @openTopic="chooseTopic"/>
     <div class="storyline-container" v-if="get_topic.selected">
-      <vue-markdown class="storyline-title mb-40 mt-30 h1" :source="get_page.title" />
+      <div class="storyline-title mb-40 mt-30">
+        <div class="page-title-icon-container">
+          <div class="icon"></div>
+        </div>
+        <vue-markdown :source="get_page.title" />
+      </div>
       <!-- Components -->
       <PageComponents />
       <!-- Dialog -->
       <DialogComponent v-if="dialogVisible" v-for="(dialog, index) in get_dialog" :key="index"
-        class="mb-40" 
+        class="mb-40"
         @emitDialog="dialogOptionEmited"
         :text="dialog.speech.markdownContent"
         :source="`http://localhost:8080/${dialog.from.image.path}`"

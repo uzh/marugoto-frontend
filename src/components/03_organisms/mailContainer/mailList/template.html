@@ -1,12 +1,16 @@
-<ul class="inbox-mail-list-container go-left">
-  <li v-for="(item, index) in list" :key="index"
-    class="inbox-mail-list-container-li"
-    :class="index == selectedIndex ? 'active' : ''"
-    @click="emitMailListClick(index, item.mail.id)">
-    <h6>{{ item.mail.from.name }}</h6>
-    <!-- <p class="current-date-time">Today, 14:28</p> -->
-    <div class="shortMail">
-      <vue-markdown :html="!falseHtml" :source="item.mail.body" />
-    </div>
-  </li>
-</ul>
+<div class="inbox-mail-list-container go-left">
+  <ul>
+    <li v-for="(item, index) in list" :key="index"
+      class="inbox-mail-list-container-li"
+      @click="emitMailListClick(index, item.mail.id)">
+      <div v-if="!item.read" class="mail-unread-dot">
+        <div class="dot"></div>
+      </div>
+      <h6>{{ item.mail.from.name }}</h6>
+      <!-- <p class="current-date-time">Today, 14:28</p> -->
+      <div class="shortMail">
+        <vue-markdown :html="!falseHtml" :source="item.mail.body" />
+      </div>
+    </li>
+  </ul>
+</div>

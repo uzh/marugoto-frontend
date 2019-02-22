@@ -2,38 +2,42 @@
 <div>
   <!-- Left menu -->
   <div class="col-xs-1 rotated-text-login-page">
-    <div class="item">Welcome</div>
-    <div class="item disabled">Reviews</div>
-    <div class="item disabled">Collaborations</div>
+    <p class="item">Welcome</p>
+    <p class="item disabled">Reviews</p>
+    <p class="item disabled">Collaborations</p>
   </div>
   <!-- Left Text -->
   <div class="wrapper-container col-xs-5">
-    <h1 class="page-title">Welcome to Lives in Transit!</h1>
-    <p class="lead-text">Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
+    <h2 class="page-title mb-50">Welcome to Lives in Transit!</h2>
+    <p>Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
+    <br>
+    <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
+    <br>
     <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
   </div>
   <!-- Empty columns -->
   <div class="col-xs-2"></div>
   <!-- Login Form -->
   <div class="wrapper-container col-xs-4">
-    <h1 class="page-title">Login</h1>
-    <div
-      class="lead choose-account"
-      :class="accountType == 'university' ? '' : 'opacity'"
-      @click="accountType = 'university'">University Account
-    </div>
-    <div
-      class="lead choose-account"
-      :class="accountType == 'guest' ? '' : 'opacity'"
-      @click="accountType = 'guest'">Guest Account
+    <h3 class="page-title mb-60">Login</h3>
+    <div>
+      <p class="lead choose-account"
+        :class="accountType == 'university' ? '' : 'opacity'"
+        @click="accountType = 'university'">University Account
+      </p>
+      <div class="middle-arrow"></div>
+      <p class="lead choose-account"
+        :class="accountType == 'guest' ? '' : 'opacity'"
+        @click="accountType = 'guest'">Guest Account
+      </p>
     </div>
 
     <!-- University Account Form -->
-    <div v-show="accountType == 'university'" class="mt-50">
-      <p class="lead">Account</p>
+    <div v-show="accountType == 'university'" class="mt-40">
+      <p class="lead mb-10">Account</p>
       <div>
         <SelectField labelName="Select University" :list="uniList" />
-        <Btn text="Login" primary="true" iconName="arrow-right" iconColor="#979797" />
+        <Btn text="Login" primary="true" iconName="arrow-right" iconColor="#979797" class="mb-40"/>
       </div>
       <p class="lead mt-30">I'm a first time User</p>
       <form class="mt-10">
@@ -43,15 +47,23 @@
     </div>
 
     <!-- Guest Account Form -->
-    <div v-show="accountType == 'guest'" class="mt-50">
-      <p class="lead">Account</p>
-      <div>
+    <div v-show="accountType == 'guest'" class="mt-40">
+      <p class="lead mb-10">Account</p>
+      <div v-if="!enterNewPassword">
         <form @keydown.enter="login">
-          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" />
+          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" iconName="info" />
           <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
         </form>
         <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
-        <Btn text="Forgot Password?" ghost="true" @click.native="forgotPassword" class="mt-10" />
+        <Btn text="Forgot Password?" ghost="true" @click.native="forgotPassword" class="mt-10 mb-40" />
+      </div>
+      <!-- Enter New Password -->
+      <div v-if="enterNewPassword">
+        <form>
+          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" />
+          <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Enter New Password" />
+        </form>
+        <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
       </div>
       <p class="lead mt-30">I'm a first time User</p>
       <Btn @click.native="goToRegister('guest')" text="Create Account" ghost="true" iconName="arrow-right" iconColor="#979797" />
@@ -98,6 +110,7 @@ export default {
       accountType: 'guest',
       errorMessage: false,
       forgottenPassword: false,
+      enterNewPassword: false,
     }
   },
   methods: {
@@ -117,9 +130,10 @@ export default {
       this.$store.dispatch('FORGOT_PASSWORD', {
         email: this.mail,
         passwordResetUrl: '/api/user/password-reset',
-      }).then(resp => console.log(resp.data))
-      .catch(err => {
-        console.log(err);
+      }).then(() => {
+        alert('Please check your own email inbox for further information.');
+      })
+      .catch(() => {
         this.forgottenPassword = true;
       });
     }
