@@ -34,6 +34,11 @@
         <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
         <InputField v-model="password" typeProp="password" labelName="Password" :required="errorMessage"/>
       </form>
+      <div v-if="errorText" class="login-error-message">
+        <p>{{ errorText.text }}</p>
+        <p v-if="errorText.errorList.mail">- {{ errorText.errorList.mail }}</p>
+        <p v-if="errorText.errorList.password">- {{ errorText.errorList.password }}</p>
+      </div>
       <Btn class="full-width" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
     <!-- From University Account -->
@@ -44,6 +49,11 @@
         <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
         <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
       </form>
+      <div v-if="errorText" class="login-error-message">
+        <p>{{ errorText.text }}</p>
+        <p v-if="errorText.errorList.mail">- {{ errorText.errorList.mail }}</p>
+        <p v-if="errorText.errorList.password">- {{ errorText.errorList.password }}</p>
+      </div>
       <Btn class="full-width" @click.native="register" text="Create Account" primary="true" iconName="arrow-right" iconColor="#979797" />
     </div>
   </div>
@@ -91,6 +101,13 @@ export default {
       gender: '',
       accountType: '',
       errorMessage: false,
+      errorText: {
+        text: '',
+        errorList: {
+          mail: '',
+          password: '',
+        },
+      },
     }
   },
   created() {
@@ -105,16 +122,26 @@ export default {
   methods: {
     ...mapActions(['REGISTER']),
     register(){
-      this.$store.dispatch('REGISTER',{
-        firstName: this.firstName,
-        lastName: this.lastName,
-        mail: this.mail,
-        password: this.password,
-        salutation: this.gender
-      }).then(userInfo => {
-        this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
-      })
-      .catch(() => this.logErrorMessage);
+      if ( this.firstName == '' || this.lastName == '' || this.mail == '' || this.password == '' || this.salutation == '') {
+        this.errorMessage = true;
+        this.errorText.text = '';
+      } else {
+        this.$store.dispatch('REGISTER',{
+          firstName: this.firstName,
+          lastName: this.lastName,
+          mail: this.mail,
+          password: this.password,
+          salutation: this.gender
+        }).then(userInfo => {
+          this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
+        })
+        .catch((err) => {
+          this.errorText.text = err.response.data.message;
+          this.errorText.errorList.mail = err.response.data.errorList.mail;
+          this.errorText.errorList.password = err.response.data.errorList.password;
+          this.logErrorMessage;
+        });
+      }
     },
     setGender(value){
       this.gender = value;
