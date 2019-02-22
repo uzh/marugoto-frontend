@@ -44,7 +44,8 @@
         <!-- <p style="visibility: visible">20.5.2018 - 10:48 - Spreckensville</p> -->
         <textarea
           v-model="personalNoteText"
-          v-on:keyup="checkTyping"></textarea>
+          v-on:keyup="checkTyping"
+          @keydown.enter.prevent="submitPersonalNote"></textarea>
         <div v-if="personalNoteText != '' && autosaveText != personalNoteText && autosavedText != personalNoteText">
           <div class="small go-right autosave-confirm">Typing...</div>
         </div>

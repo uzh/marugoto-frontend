@@ -1,7 +1,8 @@
 <template src="./template.html"></template>
 
 <script>
-import {_debounce} from 'lodash';
+/* eslint-disable */
+import { _debounce } from 'lodash';
 import svgIcon from '@/components/01_atoms/svgicon';
 import Btn from '@/components/01_atoms/buttons';
 import VueMarkdown from 'vue-markdown';
