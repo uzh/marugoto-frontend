@@ -8,8 +8,8 @@
         <span class="notebook-list-item-index">
           {{ index + 1}}
         </span>
-        <span :class="index == selected ? 'notebook-list-item-current' : ''">
-          {{ item.title }}
+        <span class="notebook-list-title" :class="index == selected ? 'notebook-list-item-current' : ''">
+            <vue-markdown :source="item.title" />
         </span>
     </li>
 </div>

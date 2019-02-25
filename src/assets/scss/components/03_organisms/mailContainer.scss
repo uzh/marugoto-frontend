@@ -150,6 +150,7 @@
     @extend .p;
     margin-top: 50px;
     margin-bottom: 50px;
+    
     &-inactive {
       @extend .p;
       color: $base-secondary;
@@ -167,7 +168,6 @@
       margin-top: 20px;
       padding: 30px 20px 0 20px;
       border-left: 2px solid $base-accent;
-      white-space: pre-wrap;
     }
     &-textarea {
       @extend .col-xs-10;
@@ -178,7 +178,11 @@
       padding-top: 30px;
       min-height: 300px;
       resize: none;
-      white-space: pre-wrap;
+    }
+    p {
+      a {
+        color: blue;
+      }
     }
   }
 

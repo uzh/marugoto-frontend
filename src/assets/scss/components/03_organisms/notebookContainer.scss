@@ -75,6 +75,12 @@ $chapterHeight: 80px;
             font-size: $base-size;
             opacity: 0.3;
         }
+
+        .notebook-list-title {
+            p {
+                @extend .h5;
+            }
+        }
     }
 }
 

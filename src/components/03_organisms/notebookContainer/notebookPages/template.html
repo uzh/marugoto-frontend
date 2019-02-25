@@ -10,7 +10,7 @@
             ]">
     <!-- Notebook page header -->
     <div class="notebook-header">
-      <h2 class="title">{{ page.title }}</h2>
+      <vue-markdown class="title h2" :source="page.title" />
       <div class="notebook-header-icon" @click="toggleScroll">
         <svgIcon name="dot-hamburger" sizeH="20px" />
       </div>
