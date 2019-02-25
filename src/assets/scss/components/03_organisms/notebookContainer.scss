@@ -260,6 +260,7 @@ $chapterHeight: 80px;
     z-index: 9;
     top: 40px;
     right: -150%;
+    margin-bottom: 90px;
     height: 96px;
     width: 100%;
     transition: all 0.3s;
@@ -269,12 +270,11 @@ $chapterHeight: 80px;
     }
 
     & textarea{
-        display: block;
+        display: none;
         width: 100%;
         height: 100%;
         resize: none;
         padding: 0 10px;
-
         font-size: 20px;
         line-height: 32px;
         letter-spacing: 0.2px;
@@ -283,6 +283,10 @@ $chapterHeight: 80px;
         background-image: -webkit-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
         -webkit-background-size: 100% 32px;
         background-size: 100% 32px;
+
+        &.active {
+            display: block;
+        }
     }
 
     .autosave-confirm {

@@ -36,6 +36,7 @@ export default {
     addPersonalNote: function(id){
       this.openedPersonalNote = true;
       this.personalNoteNotebookEntryId = id;
+      this.$refs.textarea[0].autofocus = true;
     },
     submitPersonalNote: function() {
       this.$store.dispatch('ADD_PERSONAL_NOTE', {
@@ -48,6 +49,7 @@ export default {
     },
     cancelPersonalNote: function() {
       this.openedPersonalNote = false;
+      this.$refs.textarea[0].autofocus = false;
     },
     updateNoteText: function() {
       this.autosaveText = this.personalNoteText;
@@ -60,8 +62,16 @@ export default {
       this.updateNoteText();
       setTimeout(() => {
         this.updatedNoteText()
-      }, 1000);
-    }, 2000),
+      }, 500);
+    }, 1500),
+    textareaHandler(e) {
+      if (e.keyCode === 13 && !e.shiftKey) {
+        e.preventDefault();
+        this.submitPersonalNote();
+      } else if (e.keyCode === 27) {
+        this.cancelPersonalNote();
+      }
+    },
   },
   watch: {
     currentEntry: function(newVal, oldVal) {
