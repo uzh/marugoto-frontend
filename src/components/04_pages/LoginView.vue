@@ -51,8 +51,8 @@
       <p class="lead mb-10">Account</p>
       <div v-if="!enterNewPassword">
         <form @keydown.enter="login">
-          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" iconName="info" />
-          <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
+          <InputField tabindex="0" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" iconName="info" />
+          <InputField tabindex="0" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
         </form>
         <div v-if="errorText" class="login-error-message">{{ errorText }}</div>
         <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
@@ -61,8 +61,8 @@
       <!-- Enter New Password -->
       <div v-if="enterNewPassword">
         <form>
-          <InputField tabindex="-2" v-model="mail" typeProp="email" labelName="E-Mail" />
-          <InputField tabindex="-1" v-model="password" typeProp="password" labelName="Enter New Password" />
+          <InputField tabindex="0" v-model="mail" typeProp="email" labelName="E-Mail" />
+          <InputField tabindex="0" v-model="password" typeProp="password" labelName="Enter New Password" />
         </form>
         <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
       </div>
@@ -142,9 +142,10 @@ export default {
       } else {
         this.$store.dispatch('FORGOT_PASSWORD', {
           email: this.mail,
-          passwordResetUrl: '/api/user/password-reset',
-        }).then(() => {
-          alert('Please check your email inbox for further information.');
+          passwordResetUrl: '/user/' + this.mail.split('@')[0],
+        }).then((resp) => {
+          alert('Please check your mail inbox.');
+          this.$router.push({ name: 'test', params: { mail: this.mail, resetToken: resp.data.resetToken }})
         })
         .catch(() => {
           this.forgottenPassword = true;

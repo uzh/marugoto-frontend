@@ -1,6 +1,7 @@
 <div>
 	<div class="input-field" v-bind:class="[
 		focused ? 'inputFocused' : '',
+		disabled ? 'inputDisabled' : '',
 		filledInput ? 'bordered' : ''
 		]">
 		<label @click="inputFocus">{{ labelName }}</label>

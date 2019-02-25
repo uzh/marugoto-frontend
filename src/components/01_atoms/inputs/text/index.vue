@@ -10,7 +10,7 @@ export default {
   // name of the component
   name: 'inputField',
   components: { SvgIcon },
-  props: ['typeProp', 'labelName', 'required', 'value', 'iconName' ],
+  props: ['typeProp', 'labelName', 'required', 'disabled', 'value', 'iconName' ],
   data() {
     return {
       focused: false,
