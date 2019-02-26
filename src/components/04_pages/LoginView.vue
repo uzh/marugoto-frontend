@@ -51,8 +51,8 @@
       <p class="lead mb-10">Account</p>
       <div v-if="!enterNewPassword">
         <form @keydown.enter="login">
-          <InputField tabindex="0" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" iconName="info" />
-          <InputField tabindex="0" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
+          <InputField tabindex="-1" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" iconName="info" />
+          <InputField tabindex="-2" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
         </form>
         <div v-if="errorText" class="login-error-message">{{ errorText }}</div>
         <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
@@ -61,8 +61,8 @@
       <!-- Enter New Password -->
       <div v-if="enterNewPassword">
         <form>
-          <InputField tabindex="0" v-model="mail" typeProp="email" labelName="E-Mail" />
-          <InputField tabindex="0" v-model="password" typeProp="password" labelName="Enter New Password" />
+          <InputField tabindex="-1" v-model="mail" typeProp="email" labelName="E-Mail" />
+          <InputField tabindex="-2" v-model="password" typeProp="password" labelName="Enter New Password" />
         </form>
         <Btn text="Login" primary="true" @click.native="login" iconName="arrow-right" iconColor="#979797" />
       </div>

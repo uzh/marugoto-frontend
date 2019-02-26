@@ -5,7 +5,7 @@ import InputRadio from '@/components/01_atoms/inputs/radio'
 
 export default {
   name: 'ExerciseRadio',
-  props: [ 'list', 'exerciseId' ],
+  props: [ 'list', 'exerciseId', 'name' ],
   components: { InputRadio },
   methods: {
     emitAnswer: function(answer){

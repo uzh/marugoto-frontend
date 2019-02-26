@@ -3,8 +3,20 @@
         autofocus
         :placeholder="placeholder"
         :id="exerciseId"
-        maxlength="250"
         v-model="answer"
-        @keydown.native.enter="submitAnswer">
+        v-on:keyup="checkTyping"
+        @keydown="textareaHandler">
     </textarea>
+    <!-- Typing/Autosaving/Autosaved -->
+    <div v-if="answer != '' && autosaveText != answer && autosavedText != answer">
+        <div class="small go-right autosave-confirm">Typing...</div>
+    </div>
+    <div v-if="autosaveText != '' && autosaveText == answer">
+        <div class="small go-right autosave-confirm">Autosaving...</div>
+    </div>
+    <div v-if="autosavedText != '' && autosaveText == '' && autosavedText == answer">
+        <svgIcon name="check" sizeH="35px" class="go-right" />
+        <div class="small go-right autosave-confirm">Autosaved</div>
+        <div class="small go-right enter-to-submit">Press Enter to submit note</div>
+    </div>
 </div>

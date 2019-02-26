@@ -5,7 +5,7 @@ import InputCheckbox from '@/components/01_atoms/inputs/checkbox'
 
 export default {
   name: 'ExerciseCheckbox',
-  props: [ 'optionsList', 'exerciseId' ],
+  props: [ 'optionsList', 'exerciseId', 'name' ],
   components: { InputCheckbox },
   data() {
     return {

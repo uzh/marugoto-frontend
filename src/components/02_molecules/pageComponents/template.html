@@ -36,14 +36,16 @@
       @emitRadioChange="submitAnswer"
       v-if="component.type == 'RadioButtonExercise'"
       :exerciseId="component.state.id"
-      :list="component.component.options" />
+      :list="component.component.options"
+      :name="component.type" />
     <!-- Exercise Checkbox -->
     <ExerciseCheckbox
       class="mb-40"
       @emitCheckboxChange="submitAnswer"
       v-if="component.type == 'CheckboxExercise'"
       :exerciseId="component.state.id"
-      :optionsList="component.component.options" />
+      :optionsList="component.component.options"
+      :name="component.type" />
     <!-- Exercise Text -->
     <!-- <ExerciseText
       class="mb-40"
