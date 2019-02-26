@@ -113,12 +113,6 @@ export default {
   created() {
     this.accountType = this.$route.params.type || 'guest';
   },
-  computed: {
-    logErrorMessage: function() {
-      // eslint-disable-next-line
-      return this.errorMessage = true;
-    }
-  },
   methods: {
     ...mapActions(['REGISTER']),
     register(){
@@ -139,7 +133,7 @@ export default {
           this.errorText.text = err.response.data.message;
           this.errorText.errorList.mail = err.response.data.errorList.mail;
           this.errorText.errorList.password = err.response.data.errorList.password;
-          this.logErrorMessage;
+          this.errorMessage = true;
         });
       }
     },

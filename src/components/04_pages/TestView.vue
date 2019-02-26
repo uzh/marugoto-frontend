@@ -19,7 +19,7 @@
     <div class="col-xs-2"></div>
     <!-- Login Form -->
     <div class="wrapper-container col-xs-4">
-      <h3 class="page-title mb-60">Login</h3>
+      <h3 class="page-title mb-60">Type your new password</h3>
       <div class="mt-40">
         <p class="lead mb-10">Account</p>
         <div>
@@ -28,7 +28,10 @@
             <InputField tabindex="1" v-model="newPassword" typeProp="password" labelName="New Password" :required="errorMessage" />
             <InputField tabindex="2" v-model="newPasswordConfirm" typeProp="password" labelName="Confirm Password" :required="errorMessage" />
           </form>
-          <div v-if="errorText" class="login-error-message">{{ errorText }}</div>
+          <div v-if="errorText" class="login-error-message">
+            <p>{{ errorText.text }}</p>
+            <p v-if="errorText.errorList.newPassword">{{ errorText.errorList.newPassword }}</p>
+          </div>
           <Btn text="Register with new password" primary="true" @click.native="register" iconName="arrow-right" iconColor="#979797" />
         </div>
       </div>
@@ -65,19 +68,27 @@ export default {
       newPassword: '',
       newPasswordConfirm: '',
       errorMessage: '',
-      errorText: '',
+      errorText: {
+        text: '',
+        errorList: {
+          newPassword: '',
+        },
+      },
     }
   },
   created() {
-    this.mail = this.$route.params.mail;
+    this.mail = this.$route.params.mail || 'youremailaddress';
     this.resetToken = this.$route.params.resetToken;
   },
   methods: {
     ...mapActions(['RESET_PASSWORD']),
     register(){
-      if (this.newPassword == '' || this.newPassword != this.newPasswordConfirm) {
+      if (this.newPassword == '' || this.newPasswordConfirm == '') {
         this.errorMessage = true;
-        this.errorText = '';
+        this.errorText.text = '';
+      } else if (this.newPassword == '' || this.newPassword != this.newPasswordConfirm) {
+        this.errorMessage = true;
+        this.errorText.text = 'Your two passwords must match.';
       } else {
         this.$store.dispatch('RESET_PASSWORD', {
           userEmail: this.mail,
@@ -85,7 +96,9 @@ export default {
           newPassword: this.newPassword,
         }).then(() => this.$router.push('/login'))
         .catch((err) => {
-          this.errorText = err.response.data.message;
+          console.log(err.response.data.errorList)
+          this.errorText.text = err.response.data.message;
+          this.errorText.errorList.newPassword = err.response.data.errorList.newPassword;
           this.errorMessage = true;
         });
       }
