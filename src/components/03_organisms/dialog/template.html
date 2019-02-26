@@ -15,7 +15,7 @@
 				:text="option.buttonText"
 				@click.native="emitOption(option.id)"
 				secondary="true"
-				class="dialog-button"
+				:class="options.length == 1 ? 'dialog-button-full' : 'dialog-button'"
 				iconName="arrow-right" 
 				iconColor="#979797" 
 				iconPosition="right" />
