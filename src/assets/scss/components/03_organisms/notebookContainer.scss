@@ -22,7 +22,10 @@ $chapterHeight: 80px;
 
     .empty-notebook {
         @extend .h2;
+        vertical-align: middle;
         line-height: 100vh;
+        overflow: hidden;
+        height: 100%;
         text-align: center;
         border-left: $border;
         background-color: $background-hover;

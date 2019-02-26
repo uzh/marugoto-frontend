@@ -142,10 +142,9 @@ export default {
       } else {
         this.$store.dispatch('FORGOT_PASSWORD', {
           email: this.mail,
-          passwordResetUrl: 'http://localhost:8080/user/' + this.mail.split('@')[0],
-        }).then((resp) => {
+          passwordResetUrl: 'http://localhost:4020/test',
+        }).then(() => {
           alert('Please check your mail inbox.');
-          this.$router.push({ name: 'test', params: { mail: this.mail, resetToken: resp.data.resetToken }})
         })
         .catch(() => {
           this.forgottenPassword = true;

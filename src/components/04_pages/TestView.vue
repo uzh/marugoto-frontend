@@ -77,8 +77,8 @@ export default {
     }
   },
   created() {
-    this.mail = this.$route.params.mail || 'youremailaddress';
-    this.resetToken = this.$route.params.resetToken;
+    this.mail = this.$route.query.mail;
+    this.resetToken = this.$route.query.token;
   },
   methods: {
     ...mapActions(['RESET_PASSWORD']),
@@ -96,7 +96,6 @@ export default {
           newPassword: this.newPassword,
         }).then(() => this.$router.push('/login'))
         .catch((err) => {
-          console.log(err.response.data.errorList)
           this.errorText.text = err.response.data.message;
           this.errorText.errorList.newPassword = err.response.data.errorList.newPassword;
           this.errorMessage = true;

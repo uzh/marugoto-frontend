@@ -38,6 +38,14 @@ const router = new Router({
         requireAuth: false,
       },
     },
+    {
+      path: '/test',
+      name: 'test',
+      component: TestView,
+      meta: {
+        requireAuth: false,
+      },
+    },
     // User pages
     {
       path: '/storyline',
@@ -55,14 +63,6 @@ const router = new Router({
       meta: {
         requireAuth: true,
         role: 'supervisor'
-      },
-    },
-    {
-      path: '/test',
-      name: 'test',
-      component: TestView,
-      meta: {
-        requireAuth: false,
       },
     },
     {
