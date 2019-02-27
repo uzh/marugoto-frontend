@@ -59,7 +59,7 @@ import SelectField from '@/components/01_atoms/inputs/select';
 import SvgIcon from '@/components/01_atoms/svgicon';
 
 export default {
-  name: 'testView',
+  name: 'resetView',
   components: { InputField, Btn, SelectField, SvgIcon },
   data(){
     return{

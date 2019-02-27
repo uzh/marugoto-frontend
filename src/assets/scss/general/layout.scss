@@ -17,6 +17,43 @@ $border: 1px solid #ddd;
     width: 100%;
     float: left;
     margin-bottom: 5px;
+
+    .left-container {
+      background-color: $background-hover;
+
+      .rotated-text-login-page {
+        float: left;
+        width: calc(100% / 7);
+        position: absolute;
+        top: 3rem;
+        transform: rotate(90deg);
+        & .item {
+          @extend .h6;
+          display: inline;
+          margin-right: 30px;
+        }
+      }
+  
+      .wrapper-container-left {
+        float: left;
+        width: calc((100% / 7) * 5);
+        margin-left: calc(100% / 7);
+  
+        .page-title {
+          font-weight: inherit;
+        }
+      
+        p {
+          font-size: 17px;
+          line-height: 26px;
+          letter-spacing: 0.2px;
+        }
+      }
+  
+      .empty-column {
+        width: calc(100% / 7);
+      }
+    }
   }
 }
 
@@ -72,16 +109,6 @@ $border: 1px solid #ddd;
   position: relative;
   top: 10px;
   cursor: pointer;
-}
-
-.rotated-text-login-page {
-  top: 40px;
-  transform: rotate(90deg);
-  & .item {
-    @extend .h6;
-    display: inline;
-    margin-right: 30px;
-  }
 }
 
 .origin-background {

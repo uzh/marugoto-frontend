@@ -2,22 +2,27 @@
 <div>
   <div class="login-container">
     <!-- Left main container -->
-    <div>
+    <div class="col-xs-7 left-container">
       <!-- Left menu -->
-      <div class="col-xs-1 rotated-text-login-page">
+      <div class="rotated-text-login-page">
         <p class="item">Welcome</p>
         <p class="item disabled">Reviews</p>
         <p class="item disabled">Collaborations</p>
       </div>
       <!-- Left Text -->
-      <div class="wrapper-container col-xs-5">
+      <div class="wrapper-container-left">
         <h2 class="page-title mb-50">Welcome to Lives in Transit!</h2>
         <p>Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
         <br>
         <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
+        <br>
+        <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
+        <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
+        <br>
+        <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
       </div>
       <!-- Empty columns -->
-      <div class="col-xs-1"></div>
+      <div class="empty-column"></div>
     </div>
     <!-- Right main container -->
     <div>
@@ -150,7 +155,7 @@ export default {
       } else {
         this.$store.dispatch('FORGOT_PASSWORD', {
           email: this.mail,
-          passwordResetUrl: 'http://localhost:4020/test',
+          passwordResetUrl: 'http://localhost:4020/reset',
         }).then(() => {
           alert('Please check your mail inbox.');
         })
