@@ -22,11 +22,11 @@
   <div class="notebook-btn">
     <div 
       v-if="get_layoutState.notebook.opened" 
-      @click="LAYOUT_CLOSE('notebook')"
+      @click="switchNotebookLayout(false)"
       class="close">
       <img alt="dsa" src="@/assets/images/close.svg" />
     </div>
-    <div class="notebook-sidebar-right" @click="openNotebook">
+    <div class="notebook-sidebar-right" @click="switchNotebookLayout(true)">
       <p class="rotated-text">Notebook</p>
     </div>
   </div>
