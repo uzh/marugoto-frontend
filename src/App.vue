@@ -1,12 +1,12 @@
 <template>
   <div id="app">
     <div class="page-container" :class="get_layoutState.notebook.opened ? 'halved' : ''">
-      <Topbar v-if="get_status.isLoged"/>
+      <Topbar v-if="get_status.isLoged && get_topic.selected"/>
       <router-view />
     </div>
-    <RightSidebar v-if="get_status.isLoged" />
-    <NotebookContainer v-if="get_status.isLoged"/>
-    <MailContainer v-if="get_status.isLoged" />
+    <RightSidebar v-if="get_status.isLoged && get_topic.selected" />
+    <NotebookContainer v-if="get_status.isLoged && get_topic.selected"/>
+    <MailContainer v-if="get_status.isLoged && get_topic.selected" />
     <!-- <NotificationCmpt /> -->
   </div>
 </template>
@@ -26,7 +26,8 @@ export default{
   computed: {
     ...mapGetters([
       'get_status',
-      'get_layoutState'
+      'get_layoutState',
+      'get_topic'
     ]),
   },
   methods: {

@@ -14,7 +14,6 @@ export default {
   },
   methods: {
     submitAnswer: function(){
-      //console.log('Answer: ', this.answer, ', ID: ', this.exerciseId);
       this.$emit('emitInputAnswer', this.answer, this.exerciseId);
     },
   },

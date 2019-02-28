@@ -1,6 +1,10 @@
 $elements-space: 90px;
 $border: 1px solid #ddd;
 
+.login .page-container {
+  padding-top: 0;
+}
+
 .page-container{
   width: 100%;
   height: 100vh;
@@ -21,6 +25,7 @@ $border: 1px solid #ddd;
 
     .left-container {
       background-color: $background-hover;
+      padding-top: 90px;
 
       .rotated-text-login-page {
         float: left;
@@ -61,6 +66,7 @@ $border: 1px solid #ddd;
 
 // Main container - login/create account
 .wrapper-container {
+  padding-top: 90px;
 
   .page-title {
     font-weight: inherit;

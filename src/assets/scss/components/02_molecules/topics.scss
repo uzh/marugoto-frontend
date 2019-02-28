@@ -1,8 +1,10 @@
 .topic-container {
     height: calc(100vh - 90px);
+    width: 100vw;
 
     .topic-header {
-        padding-top: 50px;
+        @extend .col-xs-7;
+        @extend .col-xs-offset-2;
     }
 
     .topics {
