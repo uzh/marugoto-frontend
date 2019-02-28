@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="main-container">
     <h1>Supervisor view</h1>
   </div>
 </template>

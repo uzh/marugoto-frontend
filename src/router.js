@@ -8,7 +8,7 @@ import RegisterView from '@/components/04_pages/RegisterView.vue'
 import StorylineView from '@/components/04_pages/StorylineView.vue'
 import SupervisorView from '@/components/04_pages/SupervisorView.vue'
 import PageNotFound from '@/components/04_pages/PageNotFound.vue'
-import TestView from '@/components/04_pages/TestView.vue'
+import ResetView from '@/components/04_pages/ResetView.vue'
 
 
 Vue.use(Router);
@@ -39,9 +39,9 @@ const router = new Router({
       },
     },
     {
-      path: '/test',
-      name: 'test',
-      component: TestView,
+      path: '/reset',
+      name: 'reset',
+      component: ResetView,
       meta: {
         requireAuth: false,
       },
@@ -81,7 +81,7 @@ const router = new Router({
 // Global Guard
 router.beforeEach((to, from, next) => {
   if( !store.getters.get_status.isLoged ){
-    if( to.name == 'register' || to.name == 'login' || to.name == 'test' ){
+    if( to.name == 'register' || to.name == 'login' || to.name == 'reset' ){
       next();
       return;
     }else{
