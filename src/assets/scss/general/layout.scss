@@ -3,7 +3,8 @@ $border: 1px solid #ddd;
 
 .page-container{
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
+  overflow: scroll;
   padding-top: $elements-space;
   padding-right: $elements-space;
   transition: all 0.3s;
