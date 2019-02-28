@@ -2,7 +2,7 @@
 
 <script>
 // TODO 
-// will be important to add list of mail trigring que to be able to reset timers
+// will be important to add list of mail triggering que to be able to reset timers
 // foo handleNewMails
 
 import Timer from '@/timer';
