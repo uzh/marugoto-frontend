@@ -3,7 +3,7 @@
   <div class="mail-sidebar clear-float" :class="get_layoutState.mail.opened ? 'in' : ''">
     <div
       class="mail-sidebar-open go-left"
-      @click="LAYOUT_OPEN('mail')">
+      @click="switchMailLayout(true)">
       <img src="@/assets/images/mail.svg" />
       <div 
         class="new-mail-notification"
@@ -14,7 +14,7 @@
     <h5 class="go-left">Mail-Inbox</h5>
     <div
       class="mail-sidebar-close go-right"
-      @click="LAYOUT_CLOSE('mail')">
+      @click="switchMailLayout(false)">
       <img src="@/assets/images/close.svg" />
     </div>
   </div>
@@ -26,7 +26,7 @@
       class="close">
       <img alt="dsa" src="@/assets/images/close.svg" />
     </div>
-    <div class="notebook-sidebar-right" @click="LAYOUT_OPEN('notebook')">
+    <div class="notebook-sidebar-right" @click="openNotebook">
       <p class="rotated-text">Notebook</p>
     </div>
   </div>

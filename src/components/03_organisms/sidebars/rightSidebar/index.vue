@@ -16,7 +16,18 @@ export default {
     ...mapGetters([ 'get_layoutState', 'get_mailNotificationState' ]),
   },
   methods: {
-    ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),
+    openNotebook: function() {
+      if( !this.get_layoutState.notebook.disabled ){
+        this.$store.dispatch('LAYOUT_OPEN','notebook');
+      }
+    },
+    switchMailLayout: function(param) {
+      if( param && !this.get_layoutState.mail.disabled ){
+        this.$store.dispatch('LAYOUT_OPEN','mail');
+      }else if( !param && !this.get_layoutState.mail.disabled ){
+        this.$store.dispatch('LAYOUT_CLOSE','mail');
+      }
+    },
   },
 }
 </script>

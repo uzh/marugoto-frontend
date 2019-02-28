@@ -17,10 +17,12 @@
       :currentEntry="currentEntry"
       :list="get_notebook.list" />
     <!-- Notebook entries -->
-    <NotebookPages 
-      :currentEntry="currentEntry"
-      :list="get_notebook.list" 
-      @toggleScroll="openEntriesMenu" />
+    <div class="notebook-content" ref="notebookContent">
+      <NotebookPages 
+        :currentEntry="currentEntry"
+        :list="get_notebook.list" 
+        @toggleScroll="openEntriesMenu" />
+    </div>
     <!-- Notebook Navigation -->
     <NotebookChapterMenu 
       @changeCurrentEntryTo="switchCurrentEntryTo" 

@@ -124,6 +124,7 @@ export default({
       throw(err);
     });
   },
+  // DIALOG
   [types.DIALOG_UPDATE]: (context, payload) => {
     context.commit(types.DIALOG_UPDATE, payload);
   },

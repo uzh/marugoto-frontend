@@ -12,6 +12,7 @@ export default {
   props: ['entryList'],
   data(){
     return {
+      highestElement: 0,
       currentEntry: 0,
       entriesMenuOpened: true,
     };
@@ -66,6 +67,6 @@ export default {
         this.lastEntry();
       }
     },
-  }
+  },
 }
 </script>

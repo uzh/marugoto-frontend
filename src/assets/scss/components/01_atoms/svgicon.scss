@@ -1,6 +1,10 @@
 $height: 2.5rem;
 $width: $height;
 
+svg use g{
+    fill: red;
+}
+
 .icon-right {
     position: absolute;
     top: calc(50% - 0.625rem);

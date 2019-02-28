@@ -35,6 +35,11 @@ apiService.interceptors.response.use(function (response) {
   const originalRequest = error.config;
   // console.log('1. API error');
   if (error.response.status === 401 && !originalRequest._retry) {
+    if( error.config.url == 'http://localhost:8080/api/auth/refresh-token' ){
+      store.dispatch('LOGOUT');
+      failedQueue = [];
+      return;
+    }
     // console.log('2. AUTH error');
     if (isRefreshing) {
       // console.log('---------------------------------------------');
@@ -44,7 +49,7 @@ apiService.interceptors.response.use(function (response) {
         // console.log(failedQueue);
         // console.log('---------------------------------------------');
       }).then(token => {
-        //console.log('RESOLVE que calls');
+        // console.log('RESOLVE que calls');
         originalRequest.headers['Authorization'] = token;
         return apiService(originalRequest);
       }).catch(err => {
@@ -52,19 +57,19 @@ apiService.interceptors.response.use(function (response) {
       })
     }
 
-    //console.log('SET REFRESHING TO TRUE')
+    // console.log('SET REFRESHING TO TRUE')
     originalRequest._retry = true;
     isRefreshing = true;
 
     return new Promise(function (resolve, reject) {
-      //console.log('3. PUT refreshToken in header');
+      // console.log('3. PUT refreshToken in header');
       apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.refreshToken;
       apiService.get('/auth/refresh-token')
         .then(({data}) => {
-          //console.log('4. assign new tokens');
+          // console.log('4. assign new tokens');
           apiService.defaults.headers.common['Authorization'] = data.token;
           originalRequest.headers['Authorization'] = data.token;
-          //console.log('5. STORE UPDATE TOKEN');
+          // console.log('5. STORE UPDATE TOKEN');
           store.dispatch('UPDATE_TOKEN', {
             token: data.token,
             refreshToken: data.refreshToken,
@@ -77,7 +82,7 @@ apiService.interceptors.response.use(function (response) {
             reject(err);
         })
         .then(() => {
-          //console.log('SET REFrEShiNG TO FALSE');
+          // console.log('SET REFrEShiNG TO FALSE');
           isRefreshing = false;
         })
     })
