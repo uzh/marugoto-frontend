@@ -181,7 +181,7 @@
     }
     p {
       a {
-        color: blue;
+        @extend .link;
       }
     }
   }

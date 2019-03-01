@@ -1,6 +1,6 @@
 <div class="topic-container">
   <div class="topic-header">
-      <h1 class="storyline-title mb-40">Topic Selection</h1>
+      <h1 class="topic-title">Topic Selection</h1>
       <p class="lead">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</p>
   </div>
   <!-- Topics -->
@@ -8,7 +8,7 @@
     <div 
       v-for="(topic, index) in list"
       :key="index"
-      class="topics-div"
+      :class="list.length > 4 ? 'topics-div-5-more' : 'topics-div-4-less'"
       @click="$emit('openTopic', topic.id)">
       <div class="topic-image">
         <div class="image">

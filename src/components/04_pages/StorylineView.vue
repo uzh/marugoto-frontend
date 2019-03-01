@@ -3,10 +3,10 @@
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
     <TopicComponent v-if="!get_topic.selected" :list="get_topic.list" @openTopic="chooseTopic"/>
     <div class="storyline-container" v-if="get_topic.selected">
-      <div class="storyline-title mb-40 mt-30">
-        <div class="page-title-icon-container">
+      <div class="storyline-title">
+        <!-- <div class="page-title-icon-container">
           <div class="icon"></div>
-        </div>
+        </div> -->
         <vue-markdown :source="get_page.title" />
       </div>
       <!-- Components -->

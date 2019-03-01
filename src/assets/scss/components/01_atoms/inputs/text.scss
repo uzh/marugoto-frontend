@@ -8,7 +8,6 @@ $width: 100%;
    margin-bottom: 10px;
    height: $height;
    width: $width;
-   box-shadow: 0 1px 0 0 $base-primary;
    &.disabled {
        color: $base-uicolor-2;
        border: $base-ghost-border;
@@ -28,17 +27,19 @@ $width: 100%;
    }
 
    input {
-       display: block;
-       width: 100%;
-       height: $height;
-       border: none;
-       padding-left: 10px;
-       padding-right: 40px;
-       padding-top: 6px;
+        display: block;
+        width: 100%;
+        height: $height;
+        border: none;
+        padding-left: 10px;
+        padding-right: 40px;
+        padding-top: 6px;
+        background-color: $background-hover;
    }
 
    &.inputFocused {
-       box-shadow: 0 2px 0 0 $base-primary;
+        box-shadow: 0 0 0 2px $base-primary;
+        height: auto;
         label {
             @extend .label;
             top: 5px;
@@ -66,9 +67,8 @@ $width: 100%;
         }
    }
 
-   &.bordered {
-        box-shadow: 0 0 0 2px $base-primary;
-        height: auto;
+   &.filled {
+        box-shadow: 0 2px 0 0 $base-primary;
     }
 }
 

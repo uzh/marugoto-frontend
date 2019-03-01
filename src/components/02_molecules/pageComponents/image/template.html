@@ -1,28 +1,32 @@
-<div
-  class="image-component"
-  :style="{width: imageZoomed == 0 ? '100%' : imageZoomed == 1 ? '120%' : imageZoomed == 2 ? '140%' : imageZoomed == 3 ? '160%' : imageZoomed == 4 ? '180%' : imageZoomed == 5 ? '200%' : ''}">
-  <div v-if="imageZoomed != 0" class="image-mask"></div>
-  <img 
-    :src="source">
+<div>
+  <div
+    class="image-component"
+    :style="{width: imageZoomed == 0 ? '100%' : imageZoomed == 1 ? '120%' : imageZoomed == 2 ? '140%' : imageZoomed == 3 ? '160%' : imageZoomed == 4 ? '180%' : imageZoomed == 5 ? '200%' : ''}">
+    <div v-if="imageZoomed != 0" class="image-mask"></div>
+    <img 
+      :src="source"
+      class="zoomed">
+    <div
+      v-if="zoomable"
+      class="zoom-in-out"
+      @click="toggleZoom">
+      <SvgIcon class="icon" :name="imageZoomed < 5 ? 'zoom-in' : 'zoom-out'" />
+    </div>
+    <div
+      v-if="zoomable"
+      class="zoom-plus"
+      @click="incZoom">
+      <SvgIcon :class="imageZoomed != 5 ? 'icon' : 'icon-inactive'" name="plus" />
+    </div>
+    <div
+      v-if="zoomable"
+      class="zoom-minus"
+      @click="decZoom">
+      <SvgIcon :class="imageZoomed != 0 ? 'icon' : 'icon-inactive'" name="minus" />
+    </div>
+  </div>
   <vue-markdown
+    v-if="imageZoomed == 0"
     class="image-caption"
     :source="text"/>
-  <div
-    v-if="zoomable"
-    class="zoom-in-out"
-    @click="toggleZoom">
-    <SvgIcon class="icon" :name="imageZoomed < 5 ? 'zoom-in' : 'zoom-out'" />
-  </div>
-  <div
-    v-if="zoomable"
-    class="zoom-plus"
-    @click="incZoom">
-    <SvgIcon :class="imageZoomed != 5 ? 'icon' : 'icon-inactive'" name="plus" />
-  </div>
-  <div
-    v-if="zoomable"
-    class="zoom-minus"
-    @click="decZoom">
-    <SvgIcon :class="imageZoomed != 0 ? 'icon' : 'icon-inactive'" name="minus" />
-  </div>
 </div>

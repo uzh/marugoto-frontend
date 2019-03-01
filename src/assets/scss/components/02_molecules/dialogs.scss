@@ -49,6 +49,10 @@ $top: 90px;
     padding-top: $top;
     margin-left: 30%;
 
+    p {
+      font-family: inherit;
+    }
+
     .dialog-buttons-div {
       margin: 50px 0;
 

@@ -2,6 +2,10 @@ body, input, textarea, label, .genderLabel {
   font-family: 'Libre Baskerville', serif;
 }
 
+.font {
+  font-family: 'Apercu';
+}
+
 .h1 {
   @include font-size($h1);
 }
@@ -19,19 +23,24 @@ body, input, textarea, label, .genderLabel {
 }
 .h6 {
   @include font-size($h6);
+  @extend .font;
 }
 .lead {
   @include font-size($lead);
+  @extend .font;
 }
 .p {
   @include font-size($p);
+  @extend .font;
 }
 .small{ 
   @include font-size($small);
+  @extend .font;
   color: $base-primary;
 }
 .link {
   @include font-size($link);
+  @extend .font;
   color: $base-secondary;
   &:hover {
     text-decoration: underline;
@@ -39,12 +48,14 @@ body, input, textarea, label, .genderLabel {
 }
 .button {
   @include font-size($button);
+  @extend .font;
   &-inverted {
     background-color: #D8D8D8;
     border: 1px solid $base-primary-border;
   }
 }
 .label {
+  @extend .font;
   font-size: 11px;
   line-height: 13px;
   letter-spacing: 0.4px;

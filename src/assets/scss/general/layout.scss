@@ -1,5 +1,5 @@
 $elements-space: 90px;
-$border: 1px solid #ddd;
+$border: 1px solid $background-hover;
 
 .login .page-container {
   padding-top: 0;
@@ -20,38 +20,41 @@ $border: 1px solid #ddd;
 
   .login-container {
     width: 100%;
-    float: left;
     margin-bottom: 5px;
+    display: table;
 
     .left-container {
       background-color: $background-hover;
-      padding-top: 90px;
+      padding: 90px 10px;
+      display: table-cell;
 
-      .rotated-text-login-page {
+      .left-container-menu {
         float: left;
         width: calc(100% / 7);
-        position: absolute;
-        top: 9rem;
-        transform: rotate(90deg);
-        & .item {
-          @extend .h6;
-          display: inline;
-          margin-right: 30px;
+
+        .rotated-text-login-page {
+          transform: rotate(90deg);
+          margin-top: 3rem;
+          & .item {
+            @extend .h6;
+            display: inline;
+            margin-right: 30px;
+          }
         }
       }
   
       .wrapper-container-left {
         float: left;
         width: calc((100% / 7) * 5);
-        margin-left: calc(100% / 7);
   
         .page-title {
           font-weight: inherit;
         }
       
         p {
+          @extend .font;
           font-size: 17px;
-          line-height: 26px;
+          line-height: 25px;
           letter-spacing: 0.2px;
         }
       }
@@ -83,21 +86,28 @@ $border: 1px solid #ddd;
   }
 
   .choose-account {
-    width: 48%;
-    display: inline-block;
-    cursor: pointer;
-  }
+    display: table;
 
-  .middle-arrow {
-    display: inline-block;
-    position: relative;
-    right: 10px;
-    bottom: 2px;
-    width: 4%;
-    height: 20px;
-    border-right: $border;
+    p {
+      @extend .lead;
+      @extend .font;
+      width: 45%;
+      display: table-cell;
+      cursor: pointer;
+      padding: 0 5px;
+      vertical-align: middle;
+    }
     
-    transform: rotate(30deg);
+    .middle-arrow {
+      display: table-cell;
+      position: relative;
+      right: 5%;
+      bottom: 5px;
+      width: 10%;
+      border-right: $border;
+      
+      transform: rotate(30deg);
+    }
   }
 
   .login-error-message {
@@ -113,10 +123,15 @@ $border: 1px solid #ddd;
   }
 }
 
-.back-to-login {
-  position: relative;
-  top: 10px;
-  cursor: pointer;
+.login-arrow {
+  padding-top: 90px;
+  text-align: center;
+
+  .back-to-login {
+    position: relative;
+    top: 10px;
+    cursor: pointer;
+  }
 }
 
 .origin-background {

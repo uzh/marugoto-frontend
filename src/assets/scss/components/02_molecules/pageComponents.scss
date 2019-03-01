@@ -15,24 +15,26 @@
 
         .storyline-title {
             width: 100%;
+            margin-bottom: 40px;
             float: left;
 
-            .page-title-icon-container {
-                @extend .col-xs-2;
-                text-align: center;
-                top: 15px;
+            // .page-title-icon-container {
+            //     @extend .col-xs-2;
+            //     text-align: center;
+            //     top: 15px;
 
-                .icon {
-                    height: 50px;
-                    width: 50px;
-                    display: inline-block;
-                    background: url('assets/images/Page_Title.jpg') center no-repeat;
-                }
-            }
+            //     .icon {
+            //         height: 50px;
+            //         width: 50px;
+            //         display: inline-block;
+            //         background: url('assets/images/Page_Title.jpg') center no-repeat;
+            //     }
+            // }
 
             p {
-                @extend .col-xs-10;
+                @extend .col-xs-12;
                 @extend .h1;
+                font-family: inherit;
             }
         }
 
@@ -80,7 +82,7 @@
                 height: auto;
                 min-width: 100%;
                 max-width: 200%;
-                z-index: 1;
+                z-index: 4;
                 transition: all 0.5s;
                 &:hover {
                     .zoom-in-out, .zoom-plus, .zoom-minus {
@@ -92,9 +94,9 @@
                     position: fixed;
                     top: 0;
                     left: 0;
-                    width: calc(100% - 90px);
+                    width: 100vw;
                     height: 100%;
-                    background-color: rgba(#000000, 0.7);
+                    background-color: rgba(#000000, 0.8);
                     z-index: -1;
                     transition: opacity .5s ease;
                 }
@@ -179,15 +181,13 @@
                         }
                     }
                 }
+            }
 
-                .image-caption {
-                    p {
-                        @extend .small;
-                        @extend .mb-40;
-                        text-align: center;
-                        // @extend .col-xs-offset-1;
-                        margin-top: 20px;
-                    }
+            .image-caption {
+                p {
+                    @extend .small;
+                    text-align: center;
+                    margin-top: 20px;
                 }
             }
 

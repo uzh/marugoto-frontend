@@ -18,7 +18,7 @@ $height: 50px;
 
     .select-field {
         @extend .input-field;
-        background-color: $white;
+        background-color: $background-hover;
         padding-left: 10px;
         padding-top: 20px;
     
@@ -28,7 +28,7 @@ $height: 50px;
             }
         }
         &.selectedOption {
-            box-shadow: 0 0 0 2px $base-primary;
+            box-shadow: 0 2px 0 0 $base-primary;
             height: 50px;
             padding-top: 20px;
         }
