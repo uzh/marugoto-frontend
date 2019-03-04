@@ -12,7 +12,7 @@ $top: 90px;
 
 .dialog-mask {
   position: fixed;
-  z-index: 1;
+  z-index: 100;
   top: 0;
   left: 0;
   width: calc(100% - 90px);
@@ -33,9 +33,10 @@ $top: 90px;
   transition: all .3s ease;
 
   .dialog-left {
-    position: fixed;
+    width: calc((100% / 10) * 3);
+    float: left;
     padding-top: $top;
-    width: 20%;
+    padding-right: 10px;
     height: 100%;
 
     .dialog-image {
@@ -44,28 +45,29 @@ $top: 90px;
   }
 
   .dialog-right {
-    width: 50%;
+    width: calc((100% / 10) * 6);
+    float: left;
     height: 100%;
-    padding-top: $top;
-    margin-left: 30%;
+    padding: $top 10px 0 10px;
 
     p {
       font-family: inherit;
     }
 
     .dialog-buttons-div {
+      width: 100%;
       margin: 50px 0;
+      display: table;
 
       .dialog-button {
-        width: 40%;
-        margin: 0 5%;
-        padding: 0 2rem;
-        display: inline-block;
+        display: table-cell;
+        vertical-align: center;
+        width: calc(50% - 20px);
+        margin: 0 10px;
       }
 
       .dialog-button-full {
         width: 100%;
-        padding: 0 2rem;
       }
     }
   }

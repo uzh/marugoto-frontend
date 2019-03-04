@@ -7,6 +7,7 @@
   width: $elements-space;
   height: $elements-space;
   border-left: $border;
+  border-bottom: $border;
   background: white;
   overflow: hidden;
 
@@ -112,11 +113,21 @@
     vertical-align: middle;
     text-align: center;
     z-index: 4;
+    background-color: $white;
+    box-shadow: inset 1px 0 0 0 #e6e3e1;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
     cursor: pointer;
   }
 
   .notebook-sidebar-right {
       height: 100%;
+
+      &.in {
+        background-color: $white;
+        box-shadow: inset 1px 0 0 0 #e6e3e1;
+        background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+      }
+    
       .rotated-text {
         position: relative;
         top: calc(50% - 90px);

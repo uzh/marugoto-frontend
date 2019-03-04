@@ -48,7 +48,6 @@ $chapterHeight: 80px;
         padding: 0 50px;
         color: $white;
         list-style: none;
-        position: relative;
         cursor: pointer;
         &-current {
             border-bottom: 1px solid white;
@@ -81,6 +80,8 @@ $chapterHeight: 80px;
 
         .notebook-list-title {
             display: inline-block;
+            position: relative;
+            top: 10px;
             margin-left: 20px;
             overflow: hidden;
             p {
@@ -130,13 +131,14 @@ $chapterHeight: 80px;
             position: relative;
             .image-sticker {
                 position: absolute;
-                top: -10px;
-                left: calc(50% - 50px);
-                height: 30px;
-                width: 100px;
+                top: -60px;
+                left: calc(50% - 22px);
+                height: 125px;
+                width: 44px;
                 background-color: $white;
-                opacity: 0.6;
                 z-index: 1;
+                background: url('assets/images/sticker.png') center no-repeat;
+                transform: rotate(-90deg);
             }
             img {
                 width: 100%;
@@ -165,12 +167,10 @@ $chapterHeight: 80px;
         }
     }
     .notebook-header {
-        @extend .mb-40;
-        width: 100%;
-        background-color: $background-hover;
         height: 90px;
         line-height: 90px;
-        padding: 0 50px;
+        margin: 0 50px 40px 50px;
+        background-color: $background-hover;
         border-bottom: 1px solid $base-uicolor-2;
         border-top: 1px solid $base-uicolor-2;
         .title{
@@ -178,6 +178,7 @@ $chapterHeight: 80px;
             display: inline-block;
             p {
                 @extend .h5;
+                font-family: inherit;
             }
         }
         &-icon {
@@ -254,6 +255,10 @@ $chapterHeight: 80px;
     width: 100%;
     border-left: 2px solid #2F3133;
 
+    p {
+        padding: 0 10px;
+    }
+
     & textarea{
         display: block;
         width: 100%;
@@ -279,6 +284,10 @@ $chapterHeight: 80px;
     height: 96px;
     width: 100%;
     transition: all 0.3s;
+
+    p {
+        padding: 0 10px;
+    }
 
     &.opened{
         right: 0;
