@@ -125,8 +125,7 @@
                     .image-container {
                         position: relative;
                         top: 80px;
-                        left: 40px;
-                        width: calc(100% - 80px);
+                        margin: 0 auto;
                         max-width: calc(100% - 80px);
                         transition: all .5s ease;
                         &:hover {

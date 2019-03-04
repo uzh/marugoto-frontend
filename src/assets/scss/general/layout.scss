@@ -24,9 +24,11 @@ $border: 1px solid $background-hover;
     display: table;
 
     .left-container {
-      background-color: $background-hover;
-      padding: 90px 10px;
       display: table-cell;
+      width: calc((100% / 12) * 7);
+      padding: 90px 10px;
+      background-color: $background-hover;
+      vertical-align: top;
 
       .left-container-menu {
         float: left;
@@ -58,79 +60,83 @@ $border: 1px solid $background-hover;
           letter-spacing: 0.2px;
         }
       }
-  
-      .empty-column {
-        float: left;
-        width: calc(100% / 7);
-      }
-    }
-  }
-}
-
-// Main container - login/create account
-.wrapper-container {
-  padding-top: 90px;
-
-  .page-title {
-    font-weight: inherit;
-  }
-
-  .lead {
-    @extend .lead;
-  }
-
-  p {
-    font-size: 17px;
-    line-height: 26px;
-    letter-spacing: 0.2px;
-  }
-
-  .choose-account {
-    display: table;
-
-    p {
-      @extend .lead;
-      @extend .font;
-      width: 45%;
-      display: table-cell;
-      cursor: pointer;
-      padding: 0 5px;
-      vertical-align: middle;
     }
     
-    .middle-arrow {
+    .right-container {
       display: table-cell;
-      position: relative;
-      right: 5%;
-      bottom: 5px;
-      width: 10%;
-      border-right: $border;
-      
-      transform: rotate(30deg);
+      width: calc((100% / 12) * 5);
+      padding: 90px 10px 0 10px;
+      vertical-align: top;
+
+      // Main container - login/create account
+      .wrapper-container-right {
+        float: right;
+        width: 80%;
+
+        .page-title {
+          font-weight: inherit;
+        }
+
+        .lead {
+          @extend .lead;
+        }
+
+        p {
+          font-size: 17px;
+          line-height: 26px;
+          letter-spacing: 0.2px;
+        }
+
+        .choose-account {
+          display: table;
+
+          p {
+            @extend .lead;
+            @extend .font;
+            width: 45%;
+            display: table-cell;
+            cursor: pointer;
+            padding: 0 5px;
+            vertical-align: middle;
+          }
+          
+          .middle-arrow {
+            display: table-cell;
+            position: relative;
+            right: 5%;
+            bottom: 5px;
+            width: 10%;
+            border-right: $border;
+            
+            transform: rotate(30deg);
+          }
+        }
+
+        .login-error-message {
+          margin: 10px 0;
+          color: $base-accent;
+          font-size: 17px;
+          line-height: 26px;
+          letter-spacing: 0.2px;
+
+          p {
+            margin: 10px 0;
+          }
+        }
+      }
+
+      .login-arrow {
+        float: left;
+        width: 20%;
+        text-align: center;
+
+        .back-to-login {
+          position: relative;
+          top: 10px;
+          cursor: pointer;
+        }
+      }
     }
-  }
-
-  .login-error-message {
-    margin: 10px 0;
-    color: $base-accent;
-    font-size: 17px;
-    line-height: 26px;
-    letter-spacing: 0.2px;
-
-    p {
-      margin: 10px 0;
-    }
-  }
-}
-
-.login-arrow {
-  padding-top: 90px;
-  text-align: center;
-
-  .back-to-login {
-    position: relative;
-    top: 10px;
-    cursor: pointer;
   }
 }
 

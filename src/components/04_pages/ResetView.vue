@@ -2,7 +2,7 @@
   <div>
     <div class="login-container">
       <!-- Left main container -->
-      <div class="col-xs-7 left-container">
+      <div class="left-container">
         <!-- Left menu -->
         <div class="left-container-menu">
           <div class="rotated-text-login-page">
@@ -13,36 +13,35 @@
         </div>
         <!-- Left Text -->
         <div class="wrapper-container-left">
-          <h2 class="page-title mb-50">Welcome to Lives in Transit!</h2>
-          <p>Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
-          <br>
-          <p>As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
-          <br>
-          <p>Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut? As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim! As a player you will learn Lorem ipsum, dolor sit amet consectetur adipisicing elit. Vitae harum cumque ea, deserunt nihil ipsa mollitia rerum nulla ab quis optio delectus illum. Deserunt fugit enim!</p>
-          <br>
-          <p>Lives in Transit Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero alias accusantium earum atque eum incidunt, aut?</p>
-        </div>
-        <!-- Empty columns -->
-        <div class="empty-column"></div>
+        <h2 class="page-title mb-50">Welcome to Lives in Transit!</h2>
+        <p>Lives in Transit is a text-based adventure game (in the words of one player). Or, to keep things respectably academic, it is an interactive E-learning tool which simulates the experience of researching and writing global history.</p>
+        <br>
+        <p>As a player, you will adopt the role of a university graduate student, choose a research topic, and work through a challenging set of storylines. You’ll collect real historical sources along the way and create a record of how your thinking changes during research. As a teacher, you can set your students to play in class, mapping their progress—and their frustrations—through the different storylines.</p>
+        <br>
+        <p>Like this historical map of Japan’s Yamashiro province, your research landscape will change as you decide which road you’ll take. So: get lost (as it were).</p>
+        <br>
+        <p>We hope you learn and have fun. The LiT Team, University of Zurich</p>
       </div>
-      <!-- Empty columns -->
-      <div class="col-xs-2"></div>
-      <!-- Login Form -->
-      <div class="wrapper-container col-xs-4">
-        <h3 class="page-title mb-60">Type your new password</h3>
-        <div>
-          <p class="lead mb-10">Account</p>
+      </div>
+      <!-- Right main container -->
+      <div class="right-container">
+        <!-- Login Form -->
+        <div class="wrapper-container-right">
+          <h3 class="page-title mb-60">Type your new password</h3>
           <div>
-            <form @keydown.enter="register">
-              <InputField tabindex="-1" v-model="mail" typeProp="email" labelName="E-Mail" disabled="true" />
-              <InputField tabindex="1" v-model="newPassword" typeProp="password" labelName="New Password" :required="errorMessage" />
-              <InputField tabindex="2" v-model="newPasswordConfirm" typeProp="password" labelName="Confirm Password" :required="errorMessage" />
-            </form>
-            <div v-if="errorText" class="login-error-message">
-              <p>{{ errorText.text }}</p>
-              <p v-if="errorText.errorList.newPassword">{{ errorText.errorList.newPassword }}</p>
+            <p class="lead mb-10">Account</p>
+            <div>
+              <form @keydown.enter="register">
+                <InputField tabindex="-1" v-model="mail" typeProp="email" labelName="E-Mail" disabled="true" />
+                <InputField tabindex="1" v-model="newPassword" typeProp="password" labelName="New Password" :required="errorMessage" />
+                <InputField tabindex="2" v-model="newPasswordConfirm" typeProp="password" labelName="Confirm Password" :required="errorMessage" />
+              </form>
+              <div v-if="errorText" class="login-error-message">
+                <p>{{ errorText.text }}</p>
+                <p v-if="errorText.errorList.newPassword">{{ errorText.errorList.newPassword }}</p>
+              </div>
+              <Btn text="Register with new password" primary="true" @click.native="register" />
             </div>
-            <Btn text="Register with new password" primary="true" @click.native="register" />
           </div>
         </div>
       </div>

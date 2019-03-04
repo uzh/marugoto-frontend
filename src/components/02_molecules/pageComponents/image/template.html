@@ -15,7 +15,9 @@
   </div>
   <!-- Zoom on -->
   <div v-if="imageZoomed" class="image-mask">
-    <div class="image-container">
+    <div
+      class="image-container"
+      :style="{width: zoomLevel == 0 ? '50%' : zoomLevel == 1 ? '60%' : zoomLevel == 2 ? '70%' : zoomLevel == 3 ? '80%' : zoomLevel == 4 ? '90%' : '100%'}">
       <img
         :src="source">
       <div class="zoom-out" @click="toggleZoom">
