@@ -21,13 +21,11 @@ export default {
     incZoom() {
       if(this.imageZoomed && this.zoomLevel < 5) {
         this.zoomLevel++;
-        console.log(this.zoomLevel);
       }
     },
     decZoom() {
       if(this.imageZoomed && this.zoomLevel > 0) {
         this.zoomLevel--;
-        console.log(this.zoomLevel);
       }
     },
   }
