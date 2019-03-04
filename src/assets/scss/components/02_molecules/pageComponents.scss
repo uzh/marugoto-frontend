@@ -206,6 +206,52 @@
                 }
             }
 
+            .video-container {
+                position: relative;
+                width: 100%;
+
+                #video {
+                    width: 100%;
+                }
+
+                #play-big {
+                    position: absolute;
+                    top: calc(50% - 20px);
+                    left: calc(50% - 20px);
+                }
+    
+                #video-controls {
+                    position: absolute;
+                    bottom: 0;
+                    width: 100%;
+                    height: 60px;
+                    background-color: transparent;
+
+                    #play-small {
+                        display: inline-block;
+                        height: 40px;
+                        width: 40px;
+                        line-height: 40px;
+                        position: absolute;
+                        left: 15px;
+                        bottom: 5px;
+                    }
+
+                    #seek-bar {
+                        width: calc(100% - 30px);
+                        position: absolute;
+                        left: 15px;
+                    }
+
+                    #full-screen {
+                        display: inline-block;
+                        position: absolute;
+                        right: 15px;
+                        bottom: 10px;
+                    }
+                }
+            }
+
             .video-caption {
                 p {
                     @extend .small;
@@ -215,38 +261,6 @@
                     margin-top: 20px;
                 }
             }
-            
-            // .video-container {
-            //     @extend .col-xs-10;
-            //     @extend .col-xs-offset-1;
-            //     position: relative;
-            
-            //     .video-screen {
-            //         width: 100%;
-            //         position: relative;
-            //     }
-            
-            //     .video-controls {
-            //         position: absolute;
-            //         bottom: 0;
-            //         height: 3.125rem;
-            //         width: calc(100% - 20px);
-            //         background-color: $base-primary-border;
-            //         opacity: 0.5;
-            //         button {
-            //             display: inline;
-            //             width: auto;
-            //             background-color: $base-primary-border;
-            //             padding: 10px;
-            //         }
-            //         .play-pause {
-            //             float: left;
-            //         }
-            //         .full-screen {
-            //             float: right;
-            //         }
-            //     }
-            // }
         }
     }
 }

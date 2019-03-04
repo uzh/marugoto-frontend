@@ -77,7 +77,7 @@
         Your browser does not support the audio tag.
       </audio>
     </div>
-    <!-- Video -->
+    <!-- Video native controls-->
     <div v-if="component.type == 'VideoComponent'">
       <video class="full-width" controls>
         <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/mp4">
@@ -87,6 +87,32 @@
       </video>
       <vue-markdown class="video-caption" :source="component.component.caption" />
     </div>
+    <!-- Video custom controls -->
+    <!-- <div v-if="component.type == 'VideoComponent'">
+      <div class="video-container">
+        <video id="video">
+          <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/mp4">
+          <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/webm" />
+          <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/ogg" />
+          <p>Your browser does not support the video tag.</p>
+        </video>
+        // Play button center
+        <div id="play-big">
+          <SvgIcon name="play-big" sizeH="40px" />
+        </div>
+        // Bottom video controls
+        <div id="video-controls">
+          <div id="play-small">
+            <SvgIcon name="play-small" sizeH="16px" />
+          </div>
+          <input type="range" id="seek-bar" value="0">
+          <div id="full-screen">
+            <SvgIcon name="zoom-in" sizeH="30px" />
+          </div>
+        </div>
+      </div>
+      <vue-markdown class="video-caption" :source="component.component.caption" />
+    </div> -->
   </div>
 
 </div>

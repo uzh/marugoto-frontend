@@ -11,10 +11,11 @@ import ExerciseText from './exerciseText'
 import TextComponent from './text'
 import ImageComponent from './image'
 import ExerciseTextArea from './exerciseTextArea'
+import SvgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   name: 'PageComponents',
-  components: { VueMarkdown, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent, ExerciseTextArea },
+  components: { VueMarkdown, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent, ExerciseTextArea, SvgIcon },
   props: [ 'exercises' ],
   computed: {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
