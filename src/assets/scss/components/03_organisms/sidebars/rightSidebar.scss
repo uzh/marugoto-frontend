@@ -105,6 +105,8 @@
   cursor: pointer;
 
   .close{
+    position: absolute;
+    width: 100%;
     height: 90px;
     line-height: 90px;
     vertical-align: middle;
