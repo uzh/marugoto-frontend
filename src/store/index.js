@@ -1,5 +1,3 @@
-/* */
-
 // Store
 
 import Vue from 'vue';

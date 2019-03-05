@@ -1,6 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
+// eslint-disable-next-line
 import { _debounce } from 'lodash';
 import svgIcon from '@/components/01_atoms/svgicon';
 
@@ -27,10 +28,11 @@ export default {
       this.autosaveText = '';
       this.autosavedText = this.answer;
     },
+    // eslint-disable-next-line
     checkTyping: _.debounce(function() {
       this.updateText();
       setTimeout(() => {
-        this.updatedText()
+        this.updatedText();
       }, 500);
     }, 1500),
     textareaHandler(e) {

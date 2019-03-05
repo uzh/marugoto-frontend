@@ -8,10 +8,5 @@ export default {
   name: 'TopicComponent',
   components: { Btn, VueMarkdown },
   props: [ 'list' ],
-  created: function() {
-    setTimeout(function(){
-      console.log('Expired token')
-    },60000);
-  },
 }
 </script>
