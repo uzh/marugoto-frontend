@@ -14,6 +14,7 @@ $chapterHeight: 80px;
         right: 90px;
         width: calc(50% - 45px);
         padding-right: 0;
+        z-index: 50;
     }
 
     &.open-entries-menu{

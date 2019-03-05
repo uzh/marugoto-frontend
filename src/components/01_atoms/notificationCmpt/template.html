@@ -1,12 +1,8 @@
-<div>
-	<div
-		v-if="mailArrived == 1"
-		class="notification">
+<div :class="disappeared ? 'disappear-right' : 'notification'">
+	<div v-if="mailArrived == 1">
 		New Message from {{ mailSender[0].mail.from.name }}
 	</div>
-	<div
-		v-if="mailArrived > 1"
-		class="notification">
+	<div v-if="mailArrived > 1">
 		{{ mailArrived.length }} New Messages
 	</div>
 </div>

@@ -1,4 +1,4 @@
-<div class="image-component">
+<div class="image-component" :class="imageZoomed ? 'active' : ''">
   <!-- Zoom off -->
   <div v-if="!imageZoomed">
     <img

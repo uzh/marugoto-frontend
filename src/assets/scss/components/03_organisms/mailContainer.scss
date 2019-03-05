@@ -10,6 +10,7 @@
   &.in{
     left: 0%;
     transform: translateX(0px);
+    z-index: 50;
   }
 
   transition: all 0.3s;
