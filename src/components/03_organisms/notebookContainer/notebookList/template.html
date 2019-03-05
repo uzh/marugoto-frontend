@@ -5,11 +5,11 @@
         @click="$emit('selectItem', index)" >
         <div v-if="index != '0'" class="notebook-list-item-line"></div>
         <div v-if="index != '0'" class="notebook-list-item-arrow"></div>
-        <span class="notebook-list-item-index">
-          {{ index + 1}}
-        </span>
-        <span class="notebook-list-title" :class="index == selected ? 'notebook-list-item-current' : ''">
-            <vue-markdown :source="item.title" />
-        </span>
+        <div>
+            <span class="notebook-list-item-index">{{ index + 1}}</span>
+            <span class="notebook-list-title" :class="index == selected ? 'notebook-list-item-current' : ''">
+                <vue-markdown :source="item.title" />
+            </span>
+        </div>
     </li>
 </div>

@@ -42,7 +42,7 @@
                         text-align: center;
                         outline: 5px solid $white;
                         background-color: #D8D8D8;
-                        box-shadow: 0 7 16 0 $white;
+                        box-shadow: 0 7px 16px 0 rbga(0, 0, 0, 0.24);
                         transform: rotate(2deg);
                         transition: all 0.3s;
                     }
@@ -149,7 +149,7 @@
                     text-align: center;
                     outline: 5px solid $white;
                     background-color: #D8D8D8;
-                    box-shadow: 0 7 16 0 $white;
+                    box-shadow: 0 7px 16px 0 rbga(0, 0, 0, 0.24);
                     transform: rotate(-2deg);
                     transition: all 0.3s;
 
@@ -277,7 +277,7 @@
                         text-align: center;
                         outline: 5px solid $white;
                         background-color: #D8D8D8;
-                        box-shadow: 0 7 16 0 $white;
+                        box-shadow: 0 7px 16px 0 rbga(0, 0, 0, 0.24);
                         transform: rotate(2deg);
                         transition: all 0.3s;
                     }
@@ -384,7 +384,7 @@
                     text-align: center;
                     outline: 5px solid $white;
                     background-color: #D8D8D8;
-                    box-shadow: 0 7 16 0 $white;
+                    box-shadow: 0 7px 16px 0 rbga(0, 0, 0, 0.24);
                     transform: rotate(-2deg);
                     transition: all 0.3s;
 
