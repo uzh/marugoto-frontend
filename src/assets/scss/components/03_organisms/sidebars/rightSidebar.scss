@@ -15,6 +15,7 @@
 
   &.notebook-in {
     border-bottom: none;
+    border-left: none;
     background-color: $white;
     box-shadow: inset 1px 0px 0 0 #E6E3E1;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
@@ -112,6 +113,13 @@
   background: $white;
   cursor: pointer;
 
+  &.in {
+    border-left: none;
+    background-color: $white;
+    box-shadow: inset 1px 0 0 0 #E6E3E1;
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+  }
+
   .close{
     position: absolute;
     width: 100%;
@@ -128,12 +136,6 @@
 
   .notebook-sidebar-right {
       height: 100%;
-
-      &.in {
-        background-color: $white;
-        box-shadow: inset 1px 0 0 0 #E6E3E1;
-        background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
-      }
     
       .rotated-text {
         position: relative;

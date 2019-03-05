@@ -195,6 +195,7 @@
                 }
             }
 
+            /*
             .video-container {
                 position: relative;
                 width: 100%;
@@ -240,11 +241,11 @@
                     }
                 }
             }
+            */
 
             .video-caption {
                 p {
                     @extend .small;
-                    @extend .mb-40;
                     text-align: center;
                     margin-top: 20px;
                     overflow: hidden;

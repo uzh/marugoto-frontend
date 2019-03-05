@@ -37,11 +37,11 @@
           <p class="lead mb-10">Enter your Data</p>
           <div>
             <form class="full-width" @keydown.enter="register">
-              <InputField v-model="password" typeProp="password" labelName="Password" :required="errorMessage"/>
               <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
               <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
               <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
               <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
+              <InputField v-model="password" typeProp="password" labelName="Password" :required="errorMessage"/>
             </form>
             <div v-if="errorText" class="login-error-message">
               <p>{{ errorText.text }}</p>

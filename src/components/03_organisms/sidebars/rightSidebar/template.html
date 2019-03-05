@@ -19,14 +19,14 @@
     </div>
   </div>
   <!-- NOTEBOOK SIDEBAR -->
-  <div class="notebook-btn">
+  <div class="notebook-btn" :class="get_layoutState.notebook.opened ? 'in' : ''">
     <div 
       v-if="get_layoutState.notebook.opened" 
       @click="switchNotebookLayout(false)"
       class="close">
       <img src="@/assets/images/close.svg" alt="image" />
     </div>
-    <div class="notebook-sidebar-right" :class="get_layoutState.notebook.opened ? 'in' : ''" @click="switchNotebookLayout(true)">
+    <div class="notebook-sidebar-right" @click="switchNotebookLayout(true)">
       <p class="rotated-text">Notebook</p>
     </div>
   </div>
