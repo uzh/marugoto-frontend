@@ -142,8 +142,8 @@ export default {
           mail: this.mail,
           password: this.password,
           salutation: this.gender
-        }).then(userInfo => {
-          this.$store.dispatch('LOGIN', userInfo).then(() => this.$router.push('/'));
+        }).then(registerData => {
+          this.$store.dispatch('LOGIN', registerData).then(() => this.$router.push('/'));
         })
         .catch((err) => {
           this.errorText.text = err.response.data.message;
