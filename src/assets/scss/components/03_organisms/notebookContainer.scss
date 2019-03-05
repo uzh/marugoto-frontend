@@ -137,7 +137,7 @@ $chapterHeight: 80px;
                 width: 44px;
                 background-color: $white;
                 z-index: 1;
-                background: url('assets/images/sticker.png') center no-repeat;
+                background: url('assets/images/sticker.png');
                 transform: rotate(-90deg);
             }
             img {
@@ -146,7 +146,7 @@ $chapterHeight: 80px;
                 border: 5px solid $white;
             }
             .image-caption {
-                margin-bottom: 20px;
+                margin: 20px 0;
                 p {
                     @extend .small;
                     font-family: inherit;
@@ -252,7 +252,6 @@ $chapterHeight: 80px;
     position: relative;
     z-index: 9;
     top: 0;
-    height: 96px;
     width: 100%;
     border-left: 2px solid #2F3133;
 
