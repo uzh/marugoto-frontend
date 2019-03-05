@@ -74,6 +74,8 @@ export default({
       default:
         state.layout.notebook.opened = false;
         state.layout.mail.opened = false;
+        state.layout.notebook.disabled = false;
+        state.layout.mail.disabled = false;
         state.layout.dialog.opened = false;
     }
   },

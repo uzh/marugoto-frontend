@@ -30,7 +30,7 @@ export default {
     checkTyping: _.debounce(function() {
       this.updateText();
       setTimeout(() => {
-        this.updatedText()
+        this.updatedText();
       }, 500);
     }, 1500),
     textareaHandler(e) {

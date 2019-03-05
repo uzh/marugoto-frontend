@@ -41,7 +41,14 @@ export default {
   name: 'player',
   components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
   computed: {
-    ...mapGetters([ 'get_page', 'get_topic', 'get_dialog', 'get_transitions', 'get_dialog', 'get_layoutState' ]),
+    ...mapGetters([ 
+      'get_page', 
+      'get_topic', 
+      'get_dialog', 
+      'get_transitions', 
+      'get_dialog', 
+      'get_layoutState', 
+      'get_textExerciseExists' ]),
   },
   data() {
     return {
@@ -75,11 +82,27 @@ export default {
       });
     },
     requestPageTransition(id){
-      this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
-      .then(() => {
-        this.$store.dispatch('LAYOUT_OPEN');
-        this.requester();
-      });
+      if( this.get_textExerciseExists.exist ){
+        // Here you can prevent to make transition if exercise is required but empty or 
+        // grab exercise value before transition and update backend first
+        this.$store.dispatch('SUBMIT_EXERCISE_STATE', {
+          id: this.get_textExerciseExists.state.id,
+          answer: document.getElementById(this.get_textExerciseExists.state.id).value,
+        })
+        .then(() => {
+          this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
+          .then(() => {
+            this.$store.dispatch('LAYOUT_OPEN');
+            this.requester();
+          });
+        })
+      }else{
+        this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
+        .then(() => {
+          this.$store.dispatch('LAYOUT_OPEN');
+          this.requester();
+        });
+      }
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
@@ -107,20 +130,19 @@ export default {
 
       // Check if page got timeLimit for transition trigger
       if( newVal.hasOwnProperty('timeLimit') ){
-        return;
-        new Timer(newVal.timeLimit, // Transition time
-                  this.requestPageTransition, // Callback
-                  this.get_transitions[0].pageTransition.id) // Callback payload
-                  .start();
+        new Timer(newVal.timeLimit,                   // Transition time
+          this.requestPageTransition,                 // Callback
+          this.get_transitions[0].pageTransition.id)  // Callback payload
+          .start();
       }
     },
     get_dialog: function(newVal, oldVal) {
       if( this.get_layoutState.dialog.opened ) { return; }
       if( newVal.length > 0 && newVal[0].hasOwnProperty('receiveAfter') ){
         new Timer(newVal[0].receiveAfter, // Transition time
-                  this.setDialogVisibility, // Callback
-                  true) // Callback payload
-                  .start();
+          this.setDialogVisibility,       // Callback
+          true)                           // Callback payload
+          .start();
       }
     },
   },

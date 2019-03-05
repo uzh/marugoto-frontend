@@ -21,6 +21,18 @@ export default{
   get_PageComponents: state => {
     return state.pageComponents;
   },
+  get_textExerciseExists: state => {
+    let result = {exist: false};
+    for( var ii = 0; ii < state.pageComponents.length; ii++){
+      if( state.pageComponents[ii].type == 'TextExercise' ){
+        result = {
+          exist: true,
+          ...state.pageComponents[ii]
+        };
+      }
+    }
+    return result;
+  },
   get_dialog: state => {
     return state.dialogNotifications;
   },
