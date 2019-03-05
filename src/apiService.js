@@ -31,26 +31,26 @@ const processQueue = (error, token = null) => {
 apiService.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
-  console.log(error.config)
+  // console.log(error.config)
   const originalRequest = error.config;
-  console.log('1. API error');
+  // console.log('1. API error');
   if (error.response.status === 401 && !originalRequest._retry) {
     if( error.config.url == 'http://localhost:8080/api/auth/refresh-token' ){
-      console.log('------------- REFRESH 401 -------------')
+      // console.log('------------- REFRESH 401 -------------')
       failedQueue = [];
       store.dispatch('LOGOUT');
       return;
     }
-    console.log('2. AUTH error');
+    // console.log('2. AUTH error');
     if (isRefreshing) {
-      console.log('---------------------------------------------');
-      console.log('WARN - token refreshing - put promise to que');
+      // console.log('---------------------------------------------');
+      // console.log('WARN - token refreshing - put promise to que');
       return new Promise(function(resolve, reject) {
         failedQueue.push({resolve, reject})
-        console.log(failedQueue);
-        console.log('---------------------------------------------');
+        // console.log(failedQueue);
+        // console.log('---------------------------------------------');
       }).then(token => {
-        console.log('RESOLVE que calls');
+        // console.log('RESOLVE que calls');
         originalRequest.headers['Authorization'] = token;
         return apiService(originalRequest);
       }).catch(err => {
@@ -58,19 +58,19 @@ apiService.interceptors.response.use(function (response) {
       })
     }
 
-    console.log('SET REFRESHING TO TRUE')
+    // console.log('SET REFRESHING TO TRUE')
     originalRequest._retry = true;
     isRefreshing = true;
 
     return new Promise(function (resolve, reject) {
-      console.log('3. PUT refreshToken in header');
+      // console.log('3. PUT refreshToken in header');
       apiService.defaults.headers.common['Authorization'] = JSON.parse(localStorage.getItem('UHZ')).status.refreshToken;
       apiService.get('/auth/refresh-token')
         .then(({data}) => {
-          console.log('4. assign new tokens');
+          // console.log('4. assign new tokens');
           apiService.defaults.headers.common['Authorization'] = data.token;
           originalRequest.headers['Authorization'] = data.token;
-          console.log('5. STORE UPDATE TOKEN');
+          // console.log('5. STORE UPDATE TOKEN');
           store.dispatch('UPDATE_TOKEN', {
             token: data.token,
             refreshToken: data.refreshToken,
@@ -83,7 +83,7 @@ apiService.interceptors.response.use(function (response) {
             reject(err);
         })
         .then(() => {
-          console.log('SET REFrEShiNG TO FALSE');
+          // console.log('SET REFrEShiNG TO FALSE');
           isRefreshing = false;
         })
     })
