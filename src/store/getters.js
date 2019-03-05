@@ -1,5 +1,3 @@
-/* */
-
 // Getters
 
 export default{

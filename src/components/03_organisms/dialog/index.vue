@@ -1,14 +1,10 @@
-<!-- import html template -->
 <template src="./template.html"></template>
 
-<!-- start JS -->
 <script>
-/* eslint-disable */
 import VueMarkdown from 'vue-markdown';
 import Btn from '@/components/01_atoms/buttons';
 
 export default {
-  // name of the component
   name: 'dialogComponent',
   components: { Btn, VueMarkdown },
   props: ['text', 'source', 'options'],
@@ -19,6 +15,7 @@ export default {
   },
   methods: {
     emitOption: function(dialogId) {
+      this.$store.dispatch('LAYOUT_CLOSE', 'dialog');
       this.$emit('emitDialog', dialogId);
     },
   },

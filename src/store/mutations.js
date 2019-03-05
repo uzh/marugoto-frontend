@@ -1,5 +1,3 @@
-/* eslint no-unused-vars: 0 */
-
 // Mutations
 
 import * as types from './types';
@@ -33,29 +31,29 @@ export default({
     switch(payload) {
       case 'notebook':
         state.layout.notebook.opened = true;
-        state.layout.mail.opened = false;
         state.layout.notebook.disabled = false;
+        state.layout.mail.opened = false;
         state.layout.mail.disabled = false;
         state.layout.dialog.opened = false;
         break;
       case 'mail':
         state.layout.notebook.opened = false;
-        state.layout.mail.opened = true;
         state.layout.notebook.disabled = false;
+        state.layout.mail.opened = true;
         state.layout.mail.disabled = false;
         state.layout.dialog.opened = false;
         break;
       case 'dialog':
         state.layout.notebook.opened = false;
-        state.layout.mail.opened = false;
         state.layout.notebook.disabled = true;
+        state.layout.mail.opened = false; 
         state.layout.mail.disabled = true;
         state.layout.dialog.opened = true;
         break;
       default:
         state.layout.notebook.opened = false;
-        state.layout.mail.opened = false;
         state.layout.notebook.disabled = false;
+        state.layout.mail.opened = false;
         state.layout.mail.disabled = false;
         state.layout.dialog.opened = false;
     }
@@ -70,11 +68,13 @@ export default({
         break;
       case 'dialog':
         state.layout.dialog.opened = false;
+        state.layout.notebook.disabled = false;
+        state.layout.mail.disabled = false;
         break;
       default:
         state.layout.notebook.opened = false;
-        state.layout.mail.opened = false;
         state.layout.notebook.disabled = false;
+        state.layout.mail.opened = false;
         state.layout.mail.disabled = false;
         state.layout.dialog.opened = false;
     }

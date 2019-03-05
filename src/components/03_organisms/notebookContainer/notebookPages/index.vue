@@ -1,7 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
-/* eslint-disable */
+// eslint-disable-next-line
 import { _debounce } from 'lodash';
 import svgIcon from '@/components/01_atoms/svgicon';
 import Btn from '@/components/01_atoms/buttons';
@@ -58,6 +58,7 @@ export default {
       this.autosaveText = '';
       this.autosavedText = this.personalNoteText;
     },
+    // eslint-disable-next-line
     checkTyping: _.debounce(function() {
       this.updateNoteText();
       setTimeout(() => {

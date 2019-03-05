@@ -25,8 +25,7 @@
 </template>
 
 <script>
-/* eslint-disable */
-import { mapActions, mapGetters } from 'vuex';
+import { mapGetters } from 'vuex';
 import apiService from '@/apiService';
 import Timer from '@/timer';
 
@@ -64,8 +63,7 @@ export default {
         this.requester();
         this.$store.dispatch('MAIL_LIST_UPDATE');
       }); 
-    };
-    
+    }
   },
   methods: {
     requester: function() {
@@ -136,7 +134,7 @@ export default {
           .start();
       }
     },
-    get_dialog: function(newVal, oldVal) {
+    get_dialog: function(newVal) {
       if( this.get_layoutState.dialog.opened ) { return; }
       if( newVal.length > 0 && newVal[0].hasOwnProperty('receiveAfter') ){
         new Timer(newVal[0].receiveAfter, // Transition time

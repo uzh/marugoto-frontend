@@ -1,5 +1,3 @@
-/* */
-
 // State
 
 export default ({
