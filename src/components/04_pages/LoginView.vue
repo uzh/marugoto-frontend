@@ -122,7 +122,10 @@ export default {
         this.$store.dispatch('LOGIN', {
           mail: this.mail,
           password: this.password,
-        }).then(() => this.$router.push('/'))
+        })
+        .then(() => {
+          this.$router.push('/')
+        })
         .catch((err) => {
           this.errorText = err.response.data.message;
           this.errorMessage = true

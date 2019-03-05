@@ -43,15 +43,15 @@ export default {
       this.submitAnswer(this.dateFormated, id);
     },
     submitAnswer: function(answer, excersiseId) {
-      apiService.put(`states/${excersiseId}?inputState=${answer}`)
+      this.$store.dispatch('SUBMIT_EXERCISE_STATE', {
+        id: excersiseId,
+        answer: answer,
+      })
       .then(resp => {
         if( resp.data.statesChanged ){
           this.checkState();
         }
       })
-      .catch(() => {
-        
-      });
     },
     checkState: function() {
       apiService.get('states') 

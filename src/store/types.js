@@ -18,9 +18,12 @@ export const LAYOUT_CLOSE = 'LAYOUT_CLOSE';
 export const UPDATE_TOPIC_LIST = 'UPDATE_TOPIC_LIST';
 export const CHOOSE_TOPIC = 'CHOOSE_TOPIC';
 
-// Storyline calls
+// Storyline Calls
 export const REQUEST_PAGE_CURRENT = 'REQUEST_PAGE_CURRENT';
 export const REQUEST_PAGE_TRANSITION = 'REQUEST_PAGE_TRANSITION';
+
+// Exercise State
+export const SUBMIT_EXERCISE_STATE = 'SUBMIT_EXERCISE_STATE';
 
 // Updates Page
 export const UPDATE_PAGE_STATE = 'UPDATE_PAGE_STATE';
