@@ -4,26 +4,23 @@
 
 import * as types from './types'
 import apiService from '../apiService'
+import router from '../router'
 
 export default({
   [types.REGISTER]: ({commit}, userInfo) => {
-    return new Promise((resolve, reject) => {
-      apiService({url: '/user/registration', data: userInfo, method: 'POST' })
+    return apiService({url: '/user/registration', data: userInfo, method: 'POST' })
       .then(() => {
-        resolve({
+        return {
           mail: userInfo.mail,
           password: userInfo.password,
-        })
+        };
       })
       .catch(err => {
         commit('AUTH_ERROR');
-        reject(err)
       })
-    })
   },
   [types.LOGIN]: ({commit}, userInfo) => {
-    return new Promise((resolve, reject) => {
-      apiService({url: '/auth/generate-token', data: userInfo, method: 'POST' })
+    return apiService({url: '/auth/generate-token', data: userInfo, method: 'POST' })
       .then(resp => {
         const token = resp.data.token;
         const refreshToken = resp.data.refreshToken;
@@ -32,39 +29,34 @@ export default({
           token: token,
           refreshToken: refreshToken,
         });
-        resolve(resp);
       })
       .catch(err => {
         commit('AUTH_ERROR');
-        reject(err);
       })
-    })
-  },
-  [types.FORGOT_PASSWORD]: ({commit}, info) => {
-    return new Promise((resolve, reject) => {
-      apiService({url: '/user/password-forget', data: info, method: 'POST' })
-      .then(resp => {
-        resolve(resp);
-      })
-      .catch(err => {
-        reject(err);
-      })
-    })
-  },
-  [types.RESET_PASSWORD]: ({commit}, info) => {
-    return new Promise((resolve, reject) => {
-      apiService({url: '/user/password-reset', data: info, method: 'POST' })
-      .then(resp => {
-        resolve(resp);
-      })
-      .catch(err => {
-        reject(err);
-      })
-    })
   },
   [types.LOGOUT]: (context) => {
     delete apiService.defaults.headers.common["Authorization"];
+    localStorage.removeItem('UHZ');
     context.commit(types.LOGOUT);
+    router.push('/');
+  },
+  [types.FORGOT_PASSWORD]: ({commit}, info) => {
+    return apiService({url: '/user/password-forget', data: info, method: 'POST' })
+      .then(resp => {
+        return resp;
+      })
+      .catch(err => {
+        throw(err);
+      })
+  },
+  [types.RESET_PASSWORD]: ({commit}, info) => {
+    return apiService({url: '/user/password-reset', data: info, method: 'POST' })
+      .then(resp => {
+        return resp;
+      })
+      .catch(err => {
+        throw(err);
+      })
   },
   [types.UPDATE_TOKEN]: (context, payload) => {
     context.commit(types.UPDATE_TOKEN, payload);
@@ -74,6 +66,16 @@ export default({
   },
   [types.LAYOUT_CLOSE]: (context, payload) => {
     context.commit(types.LAYOUT_CLOSE, payload);
+  },
+  // EXERCISE
+  [types.SUBMIT_EXERCISE_STATE]: ({commit}, payload) => {
+    return apiService.put(`states/${payload.id}?inputState=${payload.answer}`)
+    .then(resp => {
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
   },
   // TOPIC
   [types.UPDATE_TOPIC_LIST]: ({commit}) => {
