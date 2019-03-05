@@ -7,11 +7,6 @@ import svgIcon from '@/components/01_atoms/svgicon';
 export default {
   name: 'RightSidebar',
   components: { svgIcon },
-  data(){
-    return{
-      title: 'RightSidebar',
-    }
-  },
   computed: {
     ...mapGetters([ 'get_layoutState', 'get_mailNotificationState' ]),
   },

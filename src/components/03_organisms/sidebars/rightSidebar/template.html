@@ -24,7 +24,7 @@
       v-if="get_layoutState.notebook.opened" 
       @click="switchNotebookLayout(false)"
       class="close">
-      <img alt="dsa" src="@/assets/images/close.svg" />
+      <img src="@/assets/images/close.svg" alt="image" />
     </div>
     <div class="notebook-sidebar-right" :class="get_layoutState.notebook.opened ? 'in' : ''" @click="switchNotebookLayout(true)">
       <p class="rotated-text">Notebook</p>

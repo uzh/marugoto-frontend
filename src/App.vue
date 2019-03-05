@@ -7,7 +7,7 @@
     <RightSidebar v-if="get_status.isLoged && get_topic.selected" />
     <NotebookContainer v-if="get_status.isLoged && get_topic.selected"/>
     <MailContainer v-if="get_status.isLoged && get_topic.selected" />
-    <NotificationCmpt :mailArrived="get_mailNotificationState > 0" :mailSender="get_mails[0].mail.from.name" />
+    <NotificationCmpt :mailArrived="get_mailNotificationState > 0" :mailSender="get_mails" />
   </div>
 </template>
 
