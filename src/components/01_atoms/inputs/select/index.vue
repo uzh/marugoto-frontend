@@ -16,24 +16,25 @@ export default {
       listOpened: false,
     };
   },
-  created() {
-    document.addEventListener('click', this.blurSelect)
-  },
+  // created() {
+  //   document.addEventListener('click', this.blurSelect)
+  // },
   methods: {
     optionSelection: function(item) {
       this.selectedValue = item.name;
       this.$emit('selectChange', item.value);
+      this.listOpened = false;
     },
-    blurSelect(e){
-      let el = this.$refs.selectWrapper;
-      let target = e.target;
-      if (( el !== target) && !el.contains(target)) {
-        this.listOpened = false;
-      }
-    },
+    // blurSelect(e){
+    //   let el = this.$refs.selectWrapper; // select-field had this ref
+    //   let target = e.target;
+    //   if (( el !== target) && !el.contains(target)) {
+    //     this.listOpened = false;
+    //   }
+    // },
   },
-  destroyed () {
-    document.removeEventListener('click', this.blurSelect);
-  }
+  // destroyed () {
+  //   document.removeEventListener('click', this.blurSelect);
+  // }
 };
 </script>

@@ -191,6 +191,7 @@
                     @extend .small;
                     text-align: center;
                     margin-top: 20px;
+                    overflow: hidden;
                 }
             }
 
@@ -245,8 +246,8 @@
                     @extend .small;
                     @extend .mb-40;
                     text-align: center;
-                    // @extend .col-xs-offset-1;
                     margin-top: 20px;
+                    overflow: hidden;
                 }
             }
         }

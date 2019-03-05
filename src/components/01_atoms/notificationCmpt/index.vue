@@ -8,11 +8,6 @@
 export default {
   // name of the component
   name: 'notificationCmpt',
-  data() {
-    return {
-      mailArrived: true,
-      sender: 'Professor Eder'
-    };
-  }
+  props: [ 'mailArrived', 'mailSender' ],
 };
 </script>

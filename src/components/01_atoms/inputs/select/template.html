@@ -1,7 +1,7 @@
 <div tabindex="0" @focus="listOpened = true" @blur="listOpened = false">
 	<div class="select-div">
 		<div v-if="selectedValue != ''"
-			:class="labelName ? 'label-name' : ''" >
+			:class="labelName ? 'label-name' : ''">
 			{{ labelName }}
 		</div>
 		<div 
@@ -10,7 +10,6 @@
 				listOpened ? 'openedList' : '',
 				selectedValue != '' ? 'selectedOption' : ''
 			]"
-			ref="selectWrapper"
 			@click="listOpened = true">
 				<div v-if="!selectedValue">{{ labelName }}</div>
 				<div v-else>{{ selectedValue }}</div>

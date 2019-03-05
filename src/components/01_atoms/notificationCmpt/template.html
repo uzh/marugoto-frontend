@@ -1,5 +1,12 @@
-<div
-	v-if="mailArrived"
-	class="notification">
-	Neue Nachricht von {{ sender }}
+<div>
+	<div
+		v-if="mailArrived == 1"
+		class="notification">
+		New Message from {{ mailSender }}
+	</div>
+	<div
+		v-if="mailArrived > 1"
+		class="notification">
+		{{ mailArrived.length }} New Messages
+	</div>
 </div>

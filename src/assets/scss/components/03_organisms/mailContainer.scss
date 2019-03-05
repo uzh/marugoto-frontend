@@ -15,7 +15,7 @@
   transition: all 0.3s;
 
   .mail-container-body{
-    border-top: $border;
+    // border-top: $border;
     min-height: calc(100vh - 90px);
 
     .empty-mailbox {
@@ -112,7 +112,6 @@
     }
 
     button {
-      float: left;
       width: 30%;
       padding: 10px;
       border: $base-ghost-border;

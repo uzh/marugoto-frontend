@@ -7,7 +7,7 @@
     <RightSidebar v-if="get_status.isLoged && get_topic.selected" />
     <NotebookContainer v-if="get_status.isLoged && get_topic.selected"/>
     <MailContainer v-if="get_status.isLoged && get_topic.selected" />
-    <!-- <NotificationCmpt /> -->
+    <NotificationCmpt :mailArrived="get_mailNotificationState > 0" :mailSender="get_mails[0].mail.from.name" />
   </div>
 </template>
 
@@ -18,7 +18,6 @@ import NotebookContainer from '@/components/03_organisms/notebookContainer';
 import MailContainer from '@/components/03_organisms/mailContainer';
 import Topbar from '@/components/03_organisms/sidebars/topbar';
 import RightSidebar from '@/components/03_organisms/sidebars/rightSidebar';
-
 import NotificationCmpt from './components/01_atoms/notificationCmpt';
 
 export default{
@@ -27,7 +26,9 @@ export default{
     ...mapGetters([
       'get_status',
       'get_layoutState',
-      'get_topic'
+      'get_topic',
+      'get_mails',
+      'get_mailNotificationState'
     ]),
   },
   methods: {
