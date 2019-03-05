@@ -1,6 +1,6 @@
 <div>
   <!-- MAIL SIDEBAR -->
-  <div class="mail-sidebar clear-float" :class="get_layoutState.mail.opened ? 'in' : ''">
+  <div class="mail-sidebar clear-float" :class="[get_layoutState.mail.opened ? 'in' : '', get_layoutState.notebook.opened ? 'notebook-in' : '']">
     <div
       class="mail-sidebar-open go-left"
       @click="switchMailLayout(true)">
