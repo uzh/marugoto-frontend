@@ -7,7 +7,7 @@ import Btn from "@/components/01_atoms/buttons"
 export default {
   name: 'MailBody',
   components: { Btn, VueMarkdown },
-  props: ['mail', 'selectedIndex'],
+  props: ['mail'],
   data() {
     return {
       sendingMail: false,

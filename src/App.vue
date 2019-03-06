@@ -9,7 +9,10 @@
       <RightSidebar v-if="get_status.isLoged && get_topic.selected" />
       <NotebookContainer v-if="get_status.isLoged && get_topic.selected"/>
       <MailContainer v-if="get_status.isLoged && get_topic.selected" />
-      <NotificationCmpt v-if="get_mailNotificationState" :mailArrived="get_mailNotificationState" :mailSender="get_mails" />
+      <NotificationCmpt 
+        v-if="get_mailNotificationState" 
+        :mailArrived="get_mailNotificationState" 
+        :mailSender="get_mails" />
     </div>
   </div>
 </template>
