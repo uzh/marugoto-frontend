@@ -42,11 +42,6 @@ export default{
   created: function() {
     this.$store.dispatch('ERROR_NETWORK_CONNECTION', false);
   },
-  mounted(){
-    console.log(process.env.NODE_ENV)
-    console.log(process.env.VUE_APP_API_PATH)
-    console.log(process.env.VUE_APP_API_PATH)
-  },
   methods: {
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),
   },
