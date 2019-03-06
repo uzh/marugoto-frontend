@@ -19,7 +19,7 @@
     <!-- Image -->
     <ImageComponent
       v-if="component.type == 'ImageComponent'"
-      :source="`http://localhost:8080/${component.component.image.path}`"
+      :source="`${basePath}${component.component.image.path}`"
       :text="component.component.caption"
       :zoomable="component.component.zoomable" />
     <!-- Date Component -->
@@ -64,7 +64,7 @@
     <div v-if="component.type == 'PdfComponent'" >
       <a
         class="mb-40"
-        :href="`http://localhost:8080/${component.component.pdf.path}`"
+        :href="`${basePath}${component.component.pdf.path}`"
         target="_blank">
         PDF
       </a>
@@ -72,17 +72,17 @@
     <!-- Audio -->
     <div v-if="component.type == 'AudioComponent'">
       <audio class="full-width mb-40" controls>
-        <source :src="`http://localhost:8080/${component.component.audio.path}`" type="audio/ogg">
-        <source :src="`http://localhost:8080/${component.component.audio.path}`" type="audio/mpeg">
+        <source :src="`${basePath}${component.component.audio.path}`" type="audio/ogg">
+        <source :src="`${basePath}${component.component.audio.path}`" type="audio/mpeg">
         Your browser does not support the audio tag.
       </audio>
     </div>
     <!-- Video native controls-->
     <div v-if="component.type == 'VideoComponent'">
       <video class="full-width" controls>
-        <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/mp4">
-        <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/webm" />
-        <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/ogg" />
+        <source :src="`${basePath}${component.component.video.path}`" type="video/mp4">
+        <source :src="`${basePath}${component.component.video.path}`" type="video/webm" />
+        <source :src="`${basePath}${component.component.video.path}`" type="video/ogg" />
         <p>Your browser does not support the video tag.</p>
       </video>
       <vue-markdown class="video-caption mb-40" :source="component.component.caption" />
@@ -91,9 +91,9 @@
     <!-- <div v-if="component.type == 'VideoComponent'">
       <div class="video-container">
         <video id="video">
-          <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/mp4">
-          <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/webm" />
-          <source :src="`http://localhost:8080/${component.component.video.path}`" type="video/ogg" />
+          <source :src="`${basePath}${component.component.video.path}`" type="video/mp4">
+          <source :src="`${basePath}${component.component.video.path}`" type="video/webm" />
+          <source :src="`${basePath}${component.component.video.path}`" type="video/ogg" />
           <p>Your browser does not support the video tag.</p>
         </video>
         // Play button center

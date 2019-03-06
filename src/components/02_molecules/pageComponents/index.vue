@@ -22,7 +22,7 @@ export default {
   },
   data: function() {
     return {
-      env: process.env.VUE_APP_BASE_PATH,
+      basePath: process.env.VUE_APP_BASE_PATH,
       selectedDate: null,
       formats: {
         title: 'MMMM YYYY',

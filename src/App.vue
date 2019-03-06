@@ -26,7 +26,7 @@ import MailContainer from '@/components/03_organisms/mailContainer';
 import Topbar from '@/components/03_organisms/sidebars/topbar';
 import RightSidebar from '@/components/03_organisms/sidebars/rightSidebar';
 
-
+/* eslint-disable */
 export default{
   components: { Errors, NotebookContainer, MailContainer, Topbar, RightSidebar, NotificationCmpt },
   computed: {
@@ -41,6 +41,11 @@ export default{
   },
   created: function() {
     this.$store.dispatch('ERROR_NETWORK_CONNECTION', false);
+  },
+  mounted(){
+    console.log(process.env.NODE_ENV)
+    console.log(process.env.VUE_APP_API_PATH)
+    console.log(process.env.VUE_APP_API_PATH)
   },
   methods: {
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),

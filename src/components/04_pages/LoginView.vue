@@ -142,7 +142,7 @@ export default {
       } else {
         this.$store.dispatch('FORGOT_PASSWORD', {
           email: this.mail,
-          passwordResetUrl: 'http://localhost:4020/reset',
+          passwordResetUrl: `${process.env.VUE_APP_BASE_PATH}/reset`,
         }).then(() => {
           alert('Please check your mail inbox.');
         })

@@ -16,7 +16,7 @@
         class="mb-40"
         @emitDialog="dialogOptionEmited"
         :text="dialog.speech.markdownContent"
-        :source="`http://localhost:8080/${dialog.from.image.path}`"
+        :source="`${basePath}${dialog.from.image.path}`"
         :options="dialog.answers" />
       <!-- Page transitions -->
       <PageTransitions @transitionChoosen="requestPageTransition" />
@@ -39,6 +39,12 @@ import VueMarkdown from 'vue-markdown';
 export default {
   name: 'player',
   components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
+  data() {
+    return {
+      dialogVisible: false,
+      basePath: process.env.VUE_APP_BASE_PATH,
+    };
+  },
   computed: {
     ...mapGetters([ 
       'get_page', 
@@ -48,11 +54,6 @@ export default {
       'get_dialog', 
       'get_layoutState', 
       'get_textExerciseExists' ]),
-  },
-  data() {
-    return {
-      dialogVisible: false,
-    };
   },
   created() {
     if( !this.get_topic.selected ){
