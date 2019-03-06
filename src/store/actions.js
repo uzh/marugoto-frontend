@@ -73,7 +73,9 @@ export default({
   },
   // EXERCISE
   [types.SUBMIT_EXERCISE_STATE]: ({commit}, payload) => {
-    return apiService.put(`states/${payload.id}?inputState=${payload.answer}`)
+    return apiService.put(`states/${payload.id}`, {
+      inputState: payload.answer,
+    })
     .then(resp => {
       return resp;
     })
@@ -187,16 +189,16 @@ export default({
     });
   },
   [types.SAVE_MAIL_REPLY]: ({commit, dispatch}, payload) => {
-    return apiService.put(`mail/reply/${payload.id}?replyText=${payload.text}`)
+    return apiService.put(`mail/reply/${payload.id}`, {
+      replyText: payload.text,
+    })
     .then(resp => {
+      commit(types.SAVE_MAIL_REPLY, payload);
       if( resp.data.stateChanged ){
         dispatch('REQUEST_PAGE_CURRENT');
       }else{
         dispatch('MAIL_LIST_UPDATE');
       }
-    })
-    .then(() => {
-      commit(types.SAVE_MAIL_REPLY, payload);
     })
     .catch(err => {
       throw(err);

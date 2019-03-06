@@ -24,8 +24,11 @@ export default {
     ...mapGetters([ 'get_layoutState', 'get_mails', 'get_newMails' ]),
   },
   methods: {
-    handleMail: function({id, read}) {
+    handleMail: function({id, read, autoOpen}) {
       this.$store.dispatch('SYNC_MAIL', {id, read});
+      if( {autoOpen}.value == true ) {
+        this.$store.dispatch('LAYOUT_OPEN','mail');
+      }
     },
     handleNewMails: function() {
       // HANDLE_NEW_MAIL is part of timer & update here
@@ -33,11 +36,10 @@ export default {
         let mail = this.get_newMails[ii];
         let callback = this.handleMail;
 
-        if( mail.receiveAfter == 0 || mail.openOnReceive ){
-          callback({id: mail.id, read: true});
-          this.$store.dispatch('LAYOUT_OPEN','mail');
+        if( mail.openOnReceive ){
+          new Timer(mail.receiveAfter, callback, {id: mail.id, read: true, autoOpen: true}).start();
         }else{
-          new Timer(mail.receiveAfter, callback, {id: mail.id, read: false}).start();
+          new Timer(mail.receiveAfter, callback, {id: mail.id, read: false, autoOpen: false}).start();
         }
       }
     },

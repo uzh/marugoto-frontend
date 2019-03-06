@@ -33,7 +33,7 @@ apiService.interceptors.response.use(function (response) {
   /**
    * SERVER ERROR
    */
-  if (!error.status) {
+  if ( error.message == 'Network Error' ) {
     store.dispatch('ERROR_NETWORK_CONNECTION', true);
     return;
   }
