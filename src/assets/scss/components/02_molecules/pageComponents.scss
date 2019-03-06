@@ -70,6 +70,11 @@
                 width: 100%;
                 z-index: 10;
                 transition: all 0.5s;
+
+                &.active {
+                    z-index: 20;
+                }
+
                 &:hover {
                     .zoom-in {
                         display: block;
