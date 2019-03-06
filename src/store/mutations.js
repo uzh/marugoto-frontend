@@ -3,6 +3,10 @@
 import * as types from './types';
 
 export default({
+  // ERRORS
+  [types.ERROR_NETWORK_CONNECTION] (state, payload) {
+    state.errors = payload;
+  },
   // AUTH MUTATIONS
   [types.AUTH_SUCCESS] (state, payload) {
     state.status.isLoged = true;

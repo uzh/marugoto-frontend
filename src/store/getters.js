@@ -1,6 +1,9 @@
 // Getters
 
 export default{
+  get_errors: state => {
+    return state.errors;
+  },
   get_layoutState: state => {
     return state.layout;
   },

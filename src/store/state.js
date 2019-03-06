@@ -1,6 +1,7 @@
 // State
 
 export default ({
+  errors: false,
   global: {
   
   },

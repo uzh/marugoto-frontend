@@ -67,6 +67,10 @@ export default({
   [types.LAYOUT_CLOSE]: (context, payload) => {
     context.commit(types.LAYOUT_CLOSE, payload);
   },
+  // ERRORS
+  [types.ERROR_NETWORK_CONNECTION]: (context, payload) => {
+    context.commit(types.ERROR_NETWORK_CONNECTION, payload);
+  },
   // EXERCISE
   [types.SUBMIT_EXERCISE_STATE]: ({commit}, payload) => {
     return apiService.put(`states/${payload.id}?inputState=${payload.answer}`)
@@ -184,11 +188,15 @@ export default({
   },
   [types.SAVE_MAIL_REPLY]: ({commit, dispatch}, payload) => {
     return apiService.put(`mail/reply/${payload.id}?replyText=${payload.text}`)
-    .then(() => {
-      commit(types.SAVE_MAIL_REPLY, payload);
+    .then(resp => {
+      if( resp.data.stateChanged ){
+        dispatch('REQUEST_PAGE_CURRENT');
+      }else{
+        dispatch('MAIL_LIST_UPDATE');
+      }
     })
     .then(() => {
-      dispatch('MAIL_LIST_UPDATE');
+      commit(types.SAVE_MAIL_REPLY, payload);
     })
     .catch(err => {
       throw(err);
