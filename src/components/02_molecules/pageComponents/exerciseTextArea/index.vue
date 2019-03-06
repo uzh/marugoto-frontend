@@ -12,29 +12,21 @@ export default {
   data(){
     return {
       answer: '',
-      filledTextArea: true,
-      autosaveText: '',
-      autosavedText: '',
+      readyForSubmit: false,
     }
   },
   methods: {
     submitAnswer: function(){
       this.$emit('emitInputAreaAnswer', this.answer, this.exerciseId);
     },
-    updateText: function() {
-      this.autosaveText = this.answer;
-    },
-    updatedText: function() {
-      this.autosaveText = '';
-      this.autosavedText = this.answer;
+    checkTyping: function() {
+      this.readyForSubmit = false;
+      this.typingFinished();
     },
     // eslint-disable-next-line
-    checkTyping: _.debounce(function() {
-      this.updateText();
-      setTimeout(() => {
-        this.updatedText();
-      }, 500);
-    }, 1500),
+    typingFinished: _.debounce(function() {
+      this.readyForSubmit = true;
+    }, 300),
     textareaHandler(e) {
       if (e.keyCode === 13 && !e.shiftKey) {
         e.preventDefault();

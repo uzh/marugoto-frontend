@@ -52,12 +52,16 @@
                     }
                 }
 
-                .autosave-confirm {
+                .typing {
+                    font-family: 'Apercu';
                     line-height: 35px;
                     height: 35px;
                 }
             
                 .enter-to-submit {
+                    font-family: 'Apercu';
+                    line-height: 35px;
+                    height: 35px;
                     width: 100%;
                     text-align: right;
                 }
@@ -119,7 +123,6 @@
                         top: 80px;
                         margin: 0 auto;
                         max-width: calc(100% - 80px);
-                        max-height: calc(100vh - 80px);
                         transition: all .5s ease;
                         &:hover {
                             .zoom-out, .zoom-plus, .zoom-minus {
@@ -129,6 +132,7 @@
 
                         img {
                             width: 100%;
+                            height: auto;
                         }
     
                         .zoom-out {

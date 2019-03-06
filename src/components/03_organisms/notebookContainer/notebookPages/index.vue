@@ -17,8 +17,7 @@ export default {
       openedPersonalNote: false,
       personalNoteNotebookEntryId: '',
       personalNoteText: '',
-      autosaveText: '',
-      autosavedText: '',
+      readyForSubmit: false,
     }
   },
   created() {
@@ -51,20 +50,14 @@ export default {
       this.openedPersonalNote = false;
       this.$refs.textarea[0].autofocus = false;
     },
-    updateNoteText: function() {
-      this.autosaveText = this.personalNoteText;
-    },
-    updatedNoteText: function() {
-      this.autosaveText = '';
-      this.autosavedText = this.personalNoteText;
+    checkTyping: function() {
+      this.readyForSubmit = false;
+      this.typingFinished();
     },
     // eslint-disable-next-line
-    checkTyping: _.debounce(function() {
-      this.updateNoteText();
-      setTimeout(() => {
-        this.updatedNoteText()
-      }, 500);
-    }, 1500),
+    typingFinished: _.debounce(function() {
+      this.readyForSubmit = true;
+    }, 300),
     textareaHandler(e) {
       if (e.keyCode === 13 && !e.shiftKey) {
         e.preventDefault();

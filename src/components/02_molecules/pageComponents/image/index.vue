@@ -1,6 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
+import { mapGetters } from 'vuex';
 import VueMarkdown from 'vue-markdown';
 import SvgIcon from '@/components/01_atoms/svgicon';
 
@@ -14,9 +15,17 @@ export default {
       zoomLevel: 5,
     }
   },
+  computed: {
+    ...mapGetters([ 'get_layoutState' ]),
+  },
   methods: {
     toggleZoom: function() {
       this.imageZoomed = !this.imageZoomed;
+      if (!this.imageZoomed) {
+        this.zoomLevel = 0;
+      } else {
+        this.zoomLevel = 5;
+      }
     },
     incZoom() {
       if(this.imageZoomed && this.zoomLevel < 5) {

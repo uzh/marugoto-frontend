@@ -4,7 +4,7 @@ $chapterHeight: 80px;
     position: absolute;
     top: 0;
     right: -100%;
-    z-index: 2;
+    z-index: 50;
     overflow: scroll;
     width: 50%;
     height: 100vh;
@@ -315,12 +315,16 @@ $chapterHeight: 80px;
         }
     }
 
-    .autosave-confirm {
+    .typing {
+        font-family: 'Apercu';
         line-height: 35px;
         height: 35px;
     }
 
     .enter-to-submit {
+        font-family: 'Apercu';
+        line-height: 35px;
+        height: 35px;
         width: 100%;
         text-align: right;
     }

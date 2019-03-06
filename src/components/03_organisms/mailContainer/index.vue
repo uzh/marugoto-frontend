@@ -34,7 +34,7 @@ export default {
         let callback = this.handleMail;
 
         if( mail.receiveAfter == 0 || mail.openOnReceive ){
-          callback({id: mail.id, read: false});
+          callback({id: mail.id, read: true});
           this.$store.dispatch('LAYOUT_OPEN','mail');
         }else{
           new Timer(mail.receiveAfter, callback, {id: mail.id, read: false}).start();
