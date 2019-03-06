@@ -2,7 +2,7 @@
   <div 
     v-for="(component, index) in get_PageComponents" 
     :key="index"
-    :class="`col-xs-${component.component.numberOfColumns}`" >
+    :class="[`col-xs-${component.component.numberOfColumns}`, `col-xs-offset-${component.component.offsetColumns}`]" >
     <!-- Text -->
     <vue-markdown class="mb-40"
       v-if="component.type == 'TextComponent'" 

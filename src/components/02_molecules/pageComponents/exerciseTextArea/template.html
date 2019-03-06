@@ -7,16 +7,11 @@
         v-on:keyup="checkTyping"
         @keydown="textareaHandler">
     </textarea>
-    <!-- Typing/Autosaving/Autosaved -->
-    <div v-if="answer != '' && autosaveText != answer && autosavedText != answer">
-        <div class="small go-right autosave-confirm">Typing...</div>
+    <!-- Typing -->
+    <div v-if="answer != '' && !readyForSubmit">
+        <div class="small go-right typing">Typing...</div>
     </div>
-    <div v-if="autosaveText != '' && autosaveText == answer">
-        <div class="small go-right autosave-confirm">Autosaving...</div>
-    </div>
-    <div v-if="autosavedText != '' && autosaveText == '' && autosavedText == answer">
-        <svgIcon name="check" sizeH="35px" class="go-right" />
-        <div class="small go-right autosave-confirm">Autosaved</div>
+    <div v-if="answer != '' && readyForSubmit">
         <div class="small go-right enter-to-submit">Press Enter to submit</div>
     </div>
 </div>
