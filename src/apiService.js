@@ -23,13 +23,23 @@ const processQueue = (error, token = null) => {
       prom.resolve(token);
     }
   })
-
   failedQueue = [];
 }
 
 apiService.interceptors.response.use(function (response) {
+  store.dispatch('ERROR_NETWORK_CONNECTION', false);
   return response;
 }, function (error) {
+  /**
+   * SERVER ERROR
+   */
+  if (!error.status) {
+    store.dispatch('ERROR_NETWORK_CONNECTION', true);
+    return;
+  }
+  /**
+   * AUTH ERROR
+   */
   // console.log(error.config)
   const originalRequest = error.config;
   // console.log('1. API error');
