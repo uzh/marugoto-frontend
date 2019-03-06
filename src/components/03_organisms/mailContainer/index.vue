@@ -26,8 +26,9 @@ export default {
   methods: {
     handleMail: function({id, read, autoOpen}) {
       this.$store.dispatch('SYNC_MAIL', {id, read});
-      if( {autoOpen}.value == true ) {
+      if( {autoOpen}.autoOpen == true ) {
         this.$store.dispatch('LAYOUT_OPEN','mail');
+        this.selectedIndex = 0;
       }
     },
     handleNewMails: function() {

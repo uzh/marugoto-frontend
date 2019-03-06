@@ -195,7 +195,10 @@ export default({
     .then(resp => {
       commit(types.SAVE_MAIL_REPLY, payload);
       if( resp.data.stateChanged ){
-        dispatch('REQUEST_PAGE_CURRENT');
+        dispatch('REQUEST_PAGE_CURRENT')
+        .then( () => {
+          dispatch('MAIL_LIST_UPDATE');
+        });
       }else{
         dispatch('MAIL_LIST_UPDATE');
       }
