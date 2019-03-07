@@ -5,7 +5,9 @@
       :key="index"
       class="inbox-mail-list-container-li"
       @click="emitMailListClick(index, item.mail.id)">
-      <div v-if="!item.read" class="mail-unread-dot">
+      <div 
+        v-if="!item.read" 
+        class="mail-unread-dot">
         <div class="dot"></div>
       </div>
       <h6>{{ item.mail.from.name }}</h6>

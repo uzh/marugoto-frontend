@@ -33,7 +33,7 @@ apiService.interceptors.response.use(function (response) {
   /**
    * SERVER ERROR
    */
-  if (!error.status) {
+  if ( error.message == 'Network Error' ) {
     store.dispatch('ERROR_NETWORK_CONNECTION', true);
     return;
   }
@@ -44,7 +44,7 @@ apiService.interceptors.response.use(function (response) {
   const originalRequest = error.config;
   // console.log('1. API error');
   if (error.response.status === 401 && !originalRequest._retry) {
-    if( error.config.url == 'http://localhost:8080/api/auth/refresh-token' ){
+    if( error.config.url == `${API_URL}/auth/refresh-token` ){
       // console.log('------------- REFRESH 401 -------------')
       failedQueue = [];
       store.dispatch('LOGOUT');
