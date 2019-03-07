@@ -41,10 +41,11 @@ apiService.interceptors.response.use(function (response) {
    * AUTH ERROR
    */
   // console.log(error.config)
+  
   const originalRequest = error.config;
   // console.log('1. API error');
   if (error.response.status === 401 && !originalRequest._retry) {
-    if( error.config.url == `${API_URL}/auth/refresh-token` ){
+    if( error.config.url == `${API_URL}auth/refresh-token` ){
       // console.log('------------- REFRESH 401 -------------')
       failedQueue = [];
       store.dispatch('LOGOUT');

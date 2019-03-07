@@ -19,7 +19,7 @@ module.exports = {
             loaderOptions: {
                 extract: true,
                 spriteFilename: 'src/assets/images/icons.[hash:8].svg', // or 'img/icons.svg' if filenameHashing == false
-                esModule: false // Comment for dev
+                // esModule: false
             },
             /*
             * @see https://github.com/kisenka/svg-sprite-loader#configuration
