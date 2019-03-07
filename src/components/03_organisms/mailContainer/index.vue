@@ -17,7 +17,7 @@ export default {
   components: { Btn, MailList, MailBody },
   data(){
     return{
-      
+      selectedIndex: undefined,
     }
   },
   computed: {

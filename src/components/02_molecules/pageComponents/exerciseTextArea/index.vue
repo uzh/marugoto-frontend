@@ -26,7 +26,7 @@ export default {
     // eslint-disable-next-line
     typingFinished: _.debounce(function() {
       this.readyForSubmit = true;
-    }, 300),
+    }, 500),
     textareaHandler(e) {
       if (e.keyCode === 13 && !e.shiftKey) {
         e.preventDefault();

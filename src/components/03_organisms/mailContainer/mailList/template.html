@@ -4,8 +4,8 @@
       v-for="(item, index) in list"
       :key="index"
       class="inbox-mail-list-container-li"
-      :class="selectedIndex == 0 ? 'selected' : ''"
-      @click="emitMailListClick(index, item.mail.id)">
+      :class="selectedMail == item.mail.id ? 'selected' : ''"
+      @click="emitMailListClick(index, item.mail.id); selectMail(item.mail.id)">
       <div 
         v-if="!item.read" 
         class="mail-unread-dot">
@@ -13,9 +13,10 @@
       </div>
       <h6>{{ item.mail.from.name }}</h6>
       <!-- <p class="current-date-time">Today, 14:28</p> -->
-      <div class="shortMail">
-        <vue-markdown :html="!falseHtml" :source="item.mail.body" />
-      </div>
+      <vue-markdown
+        class="short-mail"
+        :html="!falseHtml"
+        :source="item.mail.body" />
     </li>
   </ul>
 </div>

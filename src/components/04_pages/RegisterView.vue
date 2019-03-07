@@ -145,7 +145,7 @@ export default {
         }).then(registerData => {
           this.$store.dispatch('LOGIN', registerData).then(() => this.$router.push('/'));
         })
-        .catch((err) => {
+        .catch(err => {
           this.errorText.text = err.response.data.message;
           this.errorText.errorList.mail = err.response.data.errorList.mail;
           this.errorText.errorList.password = err.response.data.errorList.password;
