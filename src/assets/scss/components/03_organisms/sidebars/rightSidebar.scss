@@ -3,7 +3,7 @@
   position: fixed;
   top: 0;
   right: 0;
-  z-index: 3;
+  z-index: 11;
   width: $elements-space;
   height: $elements-space;
   border-left: $border;
@@ -11,20 +11,19 @@
   background: white;
   overflow: hidden;
 
-  transition: all 0.3s;
+  transition: width 0.3s, border-bottom 0s, border-left 0s;
 
   &.notebook-in {
     border-bottom: none;
     border-left: none;
     background-color: $white;
-    box-shadow: inset 1px 0px 0 0 #E6E3E1;
+    box-shadow: inset 1px 0px 0 0 ;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
   }
 
   &.in{
     width: 100%;
     padding-left: 40px;
-    border-left: none;
     z-index: 20;
 
     h5{
@@ -66,7 +65,6 @@
     position: relative;
     width: $elements-space;
     height: $elements-space;
-    margin-right: 40px;
     padding-top: 35px;
     text-align: center;
     cursor: pointer;
@@ -75,7 +73,6 @@
   h5 {
     opacity: 0;
     padding-top: 30px;
-    transition: all 0.3s;
   }
 
   .mail-sidebar-close{
@@ -107,7 +104,7 @@
   position: fixed;
   top: $elements-space;
   right: 0;
-  z-index: 3;
+  z-index: 11;
   width: $elements-space;
   height: 100%;
   border-left: $border;
@@ -116,8 +113,7 @@
 
   &.in {
     border-left: none;
-    background-color: $white;
-    box-shadow: inset 1px 0 0 0 #E6E3E1;
+    box-shadow: inset 1px 0 0 0 $base-uicolor-2;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
   }
 
@@ -130,7 +126,7 @@
     text-align: center;
     z-index: 4;
     background-color: $white;
-    box-shadow: inset 1px 0 0 0 #E6E3E1;
+    box-shadow: inset 1px 0 0 0 $base-uicolor-2;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
     cursor: pointer;
   }

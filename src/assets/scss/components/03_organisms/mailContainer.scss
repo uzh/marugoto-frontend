@@ -43,6 +43,12 @@
         color: rgba(22, 54, 94, 0.4);
       }
     }
+    &.selected {
+      background-color: rgba(22, 54, 94, 0.06);
+      p{
+        color: rgba(22, 54, 94, 0.4);
+      }
+    }
 
     .mail-unread-dot {
       @extend .col-xs-1;
@@ -62,14 +68,6 @@
       @extend .col-xs-7;
       @extend .h6;
       padding-top: 10px;
-    }
-
-    .current-date-time {
-      @extend .col-xs-4;
-      @extend .small;
-      &.active {
-        color: rgba(22, 54, 94, 0.4);
-      }
     }
 
     .shortMail {
@@ -102,18 +100,19 @@
 
   .sender {
     @extend .col-xs-10;
-    @extend .col-xs-push-1;
+    @extend .col-xs-offset-1;
+    display: table;
+    padding: 0;
     padding-top: 50px;
-    position: relative;
 
     h5 {
-      @extend .h5;
-      float: left;
-      width: 70%;
+      display: table-cell;
+      vertical-align: middle;
     }
 
     button {
-      width: 30%;
+      display: table-cell;
+      vertical-align: middle;
       padding: 10px;
       border: $base-ghost-border;
     }
@@ -127,38 +126,35 @@
     @extend .col-xs-10;
     @extend .col-xs-offset-1;
     @extend .lead;
-    margin-top: 50px;
-    position: relative;
-
-    .current-date-time {
-      position: absolute;
-      right: 0;
-      top: 25%;
-      @extend .small;
-    }
+    margin-top: 1rem;
+    padding: 0;
+    padding-bottom: 25px;
+    border-bottom: $border;
   }
 
   .reply-list-container {
-    float: left;
-    margin-top: 50px;
-    margin-left: 8.33%;
+    @extend .col-xs-10;
+    @extend .col-xs-offset-1;
+    margin-top: 25px;
+    padding: 0;
   }
 
   .message {
     @extend .col-xs-10;
     @extend .col-xs-offset-1;
     @extend .p;
-    margin-top: 50px;
+    margin-top: 25px;
     margin-bottom: 50px;
+    padding: 0;
     
     &-inactive {
+      @extend .col-xs-10;
+      @extend .col-xs-offset-1;
       @extend .p;
       color: $base-secondary;
-      position: relative;
-      top: 20px;
-      margin-left: 8.33%;
+      margin-top: 20px;
       margin-bottom: 50px;
-      padding: 30px 20px 0 20px;
+      padding: 30px 0 0 20px;
       float: left;
       border-left: 2px solid #3380DE;
     }
@@ -166,17 +162,16 @@
       @extend .p;
       color: $base-secondary;
       margin-top: 20px;
-      padding: 30px 20px 0 20px;
+      padding: 30px 0 0 20px;
       border-left: 2px solid $base-accent;
     }
     &-textarea {
       @extend .col-xs-10;
       @extend .col-xs-offset-1;
       @extend .p;
-      border-top: $base-ghost-border;
-      margin-top: 30px;
-      padding-top: 30px;
-      min-height: 300px;
+      margin-top: 50px;
+      margin-bottom: 50px;
+      padding: 0;
       resize: none;
     }
     p {
@@ -189,20 +184,31 @@
   .respondMail {
     @extend .col-xs-10;
     @extend .col-xs-offset-1;
-    @extend .mb-100;
     display: block;
+    margin-bottom: 50px;
     padding: 10px 30px;
-    position: relative;
-    top: 100px;
     border: $base-ghost-border;
   }
   
-  .send-mail-text {
-    @extend .col-xs-pull-12;
+  .send-mail-text-to {
+    @extend .col-xs-1;
     @extend .small;
     position: absolute;
-    margin-left: -8.33%;
-    height: auto;
+    left: -8.33%;
+    padding-right: 5px;
+    padding-top: 15px;
+    text-align: right;
+    overflow: hidden;
+  }
+
+  .send-mail-text-subject {
+    @extend .col-xs-1;
+    @extend .small;
+    position: absolute;
+    left: -8.33%;
+    padding-right: 5px;
     padding-top: 5px;
+    text-align: right;
+    overflow: hidden;
   }
 }

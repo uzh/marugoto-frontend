@@ -3,7 +3,7 @@
   <div v-if="mail">
     <!-- Mail Heading -->
     <div class="sender">
-      <div v-if="sendingMail" class="send-mail-text">To</div>
+      <div v-if="sendingMail" class="send-mail-text-to">To</div>
       <h5>{{ mail.mail.from.name }}</h5>
       <button v-if="!sendingMail" @click="respondToMail">Respond to E-Mail</button>
       <Btn 
@@ -19,8 +19,8 @@
 
     <!-- Mail Body Heading -->
     <div class="subject">
-      <div v-if="sendingMail" class="send-mail-text">Subject</div>
-      <h4 class="lead" v-if="!sendingMail">{{ mail.mail.subject }}</h4>
+      <div v-if="sendingMail" class="send-mail-text-subject">Subject</div>
+      <p class="lead" v-if="!sendingMail">{{ mail.mail.subject }}</p>
       <p class="lead" v-if="sendingMail">Re: {{ mail.mail.subject }}</p>
     </div>
 
@@ -37,7 +37,7 @@
     </div>
 
     <!-- Original message -->
-    <div :class="mail.mailReplyList.length > 0 ? 'message-inactive' : 'message'">
+    <div :class="mail.mailReplyList.length > 0 || sendingMail ? 'message-inactive' : 'message'">
         <vue-markdown :source="mail.mail.body" />
     </div>
 
