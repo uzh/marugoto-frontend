@@ -7,7 +7,8 @@ import Icons from "@/assets/icons/arrow-bottom.svg"
 export default {
   name: 'SvgIcon',
   props: [ 'name', 'customColor', 'sizeH', 'sizeW' ],
-  mounted: function() {
+  components: {Icons},
+  created: function() {
     console.log(Icons)
   },
   computed: {
