@@ -51,7 +51,7 @@ $chapterHeight: 80px;
         list-style: none;
         cursor: pointer;
         &-current {
-            border-bottom: 1px solid white;
+            background: url('assets/images/notebook-list-selected.png') center;
         }
         &-line {
             height: 32px;

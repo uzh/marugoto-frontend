@@ -3,24 +3,24 @@
   <div class="login-container">
     <!-- Left main container -->
     <div class="left-container">
-      <!-- Left menu -->
-      <div class="left-container-menu">
-        <div class="rotated-text-login-page">
-          <p class="item">Welcome</p>
-          <p class="item disabled">Reviews</p>
-          <p class="item disabled">Collaborations</p>
+      <div class="left-container-div">
+        <!-- Left menu -->
+        <div class="left-container-menu">
+          <h6 class="item">Welcome</h6>
+          <h6 class="item disabled">Reviews</h6>
+          <h6 class="item disabled">Collaborations</h6>
         </div>
-      </div>
-      <!-- Left Text -->
-      <div class="wrapper-container-left">
-        <h2 class="page-title mb-50">Welcome to Lives in Transit!</h2>
-        <p>Lives in Transit is a text-based adventure game (in the words of one player). Or, to keep things respectably academic, it is an interactive E-learning tool which simulates the experience of researching and writing global history.</p>
-        <br>
-        <p>As a player, you will adopt the role of a university graduate student, choose a research topic, and work through a challenging set of storylines. You’ll collect real historical sources along the way and create a record of how your thinking changes during research. As a teacher, you can set your students to play in class, mapping their progress—and their frustrations—through the different storylines.</p>
-        <br>
-        <p>Like this historical map of Japan’s Yamashiro province, your research landscape will change as you decide which road you’ll take. So: get lost (as it were).</p>
-        <br>
-        <p>We hope you learn and have fun. The LiT Team, University of Zurich</p>
+        <!-- Left Text -->
+        <div class="wrapper-container-left">
+          <h2 class="page-title mb-50">Welcome to Lives in Transit!</h2>
+          <p>Lives in Transit is a text-based adventure game (in the words of one player). Or, to keep things respectably academic, it is an interactive E-learning tool which simulates the experience of researching and writing global history.</p>
+          <br>
+          <p>As a player, you will adopt the role of a university graduate student, choose a research topic, and work through a challenging set of storylines. You’ll collect real historical sources along the way and create a record of how your thinking changes during research. As a teacher, you can set your students to play in class, mapping their progress—and their frustrations—through the different storylines.</p>
+          <br>
+          <p>Like this historical map of Japan’s Yamashiro province, your research landscape will change as you decide which road you’ll take. So: get lost (as it were).</p>
+          <br>
+          <p>We hope you learn and have fun. The LiT Team, University of Zurich</p>
+        </div>
       </div>
     </div>
     <!-- Right main container -->

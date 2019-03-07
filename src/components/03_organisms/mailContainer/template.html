@@ -4,7 +4,6 @@
     <MailList
       v-if="get_mails.length > 0"
       :list="get_mails"
-      :selectedIndex="selectedIndex" 
       @selectedMail="selectByIndex" />
     <!-- Subject container -->
     <MailBody

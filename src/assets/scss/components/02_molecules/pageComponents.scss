@@ -47,6 +47,7 @@
                     height: 55px;
                     resize: none;
                     padding: 10px;
+                    background-color: $background-hover;
                     &:focus {
                         box-shadow: 0 0 0 2px $base-primary;
                     }

@@ -127,7 +127,7 @@ export default {
         document.querySelector('.page-container').scrollTop = 0;
       }
 
-      // Check if page got timeLimit for transition trigger
+      // Check if page has got timeLimit for transition trigger
       if( newVal.hasOwnProperty('timeLimit') ){
         new Timer(newVal.timeLimit,                   // Transition time
           this.requestPageTransition,                 // Callback

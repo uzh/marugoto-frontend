@@ -33,19 +33,17 @@ $border: 1px solid $background-hover;
       .left-container-menu {
         float: left;
         width: calc(100% / 7);
+        transform: rotate(90deg);
+        margin-top: 4rem;
 
-        .rotated-text-login-page {
-          transform: rotate(90deg);
-          margin-top: 3rem;
-          & .item {
-            @extend .h6;
-            display: inline;
-            margin-right: 30px;
-          }
+        & .item {
+          display: inline;
+          margin-right: 30px;
         }
       }
-  
+    
       .wrapper-container-left {
+        display: table-cell;
         float: left;
         width: calc((100% / 7) * 5);
   
@@ -60,12 +58,13 @@ $border: 1px solid $background-hover;
           letter-spacing: 0.2px;
         }
       }
+      
     }
     
     .right-container {
       display: table-cell;
       width: calc((100% / 12) * 5);
-      padding: 90px 10px 0 10px;
+      padding: 90px 10px 50px 10px;
       vertical-align: top;
 
       // Main container - login/create account
@@ -142,10 +141,11 @@ $border: 1px solid $background-hover;
 
 .origin-background {
   float: left;
-  height: 40vh;
+  height: 50vh;
   width: 100vw;
   background: url('assets/images/Login_Map.jpg') center bottom no-repeat;
   position: relative;
+  background-size: cover;
 
   .login-page-bottom-icons {
     position: absolute;
