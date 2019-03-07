@@ -177,7 +177,8 @@ $chapterHeight: 80px;
         border-top: 1px solid $base-uicolor-2;
         .title{
             width: 90%;
-            display: inline-block;
+            display: table-cell;
+            vertical-align: middle;
             p {
                 @extend .h5;
                 font-family: inherit;
@@ -185,7 +186,8 @@ $chapterHeight: 80px;
         }
         &-icon {
             width: 10%;
-            display: inline-block;
+            display: table-cell;
+            vertical-align: middle;
             cursor: pointer;
         }
     }

@@ -1,6 +1,8 @@
 <div class="inbox-mail-list-container go-left">
   <ul>
-    <li v-for="(item, index) in list" :key="index"
+    <li
+      v-for="(item, index) in list"
+      :key="index"
       class="inbox-mail-list-container-li"
       @click="emitMailListClick(index, item.mail.id)">
       <div v-if="!item.read" class="mail-unread-dot">
