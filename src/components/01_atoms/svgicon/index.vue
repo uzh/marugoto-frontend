@@ -7,6 +7,7 @@ export default {
   props: [ 'name', 'customColor', 'sizeH', 'sizeW' ],
   computed: {
     iconPath() {
+      console.log(require(`@/assets/icons/${this.name}.svg`).default.url)
       return require(`@/assets/icons/${this.name}.svg`).default.url;
     },
     className() {
