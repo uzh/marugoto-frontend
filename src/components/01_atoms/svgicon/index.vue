@@ -7,8 +7,9 @@ export default {
   name: 'SvgIcon',
   props: [ 'name', 'customColor', 'sizeH', 'sizeW' ],
   created: function() {
-    console.log(this.name)
+    console.log('name ', this.name)
     console.log(require(`@/assets/icons/${this.name}.svg`))
+    console.log('------------------------')
   },
   computed: {
     iconPath() {
