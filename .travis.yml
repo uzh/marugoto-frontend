@@ -8,7 +8,7 @@ script:
   - npm run lint
 # - npm run test:unit
 # - npm run test:coveralls
-  - npm run build
+  - npm run build-production
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - export TAG=`if [ "$TRAVIS_BRANCH" == "master" ]; then echo "latest"; else echo $TRAVIS_BRANCH ; fi`
