@@ -41,7 +41,7 @@ export default{
   },
   created: function() {
     this.$store.dispatch('ERROR_NETWORK_CONNECTION', false);
-    console.log('Base path: ', VUE_APP_BASE_PATH)
+    console.log('Base path: ', process.env.VUE_APP_BASE_PATH)
   },
   methods: {
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),
