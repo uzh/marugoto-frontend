@@ -40,53 +40,67 @@ $chapterHeight: 80px;
     width: calc(50% - 45px);
     height: calc(100vh - 180px);
     background-color: #0C0C0D;
-    padding-top: 100px;
+    padding: 100px;
     overflow: scroll;
     z-index: 1;
 
-    &-item {
+    .item {
         @extend .h5;
-        padding: 0 50px;
+        display: table;
+        width: 100%;
+        height: 72px;
         color: $white;
         list-style: none;
         cursor: pointer;
-        &-current {
-            background: url('assets/images/notebook-list-selected.png') center;
-        }
-        &-line {
-            height: 32px;
-            opacity: 0.3;
-            &:before {
-                content: '';
-                border-left: 2px solid white;
+
+        .left {
+            display: table-cell;
+            width: 10%;
+
+            .arrow {
                 position: relative;
-                left: 3px;
+                left: 5px;
+                top: 5px;
+                height: 32px;
+                background: url('assets/images/notebook-list-arrow.png') no-repeat;
+                opacity: 0.3;
+
+                &.inactive {
+                    visibility: hidden;
+                }
+            }
+
+            .index {
+                display: table-cell;
+                vertical-align: bottom;
+                height: 40px;
+                font-size: $base-size;
+                opacity: 0.3;
             }
         }
-        &-arrow {
-            height: 0px;
-            width: 0px;
-            opacity: 0.3;
-            border-top: 5px solid white;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            position: relative;
-            right: 1px;
-            top: -3px;
-        }
-        &-index {
-            font-size: $base-size;
-            opacity: 0.3;
-        }
 
-        .notebook-list-title {
-            display: inline-block;
+        .right {
+            display: table-cell;
+            width: 90%;
+            vertical-align: bottom;
             position: relative;
-            top: 10px;
-            margin-left: 20px;
-            overflow: hidden;
-            p {
-                @extend .h5;
+
+            .current {
+                position: absolute;
+                left: -12px;
+                bottom: -32px;
+                height: 72px;
+                width: 100%;
+                background: url('assets/images/notebook-list-selected.png') no-repeat;
+            }
+
+            .title {
+                width: 80%;
+                overflow: hidden;
+                text-overflow: clip;
+                p {
+                    @extend .h5;
+                }
             }
         }
     }
@@ -168,13 +182,14 @@ $chapterHeight: 80px;
             }
         }
     }
+
     .notebook-header {
+        display: table;
         height: 90px;
-        line-height: 90px;
-        margin: 0 50px 40px 50px;
+        margin-bottom: 40px;
+        padding: 0;
         background-color: $background-hover;
         border-bottom: 1px solid $base-uicolor-2;
-        border-top: 1px solid $base-uicolor-2;
         .title{
             width: 90%;
             display: table-cell;
@@ -184,7 +199,7 @@ $chapterHeight: 80px;
                 font-family: inherit;
             }
         }
-        &-icon {
+        & .icon {
             width: 10%;
             display: table-cell;
             vertical-align: middle;

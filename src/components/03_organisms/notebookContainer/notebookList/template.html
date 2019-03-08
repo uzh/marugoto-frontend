@@ -1,15 +1,17 @@
 <div class="notebook-list">
     <li v-for="(item, index) in list"
         :key="index"
-        class="notebook-list-item"
+        class="item"
         @click="$emit('selectItem', index)" >
-        <div v-if="index != '0'" class="notebook-list-item-line"></div>
-        <div v-if="index != '0'" class="notebook-list-item-arrow"></div>
-        <div>
-            <span class="notebook-list-item-index">{{ index + 1}}</span>
-            <span class="notebook-list-title" :class="index == selected ? 'notebook-list-item-current' : ''">
-                <vue-markdown :source="item.title" />
-            </span>
+        <!-- Left indexes and arrows -->
+        <div class="left">
+            <div :class="index != '0' ? 'arrow' : 'arrow inactive'"></div>
+            <div class="index">0{{ index + 1}}</div>
+        </div>
+        <!-- Right notebook list item -->
+        <div class="right">
+            <div :class="index == selected ? 'current' : 'not-displayed'"></div>
+            <vue-markdown class="title" :source="item.title" />
         </div>
     </li>
 </div>

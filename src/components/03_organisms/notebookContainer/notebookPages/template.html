@@ -9,9 +9,9 @@
               index == currentEntry - 1 && currentEntry == list.length - 1 ? 'np-middle' : ''
             ]">
     <!-- Notebook page header -->
-    <div class="notebook-header">
+    <div class="notebook-header col-xs-10 col-xs-offset-1">
       <vue-markdown class="title" :source="page.title" />
-      <div class="notebook-header-icon" @click="toggleScroll">
+      <div class="icon" @click="toggleScroll">
         <svgIcon name="dot-hamburger" sizeH="20px" />
       </div>
     </div>
@@ -19,7 +19,7 @@
     <div class="mb-40 col-xs-10 col-xs-offset-1">
       <div v-if="page.image" class="notebook-page-image">
         <div class="image-sticker"></div>
-        <img :src="`${VUE_APP_BASE_PATH}${page.image.path}`" />
+        <img :src="`http://localhost:8080/${page.image.path}`" />
         <vue-markdown class="image-caption" v-if="page.caption" :source="page.caption" />
       </div>
       <div class="notebook-page-text">
