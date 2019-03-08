@@ -17,7 +17,7 @@ RUN npm install
 COPY . .
 
 # build app for production with minification
-RUN npm run build
+RUN npm run build-production
 
 # release build
 FROM nginx:1.13.12-alpine as production-stage
