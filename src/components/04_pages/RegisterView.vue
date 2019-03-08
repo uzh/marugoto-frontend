@@ -5,11 +5,9 @@
     <div class="left-container">
       <!-- Left menu -->
       <div class="left-container-menu">
-        <div class="rotated-text-login-page">
-          <p class="item">Welcome</p>
-          <p class="item disabled">Reviews</p>
-          <p class="item disabled">Collaborations</p>
-        </div>
+        <h6 class="item">Welcome</h6>
+        <h6 class="item disabled">Reviews</h6>
+        <h6 class="item disabled">Collaborations</h6>
       </div>
       <!-- Left Text -->
       <div class="wrapper-container-left">
