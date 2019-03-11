@@ -11,9 +11,7 @@
       :class="list.length > 4 ? 'topics-div-5-more' : 'topics-div-4-less'"
       @click="$emit('openTopic', topic.id)">
       <div class="topic-image">
-        <div class="image">
-          {{ topic.icon }}
-        </div>
+        <img :src="`${basePath}${topic.image.path}`" alt="Topic Image" class="image">
       </div>
       <div :class="list.length > 4 ? 'topic-folder-more' : 'topic-folder'">
         <vue-markdown class="title" :source="topic.title" />

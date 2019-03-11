@@ -8,5 +8,10 @@ export default {
   name: 'TopicComponent',
   components: { Btn, VueMarkdown },
   props: [ 'list' ],
+  data() {
+    return {
+      basePath: process.env.VUE_APP_BASE_PATH,
+    }
+  }
 }
 </script>
