@@ -4,10 +4,10 @@
     <TopicComponent v-if="!get_topic.selected" :list="get_topic.list" @openTopic="chooseTopic"/>
     <div class="storyline-container" v-if="get_topic.selected">
       <div class="storyline-title">
-        <!-- <div class="page-title-icon-container">
+        <div class="page-title-icon-container">
           <div class="icon"></div>
-        </div> -->
-        <vue-markdown :source="get_page.title" />
+        </div>
+        <vue-markdown class="page-title" :source="get_page.title" />
       </div>
       <!-- Components -->
       <PageComponents />

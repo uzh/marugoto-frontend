@@ -4,8 +4,7 @@
     height: 100%;
 
     .storyline-container {
-        @extend .col-xs-10;
-        @extend .col-xs-offset-1;
+        @extend .col-xs-12;
 
         .h1 {
             p {
@@ -14,19 +13,37 @@
         }
 
         .storyline-title {
-            width: 100%;
+            @extend .col-xs-12;
+            display: table;
             margin-bottom: 80px;
-            float: left;
 
-            p {
-                @extend .col-xs-12;
-                @extend .h1;
-                font-family: inherit;
+            .page-title-icon-container {
+                @extend .col-xs-2;
+                float: none;
+                display: table-cell;
+                vertical-align: middle;
+
+                .icon {
+                    height: 50px;
+                    width: 50px;
+                    margin: 0 auto;
+                    background: url('assets/images/plantation-lives.jpg') no-repeat center;
+                }
+            }
+
+            .page-title {
+                width: 80%;
+
+                p {
+                    @extend .h1;
+                    font-family: inherit;
+                }
             }
         }
 
         .page-components-wrapper {
-            width: 100%;
+            @extend .col-xs-10;
+            @extend .col-xs-offset-1;
 
             .text-component {
                 margin-bottom: 2.5rem;
