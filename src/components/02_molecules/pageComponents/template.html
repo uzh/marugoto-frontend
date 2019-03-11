@@ -93,31 +93,46 @@
         class="video-container"
         @mouseover="videoHovered = true"
         @mouseleave="videoHovered = false">
-        <video id="video">
+        <video
+          id="video"
+          @timeupdate="updateTimeRange">
           <source :src="`${basePath}${component.component.video.path}`" type="video/mp4">
           <source :src="`${basePath}${component.component.video.path}`" type="video/webm" />
           <source :src="`${basePath}${component.component.video.path}`" type="video/ogg" />
           <p>Your browser does not support the video tag.</p>
         </video>
         <!-- Play button center -->
-        <div v-show="videoHovered" id="play-big">
+        <div
+          v-show="videoHovered"
+          id="play-big"
+          @click="togglePlay">
           <SvgIcon name="play-big" sizeH="60px" />
         </div>
         <!-- Bottom video controls -->
-        <div v-show="videoHovered" id="video-controls">
-          <input type="range" id="seek-bar" value="0" step="0.1">
-          <div id="play-small">
+        <div
+          v-show="videoHovered"
+          id="video-controls">
+          <input
+            type="range"
+            id="seek-bar"
+            value="0"
+            step="0.1"
+            @mousedown="moveRangeThumb"
+            @change="changeTimeRange">
+          <div
+            id="play-small"
+            @click="togglePlay">
             <SvgIcon name="play-small" sizeH="16px" />
           </div>
-          <!-- <div id="time-passed">
-            {{ videoTimePassed }} / {{ videoDuration }}
-          </div> -->
-          <div id="full-screen">
+          <div id="time-passed">
+            {{ videoCurrentTime }} / {{ videoDuration }}
+          </div>
+          <div id="full-screen" @click="toggleFullScreen">
             <SvgIcon name="zoom-in" sizeH="30px" />
           </div>
         </div>
       </div>
-      <vue-markdown class="video-caption" :source="component.component.caption" />
+      <vue-markdown class="video-caption mb-40" :source="component.component.caption" />
     </div>
   </div>
 

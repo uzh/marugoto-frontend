@@ -31,55 +31,25 @@ export default {
       },
       dateFormated: '',
       videoHovered: false,
+      videoID: '',
+      seekBar: '',
+      videoCurrentTime: '0:00',
+      videoDuration: '',
     };
   },
-  mounted() {
-    const video = document.getElementById("video");
-    const playBig = document.getElementById("play-big");
-    const playSmall = document.getElementById("play-small");
-    const fullScreen = document.getElementById("full-screen");
-    const seekBar = document.getElementById("seek-bar");
-
-    playBig.addEventListener("click", function() {
-      this.videoDuration = video.duration;
-      if (video.paused == true) {
-        video.play();
+  updated() {
+    let self = this;
+    document.getElementById("video").onloadedmetadata = function() {
+      let minutes = Math.floor(document.getElementById("video").duration / 60);
+      let seconds = Math.floor(document.getElementById("video").duration) - minutes * 60;
+      if (seconds % 60 < 10) {
+        self.videoDuration = `${minutes}:0${seconds}`;
       } else {
-        video.pause();
+        self.videoDuration = `${minutes}:${seconds}`;
       }
-    });
-
-    playSmall.addEventListener("click", function() {
-      if (video.paused == true) {
-        video.play();
-      } else {
-        video.pause();
-      }
-    });
-
-    fullScreen.addEventListener("click", function() {
-      if (video.requestFullscreen) {
-        video.requestFullscreen();
-      } else if (video.mozRequestFullScreen) {
-        video.mozRequestFullScreen();
-      } else if (video.webkitRequestFullscreen) {
-        video.webkitRequestFullscreen();
-      }
-    });
-
-    seekBar.addEventListener("change", function() {
-      let time = video.duration * (seekBar.value / 100);
-      video.currentTime = time;
-    });
-
-    video.addEventListener("timeupdate", function() {
-      let value = (100 / video.duration) * video.currentTime;
-      seekBar.value = value;
-    });
-
-    seekBar.addEventListener("mousedown", function() {
-      video.pause();
-    });
+    };
+    this.videoID = document.getElementById("video");
+    this.seekBar = document.getElementById("seek-bar");
   },
   computed: {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
@@ -114,6 +84,40 @@ export default {
         
       });
     },
+    togglePlay: function() {
+      if (this.videoID.paused == true) {
+        this.videoID.play();
+      } else {
+        this.videoID.pause();
+      }
+    },
+    toggleFullScreen: function() {
+      if (this.videoID.requestFullscreen) {
+        this.videoID.requestFullscreen();
+      } else if (this.videoID.mozRequestFullScreen) {
+        this.videoID.mozRequestFullScreen();
+      } else if (this.videoID.webkitRequestFullscreen) {
+        this.videoID.webkitRequestFullscreen();
+      }
+    },
+    moveRangeThumb: function() {
+      this.videoID.pause();
+    },
+    changeTimeRange: function() {
+      let time = this.videoID.duration * (this.seekBar.value / 100);
+      this.videoID.currentTime = time;
+    },
+    updateTimeRange: function() {
+      let value = (100 / this.videoID.duration) * this.videoID.currentTime;
+      this.seekBar.value = value;
+      let minutes = Math.floor(this.videoID.currentTime / 60);
+      let seconds = Math.floor(this.videoID.currentTime) - minutes * 60;
+      if (seconds % 60 < 10) {
+        this.videoCurrentTime = `${minutes}:0${seconds}`;
+      } else {
+        this.videoCurrentTime = `${minutes}:${seconds}`;
+      }
+    }
   },
 }
 </script>
