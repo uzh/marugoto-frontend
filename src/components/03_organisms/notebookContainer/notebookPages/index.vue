@@ -35,7 +35,6 @@ export default {
     addPersonalNote: function(id){
       this.openedPersonalNote = true;
       this.personalNoteNotebookEntryId = id;
-      this.$refs.textarea[0].autofocus = true;
     },
     submitPersonalNote: function() {
       this.$store.dispatch('ADD_PERSONAL_NOTE', {
@@ -48,7 +47,6 @@ export default {
     },
     cancelPersonalNote: function() {
       this.openedPersonalNote = false;
-      this.$refs.textarea[0].autofocus = false;
     },
     checkTyping: function() {
       this.readyForSubmit = false;

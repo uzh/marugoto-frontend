@@ -8,15 +8,14 @@
     <div 
       v-for="(topic, index) in list"
       :key="index"
-      :class="list.length > 4 ? 'topics-div-5-more' : 'topics-div-4-less'"
-      @click="$emit('openTopic', topic.id)">
+      :class="list.length > 4 ? 'topics-div-5-more' : 'topics-div-4-less'">
       <div class="topic-image">
         <img :src="`${basePath}${topic.image.path}`" alt="Topic Image" class="image">
       </div>
       <div :class="list.length > 4 ? 'topic-folder-more' : 'topic-folder'">
         <vue-markdown class="title" :source="topic.title" />
         <Btn
-          @click="$emit('openTopic', topic.id)"
+          @click.native="$emit('openTopic', topic.id)"
           class="topic-button"
           text="Preview this Topic" 
           primary="true" />
