@@ -78,7 +78,7 @@
       </audio>
     </div>
     <!-- Video native controls-->
-    <div v-if="component.type == 'VideoComponent'">
+    <!-- <div v-if="component.type == 'VideoComponent'">
       <video class="full-width" controls>
         <source :src="`${basePath}${component.component.video.path}`" type="video/mp4">
         <source :src="`${basePath}${component.component.video.path}`" type="video/webm" />
@@ -86,33 +86,39 @@
         <p>Your browser does not support the video tag.</p>
       </video>
       <vue-markdown class="video-caption mb-40" :source="component.component.caption" />
-    </div>
+    </div> -->
     <!-- Video custom controls -->
-    <!-- <div v-if="component.type == 'VideoComponent'">
-      <div class="video-container">
+    <div v-if="component.type == 'VideoComponent'">
+      <div
+        class="video-container"
+        @mouseover="videoHovered = true"
+        @mouseleave="videoHovered = false">
         <video id="video">
           <source :src="`${basePath}${component.component.video.path}`" type="video/mp4">
           <source :src="`${basePath}${component.component.video.path}`" type="video/webm" />
           <source :src="`${basePath}${component.component.video.path}`" type="video/ogg" />
           <p>Your browser does not support the video tag.</p>
         </video>
-        // Play button center
-        <div id="play-big">
-          <SvgIcon name="play-big" sizeH="40px" />
+        <!-- Play button center -->
+        <div v-show="videoHovered" id="play-big">
+          <SvgIcon name="play-big" sizeH="60px" />
         </div>
-        // Bottom video controls
-        <div id="video-controls">
+        <!-- Bottom video controls -->
+        <div v-show="videoHovered" id="video-controls">
+          <input type="range" id="seek-bar" value="0" step="0.1">
           <div id="play-small">
             <SvgIcon name="play-small" sizeH="16px" />
           </div>
-          <input type="range" id="seek-bar" value="0">
+          <!-- <div id="time-passed">
+            {{ videoTimePassed }} / {{ videoDuration }}
+          </div> -->
           <div id="full-screen">
             <SvgIcon name="zoom-in" sizeH="30px" />
           </div>
         </div>
       </div>
       <vue-markdown class="video-caption" :source="component.component.caption" />
-    </div> -->
+    </div>
   </div>
 
 </div>

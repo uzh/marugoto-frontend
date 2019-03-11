@@ -17,9 +17,6 @@ export default {
   name: 'PageComponents',
   components: { VueMarkdown, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent, ExerciseTextArea, SvgIcon },
   props: [ 'exercises' ],
-  computed: {
-    ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
-  },
   data: function() {
     return {
       basePath: process.env.VUE_APP_BASE_PATH,
@@ -33,7 +30,59 @@ export default {
         data: ['YYYY-MM-DD']
       },
       dateFormated: '',
+      videoHovered: false,
     };
+  },
+  mounted() {
+    const video = document.getElementById("video");
+    const playBig = document.getElementById("play-big");
+    const playSmall = document.getElementById("play-small");
+    const fullScreen = document.getElementById("full-screen");
+    const seekBar = document.getElementById("seek-bar");
+
+    playBig.addEventListener("click", function() {
+      this.videoDuration = video.duration;
+      if (video.paused == true) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    playSmall.addEventListener("click", function() {
+      if (video.paused == true) {
+        video.play();
+      } else {
+        video.pause();
+      }
+    });
+
+    fullScreen.addEventListener("click", function() {
+      if (video.requestFullscreen) {
+        video.requestFullscreen();
+      } else if (video.mozRequestFullScreen) {
+        video.mozRequestFullScreen();
+      } else if (video.webkitRequestFullscreen) {
+        video.webkitRequestFullscreen();
+      }
+    });
+
+    seekBar.addEventListener("change", function() {
+      let time = video.duration * (seekBar.value / 100);
+      video.currentTime = time;
+    });
+
+    video.addEventListener("timeupdate", function() {
+      let value = (100 / video.duration) * video.currentTime;
+      seekBar.value = value;
+    });
+
+    seekBar.addEventListener("mousedown", function() {
+      video.pause();
+    });
+  },
+  computed: {
+    ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
   },
   methods: {
     dateEmit: function(event, id) {
