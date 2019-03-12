@@ -170,6 +170,9 @@ export default({
     });
   },
   // MAIL
+  [types.UPDATE_SELECTED_MAIL]: (context, payload) => {
+    context.commit(types.UPDATE_SELECTED_MAIL, payload);
+  },
   [types.MAIL_LIST_UPDATE]: ({commit}) => {
     return apiService.get('mail/list')
     .then(resp => {

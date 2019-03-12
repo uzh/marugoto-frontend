@@ -121,6 +121,10 @@ export default({
     })
   },
   // MAIL MUTATIONS
+  [types.UPDATE_SELECTED_MAIL] (state, payload) {
+    // Update from mailList
+    state.selectedMail = payload;
+  },
   [types.MAIL_LIST_UPDATE] (state, payload) {
     // Update from mailList
     state.mails = payload;

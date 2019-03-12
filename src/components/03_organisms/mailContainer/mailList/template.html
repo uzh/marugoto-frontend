@@ -4,7 +4,7 @@
       v-for="(item, index) in list"
       :key="index"
       class="inbox-mail-list-container-li"
-      :class="selectedMail == item.mail.id ? 'selected' : ''"
+      :class="selectedIndex == index ? 'selected' : ''"
       @click="emitMailListClick(index, item.mail.id); selectMail(item.mail.id)">
       <div 
         v-if="!item.read" 

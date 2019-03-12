@@ -6,7 +6,7 @@ import VueMarkdown from 'vue-markdown'
 export default {
   name: 'MailList',
   components: { VueMarkdown },
-  props: ['list'],
+  props: ['list', 'selectedIndex' ],
   data() {
     return {
       falseHtml: false,
