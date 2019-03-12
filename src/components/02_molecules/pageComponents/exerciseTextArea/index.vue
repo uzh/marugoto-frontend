@@ -19,7 +19,7 @@ export default {
     submitAnswer: function(){
       this.$emit('emitInputAreaAnswer', this.answer, this.exerciseId);
     },
-    checkTyping: function(el) {
+    checkTyping: function() {
       this.readyForSubmit = false;
       this.typingFinished();
       this.autoGrow(this.$refs.textarea);
