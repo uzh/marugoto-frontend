@@ -1,6 +1,7 @@
 <div class="text-area-exercise" :class="answer != '' ? 'filled' : ''">
     <textarea
         autofocus
+        ref="textarea"
         :placeholder="placeholder"
         :id="exerciseId"
         v-model="answer"

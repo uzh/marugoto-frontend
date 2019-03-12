@@ -38,18 +38,20 @@ export default {
     };
   },
   updated() {
-    let self = this;
-    document.getElementById("video").onloadedmetadata = function() {
-      let minutes = Math.floor(document.getElementById("video").duration / 60);
-      let seconds = Math.floor(document.getElementById("video").duration) - minutes * 60;
-      if (seconds % 60 < 10) {
-        self.videoDuration = `${minutes}:0${seconds}`;
-      } else {
-        self.videoDuration = `${minutes}:${seconds}`;
-      }
-    };
-    this.videoID = document.getElementById("video");
-    this.seekBar = document.getElementById("seek-bar");
+    if(document.getElementById("video")) {
+      let self = this;
+      document.getElementById("video").onloadedmetadata = function() {
+        let minutes = Math.floor(document.getElementById("video").duration / 60);
+        let seconds = Math.floor(document.getElementById("video").duration) - minutes * 60;
+        if (seconds % 60 < 10) {
+          self.videoDuration = `${minutes}:0${seconds}`;
+        } else {
+          self.videoDuration = `${minutes}:${seconds}`;
+        }
+      };
+      this.videoID = document.getElementById("video");
+      this.seekBar = document.getElementById("seek-bar");
+    }
   },
   computed: {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),

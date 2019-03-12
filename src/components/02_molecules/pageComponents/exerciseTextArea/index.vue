@@ -19,9 +19,10 @@ export default {
     submitAnswer: function(){
       this.$emit('emitInputAreaAnswer', this.answer, this.exerciseId);
     },
-    checkTyping: function() {
+    checkTyping: function(el) {
       this.readyForSubmit = false;
       this.typingFinished();
+      this.autoGrow(this.$refs.textarea);
     },
     // eslint-disable-next-line
     typingFinished: _.debounce(function() {
@@ -33,6 +34,10 @@ export default {
         this.submitAnswer();
       }
     },
+    autoGrow: function(element) {
+      element.style.height = 'auto';
+      element.style.height = `${element.scrollHeight}px`;
+    }
   },
   watch: {
     exerciseId: function(newVal, oldVal) {
