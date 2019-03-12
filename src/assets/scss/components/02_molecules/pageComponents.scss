@@ -63,8 +63,10 @@
                     width: 100%;
                     height: 55px;
                     min-height: 55px;
+                    max-height: 200px;
                     resize: none;
                     overflow: hidden;
+                    overflow-y: scroll;
                     padding: 10px;
                     background-color: $background-hover;
                     &:focus {
@@ -235,6 +237,10 @@
                     width: 100%;
                 }
 
+                video::-webkit-media-controls {
+                    display: none !important;
+                }
+
                 #play-big {
                     position: absolute;
                     top: calc(50% - 30px);
@@ -252,6 +258,37 @@
                     width: 100%;
                     height: 60px;
                     background-color: transparent;
+
+                    input[type="range"] {
+                        -webkit-appearance: none;
+                        height: 5px;
+                        overflow: hidden;
+                        background-color: $base-primary;
+                    }
+                    input[type='range']::-webkit-slider-runnable-track {
+                        -webkit-appearance: none;
+                        height: 5px;
+                        color: $white;
+                    }
+                    input[type='range']::-webkit-slider-thumb {
+                        -webkit-appearance: none;
+                        width: 5px;
+                        height: 5px;
+                        background: $white;
+                        box-shadow: -9000px 0 0 9000px $white;
+                    }
+                    input[type="range"]::-moz-range-progress {
+                        background-color: $white; 
+                    }
+                    input[type="range"]::-moz-range-track {  
+                        background-color: $base-primary;
+                    }
+                    input[type="range"]::-ms-fill-lower {
+                        background-color: $white; 
+                    }
+                    input[type="range"]::-ms-fill-upper {  
+                        background-color: $base-primary;
+                    }
 
                     #seek-bar {
                         width: calc(100% - 30px);
