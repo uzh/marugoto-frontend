@@ -17,6 +17,7 @@ export default({
       })
       .catch(err => {
         commit('AUTH_ERROR');
+        throw(err);
       })
   },
   [types.LOGIN]: ({commit}, userInfo) => {
@@ -32,6 +33,7 @@ export default({
       })
       .catch(err => {
         commit('AUTH_ERROR');
+        throw(err);
       })
   },
   [types.LOGOUT]: (context) => {
