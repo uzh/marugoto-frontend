@@ -37,7 +37,7 @@ export default {
       videoDuration: '',
     };
   },
-  updated() {
+  mounted() {
     if(document.getElementById("video")) {
       let self = this;
       document.getElementById("video").onloadedmetadata = function() {
@@ -104,6 +104,9 @@ export default {
     },
     moveRangeThumb: function() {
       this.videoID.pause();
+    },
+    rangeThumbMoved: function() {
+      this.videoID.play();
     },
     changeTimeRange: function() {
       let time = this.videoID.duration * (this.seekBar.value / 100);
