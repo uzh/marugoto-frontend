@@ -12,7 +12,11 @@
       <div class="topic-image">
         <img :src="`${basePath}${topic.image.path}`" alt="Topic Image" class="image">
       </div>
-      <div :class="list.length > 4 ? 'topic-folder-more' : 'topic-folder'">
+      <div class="folder-header">
+        <div class="left"></div>
+        <div class="right"></div>
+      </div>
+      <div class="topic-folder">
         <vue-markdown class="title" :source="topic.title" />
         <Btn
           @click.native="$emit('openTopic', topic.id)"

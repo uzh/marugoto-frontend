@@ -1,7 +1,6 @@
 <template>
   <div class="main-container">
-    <GameSelection v-if="gameState" />
-    <div v-if="!gameState" class="supervisor-container">
+    <div class="supervisor-container">
       <h1>Supervisor overview</h1>
     </div>
   </div>
@@ -11,11 +10,6 @@
 
 export default {
   name: 'supervisor',
-  data() {
-    return {
-      gameState: true,
-    };
-  },
 }
 
 </script>

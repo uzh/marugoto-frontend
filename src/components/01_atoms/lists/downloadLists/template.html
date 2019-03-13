@@ -1,8 +1,12 @@
-<div>
-	Download List
-	<ul class="download-list">
-		<li class="download-list-item" v-for="item in dl">
-			{{ item.name }}
-		</li>
-	</ul>
+<div class="download-list-item">
+	<div class="left">
+		<div class="title">{{ title }}</div>
+		<div class="small">25 December</div>
+	</div>
+	<div class="right">
+		<div class="continue">Continue</div>
+		<div class="download">
+			<SvgIcon name="download-pdf" sizeH="40px" />
+		</div>
+	</div>
 </div>
