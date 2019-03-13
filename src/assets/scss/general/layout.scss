@@ -37,8 +37,15 @@ $border: 1px solid $background-hover;
         margin-top: 4rem;
 
         & .item {
+          @extend .h6;
           display: inline;
           margin-right: 30px;
+          opacity: 0.7;
+          cursor: pointer;
+        }
+
+        .focused {
+          opacity: 1;
         }
       }
     
