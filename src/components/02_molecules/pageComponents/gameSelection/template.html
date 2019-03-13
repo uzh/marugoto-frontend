@@ -1,0 +1,42 @@
+<div class="game-selection-container">
+  <!-- Header -->
+  <!-- Title -->
+  <div class="header">
+    <div class="title">
+      <h1>Your games</h1>
+    </div>
+    <div class="supervise-game">
+      <Btn text="Supervise Group Game" ghost="true" iconName="arrow-right" />
+    </div>
+  </div>
+  <!-- Lead text -->
+  <div class="lead-text">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</div>
+  <!-- Content -->
+  <div class="start-game">
+    <Btn  text="Start New Game" primary="true" iconName="plus" />
+  </div>
+  <div class="class-games">
+    <h5>Games within classes</h5>
+    <DownloadList
+    v-for="(item, index) in classGames"
+    :key="index" 
+    :title="item.title" />
+  </div>
+  <div class="open-games">
+    <h5>Open Games</h5>
+    <DownloadList
+    v-for="(item, index) in openGames"
+    :key="index" 
+    :title="item.title" />
+  </div>
+  <div class="finished-games">
+    <h5>Finished Games</h5>
+    <DownloadList
+    v-for="(item, index) in finishedGames"
+    :key="index" 
+    :title="item.title" />
+  </div>
+  <div class="delete-account">
+    <Btn  text="Delete Account" ghost="true" iconName="cancel" />
+  </div>
+</div>

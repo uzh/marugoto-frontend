@@ -1,0 +1,53 @@
+.game-selection-container {
+    @extend .col-xs-8;
+    @extend .col-xs-offset-2;
+    height: calc(100vh - 90px);
+
+    .header {
+        display: table;
+        width: 100%;
+        margin-bottom: 80px;
+
+        .title {
+            display: table-cell;
+            vertical-align: middle;
+            width: 70%;
+        }
+
+        .supervise-game {
+            display: table-cell;
+            vertical-align: middle;
+        }
+    }
+
+    .lead-text {
+        @extend .lead;
+        width: 87.5%;
+        margin-bottom: 40px;
+    }
+
+    .start-game {
+        width: 100%;
+        margin-bottom: 60px;
+    }
+
+    .class-games {
+        margin-bottom: 60px;
+    }
+
+    .open-games {
+        margin-bottom: 60px;
+    }
+
+    .finished-games {
+        margin-bottom: 30px;
+    }
+
+    .delete-account {
+        display: table-cell;
+        float: right;
+        width: 30%;
+        vertical-align: middle;
+        margin-bottom: 50px;
+    }
+}

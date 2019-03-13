@@ -27,20 +27,49 @@
     }
 }
 
-.download-list {
-    @extend .p;
-    position: relative;
-    background-color: $base-ghost;
-    margin-top: 20px;
-    &-item {
-        width: 100%;
-        height: 50px;
-        padding-left: 20px;
-        padding-top: 10px;
-        border: 1px solid $base-primary;
-        &:hover {
-            background-color: $background-hover;
+.download-list-item {
+    display: table;
+    height: 72px;
+    width: 100%;
+    background-color: $white;
+    box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
+    cursor: pointer;
+
+    .left {
+        display: table-cell;
+        width: 50%;
+        vertical-align: middle;
+
+        .title {
+            @extend .h6;
         }
+
+        .small {
+            @extend .small;
+        }
+    }
+
+    .right {
+        display: table-cell;
+        vertical-align: middle;
+        float: right;
+        height: 72px;
+
+        .continue {
+            @extend .link;
+            display: inline;
+            color: $base-primary;
+        }
+
+        .download {
+            display: inline;
+            position: relative;
+            top: calc(50% - 20px);
+        }
+    }
+    
+    &:hover {
+        background-color: $background-hover;
     }
 }
 
