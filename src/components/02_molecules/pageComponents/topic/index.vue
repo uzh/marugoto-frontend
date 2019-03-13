@@ -12,6 +12,6 @@ export default {
     return {
       basePath: process.env.VUE_APP_BASE_PATH,
     }
-  }
+  },
 }
 </script>

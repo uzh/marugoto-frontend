@@ -1,7 +1,10 @@
 // State
 
 export default ({
-  errors: false,
+  errors: {
+    status: false,
+    message: '',
+  },
   global: {
   
   },
@@ -31,6 +34,7 @@ export default ({
   },
   mailNotifications: [],
   mails: [],
+  selectedMail: undefined,
   notebook: {
     list: [],
   },

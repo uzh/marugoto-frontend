@@ -27,14 +27,32 @@ const processQueue = (error, token = null) => {
 }
 
 apiService.interceptors.response.use(function (response) {
-  store.dispatch('ERROR_NETWORK_CONNECTION', false);
+  store.dispatch('ERROR_NETWORK_CONNECTION', {
+    status: false,
+    message: '',
+  });
   return response;
 }, function (error) {
   /**
    * SERVER ERROR
    */
-  if ( error.message == 'Network Error' ) {
-    store.dispatch('ERROR_NETWORK_CONNECTION', true);
+  if( error.message == 'Network Error' ) {
+    store.dispatch('ERROR_NETWORK_CONNECTION', {
+      status: true,
+      message: '',
+    });
+    return;
+  }
+
+  /**
+   * DATABASE ERROR
+   */
+  if( error.response.data.innerException.exception == 'ArangoDBException'){
+    store.dispatch('ERROR_NETWORK_CONNECTION', {
+      status: true,
+      message: 'Database not reachable, please try again later!',
+    });
+    return;
     return;
   }
   /**

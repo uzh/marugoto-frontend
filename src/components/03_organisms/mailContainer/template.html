@@ -4,11 +4,12 @@
     <MailList
       v-if="get_mails.length > 0"
       :list="get_mails"
+      :selectedIndex="get_selectedMailIndex"
       @selectedMail="selectByIndex" />
     <!-- Subject container -->
     <MailBody
       v-if="get_mails.length > 0"
-      :mail="get_mails[selectedIndex]" />
+      :mail="get_mails[get_selectedMailIndex]" />
     <!-- Empty mailbox display -->
     <div v-if="get_mails.length == 0" class="empty-mailbox">No mails in inbox yet!</div>
   </div>

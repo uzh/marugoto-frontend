@@ -49,6 +49,9 @@ export default{
   get_newMails: state => {
     return state.mailNotifications;
   },
+  get_selectedMailIndex: state => {
+    return state.selectedMail;
+  },
   get_mailNotificationState: state => {
     var notificationNumber = 0;
     for( var ii = 0; ii < state.mails.length; ii++){
