@@ -1,7 +1,7 @@
 <template>
   <div id="app">
-    <Errors v-if="get_errors" />
-    <div v-if="!get_errors">
+    <Errors v-if="get_errors.status" />
+    <div v-if="!get_errors.status">
       <div class="page-container" :class="get_layoutState.notebook.opened ? 'halved' : ''">
         <Topbar v-if="get_status.isLoged && get_topic.selected"/>
         <router-view />

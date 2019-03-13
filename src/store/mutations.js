@@ -5,7 +5,10 @@ import * as types from './types';
 export default({
   // ERRORS
   [types.ERROR_NETWORK_CONNECTION] (state, payload) {
-    state.errors = payload;
+    state.errors = {
+      status: payload.status,
+      message: payload.message,
+    };
   },
   // AUTH MUTATIONS
   [types.AUTH_SUCCESS] (state, payload) {

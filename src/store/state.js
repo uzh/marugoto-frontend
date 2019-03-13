@@ -1,7 +1,10 @@
 // State
 
 export default ({
-  errors: false,
+  errors: {
+    status: false,
+    message: '',
+  },
   global: {
   
   },
