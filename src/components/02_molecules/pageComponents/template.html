@@ -23,13 +23,13 @@
       :text="component.component.caption"
       :zoomable="component.component.zoomable" />
     <!-- Date Component -->
-    <v-date-picker
-      class="mb-40"
-      v-if="component.type == 'DateExercise'"
-      :formats='formats'
-      @dayclick="dateEmit($event, component.state.id)"
-      v-model='selectedDate'>
-    </v-date-picker>
+    <div v-if="component.type == 'DateExercise'" class="mb-40">
+      <v-date-picker
+        :formats='formats'
+        @dayclick="dateEmit($event, component.state.id)"
+        v-model='selectedDate'>
+      </v-date-picker>
+    </div>
     <!-- Exercise Radio -->
     <ExerciseRadio
       class="mb-40"
