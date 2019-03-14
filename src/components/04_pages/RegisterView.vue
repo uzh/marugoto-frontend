@@ -5,9 +5,18 @@
     <div class="left-container">
       <!-- Left menu -->
       <div class="left-container-menu">
-        <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'">Welcome</div>
-        <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'">Reviews</div>
-        <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'">Collaborations</div>
+        <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'">
+          Welcome
+        </div>
+        <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'">
+          Reviews
+        </div>
+        <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'">
+          Collaborations
+        </div>
+        <div class="item" :class="selectedTab == 'quotes' ? 'focused' : ''" @click="selectedTab = 'quotes'">
+          Quotes LiT
+        </div>
       </div>
       <!-- Left Text -->
       <div class="wrapper-container-left">
@@ -29,6 +38,10 @@
           <h2 class="page-title mb-50">Collaborations</h2>
           <p>This is Collaborations page.</p>
         </div>
+        <div v-show="selectedTab == 'quotes'">
+          <h2 class="page-title mb-50">Quotes LiT</h2>
+          <p>This is Quotes LiT page.</p>
+        </div>
       </div>
     </div>
     <!-- Right main container -->
@@ -48,7 +61,7 @@
               <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
               <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
               <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
-              <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
+              <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" />
               <InputField v-model="password" typeProp="password" labelName="Password" :required="errorMessage"/>
             </form>
             <div v-if="errorText" class="login-error-message">
@@ -88,8 +101,7 @@
         <div class="logo"></div>
       </div>
       <div class="footer-menu-right">
-        <div class="item">Datenschutz</div>
-        <div class="item">Impressum</div>
+        <div class="item">Disclaimer</div>
       </div>
     </div>
   </div>

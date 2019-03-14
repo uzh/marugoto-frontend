@@ -11,9 +11,9 @@ $chapterHeight: 80px;
     transition: all 0.3s;
 
     &.in{
-        right: 90px;
-        width: calc(50% - 45px);
-        padding-right: 0;
+        right: 45px;
+        width: 50%;
+        padding-right: 45px;
         z-index: 50;
     }
 
@@ -95,7 +95,7 @@ $chapterHeight: 80px;
             }
 
             .title {
-                width: 80%;
+                width: 100%;
                 overflow: hidden;
                 text-overflow: clip;
                 p {

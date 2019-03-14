@@ -36,11 +36,9 @@ import TopicComponent from '@/components/02_molecules/pageComponents/topic';
 import DialogComponent from '@/components/03_organisms/dialog';
 import VueMarkdown from 'vue-markdown';
 
-import GameSelection from '@/components/02_molecules/pageComponents/gameSelection';
-
 export default {
   name: 'player',
-  components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown, GameSelection },
+  components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
   data() {
     return {
       dialogVisible: false,

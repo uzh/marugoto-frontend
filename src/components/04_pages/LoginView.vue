@@ -6,9 +6,18 @@
       <div class="left-container-div">
         <!-- Left menu -->
         <div class="left-container-menu">
-          <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'">Welcome</div>
-          <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'">Reviews</div>
-          <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'">Collaborations</div>
+          <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'">
+            Welcome
+          </div>
+          <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'">
+            Reviews
+          </div>
+          <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'">
+            Collaborations
+          </div>
+          <div class="item" :class="selectedTab == 'quotes' ? 'focused' : ''" @click="selectedTab = 'quotes'">
+            Quotes LiT
+          </div>
         </div>
         <!-- Left Text -->
         <div class="wrapper-container-left">
@@ -29,6 +38,10 @@
           <div v-show="selectedTab == 'collaborations'">
             <h2 class="page-title mb-50">Collaborations</h2>
             <p>This is Collaborations page.</p>
+          </div>
+          <div v-show="selectedTab == 'quotes'">
+            <h2 class="page-title mb-50">Quotes LiT</h2>
+            <p>This is Quotes LiT page.</p>
           </div>
         </div>
       </div>
@@ -69,6 +82,7 @@
               <InputField tabindex="-2" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
             </form>
             <div v-if="errorText" class="login-error-message">{{ errorText }}</div>
+            <div v-if="successText" class="login-success-message">{{ successText }}</div>
             <Btn text="Login" primary="true" @click.native="login" />
             <Btn text="Forgot Password?" ghost="true" @click.native="forgotPassword" class="mt-10 mb-40" />
           </div>
@@ -85,8 +99,7 @@
         <div class="logo"></div>
       </div>
       <div class="footer-menu-right">
-        <div class="item">Datenschutz</div>
-        <div class="item">Impressum</div>
+        <div class="item">Disclaimer</div>
       </div>
     </div>
   </div>
@@ -119,6 +132,7 @@ export default {
       accountType: 'guest',
       errorMessage: false,
       errorText: '',
+      successText: '',
       forgottenPassword: false,
       selectedTab: 'welcome',
     }
@@ -137,9 +151,10 @@ export default {
         .then(() => {
           this.$router.push('/')
         })
-        .catch((err) => {
-          this.errorText = err.response.data.message;
-          this.errorMessage = true
+        .catch(() => {
+          // this.errorText = err.response.data.message;
+          this.errorText = "Your username or password are incorrect.";
+          this.errorMessage = true;
         });
       }
     },
@@ -155,7 +170,7 @@ export default {
           email: this.mail,
           passwordResetUrl: `${process.env.VUE_APP_LOCAL_PATH}reset`,
         }).then(() => {
-          alert('Please check your mail inbox.');
+          this.successText = "To reset your password, please check your mail inbox for further information.";
         })
         .catch(() => {
           this.forgottenPassword = true;

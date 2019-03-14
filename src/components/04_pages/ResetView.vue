@@ -5,9 +5,18 @@
       <div class="left-container">
         <!-- Left menu -->
         <div class="left-container-menu">
-          <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'">Welcome</div>
-          <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'">Reviews</div>
-          <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'">Collaborations</div>
+          <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'">
+            Welcome
+          </div>
+          <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'">
+            Reviews
+          </div>
+          <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'">
+            Collaborations
+          </div>
+          <div class="item" :class="selectedTab == 'quotes' ? 'focused' : ''" @click="selectedTab = 'quotes'">
+            Quotes LiT
+          </div>
         </div>
         <!-- Left Text -->
         <div class="wrapper-container-left">
@@ -28,6 +37,10 @@
           <div v-show="selectedTab == 'collaborations'">
             <h2 class="page-title mb-50">Collaborations</h2>
             <p>This is Collaborations page.</p>
+          </div>
+          <div v-show="selectedTab == 'quotes'">
+            <h2 class="page-title mb-50">Quotes LiT</h2>
+            <p>This is Quotes LiT page.</p>
           </div>
         </div>
       </div>
@@ -61,8 +74,7 @@
           <div class="logo"></div>
         </div>
         <div class="footer-menu-right">
-          <div class="item">Datenschutz</div>
-          <div class="item">Impressum</div>
+          <div class="item">Disclaimer</div>
         </div>
       </div>
     </div>
@@ -97,7 +109,7 @@ export default {
   },
   created() {
     this.mail = this.$route.query.mail;
-    this.resetToken = this.$route.query.resetToken;
+    this.resetToken = this.$route.query.token;
   },
   methods: {
     ...mapActions(['RESET_PASSWORD']),
