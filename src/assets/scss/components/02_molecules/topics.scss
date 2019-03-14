@@ -1,5 +1,5 @@
 .topic-container {
-    height: calc(100vh - 90px);
+    height: 100vh;
     width: 100vw;
 
     .topic-header {
@@ -40,7 +40,8 @@
                 position: absolute;
                 left: 10px;
                 top: -70px;
-                width: calc(100% - 20px);
+                width: 100%;
+                padding-right: 20px;
                 height: 230px;
                 transition: all 0.3s;
                 z-index: -1;
@@ -142,7 +143,8 @@
                 position: absolute;
                 left: 10px;
                 top: -70px;
-                width: calc(100% - 20px);
+                width: 100%;
+                padding-right: 20px;
                 height: 230px;
                 transition: all 0.3s;
                 z-index: -1;

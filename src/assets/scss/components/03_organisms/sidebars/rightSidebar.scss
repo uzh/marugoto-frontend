@@ -136,7 +136,8 @@
     
       .rotated-text {
         position: relative;
-        top: calc(50% - 90px);
+        top: 50%;
+        padding-left: 90px;
         transform: rotate(-90deg);
       }
   }

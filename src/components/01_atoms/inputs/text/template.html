@@ -12,9 +12,6 @@
 			v-on:blur="setFocus(false)"
 			v-on:focus="setFocus(true)"
 			@input="updateEmitVal" />
-			<div>
-				<svgIcon v-if="iconName" :name="iconName" sizeH="20px" class="input-icon" />
-			</div>
 	</div>
 	<div v-if="required && !filledInput && !focused" class="errorMessage">* Field required</div>
 </div>
