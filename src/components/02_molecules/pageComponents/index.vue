@@ -25,7 +25,7 @@ export default {
         title: 'MMMM YYYY',
         weekdays: 'WW',
         navMonths: 'MMM',
-        input: ['L', 'YYYY-MM-DD', 'YYYY/MM/DD'],
+        input: ['DD.MM.YYYY'],
         dayPopover: 'L',
         data: ['YYYY-MM-DD']
       },
@@ -76,7 +76,7 @@ export default {
     dateEmit: function(event, id) {
       let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
       let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-      this.dateFormated = `${d}/${m}/${event.year}.`;
+      this.dateFormated = `${d}.${m}.${event.year}`;
       this.submitAnswer(this.dateFormated, id);
     },
     submitAnswer: function(answer, excersiseId) {
@@ -95,7 +95,11 @@ export default {
       .then( resp => {
         this.$store.dispatch('UPDATE_PAGE_STATE', {
           pageTransitionStates: resp.data.pageTransitionStates, 
-          pageComponents: resp.data.pageComponents
+          pageComponents: resp.data.pageComponents,
+          topicState: resp.data.topicState,
+          page: resp.data.page,
+          dialogNotifications: resp.data.dialogNotifications,
+          mailNotifications: resp.data.mailNotifications,
         });
       })
       .catch(() => {

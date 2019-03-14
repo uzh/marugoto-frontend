@@ -10,7 +10,7 @@
 				v-for="(option, index) in options"
 				:key="index"
 				:text="option.buttonText"
-				@click.native="emitOption(option.id)"
+				@click.native="emitOption(option.id, dialogID)"
 				secondary="true"
 				:class="options.length == 1 ? 'dialog-button-full' : 'dialog-button'"
 				iconName="arrow-right" 

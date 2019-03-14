@@ -7,16 +7,15 @@ import Btn from '@/components/01_atoms/buttons';
 export default {
   name: 'dialogComponent',
   components: { Btn, VueMarkdown },
-  props: ['text', 'source', 'options'],
+  props: ['text', 'source', 'options', 'dialogID' ],
   data() {
     return {
       opened: false,
     };
   },
   methods: {
-    emitOption: function(dialogId) {
-      this.$store.dispatch('LAYOUT_CLOSE', 'dialog');
-      this.$emit('emitDialog', dialogId);
+    emitOption: function(answerID, dialogID) {
+      this.$emit('emitDialog', answerID, dialogID);
     },
   },
 };

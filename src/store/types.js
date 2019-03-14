@@ -35,6 +35,8 @@ export const TOPIC_STATE_UPDATE = 'TOPIC_STATE_UPDATE';
 
 // Dialog
 export const DIALOG_UPDATE = 'DIALOG_UPDATE';
+export const DIALOG_UPDATE_EXISTING = 'DIALOG_UPDATE_EXISTING';
+export const DIALOG_ANSWER = 'DIALOG_ANSWER';
 
 // Notebook
 export const UPDATE_NOTEBOOK = 'UPDATE_NOTEBOOK';

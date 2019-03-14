@@ -33,13 +33,14 @@ apiService.interceptors.response.use(function (response) {
   });
   return response;
 }, function (error) {
+  console.log(Error)
   /**
    * SERVER ERROR
    */
   if( error.message == 'Network Error' ) {
     store.dispatch('ERROR_NETWORK_CONNECTION', {
       status: true,
-      message: '',
+      message: "Ops we can't reach server right now. Please try again later.",
     });
     return;
   }
