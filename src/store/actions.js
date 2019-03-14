@@ -149,7 +149,6 @@ export default({
           dispatch('REQUEST_PAGE_CURRENT');
         });
       }else if( resp.data.hasOwnProperty('answers') && resp.data.hasOwnProperty('speech')){
-        console.log('UPDATE existing with ID: ', payload)
         dispatch('DIALOG_UPDATE_EXISTING', {
           filterID: payload.dialogID,
           answers: resp.data.answers,

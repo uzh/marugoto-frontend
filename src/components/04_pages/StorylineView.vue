@@ -30,7 +30,6 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import apiService from '@/apiService';
 import Timer from '@/timer';
 
 import Btn from '@/components/01_atoms/buttons';
