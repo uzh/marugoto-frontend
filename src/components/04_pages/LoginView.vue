@@ -99,7 +99,7 @@
         <div class="logo"></div>
       </div>
       <div class="footer-menu-right">
-        <div class="item">Disclaimer</div>
+        <div class="item" tabindex="0">Disclaimer</div>
       </div>
     </div>
   </div>

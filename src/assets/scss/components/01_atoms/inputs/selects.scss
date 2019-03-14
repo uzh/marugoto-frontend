@@ -30,7 +30,7 @@ $height: 50px;
             }
         }
         &.selectedOption {
-            box-shadow: 0 2px 0 0 $base-primary;
+            box-shadow: none;
             height: 50px;
             padding-top: 20px;
         }
