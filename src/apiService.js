@@ -53,7 +53,6 @@ apiService.interceptors.response.use(function (response) {
       message: 'Database not reachable, please try again later!',
     });
     return;
-    return;
   }
   /**
    * AUTH ERROR
