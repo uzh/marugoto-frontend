@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       basePath: process.env.VUE_APP_BASE_PATH,
+      resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
     }
   },
 }

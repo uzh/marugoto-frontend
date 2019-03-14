@@ -33,7 +33,6 @@ apiService.interceptors.response.use(function (response) {
   });
   return response;
 }, function (error) {
-  //console.log(Error)
   /**
    * SERVER ERROR
    */
@@ -48,7 +47,7 @@ apiService.interceptors.response.use(function (response) {
   /**
    * DATABASE ERROR
    */
-  if( error.response.data.innerException.exception == 'ArangoDBException'){
+  if( error.response.status === 400 && error.response.data.innerException.exception == 'ArangoDBException'){
     store.dispatch('ERROR_NETWORK_CONNECTION', {
       status: true,
       message: 'Database not reachable, please try again later!',
@@ -58,13 +57,13 @@ apiService.interceptors.response.use(function (response) {
   /**
    * AUTH ERROR
    */
-  // console.log(error.config)
+  console.log(error.config)
   
   const originalRequest = error.config;
-  // console.log('1. API error');
+  console.log('1. API error');
   if (error.response.status === 401 && !originalRequest._retry) {
-    // console.log('------------- REFRESH 401 -------------');
-    // console.log(originalRequest.url, `${API_URL}auth/refresh-token`);
+    console.log('------------- REFRESH 401 -------------');
+    console.log(originalRequest.url, `${API_URL}auth/refresh-token`);
     if( error.config.url == `${API_URL}auth/refresh-token` ){
       // console.log('------------- REFRESH 401 -------------')
       failedQueue = [];
