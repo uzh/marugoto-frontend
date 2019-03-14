@@ -1,7 +1,7 @@
 <template>
   <div class="main-container">
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
-    <GameSelection v-if="!get_topic.selected && gameState" @emitNewGame="goToTopic" />
+    <!-- <GameSelection v-if="!get_topic.selected && gameState" @emitNewGame="goToTopic" /> -->
     <TopicComponent v-if="!get_topic.selected && !gameState" :list="get_topic.list" @openTopic="chooseTopic"/>
     <div class="storyline-container" v-if="get_topic.selected">
       <div class="storyline-title">
@@ -39,16 +39,16 @@ import TopicComponent from '@/components/02_molecules/pageComponents/topic';
 import DialogComponent from '@/components/03_organisms/dialog';
 import VueMarkdown from 'vue-markdown';
 
-import GameSelection from '@/components/02_molecules/pageComponents/gameSelection';
+// import GameSelection from '@/components/02_molecules/pageComponents/gameSelection';
 
 export default {
   name: 'player',
-  components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown, GameSelection },
+  components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
   data() {
     return {
       dialogVisible: false,
       basePath: process.env.VUE_APP_BASE_PATH,
-      gameState: true,
+      // gameState: true,
     };
   },
   computed: {
@@ -118,10 +118,10 @@ export default {
     setDialogVisibility() {
       this.$store.dispatch('LAYOUT_OPEN', 'dialog');
     },
-    goToTopic() {
-      alert('Go to topic page')
-      this.gameState = false;
-    }
+    // goToTopic() {
+    //   alert('Go to topic page')
+    //   this.gameState = false;
+    // }
   },
   watch: {
     get_page: function(newVal, oldVal) {
