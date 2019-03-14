@@ -1,7 +1,8 @@
 <template>
   <div class="main-container">
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
-    <TopicComponent v-if="!get_topic.selected" :list="get_topic.list" @openTopic="chooseTopic"/>
+    <GameSelection v-if="!get_topic.selected && gameState" />
+    <TopicComponent v-if="!get_topic.selected && !gameState" :list="get_topic.list" @openTopic="chooseTopic"/>
     <div class="storyline-container" v-if="get_topic.selected">
       <div class="storyline-title">
         <div class="page-title-icon-container">
@@ -38,13 +39,16 @@ import TopicComponent from '@/components/02_molecules/pageComponents/topic';
 import DialogComponent from '@/components/03_organisms/dialog';
 import VueMarkdown from 'vue-markdown';
 
+import GameSelection from '@/components/02_molecules/pageComponents/gameSelection';
+
 export default {
   name: 'player',
-  components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
+  components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown, GameSelection },
   data() {
     return {
       dialogVisible: false,
       basePath: process.env.VUE_APP_BASE_PATH,
+      gameState: true,
     };
   },
   computed: {
