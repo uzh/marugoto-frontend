@@ -13,28 +13,36 @@
   <div class="lead-text">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</div>
   <!-- Content -->
   <div class="start-game">
-    <Btn  text="Start New Game" primary="true" iconName="plus" />
+    <Btn text="Start New Game" primary="true" iconName="plus" @click.native="$emit('emitNewGame')" />
   </div>
   <div class="class-games">
     <h5>Games within classes</h5>
     <DownloadList
     v-for="(item, index) in classGames"
-    :key="index" 
-    :title="item.title" />
+    :key="index"
+    :title="item.title"
+    @emitContinue="continueGame(item.id)"
+    @emitDownload="downloadGame(item.id)" />
   </div>
   <div class="open-games">
     <h5>Open Games</h5>
     <DownloadList
     v-for="(item, index) in openGames"
-    :key="index" 
-    :title="item.title" />
+    :key="index"
+    :id="item.id"
+    :title="item.title"
+    @emitContinue="continueGame(item.id)"
+    @emitDownload="downloadGame(item.id)" />
   </div>
   <div class="finished-games">
     <h5>Finished Games</h5>
     <DownloadList
     v-for="(item, index) in finishedGames"
-    :key="index" 
-    :title="item.title" />
+    :key="index"
+    :id="item.id"
+    :title="item.title"
+    @emitContinue="continueGame(item.id)"
+    @emitDownload="downloadGame(item.id)" />
   </div>
   <div class="delete-account">
     <Btn  text="Delete Account" ghost="true" iconName="cancel" />
