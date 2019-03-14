@@ -47,7 +47,7 @@ apiService.interceptors.response.use(function (response) {
   /**
    * DATABASE ERROR
    */
-  if( error.response.status === 400 && error.response.data.innerException.exception == 'ArangoDBException'){
+  if( error.response.status === 400 && error.response.data.exception == 'ArangoDBException'){
     store.dispatch('ERROR_NETWORK_CONNECTION', {
       status: true,
       message: 'Database not reachable, please try again later!',
