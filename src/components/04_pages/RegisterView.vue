@@ -155,7 +155,7 @@ export default {
     register(){
       if ( this.firstName == '' || this.lastName == '' || this.mail == '' || this.password == '' || this.salutation == '') {
         this.errorMessage = true;
-        this.errorText.text = '';
+        this.errorText.text = 'Please enter your data.';
       } else {
         this.$store.dispatch('REGISTER',{
           firstName: this.firstName,
