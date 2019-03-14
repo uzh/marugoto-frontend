@@ -1,12 +1,10 @@
 <template src="./template.html"></template>
 
 <script>
-import SvgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   name: 'inputField',
-  components: { SvgIcon },
-  props: ['typeProp', 'labelName', 'required', 'disabled', 'value', 'iconName' ],
+  props: ['typeProp', 'labelName', 'required', 'disabled', 'value' ],
   data() {
     return {
       focused: false,

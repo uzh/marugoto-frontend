@@ -35,7 +35,8 @@
       right: 100%;
     }
     &.halfed{
-      right: calc(50% + 45px);
+      right: 50%;
+      padding-right: 45px;
     }
   
     transition: all 0.3s;

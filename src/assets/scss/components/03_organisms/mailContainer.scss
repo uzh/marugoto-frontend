@@ -1,7 +1,7 @@
 .mail-container{
   position: absolute;
   top: $elements-space;
-  left: calc(100% + 90px);
+  left: 110%;
   width: calc(100% - 90px);
   background: white;
   z-index: 50;
@@ -16,7 +16,6 @@
   transition: all 0.3s;
 
   .mail-container-body{
-    // border-top: $border;
     min-height: calc(100vh - 90px);
 
     .empty-mailbox {
