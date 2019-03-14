@@ -22,7 +22,7 @@
       @extend .h1;
       line-height: calc(100vh - 90px);
       text-align: center;
-      background-color: $background-hover;
+      background-color: $base-ghost;
     }
   }
 }
@@ -94,7 +94,7 @@
     @extend .h1;
     line-height: 100vh;
     text-align: center;
-    background-color: $background-hover;
+    background-color: $base-ghost;
   }
 
   .sender {

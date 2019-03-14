@@ -6,16 +6,16 @@
       <div class="left-container-div">
         <!-- Left menu -->
         <div class="left-container-menu">
-          <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'">
+          <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'" @focus="selectedTab = 'welcome'" tabindex="0">
             Welcome
           </div>
-          <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'">
+          <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'" @focus="selectedTab = 'reviews'" tabindex="0">
             Reviews
           </div>
-          <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'">
+          <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'" @focus="selectedTab = 'collaborations'" tabindex="0">
             Collaborations
           </div>
-          <div class="item" :class="selectedTab == 'quotes' ? 'focused' : ''" @click="selectedTab = 'quotes'">
+          <div class="item" :class="selectedTab == 'quotes' ? 'focused' : ''" @click="selectedTab = 'quotes'" @focus="selectedTab = 'quotes'" tabindex="0">
             Quotes LiT
           </div>
         </div>
@@ -52,11 +52,11 @@
       <div class="wrapper-container-right">
         <h3 class="page-title mb-60">Login</h3>
         <div class="choose-account">
-          <p :class="accountType == 'university' ? '' : 'opacity'" @click="accountType = 'university'">University Account
-          </p>
+          <div class="account" :class="accountType == 'university' ? '' : 'text-darker'" @click="accountType = 'university'" @focus="accountType = 'university'" tabindex="0">University Account
+          </div>
           <div class="middle-arrow"></div>
-          <p :class="accountType == 'guest' ? '' : 'opacity'" @click="accountType = 'guest'">Guest Account
-          </p>
+          <div class="account" :class="accountType == 'guest' ? '' : 'text-darker'" @click="accountType = 'guest'" @focus="accountType = 'guest'" tabindex="0">Guest Account
+          </div>
         </div>
 
         <!-- University Account Form -->
@@ -70,7 +70,7 @@
           <form class="mt-10">
             <SelectField labelName="Select University" :list="uniList" />
           </form>
-          <Btn @click.native="goToRegister('university')" text="Create Account" ghost="true" />
+          <Btn @click.native="goToRegister('university')" text="Create new account" ghost="true" />
         </div>
 
         <!-- Guest Account Form -->

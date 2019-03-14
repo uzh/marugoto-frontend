@@ -29,7 +29,7 @@ $chapterHeight: 80px;
         height: 100%;
         text-align: center;
         border-left: $border;
-        background-color: $background-hover;
+        background-color: $base-ghost;
     }
 }
 
@@ -188,7 +188,7 @@ $chapterHeight: 80px;
         height: 90px;
         margin-bottom: 40px;
         padding: 0;
-        background-color: $background-hover;
+        background-color: $base-ghost;
         border-bottom: 1px solid $base-uicolor-2;
         .title{
             width: 90%;
@@ -289,7 +289,7 @@ $chapterHeight: 80px;
         line-height: 32px;
         letter-spacing: 0.08px;
 
-        background-color: $background-hover;
+        background-color: $base-ghost;
     }
 }
 

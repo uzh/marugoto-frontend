@@ -14,16 +14,17 @@ $width: 100%;
    }
 
    label {
+       @extend .font;
        font-size: 1rem;
        line-height: 1.1875rem;
        position: absolute;
-       top: 20px;
+       top: 17px;
        left: 10px;
        transition: all 0.3s;
        overflow: hidden;
        white-space: nowrap;
        text-overflow: ellipsis;
-       width: 95%;
+       width: 90%;
    }
 
    input {
@@ -34,7 +35,7 @@ $width: 100%;
         padding-left: 10px;
         padding-right: 40px;
         padding-top: 6px;
-        background-color: $background-hover;
+        background-color: $base-ghost;
    }
 
    &.inputFocused {
@@ -66,10 +67,6 @@ $width: 100%;
             color: $base-primary;
         }
    }
-
-   &.filled {
-        box-shadow: 0 2px 0 0 $base-primary;
-    }
 }
 
 .input-icon {
