@@ -9,6 +9,7 @@ $height: 50px;
 
     .label-name {
         @extend .label;
+        @extend .font;
         padding-left: 10px;
         color: $base-primary;
         position: absolute;
@@ -18,9 +19,10 @@ $height: 50px;
 
     .select-field {
         @extend .input-field;
-        background-color: $background-hover;
+        @extend .font;
+        background-color: $base-ghost;
         padding-left: 10px;
-        padding-top: 20px;
+        padding-top: 17px;
     
         &.openedList{
             .select-field-arrow{
@@ -45,6 +47,7 @@ $height: 50px;
     }
 
     .select-list {
+        @extend .font;
         position: absolute;
         z-index: 1;
         top: 0px;
@@ -61,7 +64,7 @@ $height: 50px;
             font-size: inherit;
             border-bottom: $base-ghost-border;
             &:hover {
-                background-color: $background-hover;
+                background-color: $base-ghost;
                 border: $base-ghost-border;
                 cursor: pointer;
             }

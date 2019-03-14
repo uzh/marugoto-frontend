@@ -4,8 +4,14 @@
 		<div class="small">25 December</div>
 	</div>
 	<div class="right">
-		<div class="continue">Continue</div>
-		<div class="download">
+		<div
+			class="continue"
+			@click="$emit('emitContinue')">
+			Continue
+		</div>
+		<div
+			class="download"
+			@click="$emit('emitDownload')">
 			<SvgIcon name="download-pdf" sizeH="40px" />
 		</div>
 	</div>

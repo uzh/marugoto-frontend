@@ -1,5 +1,5 @@
 $elements-space: 90px;
-$border: 1px solid $background-hover;
+$border: 1px solid $base-ghost;
 
 .login .page-container {
   padding-top: 0;
@@ -20,32 +20,35 @@ $border: 1px solid $background-hover;
 
   .login-container {
     width: 100%;
+    min-height: 760px;
     margin-bottom: 5px;
     display: table;
 
     .left-container {
+      position: relative;
       display: table-cell;
       width: 58.33%;
       padding: 90px 10px;
-      background-color: $background-hover;
+      background-color: $base-ghost;
       vertical-align: top;
 
       .left-container-menu {
-        position: fixed;
+        position: absolute;
         transform: rotate(90deg);
         transform-origin: left;
-        margin-left: 3%;
+        margin-left: 6%;
 
         & .item {
-          @extend .h6;
+          font-family: serif;
+          font-size: 18px;
           display: inline;
-          margin-right: 30px;
-          opacity: 0.7;
+          margin-right: 20px;
+          color: $text-darker;
           cursor: pointer;
         }
 
         .focused {
-          opacity: 1;
+          color: $black;
         }
       }
     
@@ -96,26 +99,19 @@ $border: 1px solid $background-hover;
         .choose-account {
           display: table;
 
-          p {
+          .account {
             @extend .lead;
             @extend .font;
             width: 45%;
             display: table-cell;
             cursor: pointer;
-            padding: 0 5px;
             vertical-align: middle;
-            text-align: center;
           }
           
           .middle-arrow {
             display: table-cell;
-            position: relative;
-            right: 5%;
-            bottom: 5px;
             width: 10%;
-            border-right: $border;
-            
-            transform: rotate(30deg);
+            background: url('assets/images/choose-account-line.png') center no-repeat;
           }
         }
 
@@ -160,8 +156,8 @@ $border: 1px solid $background-hover;
 
 .origin-background {
   float: left;
-  height: 50vh;
   width: 100vw;
+  min-height: 330px;
   background: url('assets/images/Login_Map.jpg') center bottom no-repeat;
   position: relative;
   background-size: cover;

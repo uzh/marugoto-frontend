@@ -55,9 +55,6 @@
                 height: 55px;
                 width: 100%;
                 box-shadow: 0 1px 0 0 $base-primary;
-                &.filled {
-                    box-shadow: 0 2px 0 0 $base-primary;
-                }
 
                 textarea {
                     width: 100%;
@@ -68,7 +65,7 @@
                     overflow: hidden;
                     overflow-y: scroll;
                     padding: 10px;
-                    background-color: $background-hover;
+                    background-color: $base-ghost;
                     &:focus {
                         box-shadow: 0 0 0 2px $base-primary;
                     }
@@ -357,7 +354,7 @@
 
     .upload-files-main {
         height: 140px;
-        background-color: $background-hover;
+        background-color: $base-ghost;
         border: 1px solid $base-primary-border;
         
         .left {

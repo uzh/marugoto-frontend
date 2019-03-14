@@ -25,7 +25,6 @@ $inner-width: $max-width-inner + $outer-gap*2;
 // Colors
 $black: #000000;
 $white: #FFFFFF;
-$background-hover: #F2F0EE;
 
 $base-primary: #8C8B89;
 $base-primary-border: #979797;
@@ -40,8 +39,7 @@ $base-secondary-border-hover: $base-secondary-hover;
 $base-accent: #EE1245;
 $base-accent-hover: #D4113E;
 
-// $base-ghost: $white;
-$base-ghost: $background-hover;
+$base-ghost: #F2F0EE;
 $base-ghost-border: 1px solid #EAEDF0;
 
 $base-uicolor-1: $base-primary;
@@ -50,6 +48,8 @@ $base-uicolor-2: #E6E3E1;
 
 $base-uicolor-3: #F2F4F6;
 $base-uicolor-3-border: 1px solid $base-primary-border;
+
+$text-darker: #ACADAD;
 
 // Breakpoints
 // very large desktop

@@ -66,7 +66,7 @@
                 .left {
                     height: 20px;
                     width: 60%;
-                    background-color: $background-hover;
+                    background-color: $base-ghost;
                     border-top-left-radius: 6px;
 
                     &:after {
@@ -75,7 +75,7 @@
                         left: 60%;
                         width: 0;
                         height: 0px;
-                        border-bottom: 20px solid $background-hover;
+                        border-bottom: 20px solid $base-ghost;
                         border-right: 20px solid transparent;
                     }
                 }
@@ -96,7 +96,7 @@
                 width: 100%;
                 height: 22rem;
                 position: relative;
-                background-color: $background-hover;
+                background-color: $base-ghost;
                 padding: 30px;
                 z-index: 2;
                 transition: all 0.3s;
@@ -169,7 +169,7 @@
                 .left {
                     height: 20px;
                     width: 60%;
-                    background-color: $background-hover;
+                    background-color: $base-ghost;
                     border-top-left-radius: 6px;
 
                     &:after {
@@ -178,7 +178,7 @@
                         left: 60%;
                         width: 0;
                         height: 0px;
-                        border-bottom: 20px solid $background-hover;
+                        border-bottom: 20px solid $base-ghost;
                         border-right: 20px solid transparent;
                     }
                 }
@@ -199,7 +199,7 @@
                 width: 100%;
                 height: 11rem;
                 position: relative;
-                background-color: $background-hover;
+                background-color: $base-ghost;
                 padding: 30px;
                 z-index: 2;
                 transition: all 0.3s;
