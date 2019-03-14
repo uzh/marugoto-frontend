@@ -8,7 +8,7 @@ import router from '../router'
 
 export default({
   [types.REGISTER]: ({commit}, userInfo) => {
-    return apiService({url: '/user/registration', data: userInfo, method: 'POST' })
+    return apiService({url: '/user/registration', data: userInfo, method: 'POST', })
       .then(() => {
         return {
           mail: userInfo.mail,
@@ -137,6 +137,29 @@ export default({
   // DIALOG
   [types.DIALOG_UPDATE]: (context, payload) => {
     context.commit(types.DIALOG_UPDATE, payload);
+  },
+  [types.DIALOG_UPDATE_EXISTING]: (context, payload) => {
+    context.commit(types.DIALOG_UPDATE_EXISTING, payload);
+  },
+  [types.DIALOG_ANSWER]: ({dispatch}, payload) => {
+    return apiService.get(`dialog/${payload.answerID}`)
+    .then(resp => {
+      if( resp.data.stateChanged ){
+        dispatch('LAYOUT_CLOSE', 'dialog').then(() => {
+          dispatch('REQUEST_PAGE_CURRENT');
+        });
+      }else if( resp.data.hasOwnProperty('answers') && resp.data.hasOwnProperty('speech')){
+        console.log('UPDATE existing with ID: ', payload)
+        dispatch('DIALOG_UPDATE_EXISTING', {
+          filterID: payload.dialogID,
+          answers: resp.data.answers,
+          speech: resp.data.speech,
+        });
+      }
+    })
+    .catch(err => {
+      throw(err);
+    });
   },
   // NOTEBOOK
   [types.UPDATE_NOTEBOOK]: ({commit}) => {

@@ -13,11 +13,14 @@
       <!-- Components -->
       <PageComponents />
       <!-- Dialog -->
-      <DialogComponent v-if="get_layoutState.dialog.opened" v-for="(dialog, index) in get_dialog" :key="index"
+      <DialogComponent 
+        v-if="get_layoutState.dialog.opened" 
+        v-for="(dialog, index) in get_dialog" :key="index"
         class="mb-40"
         @emitDialog="dialogOptionEmited"
         :text="dialog.speech.markdownContent"
         :source="`${basePath}${dialog.from.image.path}`"
+        :dialogID="dialog.id"
         :options="dialog.answers" />
       <!-- Page transitions -->
       <PageTransitions @transitionChoosen="requestPageTransition" />
@@ -110,16 +113,8 @@ export default {
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
     },
-    dialogOptionEmited: function(dialogId) {
-      apiService.get(`dialog/${dialogId}`)
-      .then(resp => {
-        if( resp.data.stateChanged ){
-          this.$store.dispatch('REQUEST_PAGE_CURRENT');
-        }
-      })
-      .catch(() => {
-        
-      });
+    dialogOptionEmited: function(answerID, dialogID) {
+      this.$store.dispatch('DIALOG_ANSWER', {answerID, dialogID});
     },
     setDialogVisibility() {
       this.$store.dispatch('LAYOUT_OPEN', 'dialog');

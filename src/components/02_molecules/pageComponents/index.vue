@@ -95,7 +95,11 @@ export default {
       .then( resp => {
         this.$store.dispatch('UPDATE_PAGE_STATE', {
           pageTransitionStates: resp.data.pageTransitionStates, 
-          pageComponents: resp.data.pageComponents
+          pageComponents: resp.data.pageComponents,
+          topicState: resp.data.topicState,
+          page: resp.data.page,
+          dialogNotifications: resp.data.dialogNotifications,
+          mailNotifications: resp.data.mailNotifications,
         });
       })
       .catch(() => {

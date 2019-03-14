@@ -33,6 +33,7 @@ apiService.interceptors.response.use(function (response) {
   });
   return response;
 }, function (error) {
+  console.log(Error)
   /**
    * SERVER ERROR
    */

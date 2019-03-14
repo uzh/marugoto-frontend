@@ -111,6 +111,15 @@ export default({
   [types.DIALOG_UPDATE] (state, payload) {
     state.dialogNotifications = payload;
   },
+  [types.DIALOG_UPDATE_EXISTING] (state, payload) {
+    state.dialogNotifications = state.dialogNotifications.map( dialog => {
+      if( dialog.id == payload.filterID ){
+        return { ...dialog, answers: payload.answers, speech: payload.speech}
+      }else{
+        return dialog;
+      }
+    });
+  },
   // NOTEBOOK MUTATIONS
   [types.UPDATE_NOTEBOOK] (state, payload) {
     state.notebook.list = payload;
