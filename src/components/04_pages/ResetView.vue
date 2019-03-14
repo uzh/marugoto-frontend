@@ -114,9 +114,15 @@ export default {
   methods: {
     ...mapActions(['RESET_PASSWORD']),
     register(){
-      if (this.newPassword == '' || this.newPasswordConfirm == '') {
+      if (this.newPassword == '' && this.newPasswordConfirm == '') {
         this.errorMessage = true;
-        this.errorText.text = '';
+        this.errorText.text = 'Please enter and confirm your new Password.';
+      } else if (this.newPassword == '') {
+        this.errorMessage = true;
+        this.errorText.text = 'Please enter your new Password.';
+      } else if (this.newPasswordConfirm == '') {
+        this.errorMessage = true;
+        this.errorText.text = 'Please confirm your new Password.';
       } else if (this.newPassword == '' || this.newPassword != this.newPasswordConfirm) {
         this.errorMessage = true;
         this.errorText.text = 'Your two passwords must match.';

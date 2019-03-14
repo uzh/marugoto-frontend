@@ -140,9 +140,15 @@ export default {
   methods: {
     ...mapActions(['LOGIN']),
     login(){
-      if ( this.mail == '' || this.password == '') {
+      if ( this.mail == '' && this.password == '') {
         this.errorMessage = true;
-        this.errorText = '';
+        this.errorText = 'Please enter your E-Mail and Password.';
+      } else if ( this.mail == '') {
+        this.errorMessage = true;
+        this.errorText = 'Please enter your E-Mail.';
+      } else if ( this.password == '') {
+        this.errorMessage = true;
+        this.errorText = 'Please enter your Password.';
       } else {
         this.$store.dispatch('LOGIN', {
           mail: this.mail,
@@ -152,8 +158,7 @@ export default {
           this.$router.push('/')
         })
         .catch(() => {
-          // this.errorText = err.response.data.message;
-          this.errorText = "Your username or password are incorrect.";
+          this.errorText = "Your E-Mail or Password are incorrect.";
           this.errorMessage = true;
         });
       }
@@ -165,12 +170,18 @@ export default {
       this.errorMessage = false;
       if ( this.mail == '' ) {
         this.forgottenPassword = true;
+        this.errorText = 'Please enter your E-Mail, so that we can send you the link to reset your password.';
       } else {
         this.$store.dispatch('FORGOT_PASSWORD', {
           email: this.mail,
           passwordResetUrl: `${process.env.VUE_APP_LOCAL_PATH}reset`,
         }).then(() => {
-          this.successText = "To reset your password, please check your mail inbox for further information.";
+          this.errorText = '';
+          this.successText = `
+            We’ve sent an email to ${this.mail}. Click the link in the email to reset your password.
+          
+            If you don’t see the email, check other places it might be, like your junk, spam, social, or other folders.
+          `;
         })
         .catch(() => {
           this.forgottenPassword = true;
