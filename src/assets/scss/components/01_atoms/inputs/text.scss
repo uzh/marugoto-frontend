@@ -35,7 +35,7 @@ $width: 100%;
         padding-left: 10px;
         padding-right: 40px;
         padding-top: 6px;
-        background-color: $base-ghost;
+        background-color: $base-uicolor-4;
    }
 
    &.inputFocused {
@@ -48,10 +48,19 @@ $width: 100%;
         }
    }
 
+   &.inputFilled {
+        box-shadow: none;
+        height: auto;
+        label {
+            @extend .label;
+            top: 5px;
+            color: $base-primary;
+        }
+    }
+
    &.inputDisabled {
         opacity: 0.3;
         pointer-events: none;
-        box-shadow: 0 0 0 2px $base-primary;
         height: auto;
 
         -webkit-touch-callout: none;

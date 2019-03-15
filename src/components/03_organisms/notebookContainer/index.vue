@@ -21,13 +21,13 @@ export default {
     ...mapGetters([ 'get_layoutState', 'get_notebook' ]),
   },
   mounted: function() {
-    this.$refs.notebookContainer.scrollTop = 90;
+    this.$refs.notebookContainer.scrollTop = 10;
   },
   methods: {
     openEntriesMenu: function() {
       this.entriesMenuOpened = !this.entriesMenuOpened;
       if (this.entriesMenuOpened) {
-        this.$refs.notebookContainer.scrollTop = -90;
+        this.$refs.notebookContainer.scrollTop = 10;
       } else {
         this.$refs.notebookContainer.scrollTop = 0;
       }

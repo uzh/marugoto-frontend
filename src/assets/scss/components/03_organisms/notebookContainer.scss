@@ -13,12 +13,12 @@ $chapterHeight: 80px;
     &.in{
         right: 45px;
         width: 50%;
-        padding-right: 45px;
+        margin-right: 45px;
         z-index: 50;
     }
 
     &.open-entries-menu{
-        padding-top:  calc(100vh - 180px);
+        padding-top:  calc(100vh - 90px);
     }
 
     .empty-notebook {
@@ -29,7 +29,7 @@ $chapterHeight: 80px;
         height: 100%;
         text-align: center;
         border-left: $border;
-        background-color: $base-ghost;
+        background-color: $base-uicolor-4;
     }
 }
 
@@ -38,7 +38,7 @@ $chapterHeight: 80px;
     position: fixed;
     top: 0;
     width: calc(50% - 45px);
-    height: calc(100vh - 180px);
+    height: calc(100vh - 90px);
     background-color: #0C0C0D;
     padding: 100px;
     overflow: scroll;
@@ -188,7 +188,7 @@ $chapterHeight: 80px;
         height: 90px;
         margin-bottom: 40px;
         padding: 0;
-        background-color: $base-ghost;
+        background-color: $base-uicolor-4;
         border-bottom: 1px solid $base-uicolor-2;
         .title{
             width: 90%;
@@ -215,7 +215,7 @@ $chapterHeight: 80px;
         left: 0;
         height: 100vh;
         width: 100%;
-        background: #F2F0EE;
+        background: $base-uicolor-4;
         overflow-x: hidden;
         overflow-y: scroll;
         transition: all 0.3s;
@@ -289,7 +289,7 @@ $chapterHeight: 80px;
         line-height: 32px;
         letter-spacing: 0.08px;
 
-        background-color: $base-ghost;
+        background-color: $base-uicolor-4;
     }
 }
 

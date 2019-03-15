@@ -13,6 +13,9 @@
 }
 .text-darker {
   color: $text-darker;
+  &:hover {
+    color: #675D53;
+  }
 }
 .opacity {
   opacity: 0.1;

@@ -20,7 +20,7 @@ $height: 50px;
     .select-field {
         @extend .input-field;
         @extend .font;
-        background-color: $base-ghost;
+        background-color: $base-uicolor-4;
         padding-left: 10px;
         padding-top: 17px;
     
@@ -30,7 +30,7 @@ $height: 50px;
             }
         }
         &.selectedOption {
-            box-shadow: 0 2px 0 0 $base-primary;
+            box-shadow: none;
             height: 50px;
             padding-top: 20px;
         }
@@ -63,10 +63,9 @@ $height: 50px;
             height: $height;
             font-size: inherit;
             border-bottom: $base-ghost-border;
+            cursor: pointer;
             &:hover {
-                background-color: $base-ghost;
-                border: $base-ghost-border;
-                cursor: pointer;
+                background-color: $base-uicolor-4;
             }
         }
     }
