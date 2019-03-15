@@ -62,7 +62,7 @@ $border: 1px solid $base-uicolor-4;
   
         .page-title {
           font-weight: inherit;
-          line-height: 51px;
+          line-height: 40px;
           font-size: 36px;
         }
       
@@ -71,6 +71,13 @@ $border: 1px solid $base-uicolor-4;
           font-size: 17px;
           line-height: 25px;
           letter-spacing: 0.2px;
+
+          span {
+            @extend .link;
+            font-size: 17px;
+            line-height: 25px;
+            letter-spacing: 0.2px;
+          }
         }
       }
       

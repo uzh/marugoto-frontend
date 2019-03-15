@@ -44,6 +44,7 @@ body, input, textarea, label, .genderLabel {
   color: $base-secondary;
   &:hover {
     text-decoration: underline;
+    cursor: pointer;
   }
 }
 .button {
