@@ -18,7 +18,7 @@ module.exports = {
             */
             loaderOptions: {
                 extract: true,
-                spriteFilename: '/images/icons.[hash:8].svg', // or 'img/icons.svg' if filenameHashing == false
+                spriteFilename: 'src/assets/images/icons.[hash:8].svg', // or 'img/icons.svg' if filenameHashing == false
                 esModule: false // comment for dev
             },
             /*
