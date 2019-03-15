@@ -193,24 +193,23 @@ $border: 1px solid $base-uicolor-4;
       .item {
         float: right;
         text-align: right;
+        font-family: inherit;
+        font-size: 18px;
+        line-height: 30px;
+        color: $text-darker;
+        opacity: 0.7;
+        cursor: pointer;
 
         .disclaimer {
           font-size: 14px;
           font-family: serif;
           line-height: 1;
         }
+      }
 
-        span {
-          @extend .link;
-          font-family: serif;
-          font-size: 10px;
-          line-height: 1;
-        }
-
-        p {
-          font-size: 10px;
-          line-height: 1;
-        }
+      .focused {
+        color: #2F3133;
+        opacity: 1;
       }
     }
   }
