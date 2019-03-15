@@ -1,5 +1,5 @@
 $elements-space: 90px;
-$border: 1px solid $base-ghost;
+$border: 1px solid $base-uicolor-4;
 
 .login .page-container {
   padding-top: 0;
@@ -29,7 +29,7 @@ $border: 1px solid $base-ghost;
       display: table-cell;
       width: 58.33%;
       padding: 90px 10px;
-      background-color: $base-ghost;
+      background-color: $base-uicolor-4;
       vertical-align: top;
 
       .left-container-menu {

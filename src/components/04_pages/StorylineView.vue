@@ -2,7 +2,7 @@
   <div class="main-container">
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
     <!-- <GameSelection v-if="!get_topic.selected && gameState" @emitNewGame="goToTopic" /> -->
-    <TopicComponent v-if="!get_topic.selected && !gameState" :list="get_topic.list" @openTopic="chooseTopic"/>
+    <TopicComponent v-if="!get_topic.selected" :list="get_topic.list" @openTopic="chooseTopic"/>
     <div class="storyline-container" v-if="get_topic.selected">
       <div class="storyline-title">
         <div class="page-title-icon-container">

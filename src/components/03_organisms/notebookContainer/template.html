@@ -11,11 +11,6 @@
       :selected="currentEntry"
       :list="get_notebook.list"
       @selectItem="setCurrentEntry"/>
-    <!-- Notebook Navigation -->
-    <NotebookChapterMenu 
-      @changeCurrentEntryTo="switchCurrentEntryTo" 
-      :currentEntry="currentEntry"
-      :list="get_notebook.list" />
     <!-- Notebook entries -->
     <div class="notebook-content" ref="notebookContent">
       <NotebookPages 

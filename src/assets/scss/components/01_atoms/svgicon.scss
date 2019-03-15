@@ -7,13 +7,13 @@ svg use g{
 
 .icon-right {
     position: absolute;
-    top: 15px;
+    top: calc(50% - 10px);
     right: 0px;
 }
 
 .icon-left {
     position: absolute;
-    top: 15px;
+    top: calc(50% - 10px);;
     left: 0px;
 }
 

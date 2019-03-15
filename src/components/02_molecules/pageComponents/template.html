@@ -19,7 +19,7 @@
     <!-- Image -->
     <ImageComponent
       v-if="component.type == 'ImageComponent'"
-      :source="`${basePath}${component.component.image.path}`"
+      :source="`${basePath}${component.component.images[0].path}`"
       :text="component.component.caption"
       :zoomable="component.component.zoomable" />
     <!-- Date Component -->

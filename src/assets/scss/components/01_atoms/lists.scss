@@ -1,7 +1,7 @@
 .ordered-list {
     @extend .p;
     position: relative;
-    background-color: $base-ghost;
+    background-color: $base-uicolor-4;
     padding-left: 10px;
     margin-top: 20px;
     list-style: decimal;
@@ -16,7 +16,7 @@
 .unordered-list {
     @extend .p;
     position: relative;
-    background-color: $base-ghost;
+    background-color: $base-uicolor-4;
     padding-left: 10px;
     margin-top: 20px;
     &-item {
@@ -70,14 +70,14 @@
     }
     
     &:hover {
-        background-color: $base-ghost;
+        background-color: $base-uicolor-4;
     }
 }
 
 .link-list {
     @extend .p;
     position: relative;
-    background-color: $base-ghost;
+    background-color: $base-uicolor-4;
     margin-top: 20px;
     &-item {
         width: 100%;
@@ -86,7 +86,7 @@
         padding-top: 10px;
         border: 1px solid $base-primary;
         &:hover {
-            background-color: $base-ghost;
+            background-color: $base-uicolor-4;
         }
     }
 }
