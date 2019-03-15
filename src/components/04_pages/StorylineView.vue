@@ -48,6 +48,7 @@ export default {
     return {
       dialogVisible: false,
       basePath: process.env.VUE_APP_BASE_PATH,
+      resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       // gameState: true,
     };
   },

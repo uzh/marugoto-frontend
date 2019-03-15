@@ -20,6 +20,7 @@ export default {
   data: function() {
     return {
       basePath: process.env.VUE_APP_BASE_PATH,
+      resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       selectedDate: null,
       formats: {
         title: 'MMMM YYYY',
