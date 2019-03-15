@@ -35,4 +35,7 @@ $min-height: 3.125rem;
 .button-ghost {
     background-color: $base-uicolor-4;
     color: $black;
+    &:hover {
+        background-color: $base-uicolor-2;
+    }
 }
