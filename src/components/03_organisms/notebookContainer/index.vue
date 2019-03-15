@@ -26,11 +26,11 @@ export default {
   methods: {
     openEntriesMenu: function() {
       this.entriesMenuOpened = !this.entriesMenuOpened;
-      // if (this.entriesMenuOpened) {
-      //   this.$refs.notebookContainer.scrollTop = -90;
-      // } else {
-      //   this.$refs.notebookContainer.scrollTop = 0;
-      // }
+      if (this.entriesMenuOpened) {
+        this.$refs.notebookContainer.scrollTop = 10;
+      } else {
+        this.$refs.notebookContainer.scrollTop = 0;
+      }
     },
     nextEntry: function() {
       if( this.currentEntry == this.get_notebook.list.length - 1 ){

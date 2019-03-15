@@ -169,7 +169,7 @@ $border: 1px solid $base-uicolor-4;
 
     .footer-logo{
       float: left;
-      width: 50%;
+      width: 20%;
 
       .logo {
         float: left;
@@ -181,13 +181,29 @@ $border: 1px solid $base-uicolor-4;
     }
 
     .footer-menu-right {
-      width: 50%;
+      width: 80%;
       float: right;
       line-height: 66px;
 
       .item {
         float: right;
-        padding-left: 20px;
+        text-align: right;
+
+        .disclaimer {
+          font-size: 14px;
+          line-height: 1;
+        }
+
+        span {
+          @extend .link;
+          font-size: 10px;
+          line-height: 1;
+        }
+
+        p {
+          font-size: 10px;
+          line-height: 1;
+        }
       }
     }
   }
