@@ -6,7 +6,7 @@
     <div class="storyline-container" v-if="get_topic.selected">
       <div class="storyline-title">
         <div class="page-title-icon-container">
-          <img v-if="get_page.chapter.icon.path" class="icon" :src="`${basePath}${get_page.chapter.icon.path}`">
+          <img v-if="get_page.chapter.icon.path" class="icon" :src="`${resourcesPath}${get_page.chapter.icon.path}`">
         </div>
         <vue-markdown class="page-title" :source="get_page.title" />
       </div>
@@ -19,7 +19,7 @@
         class="mb-40"
         @emitDialog="dialogOptionEmited"
         :text="dialog.speech.markdownContent"
-        :source="`${basePath}${dialog.from.image.path}`"
+        :source="`${resourcesPath}${dialog.from.image.path}`"
         :dialogID="dialog.id"
         :options="dialog.answers" />
       <!-- Page transitions -->

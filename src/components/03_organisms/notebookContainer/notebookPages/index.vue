@@ -13,6 +13,7 @@ export default {
   props: [ 'currentEntry', 'list', 'direction' ],
   data(){
     return {
+      resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       transitionTime: 300,
       openedPersonalNote: false,
       personalNoteNotebookEntryId: '',
