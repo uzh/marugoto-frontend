@@ -19,7 +19,7 @@
         class="mb-40"
         @emitDialog="dialogOptionEmited"
         :text="dialog.speech.markdownContent"
-        :source="`${basePath}${dialog.from.image.path}`"
+        :source="`${resourcesPath}${dialog.from.image.path}`"
         :dialogID="dialog.id"
         :options="dialog.answers" />
       <!-- Page transitions -->

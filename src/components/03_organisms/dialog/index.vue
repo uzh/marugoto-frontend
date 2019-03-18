@@ -10,6 +10,7 @@ export default {
   props: ['text', 'source', 'options', 'dialogID' ],
   data() {
     return {
+      resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       opened: false,
     };
   },
