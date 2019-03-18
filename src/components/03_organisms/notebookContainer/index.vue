@@ -21,15 +21,18 @@ export default {
     ...mapGetters([ 'get_layoutState', 'get_notebook' ]),
   },
   mounted: function() {
-    this.$refs.notebookContainer.scrollTop = 10;
+    this.scrollNotebookContent(90);
   },
   methods: {
+    scrollNotebookContent: function(val) {
+      this.$refs.notebookContainer.scrollTop = val;
+    },
     openEntriesMenu: function() {
       this.entriesMenuOpened = !this.entriesMenuOpened;
       if (this.entriesMenuOpened) {
-        this.$refs.notebookContainer.scrollTop = 10;
+        this.scrollNotebookContent(90);
       } else {
-        this.$refs.notebookContainer.scrollTop = 0;
+        this.scrollNotebookContent(0);
       }
     },
     nextEntry: function() {

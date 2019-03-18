@@ -17,7 +17,7 @@ export default {
       openedPersonalNote: false,
       personalNoteNotebookEntryId: '',
       personalNoteText: '',
-      readyForSubmit: false,
+      isAutosaved: false,
     }
   },
   created() {
@@ -49,21 +49,14 @@ export default {
       this.openedPersonalNote = false;
     },
     checkTyping: function() {
-      this.readyForSubmit = false;
+      this.isAutosaved = false;
       this.typingFinished();
     },
     // eslint-disable-next-line
     typingFinished: _.debounce(function() {
-      this.readyForSubmit = true;
+      this.isAutosaved = true;
+      // this.submitPersonalNote();
     }, 500),
-    textareaHandler(e) {
-      if (e.keyCode === 13 && !e.shiftKey) {
-        e.preventDefault();
-        this.submitPersonalNote();
-      } else if (e.keyCode === 27) {
-        this.cancelPersonalNote();
-      }
-    },
   },
   watch: {
     currentEntry: function(newVal, oldVal) {

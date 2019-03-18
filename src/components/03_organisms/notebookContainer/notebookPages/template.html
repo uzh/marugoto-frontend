@@ -45,14 +45,14 @@
         <textarea
           :class="openedPersonalNote ? 'active' : ''"
           v-model="personalNoteText"
-          v-on:keyup="checkTyping"
-          @keydown="textareaHandler"></textarea>
+          v-on:keyup="checkTyping"></textarea>
         <!-- Typing -->
-        <div v-if="personalNoteText != '' && !readyForSubmit">
+        <div v-if="personalNoteText != '' && !isAutosaved">
           <div class="small go-right typing">Typing...</div>
         </div>
-        <div v-if="personalNoteText != '' && readyForSubmit">
-          <div class="small go-right enter-to-submit">Press Enter to submit note</div>
+        <div v-if="personalNoteText != '' && isAutosaved">
+          <svgIcon class="icon go-right" name="check" />
+        <div class="small go-right autosaved">Autosaved</div>
         </div>
       </div>
       <Btn
@@ -61,8 +61,7 @@
         :class="openedPersonalNote ? 'inactive' : ''"
         text="Create new note"
         primary="true"
-        iconName="plus"
-        iconColor="white" />
+        iconName="plus" />
     </div>
   </div>
 </div>

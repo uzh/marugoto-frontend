@@ -11,14 +11,14 @@ $chapterHeight: 80px;
     transition: all 0.3s;
 
     &.in{
-        right: 45px;
-        width: 50%;
-        margin-right: 45px;
+        right: 90px;
+        width: calc(50% - 45px);
+        padding-right: 0;
         z-index: 50;
     }
 
     &.open-entries-menu{
-        padding-top:  calc(100vh - 90px);
+        padding-top:  calc(100vh - 180px);
     }
 
     .empty-notebook {
@@ -338,23 +338,22 @@ $chapterHeight: 80px;
         height: 35px;
     }
 
-    .enter-to-submit {
+    .autosaved {
+        float: right;
         font-family: 'Apercu';
         line-height: 35px;
         height: 35px;
-        width: 100%;
+        width: 20%;
         text-align: right;
     }
 
-    button {
-        width: 30%;
-        padding: 0 10px;
-        background-color: $base-uicolor-2;
-        position: absolute;
-        right: 0;
-        &.cancel {
-            left: 0;
-        }
+    .icon {
+        float: right;
+        font-family: 'Apercu';
+        line-height: 35px;
+        height: 35px;
+        width: 20%;
+        text-align: right;
     }
 }
 

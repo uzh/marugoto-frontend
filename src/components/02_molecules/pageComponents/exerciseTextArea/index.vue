@@ -12,7 +12,7 @@ export default {
   data(){
     return {
       answer: '',
-      readyForSubmit: false,
+      isAutosaved: false,
     }
   },
   methods: {
@@ -20,20 +20,15 @@ export default {
       this.$emit('emitInputAreaAnswer', this.answer, this.exerciseId);
     },
     checkTyping: function() {
-      this.readyForSubmit = false;
-      this.typingFinished();
+      this.isAutosaved = false;
       this.autoGrow(this.$refs.textarea);
+      this.typingFinished();
     },
     // eslint-disable-next-line
     typingFinished: _.debounce(function() {
-      this.readyForSubmit = true;
+      this.isAutosaved = true;
+      // this.submitAnswer();
     }, 500),
-    textareaHandler(e) {
-      if (e.keyCode === 13 && !e.shiftKey) {
-        e.preventDefault();
-        this.submitAnswer();
-      }
-    },
     autoGrow: function(element) {
       element.style.height = 'auto';
       element.style.height = `${element.scrollHeight}px`;

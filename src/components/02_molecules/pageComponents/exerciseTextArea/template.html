@@ -5,14 +5,14 @@
         :placeholder="placeholder"
         :id="exerciseId"
         v-model="answer"
-        v-on:keyup="checkTyping"
-        @keydown="textareaHandler">
+        v-on:keyup="checkTyping">
     </textarea>
     <!-- Typing -->
-    <div v-if="answer != '' && !readyForSubmit">
+    <div v-if="answer != '' && !isAutosaved">
         <div class="small go-right typing">Typing...</div>
     </div>
-    <div v-if="answer != '' && readyForSubmit">
-        <div class="small go-right enter-to-submit">Press Enter to submit</div>
+    <div v-if="answer != '' && isAutosaved">
+        <svgIcon class="icon go-right" name="check" />
+        <div class="small go-right autosaved">Autosaved</div>
     </div>
 </div>
