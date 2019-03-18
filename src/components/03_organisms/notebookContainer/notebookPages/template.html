@@ -1,7 +1,7 @@
 <div>
   <div
     class="pageDisplay"
-    v-for="(page, index) in list" 
+    v-for="(page, index) in list"
     :key="index"
     :class="[ index == currentEntry ? 'np-front' : '',
               index == currentEntry + 1 ? 'np-middle' : '',
@@ -25,40 +25,44 @@
       <div class="notebook-page-text">
         <vue-markdown v-if="page.text" :source="page.text" />
       </div>
-      <!-- Personal notes -->
+      <!-- // Personal notes
       <div class="pt-40 border-top">
         <ul>
           <li 
-            v-for="(personalNote, index) in page.personalNotes" 
+            v-for="(personalNote, index) in page.personalNotes"
             :key="index"
             v-if="page.personalNotes.length > 0">
               <div class="added-personal-notes-box mb-40">
-                <!-- <p style="visibility: visible">20.5.2018 - 10:48 - Spreckensville</p> -->
+                <p>20.5.2018 - 10:32 - {{ page.title }}</p>
                 <textarea>{{ personalNote.markdownContent }}</textarea>
               </div>
           </li>
         </ul>
-      </div>
+      </div> -->
       <!-- Add personal note box -->
-      <div class="personal-note-box" :class="openedPersonalNote ? 'opened' : 'not-displayed'">
-        <!-- <p style="visibility: visible">20.5.2018 - 10:48 - Spreckensville</p> -->
-        <textarea
-          :class="openedPersonalNote ? 'active' : ''"
-          v-model="personalNoteText"
-          v-on:keyup="checkTyping"></textarea>
+      <div class="personal-note-box pt-40 border-top" :class="openedPersonalNote ? 'active' : ''">
+        <div class="note" :class="noteChanged ? 'active' : ''">
+          <p>20.5.2018 - 10:48 - {{ page.title }}</p>
+          <textarea
+            ref="note"
+            :readonly="noteChanged"
+            @dblclick="changePersonalNote"
+            v-model="personalNoteText"
+            v-on:keyup="checkTyping"></textarea>
+        </div>
         <!-- Typing -->
         <div v-if="personalNoteText != '' && !isAutosaved">
           <div class="small go-right typing">Typing...</div>
         </div>
         <div v-if="personalNoteText != '' && isAutosaved">
           <svgIcon class="icon go-right" name="check" />
-        <div class="small go-right autosaved">Autosaved</div>
+          <div class="small go-right autosaved">Autosaved</div>
         </div>
       </div>
       <Btn
         @click.native="addPersonalNote(page.id)"
         class="button-personal-note"
-        :class="openedPersonalNote ? 'inactive' : ''"
+        :class="openedPersonalNote ? 'active' : ''"
         text="Create new note"
         primary="true"
         iconName="plus" />

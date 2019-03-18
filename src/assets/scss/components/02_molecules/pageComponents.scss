@@ -107,18 +107,11 @@
                     z-index: 20;
                 }
 
-                &:hover {
-                    .zoom-in {
-                        display: block;
-                    }
-                }
-
                 img {
                     width: 100%;
                 }
 
                 .zoom-in {
-                    display: none;
                     position: absolute;
                     top: 10px;
                     right: 10px;

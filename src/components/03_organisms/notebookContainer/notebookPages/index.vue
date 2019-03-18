@@ -19,6 +19,7 @@ export default {
       personalNoteNotebookEntryId: '',
       personalNoteText: '',
       isAutosaved: false,
+      noteChanged: false,
     }
   },
   created() {
@@ -51,13 +52,20 @@ export default {
     },
     checkTyping: function() {
       this.isAutosaved = false;
+      this.autoGrow(this.$refs.note[0]);
       this.typingFinished();
     },
     // eslint-disable-next-line
     typingFinished: _.debounce(function() {
       this.isAutosaved = true;
-      // this.submitPersonalNote();
     }, 500),
+    changePersonalNote: function() {
+      this.noteChanged = !this.noteChanged;
+    },
+    autoGrow: function(element) {
+      element.style.height = 'auto';
+      element.style.height = `${element.scrollHeight}px`;
+    }
   },
   watch: {
     currentEntry: function(newVal, oldVal) {
