@@ -2,16 +2,17 @@
 
 <script>
 /* eslint-disable */
+import IconsFile from '@/assets/images/icons.svg';
 
 export default {
   name: 'SvgIcon',
   props: [ 'name', 'customColor', 'sizeH', 'sizeW' ],
-  created: function() {
-    console.log(this.name)
-  },
+  component: { IconsFile },
   computed: {
     iconPath() {
-      return require(`@/assets/icons/${this.name}.svg`);
+      console.log('icons file: ', `${IconsFile}#${this.name}` )
+      console.log(require(`@/assets/icons/${this.name}.svg`).default.url )
+      return require(`@/assets/icons/${this.name}.svg`).default.url;
     },
     className() {
       return 'svg-icon svg-icon--' + this.name;
