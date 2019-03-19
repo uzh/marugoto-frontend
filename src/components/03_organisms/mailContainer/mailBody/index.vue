@@ -11,6 +11,7 @@ export default {
   data() {
     return {
       sendingMail: false,
+      mailRef: '',
     };
   },
   methods: {
@@ -23,6 +24,10 @@ export default {
         text: this.$refs[`mailArea${id}`].value,
       }).then(() => this.sendingMail = false);
     },
+    autoGrow: function(element) {
+      element.style.height = 'auto';
+      element.style.height = `${element.scrollHeight}px`;
+    }
   },
   watch: {
     mail: function(oldVal, newVal) {
@@ -36,6 +41,7 @@ export default {
         return;
       }else{
         setTimeout(function(){
+          self.mailRef = self.$refs[`mailArea${self.mail.mail.id}`];
           self.$refs[`mailArea${self.mail.mail.id}`].focus();
         }, 100);
       }

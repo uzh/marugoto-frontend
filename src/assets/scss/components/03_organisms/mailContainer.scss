@@ -29,6 +29,7 @@
 .inbox-mail-list-container{
   height: calc(100vh - 90px);
   overflow-y: scroll;
+  padding-right: 0;
   &-li {
     cursor: pointer;
     padding: 10px 0;
@@ -91,7 +92,8 @@
 
   .sender {
     display: table;
-    padding: 0;
+    width: calc((100% / 8) * 6);
+    margin-left: 12.5%;
     padding-top: 50px;
 
     h5 {
@@ -112,21 +114,24 @@
   }
 
   .subject {
+    width: calc((100% / 8) * 6);
     margin-top: 1rem;
-    padding: 0;
+    margin-left: 12.5%;
     padding-bottom: 25px;
     border-bottom: $border;
   }
 
   .reply-list-container {
+    width: calc((100% / 8) * 6);
     margin-top: 25px;
-    padding: 0;
+    margin-left: 12.5%;
   }
 
   .message {
+    width: calc((100% / 8) * 6);
+    margin-left: 12.5%;
     margin-top: 25px;
     margin-bottom: 50px;
-    padding: 0;
     
     &-inactive {
       color: $base-secondary;
@@ -138,14 +143,16 @@
     }
     &-reply {
       color: $base-secondary;
+      width: calc((100% / 8) * 6);
       margin-top: 20px;
       padding: 30px 0 0 20px;
       border-left: 2px solid $base-accent;
     }
     &-textarea {
+      width: calc((100% / 8) * 6);
+      margin-left: 12.5%;
       margin-top: 50px;
       margin-bottom: 50px;
-      padding: 0;
       resize: none;
     }
     p {
@@ -157,6 +164,8 @@
 
   .respondMail {
     display: block;
+    width: calc((100% / 8) * 6);
+    margin-left: 12.5%;
     margin-top: 10px;
     margin-bottom: 100px;
     border: $base-ghost-border;
@@ -164,8 +173,9 @@
   
   .send-mail-text-to {
     position: absolute;
-    left: -8.33%;
-    padding-right: 5px;
+    width: calc(100% / 8);
+    left: 0;
+    padding-right: 10px;
     padding-top: 15px;
     text-align: right;
     overflow: hidden;
@@ -173,8 +183,9 @@
 
   .send-mail-text-subject {
     position: absolute;
-    left: -8.33%;
-    padding-right: 5px;
+    width: calc(100% / 8);
+    left: 0;
+    padding-right: 10px;
     padding-top: 5px;
     text-align: right;
     overflow: hidden;
