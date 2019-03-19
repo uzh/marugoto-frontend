@@ -22,8 +22,6 @@ $top: 90px;
 }
   
 .dialog-container {
-  @extend .col-xs-10;
-  @extend .col-xs-offset-1;
   position: relative;
   top: 90px;
   height: calc(100% - 180px);

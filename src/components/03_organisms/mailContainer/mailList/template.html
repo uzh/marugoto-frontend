@@ -1,4 +1,4 @@
-<div class="inbox-mail-list-container go-left">
+<div class="inbox-mail-list-container col-xs-4 go-left">
   <ul>
     <li
       v-for="(item, index) in list"
@@ -8,10 +8,10 @@
       @click="emitMailListClick(index, item.mail.id); selectMail(item.mail.id)">
       <div 
         v-if="!item.read" 
-        class="mail-unread-dot">
+        class="mail-unread-dot col-xs-1">
         <div class="dot"></div>
       </div>
-      <h6>{{ item.mail.from.name }}</h6>
+      <h6 class="col-xs-7 h6">{{ item.mail.from.name }}</h6>
       <!-- <p class="current-date-time">Today, 14:28</p> -->
       <vue-markdown
         class="short-mail"

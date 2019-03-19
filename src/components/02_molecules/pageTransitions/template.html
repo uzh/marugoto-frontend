@@ -1,10 +1,10 @@
-<div class="transition-wrapper">
+<div class="transition-wrapper col-xs-8 col-xs-offset-2">
   <Btn 
     v-for="(item, index) in get_transitions"
     v-if="item.visible"
     :key="index"
-    @click.native="emitTransition(item.pageTransition.id)"
     :text="item.pageTransition.buttonText"
-    primary="true" />
+    primary="true"
+    class="mb-30"
+    @click.native="emitTransition(item.pageTransition.id)" />
 </div>
-<!-- item.visible-->

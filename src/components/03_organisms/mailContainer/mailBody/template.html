@@ -1,9 +1,9 @@
-<div class="inbox-mail-body-container go-right">
-  <div v-if="!mail" class="no-mails">No mail selected</div>
+<div class="inbox-mail-body-container col-xs-8 go-right">
+  <div v-if="!mail" class="no-mails h1">No mail selected</div>
   <div v-if="mail">
     <!-- Mail Heading -->
-    <div class="sender">
-      <div v-if="sendingMail" class="send-mail-text-to">To</div>
+    <div class="sender col-xs-10 col-xs-offset-1">
+      <div v-if="sendingMail" class="send-mail-text-to col-xs-1 small">To</div>
       <h5>{{ mail.mail.from.name }}</h5>
       <button v-if="!sendingMail" @click="respondToMail">Respond to E-Mail</button>
       <Btn 
@@ -18,8 +18,8 @@
     </div>
 
     <!-- Mail Body Heading -->
-    <div class="subject">
-      <div v-if="sendingMail" class="send-mail-text-subject">Subject</div>
+    <div class="subject col-xs-10 col-xs-offset-1 lead">
+      <div v-if="sendingMail" class="send-mail-text-subject col-xs-1 small">Subject</div>
       <p class="lead" v-if="!sendingMail">{{ mail.mail.subject }}</p>
       <p class="lead" v-if="sendingMail">Re: {{ mail.mail.subject }}</p>
     </div>
@@ -28,23 +28,25 @@
     <textarea
       :ref="`mailArea${mail.mail.id}`"
       v-if="sendingMail"
-      class="message-textarea">
+      class="message-textarea col-xs-10 col-xs-offset-1 p">
     </textarea>
 
     <!-- Reply message -->
-    <div v-if="mail.mailReplyList.length > 0" class="reply-list-container">
-      <div v-for="(reply, index) in mail.mailReplyList" class="message-reply">{{ reply.body }}</div>
+    <div v-if="mail.mailReplyList.length > 0" class="reply-list-container col-xs-10 col-xs-offset-1">
+      <div v-for="(reply, index) in mail.mailReplyList" class="message-reply p">{{ reply.body }}</div>
     </div>
 
     <!-- Original message -->
-    <div :class="mail.mailReplyList.length > 0 || sendingMail ? 'message-inactive' : 'message'">
+    <div
+      class="message col-xs-10 col-xs-offset-1 p"
+      :class="mail.mailReplyList.length > 0 || sendingMail ? 'message-inactive' : ''">
         <vue-markdown :source="mail.mail.body" />
     </div>
 
     <!-- Respond to mail -->
     <button 
       v-if="!sendingMail" 
-      class="respondMail"
+      class="respondMail col-xs-10 col-xs-offset-1"
       @click="respondToMail">
       Respond to E-Mail
     </button>

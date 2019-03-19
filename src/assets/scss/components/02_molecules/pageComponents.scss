@@ -4,7 +4,6 @@
     height: 100%;
 
     .storyline-container {
-        @extend .col-xs-12;
 
         .h1 {
             p {
@@ -13,12 +12,10 @@
         }
 
         .storyline-title {
-            @extend .col-xs-12;
             display: table;
             margin-bottom: 80px;
 
             .page-title-icon-container {
-                @extend .col-xs-2;
                 float: none;
                 display: table-cell;
                 vertical-align: middle;
@@ -41,8 +38,6 @@
         }
 
         .page-components-wrapper {
-            @extend .col-xs-10;
-            @extend .col-xs-offset-1;
 
             .text-component {
                 margin-bottom: 2.5rem;
@@ -306,7 +301,6 @@
                     }
 
                     #time-passed {
-                        @extend .small;
                         display: inline-block;
                         line-height: 40px;
                         position: absolute;
@@ -335,14 +329,6 @@
         }
     }
 }
-
-// Lead Text
-.lead-text {
-    @extend .lead;
-    margin-bottom: 100px;
-}
-
-
 
 .upload-files-container {
     width: 50%;

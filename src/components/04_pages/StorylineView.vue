@@ -3,9 +3,9 @@
     <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
     <!-- <GameSelection v-if="!get_topic.selected && gameState" @emitNewGame="goToTopic" /> -->
     <TopicComponent v-if="!get_topic.selected" :list="get_topic.list" @openTopic="chooseTopic"/>
-    <div class="storyline-container" v-if="get_topic.selected">
-      <div class="storyline-title">
-        <div class="page-title-icon-container">
+    <div class="storyline-container col-xs-12" v-if="get_topic.selected">
+      <div class="storyline-title col-xs-12">
+        <div class="page-title-icon-container col-xs-2">
           <img class="icon" :src="`${resourcesPath}${get_page.chapter.icon.path}`">
         </div>
         <vue-markdown class="page-title" :source="get_page.title" />

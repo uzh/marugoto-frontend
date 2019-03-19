@@ -8,8 +8,6 @@ $height: 50px;
     }
 
     .label-name {
-        @extend .label;
-        @extend .font;
         padding-left: 10px;
         color: $base-primary;
         position: absolute;
@@ -18,8 +16,6 @@ $height: 50px;
     }
 
     .select-field {
-        @extend .input-field;
-        @extend .font;
         background-color: $base-uicolor-4;
         padding-left: 10px;
         padding-top: 17px;
@@ -48,7 +44,6 @@ $height: 50px;
     }
 
     .select-list {
-        @extend .font;
         position: absolute;
         z-index: 1;
         top: 0px;

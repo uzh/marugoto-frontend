@@ -21,6 +21,7 @@ export default {
       personalNoteText: '',
       isAutosaved: false,
       noteChanged: false,
+      pageTransitionId: '',
     }
   },
   created() {
@@ -31,8 +32,11 @@ export default {
       }, 1000);
     }
   },
+  updated() {
+    this.pageTransitionId = this.get_transitions[0].pageTransition.id;
+  },
   computed: {
-    ...mapGetters([ 'get_personalNoteStatus' ]),
+    ...mapGetters([ 'get_personalNoteStatus', 'get_transitions' ]),
   },
   methods: {
     toggleScroll: function() {
@@ -41,6 +45,7 @@ export default {
     addPersonalNote: function(id){
       if(this.get_personalNoteStatus == false) {
         this.$store.dispatch('CHANGE_PERSONAL_NOTE_STATUS', true);
+        this.changePersonalNote(true);
         this.openedPersonalNote = true;
         this.personalNoteNotebookEntryId = id;
       }
@@ -81,9 +86,6 @@ export default {
   watch: {
     currentEntry: function(newVal, oldVal) {
       if( newVal != oldVal ){
-        if(this.personalNoteText != '') {
-          this.submitPersonalNote();
-        }
         this.$store.dispatch('CHANGE_PERSONAL_NOTE_STATUS', false);
         this.$store.dispatch('REQUEST_PERSONAL_NOTE', this.list[this.currentEntry].id);
         this.openedPersonalNote = false;
@@ -92,6 +94,13 @@ export default {
     personalNoteNotebookEntryId: function(newVal, oldVal) {
       if( newVal != oldVal ){
         this.personalNoteText = '';
+      }
+    },
+    pageTransitionId: function(newVal, oldVal) {
+      if( newVal != oldVal ){
+        if(this.personalNoteText != '') {
+          this.submitPersonalNote();
+        }
       }
     },
   },

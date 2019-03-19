@@ -1,5 +1,5 @@
 <div class="topic-container">
-  <div class="topic-header">
+  <div class="topic-header col-xs-7 col-xs-offset-2">
       <h1 class="topic-title">Topic Selection</h1>
       <p class="lead">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</p>
   </div>
@@ -8,6 +8,7 @@
     <div 
       v-for="(topic, index) in list"
       :key="index"
+      class="col-xs-3"
       :class="list.length > 4 ? 'topics-div-5-more' : 'topics-div-4-less'">
       <div class="topic-image">
         <img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image">

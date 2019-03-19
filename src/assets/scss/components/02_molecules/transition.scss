@@ -1,9 +1,4 @@
-.transition-wrapper{
-  @extend .col-xs-8;
-  @extend .col-xs-offset-2;
+.transition-wrapper {
   margin-top: 100px;
   margin-bottom: 100px;
-  button{
-    @extend .mb-30;
-  }
 }

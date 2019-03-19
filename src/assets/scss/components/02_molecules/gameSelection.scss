@@ -1,6 +1,4 @@
 .game-selection-container {
-    @extend .col-xs-8;
-    @extend .col-xs-offset-2;
     height: calc(100vh - 90px);
 
     .header {
@@ -21,7 +19,6 @@
     }
 
     .lead-text {
-        @extend .lead;
         width: 87.5%;
         margin-bottom: 40px;
     }

@@ -1,5 +1,4 @@
 .ordered-list {
-    @extend .p;
     position: relative;
     background-color: $base-uicolor-4;
     padding-left: 10px;
@@ -14,7 +13,6 @@
 }
 
 .unordered-list {
-    @extend .p;
     position: relative;
     background-color: $base-uicolor-4;
     padding-left: 10px;
@@ -38,14 +36,6 @@
         display: table-cell;
         width: 50%;
         vertical-align: middle;
-
-        .title {
-            @extend .h6;
-        }
-
-        .small {
-            @extend .small;
-        }
     }
 
     .right {
@@ -55,7 +45,6 @@
         height: 72px;
 
         .continue {
-            @extend .link;
             display: inline;
             color: $base-primary;
             cursor: pointer;
@@ -75,7 +64,6 @@
 }
 
 .link-list {
-    @extend .p;
     position: relative;
     background-color: $base-uicolor-4;
     margin-top: 20px;

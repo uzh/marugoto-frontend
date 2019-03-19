@@ -21,7 +21,6 @@ $chapterHeight: 80px;
     }
 
     .empty-notebook {
-        @extend .h2;
         vertical-align: middle;
         line-height: 100vh;
         overflow: hidden;
@@ -44,7 +43,6 @@ $chapterHeight: 80px;
     z-index: 1;
 
     .item {
-        @extend .h5;
         display: table;
         width: 100%;
         height: 72px;
@@ -172,8 +170,9 @@ $chapterHeight: 80px;
         }
 
         .notebook-page-text {
-            @extend .mb-40;
             color: #2F3133;
+            margin-bottom: 40px;
+            
             p {
                 font-size: 17px;
                 line-height: 26px;

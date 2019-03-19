@@ -4,7 +4,7 @@
   !entriesMenuOpened ? 'open-entries-menu' : '']"
   ref="notebookContainer">
   <!-- Empty Notebook -->
-  <div v-if="get_notebook.list.length == 0" class="empty-notebook">No notebook entries yet!</div>
+  <div v-if="get_notebook.list.length == 0" class="empty-notebook h2">No notebook entries yet!</div>
   <div v-if="get_notebook.list.length > 0">
     <!-- Notebook List -->
     <NotebookList
