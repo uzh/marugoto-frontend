@@ -6,7 +6,7 @@
     <div class="storyline-container" v-if="get_topic.selected">
       <div class="storyline-title">
         <div class="page-title-icon-container">
-          <img class="icon" :src="`${basePath}${get_page.chapter.icon.path}`">
+          <img class="icon" :src="`${resourcesPath}${get_page.chapter.icon.path}`">
         </div>
         <vue-markdown class="page-title" :source="get_page.title" />
       </div>
