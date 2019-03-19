@@ -11,189 +11,169 @@ $border: 1px solid $base-uicolor-4;
   overflow: scroll;
   padding-top: $elements-space;
   padding-right: $elements-space;
-  transition: all 0.3s;
-  
-  &.halved {
-    width: calc(50% - 45px);
-    padding-right: 0;
-    opacity: 1;
-    animation-name: fadeInOpacity;
-    animation-iteration-count: 1;
-    animation-timing-function: linear;
-    animation-duration: .3s;
-    
-    @keyframes fadeInOpacity {
-      0% {
-        opacity: 1;
+}
+
+.login-container {
+  width: 100%;
+  min-height: 760px;
+  margin-bottom: 5px;
+  display: table;
+
+  .left-container {
+    position: relative;
+    display: table-cell;
+    width: 58.33%;
+    padding: 90px 10px;
+    background-color: $base-uicolor-4;
+    vertical-align: top;
+
+    .left-container-menu {
+      position: absolute;
+      transform: rotate(90deg);
+      transform-origin: left;
+      margin-top: -15px;
+      margin-left: 6%;
+
+      & .item {
+        @extend .text-darker;
+        font-family: inherit;
+        font-size: 18px;
+        line-height: 30px;
+        display: inline;
+        margin-right: 20px;
+        opacity: 0.7;
+        cursor: pointer;
       }
-      10% {
-        opacity: 0.3;
-      }
-      30% {
-        opacity: 0.1;
-      }
-      60% {
-        opacity: 0;
-      }
-      70% {
-        opacity: 0.1;
-      }
-      90% {
-        opacity: 0.3;
-      }
-      100% {
+
+      .focused {
+        color: #2F3133;
         opacity: 1;
       }
     }
-  }
+  
+    .wrapper-container-left {
+      width: 100%;
+      padding-left: 14.28%;
+      padding-right: 14.28%;
 
-  .login-container {
-    width: 100%;
-    min-height: 760px;
-    margin-bottom: 5px;
-    display: table;
-
-    .left-container {
-      position: relative;
-      display: table-cell;
-      width: 58.33%;
-      padding: 90px 10px;
-      background-color: $base-uicolor-4;
-      vertical-align: top;
-
-      .left-container-menu {
-        position: absolute;
-        transform: rotate(90deg);
-        transform-origin: left;
-        margin-top: -15px;
-        margin-left: 6%;
-
-        & .item {
-          @extend .text-darker;
-          font-family: inherit;
-          font-size: 18px;
-          line-height: 30px;
-          display: inline;
-          margin-right: 20px;
-          opacity: 0.7;
-          cursor: pointer;
-        }
-
-        .focused {
-          color: #2F3133;
-          opacity: 1;
-        }
+      .page-title {
+        font-weight: inherit;
+        line-height: 40px;
+        font-size: 36px;
       }
     
-      .wrapper-container-left {
-        width: 100%;
-        padding-left: 14.28%;
-        padding-right: 14.28%;
-  
-        .page-title {
-          font-weight: inherit;
-          line-height: 40px;
-          font-size: 36px;
-        }
-      
-        p {
-          @extend .font;
+      p {
+        @extend .font;
+        font-size: 17px;
+        line-height: 25px;
+        letter-spacing: 0.2px;
+
+        span {
+          @extend .link;
           font-size: 17px;
           line-height: 25px;
           letter-spacing: 0.2px;
-
-          span {
-            @extend .link;
-            font-size: 17px;
-            line-height: 25px;
-            letter-spacing: 0.2px;
-          }
         }
       }
-      
     }
     
-    .right-container {
-      display: table-cell;
-      width: 41.66%;
-      padding: 90px 10px 50px 10px;
-      vertical-align: top;
+  }
+  
+  .right-container {
+    display: table-cell;
+    width: 41.66%;
+    padding: 90px 10px 50px 10px;
+    vertical-align: top;
 
-      // Main container - login/create account
-      .wrapper-container-right {
-        float: right;
-        width: 80%;
+    // Main container - login/create account
+    .wrapper-container-right {
+      float: right;
+      width: 80%;
 
-        .page-title {
-          font-weight: inherit;
-        }
+      .page-title {
+        font-weight: inherit;
+      }
 
-        .lead {
+      .lead {
+        @extend .lead;
+      }
+
+      p {
+        font-size: 17px;
+        line-height: 26px;
+        letter-spacing: 0.2px;
+      }
+
+      .choose-account {
+        display: table;
+
+        .account {
           @extend .lead;
+          @extend .font;
+          width: 45%;
+          display: table-cell;
+          cursor: pointer;
+          vertical-align: middle;
         }
-
-        p {
-          font-size: 17px;
-          line-height: 26px;
-          letter-spacing: 0.2px;
-        }
-
-        .choose-account {
-          display: table;
-
-          .account {
-            @extend .lead;
-            @extend .font;
-            width: 45%;
-            display: table-cell;
-            cursor: pointer;
-            vertical-align: middle;
-          }
-          
-          .middle-arrow {
-            display: table-cell;
-            width: 10%;
-            background: url('assets/images/choose-account-line.png') center no-repeat;
-          }
-        }
-
-        .login-error-message {
-          margin: 10px 0;
-          color: $base-accent;
-          font-size: 17px;
-          line-height: 26px;
-          letter-spacing: 0.2px;
-
-          p {
-            margin: 10px 0;
-          }
-        }
-
-        .login-success-message {
-          margin: 10px 0;
-          color: $base-secondary;
-          font-size: 17px;
-          line-height: 26px;
-          letter-spacing: 0.2px;
-          p {
-            margin: 10px 0;
-          }
+        
+        .middle-arrow {
+          display: table-cell;
+          width: 10%;
+          background: url('assets/images/choose-account-line.png') center no-repeat;
         }
       }
 
-      .login-arrow {
-        float: left;
-        width: 20%;
-        text-align: center;
+      .login-error-message {
+        margin: 10px 0;
+        color: $base-accent;
+        font-size: 17px;
+        line-height: 26px;
+        letter-spacing: 0.2px;
 
-        .back-to-login {
-          position: relative;
-          top: 10px;
-          cursor: pointer;
+        p {
+          margin: 10px 0;
         }
+      }
+
+      .login-success-message {
+        margin: 10px 0;
+        color: $base-secondary;
+        font-size: 17px;
+        line-height: 26px;
+        letter-spacing: 0.2px;
+        p {
+          margin: 10px 0;
+        }
+      }
+    }
+
+    .login-arrow {
+      float: left;
+      width: 20%;
+      text-align: center;
+
+      .back-to-login {
+        position: relative;
+        top: 10px;
+        cursor: pointer;
       }
     }
   }
+}
+
+// Animation classes
+.page-container-halved {
+  width: calc(50% - 45px);
+  padding-right: 0;
+}
+.page-container-transitionOn {
+  transition: all 0.1s;
+}
+.page-container-opacityOn {
+  opacity: 1;
+}
+.page-container-opacityOff {
+  opacity: 0;
 }
 
 .origin-background {

@@ -3,6 +3,7 @@
 <script>
 // eslint-disable-next-line
 import { _debounce } from 'lodash';
+import { mapGetters } from 'vuex';
 import svgIcon from '@/components/01_atoms/svgicon';
 import Btn from '@/components/01_atoms/buttons';
 import VueMarkdown from 'vue-markdown';
@@ -30,13 +31,19 @@ export default {
       }, 1000);
     }
   },
+  computed: {
+    ...mapGetters([ 'get_personalNoteStatus' ]),
+  },
   methods: {
     toggleScroll: function() {
       this.$emit('toggleScroll');
     },
     addPersonalNote: function(id){
-      this.openedPersonalNote = true;
-      this.personalNoteNotebookEntryId = id;
+      if(this.get_personalNoteStatus == false) {
+        this.$store.dispatch('CHANGE_PERSONAL_NOTE_STATUS', true);
+        this.openedPersonalNote = true;
+        this.personalNoteNotebookEntryId = id;
+      }
     },
     submitPersonalNote: function() {
       this.$store.dispatch('ADD_PERSONAL_NOTE', {
@@ -59,8 +66,12 @@ export default {
     typingFinished: _.debounce(function() {
       this.isAutosaved = true;
     }, 500),
-    changePersonalNote: function() {
-      this.noteChanged = !this.noteChanged;
+    changePersonalNote: function(val) {
+      if(val == false) {
+        this.noteChanged = true;
+      } else {
+        this.noteChanged = false;
+      }
     },
     autoGrow: function(element) {
       element.style.height = 'auto';
@@ -70,8 +81,12 @@ export default {
   watch: {
     currentEntry: function(newVal, oldVal) {
       if( newVal != oldVal ){
+        if(this.personalNoteText != '') {
+          this.submitPersonalNote();
+        }
+        this.$store.dispatch('CHANGE_PERSONAL_NOTE_STATUS', false);
         this.$store.dispatch('REQUEST_PERSONAL_NOTE', this.list[this.currentEntry].id);
-        this.openedPersonalNote= false;
+        this.openedPersonalNote = false;
       }
     },
     personalNoteNotebookEntryId: function(newVal, oldVal) {

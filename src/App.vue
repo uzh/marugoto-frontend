@@ -2,12 +2,12 @@
   <div id="app">
     <Errors v-if="get_errors.status" />
     <div v-if="!get_errors.status">
-      <div class="page-container" :class="get_layoutState.notebook.opened ? 'halved' : ''">
+      <div class="page-container" ref="pageContainer">
         <Topbar v-if="get_status.isLoged && get_topic.selected"/>
-        <router-view />
+        <router-view @emitNotebookOpen="animatePageContainer" />
       </div>
-      <RightSidebar v-if="get_status.isLoged && get_topic.selected" />
-      <NotebookContainer v-if="get_status.isLoged && get_topic.selected"/>
+      <RightSidebar v-if="get_status.isLoged && get_topic.selected" @emitNotebookOpen="animatePageContainer" />
+      <NotebookContainer v-if="get_status.isLoged && get_topic.selected" />
       <MailContainer v-if="get_status.isLoged && get_topic.selected" />
       <NotificationCmpt 
         v-if="get_mailNotificationState" 
@@ -45,6 +45,33 @@ export default{
   },
   methods: {
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),
+    animatePageContainer: function(val) {
+      let self = this;
+      if(val === 'open') {
+        self.$refs.pageContainer.classList.add('page-container-transitionOn');
+        setTimeout(function() {
+          self.$refs.pageContainer.classList.add('page-container-opacityOff');
+        }, 100);
+        setTimeout(function() {
+          self.$refs.pageContainer.classList.add('page-container-halved');
+        }, 150);
+        setTimeout(function() {
+          self.$refs.pageContainer.classList.remove('page-container-opacityOff');
+          self.$refs.pageContainer.classList.add('page-container-opacityOn');
+        }, 200);
+      } else if (val === 'close') {
+        setTimeout(function() {
+          self.$refs.pageContainer.classList.add('page-container-opacityOff');
+          self.$refs.pageContainer.classList.remove('page-container-opacityOn');
+        }, 100);
+        setTimeout(function() {
+          self.$refs.pageContainer.classList.remove('page-container-halved');
+        }, 150);
+        setTimeout(function() {
+          self.$refs.pageContainer.classList.remove('page-container-opacityOff');
+        }, 200);
+      }    
+    }
   },
 }
 </script>

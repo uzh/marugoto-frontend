@@ -21,10 +21,15 @@ export default {
     switchNotebookLayout: function(param) {
       if( param && !this.get_layoutState.notebook.disabled ){
         this.$store.dispatch('LAYOUT_OPEN','notebook');
+        this.emitChange('open');
       }else if( !param && !this.get_layoutState.notebook.disabled ){
         this.$store.dispatch('LAYOUT_CLOSE','notebook');
+        this.emitChange('close');
       }
     },
+    emitChange: function(val) {
+      this.$emit('emitNotebookOpen', val);
+    }
   },
 }
 </script>

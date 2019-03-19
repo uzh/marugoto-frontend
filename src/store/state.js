@@ -38,6 +38,9 @@ export default ({
   notebook: {
     list: [],
   },
+  newPersonalNote: {
+    status: false,
+  },
   topicState: {},
   dialogNotifications: [],
   pageTransitionStates: [],

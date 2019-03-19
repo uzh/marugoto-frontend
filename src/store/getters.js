@@ -40,6 +40,9 @@ export default{
   get_notebook: state => {
     return state.notebook;
   },
+  get_personalNoteStatus: state => {
+    return state.newPersonalNote.status;
+  },
   get_topic: state => {
     return state.topic;
   },

@@ -7,13 +7,12 @@
   z-index: 50;
   transform: translateX(-90px);
 
+  transition: all 0.3s;
+
   &.in{
     left: 0%;
     transform: translateX(0px);
-    z-index: 50;
   }
-
-  transition: all 0.3s;
 
   .mail-container-body{
     min-height: calc(100vh - 90px);

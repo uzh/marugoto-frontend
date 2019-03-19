@@ -18,7 +18,7 @@ $top: 90px;
   width: calc(100% - 90px);
   height: 100%;
   background-color: rgba(240, 243, 245, 0.9);
-  transition: opacity .3s ease;
+  transition: opacity 0.3s ease;
 }
   
 .dialog-container {
@@ -30,7 +30,7 @@ $top: 90px;
   overflow: scroll;
   background-color: $white;
   box-shadow: 0 15px 30px 0 #2F3133;
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 
   .dialog-left {
     width: calc((100% / 10) * 3);

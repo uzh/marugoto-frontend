@@ -193,6 +193,9 @@ export default({
       throw(err);
     });
   },
+  [types.CHANGE_PERSONAL_NOTE_STATUS]: (context, payload) => {
+    context.commit(types.CHANGE_PERSONAL_NOTE_STATUS, payload);
+  },
   // MAIL
   [types.UPDATE_SELECTED_MAIL]: (context, payload) => {
     context.commit(types.UPDATE_SELECTED_MAIL, payload);
