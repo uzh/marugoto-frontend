@@ -69,15 +69,7 @@
         PDF
       </a>
     </div>
-    <!-- Audio native controls -->
-    <!-- <div v-if="component.type == 'AudioComponent'">
-      <audio class="full-width mb-40" controls>
-        <source :src="`${resourcesPath}${component.component.audio.path}`" type="audio/ogg">
-        <source :src="`${resourcesPath}${component.component.audio.path}`" type="audio/mpeg">
-        Your browser does not support the audio tag.
-      </audio>
-    </div> -->
-    <!-- Audio custom controls -->
+    <!-- Audio component -->
     <div v-if="component.type == 'AudioComponent'">
       <div
         class="audio-container">
