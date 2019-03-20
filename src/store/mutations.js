@@ -86,6 +86,10 @@ export default({
         state.layout.dialog.opened = false;
     }
   },
+  // GAMES MUTATIONS
+  [types.UPDATE_GAMES] (state, payload) {
+    state.games = payload;
+  },
   // TOPIC MUTATIONS
   [types.UPDATE_TOPIC_LIST] (state, payload) {
     state.topic.list = payload;
@@ -101,8 +105,8 @@ export default({
   [types.TRANSITIONS_UPDATE] (state, payload) {
     state.pageTransitionStates = payload;
   },
-  [types.TOPIC_STATE_UPDATE] (state, payload) {
-    state.topicState = payload;
+  [types.GAME_STATE_UPDATE] (state, payload) {
+    state.gameState = payload;
   },
   [types.PAGE_COMPONENTS_UPDATE] (state, payload) {
     state.pageComponents = payload;

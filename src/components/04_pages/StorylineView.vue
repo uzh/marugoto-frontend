@@ -1,8 +1,5 @@
 <template>
   <div class="main-container">
-    <!-- <Btn @click.native="logout" text="Logout" primary="true" iconName="arrow-right"/> -->
-    <!-- <GameSelection v-if="!get_topic.selected && gameState" @emitNewGame="goToTopic" /> -->
-    <TopicComponent v-if="!get_topic.selected" :list="get_topic.list" @openTopic="chooseTopic"/>
     <div class="storyline-container col-xs-12" v-if="get_topic.selected">
       <div class="storyline-title col-xs-12">
         <div class="page-title-icon-container col-xs-2">
@@ -35,21 +32,17 @@ import Timer from '@/timer';
 import Btn from '@/components/01_atoms/buttons';
 import PageTransitions from '@/components/02_molecules/pageTransitions';
 import PageComponents from '@/components/02_molecules/pageComponents';
-import TopicComponent from '@/components/02_molecules/pageComponents/topic';
 import DialogComponent from '@/components/03_organisms/dialog';
 import VueMarkdown from 'vue-markdown';
 
-// import GameSelection from '@/components/02_molecules/pageComponents/gameSelection';
-
 export default {
   name: 'player',
-  components: { Btn, DialogComponent, PageTransitions, PageComponents, TopicComponent, VueMarkdown },
+  components: { Btn, DialogComponent, PageTransitions, PageComponents, VueMarkdown },
   data() {
     return {
       dialogVisible: false,
       basePath: process.env.VUE_APP_BASE_PATH,
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
-      // gameState: true,
     };
   },
   computed: {
@@ -63,29 +56,15 @@ export default {
       'get_textExerciseExists' ]),
   },
   created() {
-    if( !this.get_topic.selected ){
-      this.$store.dispatch('UPDATE_TOPIC_LIST');
-    }else{
-      this.$store.dispatch('REQUEST_PAGE_CURRENT')
-      .then(() => {
-        this.requester();
-        this.$store.dispatch('MAIL_LIST_UPDATE');
-      }); 
-    }
+    this.$store.dispatch('REQUEST_PAGE_CURRENT')
+    .then(() => {
+      this.requester();
+      this.$store.dispatch('MAIL_LIST_UPDATE');
+    }); 
   },
   methods: {
     requester: function() {
       this.$store.dispatch('UPDATE_NOTEBOOK');
-    },
-    chooseTopic: function(id){
-      this.$store.dispatch('CHOOSE_TOPIC', id)
-      .then(() => {
-        this.$store.dispatch('REQUEST_PAGE_CURRENT')
-      .then(() => {
-        this.requester();
-      });
-        
-      });
     },
     requestPageTransition(id){
       if( this.get_textExerciseExists.exist ){
@@ -119,10 +98,6 @@ export default {
     setDialogVisibility() {
       this.$store.dispatch('LAYOUT_OPEN', 'dialog');
     },
-    // goToTopic() {
-    //   alert('Go to topic page')
-    //   this.gameState = false;
-    // }
   },
   watch: {
     get_page: function(newVal, oldVal) {
