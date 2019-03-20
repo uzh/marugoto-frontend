@@ -30,44 +30,63 @@
   height: calc(100vh - 90px);
   overflow-y: scroll;
   padding-right: 0;
+
   &-li {
     cursor: pointer;
-    padding: 10px 0;
     box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
+    height: 120px;
+
     &:hover {
-      background-color: rgba(22, 54, 94, 0.06);
+      background-color: $base-uicolor-3;
+
       p{
         color: rgba(22, 54, 94, 0.4);
       }
     }
+
     &.selected {
-      background-color: rgba(22, 54, 94, 0.06);
+      background-color: $base-uicolor-3;
+      
       p{
         color: rgba(22, 54, 94, 0.4);
       }
     }
 
-    .mail-unread-dot {
+    .header {
+      display: table;
+      width: 100%;
 
-      .dot {
-        position: absolute;
-        top: 14px;
-        left: 14px;
-        width: 14px;
-        height: 14px;
-        background-color: $base-accent;
-        border-radius: 50%;
+      .mail-unread-dot {
+        display: table-cell;
+        padding-left: 10px;
+
+        .dot {
+          width: 14px;
+          height: 14px;
+          margin-right: -10px;
+          background-color: $base-accent;
+          border-radius: 50%;
+        }
       }
-    }
-
-    h6 {
-      padding-top: 10px;
+  
+      h6 {
+        display: table-cell;
+        padding-top: 30px;
+        padding-left: 10px;
+        font-weight: normal;
+      }
+  
+      .current-date-time {
+        display: table-cell;
+        padding-right: 20px;
+        vertical-align: bottom;
+        text-align: right;
+      }
     }
 
     .short-mail {
-      width: 70%;
       max-height: 50px;
-      padding: 10px;
+      padding: 5px 10px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
@@ -94,11 +113,12 @@
     display: table;
     width: calc((100% / 8) * 6);
     margin-left: 12.5%;
-    padding-top: 50px;
+    padding-top: 60px;
 
     h5 {
       display: table-cell;
       vertical-align: middle;
+      font-weight: normal;
     }
 
     button {
@@ -106,6 +126,9 @@
       vertical-align: middle;
       padding: 10px;
       border: $base-ghost-border;
+      &:hover {
+        background-color: $base-uicolor-3;
+      }
     }
 
     .send-mail-button {
@@ -119,6 +142,15 @@
     margin-left: 12.5%;
     padding-bottom: 25px;
     border-bottom: $border;
+
+    .title {
+      display: inline-block;
+    }
+
+    .current-date-time {
+      float: right;
+      line-height: 30px;
+    }
   }
 
   .reply-list-container {
@@ -169,6 +201,9 @@
     margin-top: 10px;
     margin-bottom: 100px;
     border: $base-ghost-border;
+    &:hover {
+      background-color: $base-uicolor-3;
+    }
   }
   
   .send-mail-text-to {

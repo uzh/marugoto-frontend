@@ -81,7 +81,7 @@ const router = new Router({
 // Global Guard
 router.beforeEach((to, from, next) => {
   if( !store.getters.get_status.isLoged ){
-    document.body.classList.add('login');
+    document.body.classList.add('sidebars-off');
     if( to.name == 'register' || to.name == 'login' || to.name == 'reset' ){
       next();
       return;
@@ -89,7 +89,7 @@ router.beforeEach((to, from, next) => {
       next('/login')
     }
   }else{
-    document.body.classList.remove('login');
+    document.body.classList.remove('sidebars-off');
     if( store.getters.get_status.role === 'player' ){
       if( to.name === 'home' ){
         next('/storyline');

@@ -2,16 +2,18 @@
   <!-- MAIL SIDEBAR -->
   <div class="mail-sidebar clear-float" :class="[get_layoutState.mail.opened ? 'in' : '', get_layoutState.notebook.opened ? 'notebook-in' : '']">
     <div
-      class="mail-sidebar-open go-left"
+      class="mail-sidebar-open go-left col-xs-1"
+      :class="get_layoutState.mail.opened ? '' : 'out'"
       @click="switchMailLayout(true)">
       <img src="@/assets/images/mail.svg" />
       <div 
         class="new-mail-notification"
+        :class="get_layoutState.mail.opened ? '' : 'out'"
         v-if="get_mailNotificationState > 0">
         {{ get_mailNotificationState }}
       </div>
     </div>
-    <h5 class="go-left">Mail-Inbox</h5>
+    <h5 class="go-left col-xs-3">Mail-Inbox</h5>
     <div
       class="mail-sidebar-close go-right"
       @click="switchMailLayout(false)">

@@ -6,13 +6,15 @@
       class="inbox-mail-list-container-li"
       :class="selectedIndex == index ? 'selected' : ''"
       @click="emitMailListClick(index, item.mail.id); selectMail(item.mail.id)">
-      <div 
-        v-if="!item.read" 
-        class="mail-unread-dot col-xs-1">
-        <div class="dot"></div>
+      <div class="header">
+        <div 
+          v-if="!item.read" 
+          class="mail-unread-dot">
+          <div class="dot"></div>
+        </div>
+        <h6>{{ item.mail.from.name }}</h6>
+        <p class="current-date-time small">Today, 14:28</p>
       </div>
-      <h6 class="col-xs-7 h6">{{ item.mail.from.name }}</h6>
-      <!-- <p class="current-date-time">Today, 14:28</p> -->
       <vue-markdown
         class="short-mail"
         :html="!falseHtml"
