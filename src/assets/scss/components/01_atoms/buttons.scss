@@ -1,16 +1,10 @@
-$width: 100%;
-$min-height: 3.125rem;
-
 .button {
     position: relative;
-    display: block;
-    width: $width;
-    min-height: $min-height;
+    width: 100%;
+    height: 50px;
     text-align: center;
-    overflow: auto;
-    padding: 0.9375rem 2.5rem;
-    overflow: hidden;
     cursor: pointer;
+
     &:disabled, &.disabled {
         opacity: 0.3;
     }

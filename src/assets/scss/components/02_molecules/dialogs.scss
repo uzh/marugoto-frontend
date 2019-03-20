@@ -1,15 +1,5 @@
 $top: 90px;
 
-#show-dialog, .dialog-close-button {
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: $black;
-  color: $white;
-  width: 100px;
-  height: 50px;
-}
-
 .dialog-mask {
   position: fixed;
   z-index: 100;
@@ -27,15 +17,16 @@ $top: 90px;
   height: calc(100% - 180px);
   overflow: scroll;
   background-color: $white;
-  box-shadow: 0 15px 30px 0 #2F3133;
+  box-shadow: 0 15px 30px 0 rgba(47, 49, 51, 0.2);
   transition: all 0.3s ease;
 
   .dialog-left {
     width: calc((100% / 10) * 3);
+    height: 100%;
     float: left;
     padding-top: $top;
     padding-right: 10px;
-    height: 100%;
+    background-color: $white;
 
     .dialog-image {
       width: 100%;
@@ -59,10 +50,10 @@ $top: 90px;
 
       .dialog-button {
         display: table-cell;
-        vertical-align: center;
+        vertical-align: middle;
         width: calc(50% - 20px);
         margin: 0 10px;
-        padding: 30px;
+        padding: 0 2rem;
       }
 
       .dialog-button-full {
