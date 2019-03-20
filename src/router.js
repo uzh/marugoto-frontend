@@ -5,10 +5,12 @@ import store from './store'
 // Import components
 import LoginView from '@/components/04_pages/LoginView.vue'
 import RegisterView from '@/components/04_pages/RegisterView.vue'
+import ResetView from '@/components/04_pages/ResetView.vue'
 import StorylineView from '@/components/04_pages/StorylineView.vue'
+import GamesView from '@/components/04_pages/GamesView.vue'
+import TopicsView from '@/components/04_pages/TopicsView.vue'
 import SupervisorView from '@/components/04_pages/SupervisorView.vue'
 import PageNotFound from '@/components/04_pages/PageNotFound.vue'
-import ResetView from '@/components/04_pages/ResetView.vue'
 
 
 Vue.use(Router);
@@ -48,6 +50,24 @@ const router = new Router({
     },
     // User pages
     {
+      path: '/games',
+      name: 'games',
+      component: GamesView,
+      meta: {
+        requireAuth: true,
+        role: 'player'
+      },
+    },
+    {
+      path: '/topics',
+      name: 'topics',
+      component: TopicsView,
+      meta: {
+        requireAuth: true,
+        role: 'player'
+      },
+    },
+    {
       path: '/storyline',
       name: 'storyline',
       component: StorylineView,
@@ -80,28 +100,49 @@ const router = new Router({
 
 // Global Guard
 router.beforeEach((to, from, next) => {
+  // console.log('=============== GUARD ON ===============')
   if( !store.getters.get_status.isLoged ){
     document.body.classList.add('sidebars-off');
     if( to.name == 'register' || to.name == 'login' || to.name == 'reset' ){
+      // console.log('Go to: ', to.name)
       next();
       return;
     }else{
+      // console.log('Go to: LOGIN')
       next('/login')
     }
   }else{
-    document.body.classList.remove('sidebars-off');
     if( store.getters.get_status.role === 'player' ){
-      if( to.name === 'home' ){
+      if( to.name === 'home' && store.getters.get_topic.id != undefined ){
+        document.body.classList.remove('sidebars-off');
+        // console.log('Go to: STORYLINE from home, coz we have alreaady selected topic active')
         next('/storyline');
-      }else if( to.name === 'storyline' ){
+      }else if( to.name === 'home' && store.getters.get_topic.id === undefined ){
+        // console.log('Go to: GAMES from home, coz there is no selected topic')
+        next('/games');
+      }else if( to.name === 'games' ){
+        // console.log('Go to: ', to.name)
         next();
+      }else if( to.name === 'topics' ){
+        // console.log('Go to: ', to.name)
+        next();
+      }else if( to.name === 'storyline' && store.getters.get_topic.id != undefined ){
+        document.body.classList.remove('sidebars-off');
+        // console.log('Go to: ', to.name)
+        next();
+      }else if( to.name === 'storyline' && store.getters.get_topic.id === undefined ){
+        // console.log('Go to: GAMES from stopryline, coz for storyline is not selected topic!')
+        next('/games');
+      }else{
+        // console.log('Go to: from, ', from.name)
+        next(from.path);
       }
-      next(from.path);
     }
     else if( store.getters.get_status.role === 'supervisor'  ){
       if( to.name === 'home' ){
         next('/overview');
-      }else if( to.name === 'overview' ){
+      }
+      else if( to.name === 'overview' ){
         next();
       }
       next(from.path);
