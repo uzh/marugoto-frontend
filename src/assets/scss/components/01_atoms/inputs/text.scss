@@ -14,16 +14,17 @@ $width: 100%;
    }
 
    label {
-       font-size: 1rem;
-       line-height: 1.1875rem;
-       position: absolute;
-       top: 17px;
-       left: 10px;
-       transition: all 0.3s;
-       overflow: hidden;
-       white-space: nowrap;
-       text-overflow: ellipsis;
-       width: 90%;
+        position: absolute;
+        top: 15px;
+        left: 10px;
+        width: 90%;
+        font-size: 1rem;
+        line-height: 1.1875rem;
+        font-family: 'Apercu';
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        transition: all 0.3s;
    }
 
    input {
@@ -33,9 +34,8 @@ $width: 100%;
         border: none;
         padding-left: 10px;
         padding-right: 40px;
-        padding-top: 6px;
         background-color: $base-uicolor-4;
-        font-family: sans-serif;
+        font-family: 'Apercu';
    }
 
    &.inputFocused {

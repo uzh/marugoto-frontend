@@ -3,23 +3,23 @@
   <div class="login-container">
     <!-- Left main container -->
     <div class="left-container">
-      <!-- Left menu -->
-      <div class="left-container-menu">
-        <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'">
-          Welcome
+      <div class="left-container-div">
+        <!-- Left menu -->
+        <div class="left-container-menu">
+          <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'" @focus="selectedTab = 'welcome'" tabindex="0">
+            Welcome
+          </div>
+          <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'" @focus="selectedTab = 'reviews'" tabindex="0">
+            Reviews
+          </div>
+          <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'" @focus="selectedTab = 'collaborations'" tabindex="0">
+            Collaborations
+          </div>
+          <div class="item" :class="selectedTab == 'quotes' ? 'focused' : ''" @click="selectedTab = 'quotes'" @focus="selectedTab = 'quotes'" tabindex="0">
+            Quotes LiT
+          </div>
         </div>
-        <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'">
-          Reviews
-        </div>
-        <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'">
-          Collaborations
-        </div>
-        <div class="item" :class="selectedTab == 'quotes' ? 'focused' : ''" @click="selectedTab = 'quotes'">
-          Quotes LiT
-        </div>
-      </div>
-      <!-- Left Text -->
-      <!-- Left Text -->
+        <!-- Left Text -->
         <div class="wrapper-container-left">
           <div v-show="selectedTab == 'welcome'">
             <h2 class="page-title mb-50">Welcome to Lives in Transit!</h2>
@@ -64,6 +64,7 @@
             <p>Should we update, amend or make any changes to this document, those changes will be prominently posted here.</p>
           </div>
         </div>
+      </div>
     </div>
     <!-- Right main container -->
     <div class="right-container">
@@ -116,13 +117,13 @@
     </div>
   </div>
   <!-- Background Image/Footer menu -->
-  <div class="origin-background full-width">
+  <div class="origin-background">
     <div class="col-xs-10 col-xs-offset-1 login-page-bottom-icons">
       <div class="footer-logo">
         <div class="logo"></div>
       </div>
       <div class="footer-menu-right">
-        <div class="item">Disclaimer</div>
+        <div class="item" :class="selectedTab == 'disclaimer' ? 'focused' : ''" @click="selectedTab = 'disclaimer'" @focus="selectedTab = 'disclaimer'" tabindex="0">Disclaimer</div>
       </div>
     </div>
   </div>
