@@ -150,6 +150,10 @@
 
   .notebook-sidebar-right {
       height: 100%;
+
+      &.unselectable {
+        pointer-events: none;
+      }
     
       .rotated-text {
         position: relative;

@@ -29,7 +29,7 @@
       class="close">
       <img src="@/assets/images/close.svg" alt="image" />
     </div>
-    <div class="notebook-sidebar-right" @click="switchNotebookLayout(true)">
+    <div class="notebook-sidebar-right" :class="get_layoutState.notebook.opened ? 'unselectable' : ''" @click="switchNotebookLayout(true)">
       <p class="rotated-text">Notebook</p>
     </div>
   </div>
