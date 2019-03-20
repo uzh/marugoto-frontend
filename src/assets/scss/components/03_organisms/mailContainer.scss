@@ -25,6 +25,14 @@
   }
 }
 
+// Animation classes
+.mail-container-opacityOn {
+  opacity: 1;
+}
+.mail-container-opacityOff {
+  opacity: 0;
+}
+
 // Mail list container (left)
 .inbox-mail-list-container{
   height: calc(100vh - 90px);

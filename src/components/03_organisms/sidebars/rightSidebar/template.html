@@ -16,6 +16,7 @@
     <h5 class="go-left col-xs-3">Mail-Inbox</h5>
     <div
       class="mail-sidebar-close go-right"
+      :class="get_layoutState.mail.opened ? 'in' : ''"
       @click="switchMailLayout(false)">
       <img src="@/assets/images/close.svg" />
     </div>

@@ -4,11 +4,11 @@
     <div v-if="!get_errors.status">
       <div class="page-container" ref="pageContainer">
         <Topbar v-if="get_status.isLoged && get_topic.selected"/>
-        <router-view @emitNotebookOpen="animatePageContainer" />
+        <router-view />
       </div>
-      <RightSidebar v-if="get_status.isLoged && get_topic.selected" @emitNotebookOpen="animatePageContainer" />
+      <RightSidebar v-if="get_status.isLoged && get_topic.selected" @emitContainerOpen="animateContainer" />
       <NotebookContainer v-if="get_status.isLoged && get_topic.selected" />
-      <MailContainer v-if="get_status.isLoged && get_topic.selected" />
+      <MailContainer v-if="get_status.isLoged && get_topic.selected" ref="mailContainer" />
       <NotificationCmpt 
         v-if="get_mailNotificationState" 
         :mailArrived="get_mailNotificationState" 
@@ -45,9 +45,9 @@ export default{
   },
   methods: {
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),
-    animatePageContainer: function(val) {
+    animateContainer: function(val) {
       let self = this;
-      if(val === 'open') {
+      if(val === 'openNotebook') {
         self.$refs.pageContainer.classList.add('page-container-transitionOn');
         setTimeout(function() {
           self.$refs.pageContainer.classList.add('page-container-opacityOff');
@@ -59,7 +59,7 @@ export default{
           self.$refs.pageContainer.classList.remove('page-container-opacityOff');
           self.$refs.pageContainer.classList.add('page-container-opacityOn');
         }, 200);
-      } else if (val === 'close') {
+      } else if (val === 'closeNotebook') {
         setTimeout(function() {
           self.$refs.pageContainer.classList.add('page-container-opacityOff');
           self.$refs.pageContainer.classList.remove('page-container-opacityOn');
@@ -70,7 +70,25 @@ export default{
         setTimeout(function() {
           self.$refs.pageContainer.classList.remove('page-container-opacityOff');
         }, 200);
-      }    
+      } else if (val === 'openMail') {
+        setTimeout(function() {
+          self.$refs.pageContainer.classList.add('page-container-opacityOff');
+          self.$refs.mailContainer.$el.classList.add('mail-container-opacityOff');
+        }, 100);
+        setTimeout(function() {
+          self.$refs.mailContainer.$el.classList.remove('mail-container-opacityOff');
+          self.$refs.mailContainer.$el.classList.add('mail-container-opacityOn');
+        }, 300);
+      } else if (val === 'closeMail') {
+        setTimeout(function() {
+          self.$refs.mailContainer.$el.classList.add('mail-container-opacityOn');
+          self.$refs.mailContainer.$el.classList.remove('mail-container-opacityOff');
+          self.$refs.pageContainer.classList.remove('page-container-opacityOff');
+        }, 100);
+        setTimeout(function() {
+          self.$refs.mailContainer.$el.classList.remove('mail-container-opacityOff');
+        }, 300);
+      }
     }
   },
 }

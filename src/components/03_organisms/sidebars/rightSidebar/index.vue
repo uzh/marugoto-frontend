@@ -14,21 +14,23 @@ export default {
     switchMailLayout: function(param) {
       if( param && !this.get_layoutState.mail.disabled ){
         this.$store.dispatch('LAYOUT_OPEN','mail');
+        this.emitChange('openMail');
       }else if( !param && !this.get_layoutState.mail.disabled ){
         this.$store.dispatch('LAYOUT_CLOSE','mail');
+        this.emitChange('closeMail');
       }
     },
     switchNotebookLayout: function(param) {
       if( param && !this.get_layoutState.notebook.disabled ){
         this.$store.dispatch('LAYOUT_OPEN','notebook');
-        this.emitChange('open');
+        this.emitChange('openNotebook');
       }else if( !param && !this.get_layoutState.notebook.disabled ){
         this.$store.dispatch('LAYOUT_CLOSE','notebook');
-        this.emitChange('close');
+        this.emitChange('closeNotebook');
       }
     },
     emitChange: function(val) {
-      this.$emit('emitNotebookOpen', val);
+      this.$emit('emitContainerOpen', val);
     }
   },
 }

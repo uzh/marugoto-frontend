@@ -11,8 +11,6 @@
   background: white;
   overflow: hidden;
 
-  transition: width 0.3s, border-bottom 0s, border-left 0s;
-
   &.notebook-in {
     border-bottom: none;
     border-left: none;
@@ -88,6 +86,13 @@
     text-align: center;
     position: relative;
     cursor: pointer;
+    opacity: 0;
+
+    transition: all 0.3s;
+
+    &.in {
+      opacity: 1;
+    }
   }
 
   .new-mail-notification{
