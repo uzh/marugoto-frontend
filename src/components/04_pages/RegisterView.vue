@@ -185,7 +185,7 @@ export default {
           password: this.password,
           salutation: this.gender
         }).then(registerData => {
-          this.$store.dispatch('LOGIN', registerData).then(() => this.$router.push('/'));
+          this.$store.dispatch('LOGIN', registerData).then(() => this.$router.push('/games'));
         })
         .catch(error => {
           this.errorText.text = error.response.data.message;

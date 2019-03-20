@@ -13,6 +13,9 @@ export default{
   get_page: state => {
     return state.page;
   },
+  get_games: state => {
+    return state.games;
+  },
   get_topicState: state => {
     return state.topicState;
   },

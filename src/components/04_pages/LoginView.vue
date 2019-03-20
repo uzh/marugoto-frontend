@@ -175,7 +175,7 @@ export default {
           password: this.password,
         })
         .then(() => {
-          this.$router.push('/')
+          this.$router.push('/games')
         })
         .catch(() => {
           this.errorText = "Your E-Mail or Password are incorrect.";

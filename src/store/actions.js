@@ -85,6 +85,26 @@ export default({
       throw(err);
     });
   },
+  // GAMES
+  [types.UPDATE_GAMES]: ({commit}) => {
+    return apiService.get('/game/list')
+    .then(resp => {
+      commit('UPDATE_GAMES', resp.data);
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.CONTINUE_GAME]: ({dispatch}, payload) => {
+    return apiService.put(`/game/continue/${payload}`)
+    .then(resp => {
+      router.push('/storyline');
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
   // TOPIC
   [types.UPDATE_TOPIC_LIST]: ({commit}) => {
     return apiService.get('/topics/list')
@@ -110,7 +130,7 @@ export default({
   // UPDATE
   [types.UPDATE_PAGE_STATE]: ({commit}, payload) => {
     commit('TRANSITIONS_UPDATE', payload.pageTransitionStates);
-    commit('TOPIC_STATE_UPDATE', payload.topicState);
+    commit('GAME_STATE_UPDATE', payload.gameState);
     commit('PAGE_COMPONENTS_UPDATE', payload.pageComponents);
     commit('PAGE_UPDATE', payload.page);
     commit('DIALOG_UPDATE', payload.dialogNotifications);

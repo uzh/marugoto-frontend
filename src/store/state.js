@@ -5,9 +5,6 @@ export default ({
     status: false,
     message: '',
   },
-  global: {
-  
-  },
   status: {
     isLoged: false,
     role: '',
@@ -27,6 +24,7 @@ export default ({
       opened: false,
     }
   },
+  games: {},
   topic: {
     selected: false,
     id: undefined,
@@ -38,7 +36,7 @@ export default ({
   notebook: {
     list: [],
   },
-  topicState: {},
+  gameState: {},
   dialogNotifications: [],
   pageTransitionStates: [],
   pageComponents: [],
