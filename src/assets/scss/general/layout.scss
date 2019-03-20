@@ -16,6 +16,7 @@ $border: 1px solid $base-uicolor-4;
 .login-container {
   width: 100%;
   min-height: 760px;
+  height: 70vh;
   margin-bottom: 5px;
   display: table;
 
@@ -180,6 +181,7 @@ $border: 1px solid $base-uicolor-4;
   float: left;
   width: 100vw;
   min-height: 330px;
+  height: 30vh;
   background: url('assets/images/login-map.png') bottom no-repeat;
   position: relative;
   background-size: cover;
