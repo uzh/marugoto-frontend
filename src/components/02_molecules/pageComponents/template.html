@@ -69,25 +69,52 @@
         PDF
       </a>
     </div>
-    <!-- Audio -->
-    <div v-if="component.type == 'AudioComponent'">
+    <!-- Audio native controls -->
+    <!-- <div v-if="component.type == 'AudioComponent'">
       <audio class="full-width mb-40" controls>
         <source :src="`${resourcesPath}${component.component.audio.path}`" type="audio/ogg">
         <source :src="`${resourcesPath}${component.component.audio.path}`" type="audio/mpeg">
         Your browser does not support the audio tag.
       </audio>
-    </div>
-    <!-- Video native controls-->
-    <!-- <div v-if="component.type == 'VideoComponent'">
-      <video class="full-width" controls>
-        <source :src="`${resourcesPath}${component.component.video.path}`" type="video/mp4">
-        <source :src="`${resourcesPath}${component.component.video.path}`" type="video/webm" />
-        <source :src="`${resourcesPath}${component.component.video.path}`" type="video/ogg" />
-        <p>Your browser does not support the video tag.</p>
-      </video>
-      <vue-markdown class="video-caption mb-40" :source="component.component.caption" />
     </div> -->
-    <!-- Video custom controls -->
+    <!-- Audio custom controls -->
+    <div v-if="component.type == 'AudioComponent'">
+      <div
+        class="audio-container">
+        <audio
+          id="audio"
+          @timeupdate="updateAudioTimeRange">
+          <source :src="`${resourcesPath}${component.component.audio.path}`" type="audio/ogg">
+          <source :src="`${resourcesPath}${component.component.audio.path}`" type="audio/mpeg">
+          Your browser does not support the audio tag.
+        </audio>
+        <!-- Bottom video controls -->
+        <div
+          id="audio-controls">
+          <div class="audio-name small">
+            Name
+          </div>
+          <input
+            type="range"
+            id="audio-seek-bar"
+            value="0"
+            step="0.1"
+            @mousedown="moveRangeAudioThumb"
+            @mouseup="rangeAudioThumbMoved"
+            @change="changeAudioTimeRange">
+          <div
+            id="audio-play-small"
+            @click="togglePlay">
+            <SvgIcon name="play-small" sizeH="16px" />
+          </div>
+          <div id="audio-time-passed" class="small">
+            {{ audioCurrentTime }} / {{ audioDuration }}
+          </div>
+        </div>
+      </div>
+      <vue-markdown class="audio-caption mb-40" :source="component.component.caption" />
+    </div>
+    <!-- Video component -->
     <div v-if="component.type == 'VideoComponent'">
       <div
         class="video-container"
@@ -95,7 +122,7 @@
         @mouseleave="videoHovered = false">
         <video
           id="video"
-          @timeupdate="updateTimeRange">
+          @timeupdate="updateVideoTimeRange">
           <source :src="`${resourcesPath}${component.component.video.path}`" type="video/mp4">
           <source :src="`${resourcesPath}${component.component.video.path}`" type="video/webm" />
           <source :src="`${resourcesPath}${component.component.video.path}`" type="video/ogg" />
@@ -114,18 +141,18 @@
           id="video-controls">
           <input
             type="range"
-            id="seek-bar"
+            id="video-seek-bar"
             value="0"
             step="0.1"
-            @mousedown="moveRangeThumb"
-            @mouseup="rangeThumbMoved"
-            @change="changeTimeRange">
+            @mousedown="moveRangeVideoThumb"
+            @mouseup="rangeVideoThumbMoved"
+            @change="changeVideoTimeRange">
           <div
-            id="play-small"
+            id="video-play-small"
             @click="togglePlay">
             <SvgIcon name="play-small" sizeH="16px" />
           </div>
-          <div id="time-passed" class="small">
+          <div id="video-time-passed" class="small">
             {{ videoCurrentTime }} / {{ videoDuration }}
           </div>
           <div id="full-screen" @click="toggleFullScreen">

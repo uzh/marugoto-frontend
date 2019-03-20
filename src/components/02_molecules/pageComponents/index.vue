@@ -33,9 +33,13 @@ export default {
       dateFormated: '',
       videoHovered: false,
       videoID: '',
-      seekBar: '',
+      videoSeekBar: '',
       videoCurrentTime: '0:00',
       videoDuration: '',
+      audioID: '',
+      audioSeekBar: '',
+      audioCurrentTime: '0:00',
+      audioDuration: '',
     };
   },
   mounted() {
@@ -51,7 +55,21 @@ export default {
         }
       };
       this.videoID = document.getElementById("video");
-      this.seekBar = document.getElementById("seek-bar");
+      this.videoSeekBar = document.getElementById("video-seek-bar");
+    }
+    if(document.getElementById("audio")) {
+      let self = this;
+      document.getElementById("audio").onloadedmetadata = function() {
+        let minutes = Math.floor(document.getElementById("audio").duration / 60);
+        let seconds = Math.floor(document.getElementById("audio").duration) - minutes * 60;
+        if (seconds % 60 < 10) {
+          self.audioDuration = `${minutes}:0${seconds}`;
+        } else {
+          self.audioDuration = `${minutes}:${seconds}`;
+        }
+      };
+      this.audioID = document.getElementById("audio");
+      this.audioSeekBar = document.getElementById("audio-seek-bar");
     }
   },
   updated() {
@@ -67,7 +85,21 @@ export default {
         }
       };
       this.videoID = document.getElementById("video");
-      this.seekBar = document.getElementById("seek-bar");
+      this.videoSeekBar = document.getElementById("video-seek-bar");
+    }
+    if(document.getElementById("audio")) {
+      let self = this;
+      document.getElementById("audio").onloadedmetadata = function() {
+        let minutes = Math.floor(document.getElementById("audio").duration / 60);
+        let seconds = Math.floor(document.getElementById("audio").duration) - minutes * 60;
+        if (seconds % 60 < 10) {
+          self.audioDuration = `${minutes}:0${seconds}`;
+        } else {
+          self.audioDuration = `${minutes}:${seconds}`;
+        }
+      };
+      this.audioID = document.getElementById("audio");
+      this.audioSeekBar = document.getElementById("audio-seek-bar");
     }
   },
   computed: {
@@ -110,8 +142,12 @@ export default {
     togglePlay: function() {
       if (this.videoID.paused == true) {
         this.videoID.play();
-      } else {
+      } else if (this.videoID.paused == false) {
         this.videoID.pause();
+      } else if (this.audioID.paused == true) {
+        this.audioID.play();
+      } else if (this.audioID.paused == false) {
+        this.audioID.pause();
       }
     },
     toggleFullScreen: function() {
@@ -123,25 +159,46 @@ export default {
         this.videoID.webkitRequestFullscreen();
       }
     },
-    moveRangeThumb: function() {
+    moveRangeVideoThumb: function() {
       this.videoID.pause();
     },
-    rangeThumbMoved: function() {
+    rangeVideoThumbMoved: function() {
       this.videoID.play();
     },
-    changeTimeRange: function() {
-      let time = this.videoID.duration * (this.seekBar.value / 100);
+    changeVideoTimeRange: function() {
+      let time = this.videoID.duration * (this.videoSeekBar.value / 100);
       this.videoID.currentTime = time;
     },
-    updateTimeRange: function() {
+    updateVideoTimeRange: function() {
       let value = (100 / this.videoID.duration) * this.videoID.currentTime;
-      this.seekBar.value = value;
+      this.videoSeekBar.value = value;
       let minutes = Math.floor(this.videoID.currentTime / 60);
       let seconds = Math.floor(this.videoID.currentTime) - minutes * 60;
       if (seconds % 60 < 10) {
         this.videoCurrentTime = `${minutes}:0${seconds}`;
       } else {
         this.videoCurrentTime = `${minutes}:${seconds}`;
+      }
+    },
+    moveRangeAudioThumb: function() {
+      this.audioID.pause();
+    },
+    rangeAudioThumbMoved: function() {
+      this.audioID.play();
+    },
+    changeAudioTimeRange: function() {
+      let time = this.audioID.duration * (this.audioSeekBar.value / 100);
+      this.audioID.currentTime = time;
+    },
+    updateAudioTimeRange: function() {
+      let value = (100 / this.audioID.duration) * this.audioID.currentTime;
+      this.audioSeekBar.value = value;
+      let minutes = Math.floor(this.audioID.currentTime / 60);
+      let seconds = Math.floor(this.audioID.currentTime) - minutes * 60;
+      if (seconds % 60 < 10) {
+        this.audioCurrentTime = `${minutes}:0${seconds}`;
+      } else {
+        this.audioCurrentTime = `${minutes}:${seconds}`;
       }
     }
   },
