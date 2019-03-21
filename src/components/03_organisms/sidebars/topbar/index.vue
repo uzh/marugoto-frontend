@@ -13,7 +13,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters([ 'get_layoutState', 'get_page', 'get_topicState' ]),
+    ...mapGetters([ 'get_layoutState', 'get_page', 'get_gameState' ]),
   },
 }
 </script>

@@ -16,6 +16,9 @@ export default{
   get_games: state => {
     return state.games;
   },
+  get_gameState: state => {
+    return state.gameState;
+  },
   get_topicState: state => {
     return state.topicState;
   },
