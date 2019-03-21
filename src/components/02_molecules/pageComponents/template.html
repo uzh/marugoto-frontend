@@ -1,8 +1,8 @@
-<div class="page-components-wrapper col-xs-10 col-xs-offset-1">
+<div class="page-components-wrapper col-xs-12">
   <div 
     v-for="(component, index) in get_PageComponents" 
     :key="index"
-    :class="[`col-xs-${component.component.numberOfColumns}`, `col-xs-offset-${component.component.offsetColumns}`]" >
+    :class="[`col-xs-${component.component.numberOfColumns - 2}`, `col-xs-offset-${component.component.offsetColumns || 1}`]" >
     <!-- Text -->
     <vue-markdown class="mb-40"
       v-if="component.type == 'TextComponent'" 

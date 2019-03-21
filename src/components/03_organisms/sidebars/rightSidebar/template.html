@@ -6,7 +6,6 @@
     </div>
     <div 
       class="new-mail-notification"
-      :class="get_layoutState.mail.opened ? '' : 'out'"
       v-if="get_mailNotificationState > 0">
       {{ get_mailNotificationState }}
     </div>
@@ -21,7 +20,7 @@
       <img src="@/assets/images/mail.svg" />
       <div 
         class="new-mail-notification"
-        :class="get_layoutState.mail.opened ? '' : 'out'"
+        :class="get_layoutState.mail.opened ? 'in' : ''"
         v-if="get_mailNotificationState > 0">
         {{ get_mailNotificationState }}
       </div>

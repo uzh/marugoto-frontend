@@ -8,7 +8,7 @@
   transform: translateX(-90px);
   opacity: 0;
 
-  transition: all 0.3s;
+  transition: all 0.5s;
 
   &.in{
     left: 0%;
@@ -108,7 +108,7 @@
   .no-mails {
     line-height: 100vh;
     text-align: center;
-    background-color: $base-uicolor-4;
+    background-color: $white;
   }
 
   .sender {

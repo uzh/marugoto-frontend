@@ -103,7 +103,7 @@
   &.in{
     left: 0;
     width: calc(100% - 90px);
-    z-index: 20;
+    z-index: 10;
     opacity: 1;
   }
 
@@ -125,7 +125,7 @@
 
 .new-mail-notification{
   position: absolute;
-  right: 33px;
+  right: 23px;
   top: 25px;
   width: 20px;
   height: 20px;
@@ -137,9 +137,8 @@
   background: $base-accent;
   border-radius: 50%;
 
-  &.out {
-    right: 23px;
-    top: 25px;
+  &.in {
+    right: 33px;
   }
 }
 
