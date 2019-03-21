@@ -14,10 +14,8 @@ export default {
     switchMailLayout: function(param) {
       if( param && !this.get_layoutState.mail.disabled ){
         this.$store.dispatch('LAYOUT_OPEN','mail');
-        this.emitChange('openMail');
       }else if( !param && !this.get_layoutState.mail.disabled ){
         this.$store.dispatch('LAYOUT_CLOSE','mail');
-        this.emitChange('closeMail');
       }
     },
     switchNotebookLayout: function(param) {

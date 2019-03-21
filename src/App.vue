@@ -8,7 +8,7 @@
       </div>
       <RightSidebar v-if="get_status.isLoged && get_topic.selected" @emitContainerOpen="animateContainer" />
       <NotebookContainer v-if="get_status.isLoged && get_topic.selected" />
-      <MailContainer v-if="get_status.isLoged && get_topic.selected" ref="mailContainer" />
+      <MailContainer v-if="get_status.isLoged && get_topic.selected" />
       <NotificationCmpt 
         v-if="get_mailNotificationState" 
         :mailArrived="get_mailNotificationState" 
@@ -70,24 +70,6 @@ export default{
         setTimeout(function() {
           self.$refs.pageContainer.classList.remove('page-container-opacityOff');
         }, 200);
-      } else if (val === 'openMail') {
-        setTimeout(function() {
-          self.$refs.pageContainer.classList.add('page-container-opacityOff');
-          self.$refs.mailContainer.$el.classList.add('mail-container-opacityOff');
-        }, 100);
-        setTimeout(function() {
-          self.$refs.mailContainer.$el.classList.remove('mail-container-opacityOff');
-          self.$refs.mailContainer.$el.classList.add('mail-container-opacityOn');
-        }, 300);
-      } else if (val === 'closeMail') {
-        setTimeout(function() {
-          self.$refs.mailContainer.$el.classList.add('mail-container-opacityOn');
-          self.$refs.mailContainer.$el.classList.remove('mail-container-opacityOff');
-          self.$refs.pageContainer.classList.remove('page-container-opacityOff');
-        }, 100);
-        setTimeout(function() {
-          self.$refs.mailContainer.$el.classList.remove('mail-container-opacityOff');
-        }, 300);
       }
     }
   },
