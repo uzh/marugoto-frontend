@@ -27,7 +27,7 @@ export default {
     // eslint-disable-next-line
     typingFinished: _.debounce(function() {
       this.isAutosaved = true;
-      // this.submitAnswer();
+      this.submitAnswer();
     }, 500),
     autoGrow: function(element) {
       element.style.height = 'auto';
