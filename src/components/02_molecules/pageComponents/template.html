@@ -57,11 +57,11 @@
       :placeholder="component.placeholderText" /> -->
     <!-- Exercise Text Area -->
     <ExerciseTextArea
-      class="mb-40"
-      @emitInputAreaAnswer="submitAnswer"
       v-if="component.type == 'TextExercise'"
+      class="mb-40"
       :exerciseId="component.state.id"
-      :placeholder="component.component.placeholderText" />
+      :placeholder="component.component.placeholderText"
+      @emitInputAreaAnswer="submitAnswer" />
     <!-- PDF -->
     <div v-if="component.type == 'PdfComponent'" >
       <a
