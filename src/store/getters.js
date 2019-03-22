@@ -16,8 +16,8 @@ export default{
   get_games: state => {
     return state.games;
   },
-  get_topicState: state => {
-    return state.topicState;
+  get_gameState: state => {
+    return state.gameState;
   },
   get_transitions: state => {
     return state.pageTransitionStates;

@@ -91,6 +91,18 @@ export default{
       }
     }
   },
+  watch: {
+    get_layoutState: function(newVal, oldVal) {
+      console.log(newVal, oldVal)
+     if (newVal != oldVal) {
+       if( this.get_layoutState.notebook.opened ){
+         this.animateContainer('halved');
+       } else {
+         this.animateContainer('full');
+       }
+     }
+   },
+  },
 }
 </script>
 

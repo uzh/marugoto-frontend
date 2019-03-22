@@ -6,18 +6,18 @@
     get_layoutState.notebook.opened ? 'halfed' : ''
   ]">
   <svgIcon
-    v-if="get_topicState.timeBalance"
+    v-if="get_gameState.timeBalance"
     name="clock"
     sizeH="20px"
     class="status-bar-icon" />
   <div
-    v-if="get_topicState.moneyBalance"
+    v-if="get_gameState.moneyBalance"
     class="money">
-      {{ get_topicState.moneyBalance }} &pound;
+      {{ get_gameState.moneyBalance }} &pound;
   </div>
   <div
-    v-if="get_topicState.timeBalance"
+    v-if="get_gameState.timeBalance"
     class="time">
-      {{ get_topicState.timeBalance }}
+      {{ get_gameState.timeBalance }}
   </div>
 </div>
