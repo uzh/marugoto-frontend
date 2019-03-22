@@ -99,7 +99,7 @@
           <div
             id="audio-play-small"
             @click="togglePlay">
-            <SvgIcon name="play-small" sizeH="16px" />
+            <SvgIcon :name="audioPaused ? 'play-small' : 'pause-small'" sizeH="16px" />
           </div>
           <div id="audio-time-passed" class="small">
             {{ audioCurrentTime }} / {{ audioDuration }}
@@ -127,14 +127,14 @@
         </video>
         <!-- Play button center -->
         <div
-          v-show="videoHovered"
+          
           id="play-big"
           @click="togglePlay">
-          <SvgIcon name="play-big" sizeH="60px" />
+          <SvgIcon :name="videoPaused ? 'play-big' : 'pause-big'" sizeH="60px" />
         </div>
         <!-- Bottom video controls -->
         <div
-          v-show="videoHovered"
+          
           id="video-controls">
           <input
             type="range"
@@ -147,7 +147,7 @@
           <div
             id="video-play-small"
             @click="togglePlay">
-            <SvgIcon name="play-small" sizeH="16px" />
+            <SvgIcon :name="videoID.paused ? 'play-small' : 'pause-small'" sizeH="16px" />
           </div>
           <div id="video-time-passed" class="small">
             {{ videoCurrentTime }} / {{ videoDuration }}

@@ -32,10 +32,12 @@ export default {
       },
       dateFormated: '',
       videoHovered: false,
+      videoPaused: true,
       videoID: '',
       videoSeekBar: '',
       videoCurrentTime: '0:00',
       videoDuration: '',
+      audioPaused: true,
       audioID: '',
       audioSeekBar: '',
       audioCurrentTime: '0:00',
@@ -140,14 +142,18 @@ export default {
       });
     },
     togglePlay: function() {
-      if (this.videoID.paused == true) {
+      if (this.videoID.paused) {
         this.videoID.play();
-      } else if (this.videoID.paused == false) {
+        this.videoPaused = false;
+      } else if (!this.videoID.paused) {
         this.videoID.pause();
-      } else if (this.audioID.paused == true) {
+        this.videoPaused = true;
+      } else if (this.audioID.paused) {
         this.audioID.play();
-      } else if (this.audioID.paused == false) {
+        this.audioPaused = false;
+      } else if (!this.audioID.paused) {
         this.audioID.pause();
+        this.audioPaused = true;
       }
     },
     toggleFullScreen: function() {
