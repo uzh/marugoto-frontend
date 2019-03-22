@@ -8,7 +8,7 @@ import SvgIcon from '@/components/01_atoms/svgicon';
 export default {
   name: 'ImageComponent',
   components: { VueMarkdown, SvgIcon },
-  props: [ 'source', 'text', 'zoomable' ],
+  props: [ 'source', 'text', 'zoomable', 'captionOffset' ],
   data() {
     return {
       imageZoomed: false,

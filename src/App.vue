@@ -6,7 +6,7 @@
         <Topbar v-if="get_status.isLoged && get_topic.selected"/>
         <router-view />
       </div>
-      <RightSidebar v-if="get_status.isLoged && get_topic.selected" @emitContainerOpen="animateContainer" />
+      <RightSidebar v-if="get_status.isLoged && get_topic.selected" />
       <NotebookContainer v-if="get_status.isLoged && get_topic.selected" />
       <MailContainer v-if="get_status.isLoged && get_topic.selected" />
       <NotificationCmpt 
@@ -47,7 +47,7 @@ export default{
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),
     animateContainer: function(val) {
       let self = this;
-      if(val === 'openNotebook') {
+      if(val == 'halved') {
         self.$refs.pageContainer.classList.add('page-container-transitionOn');
         setTimeout(function() {
           self.$refs.pageContainer.classList.add('page-container-opacityOff');
@@ -59,7 +59,7 @@ export default{
           self.$refs.pageContainer.classList.remove('page-container-opacityOff');
           self.$refs.pageContainer.classList.add('page-container-opacityOn');
         }, 200);
-      } else if (val === 'closeNotebook') {
+      } else if (val == 'full') {
         setTimeout(function() {
           self.$refs.pageContainer.classList.add('page-container-opacityOff');
           self.$refs.pageContainer.classList.remove('page-container-opacityOn');
@@ -70,6 +70,17 @@ export default{
         setTimeout(function() {
           self.$refs.pageContainer.classList.remove('page-container-opacityOff');
         }, 200);
+      }
+    }
+  },
+  watch: {
+    "get_layoutState.notebook.opened": function(newVal, oldVal) {
+      if( newVal != oldVal ) {
+        if(this.get_layoutState.notebook.opened == true) {
+          this.animateContainer('halved');
+        } else {
+          this.animateContainer('full');
+        }
       }
     }
   },

@@ -215,7 +215,7 @@
             .image-caption {
                 p {
                     @extend .small;
-                    text-align: center;
+                    text-align: left;
                     margin-top: 20px;
                     overflow: hidden;
                 }
@@ -319,7 +319,7 @@
             .video-caption {
                 p {
                     @extend .small;
-                    text-align: center;
+                    text-align: left;
                     margin-top: 20px;
                     overflow: hidden;
                 }
@@ -415,7 +415,7 @@
             .audio-caption {
                 p {
                     @extend .small;
-                    text-align: center;
+                    text-align: left;
                     margin-top: 20px;
                     overflow: hidden;
                 }

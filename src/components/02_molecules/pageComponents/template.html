@@ -5,6 +5,7 @@
     :class="[`col-xs-${component.component.numberOfColumns - 2}`, `col-xs-offset-${component.component.offsetColumns || 1}`]" >
     <!-- Text -->
     <vue-markdown class="mb-40"
+      :style="{'margin-left': component.component.numberOfColumns == 12 ? '10%' : ''}"
       v-if="component.type == 'TextComponent'" 
       :source="component.component.markdownContent" />
     <!-- Link -->
@@ -21,6 +22,7 @@
       v-if="component.type == 'ImageComponent'"
       :source="`${resourcesPath}${component.component.images[0].path}`"
       :text="component.component.caption"
+      :captionOffset="component.component.numberOfColumns == 12 ? '10%' : '25%'"
       :zoomable="component.component.zoomable" />
     <!-- Date Component -->
     <div v-if="component.type == 'DateExercise'" class="mb-40">
@@ -104,7 +106,10 @@
           </div>
         </div>
       </div>
-      <vue-markdown class="audio-caption mb-40" :source="component.component.caption" />
+      <vue-markdown
+        class="audio-caption mb-40"
+        :style="{'margin-left': component.component.numberOfColumns == 12 ? '10%' : ''}"
+        :source="component.component.caption" />
     </div>
     <!-- Video component -->
     <div v-if="component.type == 'VideoComponent'">
@@ -152,7 +157,10 @@
           </div>
         </div>
       </div>
-      <vue-markdown class="video-caption mb-40" :source="component.component.caption" />
+      <vue-markdown
+        class="video-caption mb-40"
+        :style="{'margin-left': component.component.numberOfColumns == 12 ? '10%' : ''}"
+        :source="component.component.caption" />
     </div>
   </div>
 

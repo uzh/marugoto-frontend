@@ -5,6 +5,7 @@
       :src="source">
     <vue-markdown
       class="image-caption"
+      :style="{ 'margin-left': captionOffset }"
       :source="text"/>
     <div
       v-if="zoomable"
