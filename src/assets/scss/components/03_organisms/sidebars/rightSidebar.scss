@@ -1,5 +1,5 @@
 // MAIL SIDEBAR
-.mail-sidebar{
+.mail-sidebar-open {
   position: fixed;
   top: 0;
   right: 0;
@@ -8,57 +8,106 @@
   height: $elements-space;
   border-left: $border;
   border-bottom: $border;
-  background: white;
-  overflow: hidden;
+  background-color: white;
+  box-shadow: none;
+  background-image: none;
+  cursor: pointer;
+
+  transition: border-left 0s border-bottom 0s;
 
   &.notebook-in {
     border-bottom: none;
     border-left: none;
-    background-color: $white;
     box-shadow: inset 1px 0px 0 0 $base-uicolor-4;
     background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
   }
 
-  &.in{
-    width: 100%;
-    z-index: 20;
-
-    h5{
-      opacity: 1;
-    }
-
-    .mailIconActive {
-      position: absolute;
-      top: 25px;
-      left: 88px;
-      height: 20px;
-      width: 20px;
-      color: $white;
-      background-color: $base-accent;
-      border-radius: 50%;
-      font-size: 16px;
-      text-align: center;
-      line-height: 20px;
-      vertical-align: middle;
-    }
-  }
-
-  .mailIconActive {
+  .open {
     position: absolute;
     top: 25px;
-    left: 47px;
-    height: 20px;
-    width: 20px;
-    color: $white;
-    background-color: $base-accent;
-    border-radius: 50%;
-    font-size: 16px;
-    text-align: center;
-    line-height: 20px;
-    vertical-align: middle;
+    left: 25px;
+    width: 40px;
+    height: 40px;
+
+    img {
+      position: absolute;
+      top: 10px;
+      left: 5px;
+    }
+  }
+}
+
+.mail-sidebar-close {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  width: $elements-space;
+  height: $elements-space;
+  border-bottom: $border;
+  background-color: white;
+  cursor: pointer;
+  transition: all 0.5s;
+  animation: removeClose 0.5s;
+
+  &.in {
+    z-index: 12;
+    animation: addClose .5s;
   }
 
-  .mail-sidebar-open{
+  .close {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: 40px;
+    height: 40px;
+
+    img {
+      position: absolute;
+      top: 13px;
+      left: 13px;
+    }
+  }
+
+  @keyframes addClose {
+    from {
+      transform: scale(0);
+    }
+    to {
+      transform: scale(1);
+    }
+  }
+
+  @keyframes removeClose {
+    from {
+      transform: scale(1);
+    }
+    to {
+      transform: scale(0);
+    }
+  }
+}
+
+.mail-sidebar {
+  position: fixed;
+  top: 0;
+  left: 100%;
+  z-index: 10;
+  width: 90px;
+  height: 90px;
+  border-bottom: $border;
+  background: white;
+  opacity: 0;
+  transition: all 0.5s;
+
+  &.in{
+    left: 0;
+    width: calc(100% - 90px);
+    z-index: 10;
+    opacity: 1;
+  }
+
+  .mail-sidebar-opened {
     position: relative;
     width: $elements-space;
     height: $elements-space;
@@ -66,53 +115,30 @@
     padding-left: 20px;
     text-align: left;
     cursor: pointer;
-
-    &.out {
-      text-align: center;
-      padding-left: 10px;
-    }
   }
 
   h5 {
-    opacity: 0;
     padding-top: 30px;
     font-weight: 200;
   }
+}
 
-  .mail-sidebar-close{
-    width: $elements-space;
-    height: $elements-space;
-    padding-top: 35px;
-    text-align: center;
-    position: relative;
-    cursor: pointer;
-    opacity: 0;
+.new-mail-notification{
+  position: absolute;
+  right: 23px;
+  top: 25px;
+  width: 20px;
+  height: 20px;
+  font-family: 'Apercu-Bold';
+  font-size: 12px;
+  color: $white;
+  padding-top: 4px;
+  text-align: center;
+  background: $base-accent;
+  border-radius: 50%;
 
-    transition: all 0.3s;
-
-    &.in {
-      opacity: 1;
-    }
-  }
-
-  .new-mail-notification{
-    position: absolute;
+  &.in {
     right: 33px;
-    top: 25px;
-    width: 20px;
-    height: 20px;
-    font-family: 'Apercu-Bold';
-    font-size: 12px;
-    color: $white;
-    padding-top: 4px;
-    text-align: center;
-    background: $base-accent;
-    border-radius: 50%;
-
-    &.out {
-      right: 23px;
-      top: 25px;
-    }
   }
 }
 
@@ -150,6 +176,10 @@
 
   .notebook-sidebar-right {
       height: 100%;
+
+      &.unselectable {
+        pointer-events: none;
+      }
     
       .rotated-text {
         position: relative;

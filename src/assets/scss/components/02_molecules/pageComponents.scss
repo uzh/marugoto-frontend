@@ -102,7 +102,7 @@
                 height: auto;
                 width: 100%;
                 z-index: 10;
-                transition: all 0.5s;
+                transition: all 0.3s;
 
                 &.active {
                     z-index: 20;
@@ -110,14 +110,15 @@
 
                 img {
                     width: 100%;
+                    box-shadow: inset 1px 1px 5px 0 rgba(#000000, 0.2);
                 }
 
                 .zoom-in {
                     position: absolute;
                     top: 10px;
                     right: 10px;
-                    width: 2.5rem;
-                    height: 2.5rem;
+                    width: 40px;
+                    height: 40px;
                     background-color: rgba(#000000, 0.4);
 
                     .icon {
@@ -148,24 +149,18 @@
                         margin-bottom: 80px;
                         max-width: calc(100% - 80px);
                         transition: all .5s ease;
-                        box-shadow: inset 1px 1px 5px 0 rgba(#000000, 0.2);
-                        &:hover {
-                            .zoom-out, .zoom-plus, .zoom-minus {
-                                display: block;
-                            }
-                        }
+                        box-shadow: 0 15px 30px 0 rgba(#000000, 0.5);
 
                         img {
                             width: 100%;
                         }
     
                         .zoom-out {
-                            display: none;
                             position: absolute;
                             top: 10px;
                             right: 10px;
-                            width: 2.5rem;
-                            height: 2.5rem;
+                            width: 40px;
+                            height: 40px;
                             background-color: rgba(#000000, 0.4);
         
                             .icon {
@@ -179,39 +174,37 @@
                         }
     
                         .zoom-plus {
-                            display: none;
                             position: absolute;
                             bottom: 51px;
                             right: 10px;
-                            width: 2.5rem;
-                            height: 2.5rem;
+                            width: 40px;
+                            height: 40px;
                             background-color: rgba(#000000, 0.4);
         
                             .icon {
                                 position: relative;
-                                top: 5px;
-                                left: 5px;
-                                height: 30px;
-                                width: 30px;
+                                top: 10px;
+                                left: 10px;
+                                height: 20px;
+                                width: 20px;
                                 cursor: pointer;
                             }
                         }
         
                         .zoom-minus {
-                            display: none;
                             position: absolute;
                             bottom: 10px;
                             right: 10px;
-                            width: 2.5rem;
-                            height: 2.5rem;
+                            width: 40px;
+                            height: 40px;
                             background-color: rgba(#000000, 0.4);
         
                             .icon {
                                 position: relative;
-                                top: 5px;
-                                left: 5px;
-                                height: 30px;
-                                width: 30px;
+                                top: 10px;
+                                left: 10px;
+                                height: 20px;
+                                width: 20px;
                                 cursor: pointer;
                             }
                         }

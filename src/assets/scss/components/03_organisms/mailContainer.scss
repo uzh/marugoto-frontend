@@ -4,14 +4,16 @@
   left: 110%;
   width: calc(100% - 90px);
   background: white;
-  z-index: 50;
+  z-index: 10;
   transform: translateX(-90px);
+  opacity: 0;
 
-  transition: all 0.3s;
+  transition: all 0.5s;
 
   &.in{
     left: 0%;
     transform: translateX(0px);
+    opacity: 1;
   }
 
   .mail-container-body{
@@ -20,17 +22,9 @@
     .empty-mailbox {
       line-height: calc(100vh - 90px);
       text-align: center;
-      background-color: $base-uicolor-4;
+      background-color: $white;
     }
   }
-}
-
-// Animation classes
-.mail-container-opacityOn {
-  opacity: 1;
-}
-.mail-container-opacityOff {
-  opacity: 0;
 }
 
 // Mail list container (left)
@@ -114,7 +108,7 @@
   .no-mails {
     line-height: 100vh;
     text-align: center;
-    background-color: $base-uicolor-4;
+    background-color: $white;
   }
 
   .sender {

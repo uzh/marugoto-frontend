@@ -97,9 +97,9 @@ export default({
     });
   },
   [types.CONTINUE_GAME]: ({dispatch}, payload) => {
-    return apiService.put(`/game/continue/${payload}`)
-    .then(resp => {
-      router.push('/storyline');
+    return apiService.put(`/game/continue/gameState/${payload}`)
+    .then(() => {
+      router.push('/');
     })
     .catch(err => {
       throw(err);
