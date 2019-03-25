@@ -141,14 +141,17 @@ export default {
         
       });
     },
-    togglePlay: function() {
+    togglePlayVideo: function() {
       if (this.videoID.paused) {
         this.videoID.play();
         this.videoPaused = false;
       } else if (!this.videoID.paused) {
         this.videoID.pause();
         this.videoPaused = true;
-      } else if (this.audioID.paused) {
+      }
+    },
+    togglePlayAudio: function() {
+      if (this.audioID.paused) {
         this.audioID.play();
         this.audioPaused = false;
       } else if (!this.audioID.paused) {
@@ -167,9 +170,11 @@ export default {
     },
     moveRangeVideoThumb: function() {
       this.videoID.pause();
+      this.videoPaused = true;
     },
     rangeVideoThumbMoved: function() {
       this.videoID.play();
+      this.videoPaused = false;
     },
     changeVideoTimeRange: function() {
       let time = this.videoID.duration * (this.videoSeekBar.value / 100);
@@ -188,9 +193,11 @@ export default {
     },
     moveRangeAudioThumb: function() {
       this.audioID.pause();
+      this.audioPaused = true;
     },
     rangeAudioThumbMoved: function() {
       this.audioID.play();
+      this.audioPaused = false;
     },
     changeAudioTimeRange: function() {
       let time = this.audioID.duration * (this.audioSeekBar.value / 100);

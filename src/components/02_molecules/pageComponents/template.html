@@ -73,8 +73,7 @@
     </div>
     <!-- Audio component -->
     <div v-if="component.type == 'AudioComponent'">
-      <div
-        class="audio-container">
+      <div class="audio-container">
         <audio
           id="audio"
           @timeupdate="updateAudioTimeRange">
@@ -83,8 +82,7 @@
           Your browser does not support the audio tag.
         </audio>
         <!-- Bottom video controls -->
-        <div
-          id="audio-controls">
+        <div id="audio-controls">
           <div class="audio-name small">
             Name
           </div>
@@ -98,7 +96,7 @@
             @change="changeAudioTimeRange">
           <div
             id="audio-play-small"
-            @click="togglePlay">
+            @click="togglePlayAudio">
             <SvgIcon :name="audioPaused ? 'play-small' : 'pause-small'" sizeH="16px" />
           </div>
           <div id="audio-time-passed" class="small">
@@ -127,14 +125,14 @@
         </video>
         <!-- Play button center -->
         <div
-          
+          v-show="videoHovered"
           id="play-big"
-          @click="togglePlay">
+          @click="togglePlayVideo">
           <SvgIcon :name="videoPaused ? 'play-big' : 'pause-big'" sizeH="60px" />
         </div>
         <!-- Bottom video controls -->
         <div
-          
+          v-show="videoHovered"
           id="video-controls">
           <input
             type="range"
@@ -146,7 +144,7 @@
             @change="changeVideoTimeRange">
           <div
             id="video-play-small"
-            @click="togglePlay">
+            @click="togglePlayVideo">
             <SvgIcon :name="videoID.paused ? 'play-small' : 'pause-small'" sizeH="16px" />
           </div>
           <div id="video-time-passed" class="small">
