@@ -27,7 +27,7 @@
 
 .download-list-item {
     display: table;
-    height: 72px;
+    height: 6rem;
     width: 100%;
     background-color: $white;
     box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
@@ -41,8 +41,8 @@
     .right {
         display: table-cell;
         vertical-align: middle;
-        float: right;
-        height: 72px;
+        line-height: 6rem;
+        text-align: right;
 
         .continue {
             display: inline;
@@ -53,14 +53,11 @@
         .download {
             display: inline;
             position: relative;
-            top: 16px;
+            top: 0.5rem;
             cursor: pointer;
         }
     }
-    
-    &:hover {
-        background-color: $base-uicolor-4;
-    }
+
 }
 
 .link-list {
