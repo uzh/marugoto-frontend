@@ -26,6 +26,7 @@
             &:hover {
                 .topic-image {
                     transform: translateY(-90%);
+                    box-shadow: 0 7px 16px 0px rgba(0,0,0, 0.5);
         
                     .image {
                         transform: rotate(2deg);
@@ -47,6 +48,7 @@
     
                 .image {
                     width: 100%;
+                    outline: 5px solid white;
                     transform: rotate(-2deg);
                     transition: all 0.3s;
                 }
