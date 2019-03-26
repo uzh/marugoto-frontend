@@ -162,7 +162,7 @@ $chapterHeight: 80px;
                 p {
                     @extend .small;
                     font-family: inherit;
-                    text-align: center;
+                    text-align: left;
                     margin-top: 10px;
                     overflow: hidden;
                 }
@@ -312,23 +312,19 @@ $chapterHeight: 80px;
     }
 
     .typing {
-        font-family: 'Apercu';
         line-height: 35px;
         height: 35px;
     }
 
     .autosaved {
         float: right;
-        font-family: 'Apercu';
         line-height: 35px;
         height: 35px;
-        width: 20%;
         text-align: right;
     }
 
     .icon {
         float: right;
-        font-family: 'Apercu';
         line-height: 35px;
         height: 35px;
         width: 20%;

@@ -21,7 +21,7 @@ $top: 90px;
   transition: all 0.3s ease;
 
   .dialog-left {
-    width: calc((100% / 10) * 3);
+    width: 30%;
     height: 100%;
     float: left;
     padding-top: $top;
@@ -34,10 +34,14 @@ $top: 90px;
   }
 
   .dialog-right {
-    width: calc((100% / 10) * 6);
+    width: 60%;
     float: left;
     height: 100%;
     padding: $top 10px 0 10px;
+
+    .title {
+      @extend .h5;
+    }
 
     p {
       font-family: inherit;

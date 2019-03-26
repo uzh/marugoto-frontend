@@ -32,10 +32,12 @@ export default {
       },
       dateFormated: '',
       videoHovered: false,
+      videoPaused: true,
       videoID: '',
       videoSeekBar: '',
       videoCurrentTime: '0:00',
       videoDuration: '',
+      audioPaused: true,
       audioID: '',
       audioSeekBar: '',
       audioCurrentTime: '0:00',
@@ -139,15 +141,22 @@ export default {
         
       });
     },
-    togglePlay: function() {
-      if (this.videoID.paused == true) {
+    togglePlayVideo: function() {
+      if (this.videoID.paused) {
         this.videoID.play();
-      } else if (this.videoID.paused == false) {
+        this.videoPaused = false;
+      } else if (!this.videoID.paused) {
         this.videoID.pause();
-      } else if (this.audioID.paused == true) {
+        this.videoPaused = true;
+      }
+    },
+    togglePlayAudio: function() {
+      if (this.audioID.paused) {
         this.audioID.play();
-      } else if (this.audioID.paused == false) {
+        this.audioPaused = false;
+      } else if (!this.audioID.paused) {
         this.audioID.pause();
+        this.audioPaused = true;
       }
     },
     toggleFullScreen: function() {
@@ -161,9 +170,11 @@ export default {
     },
     moveRangeVideoThumb: function() {
       this.videoID.pause();
+      this.videoPaused = true;
     },
     rangeVideoThumbMoved: function() {
       this.videoID.play();
+      this.videoPaused = false;
     },
     changeVideoTimeRange: function() {
       let time = this.videoID.duration * (this.videoSeekBar.value / 100);
@@ -182,9 +193,11 @@ export default {
     },
     moveRangeAudioThumb: function() {
       this.audioID.pause();
+      this.audioPaused = true;
     },
     rangeAudioThumbMoved: function() {
       this.audioID.play();
+      this.audioPaused = false;
     },
     changeAudioTimeRange: function() {
       let time = this.audioID.duration * (this.audioSeekBar.value / 100);

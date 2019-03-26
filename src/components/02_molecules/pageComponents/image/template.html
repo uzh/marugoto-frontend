@@ -5,6 +5,7 @@
       :src="source">
     <vue-markdown
       class="image-caption"
+      :style="{ 'margin-left': captionOffset }"
       :source="text"/>
     <div
       v-if="zoomable"
@@ -14,7 +15,7 @@
     </div>
   </div>
   <!-- Zoom on -->
-  <div v-if="imageZoomed && !get_layoutState.dialog.opened" class="image-mask">
+  <div v-if="imageZoomed && !get_layoutState.dialog.opened" ref="imageMask" class="image-mask" @click="imageBlurred">
     <div
       class="image-container"
       :style="{width: zoomLevel == 0 ? '50%' : zoomLevel == 1 ? '60%' : zoomLevel == 2 ? '70%' : zoomLevel == 3 ? '80%' : zoomLevel == 4 ? '90%' : '100%'}">

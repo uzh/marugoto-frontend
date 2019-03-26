@@ -61,7 +61,6 @@
                     overflow: hidden;
                     overflow-y: scroll;
                     color: #2F3133;
-                    font-family: 'Apercu';
                     font-size: 17px;
                     line-height: 32px;
                     letter-spacing: 0.2px;
@@ -72,23 +71,19 @@
                 }
 
                 .typing {
-                    font-family: 'Apercu';
                     line-height: 35px;
                     height: 35px;
                 }
             
                 .autosaved {
                     float: right;
-                    font-family: 'Apercu';
                     line-height: 35px;
                     height: 35px;
-                    width: 20%;
                     text-align: right;
                 }
             
                 .icon {
                     float: right;
-                    font-family: 'Apercu';
                     line-height: 35px;
                     height: 35px;
                     width: 20%;
@@ -103,6 +98,12 @@
                 width: 100%;
                 z-index: 10;
                 transition: all 0.3s;
+
+                &:hover {
+                    .zoom-in {
+                        display: block;
+                    }
+                }
 
                 &.active {
                     z-index: 20;
@@ -120,6 +121,7 @@
                     width: 40px;
                     height: 40px;
                     background-color: rgba(#000000, 0.4);
+                    display: none;
 
                     .icon {
                         position: relative;
@@ -215,7 +217,7 @@
             .image-caption {
                 p {
                     @extend .small;
-                    text-align: center;
+                    text-align: left;
                     margin-top: 20px;
                     overflow: hidden;
                 }
@@ -224,6 +226,7 @@
             .video-container {
                 position: relative;
                 width: 100%;
+                background-color: $black;
 
                 #video {
                     width: 100%;
@@ -319,7 +322,7 @@
             .video-caption {
                 p {
                     @extend .small;
-                    text-align: center;
+                    text-align: left;
                     margin-top: 20px;
                     overflow: hidden;
                 }
@@ -415,7 +418,7 @@
             .audio-caption {
                 p {
                     @extend .small;
-                    text-align: center;
+                    text-align: left;
                     margin-top: 20px;
                     overflow: hidden;
                 }

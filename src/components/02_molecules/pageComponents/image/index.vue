@@ -8,7 +8,7 @@ import SvgIcon from '@/components/01_atoms/svgicon';
 export default {
   name: 'ImageComponent',
   components: { VueMarkdown, SvgIcon },
-  props: [ 'source', 'text', 'zoomable' ],
+  props: [ 'source', 'text', 'zoomable', 'captionOffset' ],
   data() {
     return {
       imageZoomed: false,
@@ -27,16 +27,21 @@ export default {
         this.zoomLevel = 5;
       }
     },
-    incZoom() {
+    incZoom: function() {
       if(this.imageZoomed && this.zoomLevel < 5) {
         this.zoomLevel++;
       }
     },
-    decZoom() {
+    decZoom: function() {
       if(this.imageZoomed && this.zoomLevel > 0) {
         this.zoomLevel--;
       }
     },
+    imageBlurred: function(e) {
+      if(e.target == this.$refs.imageMask) {
+        this.imageZoomed = false;
+      }
+    }
   }
 }
 </script>

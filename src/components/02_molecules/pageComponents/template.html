@@ -5,6 +5,7 @@
     :class="[`col-xs-${component.component.numberOfColumns - 2}`, `col-xs-offset-${component.component.offsetColumns || 1}`]" >
     <!-- Text -->
     <vue-markdown class="mb-40"
+      :style="{'margin-left': component.component.numberOfColumns == 12 ? '10%' : '', 'margin-right': component.component.numberOfColumns == 12 ? '10%' : ''}"
       v-if="component.type == 'TextComponent'" 
       :source="component.component.markdownContent" />
     <!-- Link -->
@@ -21,6 +22,7 @@
       v-if="component.type == 'ImageComponent'"
       :source="`${resourcesPath}${component.component.images[0].path}`"
       :text="component.component.caption"
+      :captionOffset="component.component.numberOfColumns == 12 ? '10%' : '25%'"
       :zoomable="component.component.zoomable" />
     <!-- Date Component -->
     <div v-if="component.type == 'DateExercise'" class="mb-40">
@@ -55,11 +57,11 @@
       :placeholder="component.placeholderText" /> -->
     <!-- Exercise Text Area -->
     <ExerciseTextArea
-      class="mb-40"
-      @emitInputAreaAnswer="submitAnswer"
       v-if="component.type == 'TextExercise'"
+      class="mb-40"
       :exerciseId="component.state.id"
-      :placeholder="component.component.placeholderText" />
+      :placeholder="component.component.placeholderText"
+      @emitInputAreaAnswer="submitAnswer" />
     <!-- PDF -->
     <div v-if="component.type == 'PdfComponent'" >
       <a
@@ -71,8 +73,7 @@
     </div>
     <!-- Audio component -->
     <div v-if="component.type == 'AudioComponent'">
-      <div
-        class="audio-container">
+      <div class="audio-container">
         <audio
           id="audio"
           @timeupdate="updateAudioTimeRange">
@@ -81,8 +82,7 @@
           Your browser does not support the audio tag.
         </audio>
         <!-- Bottom video controls -->
-        <div
-          id="audio-controls">
+        <div id="audio-controls">
           <div class="audio-name small">
             Name
           </div>
@@ -96,15 +96,18 @@
             @change="changeAudioTimeRange">
           <div
             id="audio-play-small"
-            @click="togglePlay">
-            <SvgIcon name="play-small" sizeH="16px" />
+            @click="togglePlayAudio">
+            <SvgIcon :name="audioPaused ? 'play-small' : 'pause-small'" sizeH="16px" />
           </div>
           <div id="audio-time-passed" class="small">
             {{ audioCurrentTime }} / {{ audioDuration }}
           </div>
         </div>
       </div>
-      <vue-markdown class="audio-caption mb-40" :source="component.component.caption" />
+      <vue-markdown
+        class="audio-caption mb-40"
+        :style="{'margin-left': component.component.numberOfColumns == 12 ? '10%' : ''}"
+        :source="component.component.caption" />
     </div>
     <!-- Video component -->
     <div v-if="component.type == 'VideoComponent'">
@@ -124,8 +127,8 @@
         <div
           v-show="videoHovered"
           id="play-big"
-          @click="togglePlay">
-          <SvgIcon name="play-big" sizeH="60px" />
+          @click="togglePlayVideo">
+          <SvgIcon :name="videoPaused ? 'play-big' : 'pause-big'" sizeH="60px" />
         </div>
         <!-- Bottom video controls -->
         <div
@@ -141,8 +144,8 @@
             @change="changeVideoTimeRange">
           <div
             id="video-play-small"
-            @click="togglePlay">
-            <SvgIcon name="play-small" sizeH="16px" />
+            @click="togglePlayVideo">
+            <SvgIcon :name="videoID.paused ? 'play-small' : 'pause-small'" sizeH="16px" />
           </div>
           <div id="video-time-passed" class="small">
             {{ videoCurrentTime }} / {{ videoDuration }}
@@ -152,7 +155,10 @@
           </div>
         </div>
       </div>
-      <vue-markdown class="video-caption mb-40" :source="component.component.caption" />
+      <vue-markdown
+        class="video-caption mb-40"
+        :style="{'margin-left': component.component.numberOfColumns == 12 ? '10%' : ''}"
+        :source="component.component.caption" />
     </div>
   </div>
 

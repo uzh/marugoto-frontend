@@ -118,7 +118,7 @@
       <div class="footer-logo">
         <div class="logo"></div>
       </div>
-      <div class="footer-menu-right">
+      <div class="footer-menu-right font">
         <div class="item" :class="selectedTab == 'disclaimer' ? 'focused' : ''" @click="selectedTab = 'disclaimer'" @focus="selectedTab = 'disclaimer'" tabindex="0">Disclaimer</div>
       </div>
     </div>
