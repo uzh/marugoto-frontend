@@ -1,6 +1,6 @@
 <template>
   <div class="main-container">
-    <div class="storyline-container col-xs-12" v-if="get_topic.selected">
+    <div class="storyline-container" v-if="get_topic.selected">
       <div class="storyline-title col-xs-12">
         <div class="page-title-icon-container col-xs-2"> 
           <img v-if="get_page.chapter.icon && get_page.chapter.icon.path" class="icon" :src="`${resourcesPath}${get_page.chapter.icon.path}`">
