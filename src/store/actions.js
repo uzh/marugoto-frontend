@@ -63,11 +63,15 @@ export default({
   [types.UPDATE_TOKEN]: (context, payload) => {
     context.commit(types.UPDATE_TOKEN, payload);
   },
+  // LAYOUT
   [types.LAYOUT_OPEN]: (context, payload) => {
     context.commit(types.LAYOUT_OPEN, payload);
   },
   [types.LAYOUT_CLOSE]: (context, payload) => {
     context.commit(types.LAYOUT_CLOSE, payload);
+  },
+  [types.TOGGLE_SIDEBAR]: (context, payload) => {
+    context.commit(types.TOGGLE_SIDEBAR, payload);
   },
   // ERRORS
   [types.ERROR_NETWORK_CONNECTION]: (context, payload) => {
@@ -97,9 +101,10 @@ export default({
     });
   },
   [types.CONTINUE_GAME]: ({dispatch}, payload) => {
-    return apiService.put(`/game/continue/gameState/${payload}`)
-    .then(() => {
-      router.push('/');
+    return apiService.put(`/game/continue/${payload}`)
+    .then(resp => {
+      dispatch('UPDATE_PAGE_STATE', resp.data);
+      return resp;
     })
     .catch(err => {
       throw(err);
@@ -117,15 +122,19 @@ export default({
     });
   },
   [types.CHOOSE_TOPIC]: ({commit}, payload) => {
-    let id = payload.replace('topic/', '')
-    return apiService.get(`/topics/select/${id}`)
-    .then(() => {
+    // If going to storyline from games just update vuex -> else condition
+    let id = payload.id.replace('topic/', '');
+    if( payload.contactServer ){
+      return apiService.get(`/topics/select/${id}`)
+      .then(() => {
+        commit('CHOOSE_TOPIC', id);
+      })
+      .catch(err => {
+        throw(err);
+      });
+    }else{
       commit('CHOOSE_TOPIC', id);
-    })
-    .catch(err => {
-      throw(err);
-    });
-
+    }
   },
   // UPDATE
   [types.UPDATE_PAGE_STATE]: ({commit}, payload) => {

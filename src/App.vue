@@ -3,12 +3,12 @@
     <Errors v-if="get_errors.status" />
     <div v-if="!get_errors.status">
       <div class="page-container" ref="pageContainer">
-        <Topbar v-if="get_status.isLoged && get_topic.selected"/>
+        <Topbar v-if="get_layoutState.sidebarVisible"/>
         <router-view />
       </div>
-      <RightSidebar v-if="get_status.isLoged && get_topic.selected" @emitContainerOpen="animateContainer" />
-      <NotebookContainer v-if="get_status.isLoged && get_topic.selected" />
-      <MailContainer v-if="get_status.isLoged && get_topic.selected" />
+      <RightSidebar v-if="get_layoutState.sidebarVisible" @emitContainerOpen="animateContainer" />
+      <NotebookContainer v-if="get_layoutState.sidebarVisible" />
+      <MailContainer v-if="get_layoutState.sidebarVisible" />
       <NotificationCmpt 
         v-if="get_mailNotificationState" 
         :mailArrived="get_mailNotificationState" 

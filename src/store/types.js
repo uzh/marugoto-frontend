@@ -12,8 +12,10 @@ export const RESET_PASSWORD = 'RESET_PASSWORD';
 // Errors
 export const ERROR_NETWORK_CONNECTION = 'ERROR_NETWORK_CONNECTION';
 
+// Layout
 export const LAYOUT_OPEN = 'LAYOUT_OPEN';
 export const LAYOUT_CLOSE = 'LAYOUT_CLOSE';
+export const TOGGLE_SIDEBAR = 'TOGGLE_SIDEBAR';
 
 // Games
 export const UPDATE_GAMES = 'UPDATE_GAMES';

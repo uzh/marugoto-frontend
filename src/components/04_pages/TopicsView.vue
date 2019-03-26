@@ -26,7 +26,7 @@ export default {
   },
   methods: {
     chooseTopic: function(id){
-      this.$store.dispatch('CHOOSE_TOPIC', id)
+      this.$store.dispatch('CHOOSE_TOPIC', {id: id, contactServer: true})
       .then(() => {
         this.$router.push('/storyline');
       });

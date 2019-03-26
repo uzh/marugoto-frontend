@@ -12,6 +12,7 @@ export default ({
     refreshToken: '',
   },
   layout: {
+    statusbarVisible: false,
     notebook: {
       opened: false,
       disabled: false,

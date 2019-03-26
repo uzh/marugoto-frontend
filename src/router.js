@@ -103,6 +103,7 @@ router.beforeEach((to, from, next) => {
   // console.log('=============== GUARD ON ===============')
   if( !store.getters.get_status.isLoged ){
     document.body.classList.add('sidebars-off');
+    store.dispatch('TOGGLE_SIDEBAR', true);
     if( to.name == 'register' || to.name == 'login' || to.name == 'reset' ){
       // console.log('Go to: ', to.name)
       next();
@@ -116,22 +117,28 @@ router.beforeEach((to, from, next) => {
       if( to.name === 'home' && store.getters.get_topic.id != undefined ){
         document.body.classList.remove('sidebars-off');
         // console.log('Go to: STORYLINE from home, coz we have alreaady selected topic active')
+        store.dispatch('TOGGLE_SIDEBAR', true);
         next('/storyline');
       }else if( to.name === 'home' && store.getters.get_topic.id === undefined ){
         // console.log('Go to: GAMES from home, coz there is no selected topic')
+        store.dispatch('TOGGLE_SIDEBAR', false);
         next('/games');
       }else if( to.name === 'games' ){
         // console.log('Go to: ', to.name)
+        store.dispatch('TOGGLE_SIDEBAR', false);
         next();
       }else if( to.name === 'topics' ){
         // console.log('Go to: ', to.name)
+        store.dispatch('TOGGLE_SIDEBAR', false);
         next();
       }else if( to.name === 'storyline' && store.getters.get_topic.id != undefined ){
         document.body.classList.remove('sidebars-off');
         // console.log('Go to: ', to.name)
+        store.dispatch('TOGGLE_SIDEBAR', true);
         next();
       }else if( to.name === 'storyline' && store.getters.get_topic.id === undefined ){
         // console.log('Go to: GAMES from stopryline, coz for storyline is not selected topic!')
+        store.dispatch('TOGGLE_SIDEBAR', false);
         next('/games');
       }else{
         // console.log('Go to: from, ', from.name)

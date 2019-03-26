@@ -31,7 +31,7 @@
       :key="index"
       :id="item.id"
       :title="item.topic.title"
-      @emitContinue="continueGame(item.id)" />
+      @emitContinue="continueGame(item.id, item)" />
       <!-- <vue-markdown :source="item.topic.title" /> -->
     </div>
     <div class="finished-games">
@@ -64,7 +64,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters([ 'get_games' ]),
+    ...mapGetters([ 'get_games', 'get_topic' ]),
   },
   created() {
     this.$store.dispatch('UPDATE_GAMES');
@@ -73,9 +73,12 @@ export default {
     goToTopics: function() {
       this.$router.push('/topics');
     },
-    continueGame: function(gameID) {
-      let payload = gameID.split('/')[1];
-      this.$store.dispatch('CONTINUE_GAME', payload);
+    continueGame: function(gameID, item) {
+      this.$store.dispatch('CONTINUE_GAME', gameID).then(() => {
+        this.$store.dispatch('CHOOSE_TOPIC', {id: item.topic.id, contactServer: false}).then(() => {
+          this.$router.push('/storyline');
+        });
+      });
     },
   },
 }
