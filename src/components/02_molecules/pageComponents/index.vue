@@ -124,10 +124,12 @@ export default {
           this.checkState();
         }
       })
+      .catch(() => {});
     },
     checkState: function() {
       apiService.get('states') 
       .then( resp => {
+        console.log('from check states')
         this.$store.dispatch('UPDATE_PAGE_STATE', {
           pageTransitionStates: resp.data.pageTransitionStates, 
           pageComponents: resp.data.pageComponents,

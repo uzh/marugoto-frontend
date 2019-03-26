@@ -1,8 +1,12 @@
 <div class="image-component" :class="imageZoomed ? 'active' : ''">
   <!-- Zoom off -->
   <div v-if="!imageZoomed">
-    <img
-      :src="source">
+    <div v-if="gallerySlide">
+      <div @click="prevImage">Prev</div>
+      <div @click="nextImage">Next</div>
+      <div>{{ sourceIndex + 1 }} / {{ dummyList.length }}</div>
+    </div>
+    <img :src="`${resourcesPath}${sourceList[sourceIndex].path}`">
     <vue-markdown
       class="image-caption"
       :style="{ 'margin-left': captionOffset }"
@@ -19,7 +23,7 @@
     <div
       class="image-container"
       :style="{width: zoomLevel == 0 ? '50%' : zoomLevel == 1 ? '60%' : zoomLevel == 2 ? '70%' : zoomLevel == 3 ? '80%' : zoomLevel == 4 ? '90%' : '100%'}">
-      <img :src="source">
+      <img :src="`${resourcesPath}${sourceList[sourceIndex].path}`">
       <div class="zoom-out" @click="toggleZoom">
         <SvgIcon class="icon" name="zoom-out" />
       </div>
