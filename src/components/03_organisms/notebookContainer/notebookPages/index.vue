@@ -64,7 +64,6 @@ export default {
     },
     checkTyping: function() {
       this.isAutosaved = false;
-      this.autoGrow(this.$refs.note[0]);
       this.typingFinished();
     },
     // eslint-disable-next-line
