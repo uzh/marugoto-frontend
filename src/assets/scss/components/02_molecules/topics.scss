@@ -16,18 +16,6 @@
         bottom: 0;
         width: 100%;
 
-        &.minimal-layout{
-            .topic-box{
-                margin-top: 20px;
-            }
-        }
-
-        &.listed-layout{
-            .topic-box{
-                margin-top: 40px;
-            }
-        }
-
         .topic-box{
             position: relative;
             width: 25%;
@@ -37,7 +25,7 @@
 
             &:hover {
                 .topic-image {
-                    top: -200px;
+                    transform: translateY(-90%);
         
                     .image {
                         transform: rotate(2deg);
@@ -50,60 +38,44 @@
 
             .topic-image {
                 position: absolute;
-                left: 10px;
-                top: -70px;
-                width: 100%;
-                padding-right: 20px;
-                height: 230px;
+                z-index: 2;
+                top: 0;
+                left: 5%;
+                width: 90%;
+                transform: translateY(-20%) ;
                 transition: all 0.3s;
-                z-index: -1;
     
                 .image {
-                    position: relative;
-                    left: 10px;
-                    width: calc(100% - 20px);
-                    min-height: 230px;
-                    outline: 5px solid $white;
-                    background-color: #D8D8D8;
-                    box-shadow: 0 7px 16px 0 rgba(0, 0, 0, 0.24);
+                    width: 100%;
                     transform: rotate(-2deg);
                     transition: all 0.3s;
                 }
             }
+            .folder-frontside{
+                position: absolute;
+                top: 0;
+                left: 2px;
+                z-index: 4;
+                width: 60%;
+                padding-bottom: 8%;
+                transform: translateY(-95%);
 
-            .folder-header {
-                height: 20px;
-                width: 100%;
-
-                .left {
-                    height: 20px;
-                    width: 60%;
-                    background-color: $base-uicolor-4;
-                    border-top-left-radius: 6px;
-
-                    &:after {
-                        content: "";
-                        position: absolute;
-                        left: calc(60% - 1px);
-                        width: 0;
-                        height: 0px;
-                        border-bottom: 20px solid $base-uicolor-4;
-                        border-right: 20px solid transparent;
-                    }
-                }
-
-                .right {
-                    position: absolute;
-                    top: 0px;
-                    right: 2px;
-                    z-index: -2;
-                    height: 20px;
-                    width: 50%;
-                    background-color: #D9D7D4;
-                    border-top-right-radius: 6px;
-                }
+                background-color: $base-uicolor-4;
+                border-top-right-radius: 6px;
+                border-top-left-radius: 6px;
             }
-    
+            .folder-backside{
+                position: absolute;
+                top: 0;
+                right: 2px;
+                z-index: 1;
+                width: 60%;
+                padding-bottom: 8%;
+                transform: translateY(-95%);
+
+                background-color: #D9D7D4;
+                border-top-right-radius: 6px;
+            }  
             .topic-folder {
                 position: relative;
                 z-index: 2;
@@ -121,7 +93,6 @@
                     }
                 }
             }
-
             .topic-button {
                 display: none;
                 position: absolute;

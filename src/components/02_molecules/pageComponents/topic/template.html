@@ -18,12 +18,9 @@
       v-for="(topic, index) in list"
       :key="index"
       class="topic-box">
+      <div class="folder-backside"></div>
       <div class="topic-image">
         <img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image">
-      </div>
-      <div class="folder-header">
-        <div class="left"></div>
-        <div class="right"></div>
       </div>
       <div class="topic-folder">
         <vue-markdown class="title" :source="topic.title" />
@@ -33,6 +30,7 @@
           text="Preview this Topic" 
           primary="true" />
       </div>
+      <div class="folder-frontside"></div>
     </div>
   </div>
 </div>

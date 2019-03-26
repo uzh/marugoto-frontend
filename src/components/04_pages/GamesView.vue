@@ -6,9 +6,9 @@
       <div class="title">
         <h1>Your games</h1>
       </div>
-      <div class="supervise-game">
+      <!-- <div class="supervise-game">
         <Btn text="Supervise Group Game" ghost="true" iconName="arrow-right" />
-      </div>
+      </div> -->
     </div>
     <!-- Lead text -->
     <div class="lead lead-text">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</div>
@@ -42,9 +42,9 @@
         :title="item.topic.title" />
         <!-- <vue-markdown :source="item.topic.title" /> -->
     </div>
-    <div class="delete-account">
+    <!-- <div class="delete-account">
       <Btn  text="Delete Account" ghost="true" iconName="cancel" />
-    </div>
+    </div> -->
   </div>
 </template>
 
