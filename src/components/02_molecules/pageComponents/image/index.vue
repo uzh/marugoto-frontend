@@ -8,15 +8,28 @@ import SvgIcon from '@/components/01_atoms/svgicon';
 export default {
   name: 'ImageComponent',
   components: { VueMarkdown, SvgIcon },
-  props: [ 'source', 'text', 'zoomable', 'captionOffset' ],
+  props: [ 'sourceList', 'text', 'zoomable', 'captionOffset' ],
   data() {
     return {
       imageZoomed: false,
       zoomLevel: 5,
+      resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
+      sourceIndex: 0,
+      dummyList: [
+        {path: 'http://s2.glbimg.com/-DBjjL8oYQwHmpEfsjpl-XwK068=/620x413/e.glbimg.com/og/ed/f/original/2016/11/04/troller-bold-12.jpg'},
+        {path: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWHHABUD4qvBkAe3SIxa8QbbNhemwnieoTUgA8SkU_lSUGhLgg'}
+      ]
     }
   },
   computed: {
     ...mapGetters([ 'get_layoutState' ]),
+    gallerySlide: function(){
+      if( this.sourceList.length > 1 ){
+        return true;
+      }else{
+        return false;
+      }
+    },
   },
   methods: {
     toggleZoom: function() {
@@ -41,7 +54,17 @@ export default {
       if(e.target == this.$refs.imageMask) {
         this.imageZoomed = false;
       }
-    }
+    },
+    prevImage: function() {
+      if( this.sourceIndex > 0 ){
+        this.sourceIndex--;
+      }
+    },
+    nextImage: function() {
+      if( this.sourceIndex <= this.sourceList.length ){
+        this.sourceIndex++;
+      }
+    },
   }
 }
 </script>

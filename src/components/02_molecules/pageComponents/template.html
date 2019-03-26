@@ -20,7 +20,7 @@
     <!-- Image -->
     <ImageComponent
       v-if="component.type == 'ImageComponent'"
-      :source="`${resourcesPath}${component.component.images[0].path}`"
+      :sourceList="component.component.images"
       :text="component.component.caption"
       :captionOffset="component.component.numberOfColumns == 12 ? '10%' : '25%'"
       :zoomable="component.component.zoomable" />
