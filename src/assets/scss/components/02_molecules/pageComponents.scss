@@ -99,6 +99,12 @@
                 z-index: 10;
                 transition: all 0.3s;
 
+                &:hover {
+                    .zoom-in {
+                        display: block;
+                    }
+                }
+
                 &.active {
                     z-index: 20;
                 }
@@ -115,6 +121,7 @@
                     width: 40px;
                     height: 40px;
                     background-color: rgba(#000000, 0.4);
+                    display: none;
 
                     .icon {
                         position: relative;
