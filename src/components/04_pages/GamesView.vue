@@ -22,7 +22,6 @@
         v-for="(item, index) in get_games.classroomGames"
         :key="index"
         :title="item.topic.title" />
-      <!-- <vue-markdown :source="item.topic.title" /> -->
     </div>
     <div class="open-games">
       <h5>Open Games</h5>
@@ -32,7 +31,6 @@
       :id="item.id"
       :title="item.topic.title"
       @emitContinue="continueGame(item.id, item)" />
-      <!-- <vue-markdown :source="item.topic.title" /> -->
     </div>
     <div class="finished-games">
       <h5>Finished Games</h5>
@@ -40,7 +38,6 @@
         v-for="(item, index) in get_games.finishedGames"
         :key="index"
         :title="item.topic.title" />
-        <!-- <vue-markdown :source="item.topic.title" /> -->
     </div>
     <!-- <div class="delete-account">
       <Btn  text="Delete Account" ghost="true" iconName="cancel" />
@@ -50,13 +47,12 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import VueMarkdown from 'vue-markdown';
 import Btn from '@/components/01_atoms/buttons';
 import DownloadList from '@/components/01_atoms/lists/downloadLists';
 
 export default {
   name: 'games',
-  components: { VueMarkdown, Btn, DownloadList },
+  components: { Btn, DownloadList },
   data() {
     return {
       basePath: process.env.VUE_APP_BASE_PATH,
