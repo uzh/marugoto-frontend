@@ -70,8 +70,8 @@ export default({
   [types.LAYOUT_CLOSE]: (context, payload) => {
     context.commit(types.LAYOUT_CLOSE, payload);
   },
-  [types.TOGGLE_SIDEBAR]: (context, payload) => {
-    context.commit(types.TOGGLE_SIDEBAR, payload);
+  [types.TOGGLE_SIDEBAR_VISIBILITY]: (context, payload) => {
+    context.commit(types.TOGGLE_SIDEBAR_VISIBILITY, payload);
   },
   // ERRORS
   [types.ERROR_NETWORK_CONNECTION]: (context, payload) => {

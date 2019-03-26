@@ -1,17 +1,18 @@
 $elements-space: 90px;
 $border: 1px solid $base-uicolor-4;
 
-.sidebars-off .page-container {
-  padding-top: 0;
-  padding-right: 0;
+.sidebar-page-padding-top .page-container {
+  padding-top: $elements-space;
+}
+
+.sidebar-page-padding-right .page-container {
+  padding-right: $elements-space;
 }
 
 .page-container{
   width: 100%;
   height: 100vh;
   overflow: scroll;
-  padding-top: $elements-space;
-  padding-right: $elements-space;
 }
 
 .login-container {

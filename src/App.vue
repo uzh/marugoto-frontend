@@ -3,12 +3,12 @@
     <Errors v-if="get_errors.status" />
     <div v-if="!get_errors.status">
       <div class="page-container" ref="pageContainer">
-        <Topbar v-if="get_layoutState.sidebarVisible"/>
+        <Topbar v-if="get_layoutState.statusbarVisible"/>
         <router-view />
       </div>
-      <RightSidebar v-if="get_layoutState.sidebarVisible" @emitContainerOpen="animateContainer" />
-      <NotebookContainer v-if="get_layoutState.sidebarVisible" />
-      <MailContainer v-if="get_layoutState.sidebarVisible" />
+      <RightSidebar v-if="get_layoutState.statusbarVisible" @emitContainerOpen="animateContainer" />
+      <NotebookContainer v-if="get_layoutState.statusbarVisible" />
+      <MailContainer v-if="get_layoutState.statusbarVisible" />
       <NotificationCmpt 
         v-if="get_mailNotificationState" 
         :mailArrived="get_mailNotificationState" 
@@ -41,7 +41,6 @@ export default{
   },
   created: function() {
     this.$store.dispatch('ERROR_NETWORK_CONNECTION', false);
-    // console.log('Base path: ', process.env.VUE_APP_BASE_PATH)
   },
   methods: {
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),

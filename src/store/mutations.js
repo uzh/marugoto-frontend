@@ -86,7 +86,7 @@ export default({
         state.layout.dialog.opened = false;
     }
   },
-  [types.TOGGLE_SIDEBAR] (state, payload) {
+  [types.TOGGLE_SIDEBAR_VISIBILITY] (state, payload) {
     state.layout.statusbarVisible = payload;
   },
   // GAMES MUTATIONS
