@@ -70,7 +70,11 @@
     <div class="right-container">
       <!-- Arrow column -->
       <div class="login-arrow">
-        <SvgIcon @click.native="goToLogin" name="arrow-left" sizeH="20" class="back-to-login" />
+        <SvgIcon 
+          @click.native="goToLogin" 
+          name="arrow-left" 
+          customColor="#8C8B89" 
+          class="back-to-login" />
       </div>
       <!-- Register Form -->
       <div class="wrapper-container-right">

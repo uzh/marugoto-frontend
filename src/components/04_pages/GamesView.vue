@@ -14,7 +14,7 @@
     <div class="lead lead-text">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</div>
     <!-- Content -->
     <div class="start-game">
-      <Btn text="Start New Game" primary="true" iconName="plus" @click.native="goToTopics" />
+      <Btn text="Start New Game" primary="true" iconName="plus" iconColor="#fff" @click.native="goToTopics" />
     </div>
     <div class="class-games">
       <h5>Games within classes</h5>

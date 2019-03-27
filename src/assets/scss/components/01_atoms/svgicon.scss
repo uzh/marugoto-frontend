@@ -1,21 +1,17 @@
 $height: 2.5rem;
 $width: $height;
 
-svg use g{
-    fill: red;
-}
-
 .icon-right {
     position: absolute;
     top: 50%;
-    margin-top: -10px;
+    transform: translateY(-50%);
     right: 0px;
 }
 
 .icon-left {
     position: absolute;
     top: 50%;
-    margin-top: -10px;
+    transform: translateY(-50%);
     left: 0px;
 }
 

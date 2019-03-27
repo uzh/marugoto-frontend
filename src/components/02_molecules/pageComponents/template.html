@@ -128,7 +128,7 @@
           v-show="videoHovered"
           id="play-big"
           @click="togglePlayVideo">
-          <SvgIcon :name="videoPaused ? 'play-big' : 'pause-big'" sizeH="60px" />
+          <SvgIcon :name="videoPaused ? 'play' : 'pause'" sizeH="50" sizeW="50"/>
         </div>
         <!-- Bottom video controls -->
         <div
@@ -145,13 +145,13 @@
           <div
             id="video-play-small"
             @click="togglePlayVideo">
-            <SvgIcon :name="videoID.paused ? 'play-small' : 'pause-small'" sizeH="16px" />
+            <SvgIcon :name="videoID.paused ? 'play' : 'pause'" />
           </div>
           <div id="video-time-passed" class="small">
             {{ videoCurrentTime }} / {{ videoDuration }}
           </div>
           <div id="full-screen" @click="toggleFullScreen">
-            <SvgIcon name="zoom-in" sizeH="30px" />
+            <SvgIcon name="zoom-in" customColor="#fff" />
           </div>
         </div>
       </div>

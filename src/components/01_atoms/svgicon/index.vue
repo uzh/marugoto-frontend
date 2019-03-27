@@ -16,9 +16,3 @@ export default {
   },
 };
 </script>
-
-<style>
-  .svg-icon {
-    max-width: 40px;
-  }
-</style>

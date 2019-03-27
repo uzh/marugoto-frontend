@@ -24,7 +24,7 @@ export default {
   computed: {
     ...mapGetters([ 'get_layoutState' ]),
     gallerySlide: function(){
-      if( this.sourceList.length > 1 ){
+      if( this.dummyList.length > 1 ){
         return true;
       }else{
         return false;
@@ -61,7 +61,7 @@ export default {
       }
     },
     nextImage: function() {
-      if( this.sourceIndex <= this.sourceList.length ){
+      if( this.sourceIndex < this.dummyList.length -1 ){
         this.sourceIndex++;
       }
     },
