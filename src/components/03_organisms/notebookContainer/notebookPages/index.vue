@@ -62,8 +62,9 @@ export default {
     cancelPersonalNote: function() {
       this.openedPersonalNote = false;
     },
-    checkTyping: function() {
+    checkTyping: function(e) {
       this.isAutosaved = false;
+      this.autoGrow(e.currentTarget);
       this.typingFinished();
     },
     // eslint-disable-next-line

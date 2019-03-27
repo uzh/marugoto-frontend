@@ -1,11 +1,14 @@
 <div class="page-components-wrapper col-xs-12">
   <div 
-    v-for="(component, index) in get_PageComponents" 
+    v-for="(component, index) in get_PageComponents"
     :key="index"
-    :class="[`col-xs-${component.component.numberOfColumns - 2}`, `col-xs-offset-${component.component.offsetColumns || 1}`]" >
+    :class="`col-xs-${component.component.numberOfColumns - 2} col-xs-offset-${component.component.offsetColumns || 1}`" >
     <!-- Text -->
     <vue-markdown class="mb-40"
-      :style="{'margin-left': component.component.numberOfColumns == 12 ? '10%' : '', 'margin-right': component.component.numberOfColumns == 12 ? '10%' : ''}"
+      :style="{
+          'margin-left': component.component.numberOfColumns == 12 ? '10%' : '',
+          'margin-right': component.component.numberOfColumns == 12 ? '10%' : ''
+        }"
       v-if="component.type == 'TextComponent'" 
       :source="component.component.markdownContent" />
     <!-- Link -->

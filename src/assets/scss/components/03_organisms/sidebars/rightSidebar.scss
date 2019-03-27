@@ -18,7 +18,7 @@
   &.notebook-in {
     border-bottom: none;
     border-left: none;
-    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), $base-uicolor-2);
   }
 
   .open {
@@ -161,7 +161,7 @@
 
   &.in {
     border-left: none;
-    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), $base-uicolor-2);
   }
 
   .close{
@@ -173,16 +173,12 @@
     text-align: center;
     z-index: 4;
     background-color: $white;
-    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.3));
+    background-image: linear-gradient(to left, rgba(0, 0, 0, 0), $base-uicolor-2);
     cursor: pointer;
   }
 
   .notebook-sidebar-right {
       height: 100%;
-
-      &.unselectable {
-        pointer-events: none;
-      }
     
       .rotated-text {
         position: relative;

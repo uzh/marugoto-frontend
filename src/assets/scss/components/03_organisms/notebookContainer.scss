@@ -27,7 +27,8 @@ $chapterHeight: 80px;
         height: 100%;
         text-align: center;
         border-left: $border;
-        background-color: $white;
+        border-right: $border;
+        background-color: $base-uicolor-2;
     }
 }
 
@@ -112,8 +113,12 @@ $chapterHeight: 80px;
     height: $chapterHeight;
     padding-top: 5px;
     background-color: #0C0C0D;
+    display: none;
 
-    transition: all 0.3s;
+    &.displayed {
+        display: block;
+    }
+
     .chapter-menu-icon {
         display: inline-block;
         width: 20%;

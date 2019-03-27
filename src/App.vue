@@ -75,7 +75,7 @@ export default{
   watch: {
     "get_layoutState.notebook.opened": function(newVal, oldVal) {
       if( newVal != oldVal ) {
-        if(this.get_layoutState.notebook.opened == true) {
+        if(this.get_layoutState.notebook.opened) {
           this.animateContainer('halved');
         } else {
           this.animateContainer('full');

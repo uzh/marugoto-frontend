@@ -166,7 +166,7 @@ $border: 1px solid $base-uicolor-4;
 // Animation classes
 .page-container-halved {
   width: calc(50% - 45px);
-  padding-right: 0;
+  padding-right: 0 !important;
 }
 .page-container-transitionOn {
   transition: all 0.1s;

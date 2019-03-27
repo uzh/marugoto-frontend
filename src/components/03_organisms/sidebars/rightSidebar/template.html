@@ -31,11 +31,11 @@
   <div class="notebook-btn" :class="get_layoutState.notebook.opened ? 'in' : ''">
     <div 
       v-if="get_layoutState.notebook.opened" 
-      @click="switchNotebookLayout(false)"
+      @click="switchNotebookLayout()"
       class="close">
       <img src="@/assets/images/close.svg" alt="image" />
     </div>
-    <div class="notebook-sidebar-right" :class="get_layoutState.notebook.opened ? 'unselectable' : ''" @click="switchNotebookLayout(true)">
+    <div class="notebook-sidebar-right" @click="switchNotebookLayout()">
       <p class="rotated-text">Notebook</p>
     </div>
   </div>
