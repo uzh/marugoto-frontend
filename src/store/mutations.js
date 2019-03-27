@@ -131,14 +131,6 @@ export default({
   [types.UPDATE_NOTEBOOK] (state, payload) {
     state.notebook.list = payload;
   },
-  [types.UPDATE_PERSONAL_NOTE_LIST] (state, payload) {
-    state.notebook.list = state.notebook.list.map( entry => {
-      if( entry.id == payload.id ){
-        entry.personalNotes = payload.serverData;
-      }
-      return entry;
-    })
-  },
   [types.CHANGE_PERSONAL_NOTE_STATUS] (state, payload) {
     state.newPersonalNote.status = payload;
   },

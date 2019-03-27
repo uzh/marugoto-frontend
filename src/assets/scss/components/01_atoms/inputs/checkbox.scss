@@ -3,6 +3,7 @@ $base-width: 100%;
 
 .checkbox {
     display: block;
+
     .container {
         display: block;
         box-sizing: border-box;
@@ -12,17 +13,23 @@ $base-width: 100%;
         height: $base-height;
         width: $base-width;
         margin-bottom: 1rem;
-        cursor: pointer;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
         user-select: none;
+        cursor: pointer;
+
         &.disabled {
             opacity: 0.1;
         }
+
         input {
             position: absolute;
-            opacity: 0;
-            cursor: pointer;
             height: 0;
             width: 0;
+            opacity: 0;
+            cursor: pointer;
+
             &:checked ~ .checkmark {
                 background-color: $base-primary;
                 border: 1px solid $base-primary;

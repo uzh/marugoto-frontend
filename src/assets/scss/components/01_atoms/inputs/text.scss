@@ -8,6 +8,7 @@ $width: 100%;
    margin-bottom: 10px;
    height: $height;
    width: $width;
+
    &.disabled {
        color: $base-uicolor-2;
        border: $base-ghost-border;
@@ -41,6 +42,7 @@ $width: 100%;
    &.inputFocused {
         box-shadow: 0 0 0 2px $base-primary;
         height: auto;
+
         label {
             @extend .label;
             top: 5px;
@@ -51,6 +53,7 @@ $width: 100%;
    &.inputFilled {
         box-shadow: none;
         height: auto;
+        
         label {
             @extend .label;
             top: 5px;
@@ -62,10 +65,7 @@ $width: 100%;
         opacity: 0.3;
         pointer-events: none;
         height: auto;
-
-        -webkit-touch-callout: none;
         -webkit-user-select: none;
-        -khtml-user-select: none;
         -moz-user-select: none;
         -ms-user-select: none;
         user-select: none;

@@ -22,6 +22,7 @@ $height: 50px;
         padding-top: 17px;
     
         &.openedList{
+
             .select-field-arrow{
                 transform: rotate(180deg)
             }
@@ -54,6 +55,7 @@ $height: 50px;
         display: block;
         list-style-type: none;
         box-shadow: 0 0 0 2px $base-primary;
+
         &-item {
             padding: 0 10px;
             padding-top: 16px;
@@ -61,6 +63,7 @@ $height: 50px;
             font-size: inherit;
             border-bottom: $base-ghost-border;
             cursor: pointer;
+            
             &:hover {
                 background-color: $base-uicolor-4;
             }

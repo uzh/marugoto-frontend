@@ -6,6 +6,7 @@
     .storyline-container {
 
         .h1 {
+
             p {
                 @extend .h1;
             }
@@ -16,9 +17,9 @@
             margin-bottom: 80px;
 
             .page-title-icon-container {
-                float: none;
                 display: table-cell;
                 vertical-align: middle;
+                float: none;
                 text-align: center;
 
                 .icon {
@@ -46,22 +47,22 @@
 
             .text-area-exercise {
                 position: relative;
-                box-sizing: border-box;
                 min-height: 175px;
                 width: 100%;
                 padding: 60px;
                 background-color: $base-ghost;
+                box-sizing: border-box;
 
                 textarea {
                     width: 100%;
                     min-height: 64px;
                     padding: 0 10px;
-                    resize: none;
-                    overflow-y: hidden;
                     color: #2F3133;
                     font-size: 17px;
                     line-height: 32px;
                     letter-spacing: 0.2px;
+                    resize: none;
+                    overflow-y: hidden;
                     background-image: -moz-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
                     background-image: -webkit-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
                     -webkit-background-size: 100% 32px;
@@ -75,16 +76,16 @@
             
                 .autosaved {
                     float: right;
-                    line-height: 35px;
                     height: 35px;
+                    line-height: 35px;
                     text-align: right;
                 }
             
                 .icon {
                     float: right;
-                    line-height: 35px;
-                    height: 35px;
                     width: 20%;
+                    height: 35px;
+                    line-height: 35px;
                     text-align: right;
                 }
 
@@ -99,6 +100,7 @@
                 transition: all 0.3s;
 
                 &:hover {
+
                     .zoom-in {
                         display: block;
                     }
@@ -114,13 +116,13 @@
                 }
 
                 .zoom-in {
+                    display: none;
                     position: absolute;
                     top: 10px;
                     right: 10px;
                     width: 40px;
                     height: 40px;
                     background-color: rgba(#000000, 0.4);
-                    display: none;
 
                     .icon {
                         position: relative;
@@ -139,18 +141,21 @@
                     width: 100%;
                     height: 100%;
                     background-color: rgba(#000000, 0.8);
-                    transition: opacity .5s ease;
-                    user-select: none;
                     overflow: scroll;
+                    -webkit-user-select: none;
+                    -moz-user-select: none;
+                    -ms-user-select: none;
+                    user-select: none;
+                    transition: opacity .5s ease;
 
                     .image-container {
                         position: relative;
                         top: 80px;
+                        max-width: calc(100% - 80px);
                         margin: 0 auto;
                         margin-bottom: 80px;
-                        max-width: calc(100% - 80px);
-                        transition: all .5s ease;
                         box-shadow: 0 15px 30px 0 rgba(#000000, 0.5);
+                        transition: all .5s ease;
 
                         img {
                             width: 100%;
@@ -214,10 +219,11 @@
             }
 
             .image-caption {
+
                 p {
                     @extend .small;
-                    text-align: left;
                     margin-top: 20px;
+                    text-align: left;
                     overflow: hidden;
                 }
             }
@@ -254,58 +260,64 @@
                     background-color: transparent;
 
                     input[type="range"] {
-                        -webkit-appearance: none;
                         height: 5px;
                         overflow: hidden;
                         background-color: $base-primary;
-                    }
-                    input[type='range']::-webkit-slider-runnable-track {
                         -webkit-appearance: none;
+                    }
+
+                    input[type='range']::-webkit-slider-runnable-track {
                         height: 5px;
                         color: $white;
-                    }
-                    input[type='range']::-webkit-slider-thumb {
                         -webkit-appearance: none;
+                    }
+
+                    input[type='range']::-webkit-slider-thumb {
                         width: 5px;
                         height: 5px;
                         background: $white;
                         box-shadow: -9000px 0 0 9000px $white;
+                        -webkit-appearance: none;
                     }
+
                     input[type="range"]::-moz-range-progress {
                         background-color: $white; 
                     }
+
                     input[type="range"]::-moz-range-track {  
                         background-color: $base-primary;
                     }
+
                     input[type="range"]::-ms-fill-lower {
                         background-color: $white; 
                     }
+
                     input[type="range"]::-ms-fill-upper {  
                         background-color: $base-primary;
                     }
 
                     #video-seek-bar {
-                        width: calc(100% - 30px);
                         position: absolute;
                         left: 15px;
+                        width: calc(100% - 30px);
                     }
 
                     #video-play-small {
                         display: inline-block;
-                        height: 40px;
-                        width: 40px;
-                        line-height: 40px;
                         position: absolute;
                         left: 15px;
                         bottom: 5px;
+                        height: 40px;
+                        width: 40px;
+                        line-height: 40px;
                     }
 
                     #video-time-passed {
                         display: inline-block;
-                        line-height: 40px;
                         position: absolute;
                         left: 65px;
                         bottom: 7px;
+                        line-height: 40px;
                         color: $white;
                     }
 
@@ -319,10 +331,11 @@
             }
 
             .video-caption {
+
                 p {
                     @extend .small;
-                    text-align: left;
                     margin-top: 20px;
+                    text-align: left;
                     overflow: hidden;
                 }
             }
@@ -349,76 +362,83 @@
                     border: 1px solid $base-primary-border;
 
                     .audio-name {
-                        color: $white;
                         position: absolute;
                         top: 17px;
                         left: 25px;
+                        color: $white;
                     }
 
                     input[type="range"] {
-                        -webkit-appearance: none;
                         height: 5px;
                         overflow: hidden;
                         background-color: $base-primary;
+                        -webkit-appearance: none;
                     }
+
                     input[type='range']::-webkit-slider-runnable-track {
                         -webkit-appearance: none;
                         height: 5px;
                         color: $white;
                     }
+
                     input[type='range']::-webkit-slider-thumb {
-                        -webkit-appearance: none;
                         width: 5px;
                         height: 5px;
                         background: $white;
                         box-shadow: -9000px 0 0 9000px $white;
+                        -webkit-appearance: none;
                     }
+
                     input[type="range"]::-moz-range-progress {
                         background-color: $white; 
                     }
+
                     input[type="range"]::-moz-range-track {  
                         background-color: $base-primary;
                     }
+
                     input[type="range"]::-ms-fill-lower {
                         background-color: $white; 
                     }
+
                     input[type="range"]::-ms-fill-upper {  
                         background-color: $base-primary;
                     }
 
                     #audio-seek-bar {
-                        width: calc(100% - 30px);
                         position: absolute;
                         top: 50px;
                         left: 15px;
+                        width: calc(100% - 30px);
                     }
 
                     #audio-play-small {
                         display: inline-block;
-                        height: 40px;
-                        width: 40px;
-                        line-height: 40px;
                         position: absolute;
                         left: 15px;
                         bottom: 5px;
+                        height: 40px;
+                        width: 40px;
+                        line-height: 40px;
                     }
 
                     #audio-time-passed {
                         display: inline-block;
-                        line-height: 40px;
                         position: absolute;
                         left: 65px;
                         bottom: 7px;
+                        line-height: 40px;
                         color: $white;
                     }
                 }
             }
 
             .audio-caption {
+
                 p {
                     @extend .small;
-                    text-align: left;
                     margin-top: 20px;
+                    text-align: left;
                     overflow: hidden;
                 }
             }
@@ -443,12 +463,13 @@
         
         .left {
             display: inline-block;
+            vertical-align: middle;
             width: 45%;
             height: 138px;
             line-height: 138px;
-            vertical-align: middle;
-            text-align: center;
             font-size: 12px;
+            text-align: center;
+
             &:hover {
                 outline: 2px dashed $base-primary-border;
             }
@@ -456,31 +477,34 @@
 
         .right {
             display: inline-block;
+            vertical-align: middle;
             width: 45%;
             height: 138px;
             line-height: 138px;
-            vertical-align: middle;
-            text-align: center;
             font-size: 12px;
+            text-align: center;
+
             input {
                 display: none;
             }
+
             label {
                 display: inline-block;
-                cursor: pointer;
                 height: 20px;
+                cursor: pointer;
             }
         }
         
         .center {
             display: inline-block;
+            position: relative;
+            vertical-align: middle;
             width: 10%;
             height: 140px;
             line-height: 140px;
-            vertical-align: middle;
-            text-align: center;
             font-size: 12px;
-            position: relative;
+            text-align: center;
+            
             &:before {
                 content: '';
                 position: absolute;

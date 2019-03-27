@@ -209,19 +209,6 @@ export default({
       throw(err);
     });
   },
-  [types.REQUEST_PERSONAL_NOTE]: ({commit}, payload) => {
-    let path = payload.split('/')[1];
-    return apiService.get(`notebook/${path}/personalNote/list`)
-    .then(resp => {
-      commit(types.UPDATE_PERSONAL_NOTE_LIST, {
-        serverData: resp.data,
-        id: payload,
-      });
-    })
-    .catch(err => {
-      throw(err);
-    });
-  },
   [types.CHANGE_PERSONAL_NOTE_STATUS]: (context, payload) => {
     context.commit(types.CHANGE_PERSONAL_NOTE_STATUS, payload);
   },

@@ -103,14 +103,14 @@ export default {
     },
   },
   watch: {
-    "get_page.id": function(newVal, oldVal) {
+    get_page: function(newVal, oldVal) {
       if( newVal != oldVal ){
         document.querySelector('.page-container').scrollTop = 0;
       }
 
       // Check if page has got timeLimit for transition trigger
       if( newVal.hasOwnProperty('timeLimit') ){
-        new Timer(newVal.timeLimit,                   // Transition time
+        new Timer(5,                   // Transition time newVal.timeLimit
           this.requestPageTransition,                 // Callback
           this.get_transitions[0].pageTransition.id)  // Callback payload
           .start();
