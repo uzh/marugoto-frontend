@@ -44,7 +44,6 @@
         <div class="note" :class="noteChanged ? 'active' : ''">
           <p>20.5.2018 - 10:48 - {{ page.title }}</p>
           <textarea
-            ref="note"
             :readonly="noteChanged"
             @focus="changePersonalNote(true)"
             @blur="changePersonalNote(false)"

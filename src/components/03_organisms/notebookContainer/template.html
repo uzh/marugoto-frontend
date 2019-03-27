@@ -12,7 +12,8 @@
       :list="get_notebook.list"
       @selectItem="setCurrentEntry"/>
     <!-- Notebook Navigation -->
-    <NotebookChapterMenu 
+    <NotebookChapterMenu
+      :class="entriesMenuOpened ? '' : 'displayed'"
       @changeCurrentEntryTo="switchCurrentEntryTo" 
       :currentEntry="currentEntry"
       :list="get_notebook.list" />
@@ -24,7 +25,8 @@
         @toggleScroll="openEntriesMenu" />
     </div>
     <!-- Notebook Navigation -->
-    <NotebookChapterMenu 
+    <NotebookChapterMenu
+      class="displayed"
       @changeCurrentEntryTo="switchCurrentEntryTo" 
       :currentEntry="currentEntry"
       :list="get_notebook.list" />

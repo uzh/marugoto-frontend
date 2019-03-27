@@ -50,7 +50,6 @@
                 min-height: 175px;
                 width: 100%;
                 padding: 60px;
-                padding-bottom: 80px;
                 background-color: $base-ghost;
 
                 textarea {
@@ -58,8 +57,7 @@
                     min-height: 64px;
                     padding: 0 10px;
                     resize: none;
-                    overflow: hidden;
-                    overflow-y: scroll;
+                    overflow-y: hidden;
                     color: #2F3133;
                     font-size: 17px;
                     line-height: 32px;
@@ -96,6 +94,7 @@
                 position: relative;
                 height: auto;
                 width: 100%;
+                margin-bottom: 40px;
                 z-index: 10;
                 transition: all 0.3s;
 

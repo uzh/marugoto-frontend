@@ -27,7 +27,8 @@ $chapterHeight: 80px;
         height: 100%;
         text-align: center;
         border-left: $border;
-        background-color: $white;
+        border-right: $border;
+        background-color: $base-uicolor-2;
     }
 }
 
@@ -97,6 +98,7 @@ $chapterHeight: 80px;
                 text-overflow: clip;
                 p {
                     @extend .h5;
+                    font-family: 'Libre Baskerville'
                 }
             }
         }
@@ -111,8 +113,12 @@ $chapterHeight: 80px;
     height: $chapterHeight;
     padding-top: 5px;
     background-color: #0C0C0D;
+    display: none;
 
-    transition: all 0.3s;
+    &.displayed {
+        display: block;
+    }
+
     .chapter-menu-icon {
         display: inline-block;
         width: 20%;
@@ -305,10 +311,13 @@ $chapterHeight: 80px;
         font-size: 20px;
         line-height: 32px;
         letter-spacing: 0.2px;
+        overflow-y: hidden;
         background-image: -moz-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
         background-image: -webkit-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
         -webkit-background-size: 100% 32px;
         background-size: 100% 32px;
+
+        transition: all 0.3s;
     }
 
     .typing {

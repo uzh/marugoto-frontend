@@ -18,10 +18,10 @@ export default {
         this.$store.dispatch('LAYOUT_CLOSE','mail');
       }
     },
-    switchNotebookLayout: function(param) {
-      if( param && !this.get_layoutState.notebook.disabled ){
+    switchNotebookLayout: function() {
+      if( !this.get_layoutState.notebook.opened && !this.get_layoutState.notebook.disabled ){
         this.$store.dispatch('LAYOUT_OPEN','notebook');
-      }else if( !param && !this.get_layoutState.notebook.disabled ){
+      }else if( this.get_layoutState.notebook.opened && !this.get_layoutState.notebook.disabled ){
         this.$store.dispatch('LAYOUT_CLOSE','notebook');
       }
     },
