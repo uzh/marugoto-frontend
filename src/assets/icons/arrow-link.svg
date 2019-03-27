@@ -1,13 +1,1 @@
-<svg width="16px" height="15px" viewBox="0 0 16 15" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <path d="M27.1419347,19.1620962 L20.3552466,12.3754081 L21.7694602,10.9611945 L30.9765669,20.1683013 L21.7915381,29.3533301 L20.3773245,27.9391166 L27.1543449,21.1620962 L10.7401313,21.1620962 L10.7401313,19.1620962 L27.1419347,19.1620962 Z" id="path-1"></path>
-    </defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icon/Link" transform="translate(-13.000000, -13.000000)">
-            <mask id="mask-2" fill="white">
-                <use xlink:href="#path-1"></use>
-            </mask>
-            <use id="Rectangle" fill="#D8D8D8" transform="translate(20.858349, 20.157262) rotate(-45.000000) translate(-20.858349, -20.157262) " xlink:href="#path-1"></use>
-        </g>
-    </g>
-</svg>
+<svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg"><path d="m24.5978264 15.0104076h-9.5978264v-2h13.0208153v12.9895924h-2v-9.5841541l-11.6066017 11.6066017-1.4142136-1.4142135z" /></svg>

@@ -1,13 +1,1 @@
-<svg width="20px" height="28px" viewBox="0 0 20 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
-    <defs>
-        <path d="M19,28.8079378 L19,18 L21,18 L21,28.7789614 L24.2185329,25.5604285 L25.6327465,26.974642 L19.9855118,32.6218767 L14.3536494,26.9900142 L15.7678629,25.5758007 L19,28.8079378 Z M21,7 L12,7 L12,31 L14,31 L16,33 L10,33 L10,5 L22,5 L30,13 L30,33 L24,33 L26,31 L28,31 L28,14 L21,14 L21,7 Z" id="path-1"></path>
-    </defs>
-    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-        <g id="Icon/Download_PDF" transform="translate(-10.000000, -5.000000)">
-            <mask id="mask-2" fill="white">
-                <use xlink:href="#path-1"></use>
-            </mask>
-            <use id="Combined-Shape" fill="#8C8B89" fill-rule="nonzero" xlink:href="#path-1"></use>
-        </g>
-    </g>
-</svg>
+<svg height="40" viewBox="0 0 40 40" width="40" xmlns="http://www.w3.org/2000/svg"><path d="m19 28.8079378v-10.8079378h2v10.7789614l3.2185329-3.2185329 1.4142136 1.4142135-5.6472347 5.6472347-5.6318624-5.6318625 1.4142135-1.4142135zm2-21.8079378h-9v24h2l2 2h-6v-28h12l8 8v20h-6l2-2h2v-17h-7z" /></svg>

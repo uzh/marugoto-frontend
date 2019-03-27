@@ -4,13 +4,13 @@
 // eslint-disable-next-line
 import { _debounce } from 'lodash';
 import { mapGetters } from 'vuex';
-import svgIcon from '@/components/01_atoms/svgicon';
+import SvgIcon from '@/components/01_atoms/svgicon';
 import Btn from '@/components/01_atoms/buttons';
 import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'NotebookPages',
-  components: { svgIcon, Btn, VueMarkdown },
+  components: { SvgIcon, Btn, VueMarkdown },
   props: [ 'currentEntry', 'list', 'direction' ],
   data(){
     return {

@@ -12,7 +12,7 @@
     <div class="notebook-header col-xs-10 col-xs-offset-1">
       <vue-markdown class="title" :source="page.title" />
       <div class="icon" @click="toggleScroll">
-        <svgIcon name="dot-hamburger" sizeH="20px" />
+        <SvgIcon name="dot-hamburger" customColor="#8C8B89" />
       </div>
     </div>
     <div
@@ -69,6 +69,7 @@
         class="button-personal-note"
         :class="openedPersonalNote ? 'active' : ''"
         text="Create new note"
+        iconColor="#fff"
         primary="true"
         iconName="plus" />
     </div>

@@ -1,7 +1,8 @@
 <svg 
   :class="className" 
   :fill="customColor"
-  :height="sizeH"
+  :height="sizeH ? sizeH : '40px'"
+  :width="sizeW ? sizeW : '40px'"
   xmlns="http://www.w3.org/2000/svg">
   <use :xlink:href="iconPath" xmlns:xlink="http://www.w3.org/1999/xlink"/>
 </svg>

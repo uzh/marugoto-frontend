@@ -1,12 +1,28 @@
 <div class="image-component" :class="imageZoomed ? 'active' : ''">
   <!-- Zoom off -->
   <div v-if="!imageZoomed">
-    <div v-if="gallerySlide">
-      <div @click="prevImage">Prev</div>
-      <div @click="nextImage">Next</div>
-      <div>{{ sourceIndex + 1 }} / {{ dummyList.length }}</div>
+    <div class="image-gallery-container">
+      <div 
+        v-if="gallerySlide"
+        class="image-slider-arrow prev-arrow"
+        @click="prevImage">
+        <SvgIcon class="icon" customColor="#fff" name="arrow-left" />
+      </div>
+
+      <img :src="`${dummyList[sourceIndex].path}`">
+
+      <div 
+        v-if="gallerySlide"
+        class="image-slider-arrow next-arrow"
+        @click="nextImage" >
+        <SvgIcon class="icon" customColor="#fff" name="arrow-right" />
+      </div>
     </div>
-    <img :src="`${resourcesPath}${sourceList[sourceIndex].path}`">
+    <div 
+      v-if="gallerySlide"
+      class="image-slider-counter">
+        {{ sourceIndex + 1 }} / {{ dummyList.length }}
+    </div>
     <vue-markdown
       class="image-caption"
       :style="{ 'margin-left': captionOffset }"
@@ -15,7 +31,7 @@
       v-if="zoomable"
       class="zoom-in"
       @click="toggleZoom">
-      <SvgIcon class="icon" name="zoom-in" />
+      <SvgIcon class="icon" name="zoom-in" customColor="#fff" />
     </div>
   </div>
   <!-- Zoom on -->
@@ -23,15 +39,15 @@
     <div
       class="image-container"
       :style="{width: zoomLevel == 0 ? '50%' : zoomLevel == 1 ? '60%' : zoomLevel == 2 ? '70%' : zoomLevel == 3 ? '80%' : zoomLevel == 4 ? '90%' : '100%'}">
-      <img :src="`${resourcesPath}${sourceList[sourceIndex].path}`">
+      <img :src="`${dummyList[sourceIndex].path}`">
       <div class="zoom-out" @click="toggleZoom">
-        <SvgIcon class="icon" name="zoom-out" />
+        <SvgIcon class="icon" name="zoom-out" customColor="#fff" />
       </div>
       <div class="zoom-plus" @click="incZoom">
-        <SvgIcon class="icon" name="plus" />
+        <SvgIcon class="icon" name="plus" customColor="#fff"/>
       </div>
       <div class="zoom-minus" @click="decZoom">
-        <SvgIcon class="icon" name="minus" />
+        <SvgIcon class="icon" name="minus" customColor="#fff"/>
       </div>
     </div>
   </div>
