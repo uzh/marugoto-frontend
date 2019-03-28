@@ -216,7 +216,7 @@ $chapterHeight: 80px;
             p {
                 font-size: 17px;
                 line-height: 26px;
-                letter-spacing: 0.2ch;
+                letter-spacing: 0.2px;
             }
         }
 
@@ -232,7 +232,7 @@ $chapterHeight: 80px;
                 font-family: 'Kalam Light';
                 font-size: 20px;
                 line-height: 32px;
-                letter-spacing: 0.08ch;
+                letter-spacing: 0.08px;
                 border-bottom: 2px solid $black;
             }
 
@@ -258,7 +258,7 @@ $chapterHeight: 80px;
                 padding-top: 30px;
                 font-size: 17px;
                 line-height: 26px;
-                letter-spacing: 0.2ch;
+                letter-spacing: 0.2px;
             }
         }
 
@@ -321,7 +321,7 @@ $chapterHeight: 80px;
         font-family: 'Kalam Light';
         font-size: 20px;
         line-height: 32px;
-        letter-spacing: 0.08ch;
+        letter-spacing: 0.08px;
 
         background-color: $base-uicolor-4;
     }
@@ -349,7 +349,7 @@ $chapterHeight: 80px;
                 font-family: 'Kalam Light';
                 font-size: 20px;
                 line-height: 32px;
-                letter-spacing: 0.2ch;
+                letter-spacing: 0.2px;
                 background-color: $base-uicolor-4;
                 background-image: none;
                 box-shadow: inset 2px 0 0 0 #2F3133;
@@ -370,7 +370,7 @@ $chapterHeight: 80px;
         color: #2F3133;
         font-size: 20px;
         line-height: 32px;
-        letter-spacing: 0.2ch;
+        letter-spacing: 0.2px;
         overflow-y: hidden;
         background-image: -moz-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
         background-image: -webkit-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
