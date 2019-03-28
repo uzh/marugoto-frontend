@@ -110,7 +110,7 @@ export default {
 
       // Check if page has got timeLimit for transition trigger
       if( newVal.hasOwnProperty('timeLimit') ){
-        new Timer(5,                   // Transition time newVal.timeLimit
+        new Timer(newVal.timeLimit,                   // Transition time
           this.requestPageTransition,                 // Callback
           this.get_transitions[0].pageTransition.id)  // Callback payload
           .start();

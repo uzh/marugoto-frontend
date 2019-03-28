@@ -6,9 +6,9 @@
       <div class="title">
         <h1>Your games</h1>
       </div>
-      <!-- <div class="supervise-game">
+      <div class="supervise-game">
         <Btn text="Supervise Group Game" ghost="true" iconName="arrow-right" />
-      </div> -->
+      </div>
     </div>
     <!-- Lead text -->
     <div class="lead lead-text">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</div>
@@ -16,14 +16,14 @@
     <div class="start-game">
       <Btn text="Start New Game" primary="true" iconName="plus" iconColor="#fff" @click.native="goToTopics" />
     </div>
-    <div class="class-games">
+    <div v-if="get_games.classroomGames.length > 0" class="class-games">
       <h5>Games within classes</h5>
       <DownloadList
         v-for="(item, index) in get_games.classroomGames"
         :key="index"
         :title="item.topic.title" />
     </div>
-    <div class="open-games">
+    <div v-if="get_games.openGames.length > 0" class="open-games">
       <h5>Open Games</h5>
       <DownloadList
       v-for="(item, index) in get_games.openGames"
@@ -32,7 +32,7 @@
       :title="item.topic.title"
       @emitContinue="continueGame(item.id, item)" />
     </div>
-    <div class="finished-games">
+    <div v-if="get_games.finishedGames.length > 0" class="finished-games">
       <h5>Finished Games</h5>
       <DownloadList
         v-for="(item, index) in get_games.finishedGames"
@@ -40,7 +40,7 @@
         :title="item.topic.title" />
     </div>
     <!-- <div class="delete-account">
-      <Btn  text="Delete Account" ghost="true" iconName="cancel" />
+      <Btn text="Delete Account" ghost="true" iconName="cancel" />
     </div> -->
   </div>
 </template>

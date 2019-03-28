@@ -32,8 +32,27 @@
       <!-- Text Exercise Component -->
       <div
         v-if="component.type == 'TextExercise'"
+        class="notebook-page-text-exercise">
+        <div>
+          <div class="title"></div>
+          <div class="question"></div>
+          <div class="text-sticker"></div>
+          <vue-markdown class="text-exercise-answer" v-if="component.exerciseState.formatedInput" :source="component.exerciseState.formatedInput" />
+        </div>
+      </div>
+      <!-- Text Component -->
+      <div
+        v-if="component.type == 'TextComponent'"
         class="notebook-page-text">
-        <vue-markdown :source="component.exerciseState.formatedInput" />
+        <vue-markdown :source="component.component.markdownContent" />
+      </div>
+      <!-- Mail Response Component -->
+      <div
+        v-if="component.hasOwnProperty('mailState')"
+        class="notebook-mail-response">
+        <div v-for="(reply, index) in component.mailState.mailReplyList" :key="index">
+          <div class="notebook-mail-reply-message">{{ reply.body }}</div>
+        </div>
       </div>
       <!-- Personal Note -->
       <div

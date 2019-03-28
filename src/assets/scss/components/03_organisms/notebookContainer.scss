@@ -132,6 +132,8 @@ $chapterHeight: 80px;
     }
 }
 
+
+
 // Notebook pages
 .notebook-content {
     // Height is set using JS as it is dinamic
@@ -143,6 +145,33 @@ $chapterHeight: 80px;
 
     .pageDisplay{
         display: none;
+
+        .notebook-header {
+            display: table;
+            height: 90px;
+            margin-bottom: 40px;
+            padding: 0;
+            background-color: $base-uicolor-4;
+            border-bottom: 1px solid $base-uicolor-2;
+    
+            .title{
+                display: table-cell;
+                vertical-align: middle;
+                width: 90%;
+    
+                p {
+                    @extend .h5;
+                    font-family: inherit;
+                }
+            }
+            
+            & .icon {
+                width: 10%;
+                display: table-cell;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        }
 
         .notebook-page-image {
             height: auto;
@@ -190,32 +219,25 @@ $chapterHeight: 80px;
                 letter-spacing: 0.2px;
             }
         }
-    }
 
-    .notebook-header {
-        display: table;
-        height: 90px;
-        margin-bottom: 40px;
-        padding: 0;
-        background-color: $base-uicolor-4;
-        border-bottom: 1px solid $base-uicolor-2;
-
-        .title{
-            display: table-cell;
-            vertical-align: middle;
-            width: 90%;
-
+        .notebook-page-text-exercise {
+            color: #2F3133;
+            margin-bottom: 40px;
+            
             p {
-                @extend .h5;
-                font-family: inherit;
+                font-size: 17px;
+                line-height: 26px;
+                letter-spacing: 0.2px;
             }
         }
-        
-        & .icon {
-            width: 10%;
-            display: table-cell;
-            vertical-align: middle;
-            cursor: pointer;
+
+        .notebook-mail-response {
+
+            .notebook-mail-reply-message {
+                font-family: 'Kalam-Light';
+                padding-bottom: 40px;
+                border-bottom: 1px solid $base-uicolor-2;
+            }
         }
     }
 
