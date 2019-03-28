@@ -216,18 +216,49 @@ $chapterHeight: 80px;
             p {
                 font-size: 17px;
                 line-height: 26px;
-                letter-spacing: 0.2px;
+                letter-spacing: 0.2ch;
             }
         }
 
         .notebook-page-text-exercise {
             color: #2F3133;
             margin-bottom: 40px;
+
+            .title {
+                display: inline-block;
+                height: 39px;
+                padding-top: 9px;
+                margin-bottom: 7px;
+                font-family: 'Kalam Light';
+                font-size: 20px;
+                line-height: 32px;
+                letter-spacing: 0.08ch;
+                border-bottom: 2px solid $black;
+            }
+
+            .question {
+                margin-top: 6px;
+                display: block;
+            }
+
+            .text-sticker {
+                display: none;
+                position: absolute;
+                top: -60px;
+                left: calc(50% - 22px);
+                height: 125px;
+                width: 44px;
+                background-color: $white;
+                background: url('assets/images/sticker.png');
+                z-index: 1;
+                transform: rotate(-90deg);
+            }
             
             p {
+                padding-top: 30px;
                 font-size: 17px;
                 line-height: 26px;
-                letter-spacing: 0.2px;
+                letter-spacing: 0.2ch;
             }
         }
 
@@ -290,7 +321,7 @@ $chapterHeight: 80px;
         font-family: 'Kalam Light';
         font-size: 20px;
         line-height: 32px;
-        letter-spacing: 0.08px;
+        letter-spacing: 0.08ch;
 
         background-color: $base-uicolor-4;
     }
@@ -318,7 +349,7 @@ $chapterHeight: 80px;
                 font-family: 'Kalam Light';
                 font-size: 20px;
                 line-height: 32px;
-                letter-spacing: 0.2px;
+                letter-spacing: 0.2ch;
                 background-color: $base-uicolor-4;
                 background-image: none;
                 box-shadow: inset 2px 0 0 0 #2F3133;
@@ -339,7 +370,7 @@ $chapterHeight: 80px;
         color: #2F3133;
         font-size: 20px;
         line-height: 32px;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.2ch;
         overflow-y: hidden;
         background-image: -moz-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
         background-image: -webkit-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);

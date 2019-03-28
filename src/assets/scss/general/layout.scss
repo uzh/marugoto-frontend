@@ -68,13 +68,13 @@ $border: 1px solid $base-uicolor-4;
         @extend .font;
         font-size: 17px;
         line-height: 25px;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.2ch;
 
         span {
           @extend .link;
           font-size: 17px;
           line-height: 25px;
-          letter-spacing: 0.2px;
+          letter-spacing: 0.2ch;
         }
       }
     }
@@ -103,7 +103,7 @@ $border: 1px solid $base-uicolor-4;
       p {
         font-size: 17px;
         line-height: 26px;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.2ch;
       }
 
       .choose-account {
@@ -130,7 +130,7 @@ $border: 1px solid $base-uicolor-4;
         color: $base-accent;
         font-size: 17px;
         line-height: 26px;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.2ch;
 
         p {
           margin: 10px 0;
@@ -142,7 +142,7 @@ $border: 1px solid $base-uicolor-4;
         color: $base-secondary;
         font-size: 17px;
         line-height: 26px;
-        letter-spacing: 0.2px;
+        letter-spacing: 0.2ch;
         p {
           margin: 10px 0;
         }

@@ -34,8 +34,8 @@
         v-if="component.type == 'TextExercise'"
         class="notebook-page-text-exercise">
         <div>
-          <div class="title"></div>
-          <div class="question"></div>
+          <div class="title">My Answer</div>
+          <div class="question small">Insert the question here?</div>
           <div class="text-sticker"></div>
           <vue-markdown class="text-exercise-answer" v-if="component.exerciseState.formatedInput" :source="component.exerciseState.formatedInput" />
         </div>
