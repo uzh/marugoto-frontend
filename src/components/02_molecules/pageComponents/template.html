@@ -2,6 +2,7 @@
   <div 
     v-for="(component, index) in get_PageComponents"
     :key="index"
+    class="component-wrapper"
     :class="`col-xs-${component.component.numberOfColumns - 2} col-xs-offset-${component.component.offsetColumns || 1}`" >
     <!-- Text -->
     <vue-markdown class="mb-40"

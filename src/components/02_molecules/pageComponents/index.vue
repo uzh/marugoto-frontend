@@ -217,5 +217,26 @@ export default {
       }
     }
   },
+  watch: {
+    "get_layoutState.notebook.opened": function(newVal, oldVal) {
+      if( newVal != oldVal && newVal ){
+        
+        setTimeout(function(){
+          let listOfElements = document.querySelectorAll('.component-wrapper');
+          listOfElements.forEach(element => {
+            element.classList.add('col-xs-12-important');
+          });
+        }, 100);
+        
+      }else{
+        setTimeout(function(){
+          let listOfElements = document.querySelectorAll('.component-wrapper');
+          listOfElements.forEach(element => {
+            element.classList.remove('col-xs-12-important');
+          });
+        }, 100);
+      }
+    },
+  },
 }
 </script>
