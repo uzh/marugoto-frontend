@@ -9,7 +9,7 @@
         <SvgIcon class="icon" customColor="#fff" name="arrow-left" />
       </div>
 
-      <img :src="`${dummyList[sourceIndex].path}`">
+      <img :src="`${resourcesPath}${sourceList[sourceIndex].path}`">
 
       <div 
         v-if="gallerySlide"
@@ -21,7 +21,7 @@
     <div 
       v-if="gallerySlide"
       class="image-slider-counter">
-        {{ sourceIndex + 1 }} / {{ dummyList.length }}
+        {{ sourceIndex + 1 }} / {{ sourceList.length }}
     </div>
     <vue-markdown
       class="image-caption"
@@ -39,7 +39,7 @@
     <div
       class="image-container"
       :style="{width: zoomLevel == 0 ? '50%' : zoomLevel == 1 ? '60%' : zoomLevel == 2 ? '70%' : zoomLevel == 3 ? '80%' : zoomLevel == 4 ? '90%' : '100%'}">
-      <img :src="`${dummyList[sourceIndex].path}`">
+      <img :src="`${resourcesPath}${sourceList[sourceIndex].path}`">
       <div class="zoom-out" @click="toggleZoom">
         <SvgIcon class="icon" name="zoom-out" customColor="#fff" />
       </div>
