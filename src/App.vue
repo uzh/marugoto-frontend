@@ -50,7 +50,7 @@ export default{
         self.$refs.pageContainer.classList.add('page-container-transitionOn');
         setTimeout(function() {
           self.$refs.pageContainer.classList.add('page-container-opacityOff');
-        }, 100);
+        }, 0);
         setTimeout(function() {
           self.$refs.pageContainer.classList.add('page-container-halved');
         }, 150);
@@ -62,7 +62,7 @@ export default{
         setTimeout(function() {
           self.$refs.pageContainer.classList.add('page-container-opacityOff');
           self.$refs.pageContainer.classList.remove('page-container-opacityOn');
-        }, 100);
+        }, 0);
         setTimeout(function() {
           self.$refs.pageContainer.classList.remove('page-container-halved');
         }, 150);

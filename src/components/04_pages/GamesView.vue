@@ -16,14 +16,14 @@
     <div class="start-game">
       <Btn text="Start New Game" primary="true" iconName="plus" iconColor="#fff" @click.native="goToTopics" />
     </div>
-    <div class="class-games">
+    <div class="class-games" v-if="get_games.classroomGames.length > 0">
       <h5>Games within classes</h5>
       <DownloadList
         v-for="(item, index) in get_games.classroomGames"
         :key="index"
         :title="item.topic.title" />
     </div>
-    <div class="open-games">
+    <div class="open-games" v-if="get_games.openGames.length > 0">
       <h5>Open Games</h5>
       <DownloadList
       v-for="(item, index) in get_games.openGames"
@@ -32,7 +32,7 @@
       :title="item.topic.title"
       @emitContinue="continueGame(item.id, item)" />
     </div>
-    <div class="finished-games">
+    <div class="finished-games" v-if="get_games.finishedGames.length > 0">
       <h5>Finished Games</h5>
       <DownloadList
         v-for="(item, index) in get_games.finishedGames"
