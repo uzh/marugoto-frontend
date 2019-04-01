@@ -22,7 +22,10 @@ export default {
       this.$store.dispatch('SAVE_MAIL_REPLY', {
         id,
         text: this.$refs[`mailArea${id}`].value,
-      }).then(() => this.sendingMail = false);
+      }).then(() => {
+        this.sendingMail = false;
+        this.$store.dispatch('LAYOUT_CLOSE', 'mail');
+      });
     },
     autoGrow: function(element) {
       element.style.height = 'auto';
