@@ -3,12 +3,12 @@
     v-for="(component, index) in get_PageComponents"
     :key="index"
     class="component-wrapper"
-    :class="`col-xs-${component.component.numberOfColumns - 2} col-xs-offset-${component.component.offsetColumns || 1}`" >
+    :class="`col-xs-${component.component.numberOfColumns} col-xs-offset-${component.component.offsetColumns}`" >
     <!-- Text -->
     <vue-markdown class="mb-40"
       :style="{
-          'margin-left': component.component.numberOfColumns == 12 || get_layoutState.notebook.opened ? '10%' : '',
-          'margin-right': component.component.numberOfColumns == 12 || get_layoutState.notebook.opened ? '10%' : ''
+          'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
+          'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
         }"
       v-if="component.type == 'TextComponent'" 
       :source="component.component.markdownContent" />
@@ -26,7 +26,7 @@
       v-if="component.type == 'ImageComponent'"
       :sourceList="component.component.images"
       :text="component.component.caption"
-      :captionOffset="component.component.numberOfColumns == 12 || get_layoutState.notebook.opened ? '10%' : '25%'"
+      :captionOffset="component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '25%'"
       :zoomable="component.component.zoomable" />
     <!-- Date Component -->
     <div v-if="component.type == 'DateExercise'" class="mb-40">
@@ -101,7 +101,7 @@
           <div
             id="audio-play-small"
             @click="togglePlayAudio">
-            <SvgIcon :name="audioPaused ? 'play-small' : 'pause-small'" sizeH="16px" />
+            <SvgIcon :name="audioPaused ? 'play' : 'pause'" sizeH="16px" />
           </div>
           <div id="audio-time-passed" class="small">
             {{ audioCurrentTime }} / {{ audioDuration }}
@@ -110,7 +110,7 @@
       </div>
       <vue-markdown
         class="audio-caption mb-40"
-        :style="{'margin-left': component.component.numberOfColumns == 12 ? '10%' : ''}"
+        :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}"
         :source="component.component.caption" />
     </div>
     <!-- Video component -->
@@ -161,7 +161,7 @@
       </div>
       <vue-markdown
         class="video-caption mb-40"
-        :style="{'margin-left': component.component.numberOfColumns == 12 ? '10%' : ''}"
+        :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}"
         :source="component.component.caption" />
     </div>
   </div>

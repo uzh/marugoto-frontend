@@ -10,7 +10,7 @@
       <NotebookContainer v-if="get_layoutState.statusbarVisible" />
       <MailContainer v-if="get_layoutState.statusbarVisible" />
       <NotificationCmpt 
-        v-if="get_mailNotificationState" 
+        v-if="get_layoutState.statusbarVisible && get_mailNotificationState" 
         :mailArrived="get_mailNotificationState" 
         :mailSender="get_mails" />
     </div>
