@@ -103,7 +103,7 @@ export default {
     },
   },
   watch: {
-    get_page: function(newVal, oldVal) {
+    "get_page.id": function(newVal, oldVal) {
       if( newVal != oldVal ){
         document.querySelector('.page-container').scrollTop = 0;
       }

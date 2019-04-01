@@ -21,7 +21,7 @@ export default {
     ...mapGetters([ 'get_layoutState', 'get_notebook' ]),
   },
   mounted: function() {
-    this.scrollNotebookContent(90);
+    this.scrollNotebookContent(10);
   },
   methods: {
     scrollNotebookContent: function(val) {
