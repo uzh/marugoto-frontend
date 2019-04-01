@@ -100,7 +100,8 @@
 
   &.in {
     left: 0;
-    width: calc(100% - 90px);
+    width: 100%;
+    padding-right: 110px;
     margin-left: 20px;
     padding-left: 20px;
     z-index: 10;

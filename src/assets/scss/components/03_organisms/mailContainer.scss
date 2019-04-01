@@ -2,7 +2,8 @@
   position: absolute;
   top: $elements-space;
   left: 110%;
-  width: calc(100% - 90px);
+  width: 100%;
+  padding-right: 90px;
   background: white;
   z-index: 10;
   opacity: 0;
