@@ -203,7 +203,7 @@ export default({
     let id = payload.id;
     return apiService.post(`notebook/${id}/personalNote?markdownContent=${payload.text}`)
     .then(() => {
-      dispatch('REQUEST_PERSONAL_NOTE', `notebookEntry/${id}`);
+      // dispatch('REQUEST_PERSONAL_NOTE', `notebookEntry/${id}`);
     })
     .catch(err => {
       throw(err);

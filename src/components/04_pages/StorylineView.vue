@@ -4,7 +4,7 @@
       <div class="storyline-title col-xs-12">
         <div class="page-title-icon-container col-xs-2"> 
           <img 
-            v-if="get_page.hasOwnProperty('chapter').hasOwnProperty('icon')" 
+            v-if="get_page.chapter && get_page.chapter.icon" 
             class="icon" 
             :src="`${resourcesPath}${get_page.chapter.icon.path}`">
         </div>
