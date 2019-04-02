@@ -12,8 +12,8 @@ $chapterHeight: 80px;
 
     &.in {
         right: 90px;
-        width: calc(50% - 45px);
-        padding-right: 0;
+        width: 50%;
+        padding-left: 45px;
     }
 
     &.open-entries-menu {
@@ -36,9 +36,9 @@ $chapterHeight: 80px;
 .notebook-list {
     position: fixed;
     top: 0;
-    width: calc(50% - 45px);
-    height: calc(100vh - 90px);
-    padding: 100px;
+    width: 50%;
+    height: 100vh;
+    padding: 180px 90px 180px 45px;
     background-color: #0C0C0D;
     overflow: scroll;
     z-index: 1;
@@ -181,13 +181,13 @@ $chapterHeight: 80px;
             .image-sticker {
                 position: absolute;
                 top: -60px;
-                left: calc(50% - 22px);
+                left: 50%;
                 height: 125px;
                 width: 44px;
                 background-color: $white;
                 background: url('assets/images/sticker.png');
                 z-index: 1;
-                transform: rotate(-90deg);
+                transform: rotate(-90deg) translateY(-22px);
             }
 
             img {
@@ -245,13 +245,13 @@ $chapterHeight: 80px;
                 display: none;
                 position: absolute;
                 top: -60px;
-                left: calc(50% - 22px);
+                left: 50%;
                 height: 125px;
                 width: 44px;
                 background-color: $white;
                 background: url('assets/images/sticker.png');
                 z-index: 1;
-                transform: rotate(-90deg);
+                transform: rotate(-90deg) translateY(-22px);
             }
             
             p {
