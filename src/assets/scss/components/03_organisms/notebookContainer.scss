@@ -9,6 +9,7 @@ $chapterHeight: 80px;
     width: 50%;
     height: 100vh;
     transition: all 0.3s;
+    // border-right: 1px dashed #D2CFCD;//#D2CFCD;
 
     &.in{
         right: 90px;
@@ -26,9 +27,21 @@ $chapterHeight: 80px;
         overflow: hidden;
         height: 100%;
         text-align: center;
-        border-left: $border;
-        border-right: $border;
-        background-color: $base-uicolor-2;
+        background: linear-gradient(90deg, rgba(230,227,225,1) 0%, rgba(230,227,225,1) 80%, rgba(236,234,232,1) 100%);
+    }
+}
+
+.svg-border{
+    width: 1px;
+    height: 100%;
+    position: fixed;
+    right: 89px;
+    top: 0;
+    overflow: hidden;
+    z-index: 999;
+    path{
+        stroke-dasharray: 8;
+        stroke: #b8b8b8;
     }
 }
 
@@ -312,8 +325,8 @@ $chapterHeight: 80px;
         line-height: 32px;
         letter-spacing: 0.2px;
         overflow-y: hidden;
-        background-image: -moz-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
-        background-image: -webkit-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
+        background-image: -moz-linear-gradient(top , transparent, transparent 31px,$base-gradient-color 0px);
+        background-image: -webkit-linear-gradient(top , transparent, transparent 31px,$base-gradient-color 0px);
         -webkit-background-size: 100% 32px;
         background-size: 100% 32px;
 

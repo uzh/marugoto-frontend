@@ -17,7 +17,8 @@ export default {
       sourceIndex: 0,
       dummyList: [
         {path: 'http://s2.glbimg.com/-DBjjL8oYQwHmpEfsjpl-XwK068=/620x413/e.glbimg.com/og/ed/f/original/2016/11/04/troller-bold-12.jpg'},
-        {path: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWHHABUD4qvBkAe3SIxa8QbbNhemwnieoTUgA8SkU_lSUGhLgg'}
+        {path: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWHHABUD4qvBkAe3SIxa8QbbNhemwnieoTUgA8SkU_lSUGhLgg'},
+        {path: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5r56z0K2SRdUdodhz7Yv7fGthoEHHvJ4bUpEHMzoI4HpVq0yn'}
       ]
     }
   },

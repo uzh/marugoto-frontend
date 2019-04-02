@@ -3,7 +3,7 @@
   <div v-if="!imageZoomed">
     <div class="image-gallery-container">
       <div 
-        v-if="gallerySlide"
+        v-if="gallerySlide && sourceIndex > 0"
         class="image-slider-arrow prev-arrow"
         @click="prevImage">
         <SvgIcon class="icon" customColor="#fff" name="arrow-left" />
@@ -12,7 +12,7 @@
       <img :src="`${resourcesPath}${sourceList[sourceIndex].path}`">
 
       <div 
-        v-if="gallerySlide"
+        v-if="gallerySlide && sourceIndex + 1 < sourceList.length"
         class="image-slider-arrow next-arrow"
         @click="nextImage" >
         <SvgIcon class="icon" customColor="#fff" name="arrow-right" />

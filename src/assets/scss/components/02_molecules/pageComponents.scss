@@ -62,8 +62,8 @@
                     font-size: 17px;
                     line-height: 32px;
                     letter-spacing: 0.2px;
-                    background-image: -moz-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
-                    background-image: -webkit-linear-gradient(top , transparent, transparent 31px,#E7EFF8 0px);
+                    background-image: -moz-linear-gradient(top , transparent, transparent 31px,$base-gradient-color 0px);
+                    background-image: -webkit-linear-gradient(top , transparent, transparent 31px,$base-gradient-color 0px);
                     -webkit-background-size: 100% 32px;
                     background-size: 100% 32px;
                 }

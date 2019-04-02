@@ -1,18 +1,36 @@
 <div>
+  <!-- SVG for border on notebook -->
+  <svg v-if="get_layoutState.notebook.opened" class="svg-border" xmlns="http://www.w3.org/2000/svg">
+    <path d="M.5.5v10000" stroke-width="1" fill="none" fill-rule="evenodd" stroke-linecap="square"/>
+  </svg>
   <!-- MAIL SIDEBAR -->
-  <div class="mail-sidebar-open" :class="get_layoutState.notebook.opened ? 'notebook-in' : ''" @click="switchMailLayout(true)">
-    <div class="open">
-      <img src="@/assets/images/mail.svg" />
+  <div 
+    class="mail-sidebar-btn-wrap"
+    :class="[
+      get_layoutState.mail.opened ? 'in' : '',
+      get_layoutState.notebook.opened ? 'notebook-in' : ''
+    ]"
+    >
+    <div 
+      ref="mailBtnOpen" 
+      class="mail-sidebar-icon"
+      @click="switchMailLayout(true)">
+        <div class="icon-holder">
+          <SvgIcon name="mail" customColor="#000" />
+        </div>
+        <div 
+          class="new-mail-notification"
+          v-if="get_mailNotificationState > 0">
+          {{ get_mailNotificationState }}
+        </div>
     </div>
     <div 
-      class="new-mail-notification"
-      v-if="get_mailNotificationState > 0">
-      {{ get_mailNotificationState }}
-    </div>
-  </div>
-  <div class="mail-sidebar-close" :class="get_layoutState.mail.opened ? 'in' : ''" @click="switchMailLayout(false)">
-    <div class="close">
-      <img src="@/assets/images/close.svg" />
+      ref="mailBtnClose"
+      class="mail-sidebar-icon" 
+      @click="switchMailLayout(false)">
+        <div class="icon-holder">
+          <SvgIcon name="cancel" customColor="#000" />
+        </div>
     </div>
   </div>
   <div class="mail-sidebar clear-float" :class="get_layoutState.mail.opened ? 'in' : ''">

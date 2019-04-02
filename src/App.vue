@@ -7,8 +7,8 @@
         <router-view />
       </div>
       <RightSidebar v-if="get_layoutState.statusbarVisible" @emitContainerOpen="animateContainer" />
-      <NotebookContainer v-if="get_layoutState.statusbarVisible" />
       <MailContainer v-if="get_layoutState.statusbarVisible" />
+      <NotebookContainer v-if="get_layoutState.statusbarVisible" />
       <NotificationCmpt 
         v-if="get_mailNotificationState" 
         :mailArrived="get_mailNotificationState" 
