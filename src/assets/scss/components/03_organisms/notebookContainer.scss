@@ -26,6 +26,10 @@ $chapterHeight: 80px;
         height: 100%;
         text-align: center;
         background: linear-gradient(90deg, rgba(230,227,225,1) 0%, rgba(230,227,225,1) 80%, rgba(236,234,232,1) 100%);
+        line-height: 100vh;
+        background-color: $base-uicolor-2;
+        text-align: center;
+        overflow: hidden;
     }
 }
 
