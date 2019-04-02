@@ -15,50 +15,74 @@
         <SvgIcon name="dot-hamburger" customColor="#8C8B89" />
       </div>
     </div>
-    <!-- Notebook page body -->
-    <div class="mb-40 col-xs-10 col-xs-offset-1">
-      <div v-if="page.image" class="notebook-page-image">
-        <div class="image-sticker"></div>
-        <img :src="`${resourcesPath}${page.image.path}`" />
-        <vue-markdown class="image-caption" v-if="page.caption" :source="page.caption" />
-      </div>
-      <div class="notebook-page-text">
-        <vue-markdown v-if="page.text" :source="page.text" />
-      </div>
-      <!-- Personal notes -->
-      <div class="pt-40 border-top">
-        <ul>
-          <li 
-            v-for="(personalNote, index) in page.personalNotes"
-            :key="index"
-            v-if="page.personalNotes.length > 0">
-              <div class="added-personal-notes-box mb-40">
-                <p>20.5.2018 - 10:32 - {{ page.title }}</p>
-                <textarea readonly>{{ personalNote.markdownContent }}</textarea>
-              </div>
-          </li>
-        </ul>
-      </div>
-      <!-- Add personal note box -->
-      <div class="personal-note-box font pt-40" :class="openedPersonalNote ? 'active' : ''">
-        <div class="note" :class="noteChanged ? 'active' : ''">
-          <p>20.5.2018 - 10:48 - {{ page.title }}</p>
-          <textarea
-            :readonly="noteChanged"
-            @focus="changePersonalNote(true)"
-            @blur="changePersonalNote(false)"
-            v-model="personalNoteText"
-            v-on:keyup="checkTyping"></textarea>
-        </div>
-        <!-- Typing -->
-        <div v-if="personalNoteText != '' && !isAutosaved">
-          <div class="small go-right typing">Typing...</div>
-        </div>
-        <div v-if="personalNoteText != '' && isAutosaved">
-          <SvgIcon class="icon go-right" customColor="#8C8B89" name="check" />
-          <div class="small go-right autosaved">Autosaved</div>
+    <div
+      v-for="(component, index) in page.notebookContent"
+      :key="index"
+      class="mb-40 col-xs-10 col-xs-offset-1">
+      <!-- Image Component -->
+      <div
+        v-if="component.type == 'ImageComponent'"
+        class="notebook-page-image">
+        <div>
+          <div class="image-sticker"></div>
+          <img :src="`${resourcesPath}${component.component.images[0].path}`" />
+          <vue-markdown class="image-caption" v-if="component.component.caption" :source="component.component.caption" />
         </div>
       </div>
+      <!-- Text Exercise Component -->
+      <div
+        v-if="component.type == 'TextExercise'"
+        class="notebook-page-text-exercise">
+        <div>
+          <div class="title">My Answer</div>
+          <!-- <div class="question small">Insert the question here?</div>
+          <div class="text-sticker"></div> -->
+          <vue-markdown class="text-exercise-answer" v-if="component.exerciseState.formatedInput" :source="component.exerciseState.formatedInput" />
+        </div>
+      </div>
+      <!-- Text Component -->
+      <div
+        v-if="component.type == 'TextComponent'"
+        class="notebook-page-text">
+        <vue-markdown :source="component.component.markdownContent" />
+      </div>
+      <!-- Mail Response Component -->
+      <div
+        v-if="component.hasOwnProperty('mailState')"
+        class="notebook-mail-response">
+        <div v-for="(reply, index) in component.mailState.mailReplyList" :key="index">
+          <div class="notebook-mail-reply-message">{{ reply.body }}</div>
+        </div>
+      </div>
+      <!-- Personal Note -->
+      <div
+        v-if="component.type == 'PersonalNote'"
+        class="added-personal-notes-box mb-40">
+        <p>20.5.2018 - 10:32 - {{ page.title }}</p>
+        <vue-markdown :source="component.personalNote.markdownContent" />
+      </div>
+    </div>
+    <!-- Personal notes list -->
+    <div class="personal-note-box font pt-40 col-xs-10 col-xs-offset-1" :class="openedPersonalNote ? 'active' : ''">
+      <div class="note" :class="noteChanged ? 'active' : ''">
+        <p>20.5.2018 - 10:48 - {{ page.title }}</p>
+        <textarea
+          :readonly="noteChanged"
+          @focus="changePersonalNote(true)"
+          @blur="changePersonalNote(false)"
+          v-model="personalNoteText"
+          v-on:keyup="checkTyping"></textarea>
+      </div>
+      <div v-if="personalNoteText != '' && !isAutosaved">
+        <div class="small go-right typing">Typing...</div>
+      </div>
+      <div v-if="personalNoteText != '' && isAutosaved">
+        <svgIcon class="icon go-right" customColor="#8C8B89" name="check" />
+        <div class="small go-right autosaved">Autosaved</div>
+      </div>
+    </div>
+    <!-- Create personal note button -->
+    <div class="col-xs-10 col-xs-offset-1 mb-50">
       <Btn
         @click.native="addPersonalNote(page.id)"
         class="button-personal-note"

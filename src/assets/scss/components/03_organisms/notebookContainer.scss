@@ -1,30 +1,28 @@
 $chapterHeight: 80px;
 
-.notebook-container{
+.notebook-container {
     position: absolute;
     top: 0;
     right: -100%;
-    z-index: 10;
-    overflow: scroll;
     width: 50%;
     height: 100vh;
+    z-index: 10;
+    overflow: scroll;
     transition: all 0.3s;
     // border-right: 1px dashed #D2CFCD;//#D2CFCD;
 
-    &.in{
+    &.in {
         right: 90px;
-        width: calc(50% - 45px);
-        padding-right: 0;
+        width: 50%;
+        padding-left: 45px;
     }
 
-    &.open-entries-menu{
-        padding-top:  calc(100vh - 180px);
+    &.open-entries-menu {
+        padding-top: calc(100vh - 180px);
     }
 
     .empty-notebook {
         vertical-align: middle;
-        line-height: 100vh;
-        overflow: hidden;
         height: 100%;
         text-align: center;
         background: linear-gradient(90deg, rgba(230,227,225,1) 0%, rgba(230,227,225,1) 80%, rgba(236,234,232,1) 100%);
@@ -49,10 +47,10 @@ $chapterHeight: 80px;
 .notebook-list {
     position: fixed;
     top: 0;
-    width: calc(50% - 45px);
-    height: calc(100vh - 90px);
+    width: 50%;
+    height: 100vh;
+    padding: 180px 90px 180px 45px;
     background-color: #0C0C0D;
-    padding: 100px;
     overflow: scroll;
     z-index: 1;
 
@@ -92,8 +90,8 @@ $chapterHeight: 80px;
 
         .right {
             display: table-cell;
-            width: 90%;
             vertical-align: bottom;
+            width: 90%;
             position: relative;
 
             .current {
@@ -109,6 +107,7 @@ $chapterHeight: 80px;
                 width: 100%;
                 overflow: hidden;
                 text-overflow: clip;
+
                 p {
                     @extend .h5;
                     font-family: 'Libre Baskerville'
@@ -120,13 +119,13 @@ $chapterHeight: 80px;
 
 // Chapter menu
 .notebook-chapter-menu {
+    display: none;
     position: relative;
-    z-index: 1;
     width: 100%;
     height: $chapterHeight;
     padding-top: 5px;
     background-color: #0C0C0D;
-    display: none;
+    z-index: 1;
 
     &.displayed {
         display: block;
@@ -144,45 +143,78 @@ $chapterHeight: 80px;
     }
 }
 
+
+
 // Notebook pages
 .notebook-content {
     // Height is set using JS as it is dinamic
     position: relative;
-    z-index: 10;
-    background-color: #000;
     height: calc(100vh + 20px);
+    background-color: #000;
     overflow-x: hidden;
+    z-index: 10;
 
     .pageDisplay{
         display: none;
+
+        .notebook-header {
+            display: table;
+            height: 90px;
+            margin-bottom: 40px;
+            padding: 0;
+            background-color: $base-uicolor-4;
+            border-bottom: 1px solid $base-uicolor-2;
+    
+            .title{
+                display: table-cell;
+                vertical-align: middle;
+                width: 90%;
+    
+                p {
+                    @extend .h5;
+                    font-family: inherit;
+                }
+            }
+            
+            & .icon {
+                width: 10%;
+                display: table-cell;
+                vertical-align: middle;
+                cursor: pointer;
+            }
+        }
 
         .notebook-page-image {
             height: auto;
             margin-bottom: 20px;
             position: relative;
+
             .image-sticker {
                 position: absolute;
                 top: -60px;
-                left: calc(50% - 22px);
+                left: 50%;
                 height: 125px;
                 width: 44px;
                 background-color: $white;
-                z-index: 1;
                 background: url('assets/images/sticker.png');
-                transform: rotate(-90deg);
+                z-index: 1;
+                transform: rotate(-90deg) translateY(-22px);
             }
+
             img {
                 width: 100%;
                 transform: rotate(-3deg);
                 border: 5px solid $white;
             }
+
             .image-caption {
                 margin: 20px 0;
+
                 p {
                     @extend .small;
-                    font-family: inherit;
-                    text-align: left;
                     margin-top: 10px;
+                    text-align: left;
+                    font-family: inherit;
                     overflow: hidden;
                 }
             }
@@ -198,29 +230,56 @@ $chapterHeight: 80px;
                 letter-spacing: 0.2px;
             }
         }
-    }
 
-    .notebook-header {
-        display: table;
-        height: 90px;
-        margin-bottom: 40px;
-        padding: 0;
-        background-color: $base-uicolor-4;
-        border-bottom: 1px solid $base-uicolor-2;
-        .title{
-            width: 90%;
-            display: table-cell;
-            vertical-align: middle;
+        .notebook-page-text-exercise {
+            color: #2F3133;
+            margin-bottom: 40px;
+
+            .title {
+                display: inline-block;
+                height: 39px;
+                padding-top: 9px;
+                margin-bottom: 7px;
+                font-family: 'Kalam Light';
+                font-size: 20px;
+                line-height: 32px;
+                letter-spacing: 0.08px;
+                border-bottom: 2px solid $black;
+            }
+
+            .question {
+                margin-top: 6px;
+                display: block;
+            }
+
+            .text-sticker {
+                display: none;
+                position: absolute;
+                top: -60px;
+                left: 50%;
+                height: 125px;
+                width: 44px;
+                background-color: $white;
+                background: url('assets/images/sticker.png');
+                z-index: 1;
+                transform: rotate(-90deg) translateY(-22px);
+            }
+            
             p {
-                @extend .h5;
-                font-family: inherit;
+                padding-top: 30px;
+                font-size: 17px;
+                line-height: 26px;
+                letter-spacing: 0.2px;
             }
         }
-        & .icon {
-            width: 10%;
-            display: table-cell;
-            vertical-align: middle;
-            cursor: pointer;
+
+        .notebook-mail-response {
+
+            .notebook-mail-reply-message {
+                font-family: 'Kalam-Light';
+                padding-bottom: 40px;
+                border-bottom: 1px solid $base-uicolor-2;
+            }
         }
     }
 
@@ -281,7 +340,6 @@ $chapterHeight: 80px;
 
 .personal-note-box{
     z-index: 9;
-    width: 100%;
     display: none;
     transition: all 0.3s linear;
 

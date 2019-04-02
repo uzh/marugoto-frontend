@@ -24,14 +24,7 @@ export default {
       pageTransitionId: '',
     }
   },
-  created() {
-    var self = this;
-    if( this.list.length > 0 ){
-      setTimeout(function(){
-        self.$store.dispatch('REQUEST_PERSONAL_NOTE', self.list[self.currentEntry].id);
-      }, 1000);
-    }
-  },
+  
   updated() {
     this.pageTransitionId = this.get_transitions[0].pageTransition.id;
   },
@@ -87,7 +80,7 @@ export default {
     currentEntry: function(newVal, oldVal) {
       if( newVal != oldVal ){
         this.$store.dispatch('CHANGE_PERSONAL_NOTE_STATUS', false);
-        this.$store.dispatch('REQUEST_PERSONAL_NOTE', this.list[this.currentEntry].id);
+        //this.$store.dispatch('REQUEST_PERSONAL_NOTE', this.list[this.currentEntry].id);
         this.openedPersonalNote = false;
       }
     },

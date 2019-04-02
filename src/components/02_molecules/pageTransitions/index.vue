@@ -9,7 +9,7 @@ export default {
   components: { Btn },
   props: [ 'optionsList' ],
   computed: {
-    ...mapGetters([ 'get_transitions' ]),
+    ...mapGetters([ 'get_transitions', 'get_layoutState' ]),
   },
   methods: {
     emitTransition(id){

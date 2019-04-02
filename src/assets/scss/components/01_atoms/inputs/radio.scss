@@ -3,6 +3,7 @@ $width: 100%;
 
 .radio {
     display: block;
+
     .container {
         display: block;
         box-sizing: border-box;
@@ -12,19 +13,25 @@ $width: 100%;
         height: $height;
         width: $width;
         margin-bottom: 10px;
-        cursor: pointer;
-        font-size: 1rem;
-        user-select: none;
         overflow: hidden;
+        font-size: 1rem;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        cursor: pointer;
+
         &.disabled {
             opacity: 0.1;
         }
+
         input {
             position: absolute;
-            opacity: 0;
-            cursor: pointer;
             height: 0;
             width: 0;
+            opacity: 0;
+            cursor: pointer;
+
             &:checked ~ .checkmark {
                 background-color: $base-primary;
                 border: 1px solid $base-primary;

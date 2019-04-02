@@ -16,7 +16,7 @@
         bottom: 0;
         width: 100%;
 
-        .topic-box{
+        .topic-box {
             position: relative;
             width: 33%;
             float: left;
@@ -28,14 +28,16 @@
             }
 
             &:hover {
+
                 .topic-image {
-                    transform: translateY(-90%);
                     box-shadow: 0 7px 16px 0px rgba(0,0,0, 0.5);
+                    transform: translateY(-90%);
         
                     .image {
                         transform: rotate(2deg);
                     }
                 }
+
                 .topic-button {
                     display: block;
                 }
@@ -43,10 +45,10 @@
 
             .topic-image {
                 position: absolute;
-                z-index: 2;
                 top: 0;
                 left: 5%;
                 width: 90%;
+                z-index: 2;
                 transform: translateY(-20%) ;
                 transition: all 0.3s;
     
@@ -57,38 +59,39 @@
                     transition: all 0.3s;
                 }
             }
-            .folder-frontside{
+
+            .folder-frontside {
                 position: absolute;
                 top: 0;
                 left: 2px;
-                z-index: 4;
                 width: 60%;
                 padding-bottom: 8%;
-                transform: translateY(-95%);
-
                 background-color: $base-uicolor-4;
                 border-top-right-radius: 6px;
                 border-top-left-radius: 6px;
+                z-index: 4;
+                transform: translateY(-95%);
             }
-            .folder-backside{
+
+            .folder-backside {
                 position: absolute;
                 top: 0;
                 right: 2px;
-                z-index: 1;
                 width: 60%;
                 padding-bottom: 8%;
-                transform: translateY(-95%);
-
                 background-color: #D9D7D4;
                 border-top-right-radius: 6px;
-            }  
+                z-index: 1;
+                transform: translateY(-95%);
+            }
+
             .topic-folder {
                 position: relative;
-                z-index: 2;
                 width: 100%;
                 padding: 30px;
                 padding-bottom: 75%;
                 background-color: $base-uicolor-4;
+                z-index: 2;
                 transition: all 0.3s;
 
                 .title {
@@ -103,12 +106,13 @@
                     }
                 }
             }
+            
             .topic-button {
                 display: none;
                 position: absolute;
                 bottom: 30px;
-                left: 30px;
-                width: calc(100% - 60px);
+                left: 10%;
+                width: 80%;
                 overflow: hidden;
                 transition: all 0.3s;
             }

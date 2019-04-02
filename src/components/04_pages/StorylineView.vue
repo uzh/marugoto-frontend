@@ -4,7 +4,7 @@
       <div class="storyline-title col-xs-12">
         <div class="page-title-icon-container col-xs-2"> 
           <img 
-            v-if="get_page.hasOwnProperty('chapter').hasOwnProperty('icon')" 
+            v-if="get_page.chapter && get_page.chapter.icon" 
             class="icon" 
             :src="`${resourcesPath}${get_page.chapter.icon.path}`">
         </div>
@@ -111,7 +111,7 @@ export default {
     get_page: function(newVal) {
       // Check if page has got timeLimit for transition trigger
       if( newVal.hasOwnProperty('timeLimit') ){
-        new Timer(newVal.timeLimit,                   // Transition time
+        new Timer(newVal.timeLimit,                   // Transition time 
           this.requestPageTransition,                 // Callback
           this.get_transitions[0].pageTransition.id)  // Callback payload
           .start();

@@ -203,20 +203,7 @@ export default({
     let id = payload.id;
     return apiService.post(`notebook/${id}/personalNote?markdownContent=${payload.text}`)
     .then(() => {
-      dispatch('REQUEST_PERSONAL_NOTE', `notebookEntry/${id}`);
-    })
-    .catch(err => {
-      throw(err);
-    });
-  },
-  [types.REQUEST_PERSONAL_NOTE]: ({commit}, payload) => {
-    let path = payload.split('/')[1];
-    return apiService.get(`notebook/${path}/personalNote/list`)
-    .then(resp => {
-      commit(types.UPDATE_PERSONAL_NOTE_LIST, {
-        serverData: resp.data,
-        id: payload,
-      });
+      // dispatch('REQUEST_PERSONAL_NOTE', `notebookEntry/${id}`);
     })
     .catch(err => {
       throw(err);

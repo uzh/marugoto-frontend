@@ -13,6 +13,7 @@
 .button--primary {
     background-color: $base-primary;
     color: $white;
+
     &:hover {
         background-color: $base-primary-hover;
     }
@@ -21,6 +22,7 @@
 .button--secondary {
     background-color: $base-secondary;
     color: $white;
+    
     &:hover {
         background-color: $base-secondary-hover;
     }
@@ -29,6 +31,7 @@
 .button-ghost {
     background-color: $base-uicolor-4;
     color: $black;
+    
     &:hover {
         background-color: $base-uicolor-2;
     }

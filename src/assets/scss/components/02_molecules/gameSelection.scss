@@ -1,6 +1,7 @@
 .game-selection-container {
-    height: calc(100vh - 90px);
+    height: 100vh;
     padding-top: 140px;
+    margin-bottom: 90px;
 
     .header {
         display: table;
@@ -59,9 +60,9 @@
 
     .delete-account {
         display: table-cell;
-        float: right;
-        width: 30%;
         vertical-align: middle;
+        width: 30%;
+        float: right;
         margin-bottom: 50px;
     }
 }
