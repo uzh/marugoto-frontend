@@ -7,9 +7,9 @@
     <!-- Text -->
     <vue-markdown class="mb-40"
       :style="{
-          'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
-          'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
-        }"
+        'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
+        'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
+      }"
       v-if="component.type == 'TextComponent'" 
       :source="component.component.markdownContent" />
     <!-- Link -->
