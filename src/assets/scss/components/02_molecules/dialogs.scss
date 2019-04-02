@@ -40,12 +40,12 @@ $top: 90px;
     height: 100%;
     padding: 0 10px 0 45px;
 
-    .title {
-      @extend .h5;
-    }
-
     p {
-      font-family: inherit;
+
+      strong {
+        @extend .h5;
+        font-weight: normal;
+      }
     }
 
     .dialog-buttons-div {

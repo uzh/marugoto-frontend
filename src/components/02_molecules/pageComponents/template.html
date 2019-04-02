@@ -39,6 +39,10 @@
     <!-- Exercise Radio -->
     <ExerciseRadio
       class="mb-40"
+      :style="{
+        'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
+        'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
+      }"
       @emitRadioChange="submitAnswer"
       v-if="component.type == 'RadioButtonExercise'"
       :exerciseId="component.state.id"
@@ -47,6 +51,10 @@
     <!-- Exercise Checkbox -->
     <ExerciseCheckbox
       class="mb-40"
+      :style="{
+        'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
+        'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
+      }"
       @emitCheckboxChange="submitAnswer"
       v-if="component.type == 'CheckboxExercise'"
       :exerciseId="component.state.id"

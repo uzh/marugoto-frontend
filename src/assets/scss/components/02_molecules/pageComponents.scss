@@ -30,6 +30,8 @@
 
             .page-title {
                 width: 80%;
+                float: left;
+                padding: 0 10px;
 
                 p {
                     @extend .h1;
