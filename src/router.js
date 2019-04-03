@@ -102,7 +102,7 @@ const router = new Router({
 router.beforeEach((to, from, next) => {
   // console.log('=============== GUARD ON ===============')
   if( !store.getters.get_status.isLoged ){
-    document.body.classList.add('sidebar-page-padding-right');
+    document.body.classList = 'sidebar-page-padding-right';
     store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
     if( to.name == 'register' || to.name == 'login' || to.name == 'reset' ){
       // console.log('Go to: ', to.name)
