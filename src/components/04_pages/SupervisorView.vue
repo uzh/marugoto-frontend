@@ -6,7 +6,7 @@
         <div class="title">
           <div class="h6">Classes</div>
           <div class="line-divide"></div>
-          <div class="h5">Classname</div>
+          <input class="h5" placeholder="Classname" v-model="classname">
         </div>
         <div class="sign-out small">Sign Out</div>
         <div class="profile-photo"></div>
@@ -20,14 +20,14 @@
         </div>
         <!-- Invitation Link -->
         <div class="invitation-link">
-          <Btn ghost="true" :text="invitationLink" iconName="copy" @click.native="copyInvitationLink" />
+          <Btn ghost="true" :text="invitationLink" iconName="copy" v-clipboard="invitationLink" />
         </div>
         <!-- Date Picker -->
         <div class="date-picker">
           <v-date-picker
             class="start-date"
             :formats='formats'
-            @dayclick="dateEmit($event)"
+            @dayclick="startDateEmit($event)"
             v-model="classStartDate">
           </v-date-picker>
           <div class="arrow-icon">
@@ -36,7 +36,7 @@
           <v-date-picker
             class="end-date"
             :formats='formats'
-            @dayclick="dateEmit($event)"
+            @dayclick="endDateEmit($event)"
             v-model="classEndDate">
           </v-date-picker>
           <div class="calendar">
@@ -86,21 +86,22 @@ export default {
   components: { Btn, SvgIcon, Classroom },
   data() {
     return {
-      newClassPage: true,
+      newClassPage: false,
       classname: '',
       classnameDescription: '',
       classStartDate: null,
       classEndDate: null,
-      invitationLink: 'marugo.to/xsde7fg',
+      newStart: null,
+      newEnd: null,
+      invitationLink: '',
       formats: {
         title: 'MMMM YYYY',
         weekdays: 'WW',
         navMonths: 'MMM',
         input: ['DD.MM.YYYY'],
         dayPopover: 'L',
-        data: ['YYYY-MM-DD']
+        data: ['L', 'DD.MM.YYYY']
       },
-      dateFormated: '',
     }
   },
   created() {
@@ -109,7 +110,7 @@ export default {
   computed: {
     ...mapGetters([ 'get_classes' ]),
     enableStartCourse: function() {
-      if(this.classname == '' || this.classnameDescription == '' || this.classStartDate == null || this.classEndDate == null || this.invitationLink == '') {
+      if(this.classname == '' || this.classnameDescription == '' || this.classStartDate == null || this.classEndDate == null) {
         return true;
       } else {
         return false;
@@ -127,8 +128,8 @@ export default {
       this.$store.dispatch('ADD_NEW_CLASS', {
         name: this.classname,
         description: this.classnameDescription,
-        startClassAt: this.classStartDate,
-        endClassAt: this.classEndDate,
+        startClassAt: this.newStart,
+        endClassAt: this.newEnd,
         invitationLinkId: this.invitationLink,
       }).then(() => {
         this.$store.dispatch('UPDATE_CLASSES');
@@ -142,13 +143,15 @@ export default {
     goToMap: function() {
       alert('Go to map');
     },
-    copyInvitationLink: function() {
-      alert("Copied the text: " + this.invitationLink);
-    },
-    dateEmit: function(event) {
+    startDateEmit: function(event) {
       let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
       let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-      this.dateFormated = `${d}.${m}.${event.year}`;
+      this.newStart = `${d}.${m}.${event.year}`;
+    },
+    endDateEmit: function(event) {
+      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
+      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
+      this.newEnd = `${d}.${m}.${event.year}`;
     },
     changeClassname: function() {
       this.$refs.classname.focus();

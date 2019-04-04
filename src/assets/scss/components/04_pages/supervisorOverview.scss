@@ -25,9 +25,23 @@
                 background: url('assets/images/divider-line.png') center no-repeat;
             } 
 
-            .h5 {
+            input {
+                @extend .h5;
                 float: left;
                 line-height: 48px;
+
+                &::placeholder {
+                    color: $black;
+                    opacity: 1;
+                }
+                
+                &:-ms-input-placeholder {
+                    color: $black;
+                }
+                
+                &::-ms-input-placeholder {
+                    color: $black;
+                }
             }
         }
 
