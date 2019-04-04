@@ -26,6 +26,10 @@ export default ({
     }
   },
   games: {},
+  classes: {},
+  supervision: {
+    selected: false,
+  },
   topic: {
     selected: false,
     id: undefined,

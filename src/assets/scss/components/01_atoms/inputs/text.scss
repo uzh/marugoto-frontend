@@ -12,6 +12,7 @@ $width: 100%;
    &.disabled {
        color: $base-uicolor-2;
        border: $base-ghost-border;
+       pointer-events: none;
    }
 
    label {

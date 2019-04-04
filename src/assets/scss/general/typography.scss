@@ -9,18 +9,23 @@ body, input, textarea, label, .genderLabel {
 
 .h1 {
   @include font-size($h1);
+  font-weight: normal;
 }
 .h2 {
   @include font-size($h2);
+  font-weight: normal;
 }
 .h3 {
   @include font-size($h3);
+  font-weight: normal;
 }
 .h4 {
   @include font-size($h4);
+  font-weight: normal;
 }
 .h5 {
   @include font-size($h5);
+  font-weight: normal;
 }
 .h6 {
   @include font-size($h6);

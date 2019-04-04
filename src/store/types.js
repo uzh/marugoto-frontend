@@ -21,6 +21,13 @@ export const TOGGLE_SIDEBAR_VISIBILITY = 'TOGGLE_SIDEBAR_VISIBILITY';
 export const UPDATE_GAMES = 'UPDATE_GAMES';
 export const CONTINUE_GAME = 'CONTINUE_GAME';
 
+// Classes
+export const UPDATE_CLASSES = 'UPDATE_CLASSES';
+export const ADD_NEW_CLASS = 'ADD_NEW_CLASS';
+
+// Supervision
+export const UPDATE_SUPERVISION = 'UPDATE_SUPERVISION';
+
 // Topic
 export const UPDATE_TOPIC_LIST = 'UPDATE_TOPIC_LIST';
 export const CHOOSE_TOPIC = 'CHOOSE_TOPIC';

@@ -110,6 +110,30 @@ export default({
       throw(err);
     });
   },
+  // CLASSES
+  [types.UPDATE_CLASSES]: ({commit}) => {
+    return apiService.get('/classroom/list')
+    .then(resp => {
+      commit('UPDATE_CLASSES', resp.data);
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.ADD_NEW_CLASS]: ({commit}, userInfo) => {
+    return apiService({url: '/classroom/new', data: userInfo, method: 'POST', })
+    .then(resp => {
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  // SUPERVISION
+  [types.UPDATE_SUPERVISION]: (context, payload) => {
+    context.commit(types.UPDATE_SUPERVISION, payload);
+  },
   // TOPIC
   [types.UPDATE_TOPIC_LIST]: ({commit}) => {
     return apiService.get('/topics/list')

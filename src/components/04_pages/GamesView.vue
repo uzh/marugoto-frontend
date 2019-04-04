@@ -7,7 +7,7 @@
         <h1>Your games</h1>
       </div>
       <div class="supervise-game">
-        <Btn text="Supervise Group Game" ghost="true" iconName="arrow-right" />
+        <Btn text="Supervise Group Game" ghost="true" iconName="arrow-right" @click.native="goToOverview"/>
       </div>
     </div>
     <!-- Lead text -->
@@ -64,10 +64,17 @@ export default {
   },
   created() {
     this.$store.dispatch('UPDATE_GAMES');
+    this.$store.dispatch('UPDATE_SUPERVISION', false);
   },
   methods: {
     goToTopics: function() {
       this.$router.push('/topics');
+    },
+    goToOverview: function() {
+      this.$store.dispatch('UPDATE_SUPERVISION', true)
+      .then(() => {
+        this.$router.push('/overview');
+      });
     },
     continueGame: function(gameID, item) {
       this.$store.dispatch('CONTINUE_GAME', gameID).then(() => {

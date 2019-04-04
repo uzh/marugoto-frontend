@@ -82,7 +82,7 @@ const router = new Router({
       component: SupervisorView,
       meta: {
         requireAuth: true,
-        role: 'supervisor'
+        role: 'player'
       },
     },
     {
@@ -113,7 +113,7 @@ router.beforeEach((to, from, next) => {
       next('/login')
     }
   }else{
-    if( store.getters.get_status.role === 'player' ){
+    if( store.getters.get_status.role === 'player' && !store.getters.get_supervision.selected ){
       document.body.classList = 'sidebar-page-padding-top sidebar-page-padding-right';
 
       if( to.name === 'home' && store.getters.get_topic.id != undefined ){
@@ -149,14 +149,23 @@ router.beforeEach((to, from, next) => {
         next(from.path);
       }
     }
-    else if( store.getters.get_status.role === 'supervisor'  ){
+    else if( store.getters.get_status.role === 'player' && store.getters.get_supervision.selected  ){
+      store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
       if( to.name === 'home' ){
+        document.body.classList = 'sidebar-page-padding-right';
         next('/overview');
       }
       else if( to.name === 'overview' ){
+        document.body.classList = 'sidebar-page-padding-right';
         next();
       }
-      next(from.path);
+      else if( to.name === 'games' ){
+        store.dispatch('UPDATE_SUPERVISION', false);
+        next();
+      }else{
+        next(from.path);
+      }
+      
     }
   }
 });

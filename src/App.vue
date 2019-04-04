@@ -6,7 +6,7 @@
         <Topbar v-if="get_layoutState.statusbarVisible"/>
         <router-view />
       </div>
-      <RightSidebar v-if="get_layoutState.statusbarVisible" @emitContainerOpen="animateContainer" />
+      <RightSidebar v-if="get_layoutState.statusbarVisible" />
       <MailContainer v-if="get_layoutState.statusbarVisible" />
       <NotebookContainer v-if="get_layoutState.statusbarVisible" />
       <NotificationCmpt 

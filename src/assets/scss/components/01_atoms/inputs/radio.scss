@@ -22,7 +22,8 @@ $width: 100%;
         cursor: pointer;
 
         &.disabled {
-            opacity: 0.1;
+            opacity: 0.2;
+            pointer-events: none;
         }
 
         input {

@@ -16,6 +16,12 @@ export default{
   get_games: state => {
     return state.games;
   },
+  get_classes: state => {
+    return state.classes;
+  },
+  get_supervision: state => {
+    return state.supervision;
+  },
   get_gameState: state => {
     return state.gameState;
   },

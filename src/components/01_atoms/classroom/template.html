@@ -1,0 +1,15 @@
+<div class="col-xs-4 classroom-wrapper">
+	<div class="classroom" @click="emitChange">
+		<div class="name h5">{{ item.name }}</div>
+		<div class="description p">{{ item.description }}</div>
+		<div class="description p">{{ item.description }}</div>
+		<div class="footer small">
+			<div class="time-span">
+				<div class="start">{{ item.startClassAt }}</div>
+				<SvgIcon class="icon" name="arrow-right" customColor="#8C8B89" sizeH="20px" sizeW="20px" />
+				<div class="end">{{ item.endClassAt }}</div>
+			</div>
+			<div class="students">0 / 21 students</div>
+		</div>
+	</div>
+</div>
