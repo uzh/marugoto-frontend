@@ -1,26 +1,40 @@
 <template>
   <div class="main-container">
     <!-- Add New Class -->
-    <div v-if="newClassPage" class="supervisor-container col-xs-12">
+    <div
+      v-if="newClassPage"
+      class="supervisor-container col-xs-12">
       <div class="header">
         <div class="title">
-          <div class="h6">Classes</div>
+          <div
+            class="h6"
+            @click="newClassPage = false">Classes</div>
           <div class="line-divide"></div>
-          <input class="h5" placeholder="Classname" v-model="classname">
+          <input
+            class="h5"
+            placeholder="Classname"
+            v-model="classname"
+            readonly>
         </div>
         <div class="sign-out small">Sign Out</div>
         <div class="profile-photo"></div>
       </div>
       <div class="new-class-entry">
         <div class="classname">
-          <input ref="classname" placeholder="Class Name" v-model="classname" >
+          <input
+            ref="classname"
+            placeholder="Class Name"
+            :readonly="!nameFocused"
+            v-model="classname"
+            @blur="nameFocused = false"
+            onkeydown="this.style.width = ((this.value.length + 1) * 24) + 'px'">
           <div class="icon" @click="changeClassname">
-            <SvgIcon name="pen" customColor="#8C8B89" sizeH="40px" sizeW="40px" />
+            <SvgIcon :class="nameFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>
         </div>
         <!-- Invitation Link -->
-        <div class="invitation-link">
-          <Btn ghost="true" :text="invitationLink" iconName="copy" v-clipboard="invitationLink" />
+        <div class="invitation-link" v-clipboard="invitationLink">
+          <Btn white="true" :text="invitationLink" iconName="copy" />
         </div>
         <!-- Date Picker -->
         <div class="date-picker">
@@ -44,15 +58,22 @@
           </div>
         </div>
         <div class="classname-description">
-          <input class="p" ref="classnameDescription" placeholder="Short Class Description" v-model="classnameDescription" >
+          <input
+            class="p"
+            ref="classnameDescription"
+            placeholder="Short Class Description"
+            :readonly="!descriptionFocused"
+            v-model="classnameDescription"
+            @blur="descriptionFocused = false"
+            onkeydown="this.style.width = ((this.value.length + 1) * 12) + 'px'">
           <div class="icon" @click="changeClassnameDescription">
-            <SvgIcon name="pen" customColor="#8C8B89" />
+            <SvgIcon :class="descriptionFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>
         </div>
       </div>
       <div class="buttons-footer">
-        <Btn text="Go to Map" ghost="true" disabled="true" @click.native="goToMap" />
-        <Btn text="Start Course" ghost="true" :disabled="enableStartCourse" @click.native="startCourse" />
+        <Btn text="Go to Map" primary="true" disabled="true" @click.native="goToMap" />
+        <Btn text="Start Course" primary="true" :disabled="enableStartCourse" @click.native="startCourse" />
       </div>
     </div>
     <!-- Classroom Overview -->
@@ -62,7 +83,7 @@
         <div class="sign-out small">Sign Out</div>
       </div>
       <div class="add-new-class-button">
-        <Btn ghost="true" text="Add New Class" iconName="plus" iconColor="#fff" @click.native="goToNewClass" />
+        <Btn white="true" text="Add New Class" iconName="plus" iconColor="#fff" @click.native="goToNewClass" />
       </div>
       <div v-if="get_classes && get_classes.length > 0">
         <Classroom
@@ -89,6 +110,8 @@ export default {
       newClassPage: false,
       classname: '',
       classnameDescription: '',
+      nameFocused: false,
+      descriptionFocused: false,
       classStartDate: null,
       classEndDate: null,
       newStart: null,
@@ -110,7 +133,9 @@ export default {
   computed: {
     ...mapGetters([ 'get_classes' ]),
     enableStartCourse: function() {
-      if(this.classname == '' || this.classnameDescription == '' || this.classStartDate == null || this.classEndDate == null) {
+      if(this.invitationLink != '') {
+        return true;
+      } else if(this.classname == '' || this.classnameDescription == '' || this.classStartDate == null || this.classEndDate == null) {
         return true;
       } else {
         return false;
@@ -131,10 +156,9 @@ export default {
         startClassAt: this.newStart,
         endClassAt: this.newEnd,
         invitationLinkId: this.invitationLink,
-      }).then(() => {
+      }).then(resp => {
+        this.invitationLink = resp.data.invitationLinkId;
         this.$store.dispatch('UPDATE_CLASSES');
-        this.newClassPage = false;
-        this.$router.push('/overview');
       })
       .catch(error => {
         throw error;
@@ -154,9 +178,11 @@ export default {
       this.newEnd = `${d}.${m}.${event.year}`;
     },
     changeClassname: function() {
+      this.nameFocused = true;
       this.$refs.classname.focus();
     },
     changeClassnameDescription: function() {
+      this.descriptionFocused = true;
       this.$refs.classnameDescription.focus();
     }
   }

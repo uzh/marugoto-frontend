@@ -10,7 +10,7 @@
         </div>
         <!-- Right notebook list item -->
         <div class="right">
-            <div :class="index == selected ? 'current' : 'not-displayed'"></div>
+            <div :class="index == selected ? 'current' : ''"></div>
             <vue-markdown class="title" :source="item.title" />
         </div>
     </li>

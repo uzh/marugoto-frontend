@@ -37,3 +37,13 @@
         background-color: $base-uicolor-2;
     }
 }
+
+.button-white {
+    background-color: $white;
+    color: $black;
+    border: 1px solid $base-uicolor-2;
+    
+    &:hover {
+        background-color: $base-uicolor-2;
+    }
+}

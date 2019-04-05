@@ -15,6 +15,7 @@
             .h6 {
                 float: left;
                 line-height: 48px;
+                cursor: pointer;
             }
 
             .line-divide {
@@ -28,6 +29,7 @@
             input {
                 @extend .h5;
                 float: left;
+                min-width: 20%;
                 line-height: 48px;
 
                 &::placeholder {
@@ -130,8 +132,10 @@
 
             input {
                 @extend .h3;
-                width: 16%;
+                width: 15%;
+                max-width: 45%;
                 float: left;
+                text-overflow: ellipsis;
 
                 &::placeholder {
                     color: $black;
@@ -158,8 +162,10 @@
 
             input {
                 @extend .p;
-                width: 15%;
+                width: 14%;
+                max-width: 45%;
                 float: left;
+                text-overflow: ellipsis;
 
                 &::placeholder {
                     color: $black;
