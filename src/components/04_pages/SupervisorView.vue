@@ -17,7 +17,7 @@
             readonly>
         </div>
         <div class="sign-out small">Sign Out</div>
-        <div class="profile-photo"></div>
+        <div v-if="!classroomPage" class="profile-photo"></div>
       </div>
       <div class="new-class-entry">
         <div class="classname">
@@ -71,9 +71,19 @@
           </div>
         </div>
       </div>
+      <!-- <div v-if="classroomPage && get_students && get_students.length > 0">
+
+      </div> -->
+      <div v-if="classroomPage" class="students-list">
+        <Student
+        v-for="(item, index) in students"
+        :key="index"
+        :item="item" />
+      </div>
       <div class="buttons-footer">
-        <Btn text="Go to Map" primary="true" disabled="true" @click.native="goToMap" />
-        <Btn text="Start Course" primary="true" :disabled="enableStartCourse" @click.native="startCourse" />
+        <Btn text="Go to Map" primary="true" :disabled="!classroomPage" @click.native="goToMap" />
+        <Btn v-if="!classroomPage" text="Start Course" primary="true" :disabled="enableStartCourse" @click.native="startCourse" />
+        <Btn v-if="classroomPage" text="Download all Notebooks & Files" primary="true" @click.native="downloadAll" />
       </div>
     </div>
     <!-- Classroom Overview -->
@@ -101,13 +111,15 @@ import { mapGetters } from 'vuex';
 import Btn from '@/components/01_atoms/buttons';
 import SvgIcon from '@/components/01_atoms/svgicon';
 import Classroom from '@/components/01_atoms/classroom';
+import Student from '@/components/01_atoms/classroom/student';
 
 export default {
   name: 'overview',
-  components: { Btn, SvgIcon, Classroom },
+  components: { Btn, SvgIcon, Classroom, Student },
   data() {
     return {
       newClassPage: false,
+      classroomPage: false,
       classname: '',
       classnameDescription: '',
       nameFocused: false,
@@ -123,8 +135,15 @@ export default {
         navMonths: 'MMM',
         input: ['DD.MM.YYYY'],
         dayPopover: 'L',
-        data: ['L', 'DD.MM.YYYY']
+        data: ['DD.MM.YYYY']
       },
+      students: [
+        {
+          name: 'Roland Deschain',
+          files: '2 files',
+          mail: 'roland@mail.com'
+        },
+      ],
     }
   },
   created() {
@@ -143,11 +162,36 @@ export default {
     }
   },
   methods: {
-    selectClassroom: function(id) {
-      alert('Classroom selected with id: ' + id);
+    selectClassroom: function(item) {
+      let id = item.id.split('/')[1];
+      let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
+      this.$store.dispatch('REQUEST_CLASSROOM_DATA', id)
+      .then(resp => {
+        this.newClassPage = true,
+        this.classroomPage = true;
+
+        let parsedStartDate = resp.data[0].startClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
+        let parsedEndDate = resp.data[0].endClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
+
+        this.classname = resp.data[0].name;
+        this.classnameDescription = resp.data[0].description;
+        this.classStartDate = parsedStartDate;
+        this.classEndDate = parsedEndDate;
+        this.invitationLink = resp.data[0].invitationLinkId;
+      })
+      .catch(error => {
+        throw error;
+      });
     },
     goToNewClass: function() {
       this.newClassPage = true;
+      this.classroomPage = false;
+
+      this.classname = '';
+      this.classnameDescription = '';
+      this.classStartDate = '';
+      this.classEndDate = '';
+      this.invitationLink = '';
     },
     startCourse: function() {
       this.$store.dispatch('ADD_NEW_CLASS', {
@@ -170,11 +214,13 @@ export default {
     startDateEmit: function(event) {
       let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
       let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
+      this.classStartDate = `${d}.${m}.${event.year}`;
       this.newStart = `${d}.${m}.${event.year}`;
     },
     endDateEmit: function(event) {
       let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
       let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
+      this.classEndDate = `${d}.${m}.${event.year}`;
       this.newEnd = `${d}.${m}.${event.year}`;
     },
     changeClassname: function() {
@@ -184,7 +230,10 @@ export default {
     changeClassnameDescription: function() {
       this.descriptionFocused = true;
       this.$refs.classnameDescription.focus();
-    }
+    },
+    downloadAll: function() {
+      alert('Download all Notebooks and Files');
+    },
   }
 }
 
