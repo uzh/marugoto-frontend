@@ -19,6 +19,9 @@ export default{
   get_classes: state => {
     return state.classes;
   },
+  get_students: state => {
+    return state.students;
+  },
   get_supervision: state => {
     return state.supervision;
   },

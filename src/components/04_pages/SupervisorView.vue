@@ -8,7 +8,7 @@
         <div class="title">
           <div
             class="h6"
-            @click="newClassPage = false">Classes</div>
+            @click="returnToClasses">Classes</div>
           <div class="line-divide"></div>
           <input
             class="h5"
@@ -71,14 +71,13 @@
           </div>
         </div>
       </div>
-      <!-- <div v-if="classroomPage && get_students && get_students.length > 0">
-
-      </div> -->
-      <div v-if="classroomPage" class="students-list">
+      <!-- Classroom student list -->
+      <div v-if="classroomPage && get_students && get_students.length > 0" class="students-list">
         <Student
-        v-for="(item, index) in students"
-        :key="index"
-        :item="item" />
+          v-for="(item, index) in get_students"
+          :key="index"
+          :item="item"
+          @emitStudentSelection="selectStudent" />
       </div>
       <div class="buttons-footer">
         <Btn text="Go to Map" primary="true" :disabled="!classroomPage" @click.native="goToMap" />
@@ -137,20 +136,13 @@ export default {
         dayPopover: 'L',
         data: ['DD.MM.YYYY']
       },
-      students: [
-        {
-          name: 'Roland Deschain',
-          files: '2 files',
-          mail: 'roland@mail.com'
-        },
-      ],
     }
   },
   created() {
     this.$store.dispatch('UPDATE_CLASSES');
   },
   computed: {
-    ...mapGetters([ 'get_classes' ]),
+    ...mapGetters([ 'get_classes', 'get_students']),
     enableStartCourse: function() {
       if(this.invitationLink != '') {
         return true;
@@ -162,26 +154,38 @@ export default {
     }
   },
   methods: {
+    returnToClasses: function() {
+      this.$store.dispatch('UPDATE_CLASSES')
+      .then(() => this.newClassPage = false)
+      .catch(error => {
+        throw error;
+      });
+    },
     selectClassroom: function(item) {
       let id = item.id.split('/')[1];
-      let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
       this.$store.dispatch('REQUEST_CLASSROOM_DATA', id)
       .then(resp => {
-        this.newClassPage = true,
-        this.classroomPage = true;
+        let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
+        let parsedStartDate = resp.data.startClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
+        let parsedEndDate = resp.data.endClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
 
-        let parsedStartDate = resp.data[0].startClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
-        let parsedEndDate = resp.data[0].endClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
-
-        this.classname = resp.data[0].name;
-        this.classnameDescription = resp.data[0].description;
+        this.classname = resp.data.name;
+        this.classnameDescription = resp.data.description;
         this.classStartDate = parsedStartDate;
         this.classEndDate = parsedEndDate;
-        this.invitationLink = resp.data[0].invitationLinkId;
+        this.invitationLink = resp.data.invitationLinkId;
+      }).then(() => {
+        this.$store.dispatch('REQUEST_CLASSROOM_MEMBERS', id)
       })
       .catch(error => {
         throw error;
       });
+
+      this.newClassPage = true,
+      this.classroomPage = true;
+    },
+    selectStudent: function() {
+      alert('Student selected');
     },
     goToNewClass: function() {
       this.newClassPage = true;
@@ -202,7 +206,6 @@ export default {
         invitationLinkId: this.invitationLink,
       }).then(resp => {
         this.invitationLink = resp.data.invitationLinkId;
-        this.$store.dispatch('UPDATE_CLASSES');
       })
       .catch(error => {
         throw error;

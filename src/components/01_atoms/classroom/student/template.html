@@ -1,5 +1,5 @@
 <div class="col-xs-4 student-wrapper">
-	<div class="student">
+	<div class="student" @click="emitChange">
 		<div class="left">
 			<div class="profile-photo"></div>
 			<div class="icon">
@@ -9,7 +9,7 @@
 		<div class="right">
 			<div class="name h6">{{ item.name }}</div>
 			<div class="files small">
-				{{ item.files }}
+				2 files
 				<div class="online"></div>
 			</div>
 			<div class="mail-address small">{{ item.mail }}</div>

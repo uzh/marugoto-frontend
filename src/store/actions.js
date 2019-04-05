@@ -111,9 +111,10 @@ export default({
     });
   },
   // CLASSES
-  [types.UPDATE_CLASSES]: ({commit}, payload) => {
-    return apiService.get(`/classroom/${payload}`)
+  [types.UPDATE_CLASSES]: ({commit}) => {
+    return apiService.get('/classroom/list')
     .then(resp => {
+      commit('UPDATE_CLASSES', resp.data);
       return resp;
     })
     .catch(err => {
@@ -129,26 +130,26 @@ export default({
       throw(err);
     });
   },
-  [types.REQUEST_CLASSROOM_DATA]: ({commit}) => {
-    return apiService.get('/classroom/list')
+  [types.REQUEST_CLASSROOM_DATA]: ({commit}, payload) => {
+    return apiService.get(`/classroom/${payload}`)
     .then(resp => {
-      commit('UPDATE_CLASSES', resp.data);
       return resp;
     })
     .catch(err => {
       throw(err);
     });
   },
-  [types.REQUEST_CLASSROOM_MEMBERS]: ({commit}, payload) => {
+  [types.REQUEST_CLASSROOM_MEMBERS]: ({commit, dispatch}, payload) => {
     return apiService.get(`/classroom/${payload}/members`)
     .then(resp => {
+      dispatch('UPDATE_CLASSROOM_STUDENTS', resp.data);
       return resp;
     })
     .catch(err => {
       throw(err);
     });
   },
-  [types.REQUEST_CLASSROOM_MEMBERS_NOTEBOOKS]: ({commit}, payload) => {
+  [types.REQUEST_ALL_CLASSROOM_NOTEBOOKS]: ({commit}, payload) => {
     return apiService.get(`/classroom/${payload}/notebooks`)
     .then(resp => {
       return resp;
@@ -156,6 +157,9 @@ export default({
     .catch(err => {
       throw(err);
     });
+  },
+  [types.UPDATE_CLASSROOM_STUDENTS]: (context, payload) => {
+    context.commit(types.UPDATE_CLASSROOM_STUDENTS, payload);
   },
   // SUPERVISION
   [types.UPDATE_SUPERVISION]: (context, payload) => {

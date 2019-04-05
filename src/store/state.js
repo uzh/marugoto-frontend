@@ -27,6 +27,7 @@ export default ({
   },
   games: {},
   classes: {},
+  students: {},
   supervision: {
     selected: false,
   },
