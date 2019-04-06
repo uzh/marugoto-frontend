@@ -10,6 +10,8 @@ import StorylineView from '@/components/04_pages/StorylineView.vue'
 import GamesView from '@/components/04_pages/GamesView.vue'
 import TopicsView from '@/components/04_pages/TopicsView.vue'
 import SupervisorView from '@/components/04_pages/SupervisorView.vue'
+import AddNewClassView from '@/components/04_pages/AddNewClassView.vue'
+import ClassroomView from '@/components/04_pages/ClassroomView.vue'
 import PageNotFound from '@/components/04_pages/PageNotFound.vue'
 
 
@@ -86,6 +88,24 @@ const router = new Router({
       },
     },
     {
+      path: '/add-new-class',
+      name: 'add-new-class',
+      component: AddNewClassView,
+      meta: {
+        requireAuth: true,
+        role: 'player'
+      },
+    },
+    {
+      path: '/classroom',
+      name: 'classroom',
+      component: ClassroomView,
+      meta: {
+        requireAuth: true,
+        role: 'player'
+      },
+    },
+    {
       path: '/404',
       name: 'pageNotFound',
       component: PageNotFound,
@@ -156,6 +176,14 @@ router.beforeEach((to, from, next) => {
         next('/overview');
       }
       else if( to.name === 'overview' ){
+        document.body.classList = 'sidebar-page-padding-right';
+        next();
+      }
+      else if( to.name === 'add-new-class' ){
+        document.body.classList = 'sidebar-page-padding-right';
+        next();
+      }
+      else if( to.name === 'classroom' ){
         document.body.classList = 'sidebar-page-padding-right';
         next();
       }
