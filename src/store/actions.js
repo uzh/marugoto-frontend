@@ -130,6 +130,15 @@ export default({
       throw(err);
     });
   },
+  [types.EDIT_CLASS]: ({commit}, payload) => {
+    return apiService({url: `/classroom/${payload.id}`, data: payload, method: 'PUT', })
+    .then(resp => {
+      return resp.data;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
   [types.REQUEST_CLASSROOM_DATA]: ({commit}, payload) => {
     return apiService.get(`/classroom/${payload}`)
     .then(resp => {

@@ -34,8 +34,8 @@
           </div>
         </div>
         <!-- Invitation Link -->
-        <div class="invitation-link">
-          <Btn white="true" :text="invitationLink" iconName="copy" v-clipboard="invitationLink"/>
+        <div class="invitation-link" v-clipboard="invitationLink">
+          <Btn white="true" :text="invitationLink" iconName="copy" />
         </div>
         <!-- Date Picker -->
         <div class="date-picker">
