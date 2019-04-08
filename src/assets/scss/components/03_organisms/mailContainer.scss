@@ -87,14 +87,23 @@
     }
 
     .short-mail {
-      max-height: 40px;
-      padding: 5px 10px;
+      max-height: 20px;
+      padding: 0 100px 0 10px;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
 
-      p {
-        @extend .small;
+      .subject {
+        display: inline;
+      }
+
+      .text {
+        display: inline;
+
+        p {
+          @extend .small;
+          display: inline;
+        }
       }
     }
   }
