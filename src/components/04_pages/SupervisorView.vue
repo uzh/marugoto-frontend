@@ -39,14 +39,7 @@ export default {
   methods: {
     selectClassroom: function(item) {
       let id = item.id.split('/')[1];
-      this.$store.dispatch('REQUEST_CLASSROOM_DATA', id)
-      .then(resp => {
-        let classId = resp.data.id.split('/')[1];
-        this.$router.push({ name: 'classroom', params: { id: classId }});
-      })
-      .catch(error => {
-        throw error;
-      });
+      this.$router.push({ name: 'classroom', params: { id: id }});
     },
     goToNewClass: function() {
       this.$router.push('/add-new-class');
