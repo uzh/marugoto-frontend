@@ -4,10 +4,12 @@
 		disabled ? 'inputDisabled' : '',
 		filledInput ? 'inputFilled' : '',
 		]">
-		<label @click="inputFocus">{{ labelName }}</label>
+		<label :for="inputName" @click="inputFocus">{{ labelName }}</label>
 		<input
+			:autocomplete="autocomplete"
+			:name="inputName"
 			:value="value"
-			ref="inputField"
+			:ref="randomRefName"
 			:type="typeProp"
 			v-on:blur="setFocus(false)"
 			v-on:focus="setFocus(true)"

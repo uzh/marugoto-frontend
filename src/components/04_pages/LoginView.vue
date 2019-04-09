@@ -98,8 +98,18 @@
           <p class="lead mb-10">Account</p>
           <div>
             <form @keydown.enter="login">
-              <InputField tabindex="-1" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage || forgottenPassword" />
-              <InputField tabindex="-2" v-model="password" typeProp="password" labelName="Password" :required="errorMessage" />
+              <InputField 
+                inputName="loginMail"
+                v-model="mail" 
+                typeProp="email" 
+                labelName="E-Mail" 
+                :required="errorMessage || forgottenPassword" />
+              <InputField  
+                inputName="loginPassword"
+                v-model="password" 
+                typeProp="password" 
+                labelName="Password" 
+                :required="errorMessage" />
             </form>
             <div v-if="errorText" class="login-error-message">{{ errorText }}</div>
             <div v-if="successText" class="login-success-message">{{ successText }}</div>

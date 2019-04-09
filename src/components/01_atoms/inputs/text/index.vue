@@ -4,11 +4,12 @@
 
 export default {
   name: 'inputField',
-  props: ['typeProp', 'labelName', 'required', 'disabled', 'value' ],
+  props: ['typeProp', 'labelName', 'required', 'disabled', 'value', 'inputName', 'autocomplete' ],
   data() {
     return {
       focused: false,
       filledInput: false,
+      uid: this.randomNumber(1, 1000),
     };
   },
   computed: {
@@ -18,13 +19,22 @@ export default {
       }
       return this.$props.typeProp;
     },
+    randomRefName: function() {
+      return `inputField-${this.uid}`;
+    }
   },
   mounted: function() {
     this.checkInputState();
+    document.body.addEventListener('click', () => { console.log('Body click') });
+    document.body.click();
+    console.log(this.$refs);
   },
   methods: {
+    randomNumber: function(min,max){
+      return Math.floor(Math.random()*(max-min+1)+min);
+    },
     checkInputState: function() {
-      if( this.$refs.inputField.value == '' ) {
+      if( this.$refs[`inputField-${this.uid}`].value == '' ) {
         this.focused = false;
         this.filledInput = false;
       }else{
@@ -33,14 +43,14 @@ export default {
       }
     },
     updateEmitVal() {
-      this.$emit('input', this.$refs.inputField.value);
+      this.$emit('input', this.$refs[`inputField-${this.uid}`].value);
     },
     inputFocus: function() {
-      this.$refs.inputField.focus();
+      this.$refs[`inputField-${this.uid}`].focus();
     },
     setFocus(foc) {
       this.checkInputState();
-      if( this.$refs.inputField.value != '' ) {
+      if( this.$refs[`inputField-${this.uid}`].value != '' ) {
         return;
       }
       this.wasInFocus = true;
@@ -50,6 +60,6 @@ export default {
         this.focused = false;
       }
     },
-  }
+  },
 };
 </script>

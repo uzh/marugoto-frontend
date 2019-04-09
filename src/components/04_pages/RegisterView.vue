@@ -84,11 +84,33 @@
           <p class="lead mb-10">Enter your Data</p>
           <div>
             <form class="full-width" @keydown.enter="register">
-              <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
-              <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
+              <InputField 
+                autocomplete="off"
+                inputName="registerFirstName" 
+                v-model="firstName" 
+                labelName="Name / Pseudonym" 
+                :required="errorMessage" />
+              <InputField 
+                autocomplete="off"
+                inputName="registerLastName" 
+                v-model="lastName" 
+                labelName="Lastname / Pseudonym" 
+                :required="errorMessage" />
               <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
-              <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" />
-              <InputField v-model="password" typeProp="password" labelName="Password" :required="errorMessage"/>
+              <InputField 
+                autocomplete="off"
+                inputName="registerEmail" 
+                v-model="mail" 
+                typeProp="email" 
+                labelName="E-Mail" 
+                :required="errorMessage" />
+              <InputField 
+                autocomplete="off"
+                inputName="registerPassword" 
+                v-model="password" 
+                typeProp="password" 
+                labelName="Password" 
+                :required="errorMessage"/>
             </form>
             <div v-if="errorText" class="login-error-message">
               <p>{{ errorText.text }}</p>
@@ -104,10 +126,10 @@
           <p class="lead mb-10">Enter your Data</p>
           <div>
             <form class="full-width" @keydown.enter="register">
-              <InputField v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
-              <InputField v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
+              <InputField inputName="unFirstName" v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
+              <InputField inputName="unLastname" v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
               <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
-              <InputField v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
+              <InputField inputName="unEmail" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
             </form>
             <div v-if="errorText" class="login-error-message">
               <p>{{ errorText.text }}</p>
