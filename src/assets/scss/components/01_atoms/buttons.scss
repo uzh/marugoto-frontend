@@ -7,6 +7,7 @@
 
     &:disabled, &.disabled {
         opacity: 0.3;
+        pointer-events: none;
     }
 }
 
@@ -31,6 +32,16 @@
 .button-ghost {
     background-color: $base-uicolor-4;
     color: $black;
+    
+    &:hover {
+        background-color: $base-uicolor-2;
+    }
+}
+
+.button-white {
+    background-color: $white;
+    color: $black;
+    border: 1px solid $base-uicolor-2;
     
     &:hover {
         background-color: $base-uicolor-2;

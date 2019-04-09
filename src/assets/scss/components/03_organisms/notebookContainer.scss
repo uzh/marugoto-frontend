@@ -13,7 +13,6 @@ $chapterHeight: 80px;
 
     &.in {
         right: 90px;
-        width: 50%;
         padding-left: 45px;
     }
 
@@ -53,7 +52,7 @@ $chapterHeight: 80px;
     top: 0;
     width: 50%;
     height: 100vh;
-    padding: 180px 90px 180px 45px;
+    padding: 180px 135px 180px 90px;
     background-color: #0C0C0D;
     overflow: scroll;
     z-index: 1;

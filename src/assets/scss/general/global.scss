@@ -5,8 +5,11 @@
   float: right;
 }
 .disabled {
-  opacity: 0.1;
+  opacity: 0.2;
   pointer-events: none;
+}
+.no-display {
+  display: none;
 }
 .text-darker {
   color: $text-darker;

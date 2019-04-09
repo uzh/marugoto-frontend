@@ -4,9 +4,13 @@
 import SvgIcon from '@/components/01_atoms/svgicon';
 
 export default {
-  name: 'Btn',
+  name: 'Classroom',
   components: { SvgIcon },
-  props: ['primary', 'secondary', 'text', 'ghost', 'white',
-   'disabled', 'iconName', 'iconColor', 'iconPosition'],
+  props: [ 'item' ],
+  methods: {
+    emitChange: function() {
+      this.$emit('emitClassroomSelection', this.item);
+    },
+  }
 };
 </script>

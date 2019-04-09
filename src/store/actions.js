@@ -110,6 +110,70 @@ export default({
       throw(err);
     });
   },
+  // CLASSES
+  [types.UPDATE_CLASSES]: ({commit}) => {
+    return apiService.get('/classroom/list')
+    .then(resp => {
+      commit('UPDATE_CLASSES', resp.data);
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.ADD_NEW_CLASS]: ({commit}, userInfo) => {
+    return apiService({url: '/classroom/new', data: userInfo, method: 'POST', })
+    .then(resp => {
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.EDIT_CLASS]: ({commit}, payload) => {
+    return apiService({url: `/classroom/${payload.id}`, data: payload, method: 'PUT', })
+    .then(resp => {
+      return resp.data;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.REQUEST_CLASSROOM_DATA]: ({commit}, payload) => {
+    return apiService.get(`/classroom/${payload}`)
+    .then(resp => {
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.REQUEST_CLASSROOM_MEMBERS]: ({commit, dispatch}, payload) => {
+    return apiService.get(`/classroom/${payload}/members`)
+    .then(resp => {
+      dispatch('UPDATE_CLASSROOM_STUDENTS', resp.data);
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.REQUEST_ALL_CLASSROOM_NOTEBOOKS]: ({commit}, payload) => {
+    return apiService.get(`/classroom/${payload}/notebooks`)
+    .then(resp => {
+      return resp;
+    })
+    .catch(err => {
+      throw(err);
+    });
+  },
+  [types.UPDATE_CLASSROOM_STUDENTS]: (context, payload) => {
+    context.commit(types.UPDATE_CLASSROOM_STUDENTS, payload);
+  },
+  // SUPERVISION
+  [types.UPDATE_SUPERVISION]: (context, payload) => {
+    context.commit(types.UPDATE_SUPERVISION, payload);
+  },
   // TOPIC
   [types.UPDATE_TOPIC_LIST]: ({commit}) => {
     return apiService.get('/topics/list')

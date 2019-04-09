@@ -21,7 +21,6 @@
       <div v-if="sendingMail" class="send-mail-text-subject small">Subject</div>
       <p class="title lead" v-if="!sendingMail">{{ mail.mail.subject }}</p>
       <p class="title lead" v-if="sendingMail">Re: {{ mail.mail.subject }}</p>
-      <p class="current-date-time small">Today, 14:28</p>
     </div>
 
     <!-- Mail Body Content -->

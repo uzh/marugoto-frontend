@@ -13,12 +13,16 @@
           <div class="dot"></div>
         </div>
         <h6>{{ item.mail.from.name }}</h6>
-        <p class="current-date-time small">Today, 14:28</p>
       </div>
-      <vue-markdown
-        class="short-mail"
-        :html="!falseHtml"
-        :source="item.mail.body" />
+      <div class="short-mail small">
+        <div class="subject">
+          {{ item.mail.subject }} -
+        </div>
+        <vue-markdown
+          class="text"
+          :html="!falseHtml"
+          :source="item.mail.body" />
+      </div>
     </li>
   </ul>
 </div>

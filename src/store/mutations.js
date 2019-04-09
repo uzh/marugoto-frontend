@@ -93,6 +93,17 @@ export default({
   [types.UPDATE_GAMES] (state, payload) {
     state.games = payload;
   },
+  // CLASSES MUTATIONS
+  [types.UPDATE_CLASSES] (state, payload) {
+    state.classes = payload;
+  },
+  [types.UPDATE_CLASSROOM_STUDENTS] (state, payload) {
+    state.students = payload;
+  },
+  // SUPERVISION MUTATIONS
+  [types.UPDATE_SUPERVISION] (state, payload) {
+    state.supervision.selected = payload;
+  },
   // TOPIC MUTATIONS
   [types.UPDATE_TOPIC_LIST] (state, payload) {
     state.topic.list = payload;

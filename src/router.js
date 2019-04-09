@@ -10,6 +10,8 @@ import StorylineView from '@/components/04_pages/StorylineView.vue'
 import GamesView from '@/components/04_pages/GamesView.vue'
 import TopicsView from '@/components/04_pages/TopicsView.vue'
 import SupervisorView from '@/components/04_pages/SupervisorView.vue'
+import AddNewClassView from '@/components/04_pages/AddNewClassView.vue'
+import ClassroomView from '@/components/04_pages/ClassroomView.vue'
 import PageNotFound from '@/components/04_pages/PageNotFound.vue'
 
 
@@ -82,7 +84,25 @@ const router = new Router({
       component: SupervisorView,
       meta: {
         requireAuth: true,
-        role: 'supervisor'
+        role: 'player'
+      },
+    },
+    {
+      path: '/add-new-class',
+      name: 'add-new-class',
+      component: AddNewClassView,
+      meta: {
+        requireAuth: true,
+        role: 'player'
+      },
+    },
+    {
+      path: '/classroom',
+      name: 'classroom',
+      component: ClassroomView,
+      meta: {
+        requireAuth: true,
+        role: 'player'
       },
     },
     {
@@ -113,7 +133,7 @@ router.beforeEach((to, from, next) => {
       next('/login')
     }
   }else{
-    if( store.getters.get_status.role === 'player' ){
+    if( store.getters.get_status.role === 'player' && !store.getters.get_supervision.selected ){
       document.body.classList = 'sidebar-page-padding-top sidebar-page-padding-right';
 
       if( to.name === 'home' && store.getters.get_topic.id != undefined ){
@@ -149,14 +169,31 @@ router.beforeEach((to, from, next) => {
         next(from.path);
       }
     }
-    else if( store.getters.get_status.role === 'supervisor'  ){
+    else if( store.getters.get_status.role === 'player' && store.getters.get_supervision.selected  ){
+      store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
       if( to.name === 'home' ){
+        document.body.classList = 'sidebar-page-padding-right';
         next('/overview');
       }
       else if( to.name === 'overview' ){
+        document.body.classList = 'sidebar-page-padding-right';
         next();
       }
-      next(from.path);
+      else if( to.name === 'add-new-class' ){
+        document.body.classList = 'sidebar-page-padding-right';
+        next();
+      }
+      else if( to.name === 'classroom' ){
+        document.body.classList = 'sidebar-page-padding-right';
+        next();
+      }
+      else if( to.name === 'games' ){
+        store.dispatch('UPDATE_SUPERVISION', false);
+        next();
+      }else{
+        next(from.path);
+      }
+      
     }
   }
 });

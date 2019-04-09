@@ -75,7 +75,7 @@
             <p class="lead mb-10">Account</p>
             <div>
               <form @keydown.enter="register">
-                <InputField tabindex="-1" v-model="mail" typeProp="email" labelName="E-Mail" disabled="true" />
+                <InputField tabindex="0" v-model="mail" typeProp="email" labelName="E-Mail" disabled="true" />
                 <InputField tabindex="1" v-model="newPassword" typeProp="password" labelName="New Password" :required="errorMessage" />
                 <InputField tabindex="2" v-model="newPasswordConfirm" typeProp="password" labelName="Confirm Password" :required="errorMessage" />
               </form>
