@@ -2,7 +2,7 @@
   <div class="main-container">
     <div class="storyline-container" v-if="get_topic.selected">
       <div class="storyline-title col-xs-12">
-        <div class="page-title-icon-container col-xs-2"> 
+        <div class="page-title-icon-container col-xs-1 col-xs-offset-1"> 
           <img 
             v-if="get_page.chapter && get_page.chapter.icon" 
             class="icon" 

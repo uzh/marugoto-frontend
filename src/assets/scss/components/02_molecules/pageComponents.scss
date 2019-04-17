@@ -13,14 +13,12 @@
         }
 
         .storyline-title {
-            display: table;
+            display: block;
             margin-bottom: 80px;
 
             .page-title-icon-container {
-                display: table-cell;
-                vertical-align: middle;
-                float: none;
-                text-align: center;
+                display: block;
+                text-align: left;
 
                 .icon {
                     width: 72px;

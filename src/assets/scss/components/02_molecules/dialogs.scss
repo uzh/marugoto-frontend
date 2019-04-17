@@ -6,7 +6,7 @@ $top: 90px;
   right: 90px;
   width: 100%;
   height: 100%;
-  padding-left: 90px;
+  padding-left: $top;
   background-color: rgba(240, 243, 245, 0.9);
   z-index: 100;
   transition: opacity 0.3s ease;
@@ -16,9 +16,9 @@ $top: 90px;
 .dialog-container {
   position: relative;
   top: 10%;
-  padding: $top;
+  padding: 90px 90px 20px 90px;
+  margin-bottom: $top;
   min-height: 80%;
-  
   background-color: $white;
   box-shadow: 0 15px 30px 0 rgba(47, 49, 51, 0.2);
   transition: all 0.3s ease;
@@ -51,16 +51,20 @@ $top: 90px;
     }
 
     .dialog-buttons-div {
-      display: table;
+      display: block;
       width: 100%;
       margin: 50px 0;
 
       .dialog-button {
-        display: table-cell;
+        display: inline-block;
         vertical-align: middle;
-        width: 45%;
-        margin: 0 2.5%;
+        width: 48%;
+        margin-right: 4%;
         padding: 0 2rem;
+
+        &:last-child{
+          margin-right: 0px;
+        }
       }
 
       .dialog-button-full {
