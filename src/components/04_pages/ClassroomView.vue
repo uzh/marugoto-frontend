@@ -8,11 +8,8 @@
             class="h6"
             @click="returnToClasses">Classes</div>
           <div class="line-divide"></div>
-          <input
-            class="h5"
-            placeholder="Classname"
-            v-model="classname"
-            readonly>
+          <p v-if="classname.length < 1" class="h5">Class Name</p>
+          <p v-if="classname.length > 0" class="h5">{{ classname }}</p>
         </div>
         <div class="sign-out small">Sign Out</div>
       </div>
@@ -24,15 +21,20 @@
             placeholder="Class Name"
             :readonly="!nameFocused"
             v-model="classname"
-            @blur="nameFocused = false"
+            @blur="saveEdit('name')"
             onkeydown="this.style.width = ((this.value.length + 1) * 24) + 'px'">
           <div class="icon" @click="changeClassname">
             <SvgIcon :class="nameFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>
         </div>
         <!-- Invitation Link -->
-        <div class="invitation-link">
-          <Btn white="true" :text="invitationLink" iconName="copy" v-clipboard="invitationLink"/>
+        <div 
+          class="invitation-link"
+          :class="copied ? 'copied' : '' "
+          v-clipboard="`${this.localPath}${this.invitationLink}`"
+          v-clipboard:success="clipboardSuccessHandler"
+          v-clipboard:error="clipboardErrorHandler">
+          <Btn white="true" :text="invitationLink" iconName="copy" />
         </div>
         <!-- Date Picker -->
         <div class="date-picker">
@@ -63,7 +65,7 @@
             placeholder="Short Class Description"
             :readonly="!descriptionFocused"
             v-model="classnameDescription"
-            @blur="descriptionFocused = false"
+            @blur="saveEdit('description')"
             onkeydown="this.style.width = ((this.value.length + 1) * 12) + 'px'">
           <div class="icon" @click="changeClassnameDescription">
             <SvgIcon :class="descriptionFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
@@ -98,8 +100,11 @@ export default {
   components: { Btn, SvgIcon, Student },
   data() {
     return {
+      localPath: process.env.VUE_APP_LOCAL_PATH,
+      resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       classId: '',
       classname: '',
+      copied: false,
       classnameDescription: '',
       nameFocused: false,
       descriptionFocused: false,
@@ -118,27 +123,47 @@ export default {
       },
     }
   },
+  computed: {
+    ...mapGetters([ 'get_students' ]),
+  },
   created() {
     this.classId = this.$route.params.id;
     this.$store.dispatch('REQUEST_CLASSROOM_DATA', this.classId)
     .then(resp => {
         let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
-        let parsedStartDate = resp.data.startClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
-        let parsedEndDate = resp.data.endClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
+        let parsedStartDate = resp.data.startClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');
+        let parsedEndDate = resp.data.endClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');
 
+        let dayMonthYearStart = resp.data.startClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
+        let dayMonthYearEnd = resp.data.endClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
+        
         this.classname = resp.data.name;
         this.classnameDescription = resp.data.description;
-        this.classStartDate = parsedStartDate;
-        this.classEndDate = parsedEndDate;
+        this.newStart = dayMonthYearStart;
+        this.newEnd = dayMonthYearEnd;
+        this.classStartDate = new Date(parsedStartDate);
+        this.classEndDate = new Date(parsedEndDate);
         this.invitationLink = resp.data.invitationLinkId;
+
       }).then(() => {
         this.$store.dispatch('REQUEST_CLASSROOM_MEMBERS', this.classId)
       })
   },
-  computed: {
-    ...mapGetters([ 'get_students' ]),
-  },
   methods: {
+    clipboardSuccessHandler: function() {
+      if( this.invitationLink === '' ){
+        return;
+      }
+      var self = this;
+      this.copied = true;
+      this.$clipboard(`${this.localPath}login/${this.invitationLink}`)
+      setTimeout(() => {
+        self.copied = false;
+      }, 2000);
+    },
+    clipboardErrorHandler: function() {
+      alert('Error cipy to clipboard! Link is: ' + this.invitationLink)
+    },
     returnToClasses: function() {
       this.$store.dispatch('UPDATE_CLASSES')
       .then(() => 
@@ -147,6 +172,41 @@ export default {
       .catch(error => {
         throw error;
       });
+    },
+    updateClasses: function() {
+      this.$store.dispatch('EDIT_CLASS', {
+        id: this.classId,
+        data: {
+          closeRegistrationOnStart: true,
+          description: this.classnameDescription,
+          endClassAt: this.newEnd,
+          invitationLinkId: this.invitationLink,
+          name: this.classname,
+          startClassAt: this.newStart
+        },
+      });
+    },
+    saveEdit: function(type) {
+      if( type === 'description' ){
+        this.descriptionFocused = false;
+      }else if( type === 'name' ){
+        this.nameFocused = false;
+      }
+      this.updateClasses();
+    },
+    startDateEmit: function(event) {
+      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
+      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
+      this.classStartDate = `${d}.${m}.${event.year}`;
+      this.newStart = `${d}.${m}.${event.year}`;
+      this.updateClasses();
+    },
+    endDateEmit: function(event) {
+      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
+      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
+      this.classEndDate = `${d}.${m}.${event.year}`;
+      this.newEnd = `${d}.${m}.${event.year}`;
+      this.updateClasses();
     },
     selectStudent: function() {
       alert('Student selected');

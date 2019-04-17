@@ -97,13 +97,18 @@ const router = new Router({
       },
     },
     {
-      path: '/classroom',
+      path: '/classroom/:id',
       name: 'classroom',
       component: ClassroomView,
       meta: {
         requireAuth: true,
         role: 'player'
       },
+    },
+    {
+      path: '/:id',
+      name: 'link',
+      component: LoginView,
     },
     {
       path: '/404',
@@ -120,6 +125,10 @@ const router = new Router({
 
 // Global Guard
 router.beforeEach((to, from, next) => {
+  
+  if( to.path.slice(1, to.path.indexOf('-')) === 'marugoto' ){
+    // go with invitation link
+  }
   // console.log('=============== GUARD ON ===============')
   if( !store.getters.get_status.isLoged ){
     document.body.classList = 'sidebar-page-padding-right';

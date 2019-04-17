@@ -130,9 +130,11 @@ export default({
       throw(err);
     });
   },
-  [types.EDIT_CLASS]: ({commit}, payload) => {
-    return apiService({url: `/classroom/${payload.id}`, data: payload, method: 'PUT', })
+  [types.EDIT_CLASS]: ({commit, dispatch}, payload) => {
+    return apiService({url: `/classroom/${payload.id}`, data: payload.data, method: 'PUT', })
     .then(resp => {
+      // Call update classes here
+      dispatch('UPDATE_CLASSES');
       return resp.data;
     })
     .catch(err => {

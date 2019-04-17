@@ -1,5 +1,22 @@
-.supervisor-container {
+.copyScreen{
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 10000;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
 
+    background: rgba(0,0,0, .25);
+    color: #fff;
+
+    transition: all 0.3s;
+
+}
+.copyScreenVisible{
+    opacity: 1;    
+}
+.supervisor-container {
     .header {
         display: table;
         width: 100%;
@@ -26,24 +43,11 @@
                 background: url('assets/images/divider-line.png') center no-repeat;
             } 
 
-            input {
+            p {
                 @extend .h5;
                 float: left;
                 min-width: 20%;
                 line-height: 48px;
-
-                &::placeholder {
-                    color: $black;
-                    opacity: 1;
-                }
-                
-                &:-ms-input-placeholder {
-                    color: $black;
-                }
-                
-                &::-ms-input-placeholder {
-                    color: $black;
-                }
             }
         }
 
@@ -290,9 +294,24 @@
         }
 
         .invitation-link {
+            position: relative;
             width: 20%;
             float: right;
             margin-left: 20px;
+            overflow: hidden;
+
+            &.copied:after{
+                content: 'Copied to clipboard';
+                position: absolute;
+                left: 0;
+                top: 0;
+                z-index: 3;
+                width: 100%;
+                height: 100%;
+                background: $base-uicolor-2;
+                text-align: center;
+                padding-top: 15px;
+            }
         }
 
     }

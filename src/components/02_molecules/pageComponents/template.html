@@ -75,14 +75,19 @@
       :placeholder="component.component.placeholderText"
       @emitInputAreaAnswer="submitAnswer" />
     <!-- PDF -->
-    <div v-if="component.type == 'PdfComponent'" >
+    <!-- <div v-if="component.type == 'PdfComponent'" >
       <a
         class="mb-40"
         :href="`${resourcesPath}${component.component.pdf.path}`"
         target="_blank">
         PDF
       </a>
-    </div>
+    </div> -->
+    <!-- Download link component -->
+    <LinkComponent 
+      v-if="component.type == 'PdfComponent'" 
+      class="mb-40" 
+      :downloadLink="`${resourcesPath}${component.component.pdf.path}`" />
     <!-- Audio component -->
     <div v-if="component.type == 'AudioComponent'">
       <div class="audio-container">

@@ -10,12 +10,17 @@ import ExerciseCheckbox from './exerciseCheckbox'
 import ExerciseText from './exerciseText'
 import TextComponent from './text'
 import ImageComponent from './image'
+import LinkComponent from './linkComponent'
 import ExerciseTextArea from './exerciseTextArea'
 import SvgIcon from '@/components/01_atoms/svgicon';
 
 export default {
   name: 'PageComponents',
-  components: { VueMarkdown, ExerciseRadio, ExerciseCheckbox, ExerciseText, TextComponent, ImageComponent, ExerciseTextArea, SvgIcon },
+  components: { 
+    VueMarkdown, ExerciseRadio, 
+    ExerciseCheckbox, ExerciseText, 
+    TextComponent, ImageComponent, 
+    ExerciseTextArea, SvgIcon, LinkComponent },
   props: [ 'exercises' ],
   data: function() {
     return {

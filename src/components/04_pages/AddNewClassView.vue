@@ -9,11 +9,8 @@
             class="h6"
             @click="returnToClasses">Classes</div>
           <div class="line-divide"></div>
-          <input
-            class="h5"
-            placeholder="Classname"
-            v-model="classname"
-            readonly>
+          <p v-if="classname.length < 1" class="h5">Class Name</p>
+          <p v-if="classname.length > 0" class="h5">{{ classname }}</p>
         </div>
         <div class="sign-out small">Sign Out</div>
         <div class="profile-photo"></div>
@@ -34,12 +31,18 @@
           </div>
         </div>
         <!-- Invitation Link -->
-        <div class="invitation-link" v-clipboard="invitationLink">
+        <div 
+          class="invitation-link" 
+          :class="copied ? 'copied' : '' "
+          v-clipboard="`${this.localPath}${this.invitationLink}`"
+          v-clipboard:success="clipboardSuccessHandler"
+          v-clipboard:error="clipboardErrorHandler">
           <Btn white="true" :text="invitationLink" iconName="copy" />
         </div>
         <!-- Date Picker -->
         <div class="date-picker">
           <v-date-picker
+            :max-date="classEndDate"
             class="start-date"
             :formats='formats'
             @dayclick="startDateEmit($event)"
@@ -49,6 +52,7 @@
             <SvgIcon name="arrow-right" customColor="#8C8B89" sizeH="20px" sizeW="20px" />
           </div>
           <v-date-picker
+            :min-date="classStartDate"
             class="end-date"
             :formats='formats'
             @dayclick="endDateEmit($event)"
@@ -91,6 +95,9 @@ export default {
   components: { Btn, SvgIcon },
   data() {
     return {
+      localPath: process.env.VUE_APP_LOCAL_PATH,
+      resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
+      copied: false,
       classname: '',
       classnameDescription: '',
       nameFocused: false,
@@ -122,6 +129,20 @@ export default {
     }
   },
   methods: {
+    clipboardSuccessHandler: function() {
+      if( this.invitationLink === '' ){
+        return;
+      }
+      var self = this;
+      this.copied = true;
+      this.$clipboard(`${this.localPath}login/${this.invitationLink}`)
+      setTimeout(() => {
+        self.copied = false;
+      }, 2000);
+    },
+    clipboardErrorHandler: function() {
+      alert('Error cipy to clipboard! Link is: ' + this.invitationLink)
+    },
     returnToClasses: function() {
       this.$store.dispatch('UPDATE_CLASSES')
       .then(() => 
