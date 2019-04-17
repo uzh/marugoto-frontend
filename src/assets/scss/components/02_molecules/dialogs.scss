@@ -10,14 +10,15 @@ $top: 90px;
   background-color: rgba(240, 243, 245, 0.9);
   z-index: 100;
   transition: opacity 0.3s ease;
+  overflow-y: scroll;
 }
   
 .dialog-container {
   position: relative;
-  top: 20%;
+  top: 10%;
   padding: $top;
-  height: 60%;
-  overflow-y: scroll;
+  min-height: 80%;
+  
   background-color: $white;
   box-shadow: 0 15px 30px 0 rgba(47, 49, 51, 0.2);
   transition: all 0.3s ease;
