@@ -122,7 +122,7 @@ export default {
     get_dialog: function(newVal) {
       if( this.get_layoutState.dialog.opened ) { return; }
       if( newVal.length > 0 && newVal[0].hasOwnProperty('receiveAfter') ){
-        new Timer(10, // Transition time newVal[0].receiveAfter
+        new Timer(newVal[0].receiveAfter, // Transition time
           this.setDialogVisibility,       // Callback
           true)                           // Callback payload
           .start();
