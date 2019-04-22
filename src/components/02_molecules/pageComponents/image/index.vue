@@ -12,7 +12,7 @@ export default {
   data() {
     return {
       imageZoomed: false,
-      zoomLevel: 5,
+      zoomLevel: 2,
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       sourceIndex: 0,
       dummyList: [
@@ -38,11 +38,11 @@ export default {
       if (!this.imageZoomed) {
         this.zoomLevel = 0;
       } else {
-        this.zoomLevel = 5;
+        this.zoomLevel = 2;
       }
     },
     incZoom: function() {
-      if(this.imageZoomed && this.zoomLevel < 5) {
+      if(this.imageZoomed && this.zoomLevel < 10) {
         this.zoomLevel++;
       }
     },
