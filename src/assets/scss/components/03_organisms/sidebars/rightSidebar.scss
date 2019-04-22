@@ -6,18 +6,35 @@
   z-index: 11;
   width: $elements-space;
   height: $elements-space;
-  border-left: $border;
-  border-bottom: $border;
+  border-style: solid;
+  border-left-width: 1px;
+  border-bottom-width: 1px;
+  border-color: $base-uicolor-4;
   background-color: white;
 
   &.in {
     // State for mail opened
-    border-left: none;
+    border-width: 0px;
+  }
+
+  &:before{
+    display: block;
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    background-image: linear-gradient(90deg, #DCDAD8 0%, #F2F0EE 100%);
+    transition: all 0.3s;
   }
 
   &.notebook-in{
     // State for notebook opened
-    background-image: linear-gradient(90deg, #DCDAD8 0%, #F2F0EE 100%);
+    &:before{
+      opacity: 1;
+    }
     border-bottom: none;
     border-left: none;
   }
@@ -120,12 +137,25 @@
   background: $white;
   z-index: 11;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.1s;
   transition: border-left 0s;
 
-  &.in {
-    border-left: none;
+  &:before{
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    right: 0px;
+    width: 90px;
+    height: 100%;
+    opacity: 0;
     background-image: linear-gradient(90deg, #DCDAD8 0%, #F2F0EE 100%);
+    transition: all 0.3s;
+  }
+
+  &.in:before {
+    opacity: 1;
+    border-left: none;
   }
 
   .close{
@@ -135,8 +165,7 @@
     height: 90px;
     line-height: 90px;
     text-align: center;
-    background-color: $white;
-    background-image: linear-gradient(90deg, #DCDAD8 0%, #F2F0EE 100%);
+    
     z-index: 4;
     cursor: pointer;
   }

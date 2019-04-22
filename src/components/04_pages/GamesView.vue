@@ -36,8 +36,7 @@
       <h5>Finished Games</h5>
       <DownloadList
         v-for="(item, index) in get_games.finishedGames"
-        :key="index"
-        :title="item.topic.title" />
+        :key="index" />
     </div>
     <!-- <div class="delete-account">
       <Btn text="Delete Account" ghost="true" iconName="cancel" />

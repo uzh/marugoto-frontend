@@ -9,7 +9,6 @@ $chapterHeight: 80px;
     z-index: 10;
     overflow: scroll;
     transition: all 0.3s;
-    // border-right: 1px dashed #D2CFCD;//#D2CFCD;
 
     &.in {
         right: 90px;
@@ -21,14 +20,21 @@ $chapterHeight: 80px;
     }
 
     .empty-notebook {
-        vertical-align: middle;
         height: 100%;
         text-align: center;
         background: linear-gradient(-90deg, rgba(230,227,225,1) 0%, rgba(230,227,225,1) 80%, rgba(236,234,232,1) 100%);
-        line-height: 100vh;
+        line-height: 1;
         background-color: $base-uicolor-2;
         text-align: center;
         overflow: hidden;
+        padding: 0 40px;
+
+        span{
+            display: block;
+            position: relative;
+            top: 50%;
+            transform: translateY(-50%);
+        }
     }
 }
 

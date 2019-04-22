@@ -15,10 +15,12 @@
         .storyline-title {
             display: block;
             margin-bottom: 80px;
+            
 
             .page-title-icon-container {
                 display: block;
                 text-align: left;
+                transition: all 0.3s;
 
                 .icon {
                     width: 72px;
@@ -27,8 +29,6 @@
             }
 
             .page-title {
-                width: 80%;
-                float: left;
                 padding: 0 10px;
 
                 p {

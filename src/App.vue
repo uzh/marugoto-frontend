@@ -42,11 +42,14 @@ export default{
   created: function() {
     this.$store.dispatch('ERROR_NETWORK_CONNECTION', false);
   },
+  mounted: function() {
+    this.animateContainer();
+  },
   methods: {
     ...mapActions([ 'LAYOUT_OPEN', 'LAYOUT_CLOSE' ]),
-    animateContainer: function(val) {
+    animateContainer: function() {
       let self = this;
-      if(val == 'halved') {
+      if(this.get_layoutState.notebook.opened) {
         self.$refs.pageContainer.classList.add('page-container-transitionOn');
         setTimeout(function() {
           self.$refs.pageContainer.classList.add('page-container-opacityOff');
@@ -58,7 +61,8 @@ export default{
           self.$refs.pageContainer.classList.remove('page-container-opacityOff');
           self.$refs.pageContainer.classList.add('page-container-opacityOn');
         }, 200);
-      } else if (val == 'full') {
+      } 
+      else {
         setTimeout(function() {
           self.$refs.pageContainer.classList.add('page-container-opacityOff');
           self.$refs.pageContainer.classList.remove('page-container-opacityOn');
@@ -75,11 +79,7 @@ export default{
   watch: {
     "get_layoutState.notebook.opened": function(newVal, oldVal) {
       if( newVal != oldVal ) {
-        if(this.get_layoutState.notebook.opened) {
-          this.animateContainer('halved');
-        } else {
-          this.animateContainer('full');
-        }
+        this.animateContainer();
       }
     }
   },

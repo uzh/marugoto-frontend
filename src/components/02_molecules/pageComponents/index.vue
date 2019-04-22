@@ -50,6 +50,7 @@ export default {
     };
   },
   mounted() {
+    this.controllComponentLayout();
     if(document.getElementById("video")) {
       let self = this;
       document.getElementById("video").onloadedmetadata = function() {
@@ -220,7 +221,24 @@ export default {
       } else {
         this.audioCurrentTime = `${minutes}:${seconds}`;
       }
-    }
+    },
+    controllComponentLayout: function() {
+      if( this.get_layoutState.notebook.opened ){
+        setTimeout(function(){
+          let listOfElements = document.querySelectorAll('.component-wrapper');
+          listOfElements.forEach(element => {
+            element.classList.add('col-xs-12-important');
+          });
+        }, 100);
+      }else{
+        setTimeout(function(){
+          let listOfElements = document.querySelectorAll('.component-wrapper');
+          listOfElements.forEach(element => {
+            element.classList.remove('col-xs-12-important');
+          });
+        }, 100);
+      }
+    },
   },
   watch: {
     "get_layoutState.notebook.opened": function(newVal, oldVal) {

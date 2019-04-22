@@ -2,13 +2,15 @@
   <div class="main-container">
     <div class="storyline-container" v-if="get_topic.selected">
       <div class="storyline-title col-xs-12">
-        <div class="page-title-icon-container col-xs-1 col-xs-offset-1"> 
+        <div 
+          class="page-title-icon-container"
+          :class="get_layoutState.notebook.opened ? 'col-xs-2' : 'col-xs-1 col-xs-offset-1'"> 
           <img 
             v-if="get_page.chapter && get_page.chapter.icon" 
             class="icon" 
             :src="`${resourcesPath}${get_page.chapter.icon.path}`">
         </div>
-        <vue-markdown class="page-title" :source="get_page.title" />
+        <vue-markdown class="page-title col-xs-10" :source="get_page.title" />
       </div>
       <!-- Components -->
       <PageComponents />
@@ -111,7 +113,7 @@ export default {
     get_page: function(newVal) {
       // Check if page has got timeLimit for transition trigger
       if( newVal.hasOwnProperty('timeLimit') ){
-        new Timer(newVal.timeLimit,                   // Transition time 
+        new Timer( 10,                   // Transition time newVal.timeLimit
           this.requestPageTransition,                 // Callback
           this.get_transitions[0].pageTransition.id)  // Callback payload
           .start();
@@ -120,7 +122,7 @@ export default {
     get_dialog: function(newVal) {
       if( this.get_layoutState.dialog.opened ) { return; }
       if( newVal.length > 0 && newVal[0].hasOwnProperty('receiveAfter') ){
-        new Timer(newVal[0].receiveAfter, // Transition time
+        new Timer(10, // Transition time newVal[0].receiveAfter
           this.setDialogVisibility,       // Callback
           true)                           // Callback payload
           .start();

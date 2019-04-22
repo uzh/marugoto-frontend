@@ -46,14 +46,13 @@
     <h5 class="go-left col-xs-3">Mail-Inbox</h5>
   </div>
   <!-- NOTEBOOK SIDEBAR -->
-  <div class="notebook-btn" :class="get_layoutState.notebook.opened ? 'in' : ''">
+  <div class="notebook-btn" :class="get_layoutState.notebook.opened ? 'in' : ''" @click="switchNotebookLayout()">
     <div 
-      v-if="get_layoutState.notebook.opened" 
-      @click="switchNotebookLayout()"
+      v-if="get_layoutState.notebook.opened"
       class="close">
       <img src="@/assets/images/close.svg" alt="image" />
     </div>
-    <div class="notebook-sidebar-right" @click="switchNotebookLayout()">
+    <div class="notebook-sidebar-right">
       <p class="rotated-text">Notebook</p>
     </div>
   </div>
