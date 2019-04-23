@@ -26,7 +26,9 @@
         <div>
           <div class="image-sticker"></div>
           <img :src="`${resourcesPath}${component.component.images[0].path}`" />
-          <vue-markdown class="image-caption" v-if="component.component.caption" :source="component.component.caption" />
+          <div class="image-caption" v-if="component.component.caption">
+            <p>{{ component.component.caption }}</p>
+          </div>
         </div>
       </div>
       <!-- Text Exercise Component -->

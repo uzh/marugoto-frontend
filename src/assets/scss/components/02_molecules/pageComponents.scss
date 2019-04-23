@@ -270,9 +270,9 @@
                     width: 100%;
                 }
 
-                video::-webkit-media-controls {
-                    display: none !important;
-                }
+                // video::-webkit-media-controls {
+                //     display: none !important;
+                // }
 
                 #play-big {
                     position: absolute;
@@ -290,42 +290,42 @@
                     height: 60px;
                     background-color: transparent;
 
-                    input[type="range"] {
-                        height: 5px;
-                        overflow: hidden;
-                        background-color: $base-primary;
-                        -webkit-appearance: none;
-                    }
+                    // input[type="range"] {
+                    //     height: 5px;
+                    //     overflow: hidden;
+                    //     background-color: $base-primary;
+                    //     -webkit-appearance: none;
+                    // }
 
-                    input[type='range']::-webkit-slider-runnable-track {
-                        height: 5px;
-                        color: $white;
-                        -webkit-appearance: none;
-                    }
+                    // input[type='range']::-webkit-slider-runnable-track {
+                    //     height: 5px;
+                    //     color: $white;
+                    //     -webkit-appearance: none;
+                    // }
 
-                    input[type='range']::-webkit-slider-thumb {
-                        width: 5px;
-                        height: 5px;
-                        background: $white;
-                        box-shadow: -9000px 0 0 9000px $white;
-                        -webkit-appearance: none;
-                    }
+                    // input[type='range']::-webkit-slider-thumb {
+                    //     width: 5px;
+                    //     height: 5px;
+                    //     background: $white;
+                    //     box-shadow: -9000px 0 0 9000px $white;
+                    //     -webkit-appearance: none;
+                    // }
 
-                    input[type="range"]::-moz-range-progress {
-                        background-color: $white; 
-                    }
+                    // input[type="range"]::-moz-range-progress {
+                    //     background-color: $white; 
+                    // }
 
-                    input[type="range"]::-moz-range-track {  
-                        background-color: $base-primary;
-                    }
+                    // input[type="range"]::-moz-range-track {  
+                    //     background-color: $base-primary;
+                    // }
 
-                    input[type="range"]::-ms-fill-lower {
-                        background-color: $white; 
-                    }
+                    // input[type="range"]::-ms-fill-lower {
+                    //     background-color: $white; 
+                    // }
 
-                    input[type="range"]::-ms-fill-upper {  
-                        background-color: $base-primary;
-                    }
+                    // input[type="range"]::-ms-fill-upper {  
+                    //     background-color: $base-primary;
+                    // }
 
                     #video-seek-bar {
                         position: absolute;

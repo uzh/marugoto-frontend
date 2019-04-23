@@ -60,13 +60,6 @@
       :exerciseId="component.state.id"
       :optionsList="component.component.options"
       :name="component.type" />
-    <!-- Exercise Text -->
-    <!-- <ExerciseText
-      class="mb-40"
-      @emitInputAnswer="submitAnswer"
-      v-if="component.type == 'TextExercise'"
-      :exerciseId="component.exerciseState.id"
-      :placeholder="component.placeholderText" /> -->
     <!-- Exercise Text Area -->
     <ExerciseTextArea
       v-if="component.type == 'TextExercise'"
@@ -74,15 +67,6 @@
       :exerciseId="component.state.id"
       :placeholder="component.component.placeholderText"
       @emitInputAreaAnswer="submitAnswer" />
-    <!-- PDF -->
-    <!-- <div v-if="component.type == 'PdfComponent'" >
-      <a
-        class="mb-40"
-        :href="`${resourcesPath}${component.component.pdf.path}`"
-        target="_blank">
-        PDF
-      </a>
-    </div> -->
     <!-- Download link component -->
     <LinkComponent 
       v-if="component.type == 'PdfComponent'"
@@ -121,61 +105,21 @@
           </div>
         </div>
       </div>
-      <vue-markdown
-        class="audio-caption mb-40"
-        :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}"
-        :source="component.component.caption" />
+      <div class="audio-caption mb-40" :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}">
+        <p>{{ component.component.caption }}</p>
+      </div>
     </div>
     <!-- Video component -->
     <div v-if="component.type == 'VideoComponent'">
-      <div
-        class="video-container"
-        @mouseover="videoHovered = true"
-        @mouseleave="videoHovered = false">
-        <video
-          id="video"
-          @timeupdate="updateVideoTimeRange">
+        <video controls id="video">
           <source :src="`${resourcesPath}${component.component.video.path}`" type="video/mp4">
           <source :src="`${resourcesPath}${component.component.video.path}`" type="video/webm" />
           <source :src="`${resourcesPath}${component.component.video.path}`" type="video/ogg" />
           <p>Your browser does not support the video tag.</p>
         </video>
-        <!-- Play button center -->
-        <div
-          v-show="videoHovered"
-          id="play-big"
-          @click="togglePlayVideo">
-          <SvgIcon :name="videoPaused ? 'play' : 'pause'" sizeH="50" sizeW="50"/>
-        </div>
-        <!-- Bottom video controls -->
-        <div
-          v-show="videoHovered"
-          id="video-controls">
-          <input
-            type="range"
-            id="video-seek-bar"
-            value="0"
-            step="0.1"
-            @mousedown="moveRangeVideoThumb"
-            @mouseup="rangeVideoThumbMoved"
-            @change="changeVideoTimeRange">
-          <div
-            id="video-play-small"
-            @click="togglePlayVideo">
-            <SvgIcon :name="videoID.paused ? 'play' : 'pause'" />
-          </div>
-          <div id="video-time-passed" class="small">
-            {{ videoCurrentTime }} / {{ videoDuration }}
-          </div>
-          <div id="full-screen" @click="toggleFullScreen">
-            <SvgIcon name="zoom-in" customColor="#fff" />
-          </div>
-        </div>
+      <div class="video-caption mb-40" :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}">
+        <p>{{ component.component.caption }}</p>
       </div>
-      <vue-markdown
-        class="video-caption mb-40"
-        :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}"
-        :source="component.component.caption" />
     </div>
   </div>
 

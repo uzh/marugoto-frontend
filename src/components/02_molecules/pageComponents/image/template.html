@@ -23,10 +23,9 @@
       class="image-slider-counter">
         {{ sourceIndex + 1 }} / {{ sourceList.length }}
     </div>
-    <vue-markdown
-      class="image-caption"
-      :style="{ 'margin-left': captionOffset }"
-      :source="text"/>
+    <div class="image-caption" :style="{ 'margin-left': captionOffset }">
+      <p>{{ text }}</p>
+    </div>
     <div
       v-if="zoomable"
       class="zoom-in"
