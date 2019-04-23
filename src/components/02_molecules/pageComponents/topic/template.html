@@ -23,7 +23,7 @@
         <img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image">
       </div>
       <div class="topic-folder">
-        <vue-markdown class="title" :source="topic.title" />
+        <div class="title"><p>{{ topic.title }}</p></div>
         <Btn
           @click.native="$emit('openTopic', topic.id)"
           class="topic-button"
