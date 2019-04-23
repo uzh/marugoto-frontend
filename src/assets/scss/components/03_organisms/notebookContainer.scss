@@ -282,11 +282,218 @@ $chapterHeight: 80px;
         }
 
         .notebook-mail-response {
+            position: relative;
+
+            .title {
+                display: inline-block;
+                height: 39px;
+                padding-top: 9px;
+                margin-bottom: 20px;
+                font-family: 'Kalam Light';
+                font-size: 20px;
+                line-height: 32px;
+                letter-spacing: 0.08px;
+                border-bottom: 2px solid $black;
+            }
+
+            .sticker {
+                position: absolute;
+                top: 5px;
+                left: 50%;
+                height: 125px;
+                width: 44px;
+                background-color: $white;
+                background: url('assets/images/sticker.png');
+                z-index: 1;
+                transform: rotate(-90deg) translateY(-22px);
+            }
 
             .notebook-mail-reply-message {
-                font-family: 'Kalam-Light';
-                padding-bottom: 40px;
-                border-bottom: 1px solid $base-uicolor-2;
+                height: 400px;
+                padding: 20px;
+                background: url('assets/images/notebook-mail-response-background.png') center no-repeat;
+                font-family: 'Kalam Light';
+                font-size: 20px;
+                line-height: 32px;
+                letter-spacing: 0.08px;
+                overflow: hidden;
+                transform: rotate(-1deg);
+            }
+        }
+
+        .notebook-radio-field {
+            margin: 40px 0;
+            min-height: 130px;
+
+            .title {
+                display: inline-block;
+                height: 39px;
+                padding-top: 9px;
+                margin-bottom: 7px;
+                font-family: 'Kalam Light';
+                font-size: 20px;
+                line-height: 32px;
+                letter-spacing: 0.08px;
+                border-bottom: 2px solid $black;
+            }
+
+            .question {
+                margin-top: 6px;
+                display: block;
+            }
+
+            .notebook-radio-field-item {
+                float: left;
+                position: relative;
+                height: 66px;
+                width: auto;
+                min-width: 101px;
+                margin-right: 20px;
+                padding-top: 17px;
+                font-family: 'Kalam Light';
+                font-size: 20px;
+                line-height: 32px;
+                letter-spacing: 0.08px;
+
+                .correct {
+                    position: absolute;
+                    top: 7px;
+                    left: 0;
+
+                    svg {
+                        width: 101px;
+                        height: 48px;
+                    }
+                }
+
+                .incorrect {
+                    position: absolute;
+                    top: 7px;
+                    left: 0;
+
+                    svg {
+                        width: 101px;
+                        height: 48px;
+                    }
+                }
+            }
+        }
+
+        .notebook-checkbox-field {
+            margin: 40px 0;
+            min-height: 130px;
+
+            .title {
+                display: inline-block;
+                height: 39px;
+                padding-top: 9px;
+                margin-bottom: 7px;
+                font-family: 'Kalam Light';
+                font-size: 20px;
+                line-height: 32px;
+                letter-spacing: 0.08px;
+                border-bottom: 2px solid $black;
+            }
+
+            .question {
+                margin-top: 6px;
+                display: block;
+            }
+
+            .notebook-checkbox-field-item {
+                float: left;
+                position: relative;
+                height: 66px;
+                width: auto;
+                min-width: 101px;
+                margin-right: 20px;
+                padding-top: 17px;
+                font-family: 'Kalam Light';
+                font-size: 20px;
+                line-height: 32px;
+                letter-spacing: 0.08px;
+
+                .correct {
+                    position: absolute;
+                    top: 7px;
+                    left: 0;
+
+                    svg {
+                        width: 101px;
+                        height: 48px;
+                    }
+                }
+
+                .incorrect {
+                    position: absolute;
+                    top: 7px;
+                    left: 0;
+
+                    svg {
+                        width: 101px;
+                        height: 48px;
+                    }
+                }
+            }
+        }
+
+        .notebook-documents-upload {
+            margin: 40px 0;
+            min-height: 300px;
+
+            .title {
+                display: inline-block;
+                height: 39px;
+                padding-top: 9px;
+                margin-bottom: 7px;
+                font-family: 'Kalam Light';
+                font-size: 20px;
+                line-height: 32px;
+                letter-spacing: 0.08px;
+                border-bottom: 2px solid $black;
+            }
+
+            .question {
+                margin-top: 6px;
+                display: block;
+            }
+
+            .notebook-document-item {
+                float: left;
+                width: 30%;
+                min-height: 213px;
+                margin-top: 15px;
+                margin-right: 5%;
+                background: url('assets/images/doc-background.png') center no-repeat;
+                transform: rotate(-3deg);
+
+                &:nth-child(even) {
+                    transform: rotate(3deg);
+                }
+
+                &:last-child {
+                    margin-right: 0;
+                }
+                    
+                .document-type {
+                    min-height: 130px;
+                    width: 80%;
+                    margin-left: 10%;
+                    font-size: 20px;
+                    line-height: 30px;
+                    color: $base-primary;
+                    padding-top: 60px;
+                    text-align: center;
+                    border-bottom: 1px solid $base-uicolor-2;
+                }
+
+                .document-title {
+                    width: 80%;
+                    min-height: 50px;
+                    text-align: center;
+                    margin: 15px 0;
+                    margin-left: 10%;
+                }
             }
         }
     }

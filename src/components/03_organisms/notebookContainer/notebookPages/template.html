@@ -51,7 +51,58 @@
         v-if="component.hasOwnProperty('mailState')"
         class="notebook-mail-response">
         <div v-for="(reply, index) in component.mailState.mailReplyList" :key="index">
+            <div class="title">{{component.mailState.mail.subject}}</div>
+            <div class="sticker"></div>
           <div class="notebook-mail-reply-message">{{ reply.body }}</div>
+        </div>
+      </div>
+      <!-- Radio Field Component -->
+      <div v-if="component.type == 'RadioFieldComponent'" class="notebook-radio-field">
+        <div class="title">My Choice</div>
+        <div class="question small">{{ component.component.question }}</div>
+        <div v-for="(item, index) in radioOptions" :key="index">
+          <div class="notebook-radio-field-item">
+            {{ item.markdownContent }}
+            <div v-if="item.chosen" class="correct">
+              <!-- width of circle is not dynamic but fixed -->
+              <SvgIcon name="correct-answer" />
+            </div>
+            <div v-if="!item.chosen" class="incorrect">
+              <!-- width of line is not dynamic but fixed -->
+              <SvgIcon name="incorrect-answer" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Checkbox Field Component -->
+      <div v-if="component.type == 'CheckboxFieldComponent'" class="notebook-checkbox-field">
+        <div class="title">My Choice</div>
+        <div class="question small">{{ component.component.question }}</div>
+        <div v-for="(item, index) in checkboxOptions" :key="index">
+          <div class="notebook-checkbox-field-item">
+            {{ item.markdownContent }}
+            <div v-if="item.chosen" class="correct">
+              <!-- width of circle is not dynamic but fixed -->
+              <SvgIcon name="correct-answer" />
+            </div>
+            <div v-if="!item.chosen" class="incorrect">
+              <!-- width of line is not dynamic but fixed -->
+              <SvgIcon name="incorrect-answer" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Documents Upload Component -->
+      <div v-if="component.type == 'DocumentsUploadComponent'" class="notebook-documents-upload">
+        <div class="title">My Output</div>
+        <div class="question small">Upload your results</div>
+        <div v-for="(doc, index) in documentUploads" :key="index" class="notebook-document-item">
+          <div class="document-type">
+            {{ doc.type }}
+          </div>
+          <div class="document-title small">
+            {{ doc.title }}
+          </div>
         </div>
       </div>
       <!-- Personal Note -->

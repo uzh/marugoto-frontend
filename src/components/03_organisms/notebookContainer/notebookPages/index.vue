@@ -21,7 +21,7 @@ export default {
       personalNoteText: '',
       isAutosaved: false,
       noteChanged: false,
-      pageTransitionId: '',
+      pageTransitionId: ''
     }
   },
   
