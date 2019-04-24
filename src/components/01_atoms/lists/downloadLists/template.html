@@ -4,10 +4,10 @@
 		<div class="small">25 December</div>
 	</div>
 	<div class="right">
-		<div
+		<div v-if="action.length > 0"
 			class="link continue"
 			@click="$emit('emitContinue')">
-			Continue
+			{{ action }}
 		</div>
 		<div
 			class="download"

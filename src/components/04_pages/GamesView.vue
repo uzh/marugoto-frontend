@@ -20,6 +20,7 @@
       <h5>Games within classes</h5>
       <DownloadList
         v-for="(item, index) in get_games.classroomGames"
+        action="Continue"
         :key="index"
         :title="item.topic.title" />
     </div>
@@ -27,6 +28,7 @@
       <h5>Open Games</h5>
       <DownloadList
       v-for="(item, index) in get_games.openGames"
+      action="Continue"
       :key="index"
       :id="item.id"
       :title="item.topic.title"
@@ -35,12 +37,11 @@
     <div v-if="get_games.finishedGames && get_games.finishedGames.length > 0" class="finished-games">
       <h5>Finished Games</h5>
       <DownloadList
+        action=""
         v-for="(item, index) in get_games.finishedGames"
+        :title="item.topic.title"
         :key="index" />
     </div>
-    <!-- <div class="delete-account">
-      <Btn text="Delete Account" ghost="true" iconName="cancel" />
-    </div> -->
   </div>
 </template>
 

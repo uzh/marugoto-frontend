@@ -4,7 +4,7 @@
       <!-- Page Header -->
       <div class="header">
         <div class="title h5">Classes</div>
-        <div class="sign-out small">Sign Out</div>
+        <router-link class="sign-out small" to="/games">Sign Out</router-link>
       </div>
       <!-- Add new class -->
       <div class="add-new-class-button">

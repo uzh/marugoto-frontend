@@ -12,7 +12,7 @@
           <p v-if="classname.length < 1" class="h5">Class Name</p>
           <p v-if="classname.length > 0" class="h5">{{ classname }}</p>
         </div>
-        <div class="sign-out small">Sign Out</div>
+        <router-link class="sign-out small" to="/games">Sign Out</router-link>
         <div class="profile-photo"></div>
       </div>
       <!-- Add new class -->
@@ -25,6 +25,7 @@
             :readonly="!nameFocused"
             v-model="classname"
             @blur="nameFocused = false"
+            @click="changeClassname"
             onkeydown="this.style.width = ((this.value.length + 1) * 24) + 'px'">
           <div class="icon" @click="changeClassname">
             <SvgIcon :class="nameFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
@@ -71,6 +72,7 @@
             :readonly="!descriptionFocused"
             v-model="classnameDescription"
             @blur="descriptionFocused = false"
+            @click="changeClassnameDescription"
             onkeydown="this.style.width = ((this.value.length + 1) * 12) + 'px'">
           <div class="icon" @click="changeClassnameDescription">
             <SvgIcon :class="descriptionFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
@@ -80,7 +82,7 @@
       <!-- Buttons -->
       <div class="buttons-footer">
         <Btn text="Go to Map" primary="true" disabled="true" />
-        <Btn text="Start Course" primary="true" :disabled="enableStartCourse" @click.native="startCourse" />
+        <Btn text="Create Class" primary="true" :disabled="enableStartCourse" @click.native="startCourse" />
       </div>
     </div>
   </div>

@@ -11,7 +11,7 @@
           <p v-if="classname.length < 1" class="h5">Class Name</p>
           <p v-if="classname.length > 0" class="h5">{{ classname }}</p>
         </div>
-        <div class="sign-out small">Sign Out</div>
+        <router-link class="sign-out small" to="/games">Sign Out</router-link>
       </div>
       <div class="new-class-entry">
         <!-- Class name -->
@@ -22,6 +22,7 @@
             :readonly="!nameFocused"
             v-model="classname"
             @blur="saveEdit('name')"
+            @click="changeClassname"
             onkeydown="this.style.width = ((this.value.length + 1) * 24) + 'px'">
           <div class="icon" @click="changeClassname">
             <SvgIcon :class="nameFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
@@ -40,6 +41,7 @@
         <div class="date-picker">
           <v-date-picker
             class="start-date"
+            :max-date="classEndDate"
             :formats='formats'
             @dayclick="startDateEmit($event)"
             v-model="classStartDate">
@@ -49,6 +51,7 @@
           </div>
           <v-date-picker
             class="end-date"
+            :min-date="classStartDate"
             :formats='formats'
             @dayclick="endDateEmit($event)"
             v-model="classEndDate">
@@ -66,6 +69,7 @@
             :readonly="!descriptionFocused"
             v-model="classnameDescription"
             @blur="saveEdit('description')"
+            @click="changeClassnameDescription"
             onkeydown="this.style.width = ((this.value.length + 1) * 12) + 'px'">
           <div class="icon" @click="changeClassnameDescription">
             <SvgIcon :class="descriptionFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
@@ -102,6 +106,7 @@ export default {
     return {
       localPath: process.env.VUE_APP_LOCAL_PATH,
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
+      apiPath: process.env.VUE_APP_API_PATH,
       classId: '',
       classname: '',
       copied: false,
@@ -156,7 +161,7 @@ export default {
       }
       var self = this;
       this.copied = true;
-      this.$clipboard(`${this.localPath}login/${this.invitationLink}`)
+      this.$clipboard(`${this.localPath}class/${this.invitationLink}`)
       setTimeout(() => {
         self.copied = false;
       }, 2000);
@@ -223,7 +228,7 @@ export default {
       this.$refs.classnameDescription.focus();
     },
     downloadAll: function() {
-      alert('Download all Notebooks and Files');
+      window.open(`${this.apiPath}classroom/${this.$route.params.id}/files`,'_blank')
     },
   }
 }

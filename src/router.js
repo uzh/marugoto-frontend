@@ -106,10 +106,15 @@ const router = new Router({
       },
     },
     {
-      path: '/:id',
-      name: 'link',
-      component: LoginView,
+      path: '/class/:id',
+      name: 'invitationLink',
+      component: TopicsView,
     },
+    // {
+    //   path: '/:id',
+    //   name: 'link',
+    //   component: LoginView,
+    // },
     {
       path: '/404',
       name: 'pageNotFound',
@@ -125,9 +130,10 @@ const router = new Router({
 
 // Global Guard
 router.beforeEach((to, from, next) => {
-  
-  if( to.path.slice(1, to.path.indexOf('-')) === 'marugoto' ){
+  console.log( to.path.slice(1, to.path.indexOf(to.params.id)) );
+  if( to.path.slice(1, to.path.indexOf(to.params.id)) === 'class/' ){
     // go with invitation link
+    console.log('Redirect me invotation')
   }
   // console.log('=============== GUARD ON ===============')
   if( !store.getters.get_status.isLoged ){
