@@ -201,7 +201,7 @@ export default {
   methods: {
     ...mapActions(['REGISTER']),
     register(){
-      if ( this.firstName == '' || this.lastName == '' || this.mail == '' || this.password == '' || this.salutation == '') {
+      if ( this.firstName == '' || this.lastName == '' || this.mail == '' || this.password == '' || this.gender == '') {
         this.errorMessage = true;
         this.errorText.text = 'Please fill in all information.';
       } else {
@@ -210,7 +210,7 @@ export default {
           lastName: this.lastName,
           mail: this.mail,
           password: this.password,
-          salutation: this.gender
+          gender: this.gender
         }).then(registerData => {
           this.$store.dispatch('LOGIN', registerData).then(() => this.$router.push('/games'));
         })
