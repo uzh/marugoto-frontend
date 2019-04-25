@@ -135,6 +135,7 @@ export default {
     this.classId = this.$route.params.id;
     this.$store.dispatch('REQUEST_CLASSROOM_DATA', this.classId)
     .then(resp => {
+      console.log(resp.data.startClassAt)
         let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
         let parsedStartDate = resp.data.startClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');
         let parsedEndDate = resp.data.endClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');

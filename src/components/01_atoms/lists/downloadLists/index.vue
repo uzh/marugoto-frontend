@@ -6,11 +6,18 @@ import SvgIcon from '@/components/01_atoms/svgicon';
 export default {
   name: 'downloadListItem',
   components: { SvgIcon },
-  props: [ 'title', 'action' ],
-  data() {
+  props: [ 'title', 'action', 'startedAt' ],
+  data: function() {
     return {
-
+      months: ['January', 'February', 'March', 'April', 'May', 'Jun',
+      'July', 'August', ' September', 'October', 'December'],
     };
+  },
+  computed: {
+    startedAtP:  function() {
+      let date = new Date(this.startedAt);
+      return `${date.getDay()} ${this.months[date.getMonth()]}`;
+    },
   },
 };
 </script>
