@@ -35,7 +35,7 @@
         <div 
           class="invitation-link" 
           :class="copied ? 'copied' : '' "
-          v-clipboard="`${this.localPath}${this.invitationLink}`"
+          v-clipboard="`${this.localPath}class/${this.invitationLink}`"
           v-clipboard:success="clipboardSuccessHandler"
           v-clipboard:error="clipboardErrorHandler">
           <Btn white="true" :text="invitationLink" iconName="copy" />
@@ -137,7 +137,7 @@ export default {
       }
       var self = this;
       this.copied = true;
-      this.$clipboard(`${this.localPath}login/${this.invitationLink}`)
+      this.$clipboard(`${this.localPath}class/${this.invitationLink}`)
       setTimeout(() => {
         self.copied = false;
       }, 2000);

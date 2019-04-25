@@ -110,6 +110,13 @@ export default({
       throw(err);
     });
   },
+  // INVITATION LINK
+  [types.SET_INVITATION_LINK]: ({commit}, payload) => {
+    commit('SET_INVITATION_LINK', payload);
+  },
+  [types.CLEAR_INVITATION_LINK]: ({commit}) => {
+    commit('CLEAR_INVITATION_LINK');
+  },
   // CLASSES
   [types.UPDATE_CLASSES]: ({commit}) => {
     return apiService.get('/classroom/list')
@@ -188,20 +195,25 @@ export default({
       throw(err);
     });
   },
-  [types.CHOOSE_TOPIC]: ({commit}, payload) => {
+  [types.CHOOSE_TOPIC]: ({commit, state}, payload) => {
     // If going to storyline from games just update vuex -> else condition
     let id = payload.id.replace('topic/', '');
-    if( payload.contactServer ){
-      return apiService.get(`/topics/select/${id}`)
+    let url = '';
+    console.log(state)
+    if( state.invitationLink.length > 0 ){
+      url = `/topics/select/${id}?invitationLinkId=${state.invitationLink}`;
+    }else{
+      url = `/topics/select/${id}`;
+    }
+
+    return apiService.get(url)
       .then(() => {
+        commit('CLEAR_INVITATION_LINK');
         commit('CHOOSE_TOPIC', id);
       })
       .catch(err => {
         throw(err);
       });
-    }else{
-      commit('CHOOSE_TOPIC', id);
-    }
   },
   // UPDATE
   [types.UPDATE_PAGE_STATE]: ({commit}, payload) => {

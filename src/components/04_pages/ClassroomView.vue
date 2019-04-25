@@ -32,7 +32,7 @@
         <div 
           class="invitation-link"
           :class="copied ? 'copied' : '' "
-          v-clipboard="`${this.localPath}${this.invitationLink}`"
+          v-clipboard="`${this.localPath}class/${this.invitationLink}`"
           v-clipboard:success="clipboardSuccessHandler"
           v-clipboard:error="clipboardErrorHandler">
           <Btn white="true" :text="invitationLink" iconName="copy" />

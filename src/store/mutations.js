@@ -89,6 +89,13 @@ export default({
   [types.TOGGLE_SIDEBAR_VISIBILITY] (state, payload) {
     state.layout.statusbarVisible = payload;
   },
+  // INVITATION LINK MUTATIONS
+  [types.SET_INVITATION_LINK] (state, payload) {
+    state.invitationLink = payload;
+  },
+  [types.CLEAR_INVITATION_LINK] (state) {
+    state.invitationLink = '';
+  },
   // GAMES MUTATIONS
   [types.UPDATE_GAMES] (state, payload) {
     state.games = payload;

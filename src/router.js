@@ -130,10 +130,10 @@ const router = new Router({
 
 // Global Guard
 router.beforeEach((to, from, next) => {
-  console.log( to.path.slice(1, to.path.indexOf(to.params.id)) );
   if( to.path.slice(1, to.path.indexOf(to.params.id)) === 'class/' ){
-    // go with invitation link
-    console.log('Redirect me invotation')
+    store.dispatch('SET_INVITATION_LINK', to.params.id);
+    next('/topics');
+    return;
   }
   // console.log('=============== GUARD ON ===============')
   if( !store.getters.get_status.isLoged ){
@@ -148,7 +148,7 @@ router.beforeEach((to, from, next) => {
       next('/login')
     }
   }else{
-    if( store.getters.get_status.role === 'player' && !store.getters.get_supervision.selected ){
+    if( !store.getters.get_supervision.selected ){
       document.body.classList = 'sidebar-page-padding-top sidebar-page-padding-right';
 
       if( to.name === 'home' && store.getters.get_topic.id != undefined ){
@@ -184,11 +184,16 @@ router.beforeEach((to, from, next) => {
         next(from.path);
       }
     }
-    else if( store.getters.get_status.role === 'player' && store.getters.get_supervision.selected  ){
+    else if( store.getters.get_supervision.selected  ){
       store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
       if( to.name === 'home' ){
         document.body.classList = 'sidebar-page-padding-right';
         next('/overview');
+      }
+      else if( to.name === 'topics' ){
+        store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
+        document.body.classList = '';
+        next();
       }
       else if( to.name === 'overview' ){
         document.body.classList = 'sidebar-page-padding-right';

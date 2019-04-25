@@ -22,6 +22,9 @@ export default{
   get_students: state => {
     return state.students;
   },
+  get_invitationLink: state => {
+    return state.invitationLink;
+  },
   get_supervision: state => {
     return state.supervision;
   },

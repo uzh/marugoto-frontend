@@ -110,16 +110,16 @@
       </div>
     </div>
     <!-- Video component -->
-    <div v-if="component.type == 'VideoComponent'">
+    <div class="video-container" v-if="component.type == 'VideoComponent'">
         <video controls id="video">
           <source :src="`${resourcesPath}${component.component.video.path}`" type="video/mp4">
           <source :src="`${resourcesPath}${component.component.video.path}`" type="video/webm" />
           <source :src="`${resourcesPath}${component.component.video.path}`" type="video/ogg" />
           <p>Your browser does not support the video tag.</p>
         </video>
-      <div class="video-caption mb-40" :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}">
-        <p>{{ component.component.caption }}</p>
-      </div>
+        <div class="video-caption mb-40" :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}">
+          <p>{{ component.component.caption }}</p>
+        </div>
     </div>
   </div>
 

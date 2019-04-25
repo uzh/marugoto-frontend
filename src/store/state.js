@@ -25,6 +25,7 @@ export default ({
       opened: false,
     }
   },
+  invitationLink: '',
   games: {},
   classes: {},
   students: {},
