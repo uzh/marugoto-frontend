@@ -175,11 +175,11 @@ export default {
       genderList: [
         {
           name: 'Male',
-          value: 'Mr',
+          value: 'Male',
         },
         {
           name: 'Female',
-          value: 'Ms',
+          value: 'Female',
         }
       ],
       gender: '',
