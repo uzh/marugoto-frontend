@@ -170,7 +170,6 @@ export default({
   [types.REQUEST_DOWNLOAD_FILES]: ({commit}, payload) => {
     return apiService.get(`/classroom/${payload}/files`)
     .then(resp => {
-      console.log(resp)
       return resp;
     })
     .catch(err => {
@@ -199,7 +198,6 @@ export default({
     // If going to storyline from games just update vuex -> else condition
     let id = payload.id.replace('topic/', '');
     let url = '';
-    console.log(state)
     if( state.invitationLink.length > 0 ){
       url = `/topics/select/${id}?invitationLinkId=${state.invitationLink}`;
     }else{
