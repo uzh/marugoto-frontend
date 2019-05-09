@@ -261,6 +261,9 @@ export default({
           speech: resp.data.speech,
         });
       }
+      else{
+        dispatch('LAYOUT_CLOSE', 'dialog');
+      }
     })
     .catch(err => {
       throw(err);
