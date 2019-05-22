@@ -171,7 +171,7 @@ export default({
   [types.REQUEST_DOWNLOAD_FILES]: ({commit}, payload) => {
     return apiService.get(`/classroom/${payload}/files`)
     .then(resp => {
-      console.log(resp)
+      //console.log(resp)
       return resp;
     })
     .catch(err => {
