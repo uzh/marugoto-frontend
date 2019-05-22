@@ -66,7 +66,7 @@ export default {
     };
   },
   computed: {
-    ...mapGetters([ 'get_games', 'get_topic' ]),
+    ...mapGetters([ 'get_games' ]),
   },
   created() {
     this.$store.dispatch('UPDATE_GAMES');
@@ -84,9 +84,8 @@ export default {
     },
     continueGame: function(gameID, item) {
       this.$store.dispatch('CONTINUE_GAME', gameID).then(() => {
-        this.$store.dispatch('CHOOSE_TOPIC', {id: item.topic.id, contactServer: false}).then(() => {
-          this.$router.push('/storyline');
-        });
+        this.$router.push('/storyline');
+        // this.$store.dispatch('CHOOSE_TOPIC', {id: item.topic.id, contactServer: false}).then(() => { });
       });
     },
   },

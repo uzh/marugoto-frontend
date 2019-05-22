@@ -37,8 +37,25 @@
   <div v-if="imageZoomed && !get_layoutState.dialog.opened" ref="imageMask" class="image-mask" @click="imageBlurred">
     <div
       class="image-container"
-      :style="{width: zoomLevel == 0 ? '60%' : zoomLevel == 1 ? '80%' : zoomLevel == 2 ? '100%' : zoomLevel == 3 ? '120%' : zoomLevel == 4 ? '140%' : zoomLevel == 5 ? '160%' : zoomLevel == 6 ? '180%' : zoomLevel == 7 ? '200%' : zoomLevel == 8 ? '220%' : zoomLevel == 9 ? '240%' : zoomLevel == 10 ? '260%' : zoomLevel == 10 ? '280%' : zoomLevel == 10 ? '300%' : '100%'}">
+      :style="{
+          width: zoomLevel == 0 ? '60%' : 
+          zoomLevel == 1 ? '80%' : 
+          zoomLevel == 2 ? '100%' : 
+          zoomLevel == 3 ? '120%' : 
+          zoomLevel == 4 ? '140%' : 
+          zoomLevel == 5 ? '160%' : 
+          zoomLevel == 6 ? '180%' : 
+          zoomLevel == 7 ? '200%' : 
+          zoomLevel == 8 ? '220%' : 
+          zoomLevel == 9 ? '240%' : 
+          zoomLevel == 10 ? '260%' : 
+          zoomLevel == 10 ? '280%' : 
+          zoomLevel == 10 ? '300%' : '100%'}">
+      
+      <!-- Image -->
       <img :src="`${resourcesPath}${sourceList[sourceIndex].path}`">
+      
+      <!-- Icons -->
       <div class="zoom-out" @click="toggleZoom">
         <SvgIcon class="icon" name="zoom-out" customColor="#fff" />
       </div>

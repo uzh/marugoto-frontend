@@ -100,10 +100,11 @@ export default({
       throw(err);
     });
   },
-  [types.CONTINUE_GAME]: ({dispatch}, payload) => {
+  [types.CONTINUE_GAME]: ({commit, dispatch}, payload) => {
     return apiService.put(`/game/continue/${payload}`)
     .then(resp => {
       dispatch('UPDATE_PAGE_STATE', resp.data);
+      commit('CHOOSE_TOPIC', resp.data.gameState.topic.id.replace('topic/', ''));
       return resp;
     })
     .catch(err => {
@@ -170,6 +171,7 @@ export default({
   [types.REQUEST_DOWNLOAD_FILES]: ({commit}, payload) => {
     return apiService.get(`/classroom/${payload}/files`)
     .then(resp => {
+      //console.log(resp)
       return resp;
     })
     .catch(err => {
