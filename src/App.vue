@@ -33,7 +33,6 @@ export default{
     ...mapGetters([
       'get_status',
       'get_layoutState',
-      'get_topic',
       'get_mails',
       'get_mailNotificationState',
       'get_errors'

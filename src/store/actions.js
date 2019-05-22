@@ -100,10 +100,11 @@ export default({
       throw(err);
     });
   },
-  [types.CONTINUE_GAME]: ({dispatch}, payload) => {
+  [types.CONTINUE_GAME]: ({commit, dispatch}, payload) => {
     return apiService.put(`/game/continue/${payload}`)
     .then(resp => {
       dispatch('UPDATE_PAGE_STATE', resp.data);
+      commit('CHOOSE_TOPIC', resp.data.gameState.topic.id.replace('topic/', ''));
       return resp;
     })
     .catch(err => {
@@ -199,7 +200,6 @@ export default({
     // If going to storyline from games just update vuex -> else condition
     let id = payload.id.replace('topic/', '');
     let url = '';
-    console.log(state)
     if( state.invitationLink.length > 0 ){
       url = `/topics/select/${id}?invitationLinkId=${state.invitationLink}`;
     }else{
