@@ -14,6 +14,9 @@ export default {
     };
   },
   methods: {
+    downloadPDF: function() {
+      this.$store.dispatch('DOWNLOAD_PDF');
+    },
     emitChange: function(direction) {
       if( this.disabled) { return; }
       /**

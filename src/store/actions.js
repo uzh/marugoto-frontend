@@ -168,6 +168,10 @@ export default({
       throw(err);
     });
   },
+  [types.UPDATE_CLASSROOM_STUDENTS]: (context, payload) => {
+    context.commit(types.UPDATE_CLASSROOM_STUDENTS, payload);
+  },
+  // DOWNLOAD FILES
   [types.REQUEST_DOWNLOAD_FILES]: ({commit}, payload) => {
     return apiService.get(`/classroom/${payload}/files`)
     .then(resp => {
@@ -177,9 +181,6 @@ export default({
     .catch(err => {
       throw(err);
     });
-  },
-  [types.UPDATE_CLASSROOM_STUDENTS]: (context, payload) => {
-    context.commit(types.UPDATE_CLASSROOM_STUDENTS, payload);
   },
   // SUPERVISION
   [types.UPDATE_SUPERVISION]: (context, payload) => {
@@ -293,6 +294,15 @@ export default({
   },
   [types.CHANGE_PERSONAL_NOTE_STATUS]: (context, payload) => {
     context.commit(types.CHANGE_PERSONAL_NOTE_STATUS, payload);
+  },
+  [types.DOWNLOAD_PDF]: ({commit}) => {
+    return apiService.get('notebook/pdf/current')
+    .then(resp => {
+      // console.log(resp.data);
+    })
+    .catch(err => {
+      throw(err);
+    });
   },
   // MAIL
   [types.UPDATE_SELECTED_MAIL]: (context, payload) => {

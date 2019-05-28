@@ -136,19 +136,19 @@ export default {
     this.$store.dispatch('REQUEST_CLASSROOM_DATA', this.classId)
     .then(resp => {
         let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
-        let parsedStartDate = resp.data.startClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');
-        let parsedEndDate = resp.data.endClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');
+        let parsedStartDate = resp.data.classroom.startClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');
+        let parsedEndDate = resp.data.classroom.endClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');
 
-        let dayMonthYearStart = resp.data.startClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
-        let dayMonthYearEnd = resp.data.endClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
+        let dayMonthYearStart = resp.data.classroom.startClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
+        let dayMonthYearEnd = resp.data.classroom.endClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
         
-        this.classname = resp.data.name;
-        this.classnameDescription = resp.data.description;
+        this.classname = resp.data.classroom.name;
+        this.classnameDescription = resp.data.classroom.description;
         this.newStart = dayMonthYearStart;
         this.newEnd = dayMonthYearEnd;
         this.classStartDate = new Date(parsedStartDate);
         this.classEndDate = new Date(parsedEndDate);
-        this.invitationLink = resp.data.invitationLinkId;
+        this.invitationLink = resp.data.classroom.invitationLinkId;
 
       }).then(() => {
         this.$store.dispatch('REQUEST_CLASSROOM_MEMBERS', this.classId)

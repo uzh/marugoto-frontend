@@ -4,16 +4,16 @@
 import { mapGetters } from 'vuex';
 import VueMarkdown from 'vue-markdown';
 import SvgIcon from '@/components/01_atoms/svgicon';
+import ZoomPanel from '@/components/02_molecules/pageComponents/image/zoomPanel';
 
 export default {
   name: 'ImageComponent',
-  components: { VueMarkdown, SvgIcon },
+  components: { VueMarkdown, SvgIcon, ZoomPanel },
   props: [ 'sourceList', 'text', 'zoomable', 'captionOffset' ],
   data() {
     return {
-      imageZoomed: false,
-      zoomLevel: 2,
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
+      imageZoomed: false,
       sourceIndex: 0,
       dummyList: [
         {path: 'http://s2.glbimg.com/-DBjjL8oYQwHmpEfsjpl-XwK068=/620x413/e.glbimg.com/og/ed/f/original/2016/11/04/troller-bold-12.jpg'},
@@ -35,26 +35,6 @@ export default {
   methods: {
     toggleZoom: function() {
       this.imageZoomed = !this.imageZoomed;
-      if (!this.imageZoomed) {
-        this.zoomLevel = 0;
-      } else {
-        this.zoomLevel = 2;
-      }
-    },
-    incZoom: function() {
-      if(this.imageZoomed && this.zoomLevel < 10) {
-        this.zoomLevel++;
-      }
-    },
-    decZoom: function() {
-      if(this.imageZoomed && this.zoomLevel > 0) {
-        this.zoomLevel--;
-      }
-    },
-    imageBlurred: function(e) {
-      if(e.target == this.$refs.imageMask) {
-        this.imageZoomed = false;
-      }
     },
     prevImage: function() {
       if( this.sourceIndex > 0 ){

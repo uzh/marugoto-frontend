@@ -1,0 +1,38 @@
+<div class="zoom-panel">
+  <!-- Drag mask -->
+  <!-- <div 
+    class="drag-mask" 
+    ref="dragMask"
+    @dragover="panImage"
+    @dragstart="resetPanVars"
+    draggable="true"></div> -->
+  <!-- Zoom on -->
+  <div class="zoom-panel-container">
+    <div class="z-panel-body">
+      <div class="z-viewer-layer">
+        <div class="z-image-preview" ref="imageScrollPanel">
+          <div class="z-image-container" ref="dragMask"
+          @dragover="panImage"
+          @dragstart="resetPanVars">
+              <img
+              :src="`${resourcesPath}${imagesList[0].path}`" 
+              ref="zoomImage" />
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- Icons -->
+    <div class="zoom-panel-controls">
+      <div class="zoom-out zoom-panel-item" @click="toogleZoom">
+        <SvgIcon class="icon" name="zoom-out" customColor="#fff" />
+      </div>
+      <div class="zoom-plus zoom-panel-item" @click="zoomIn">
+        <SvgIcon class="icon" name="plus" customColor="#fff"/>
+      </div>
+      <div class="zoom-minus zoom-panel-item" @click="zoomOut">
+        <SvgIcon class="icon" name="minus" customColor="#fff"/>
+      </div>
+    </div>
+    
+  </div>
+</div>
