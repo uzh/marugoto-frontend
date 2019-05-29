@@ -85,6 +85,7 @@ export default {
     continueGame: function(gameID, item) {
       this.$store.dispatch('CONTINUE_GAME', gameID).then(() => {
         this.$router.push('/storyline');
+        item.topic.id;
         // this.$store.dispatch('CHOOSE_TOPIC', {id: item.topic.id, contactServer: false}).then(() => { });
       });
     },
