@@ -60,6 +60,10 @@
       :exerciseId="component.state.id"
       :optionsList="component.component.options"
       :name="component.type" />
+    <!-- Upload -->
+    <div v-if=" component.type == 'UploadExercise'">
+      <ExerciseUpload :exerciseId="component.state.id"/>
+    </div>
     <!-- Exercise Text Area -->
     <ExerciseTextArea
       v-if="component.type == 'TextExercise'"

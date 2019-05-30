@@ -348,4 +348,14 @@ export default({
       throw(err);
     });
   },
+  // UPLOAD
+  [types.UPLOAD_FILE_EXERCISE]: ({commit}, payload) => {
+    return apiService({url: `/uploads?exerciseStateId=${payload.id}`, data: payload.data, method: 'POST' })
+      .then(resp => {
+        
+      })
+      .catch(err => {
+        
+      })
+  },
 });

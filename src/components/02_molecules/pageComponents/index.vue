@@ -12,6 +12,7 @@ import TextComponent from './text'
 import ImageComponent from './image'
 import LinkComponent from './linkComponent'
 import ExerciseTextArea from './exerciseTextArea'
+import ExerciseUpload from './exerciseUpload'
 import SvgIcon from '@/components/01_atoms/svgicon';
 
 export default {
@@ -20,7 +21,7 @@ export default {
     VueMarkdown, ExerciseRadio, 
     ExerciseCheckbox, ExerciseText, 
     TextComponent, ImageComponent, 
-    ExerciseTextArea, SvgIcon, LinkComponent },
+    ExerciseTextArea, SvgIcon, LinkComponent, ExerciseUpload },
   props: [ 'exercises' ],
   data: function() {
     return {

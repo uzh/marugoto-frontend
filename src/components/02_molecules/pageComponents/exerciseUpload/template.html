@@ -1,11 +1,15 @@
 <div class="upload-files-container">
   <div class="upload-files-header">Upload Files</div>
-  <form class="upload-files-main">
+  <div class="upload-files-main"
+    @dragover.prevent.stop
+    @dragenter.prevent.stop
+    @dragleave.prevent.stop
+    @drop="handleDrop">
     <div class="left">Drag and drop your files here</div>
     <div class="center">or</div>
     <div class="right">
-      <input type="file">
+      <input type="file" id="file" ref="file" v-on:change="handleFileUpload"/>
       <label for="file">click here and choose your files</label>
     </div>
-  </form>
+  </div>
 </div>
