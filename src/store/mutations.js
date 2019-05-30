@@ -132,6 +132,9 @@ export default({
   [types.PAGE_COMPONENTS_UPDATE] (state, payload) {
     state.pageComponents = payload;
   },
+  [types.UPDATE_TIMER] (state, payload) {
+    state.pageTimer = payload;
+  },
   // DIALOG MUTATIONS
   [types.DIALOG_UPDATE] (state, payload) {
     state.dialogNotifications = payload;

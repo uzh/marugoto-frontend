@@ -51,4 +51,5 @@ export default ({
   pageTransitionStates: [],
   pageComponents: [],
   page: {},
+  pageTimer: 0,
 });

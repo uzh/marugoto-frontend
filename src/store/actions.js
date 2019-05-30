@@ -243,6 +243,9 @@ export default({
       throw(err);
     });
   },
+  [types.UPDATE_TIMER]: ({commit}, payload) => {
+    commit('UPDATE_TIMER', payload);
+  },
   // DIALOG
   [types.DIALOG_UPDATE]: (context, payload) => {
     context.commit(types.DIALOG_UPDATE, payload);

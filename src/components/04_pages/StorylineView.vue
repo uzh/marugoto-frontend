@@ -58,7 +58,8 @@ export default {
       'get_transitions', 
       'get_dialog', 
       'get_layoutState', 
-      'get_textExerciseExists' ]),
+      'get_textExerciseExists',
+      'get_pageTimer' ]),
   },
   created() {
     this.$store.dispatch('REQUEST_PAGE_CURRENT')
@@ -112,8 +113,15 @@ export default {
     },
     get_page: function(newVal) {
       // Check if page has got timeLimit for transition trigger
+      var timeForCounter;
       if( newVal.hasOwnProperty('timeLimit') ){
-        new Timer( newVal.timeLimit,                   // Transition time
+        if( this.get_pageTimer > 0 ){
+          timeForCounter = this.get_pageTimer;
+        }else{
+          timeForCounter = newVal.timeLimit;
+        }
+        // timeForCounter = 3000;
+        new Timer( timeForCounter,                   // Transition time
           this.requestPageTransition,                 // Callback
           this.get_transitions[0].pageTransition.id)  // Callback payload
           .start();

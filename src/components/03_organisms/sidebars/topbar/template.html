@@ -5,19 +5,21 @@
     get_layoutState.mail.opened ? 'out' : '',
     get_layoutState.notebook.opened ? 'halfed' : ''
   ]">
-  <!-- <svgIcon
-    v-if="get_gameState.timeBalance"
-    name="clock"
-    sizeH="20px"
-    class="status-bar-icon" />
+  
   <div
     v-if="get_gameState.moneyBalance"
     class="money">
       {{ get_gameState.moneyBalance }} &pound;
   </div>
+  
   <div
-    v-if="get_gameState.timeBalance"
+    v-if="get_page.timerVisible"
     class="time">
-      {{ get_gameState.timeBalance }}
-  </div> -->
+      {{ time }}
+  </div>
+  <!-- <svgIcon
+    v-if="get_page.timerVisible"
+    name="clock"
+    sizeH="20px"
+    class="status-bar-icon" /> -->
 </div>

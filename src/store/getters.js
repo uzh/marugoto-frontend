@@ -79,4 +79,7 @@ export default{
     }
     return notificationNumber;
   },
+  get_pageTimer: state => {
+    return state.pageTimer;
+  },
 };
