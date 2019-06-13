@@ -37,29 +37,31 @@
       </v-date-picker>
     </div>
     <!-- Exercise Radio -->
-    <ExerciseRadio
-      class="mb-40"
-      :style="{
-        'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
-        'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
-      }"
-      @emitRadioChange="submitAnswer"
-      v-if="component.type == 'RadioButtonExercise'"
-      :exerciseId="component.state.id"
-      :list="component.component.options"
-      :name="component.type" />
+    <div v-if="component.type == 'RadioButtonExercise'">
+      <ExerciseRadio
+        class="mb-40"
+        :style="{
+          'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
+          'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
+        }"
+        @emitRadioChange="submitAnswer"
+        :exerciseId="component.state.id"
+        :list="component.component.options"
+        :name="component.type" />
+    </div>
     <!-- Exercise Checkbox -->
-    <ExerciseCheckbox
-      class="mb-40"
-      :style="{
-        'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
-        'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
-      }"
-      @emitCheckboxChange="submitAnswer"
-      v-if="component.type == 'CheckboxExercise'"
-      :exerciseId="component.state.id"
-      :optionsList="component.component.options"
-      :name="component.type" />
+    <div v-if="component.type == 'CheckboxExercise'">
+      <ExerciseCheckbox
+        class="mb-40"
+        :style="{
+          'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
+          'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
+        }"
+        @emitCheckboxChange="submitAnswer"
+        :exerciseId="component.state.id"
+        :optionsList="component.component.options"
+        :name="component.type" />
+    </div>
     <!-- Upload -->
     <div v-if=" component.type == 'UploadExercise'">
       <ExerciseUpload :exerciseId="component.state.id"/>
@@ -71,59 +73,27 @@
       :exerciseId="component.state.id"
       :placeholder="component.component.placeholderText"
       @emitInputAreaAnswer="submitAnswer" />
-    <!-- Download link component -->
+    <!-- Link component -->
     <LinkComponent 
-      v-if="component.type == 'PdfComponent'"
+      v-if="component.type == 'LinkComponent'"
       class="mb-40" 
-      :downloadLink="`${resourcesPath}${component.component.pdf.path}`" />
+      :linkSource="component.component.resource.path"
+      :text="component.component.linkText" />
     <!-- Audio component -->
     <div v-if="component.type == 'AudioComponent'">
-      <div class="audio-container">
-        <audio
-          id="audio"
-          @timeupdate="updateAudioTimeRange">
-          <source :src="`${resourcesPath}${component.component.audio.path}`" type="audio/ogg">
-          <source :src="`${resourcesPath}${component.component.audio.path}`" type="audio/mpeg">
-          Your browser does not support the audio tag.
-        </audio>
-        <!-- Bottom video controls -->
-        <div id="audio-controls">
-          <div class="audio-name small">
-            Name
-          </div>
-          <input
-            type="range"
-            id="audio-seek-bar"
-            value="0"
-            step="0.1"
-            @mousedown="moveRangeAudioThumb"
-            @mouseup="rangeAudioThumbMoved"
-            @change="changeAudioTimeRange">
-          <div
-            id="audio-play-small"
-            @click="togglePlayAudio">
-            <SvgIcon :name="audioPaused ? 'play' : 'pause'" />
-          </div>
-          <div id="audio-time-passed" class="small">
-            {{ audioCurrentTime }} / {{ audioDuration }}
-          </div>
-        </div>
-      </div>
-      <div class="audio-caption mb-40" :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}">
-        <p>{{ component.component.caption }}</p>
-      </div>
+      <AudioComponent 
+        :source="component.component.audio.path" 
+        :componentID="component.component.audio.id"
+        :caption="component.component.caption"
+        :numberOfColumns="component.component.numberOfColumns" />
     </div>
     <!-- Video component -->
-    <div class="video-container" v-if="component.type == 'VideoComponent'">
-        <video controls id="video">
-          <source :src="`${resourcesPath}${component.component.video.path}`" type="video/mp4">
-          <source :src="`${resourcesPath}${component.component.video.path}`" type="video/webm" />
-          <source :src="`${resourcesPath}${component.component.video.path}`" type="video/ogg" />
-          <p>Your browser does not support the video tag.</p>
-        </video>
-        <div class="video-caption mb-40" :style="{'margin-left': component.component.numberOfColumns == 10 ? '10%' : ''}">
-          <p>{{ component.component.caption }}</p>
-        </div>
+    <div v-if="component.type == 'VideoComponent'">
+      <VideoComponent 
+        :componentID="component.component.video.id"
+        :numberOfColumns="component.component.numberOfColumns"
+        :source="component.component.video.path"
+        :caption="component.component.caption" />
     </div>
   </div>
 

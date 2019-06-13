@@ -192,7 +192,7 @@ router.beforeEach((to, from, next) => {
     else if( store.getters.get_supervision.selected  ){
       store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
       if( to.name === 'home' ){
-        document.body.classList = 'sidebar-page-padding-right';
+        document.body.classList = '';
         next('/overview');
       }
       else if( to.name === 'topics' ){
@@ -202,15 +202,15 @@ router.beforeEach((to, from, next) => {
         next();
       }
       else if( to.name === 'overview' ){
-        document.body.classList = 'sidebar-page-padding-right';
+        document.body.classList = '';
         next();
       }
       else if( to.name === 'add-new-class' ){
-        document.body.classList = 'sidebar-page-padding-right';
+        document.body.classList = '';
         next();
       }
       else if( to.name === 'classroom' ){
-        document.body.classList = 'sidebar-page-padding-right';
+        document.body.classList = '';
         next();
       }
       else if( to.name === 'games' ){

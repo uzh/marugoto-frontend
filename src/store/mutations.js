@@ -152,9 +152,6 @@ export default({
   [types.UPDATE_NOTEBOOK] (state, payload) {
     state.notebook.list = payload;
   },
-  [types.CHANGE_PERSONAL_NOTE_STATUS] (state, payload) {
-    state.newPersonalNote.status = payload;
-  },
   // MAIL MUTATIONS
   [types.UPDATE_SELECTED_MAIL] (state, payload) {
     // Update from mailList

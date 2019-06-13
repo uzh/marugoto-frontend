@@ -13,6 +13,8 @@ import ImageComponent from './image'
 import LinkComponent from './linkComponent'
 import ExerciseTextArea from './exerciseTextArea'
 import ExerciseUpload from './exerciseUpload'
+import AudioComponent from '@/components/02_molecules/pageComponents/audioComponent';
+import VideoComponent from '@/components/02_molecules/pageComponents/videoComponent';
 import SvgIcon from '@/components/01_atoms/svgicon';
 
 export default {
@@ -21,7 +23,8 @@ export default {
     VueMarkdown, ExerciseRadio, 
     ExerciseCheckbox, ExerciseText, 
     TextComponent, ImageComponent, 
-    ExerciseTextArea, SvgIcon, LinkComponent, ExerciseUpload },
+    ExerciseTextArea, SvgIcon, LinkComponent, ExerciseUpload,
+    AudioComponent, VideoComponent },
   props: [ 'exercises' ],
   data: function() {
     return {
@@ -43,43 +46,7 @@ export default {
       videoSeekBar: '',
       videoCurrentTime: '0:00',
       videoDuration: '',
-      audioPaused: true,
-      audioID: '',
-      audioSeekBar: '',
-      audioCurrentTime: '0:00',
-      audioDuration: '',
     };
-  },
-  mounted() {
-    // this.controllComponentLayout();
-    // if(document.getElementById("video")) {
-    //   let self = this;
-    //   document.getElementById("video").onloadedmetadata = function() {
-    //     let minutes = Math.floor(document.getElementById("video").duration / 60);
-    //     let seconds = Math.floor(document.getElementById("video").duration) - minutes * 60;
-    //     if (seconds % 60 < 10) {
-    //       self.videoDuration = `${minutes}:0${seconds}`;
-    //     } else {
-    //       self.videoDuration = `${minutes}:${seconds}`;
-    //     }
-    //   };
-    //   this.videoID = document.getElementById("video");
-    //   this.videoSeekBar = document.getElementById("video-seek-bar");
-    // }
-    if(document.getElementById("audio")) {
-      let self = this;
-      document.getElementById("audio").onloadedmetadata = function() {
-        let minutes = Math.floor(document.getElementById("audio").duration / 60);
-        let seconds = Math.floor(document.getElementById("audio").duration) - minutes * 60;
-        if (seconds % 60 < 10) {
-          self.audioDuration = `${minutes}:0${seconds}`;
-        } else {
-          self.audioDuration = `${minutes}:${seconds}`;
-        }
-      };
-      this.audioID = document.getElementById("audio");
-      this.audioSeekBar = document.getElementById("audio-seek-bar");
-    }
   },
   updated() {
     if(document.getElementById("video")) {
@@ -96,20 +63,6 @@ export default {
       this.videoID = document.getElementById("video");
       this.videoSeekBar = document.getElementById("video-seek-bar");
     }
-    if(document.getElementById("audio")) {
-      let self = this;
-      document.getElementById("audio").onloadedmetadata = function() {
-        let minutes = Math.floor(document.getElementById("audio").duration / 60);
-        let seconds = Math.floor(document.getElementById("audio").duration) - minutes * 60;
-        if (seconds % 60 < 10) {
-          self.audioDuration = `${minutes}:0${seconds}`;
-        } else {
-          self.audioDuration = `${minutes}:${seconds}`;
-        }
-      };
-      this.audioID = document.getElementById("audio");
-      this.audioSeekBar = document.getElementById("audio-seek-bar");
-    }
   },
   computed: {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
@@ -121,9 +74,10 @@ export default {
       this.dateFormated = `${d}.${m}.${event.year}`;
       this.submitAnswer(this.dateFormated, id);
     },
-    submitAnswer: function(answer, excersiseId) {
+    submitAnswer: function(answer, exerciseId) {
+      
       this.$store.dispatch('SUBMIT_EXERCISE_STATE', {
-        id: excersiseId,
+        id: exerciseId,
         answer: answer,
       })
       .then(resp => {
@@ -159,15 +113,6 @@ export default {
         this.videoPaused = true;
       }
     },
-    togglePlayAudio: function() {
-      if (this.audioID.paused) {
-        this.audioID.play();
-        this.audioPaused = false;
-      } else if (!this.audioID.paused) {
-        this.audioID.pause();
-        this.audioPaused = true;
-      }
-    },
     toggleFullScreen: function() {
       if (this.videoID.requestFullscreen) {
         this.videoID.requestFullscreen();
@@ -198,29 +143,6 @@ export default {
         this.videoCurrentTime = `${minutes}:0${seconds}`;
       } else {
         this.videoCurrentTime = `${minutes}:${seconds}`;
-      }
-    },
-    moveRangeAudioThumb: function() {
-      this.audioID.pause();
-      this.audioPaused = true;
-    },
-    rangeAudioThumbMoved: function() {
-      this.audioID.play();
-      this.audioPaused = false;
-    },
-    changeAudioTimeRange: function() {
-      let time = this.audioID.duration * (this.audioSeekBar.value / 100);
-      this.audioID.currentTime = time;
-    },
-    updateAudioTimeRange: function() {
-      let value = (100 / this.audioID.duration) * this.audioID.currentTime;
-      this.audioSeekBar.value = value;
-      let minutes = Math.floor(this.audioID.currentTime / 60);
-      let seconds = Math.floor(this.audioID.currentTime) - minutes * 60;
-      if (seconds % 60 < 10) {
-        this.audioCurrentTime = `${minutes}:0${seconds}`;
-      } else {
-        this.audioCurrentTime = `${minutes}:${seconds}`;
       }
     },
     controllComponentLayout: function() {

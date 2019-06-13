@@ -1,0 +1,102 @@
+.audio-container {
+  position: relative;
+  width: 100%;
+  height: 104px;
+
+  audio {
+    width: 100%;
+  }
+
+  audio::-webkit-media-controls {
+    display: none !important;
+  }
+
+  .audio-controls {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      height: 104px;
+      background-color: $black;
+      border: 1px solid $base-primary-border;
+
+      .audio-name {
+          position: absolute;
+          top: 17px;
+          left: 25px;
+          color: $white;
+      }
+
+      input[type="range"] {
+          height: 5px;
+          overflow: hidden;
+          background-color: $base-primary;
+          -webkit-appearance: none;
+      }
+
+      input[type='range']::-webkit-slider-runnable-track {
+          -webkit-appearance: none;
+          height: 5px;
+          color: $white;
+      }
+
+      input[type='range']::-webkit-slider-thumb {
+          width: 5px;
+          height: 5px;
+          background: $white;
+          box-shadow: -9000px 0 0 9000px $white;
+          -webkit-appearance: none;
+      }
+
+      input[type="range"]::-moz-range-progress {
+          background-color: $white; 
+      }
+
+      input[type="range"]::-moz-range-track {  
+          background-color: $base-primary;
+      }
+
+      input[type="range"]::-ms-fill-lower {
+          background-color: $white; 
+      }
+
+      input[type="range"]::-ms-fill-upper {  
+          background-color: $base-primary;
+      }
+
+      .audio-seek-bar {
+          position: absolute;
+          top: 50px;
+          left: 2%;
+          width: 96%;
+      }
+
+      .audio-play-small {
+          display: inline-block;
+          position: absolute;
+          left: 15px;
+          bottom: 5px;
+          height: 40px;
+          width: 40px;
+          line-height: 40px;
+      }
+
+      .audio-time-passed {
+          display: inline-block;
+          position: absolute;
+          left: 65px;
+          bottom: 5px;
+          line-height: 40px;
+          color: $white;
+      }
+  }
+}
+
+.audio-caption {
+
+  p {
+      @extend .small;
+      margin-top: 20px;
+      text-align: left;
+      overflow: hidden;
+  }
+}

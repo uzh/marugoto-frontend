@@ -1,0 +1,37 @@
+<div>
+  <div class="audio-container">
+    <audio
+      :ref="`audio${componentID}`"
+      @timeupdate="updateAudioTimeRange">
+      <source :src="`${resourcesPath}${source}`" type="audio/ogg">
+      <source :src="`${resourcesPath}${source}`" type="audio/mpeg">
+      Your browser does not support the audio tag.
+    </audio>
+    <!-- Bottom video controls -->
+    <div class="audio-controls">
+      <div class="audio-name small">
+        Name
+      </div>
+      <input
+        type="range"
+        class="audio-seek-bar"
+        ref="`audio-seek-bar${componentID}`"
+        value="0"
+        step="0.1"
+        @mousedown="moveRangeAudioThumb"
+        @mouseup="rangeAudioThumbMoved"
+        @change="changeAudioTimeRange">
+      <div
+        class="audio-play-small"
+        @click="togglePlayAudio">
+        <SvgIcon :name="audioPaused ? 'play' : 'pause'" />
+      </div>
+      <div class="small audio-time-passed">
+        {{ audioCurrentTime }} / {{ audioDuration }}
+      </div>
+    </div>
+  </div>
+  <div v-if="caption" class="audio-caption mb-40" :style="{'margin-left': numberOfColumns == 10 ? '10%' : ''}">
+    <p>{{ caption }}</p>
+  </div>
+</div>

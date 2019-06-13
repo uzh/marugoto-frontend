@@ -26,6 +26,15 @@
         :options="dialog.answers" />
       <!-- Page transitions -->
       <PageTransitions @transitionChoosen="requestPageTransition" />
+      <div
+        v-if="get_page.endOfTopic"
+        class="transition-wrapper col-xs-8 col-xs-offset-2"
+        :class="get_layoutState.notebook.opened ? 'col-xs-10-important col-xs-offset-1' : ''">
+        <Btn 
+          text="Go to your games"
+          primary="true"
+          @click.native="backToGames" />
+      </div>
     </div>
   </div>
 </template>
@@ -103,6 +112,9 @@ export default {
     },
     setDialogVisibility() {
       this.$store.dispatch('LAYOUT_OPEN', 'dialog');
+    },
+    backToGames: function() {
+      this.$router.push('games')
     },
   },
   watch: {

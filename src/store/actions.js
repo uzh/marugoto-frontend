@@ -295,9 +295,6 @@ export default({
       throw(err);
     });
   },
-  [types.CHANGE_PERSONAL_NOTE_STATUS]: (context, payload) => {
-    context.commit(types.CHANGE_PERSONAL_NOTE_STATUS, payload);
-  },
   [types.DOWNLOAD_PDF]: ({commit}) => {
     return apiService.get('notebook/pdf/current')
     .then(resp => {

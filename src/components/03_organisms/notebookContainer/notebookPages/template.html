@@ -17,6 +17,8 @@
         <SvgIcon name="dot-hamburger" customColor="#8C8B89" />
       </div>
     </div>
+    
+    <!-- Rest of notebook content -->
     <div
       v-for="(component, index) in page.notebookContent"
       :key="index"
@@ -32,6 +34,13 @@
             <p>{{ component.component.caption }}</p>
           </div>
         </div>
+      </div>
+      <!-- Personal Note -->
+      <div
+        v-if="component.type == 'PersonalNote'"
+        class="added-personal-notes-box mb-40">
+        <p>20.5.2018 - 10:32 - {{ page.title }}</p>
+        <vue-markdown :source="component.personalNote.markdownContent" />
       </div>
       <!-- Text Exercise Component -->
       <div
@@ -61,17 +70,17 @@
         </div>
       </div>
       <!-- Radio Field Component -->
-      <div v-if="component.type == 'RadioFieldComponent'" class="notebook-radio-field">
-        <div class="title">My Choice</div>
-        <div class="question small">{{ component.component.question }}</div>
-        <div v-for="(item, index) in radioOptions" :key="index">
+      <div v-if="component.type == 'RadioButtonExercise'" class="notebook-radio-field">
+        <div class="title">My Choice - Radio exercise</div>
+        <!-- <div class="question small">Question for exercise</div> -->
+        <div v-for="(item, index) in component.component.options" :key="index">
           <div class="notebook-radio-field-item">
-            {{ item.markdownContent }}
-            <div v-if="item.chosen" class="correct">
+            {{ item.text }}
+            <div v-if="component.exerciseState.inputState == index" class="correct">
               <!-- width of circle is not dynamic but fixed -->
               <SvgIcon name="correct-answer" />
             </div>
-            <div v-if="!item.chosen" class="incorrect">
+            <div v-if="component.exerciseState.inputState != index"" class="incorrect">
               <!-- width of line is not dynamic but fixed -->
               <SvgIcon name="incorrect-answer" />
             </div>
@@ -79,73 +88,62 @@
         </div>
       </div>
       <!-- Checkbox Field Component -->
-      <div v-if="component.type == 'CheckboxFieldComponent'" class="notebook-checkbox-field">
-        <div class="title">My Choice</div>
-        <div class="question small">{{ component.component.question }}</div>
-        <div v-for="(item, index) in checkboxOptions" :key="index">
+      <div v-if="component.type == 'CheckboxExercise'" class="notebook-checkbox-field">
+        <div class="title">My Choice - Checkbox Exercise</div>
+        <!-- <div class="question small">Question for exercise</div> -->
+        <div v-for="(item, index) in component.component.options" :key="index">
           <div class="notebook-checkbox-field-item">
-            {{ item.markdownContent }}
-            <div v-if="item.chosen" class="correct">
-              <!-- width of circle is not dynamic but fixed -->
+            {{ item.text }}
+            <div 
+              v-if="JSON.parse('[' + component.exerciseState.inputState + ']').indexOf(index) > -1" 
+              class="correct">
               <SvgIcon name="correct-answer" />
             </div>
-            <div v-if="!item.chosen" class="incorrect">
-              <!-- width of line is not dynamic but fixed -->
+            <div 
+              v-if="JSON.parse('[' + component.exerciseState.inputState + ']').indexOf(index) < 0 " 
+              class="incorrect">
               <SvgIcon name="incorrect-answer" />
             </div>
           </div>
         </div>
       </div>
-      <!-- Documents Upload Component -->
-      <div v-if="component.type == 'DocumentsUploadComponent'" class="notebook-documents-upload">
-        <div class="title">My Output</div>
-        <div class="question small">Upload your results</div>
-        <div v-for="(doc, index) in documentUploads" :key="index" class="notebook-document-item">
-          <div class="document-type">
-            {{ doc.type }}
-          </div>
-          <div class="document-title small">
-            {{ doc.title }}
-          </div>
+      <!-- Date exercise -->
+      <div v-if="component.type == 'DateExercise'" class="notebook-page-text-exercise">
+        <div>
+          <div class="title">My Answer</div>
+          <div class="question small">{{ component.component.placeholderText }}</div>
+          <p>{{ component.exerciseState.formatedInput }}</p>
         </div>
       </div>
-      <!-- Personal Note -->
-      <div
-        v-if="component.type == 'PersonalNote'"
-        class="added-personal-notes-box mb-40">
-        <p>20.5.2018 - 10:32 - {{ page.title }}</p>
-        <vue-markdown :source="component.personalNote.markdownContent" />
+      <!-- Documents Upload Component -->
+      <div v-if="component.type == 'UploadExercise'" class="notebook-documents-upload">
+        <div class="title">My Output</div>
+        <div class="question small">Upload your results</div>
+        <!-- <div v-for="(doc, index) in documentUploads" :key="index" class="notebook-document-item"> -->
+          <div class="document-type">
+            {{ component.exerciseState.inputState }}
+          </div>
+          <!-- <div class="document-title small">
+            {{ doc.title }}
+          </div> -->
+        <!-- </div> -->
+      </div>
+      <!-- Audio Exercise -->
+      <div v-if="component.type == 'AudioComponent'">
+        <AudioComponent 
+          :source="component.component.audio.path" 
+          :componentID="component.component.audio.id" />
+      </div>
+      <!-- Video Exercise -->
+      <div v-if="component.type == 'VideoComponent'">
+        <VideoComponent 
+          :componentID="component.component.video.id"
+          :numberOfColumns="component.component.numberOfColumns"
+          :source="component.component.video.path"
+          :caption="component.component.caption" />
       </div>
     </div>
     <!-- Personal notes list -->
-    <div class="personal-note-box font pt-40 col-xs-10 col-xs-offset-1" :class="openedPersonalNote ? 'active' : ''">
-      <div class="note" :class="noteChanged ? 'active' : ''">
-        <p>20.5.2018 - 10:48 - {{ page.title }}</p>
-        <textarea
-          :readonly="noteChanged"
-          @focus="changePersonalNote(true)"
-          @blur="changePersonalNote(false)"
-          v-model="personalNoteText"
-          v-on:keyup="checkTyping"></textarea>
-      </div>
-      <div v-if="personalNoteText != '' && !isAutosaved">
-        <div class="small go-right typing">Typing...</div>
-      </div>
-      <div v-if="personalNoteText != '' && isAutosaved">
-        <svgIcon class="icon go-right" customColor="#8C8B89" name="check" />
-        <div class="small go-right autosaved">Autosaved</div>
-      </div>
-    </div>
-    <!-- Create personal note button -->
-    <div class="col-xs-10 col-xs-offset-1 mb-50">
-      <Btn
-        @click.native="addPersonalNote(page.id)"
-        class="button-personal-note"
-        :class="openedPersonalNote ? 'active' : ''"
-        text="Create new note"
-        iconColor="#fff"
-        primary="true"
-        iconName="plus" />
-    </div>
+    <PersonalNote :page="page" />
   </div>
 </div>

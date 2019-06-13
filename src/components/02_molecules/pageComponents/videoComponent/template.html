@@ -1,0 +1,13 @@
+<div>
+  <div class="video-container">
+    <video controls id="`video${componentID}`">
+      <source :src="`${resourcesPath}${source}`" type="video/mp4">
+      <source :src="`${resourcesPath}${source}`" type="video/webm" />
+      <source :src="`${resourcesPath}${source}`" type="video/ogg" />
+      <p>Your browser does not support the video tag.</p>
+    </video>
+    <div class="video-caption mb-40" :style="{'margin-left': numberOfColumns == 10 ? '10%' : ''}">
+      <p>{{ caption }}</p>
+    </div>
+  </div>
+</div>

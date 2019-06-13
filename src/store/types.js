@@ -66,7 +66,6 @@ export const DIALOG_ANSWER = 'DIALOG_ANSWER';
 // Notebook
 export const UPDATE_NOTEBOOK = 'UPDATE_NOTEBOOK';
 export const ADD_PERSONAL_NOTE = 'ADD_PERSONAL_NOTE';
-export const CHANGE_PERSONAL_NOTE_STATUS = 'CHANGE_PERSONAL_NOTE_STATUS';
 export const DOWNLOAD_PDF = 'DOWNLOAD_PDF';
 
 // Mail Component
