@@ -1,7 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
-
+import { mapGetters } from 'vuex';
 import SvgIcon from '@/components/01_atoms/svgicon';
 import Btn from '@/components/01_atoms/buttons';
 import VueMarkdown from 'vue-markdown';
@@ -12,34 +12,34 @@ export default {
   props: [ 'page' ],
   data(){
     return {
-      openedPersonalNote: false,
-      personalNoteText: '',
+      showTextarea: false,
+      noteText: '',
       isAutosaved: false,
-      noteChanged: false,
-      // New
-      canBeEdited: true,
+      editorActive: false,
     }
   },
+  computed: {
+    ...mapGetters([ 'get_noteEditorState' ]),
+  },
+  updated: function(){
+    this.$nextTick(function(){
+      if( this.editorActive ){
+        this.$refs[`note${this.page.id}`].focus();
+      }
+    });
+  },
   methods: {
-    addPersonalNote: function(){
-      if(this.personalNoteText.length == 0) {
-        this.changePersonalNote(false);
-        this.openedPersonalNote = true;
-      }else if( this.personalNoteText.length > 0 ){
-        this.changePersonalNote(true);
-        this.openedPersonalNote = false;
+    blurEditor: function() {
+      this.editorActive = false;
+      if( this.noteText == '' ){
+        this.showTextarea = false;
+      }else{
+        this.showTextarea = true;
       }
     },
-    submitPersonalNote: function() {
-      this.$store.dispatch('ADD_PERSONAL_NOTE', {
-        id: this.page.id.split('/')[1],
-        text: this.personalNoteText,
-      });
-      this.personalNoteText = '';
-      this.openedPersonalNote= false;
-    },
-    cancelPersonalNote: function() {
-      this.openedPersonalNote = false;
+    focusEditor: function() {
+      this.showTextarea = true;
+      this.editorActive = true;
     },
     checkTyping: function(e) {
       this.isAutosaved = false;
@@ -49,36 +49,24 @@ export default {
     // eslint-disable-next-line
     typingFinished: _.debounce(function() {
       this.isAutosaved = true;
+      this.submitPersonalNote();
     }, 500),
-    changePersonalNote: function(val) {
-      if(val == false) {
-        this.noteChanged = true;
-      } else {
-        this.noteChanged = false;
-      }
-    },
     autoGrow: function(element) {
       element.style.height = 'auto';
       element.style.height = `${element.scrollHeight}px`;
-    }
+    },
+    submitPersonalNote: function() {
+      this.$store.dispatch('UPDATE_PERSONAL_NOTES', {
+        id: this.page.id.split('/')[1],
+        text: this.noteText,
+      });
+    },
   },
   watch: {
-    personalNoteText: function(newVal){
-      if( newVal.length == 0 ){
-        this.canBeEdited = true;
-      }else if( newVal.length > 0 ){
-        this.canBeEdited = false;
-      }
-    },
-    currentEntry: function(newVal, oldVal) {
-      if( newVal != oldVal ){
-        
-        this.openedPersonalNote = false;
-      }
-    },
-    personalNoteNotebookEntryId: function(newVal, oldVal) {
-      if( newVal != oldVal ){
-        this.personalNoteText = '';
+    get_noteEditorState: function(newVal) {
+      if( newVal ){
+        this.noteText = '';
+        this.editorActive = true;
       }
     },
   },

@@ -43,6 +43,8 @@ export default ({
   notebook: {
     list: [],
   },
+  personalNotes: [],
+  clearNoteEditor: false,
   gameState: {},
   dialogNotifications: [],
   pageTransitionStates: [],

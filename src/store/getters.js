@@ -55,6 +55,12 @@ export default{
   get_notebook: state => {
     return state.notebook;
   },
+  get_noteEditorState: state => {
+    return state.clearNoteEditor;
+  },
+  get_personalNotes: state => {
+    return state.personalNotes;
+  },
   get_topic: state => {
     return state.topic;
   },

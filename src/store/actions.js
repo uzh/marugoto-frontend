@@ -285,15 +285,22 @@ export default({
       throw(err);
     });
   },
-  [types.ADD_PERSONAL_NOTE]: ({dispatch}, payload) => {
-    let id = payload.id;
-    return apiService.post(`notebook/${id}/personalNote?markdownContent=${payload.text}`)
+  [types.ADD_PERSONAL_NOTE]: ({commit}, payload) => {
+    return apiService.post(`notebook/${payload.id}/personalNote?markdownContent=${payload.text}`)
     .then(() => {
-      // dispatch('REQUEST_PERSONAL_NOTE', `notebookEntry/${id}`);
     })
     .catch(err => {
       throw(err);
     });
+  },
+  [types.UPDATE_PERSONAL_NOTES]: ({commit}, payload) => {
+    commit(types.UPDATE_PERSONAL_NOTES, payload);
+  },
+  [types.CLEAR_PERSONAL_NOTES]: ({commit}) => {
+    commit(types.CLEAR_PERSONAL_NOTES);
+    setTimeout(()=>{
+      commit(types.CLEAR_EDITOR);
+    }, 1000);
   },
   [types.DOWNLOAD_PDF]: ({commit}) => {
     return apiService.get('notebook/pdf/current')

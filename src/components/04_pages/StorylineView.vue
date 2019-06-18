@@ -68,7 +68,8 @@ export default {
       'get_dialog', 
       'get_layoutState', 
       'get_textExerciseExists',
-      'get_pageTimer' ]),
+      'get_pageTimer',
+      'get_personalNotes' ]),
   },
   created() {
     this.$store.dispatch('REQUEST_PAGE_CURRENT')
@@ -79,9 +80,20 @@ export default {
   },
   methods: {
     requester: function() {
+      this.$store.dispatch('LAYOUT_OPEN');
       this.$store.dispatch('UPDATE_NOTEBOOK');
     },
+    updateNotebookPersonalNotesBeforePageTransition: function() {
+      for( var ii=0; ii < this.get_personalNotes.length; ii++ ){
+        this.$store.dispatch('ADD_PERSONAL_NOTE', {
+          id: this.get_personalNotes[ii].id,
+          text: this.get_personalNotes[ii].text,
+        });
+      }
+      this.$store.dispatch('CLEAR_PERSONAL_NOTES');
+    },
     requestPageTransition(id){
+      this.updateNotebookPersonalNotesBeforePageTransition();
       if( this.get_textExerciseExists.exist ){
         // Here you can prevent to make transition if exercise is required but empty or 
         // grab exercise value before transition and update backend first
@@ -92,14 +104,12 @@ export default {
         .then(() => {
           this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
           .then(() => {
-            this.$store.dispatch('LAYOUT_OPEN');
             this.requester();
           });
         })
       }else{
         this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
         .then(() => {
-          this.$store.dispatch('LAYOUT_OPEN');
           this.requester();
         });
       }

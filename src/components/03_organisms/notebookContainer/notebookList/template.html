@@ -1,17 +1,33 @@
+<!-- <div class="notebook-list">
+    <ul>
+        <li v-for="(item, index) in list"
+            :key="index"
+            class="item h5"
+            @click="$emit('selectItem', index)" >
+           
+            <div class="left">
+                <div :class="index != '0' ? 'arrow' : 'arrow inactive'"></div>
+                <div class="index">0{{ index + 1 }}</div>
+            </div>
+            
+            <div class="right">
+                <div :class="index == selected ? 'current' : ''"></div>
+                <vue-markdown class="title" :source="item.title" />
+            </div>
+        </li>
+    </ul>
+</div> -->
 <div class="notebook-list">
-    <li v-for="(item, index) in list"
-        :key="index"
-        class="item h5"
-        @click="$emit('selectItem', index)" >
-        <!-- Left indexes and arrows -->
-        <div class="left">
-            <div :class="index != '0' ? 'arrow' : 'arrow inactive'"></div>
-            <div class="index">0{{ index + 1}}</div>
-        </div>
-        <!-- Right notebook list item -->
-        <div class="right">
-            <div :class="index == selected ? 'current' : ''"></div>
+    <ul>
+        <li v-for="(item, index) in list"
+            :key="index"
+            class="list-item h5"
+            @click="$emit('selectItem', index)" >
+           
+            <div class="arrow-shape"></div>
+            <p class="order-number">0{{ index + 1 }}</p>
+           
             <vue-markdown class="title" :source="item.title" />
-        </div>
-    </li>
+        </li>
+    </ul>
 </div>

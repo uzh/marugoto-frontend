@@ -3,17 +3,18 @@
   class="status-bar"
   :class="[
     get_layoutState.mail.opened ? 'out' : '',
-    get_layoutState.notebook.opened ? 'halfed' : ''
+    get_layoutState.notebook.opened ? 'halfed' : '',
+    get_gameState.moneyBalance || get_page.timerVisible ? 'padded' : ''
   ]">
-  
   <div
-    v-if="get_gameState.moneyBalance"
+  v-if="get_gameState.moneyBalance"
     class="money">
-      {{ get_gameState.moneyBalance }} &pound;
+    {{ get_gameState.moneyBalance }} &pound;
+    200 &pound;
   </div>
-  
+  <div class="divider" v-if="get_gameState.moneyBalance && get_page.timerVisible"></div>
   <div
-    v-if="get_page.timerVisible"
+  v-if="get_page.timerVisible"
     class="time">
       {{ time }}
   </div>

@@ -1,19 +1,20 @@
 <div>
   <!-- Textarea input -->
-  <div class="personal-note-box font pt-40 col-xs-10 col-xs-offset-1" :class="openedPersonalNote ? 'active' : ''">
-    <div class="note" :class="noteChanged ? 'active' : ''">
+  <div class="personal-note-box font pt-40 col-xs-10 col-xs-offset-1" :class="showTextarea ? 'active' : ''">
+    <div class="note" :class="editorActive ? '' : 'active'">
       <!-- <p>20.5.2018 - 10:48 - {{ page.title }}</p> -->
       <textarea
-        :readonly="noteChanged"
-        @focus="changePersonalNote(true)"
-        @blur="changePersonalNote(false)"
-        v-model="personalNoteText"
+        :ref="`note${page.id}`"
+        :readonly="!editorActive"
+        @focus="focusEditor"
+        @blur="blurEditor"
+        v-model="noteText"
         v-on:keyup="checkTyping"></textarea>
     </div>
-    <div v-if="personalNoteText != '' && !isAutosaved">
+    <div v-if="noteText != '' && !isAutosaved">
       <div class="small go-right typing">Typing...</div>
     </div>
-    <div v-if="personalNoteText != '' && isAutosaved">
+    <div v-if="noteText != '' && isAutosaved">
       <svgIcon class="icon go-right" customColor="#8C8B89" name="check" />
       <div class="small go-right autosaved">Autosaved</div>
     </div>
@@ -21,9 +22,9 @@
   <!-- Create personal note button -->
   <div class="col-xs-10 col-xs-offset-1 mb-50">
     <Btn
-      @click.native="addPersonalNote"
+      @click.native="focusEditor"
       class="button-personal-note"
-      :class="openedPersonalNote ? 'active' : ''"
+      :class="showTextarea ? 'active' : ''"
       text="Create new note"
       iconColor="#fff"
       primary="true"

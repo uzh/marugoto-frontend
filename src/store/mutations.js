@@ -152,6 +152,33 @@ export default({
   [types.UPDATE_NOTEBOOK] (state, payload) {
     state.notebook.list = payload;
   },
+  [types.UPDATE_PERSONAL_NOTES] (state, payload) {
+    let condition = state.personalNotes.findIndex( s => s.id == payload.id );
+    
+    if( condition == -1 ){
+      // Add personal note
+      state.personalNotes.push(payload);
+    }else if( condition > -1 ){
+      // Update existing personal note
+      state.personalNotes = state.personalNotes.map(note => {
+        if( note.id == payload.id ){
+          note.text = payload.text;
+        }
+        return note;
+      });
+    }
+    
+  },
+  [types.CLEAR_PERSONAL_NOTES] (state) {
+    state.personalNotes = [];
+    state.clearNoteEditor = true;
+    setTimeout(()=>{
+      state.clearNoteEditor = false;
+    }, 1000);
+  },
+  [types.CLEAR_EDITOR] (state) {
+    state.clearNoteEditor = false;
+  },
   // MAIL MUTATIONS
   [types.UPDATE_SELECTED_MAIL] (state, payload) {
     // Update from mailList
