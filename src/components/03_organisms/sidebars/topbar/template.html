@@ -10,7 +10,6 @@
     v-if="get_gameState.moneyBalance"
     class="money">
     {{ get_gameState.moneyBalance }} &pound;
-    200 &pound;
   </div>
   <div class="divider" v-if="get_gameState.moneyBalance && get_page.timerVisible"></div>
   <div
@@ -18,9 +17,4 @@
     class="time">
       {{ time }}
   </div>
-  <!-- <svgIcon
-    v-if="get_page.timerVisible"
-    name="clock"
-    sizeH="20px"
-    class="status-bar-icon" /> -->
 </div>

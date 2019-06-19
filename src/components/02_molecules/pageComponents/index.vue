@@ -90,12 +90,12 @@ export default {
     checkState: function() {
       apiService.get('states') 
       .then( resp => {
-        // console.log('from check states')
         this.$store.dispatch('UPDATE_PAGE_STATE', {
           pageTransitionStates: resp.data.pageTransitionStates, 
           pageComponents: resp.data.pageComponents,
           topicState: resp.data.topicState,
           page: resp.data.page,
+          gameState: resp.data.gameState,
           dialogNotifications: resp.data.dialogNotifications,
           mailNotifications: resp.data.mailNotifications,
         });
@@ -103,47 +103,6 @@ export default {
       .catch(() => {
         
       });
-    },
-    togglePlayVideo: function() {
-      if (this.videoID.paused) {
-        this.videoID.play();
-        this.videoPaused = false;
-      } else if (!this.videoID.paused) {
-        this.videoID.pause();
-        this.videoPaused = true;
-      }
-    },
-    toggleFullScreen: function() {
-      if (this.videoID.requestFullscreen) {
-        this.videoID.requestFullscreen();
-      } else if (this.videoID.mozRequestFullScreen) {
-        this.videoID.mozRequestFullScreen();
-      } else if (this.videoID.webkitRequestFullscreen) {
-        this.videoID.webkitRequestFullscreen();
-      }
-    },
-    moveRangeVideoThumb: function() {
-      this.videoID.pause();
-      this.videoPaused = true;
-    },
-    rangeVideoThumbMoved: function() {
-      this.videoID.play();
-      this.videoPaused = false;
-    },
-    changeVideoTimeRange: function() {
-      let time = this.videoID.duration * (this.videoSeekBar.value / 100);
-      this.videoID.currentTime = time;
-    },
-    updateVideoTimeRange: function() {
-      let value = (100 / this.videoID.duration) * this.videoID.currentTime;
-      this.videoSeekBar.value = value;
-      let minutes = Math.floor(this.videoID.currentTime / 60);
-      let seconds = Math.floor(this.videoID.currentTime) - minutes * 60;
-      if (seconds % 60 < 10) {
-        this.videoCurrentTime = `${minutes}:0${seconds}`;
-      } else {
-        this.videoCurrentTime = `${minutes}:${seconds}`;
-      }
     },
     controllComponentLayout: function() {
       if( this.get_layoutState.notebook.opened ){

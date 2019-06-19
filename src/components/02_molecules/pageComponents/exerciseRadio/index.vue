@@ -14,7 +14,6 @@ export default {
   },
   methods: {
     emitAnswer: function(answer){
-      
       this.$emit('emitRadioChange', answer, this.stateID);
     },
   },
