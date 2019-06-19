@@ -140,8 +140,8 @@ $chapterHeight: 80px;
         left: 15px;
         width: 1px;
         height: 100%;
-        border-right: 2px solid #fff;
-        opacity: 0.6;
+        border-right: 2px solid #7d7d7d;
+        
     }
 
     &:after{
@@ -153,8 +153,8 @@ $chapterHeight: 80px;
         transform: translateY(100%);
         width: 1px;
         height: 40px;
-        border-right: 2px solid #fff;
-        opacity: 0.6;
+        border-right: 2px solid #7d7d7d;
+        
     }
 
     .arrow-shape{
@@ -164,15 +164,15 @@ $chapterHeight: 80px;
         width: 6px;
         height: 6px;
         transform: translateY(-25px);
-        opacity: 0.6;
+        
 
         &:before{
             content: '';
             display: block;
             width: 6px;
             height: 6px;
-            border-bottom: 2px solid #fff;
-            border-left: 2px solid #fff;
+            border-bottom: 2px solid #7d7d7d;
+            border-left: 2px solid #7d7d7d;
             transform: rotate(-45deg);
         }
     }
@@ -185,6 +185,7 @@ $chapterHeight: 80px;
         background: #000;
         font-size: $base-size;
         font-family: 'Libre Baskerville';
+        color: #7d7d7d;
     }
     .title {
         width: 100%;
@@ -198,12 +199,20 @@ $chapterHeight: 80px;
     }
 
     &:last-child{
-        &:before, &:after{
+        &:before{
+            height: 50%;
+        }
+        &:after{
             display: none;
         }
     }
     &:first-child{
-        .arrow-shape, &:before{
+        &:before{
+            bottom: 0;
+            top: auto;
+            height: 50%;
+        }
+        .arrow-shape{
             display: none;
         }
     }
@@ -278,7 +287,7 @@ $chapterHeight: 80px;
 
         .notebook-page-image {
             height: auto;
-            margin-bottom: 20px;
+            // margin-bottom: 20px;
             position: relative;
 
             .image-sticker {
@@ -314,7 +323,7 @@ $chapterHeight: 80px;
 
         .notebook-page-text {
             color: #2F3133;
-            margin-bottom: 40px;
+            // margin-bottom: 40px;
             
             p {
                 font-size: 17px;
@@ -325,7 +334,7 @@ $chapterHeight: 80px;
 
         .notebook-page-text-exercise {
             color: #2F3133;
-            margin-bottom: 40px;
+            // margin-bottom: 40px;
 
             .title {
                 display: inline-block;
@@ -358,7 +367,7 @@ $chapterHeight: 80px;
             }
             
             p {
-                padding-top: 30px;
+                // padding-top: 30px;
                 font-size: 17px;
                 line-height: 26px;
                 letter-spacing: 0.2px;
@@ -406,7 +415,7 @@ $chapterHeight: 80px;
         }
 
         .notebook-radio-field {
-            margin: 40px 0;
+            // margin: 40px 0;
             min-height: 130px;
 
             .title {
@@ -464,7 +473,7 @@ $chapterHeight: 80px;
         }
 
         .notebook-checkbox-field {
-            margin: 40px 0;
+            // margin: 40px 0;
             min-height: 130px;
 
             .title {
@@ -522,8 +531,6 @@ $chapterHeight: 80px;
         }
 
         .notebook-documents-upload {
-            margin: 40px 0;
-            //min-height: 300px;
 
             .title {
                 display: inline-block;
@@ -540,43 +547,28 @@ $chapterHeight: 80px;
             .question {
                 margin-top: 6px;
                 display: block;
-            }
+            }     
+            .document-type {
+                width: 147px;
+                height: 217px;
+                color: $base-primary;
+                text-align: center;
+                background: url('assets/images/fileUpload.png') center no-repeat;
+                overflow: hidden;
 
-            .notebook-document-item {
-                float: left;
-                width: 30%;
-                min-height: 213px;
-                margin-top: 15px;
-                margin-right: 5%;
-                background: url('assets/images/doc-background.png') center no-repeat;
-                transform: rotate(-3deg);
-
-                &:nth-child(even) {
-                    transform: rotate(3deg);
-                }
-
-                &:last-child {
-                    margin-right: 0;
-                }
-                    
-                .document-type {
-                    min-height: 130px;
-                    width: 80%;
-                    margin-left: 10%;
+                .doc-type-type{
+                    width: 90%;
+                    margin: 0 auto;
+                    padding: 60px 0 45px;
+                    border-bottom: 1px solid $base-primary-border;
+                    text-transform: uppercase;
                     font-size: 20px;
-                    line-height: 30px;
-                    color: $base-primary;
-                    padding-top: 60px;
-                    text-align: center;
-                    border-bottom: 1px solid $base-uicolor-2;
                 }
-
-                .document-title {
-                    width: 80%;
-                    min-height: 50px;
-                    text-align: center;
-                    margin: 15px 0;
-                    margin-left: 10%;
+                .doc-type-name{
+                    word-break: break-all;
+                    padding: 20px;
+                    font-size: 12px;
+                    line-height: 14px;
                 }
             }
         }

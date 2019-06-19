@@ -5,6 +5,7 @@ import { mapGetters } from 'vuex';
 import NotebookList from './notebookList';
 import NotebookChapterMenu from './notebookChapterMenu';
 import NotebookPages from './notebookPages';
+import { setTimeout } from 'timers';
 
 export default {
   name: 'NotebookContainer',
@@ -22,6 +23,7 @@ export default {
   },
   mounted: function() {
     this.scrollNotebookContent(10);
+    this.currentEntry = this.get_notebook.list.length - 1;
   },
   methods: {
     scrollNotebookContent: function(val) {
@@ -68,6 +70,13 @@ export default {
         this.nextEntry();
       }else if( to == 'last' ) {
         this.lastEntry();
+      }
+    },
+  },
+  watch: {
+    'get_notebook.list': function(newVal, oldVal) {
+      if( newVal.length != oldVal.length ){
+        this.currentEntry = this.get_notebook.list.length - 1;
       }
     },
   },

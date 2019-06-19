@@ -39,7 +39,7 @@
       <div
         v-if="component.type == 'PersonalNote'"
         class="added-personal-notes-box mb-40">
-        <p>20.5.2018 - 10:32 - {{ page.title }}</p>
+        <!-- <p>20.5.2018 - 10:32 - {{ page.title }}</p> -->
         <vue-markdown :source="component.personalNote.markdownContent" />
       </div>
       <!-- Text Exercise Component -->
@@ -47,7 +47,7 @@
         v-if="component.type == 'TextExercise'"
         class="notebook-page-text-exercise">
         <div>
-          <div class="title">My Answer</div>
+          <!-- <div class="title">My Answer</div> -->
           <!-- <div class="question small">Insert the question here?</div>
           <div class="text-sticker"></div> -->
           <vue-markdown class="text-exercise-answer" v-if="component.exerciseState.formatedInput" :source="component.exerciseState.formatedInput" />
@@ -71,7 +71,7 @@
       </div>
       <!-- Radio Field Component -->
       <div v-if="component.type == 'RadioButtonExercise'" class="notebook-radio-field">
-        <div class="title">My Choice - Radio exercise</div>
+        <!-- <div class="title">My Choice - Radio exercise</div> -->
         <!-- <div class="question small">Question for exercise</div> -->
         <div v-for="(item, index) in component.component.options" :key="index">
           <div class="notebook-radio-field-item">
@@ -89,7 +89,7 @@
       </div>
       <!-- Checkbox Field Component -->
       <div v-if="component.type == 'CheckboxExercise'" class="notebook-checkbox-field">
-        <div class="title">My Choice - Checkbox Exercise</div>
+        <!-- <div class="title">My Choice - Checkbox Exercise</div> -->
         <!-- <div class="question small">Question for exercise</div> -->
         <div v-for="(item, index) in component.component.options" :key="index">
           <div class="notebook-checkbox-field-item">
@@ -110,23 +110,21 @@
       <!-- Date exercise -->
       <div v-if="component.type == 'DateExercise'" class="notebook-page-text-exercise">
         <div>
-          <div class="title">My Answer</div>
+          <!-- <div class="title">My Answer</div> -->
           <div class="question small">{{ component.component.placeholderText }}</div>
           <p>{{ component.exerciseState.formatedInput }}</p>
         </div>
       </div>
       <!-- Documents Upload Component -->
       <div v-if="component.type == 'UploadExercise'" class="notebook-documents-upload">
-        <div class="title">My Output</div>
-        <div class="question small">Upload your results</div>
-        <!-- <div v-for="(doc, index) in documentUploads" :key="index" class="notebook-document-item"> -->
-          <div class="document-type">
-            {{ component.exerciseState.inputState }}
+        <div class="document-type">
+          <div class="doc-type-type">
+            {{ component.exerciseState.inputState.slice(component.exerciseState.inputState.indexOf('.') + 1) }}
           </div>
-          <!-- <div class="document-title small">
-            {{ doc.title }}
-          </div> -->
-        <!-- </div> -->
+          <div class="doc-type-name">
+          {{ component.exerciseState.inputState }}
+          </div>
+        </div>
       </div>
       <!-- Audio Exercise -->
       <div v-if="component.type == 'AudioComponent'">
