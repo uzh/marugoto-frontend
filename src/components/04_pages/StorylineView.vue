@@ -57,6 +57,8 @@ export default {
       dialogVisible: false,
       basePath: process.env.VUE_APP_BASE_PATH,
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
+      timerContainer: {},
+      timerON: false,
     };
   },
   computed: {
@@ -93,6 +95,10 @@ export default {
       this.$store.dispatch('CLEAR_PERSONAL_NOTES');
     },
     requestPageTransition(id){
+      if( this.timerON ){
+        this.timerContainer.stop();
+      }
+      this.timerON = false;
       this.updateNotebookPersonalNotesBeforePageTransition();
       if( this.get_textExerciseExists.exist ){
         // Here you can prevent to make transition if exercise is required but empty or 
@@ -142,11 +148,12 @@ export default {
         }else{
           timeForCounter = newVal.timeLimit;
         }
+        this.timerON = true;
         // timeForCounter = 3000;
-        new Timer( timeForCounter,                   // Transition time
-          this.requestPageTransition,                 // Callback
-          this.get_transitions[0].pageTransition.id)  // Callback payload
-          .start();
+        this.timerContainer = new Timer( timeForCounter,  // Transition time
+          this.requestPageTransition,                     // Callback
+          this.get_transitions[0].pageTransition.id);     // Callback payload
+        this.timerContainer.start();
       }
     },
     get_dialog: function(newVal) {

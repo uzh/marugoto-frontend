@@ -5,7 +5,6 @@ import { mapGetters } from 'vuex';
 import NotebookList from './notebookList';
 import NotebookChapterMenu from './notebookChapterMenu';
 import NotebookPages from './notebookPages';
-import { setTimeout } from 'timers';
 
 export default {
   name: 'NotebookContainer',

@@ -3,11 +3,12 @@ export default class Timer{
         this.time = time;
         this.callback = callback;
         this.payload = callbackPayload;
+        this.timerContainer = {};
     }
     
     start() {
         var self = this;
-        var timer = setInterval( function(){
+        this.timerContainer = setInterval( function(){
             // console.log(`Timer started: ${self.time}`);
             if( self.time > 0 ){
                 self.time--;
@@ -20,8 +21,12 @@ export default class Timer{
                         self.callback();
                     }
                 }
-                clearInterval(timer);
+                clearInterval(self.timerContainer);
             }
         }, 1000 );
+    }
+
+    stop() {
+        clearInterval(this.timerContainer);
     }
 }
