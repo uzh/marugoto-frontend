@@ -1,6 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
+import { mapGetters } from 'vuex'
 // eslint-disable-next-line
 import { _debounce } from 'lodash';
 import svgIcon from '@/components/01_atoms/svgicon';
@@ -15,9 +16,16 @@ export default {
       isAutosaved: false,
     }
   },
+  computed:{
+    ...mapGetters(['get_exerciseText']),
+  },
+  mounted: function(){
+    this.answer = this.get_exerciseText;
+  },
   methods: {
     submitAnswer: function(){
       this.$emit('emitInputAreaAnswer', this.answer, this.exerciseId);
+      this.$store.dispatch('SAVE_TEXT_FOR_EXERCISE', this.answer);
     },
     checkTyping: function() {
       this.isAutosaved = false;

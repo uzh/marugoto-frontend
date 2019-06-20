@@ -84,6 +84,7 @@ export default {
     requester: function() {
       this.$store.dispatch('LAYOUT_OPEN');
       this.$store.dispatch('UPDATE_NOTEBOOK');
+      this.$store.dispatch('CLEAR_TEXT_FOR_EXERCISE');
     },
     updateNotebookPersonalNotesBeforePageTransition: function() {
       for( var ii=0; ii < this.get_personalNotes.length; ii++ ){

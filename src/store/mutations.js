@@ -89,6 +89,13 @@ export default({
   [types.TOGGLE_SIDEBAR_VISIBILITY] (state, payload) {
     state.layout.statusbarVisible = payload;
   },
+  // EXERCISE
+  [types.SAVE_TEXT_FOR_EXERCISE] (state, payload) {
+    state.exerciseText = payload;
+  },
+  [types.CLEAR_TEXT_FOR_EXERCISE] (state) {
+    state.exerciseText = '';
+  },
   // INVITATION LINK MUTATIONS
   [types.SET_INVITATION_LINK] (state, payload) {
     state.invitationLink = payload;

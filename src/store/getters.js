@@ -16,6 +16,9 @@ export default{
   get_games: state => {
     return state.games;
   },
+  get_exerciseText: state => {
+    return state.exerciseText;
+  },
   get_classes: state => {
     return state.classes;
   },

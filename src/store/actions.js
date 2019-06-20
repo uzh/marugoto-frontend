@@ -89,6 +89,12 @@ export default({
       throw(err);
     });
   },
+  [types.SAVE_TEXT_FOR_EXERCISE]: ({commit}, payload) => {
+    commit(types.SAVE_TEXT_FOR_EXERCISE, payload);
+  },
+  [types.CLEAR_TEXT_FOR_EXERCISE]: ({commit}) => {
+    commit(types.CLEAR_TEXT_FOR_EXERCISE);
+  },
   // GAMES
   [types.UPDATE_GAMES]: ({commit}) => {
     return apiService.get('/game/list')
