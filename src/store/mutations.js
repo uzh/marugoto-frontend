@@ -103,6 +103,9 @@ export default({
   [types.CLEAR_INVITATION_LINK] (state) {
     state.invitationLink = '';
   },
+  [types.INVITATION_EXPIRED] (state, payload) {
+    state.invitationExpired = payload;
+  },
   // GAMES MUTATIONS
   [types.UPDATE_GAMES] (state, payload) {
     state.games = payload;

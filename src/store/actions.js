@@ -124,6 +124,9 @@ export default({
   [types.CLEAR_INVITATION_LINK]: ({commit}) => {
     commit('CLEAR_INVITATION_LINK');
   },
+  [types.INVITATION_EXPIRED]: ({commit}, payload) => {
+    commit('INVITATION_EXPIRED', payload);
+  },
   // CLASSES
   [types.UPDATE_CLASSES]: ({commit}) => {
     return apiService.get('/classroom/list')

@@ -60,10 +60,7 @@ apiService.interceptors.response.use(function (response) {
    */
   if( error.response.status === 400 && error.response.data.exception == 'ClassroomLinkExpiredException'){
     store.dispatch('CLEAR_INVITATION_LINK');
-    store.dispatch('ERROR_NETWORK_CONNECTION', {
-      status: true,
-      message: error.response.data.message,
-    });
+    store.dispatch('INVITATION_EXPIRED', true);
     return;
   }
 

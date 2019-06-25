@@ -28,6 +28,9 @@ export default{
   get_invitationLink: state => {
     return state.invitationLink;
   },
+  get_invitationExpired: state => {
+    return state.invitationExpired;
+  },
   get_supervision: state => {
     return state.supervision;
   },
