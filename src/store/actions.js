@@ -308,15 +308,15 @@ export default({
       commit(types.CLEAR_EDITOR);
     }, 1000);
   },
-  [types.DOWNLOAD_PDF]: ({commit}) => {
-    return apiService.get('notebook/pdf/current')
-    .then(resp => {
-      // console.log(resp.data);
-    })
-    .catch(err => {
-      throw(err);
-    });
-  },
+  // [types.DOWNLOAD_PDF]: ({commit}) => {
+  //   return apiService.get('notebook/pdf/current')
+  //   .then(resp => {
+  //     // console.log(resp.data);
+  //   })
+  //   .catch(err => {
+  //     throw(err);
+  //   });
+  // },
   // MAIL
   [types.UPDATE_SELECTED_MAIL]: (context, payload) => {
     context.commit(types.UPDATE_SELECTED_MAIL, payload);

@@ -9,13 +9,15 @@ export default {
   props: ['currentEntry', 'list'],
   data() {
     return {
+      basePath: process.env.VUE_APP_BASE_PATH,
+      resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       disabled: false,
       disabledDirection: false,
     };
   },
   methods: {
     downloadPDF: function() {
-      this.$store.dispatch('DOWNLOAD_PDF');
+      window.open(this.resourcesPath + 'api/notebook/pdf/current','_blank');
     },
     emitChange: function(direction) {
       if( this.disabled) { return; }

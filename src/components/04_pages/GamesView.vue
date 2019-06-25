@@ -36,6 +36,7 @@
       :id="item.id"
       :startedAt="item.startedAt"
       :title="item.topic.title"
+      @emitDownload="downloadPDF(item)"
       @emitContinue="continueGame(item.id, item)" />
     </div>
 
@@ -46,13 +47,15 @@
         action=""
         :startedAt="item.startedAt"
         :title="item.topic.title"
-        :key="index" />
+        :key="index"
+        @emitDownload="downloadPDF(item)" />
     </div>
   </div>
 </template>
 
 <script>
 import { mapGetters } from 'vuex';
+import apiService from '@/apiService'
 import Btn from '@/components/01_atoms/buttons';
 import DownloadList from '@/components/01_atoms/lists/downloadLists';
 
@@ -81,6 +84,20 @@ export default {
       .then(() => {
         this.$router.push('/overview');
       });
+    },
+    downloadPDF: function(item) {
+      let gameStateId = item.id.slice( item.id.indexOf('/') + 1, item.id.length);
+      let userId = '';
+      apiService.get('/auth/validate')
+      .then(resp => {
+        userId = resp.data.id.slice( resp.data.id.indexOf('/') + 1, resp.data.id.length);
+        window.open(`${this.resourcesPath}api/game/files/${gameStateId}?userId=${userId}`,'_blank');
+      })
+      .catch(err => {
+        throw(err);
+      });
+      
+      
     },
     continueGame: function(gameID, item) {
       this.$store.dispatch('CONTINUE_GAME', gameID).then(() => {
