@@ -39,7 +39,7 @@ apiService.interceptors.response.use(function (response) {
   if( error.message == 'Network Error' ) {
     store.dispatch('ERROR_NETWORK_CONNECTION', {
       status: true,
-      message: "Ops we can't reach server right now. Please try again later.",
+      message: error.response.data.message, //"Ops we can't reach server right now. Please try again later.",
     });
     return;
   }
@@ -50,10 +50,23 @@ apiService.interceptors.response.use(function (response) {
   if( error.response.status === 500 && error.response.data.exception == 'ArangoDBException'){
     store.dispatch('ERROR_NETWORK_CONNECTION', {
       status: true,
-      message: 'Database not reachable, please try again later!',
+      message: error.response.data.message, //'Database not reachable, please try again later!',
     });
     return;
   }
+
+  /**
+   * INVITATION LINK EXPIRED
+   */
+  if( error.response.status === 400 && error.response.data.exception == 'ClassroomLinkExpiredException'){
+    store.dispatch('CLEAR_INVITATION_LINK');
+    store.dispatch('ERROR_NETWORK_CONNECTION', {
+      status: true,
+      message: error.response.data.message,
+    });
+    return;
+  }
+
   /**
    * AUTH ERROR
    */

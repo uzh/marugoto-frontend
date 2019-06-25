@@ -77,12 +77,12 @@ export default {
     zoomIn: function() {
       // TODO make it percentage
       this.$refs.zoomImage.style.width = this.$refs.zoomImage.width + 100 + 'px';
-      this.$refs.zoomImage.style.height = this.$refs.zoomImage.height + 100 + 'px';
+      this.$refs.zoomImage.style.height = 'auto'; // this.$refs.zoomImage.height + 100 + 'px';
       this.countScrollDimensions();
     },
     zoomOut: function() {
       this.$refs.zoomImage.style.width = this.$refs.zoomImage.width - 100 + 'px';
-      this.$refs.zoomImage.style.height = this.$refs.zoomImage.height - 100 + 'px';
+      this.$refs.zoomImage.style.height = 'auto'; // this.$refs.zoomImage.height - 100 + 'px';
       this.countScrollDimensions();
     },
 
