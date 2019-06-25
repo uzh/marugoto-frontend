@@ -59,6 +59,7 @@ export default {
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       timerContainer: {},
       timerON: false,
+      transitioned: false,
     };
   },
   computed: {
@@ -84,7 +85,11 @@ export default {
     requester: function() {
       this.$store.dispatch('LAYOUT_OPEN');
       this.$store.dispatch('UPDATE_NOTEBOOK');
-      this.$store.dispatch('CLEAR_TEXT_FOR_EXERCISE');
+
+      if( this.transitioned ){
+        this.$store.dispatch('CLEAR_TEXT_FOR_EXERCISE');
+        this.transitioned = false;
+      }
     },
     updateNotebookPersonalNotesBeforePageTransition: function() {
       for( var ii=0; ii < this.get_personalNotes.length; ii++ ){
@@ -111,12 +116,14 @@ export default {
         .then(() => {
           this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
           .then(() => {
+            this.transitioned = true;
             this.requester();
           });
         })
       }else{
         this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
         .then(() => {
+          this.transitioned = true;
           this.requester();
         });
       }
