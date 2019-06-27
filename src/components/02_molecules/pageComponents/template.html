@@ -71,7 +71,7 @@
       :linkSource="component.component.resource.path"
       :text="component.component.linkText" />
     <!-- Audio component -->
-    <div v-if="component.type == 'AudioComponent'">
+    <div v-if="component.type == 'AudioComponent'" class="mb-40">
       <AudioComponent 
         :source="component.component.audio.path" 
         :componentID="component.component.audio.id"
