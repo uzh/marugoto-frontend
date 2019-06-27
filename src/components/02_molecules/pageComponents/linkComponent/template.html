@@ -1,9 +1,12 @@
 <div class="download-link-component">
   <a :href="`${resourcesPath}${linkSource}`" target="_blank">
-    <span class="pdf-doc"></span>
-    <span class="text link">{{ text }}</span>
-    <span class="pdf-icon">
-      <SvgIcon customColor="#8C8B89" name="download-pdf" />
-    </span>
+    <div class="download-link-box">
+        <span class="pdf-doc"></span>
+        <span class="text link">{{ text }}</span>
+        <span class="pdf-icon">
+          <SvgIcon customColor="#8C8B89" name="download-pdf" />
+        </span>
+      
+    </div>
   </a>
 </div>

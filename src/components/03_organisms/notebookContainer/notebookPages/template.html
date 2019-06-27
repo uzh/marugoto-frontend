@@ -115,6 +115,12 @@
           <p>{{ component.exerciseState.formatedInput }}</p>
         </div>
       </div>
+      <!-- Link Component -->
+      <div v-if="component.type == 'LinkComponent'">
+          <LinkComponent 
+            :linkSource="component.component.resource.path"
+            :text="component.component.linkText" />
+      </div>
       <!-- Documents Upload Component -->
       <div v-if="component.type == 'UploadExercise'" class="notebook-documents-upload">
         <div class="document-type">
@@ -122,7 +128,7 @@
             {{ component.exerciseState.inputState.slice(component.exerciseState.inputState.indexOf('.') + 1) }}
           </div>
           <div class="doc-type-name">
-          {{ component.exerciseState.inputState }}
+            {{ component.exerciseState.inputState.slice(component.exerciseState.inputState.indexOf('/') + 1) }}
           </div>
         </div>
       </div>

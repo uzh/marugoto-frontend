@@ -7,12 +7,13 @@ import SvgIcon from '@/components/01_atoms/svgicon';
 import Btn from '@/components/01_atoms/buttons';
 import AudioComponent from '@/components/02_molecules/pageComponents/audioComponent';
 import VideoComponent from '@/components/02_molecules/pageComponents/videoComponent';
+import LinkComponent from '@/components/02_molecules/pageComponents/linkComponent'
 import PersonalNote from '@/components/03_organisms/notebookContainer/personalNote';
 import VueMarkdown from 'vue-markdown';
 
 export default {
   name: 'NotebookPages',
-  components: { SvgIcon, Btn, VueMarkdown, AudioComponent, VideoComponent, PersonalNote },
+  components: { SvgIcon, Btn, VueMarkdown, AudioComponent, VideoComponent, PersonalNote, LinkComponent },
   props: [ 'currentEntry', 'list', 'direction' ],
   data(){
     return {
