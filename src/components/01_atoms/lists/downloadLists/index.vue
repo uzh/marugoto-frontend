@@ -9,7 +9,7 @@ export default {
   props: [ 'title', 'action', 'startedAt' ],
   data: function() {
     return {
-      months: ['January', 'February', 'March', 'April', 'May', 'Jun',
+      months: ['January', 'February', 'March', 'April', 'May', 'June',
       'July', 'August', ' September', 'October', 'December'],
     };
   },
