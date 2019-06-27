@@ -16,7 +16,7 @@ export default {
   computed: {
     startedAtP:  function() {
       let date = new Date(this.startedAt);
-      return `${date.getDay()} ${this.months[date.getMonth()]}`;
+      return `${date.getDate()} ${this.months[date.getMonth()]}`;
     },
   },
 };

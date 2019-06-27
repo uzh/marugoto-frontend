@@ -12,15 +12,6 @@
       }"
       v-if="component.type == 'TextComponent'" 
       :source="component.component.markdownContent" />
-    <!-- Link -->
-    <div v-if="component.type == 'LinkComponent'">
-      <a
-        class="mb-40"
-        :href="component.component.url"
-        target="_blank">
-        {{ component.component.url }}
-      </a>
-    </div>
     <!-- Image -->
     <ImageComponent
       v-if="component.type == 'ImageComponent'"

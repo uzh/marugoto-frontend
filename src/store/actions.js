@@ -363,12 +363,55 @@ export default({
   },
   // UPLOAD
   [types.UPLOAD_FILE_EXERCISE]: ({commit}, payload) => {
-    return apiService({url: `/uploads?exerciseStateId=${payload.id}`, data: payload.data, method: 'POST' })
+    var loaderBar = document.getElementById('loader-bar');
+    loaderBar.style.opacity = 0.3;
+
+    return apiService({
+        url: `/uploads?exerciseStateId=${payload.id}`, 
+        data: payload.data, method: 'POST',
+        onUploadProgress: function (progressEvent) {
+          // Do whatever you want with the native progress event
+          let pc = parseInt(100 - ( progressEvent.loaded / progressEvent.total * 100));
+          loaderBar.style.right = pc + "%";
+          
+          if( progressEvent.total == progressEvent.loaded){
+            setTimeout(()=>{
+              loaderBar.style.opacity = 1;
+            }, 100)
+
+            setTimeout(()=>{
+              loaderBar.innerText = 'DONE';
+            }, 400)
+
+            setTimeout(()=>{
+              loaderBar.style.right = "100%";
+              loaderBar.style.opacity = 0;
+            }, 3000);
+
+            setTimeout(()=>{
+              loaderBar.innerText = '';
+            }, 3300);
+          }
+        },
+      })
       .then(resp => {
         
       })
       .catch(err => {
-        
+        if( err ){
+          loaderBar.style.opacity = 1;
+          loaderBar.style.right = "0%";
+          loaderBar.innerText = 'There has been error!!!';
+
+          setTimeout(()=>{
+            loaderBar.style.right = "100%";
+            loaderBar.style.opacity = 0;
+          }, 3000);
+
+          setTimeout(()=>{
+            loaderBar.innerText = '';
+          }, 3300);
+        }
       })
   },
 });
