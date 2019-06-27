@@ -39,7 +39,7 @@
       <div
         v-if="component.type == 'PersonalNote'"
         class="added-personal-notes-box mb-40">
-        <!-- <p>20.5.2018 - 10:32 - {{ page.title }}</p> -->
+        <p>{{ component.personalNote.createdAt }} - {{ page.title }}</p>
         <vue-markdown :source="component.personalNote.markdownContent" />
       </div>
       <!-- Text Exercise Component -->
@@ -117,9 +117,9 @@
       </div>
       <!-- Link Component -->
       <div v-if="component.type == 'LinkComponent'">
-          <LinkComponent 
-            :linkSource="component.component.resource.path"
-            :text="component.component.linkText" />
+        <LinkComponent 
+          :linkSource="component.component.resource.path"
+          :text="component.component.linkText" />
       </div>
       <!-- Documents Upload Component -->
       <div v-if="component.type == 'UploadExercise'" class="notebook-documents-upload">
