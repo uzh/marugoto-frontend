@@ -38,7 +38,7 @@ export default {
   },
   methods: {
     selectClassroom: function(item) {
-      let id = item.id.split('/')[1];
+      let id = item.classroom.id.split('/')[1];
       this.$router.push({ name: 'classroom', params: { id: id }});
     },
     goToNewClass: function() {
