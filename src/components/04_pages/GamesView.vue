@@ -55,7 +55,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-
+import apiService from '@/apiService'
 import Btn from '@/components/01_atoms/buttons';
 import DownloadList from '@/components/01_atoms/lists/downloadLists';
 
@@ -87,7 +87,14 @@ export default {
     },
     downloadPDF: function(item) {
       let gameStateId = item.id.slice( item.id.indexOf('/') + 1, item.id.length);
-      window.open(`${this.resourcesPath}api/game/files/${gameStateId}`,'_blank');
+      //window.open(`${this.resourcesPath}api/game/files/${gameStateId}`,'_blank');
+      apiService.get(`${this.resourcesPath}api/game/files/${gameStateId}`)
+        .then(() => {
+          //console.log(resp);
+        })
+        .catch(err => {
+          throw(err);
+        });
     },
     continueGame: function(gameID, item) {
       this.$store.dispatch('CONTINUE_GAME', gameID).then(() => {

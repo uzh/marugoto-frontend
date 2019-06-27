@@ -1,6 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
+import apiService from '@/apiService'
 import svgIcon from '@/components/01_atoms/svgicon';
 
 export default {
@@ -17,7 +18,14 @@ export default {
   },
   methods: {
     downloadPDF: function() {
-      window.open(this.resourcesPath + 'api/notebook/pdf/current','_blank');
+      //window.open(this.resourcesPath + 'api/notebook/pdf/current','_blank');
+      apiService.get(`${this.resourcesPath}api/notebook/pdf/current`)
+        .then(() => {
+          //console.log(resp);
+        })
+        .catch(err => {
+          throw(err);
+        });
     },
     emitChange: function(direction) {
       if( this.disabled) { return; }
