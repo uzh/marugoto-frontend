@@ -86,7 +86,7 @@
       </div>
       <!-- Buttons -->
       <div class="buttons-footer">
-        <Btn text="Go to Map" primary="true" @click.native="goToMap" />
+        <!-- <Btn text="Go to Map" primary="true" @click.native="goToMap" /> -->
         <Btn text="Download all Notebooks & Files" primary="true" @click.native="downloadAll" />
       </div>
     </div>
