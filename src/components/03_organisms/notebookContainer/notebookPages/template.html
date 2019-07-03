@@ -39,7 +39,7 @@
       <div
         v-if="component.type == 'PersonalNote'"
         class="added-personal-notes-box mb-40">
-        <p>{{ component.personalNote.createdAt }} - {{ page.title }}</p>
+        <p>{{ component.personalNote.createdAt }}</p>
         <vue-markdown :source="component.personalNote.markdownContent" />
       </div>
       <!-- Text Exercise Component -->
