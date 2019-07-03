@@ -270,15 +270,6 @@
                 height: 100%;
                 background: rgba(0,0,0, 0.75);
 
-                .drag-mask{
-                    position: absolute;
-                    z-index: 1;left: 0;
-                    top: 0;
-                    width: 100%;
-                    height: 100%;
-                    border: 1px solid red;
-                }
-
                 .zoom-panel-controls{
                     position: fixed;
                     bottom: 10px;
@@ -295,48 +286,33 @@
                     }
                 }
 
-                .zoom-panel-container{
+                .z-panel-body{
                     display: table;
-                    box-sizing: border-box;
-                    border-spacing: 0;
-                    table-layout: fixed;
+                    position: relative;
+                    height: 100%;
                     width: 100%;
 
-                    .z-panel-body{
-                        position: absolute;
-                        bottom: 0px;
-                        left: 0;
-                        right: 0;
-                        top: 0;
+                    .table-cell-holder{
+                        display: table-cell;
                         height: 100%;
-                        overflow: hidden;
-                        text-align: center;
+                        width: 100%;
                         vertical-align: middle;
+                        text-align: center;
+                    }
 
-                        .z-viewer-layer {
-                            height: 100%;
-
-                            .z-image-preview {
-                                width: 100%;
-                                height: 100%;
-                                overflow: auto;
-                                white-space: nowrap;
-                                
-                                .z-image-container{
-                                    position: relative;
-                                    display: inline-block;
-                                    vertical-align: middle;
-
-                                    img{
-                                        display: block;
-                                        width: auto;
-                                        height: auto;
-                                    }
-                                }
-                            }
-                        }
+                    .scroll-holder{
+                        display: inline-block;
+                        max-width: 100vh;
+                        max-height: 100vh;
+                        overflow: scroll;
+                    }
+                    img{
+                        width: auto;
+                        height: auto;
                     }
                 }
+
+                
             }
 
             

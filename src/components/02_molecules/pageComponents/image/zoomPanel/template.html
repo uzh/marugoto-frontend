@@ -1,23 +1,16 @@
 <div class="zoom-panel">
-  <!-- Drag mask -->
-  <!-- <div 
-    class="drag-mask" 
-    ref="dragMask"
-    @dragover="panImage"
-    @dragstart="resetPanVars"
-    draggable="true"></div> -->
   <!-- Zoom on -->
-  <div class="zoom-panel-container">
+  
     <div class="z-panel-body">
-      <div class="z-viewer-layer">
-        <div class="z-image-preview" ref="imageScrollPanel">
-          <div class="z-image-container" ref="dragMask"
+      <div class="table-cell-holder">
+        <div
           @dragover="panImage"
-          @dragstart="resetPanVars">
-              <img
-              :src="`${resourcesPath}${imagesList[0].path}`" 
-              ref="zoomImage" />
-          </div>
+          @dragstart="dragStartFoo"
+          draggable="true" 
+          class="scroll-holder" ref="scroller">
+          <img
+          :src="`${resourcesPath}${imagesList[0].path}`" 
+          ref="zoomImage" />
         </div>
       </div>
     </div>
@@ -34,5 +27,5 @@
       </div>
     </div>
     
-  </div>
+  
 </div>

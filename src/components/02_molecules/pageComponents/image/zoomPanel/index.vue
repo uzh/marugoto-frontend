@@ -18,6 +18,11 @@ export default {
       calibratedY: 0,
       limitScrollX: 0,
       limitScrollY: 0,
+      down: false,
+      scrollLeft: 0,
+      x: 0,
+      scrollTop: 0,
+      y: 0,
     }
   },
   mounted: function() {
@@ -26,9 +31,20 @@ export default {
       this.sizeImg();
       this.countScrollDimensions();
     }, 100);
-    
   },
   methods: {
+    dragStartFoo: function(e) {
+      this.scrollLeft = this.$refs.scroller.scrollLeft;
+      this.x = e.clientX;
+
+      this.scrollTop = this.$refs.scroller.scrollTop;
+      this.y = e.clientY;
+      
+    },
+    panImage: function(e) {
+      this.$refs.scroller.scrollLeft = this.scrollLeft + this.x - e.clientX;
+      this.$refs.scroller.scrollTop = this.scrollTop + this.y - e.clientY;
+    },
     countScrollDimensions: function() {
       let img = this.$refs.zoomImage;
 
@@ -56,21 +72,7 @@ export default {
       this.prevX = event.clientX + 1;
       this.prevY = event.clientY + 1;
     },
-    panImage: function() {
-      let scPanel = this.$refs.imageScrollPanel;
-      // Get client position X and Y
-      let clientX = event.clientX;
-      let clientY = event.clientY;
-      
-      this.calibratedX = clientX - (this.prevX + 50);
-      this.calibratedY = clientY - (this.prevY + 50) ;
-
-      if( this.calibratedX <= this.limitScrollX && this.calibratedY <= this.limitScrollY ){
-        //console.log('scroll: ', this.calibratedX, " - ",this.calibratedY)
-        scPanel.scroll(this.calibratedX,this.calibratedY);
-      }
-      
-    },
+    
     toogleZoom: function(){
       this.$emit('zoomOut');
     },
