@@ -8,7 +8,7 @@
 				<SvgIcon class="icon" name="arrow-right" customColor="#8C8B89" sizeH="20px" sizeW="20px" />
 				<div class="end">{{ item.classroom.endClassAt }}</div>
 			</div>
-			<div class="students">{{ item.numberOfUsers }} / 21 students</div>
+			<div class="students">{{ item.numberOfUsers }} student<span v-if="item.numberOfUsers > 1">s</span></div>
 		</div>
 	</div>
 </div>

@@ -1,16 +1,11 @@
 <template src="./template.html"></template>
 
 <script>
-import VueMarkdown from 'vue-markdown';
+import SvgMarker from '@/components/01_atoms/svgMarker';
 
 export default {
   name: 'NotebookList',
-  components: { VueMarkdown },
+  components: { SvgMarker },
   props: [ 'list', 'selected' ],
-  data(){
-    return{
-      
-    }
-  },
 }
 </script>

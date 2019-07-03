@@ -77,9 +77,9 @@
         </div>
       </div>
       <!-- Student list -->
-      <div v-if="get_students && get_students.length > 0" class="students-list">
+      <div v-if="classStudents && classStudents.length > 0" class="students-list">
         <Student
-          v-for="(item, index) in get_students"
+          v-for="(item, index) in classStudents"
           :key="index"
           :item="item"
           @emitStudentSelection="selectStudent" />
@@ -124,8 +124,9 @@ export default {
         navMonths: 'MMM',
         input: ['DD.MM.YYYY'],
         dayPopover: 'L',
-        data: ['DD.MM.YYYY']
+        data: ['DD.MM.YYYY'],
       },
+      classStudents: [],
     }
   },
   computed: {
@@ -149,6 +150,8 @@ export default {
         this.classStartDate = new Date(parsedStartDate);
         this.classEndDate = new Date(parsedEndDate);
         this.invitationLink = resp.data.classroom.invitationLinkId;
+
+        this.classStudents = resp.data.gameStates;
 
       }).then(() => {
         this.$store.dispatch('REQUEST_CLASSROOM_MEMBERS', this.classId)

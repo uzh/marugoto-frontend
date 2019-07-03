@@ -7,12 +7,12 @@
 			</div>
 		</div>
 		<div class="right">
-			<div class="name h6">{{ item.name }}</div>
+			<div class="name h6">{{ item.user.name }}</div>
 			<div class="files small">
-				2 files
-				<div class="online"></div>
+				<span v-if="item.startedAt">Playing</span>
+				<span v-if="item.finishedAt">Finished</span>
 			</div>
-			<div class="mail-address small">{{ item.mail }}</div>
+			<div class="mail-address small">{{ item.user.mail }}</div>
 		</div>
 	</div>
 </div>

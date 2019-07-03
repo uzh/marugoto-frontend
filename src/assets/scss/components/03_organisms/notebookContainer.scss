@@ -188,14 +188,22 @@ $chapterHeight: 80px;
         color: #7d7d7d;
     }
     .title {
-        width: 100%;
+        display: inline-block;
         overflow: hidden;
         text-overflow: clip;
 
         p {
+            display: inline;
             @extend .h5;
             font-family: 'Libre Baskerville';
         }
+    }
+
+    svg{
+        position: absolute;
+        top: 0;
+        left: 42px;
+        overflow: visible;
     }
 
     &:last-child{
