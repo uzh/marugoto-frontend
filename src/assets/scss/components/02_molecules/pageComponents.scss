@@ -302,11 +302,21 @@
 
                     .scroll-holder{
                         display: inline-block;
-                        max-width: 100vh;
+                        max-width: 100vw;
                         max-height: 100vh;
                         overflow: scroll;
+
+                        cursor: grab;
+
+                        
+
+                        &.hovered{
+                            cursor: grabbing;
+                        }
                     }
+
                     img{
+                        display: block;
                         width: auto;
                         height: auto;
                     }

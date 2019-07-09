@@ -23,10 +23,16 @@ export default {
       x: 0,
       scrollTop: 0,
       y: 0,
+      dragImage: '',
+      hovered: false,
     }
   },
   mounted: function() {
     // Set image on start
+    var img = new Image();
+    img.src = 'data:image/gif;base64,R0lGODlhAQABAIAAAAUEBAAAACwAAAAAAQABAAACAkQBADs=';
+    this.dragImage = img;
+
     setTimeout(()=>{
       this.sizeImg();
       this.countScrollDimensions();
@@ -34,14 +40,21 @@ export default {
   },
   methods: {
     dragStartFoo: function(e) {
+      e.dataTransfer.setDragImage(this.dragImage, 0, 0);
+
       this.scrollLeft = this.$refs.scroller.scrollLeft;
       this.x = e.clientX;
 
       this.scrollTop = this.$refs.scroller.scrollTop;
       this.y = e.clientY;
-      
+
+      this.hovered = true;
+    },
+    dragEndFoo: function() {
+      this.hovered = false;
     },
     panImage: function(e) {
+      
       this.$refs.scroller.scrollLeft = this.scrollLeft + this.x - e.clientX;
       this.$refs.scroller.scrollTop = this.scrollTop + this.y - e.clientY;
     },
@@ -68,11 +81,6 @@ export default {
       }
       
     },
-    resetPanVars: function() {
-      this.prevX = event.clientX + 1;
-      this.prevY = event.clientY + 1;
-    },
-    
     toogleZoom: function(){
       this.$emit('zoomOut');
     },

@@ -6,11 +6,12 @@
         <div
           @dragover="panImage"
           @dragstart="dragStartFoo"
-          draggable="true" 
+          @dragend="dragEndFoo"
+          :class="hovered ? 'hovered' : '' "
           class="scroll-holder" ref="scroller">
-          <img
-          :src="`${resourcesPath}${imagesList[0].path}`" 
-          ref="zoomImage" />
+            <img
+            :src="`${resourcesPath}${imagesList[0].path}`" 
+            ref="zoomImage" />
         </div>
       </div>
     </div>

@@ -9,7 +9,7 @@
 		<div class="right">
 			<div class="name h6">{{ item.user.name }}</div>
 			<div class="files small">
-				<span v-if="item.startedAt">Playing</span>
+				<span v-if="item.startedAt && !item.finishedAt">Playing</span>
 				<span v-if="item.finishedAt">Finished</span>
 			</div>
 			<div class="mail-address small">{{ item.user.mail }}</div>
