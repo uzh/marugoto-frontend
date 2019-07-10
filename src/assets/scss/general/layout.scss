@@ -65,7 +65,7 @@ $elements-space: 90px;
       }
     
       p {
-        @extend .font;
+        @extend .font-secondary;
         font-size: 17px;
         line-height: 25px;
         letter-spacing: 0.2px;
@@ -111,7 +111,7 @@ $elements-space: 90px;
 
         .account {
           @extend .lead;
-          @extend .font;
+          @extend .font-secondary;
           width: 45%;
           display: table-cell;
           cursor: pointer;

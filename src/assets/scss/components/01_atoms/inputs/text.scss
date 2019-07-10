@@ -22,7 +22,7 @@ $width: 100%;
         width: 90%;
         font-size: 1rem;
         line-height: 1.1875rem;
-        font-family: 'Apercu';
+        font-family: $font-secondary;
         overflow: hidden;
         white-space: nowrap;
         text-overflow: ellipsis;
@@ -37,7 +37,7 @@ $width: 100%;
         padding-left: 10px;
         padding-right: 40px;
         background-color: $base-uicolor-4;
-        font-family: 'Apercu';
+        font-family: $font-secondary;
    }
 
    &.inputFocused {
