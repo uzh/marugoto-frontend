@@ -64,9 +64,15 @@
         v-if="component.hasOwnProperty('mailState')"
         class="notebook-mail-response">
         <div v-for="(reply, index) in component.mailState.mailReplyList" :key="index">
-            <div class="title">{{component.mailState.mail.subject}}</div>
-            <div class="sticker"></div>
-          <div class="notebook-mail-reply-message">{{ reply.body }}</div>
+          <div class="title">{{component.mailState.mail.subject}}</div>
+          <div class="notebook-mail-reply-message-wrapper">
+            <div class="sticker-wrapper">
+              <div class="sticker"></div>
+            </div>
+            <div class="notebook-mail-reply-message">
+                {{ reply.body }}
+            </div>
+          </div>
         </div>
       </div>
       <!-- Radio Field Component -->

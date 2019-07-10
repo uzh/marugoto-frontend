@@ -395,29 +395,60 @@ $chapterHeight: 80px;
                 border-bottom: 2px solid $black;
             }
 
-            .sticker {
-                position: absolute;
-                top: 5px;
-                left: 50%;
-                height: 125px;
-                width: 44px;
-                background-color: $white;
-                background: url('assets/images/sticker.png');
-                z-index: 1;
-                transform: rotate(-90deg) translateY(-22px);
-            }
+            .notebook-mail-reply-message-wrapper {
+                height: auto;
 
-            .notebook-mail-reply-message {
-                height: 400px;
-                padding: 20px;
-                background: url('assets/images/notebook-mail-response-background.png') center no-repeat;
-                background-size: cover;
-                font-family: 'Kalam Light', cursive;
-                font-size: 20px;
-                line-height: 32px;
-                letter-spacing: 0.08px;
-                overflow: hidden;
-                transform: rotate(-1deg);
+                .sticker-wrapper {
+                    position: absolute;
+                    left: 50%;
+                    top: 5px;
+                    height: 125px;
+                    width: 44px;
+                    z-index: 1;
+                    transform: rotate(-90deg) translateY(-36px);
+
+                    .sticker {
+                        height: 125px;
+                        width: 44px;
+                        background-color: $white;
+                        background: url('assets/images/sticker.png');
+                    }
+                }
+
+                .notebook-mail-reply-message {
+                    padding: 50px 30px;
+                    background: url('assets/images/notebook-mail-response-background.png') center no-repeat;
+                    background-size: cover;
+                    font-family: 'Kalam Light', cursive;
+                    font-size: 20px;
+                    line-height: 32px;
+                    letter-spacing: 0.08px;
+                    transform: rotate(-1deg);
+                }
+
+                @media only screen and (max-width: 768px) {
+                    .sticker-wrapper {
+                        top: 2%;
+                        transform: rotate(-90deg) translateY(-22px);
+                    }
+    
+                    .notebook-mail-reply-message {
+                        padding-bottom: 120px 30px;
+                        transform: rotate(0deg);
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
+                }
+                
+                @media only screen and (max-width: 1024px) {
+                    .sticker-wrapper {
+                        top: 1.5%;
+                    }
+    
+                    .notebook-mail-reply-message {
+                        padding: 100px 30px;
+                    }
+                }
             }
         }
 
