@@ -37,7 +37,8 @@ export default {
         navMonths: 'MMM',
         input: ['DD.MM.YYYY'],
         dayPopover: 'L',
-        data: ['YYYY-MM-DD']
+        data: ['YYYY-MM-DD'],
+
       },
       dateFormated: '',
       videoHovered: false,

@@ -20,12 +20,21 @@
       :captionOffset="component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '25%'"
       :zoomable="component.component.zoomable" />
     <!-- Date Component -->
-    <div v-if="component.type == 'DateExercise'" class="mb-40">
+    <div
+      v-if="component.type == 'DateExercise'"
+      class="date-picker mb-40" 
+      :style="{
+        'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
+        'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
+      }">
       <v-date-picker
         :formats='formats'
         @dayclick="dateEmit($event, component.state.id)"
         v-model='selectedDate'>
       </v-date-picker>
+      <!-- <div class="calendar">
+        <SvgIcon name="calendar" customColor="#8C8B89" />
+      </div> -->
     </div>
     <!-- Exercise Radio -->
     <div v-if="component.type == 'RadioButtonExercise'">
