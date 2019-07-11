@@ -13,9 +13,10 @@ import ImageComponent from './image'
 import LinkComponent from './linkComponent'
 import ExerciseTextArea from './exerciseTextArea'
 import ExerciseUpload from './exerciseUpload'
-import AudioComponent from '@/components/02_molecules/pageComponents/audioComponent';
-import VideoComponent from '@/components/02_molecules/pageComponents/videoComponent';
-import SvgIcon from '@/components/01_atoms/svgicon';
+import AudioComponent from '@/components/02_molecules/pageComponents/audioComponent'
+import VideoComponent from '@/components/02_molecules/pageComponents/videoComponent'
+import DateComponent from '@/components/02_molecules/pageComponents/dateComponent'
+import SvgIcon from '@/components/01_atoms/svgicon'
 
 export default {
   name: 'PageComponents',
@@ -24,23 +25,12 @@ export default {
     ExerciseCheckbox, ExerciseText, 
     TextComponent, ImageComponent, 
     ExerciseTextArea, SvgIcon, LinkComponent, ExerciseUpload,
-    AudioComponent, VideoComponent },
+    AudioComponent, VideoComponent, DateComponent },
   props: [ 'exercises' ],
   data: function() {
     return {
       basePath: process.env.VUE_APP_BASE_PATH,
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
-      selectedDate: null,
-      formats: {
-        title: 'MMMM YYYY',
-        weekdays: 'WW',
-        navMonths: 'MMM',
-        input: ['DD.MM.YYYY'],
-        dayPopover: 'L',
-        data: ['YYYY-MM-DD'],
-
-      },
-      dateFormated: '',
       videoHovered: false,
       videoPaused: true,
       videoID: '',
@@ -69,14 +59,7 @@ export default {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
   },
   methods: {
-    dateEmit: function(event, id) {
-      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
-      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-      this.dateFormated = `${d}.${m}.${event.year}`;
-      this.submitAnswer(this.dateFormated, id);
-    },
     submitAnswer: function(answer, exerciseId) {
-      
       this.$store.dispatch('SUBMIT_EXERCISE_STATE', {
         id: exerciseId,
         answer: answer,

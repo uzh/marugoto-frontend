@@ -1,3 +1,4 @@
+// General
 @import 'general/variables';
 @import 'general/mixins.scss';
 @import 'general/reset';
@@ -6,7 +7,7 @@
 @import 'general/typography';
 @import 'general/layout';
 
-// Components
+// Atoms
 @import 'components/01_atoms/buttons';
 @import 'components/01_atoms/inputs/checkbox.scss';
 @import 'components/01_atoms/inputs/text.scss';
@@ -26,10 +27,13 @@
 @import 'components/02_molecules/videoComponent.scss';
 @import 'components/02_molecules/errorBox.scss';
 @import 'components/02_molecules/downloadLinkComponent.scss';
+@import 'components/02_molecules/dateComponent.scss';
 
+// Organisms
 @import 'components/03_organisms/mailContainer';
 @import 'components/03_organisms/notebookContainer';
 @import 'components/03_organisms/sidebars/rightSidebar.scss';
 @import 'components/03_organisms/sidebars/statusbar.scss';
 
+// Pages
 @import 'components/04_pages/supervisorOverview.scss';
