@@ -1,7 +1,7 @@
 .date-picker {
     position: relative;
     height: 50px;
-    height: 300px;
+    width: 218px;
 
     input {
         height: 50px;
@@ -22,6 +22,7 @@
 
     .c-pane-container {
         background-color: $white;
+        z-index: 1;
     }
 
     .c-header, .c-weekdays, .c-day-content {
