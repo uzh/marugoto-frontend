@@ -191,6 +191,7 @@ $chapterHeight: 80px;
         display: inline-block;
         overflow: hidden;
         text-overflow: clip;
+        cursor: pointer;
 
         p {
             display: inline;
@@ -263,6 +264,10 @@ $chapterHeight: 80px;
     background-color: #000;
     overflow-x: hidden;
     z-index: 10;
+
+    &.changed-height {
+        height: calc(100vh + 10px);
+    }
 
     .pageDisplay{
         display: none;
@@ -609,6 +614,10 @@ $chapterHeight: 80px;
                 }
             }
         }
+    }
+
+    .np-page.no-offset-top {
+        top: 0;
     }
 
     .np-back, .np-middle, .np-front {

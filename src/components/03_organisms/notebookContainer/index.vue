@@ -21,8 +21,25 @@ export default {
     ...mapGetters([ 'get_layoutState', 'get_notebook' ]),
   },
   mounted: function() {
-    this.scrollNotebookContent(10);
     this.currentEntry = this.get_notebook.list.length - 1;
+  },
+  updated: function() {
+    if (this.entriesMenuOpened) {
+      if(document.getElementsByClassName('np-page').length) {
+        for(let i = 0; i < document.getElementsByClassName('np-page').length; i++) {
+          document.getElementsByClassName('np-page')[i].classList.add('no-offset-top');
+        }
+        document.getElementsByClassName('notebook-content')[0].classList.add('changed-height');
+      }
+    } else {
+      this.scrollNotebookContent(0);
+      if(document.getElementsByClassName('np-page').length) {
+        for(let i = 0; i < document.getElementsByClassName('np-page').length; i++) {
+          document.getElementsByClassName('np-page')[i].classList.remove('no-offset-top');
+        }
+        document.getElementsByClassName('notebook-content')[0].classList.remove('changed-height');
+      }
+    }
   },
   methods: {
     scrollNotebookContent: function(val) {
@@ -30,11 +47,6 @@ export default {
     },
     openEntriesMenu: function() {
       this.entriesMenuOpened = !this.entriesMenuOpened;
-      if (this.entriesMenuOpened) {
-        this.scrollNotebookContent(10);
-      } else {
-        this.scrollNotebookContent(0);
-      }
     },
     nextEntry: function() {
       if( this.currentEntry == this.get_notebook.list.length - 1 ){
