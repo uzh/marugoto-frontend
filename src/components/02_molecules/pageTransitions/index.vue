@@ -13,7 +13,7 @@ export default {
   },
   methods: {
     emitTransition(id){
-      this.$emit('transitionChoosen', id);
+      this.$emit('transitionChoosen', {'id': id, 'userTransition': true});
     },
   },
 }

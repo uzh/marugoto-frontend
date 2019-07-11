@@ -87,14 +87,21 @@ export default {
     },
     downloadPDF: function(item) {
       let gameStateId = item.id.slice( item.id.indexOf('/') + 1, item.id.length);
-      //window.open(`${this.resourcesPath}api/game/files/${gameStateId}`,'_blank');
+      // window.open(`${this.resourcesPath}api/game/files/${gameStateId}`,'_blank');
       apiService.get(`${this.resourcesPath}api/game/files/${gameStateId}`)
-        .then(() => {
-          //console.log(resp);
+        .then(resp => {
+          const url = window.URL.createObjectURL(new Blob([resp.data]));
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', 'test.zip');
+          document.body.appendChild(link);
+          link.click();
         })
         .catch(err => {
           throw(err);
         });
+
+        
     },
     continueGame: function(gameID, item) {
       this.$store.dispatch('CONTINUE_GAME', gameID).then(() => {

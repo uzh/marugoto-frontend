@@ -100,12 +100,13 @@ export default {
       }
       this.$store.dispatch('CLEAR_PERSONAL_NOTES');
     },
-    requestPageTransition(id){
+    requestPageTransition(payload){
       if( this.timerON ){
         this.timerContainer.stop();
       }
       this.timerON = false;
       this.updateNotebookPersonalNotesBeforePageTransition();
+      
       if( this.get_textExerciseExists.exist ){
         // Here you can prevent to make transition if exercise is required but empty or 
         // grab exercise value before transition and update backend first
@@ -114,14 +115,14 @@ export default {
           answer: document.getElementById(this.get_textExerciseExists.state.id).value,
         })
         .then(() => {
-          this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
+          this.$store.dispatch('REQUEST_PAGE_TRANSITION', payload)
           .then(() => {
             this.transitioned = true;
             this.requester();
           });
         })
       }else{
-        this.$store.dispatch('REQUEST_PAGE_TRANSITION', id)
+        this.$store.dispatch('REQUEST_PAGE_TRANSITION', payload)
         .then(() => {
           this.transitioned = true;
           this.requester();
@@ -158,9 +159,14 @@ export default {
         }
         this.timerON = true;
         // timeForCounter = 3000;
-        this.timerContainer = new Timer( timeForCounter,  // Transition time
-          this.requestPageTransition,                     // Callback
-          this.get_transitions[0].pageTransition.id);     // Callback payload
+        let callbackObject = {
+          id: this.get_transitions[0].pageTransition.id,
+          userTransition: false,
+        }
+        this.timerContainer = new Timer( timeForCounter,    // Transition time
+          this.requestPageTransition,                       // Callback
+          callbackObject);
+        
         this.timerContainer.start();
       }
     },

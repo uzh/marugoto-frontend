@@ -13,7 +13,7 @@
   </div>
   <div class="divider" v-if="get_gameState.moneyBalance && get_page.timerVisible"></div>
   <div
-  v-if="get_page.timerVisible"
+  v-if="get_page.timerVisible && time !=='00:00'"
     class="time">
       {{ time }}
   </div>

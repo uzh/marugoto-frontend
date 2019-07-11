@@ -25,9 +25,7 @@ export default {
   },
   mounted: function() {
     this.checkInputState();
-    //document.body.addEventListener('click', () => { console.log('Body click') });
     document.body.click();
-    //console.log(this.$refs);
   },
   methods: {
     randomNumber: function(min,max){
