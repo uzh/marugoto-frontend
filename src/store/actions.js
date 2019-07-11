@@ -243,8 +243,8 @@ export default({
       throw(err);
     })
   },
-  [types.REQUEST_PAGE_TRANSITION]: ({commit, dispatch}, id) => {
-    return apiService.post('pageTransitions/doPageTransition/' + id + '?chosenByPlayer=true')
+  [types.REQUEST_PAGE_TRANSITION]: ({commit, dispatch}, payload) => {
+    return apiService.post(`pageTransitions/doPageTransition/${payload.id}?chosenByPlayer=${payload.userTransition}`)
     .then(resp => {
       dispatch('UPDATE_PAGE_STATE', resp.data);
     })
@@ -311,15 +311,6 @@ export default({
       commit(types.CLEAR_EDITOR);
     }, 1000);
   },
-  // [types.DOWNLOAD_PDF]: ({commit}) => {
-  //   return apiService.get('notebook/pdf/current')
-  //   .then(resp => {
-  //     // console.log(resp.data);
-  //   })
-  //   .catch(err => {
-  //     throw(err);
-  //   });
-  // },
   // MAIL
   [types.UPDATE_SELECTED_MAIL]: (context, payload) => {
     context.commit(types.UPDATE_SELECTED_MAIL, payload);

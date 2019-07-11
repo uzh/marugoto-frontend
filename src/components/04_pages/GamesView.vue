@@ -55,7 +55,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
-import apiService from '@/apiService'
+
 import Btn from '@/components/01_atoms/buttons';
 import DownloadList from '@/components/01_atoms/lists/downloadLists';
 
@@ -87,14 +87,21 @@ export default {
     },
     downloadPDF: function(item) {
       let gameStateId = item.id.slice( item.id.indexOf('/') + 1, item.id.length);
-      //window.open(`${this.resourcesPath}api/game/files/${gameStateId}`,'_blank');
-      apiService.get(`${this.resourcesPath}api/game/files/${gameStateId}`)
-        .then(() => {
-          //console.log(resp);
-        })
-        .catch(err => {
-          throw(err);
-        });
+      window.open(`${this.resourcesPath}api/game/files/${gameStateId}`,'_blank');
+      // apiService.get(`${this.resourcesPath}api/game/files/${gameStateId}`)
+      //   .then(() => {
+      //     // console.log(resp);
+      //   })
+      //   .catch(err => {
+      //     throw(err);
+      //   });
+
+        // const url = window.URL.createObjectURL(new Blob([response.data]));
+        // const link = document.createElement('a');
+        // link.href = url;
+        // link.setAttribute('download', 'termination.pdf');
+        // document.body.appendChild(link);
+        // link.click();
     },
     continueGame: function(gameID, item) {
       this.$store.dispatch('CONTINUE_GAME', gameID).then(() => {

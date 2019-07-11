@@ -32,6 +32,13 @@ export default {
       }
       var minutes, seconds;
       // timeDistance = 3000;
+      minutes = Math.floor(timeDistance / 60 );
+      seconds = Math.floor(timeDistance % 60);
+      
+      this.$store.dispatch('UPDATE_TIMER', timeDistance);
+      this.time = `${minutes} min ${seconds} sec`;
+
+      
       var self = this;
       var timer = setInterval( function(){
           if( timeDistance > 0 ){
