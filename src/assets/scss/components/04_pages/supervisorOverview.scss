@@ -17,6 +17,8 @@
     opacity: 1;    
 }
 .supervisor-container {
+    padding-right: 100px;
+    
     .header {
         display: table;
         width: 100%;
@@ -187,6 +189,12 @@
         padding: 44px 0 30px 22px;
         box-shadow: inset 0 -1px 0 0 $base-uicolor-2;
 
+        .classname:hover, .classname-description:hover {
+            .icon {
+                display: block;
+            }
+        }
+
         .classname {
 
             input {
@@ -211,6 +219,7 @@
             }
             
             .icon {
+                display: none;
                 float: left;
                 cursor: pointer;
             }
@@ -241,6 +250,7 @@
             }
             
             .icon {
+                display: none;
                 float: left;
                 cursor: pointer;
             }
@@ -263,7 +273,7 @@
                     height: 20px;
                     line-height: 20px;
                     font-size: 16px;
-                    font-family: 'Apercu';
+                    font-family: $font-secondary;
                 }
             }
 
@@ -282,7 +292,7 @@
                     height: 20px;
                     line-height: 20px;
                     font-size: 16px;
-                    font-family: 'Apercu';
+                    font-family: $font-secondary;
                 }
             }
 
@@ -311,7 +321,7 @@
                 background: $base-uicolor-2;
                 text-align: center;
                 padding-top: 15px;
-                font-family: 'Apercu';
+                font-family: $font-secondary;
             }
         }
 

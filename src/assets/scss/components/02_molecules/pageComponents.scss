@@ -132,7 +132,7 @@
                 .image-slider-counter{
                     float: left;
                     margin-top: 25px;
-                    font-family: 'Apercu';
+                    font-family: $font-secondary;
                     color: $base-primary;
                 }
                 // End of Image slider
@@ -349,7 +349,7 @@
 
     .upload-files-header {
         height: 40px;
-        margin-left: 50px;
+        margin-left: 10%;
     }
 
     .loader-bar{  
@@ -360,17 +360,26 @@
         height: 100%;
         background-color: #000;
         text-align: center;
-        padding-top: 60px;
+        padding-top: 110px;
         color: #fff;
         transition: all 0.3s;
     }
 
     .upload-files-main {
         position: relative;
-        height: 140px;
+        height: 240px;
         background-color: $base-uicolor-4;
-        border: 1px solid $base-primary-border;
         overflow: hidden;
+
+        &:before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            right: 50%;
+            height: 256px;
+            border: 1px solid $white;
+            transform: rotate(20deg);
+        }
 
         &:hover {
             outline: 2px dashed $base-primary-border;
@@ -380,21 +389,17 @@
             display: inline-block;
             vertical-align: middle;
             width: 45%;
-            height: 138px;
-            line-height: 138px;
-            font-size: 12px;
+            height: 238px;
+            line-height: 238px;
             text-align: center;
-
-            
         }
 
         .right {
             display: inline-block;
             vertical-align: middle;
             width: 45%;
-            height: 138px;
-            line-height: 138px;
-            font-size: 12px;
+            height: 238px;
+            line-height: 238px;
             text-align: center;
 
             input {
@@ -413,20 +418,9 @@
             position: relative;
             vertical-align: middle;
             width: 10%;
-            height: 140px;
-            line-height: 140px;
-            font-size: 12px;
+            height: 240px;
+            line-height: 240px;
             text-align: center;
-            
-            &:before {
-                content: '';
-                position: absolute;
-                top: -6px;
-                right: 49%;
-                height: 148px;
-                border: 1px solid $white;
-                transform: rotate(24deg);
-            }
         }
     }
 }

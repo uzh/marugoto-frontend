@@ -1,12 +1,12 @@
 <div tabindex="0" @focus="listOpened = true" @blur="listOpened = false">
 	<div class="select-div">
 		<div v-if="selectedValue != ''"
-			class="label font"
+			class="label font-secondary"
 			:class="labelName ? 'label-name' : ''">
 			{{ labelName }}
 		</div>
 		<div 
-			class="input-field font select-field"
+			class="input-field font-secondary select-field"
 			:class="[
 				listOpened ? 'openedList' : '',
 				selectedValue != '' ? 'selectedOption' : ''
@@ -19,7 +19,7 @@
 		<!-- Dropdown list -->
 		<ul 
 			v-if="listOpened == true"
-			class="font select-list" >
+			class="font-secondary select-list" >
 			<li v-for="item in list"
 				class="select-list-item"
 				@click.self="optionSelection(item)" >{{ item.name }}

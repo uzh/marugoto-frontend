@@ -1,14 +1,19 @@
 body, input, textarea, label, .genderLabel {
-  font-family: 'Libre Baskerville', serif;
+  font-family: $font, serif;
 }
 
 .font {
-  font-family: 'Apercu';
+  font-family: $font;
   font-weight: normal;
 }
 
 .font-secondary {
-  font-family: 'Libre Baskerville';
+  font-family: $font-secondary;
+  font-weight: normal;
+}
+
+.font-tertiary {
+  font-family: $font-tertiary;
   font-weight: normal;
 }
 
@@ -34,24 +39,24 @@ body, input, textarea, label, .genderLabel {
 }
 .h6 {
   @include font-size($h6);
-  @extend .font;
+  @extend .font-secondary;
 }
 .lead {
   @include font-size($lead);
-  @extend .font;
+  @extend .font-secondary;
 }
 .p {
   @include font-size($p);
-  @extend .font;
+  @extend .font-secondary;
 }
 .small{ 
   @include font-size($small);
-  @extend .font;
+  @extend .font-secondary;
   color: $base-primary;
 }
 .link {
   @include font-size($link);
-  @extend .font;
+  @extend .font-secondary;
   color: $base-secondary;
   &:hover {
     text-decoration: underline;
@@ -60,14 +65,14 @@ body, input, textarea, label, .genderLabel {
 }
 .button {
   @include font-size($button);
-  @extend .font;
+  @extend .font-secondary;
   &-inverted {
     background-color: #D8D8D8;
     border: 1px solid $base-primary-border;
   }
 }
 .label {
-  @extend .font;
+  @extend .font-secondary;
   font-size: 11px;
   line-height: 13px;
   letter-spacing: 0.4px;

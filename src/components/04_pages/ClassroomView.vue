@@ -23,7 +23,7 @@
             v-model="classname"
             @blur="saveEdit('name')"
             @click="changeClassname"
-            onkeydown="this.style.width = ((this.value.length + 1) * 24) + 'px'">
+            onkeydown="this.style.width = ((this.value.length + 1) * 20) + 'px'">
           <div class="icon" @click="changeClassname">
             <SvgIcon :class="nameFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>
@@ -70,7 +70,7 @@
             v-model="classnameDescription"
             @blur="saveEdit('description')"
             @click="changeClassnameDescription"
-            onkeydown="this.style.width = ((this.value.length + 1) * 12) + 'px'">
+            onkeydown="this.style.width = ((this.value.length + 1) * 10) + 'px'">
           <div class="icon" @click="changeClassnameDescription">
             <SvgIcon :class="descriptionFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>

@@ -119,7 +119,7 @@ $chapterHeight: 80px;
 
                 p {
                     @extend .h5;
-                    font-family: 'Libre Baskerville'
+                    font-family: $font;
                 }
             }
         }
@@ -184,7 +184,7 @@ $chapterHeight: 80px;
         transform: translateY(-50%);
         background: #000;
         font-size: $base-size;
-        font-family: 'Libre Baskerville';
+        font-family: $font;
         color: #7d7d7d;
     }
     .title {
@@ -195,7 +195,7 @@ $chapterHeight: 80px;
         p {
             display: inline;
             @extend .h5;
-            font-family: 'Libre Baskerville';
+            font-family: $font;
         }
     }
 
@@ -389,35 +389,67 @@ $chapterHeight: 80px;
                 height: 39px;
                 padding-top: 9px;
                 margin-bottom: 20px;
+                font-family: $font-tertiary, cursive;
                 font-size: 20px;
                 line-height: 32px;
                 letter-spacing: 0.08px;
                 border-bottom: 2px solid $black;
             }
 
-            .sticker {
-                position: absolute;
-                top: 5px;
-                left: 50%;
-                height: 125px;
-                width: 44px;
-                background-color: $white;
-                background: url('assets/images/sticker.png');
-                z-index: 1;
-                transform: rotate(-90deg) translateY(-22px);
-            }
+            .notebook-mail-reply-message-wrapper {
+                height: auto;
 
-            .notebook-mail-reply-message {
-                height: 400px;
-                padding: 20px;
-                background: url('assets/images/notebook-mail-response-background.png') center no-repeat;
-                background-size: cover;
-                font-family: 'Kalam Light', cursive;
-                font-size: 20px;
-                line-height: 32px;
-                letter-spacing: 0.08px;
-                overflow: hidden;
-                transform: rotate(-1deg);
+                .sticker-wrapper {
+                    position: absolute;
+                    left: 50%;
+                    top: 5px;
+                    height: 125px;
+                    width: 44px;
+                    z-index: 1;
+                    transform: rotate(-90deg) translateY(-36px);
+
+                    .sticker {
+                        height: 125px;
+                        width: 44px;
+                        background-color: $white;
+                        background: url('assets/images/sticker.png');
+                    }
+                }
+
+                .notebook-mail-reply-message {
+                    padding: 50px 30px;
+                    background: url('assets/images/notebook-mail-response-background.png') center no-repeat;
+                    background-size: cover;
+                    font-family: $font-tertiary, cursive;
+                    font-size: 20px;
+                    line-height: 32px;
+                    letter-spacing: 0.08px;
+                    transform: rotate(-1deg);
+                }
+
+                @media only screen and (max-width: 768px) {
+                    .sticker-wrapper {
+                        top: 2%;
+                        transform: rotate(-90deg) translateY(-22px);
+                    }
+    
+                    .notebook-mail-reply-message {
+                        padding-bottom: 120px 30px;
+                        transform: rotate(0deg);
+                        font-size: 16px;
+                        line-height: 20px;
+                    }
+                }
+                
+                @media only screen and (max-width: 1024px) {
+                    .sticker-wrapper {
+                        top: 1.5%;
+                    }
+    
+                    .notebook-mail-reply-message {
+                        padding: 100px 30px;
+                    }
+                }
             }
         }
 
@@ -449,7 +481,7 @@ $chapterHeight: 80px;
                 min-width: 101px;
                 margin-right: 20px;
                 padding-top: 17px;
-                font-family: 'Kalam Light', cursive;
+                font-family: $font-tertiary, cursive;
                 font-size: 20px;
                 line-height: 32px;
                 letter-spacing: 0.08px;
@@ -506,7 +538,7 @@ $chapterHeight: 80px;
                 min-width: 101px;
                 margin-right: 20px;
                 padding-top: 17px;
-                font-family: 'Kalam Light', cursive;
+                font-family: $font-tertiary, cursive;
                 font-size: 20px;
                 line-height: 32px;
                 letter-spacing: 0.08px;
@@ -573,7 +605,7 @@ $chapterHeight: 80px;
                     padding: 20px;
                     font-size: 12px;
                     line-height: 14px;
-                    font-family: 'Apercu', serif;
+                    font-family: $font-secondary, serif;
                 }
             }
         }
@@ -595,11 +627,17 @@ $chapterHeight: 80px;
     .np-back{
         z-index: 1;
         transform: scale(0.9, 1.02);
+        div {
+            opacity: 0;
+        }
     }
     .np-middle{
         z-index: 2;
         transform: scale(0.95, 1.01);
         box-shadow: 0 0 15px #000;
+        div {
+            opacity: 0;
+        }
     }
     .np-front{
         z-index: 3;
@@ -610,7 +648,7 @@ $chapterHeight: 80px;
 
 // Personal notes boxes
 .added-personal-notes-box{
-    font-family: 'Kalam', curs, cursiveive;
+    font-family: 'Kalam', cursive;
     z-index: 9;
     top: 0;
     width: 100%;
@@ -622,7 +660,7 @@ $chapterHeight: 80px;
 
     div p{
         // This is for vue-markdown commponent
-        font-family: 'Kalam', curs, cursiveive;
+        font-family: 'Kalam', cursive;
     }
 
     textarea {
@@ -631,7 +669,7 @@ $chapterHeight: 80px;
         resize: none;
         padding: 0 10px;
 
-        font-family: 'Kalam Light', cursive;
+        font-family: $font-tertiary, cursive;
         font-size: 20px;
         line-height: 32px;
         letter-spacing: 0.08px;
@@ -659,7 +697,7 @@ $chapterHeight: 80px;
                 height: 64px;
                 resize: none;
                 padding: 0 10px;
-                font-family: 'Kalam Light', cursive;
+                font-family: $font-tertiary, cursive;
                 font-size: 20px;
                 line-height: 32px;
                 letter-spacing: 0.2px;
@@ -679,7 +717,7 @@ $chapterHeight: 80px;
         height: 64px;
         resize: none;
         padding: 0 10px;
-        font-family: 'Kalam Light', cursive;
+        font-family: $font-tertiary, cursive;
         color: #2F3133;
         font-size: 20px;
         line-height: 32px;

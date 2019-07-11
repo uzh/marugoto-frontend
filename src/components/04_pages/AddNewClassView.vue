@@ -26,7 +26,7 @@
             v-model="classname"
             @blur="nameFocused = false"
             @click="changeClassname"
-            onkeydown="this.style.width = ((this.value.length + 1) * 24) + 'px'">
+            onkeydown="this.style.width = ((this.value.length + 1) * 20) + 'px'">
           <div class="icon" @click="changeClassname">
             <SvgIcon :class="nameFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>
@@ -43,8 +43,8 @@
         <!-- Date Picker -->
         <div class="date-picker">
           <v-date-picker
-            :max-date="classEndDate"
             class="start-date"
+            :max-date="classEndDate"
             :formats='formats'
             @dayclick="startDateEmit($event)"
             v-model="classStartDate">
@@ -53,8 +53,8 @@
             <SvgIcon name="arrow-right" customColor="#8C8B89" sizeH="20px" sizeW="20px" />
           </div>
           <v-date-picker
-            :min-date="classStartDate"
             class="end-date"
+            :min-date="classStartDate"
             :formats='formats'
             @dayclick="endDateEmit($event)"
             v-model="classEndDate">
@@ -73,7 +73,7 @@
             v-model="classnameDescription"
             @blur="descriptionFocused = false"
             @click="changeClassnameDescription"
-            onkeydown="this.style.width = ((this.value.length + 1) * 12) + 'px'">
+            onkeydown="this.style.width = ((this.value.length + 1) * 10) + 'px'">
           <div class="icon" @click="changeClassnameDescription">
             <SvgIcon :class="descriptionFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>

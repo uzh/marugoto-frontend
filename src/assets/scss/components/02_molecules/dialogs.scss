@@ -46,19 +46,19 @@ $top: 90px;
       strong {
         @extend .h5;
         font-weight: normal;
-        font-family: 'Libre Baskerville';
+        font-family: $font;
       }
     }
 
     .dialog-buttons-div {
-      display: block;
-      width: 100%;
+      display: flex;
       margin: 50px 0;
 
       .dialog-button {
-        display: inline-block;
-        vertical-align: middle;
+        flex: 1;
+        height: auto;
         width: 48%;
+        min-height: 50px;
         margin-right: 4%;
         padding: 0 2rem;
 
