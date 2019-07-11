@@ -34,7 +34,8 @@
       <SvgIcon class="icon" name="zoom-in" customColor="#fff" />
     </div>
   </div>
-  <ZoomPanel 
+  <ZoomPanel
+    @closeZoomPanel="toggleZoom"
     v-if="imageZoomed" 
     :imagesList="sourceList" 
     @zoomOut="toggleZoom" />

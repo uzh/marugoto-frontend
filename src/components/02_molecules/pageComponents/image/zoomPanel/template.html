@@ -1,8 +1,8 @@
 <div class="zoom-panel">
   <!-- Zoom on -->
-  
     <div class="z-panel-body">
       <div class="table-cell-holder">
+        <div class="z-mask-panel" @click="$emit('closeZoomPanel')"></div>
         <div
           @dragover="panImage"
           @dragstart="dragStartFoo"
@@ -27,6 +27,4 @@
         <SvgIcon class="icon" name="minus" customColor="#fff"/>
       </div>
     </div>
-    
-  
 </div>
