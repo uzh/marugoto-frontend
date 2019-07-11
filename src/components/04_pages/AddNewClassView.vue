@@ -81,7 +81,7 @@
       </div>
       <!-- Buttons -->
       <div class="buttons-footer">
-        <Btn text="Go to Map" primary="true" disabled="true" />
+        <!-- <Btn text="Go to Map" primary="true" disabled="true" /> -->
         <Btn text="Create Class" primary="true" :disabled="enableStartCourse" @click.native="startCourse" />
       </div>
     </div>

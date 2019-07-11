@@ -335,8 +335,15 @@ export default({
   },
   [types.SYNC_MAIL]: ({dispatch}, payload) => {
     return apiService.put(`mail/sync/${payload.id}?isRead=${payload.read}`)
-    .then(() => {
-      dispatch('MAIL_LIST_UPDATE');
+    .then(resp => {
+      if( resp.data.stateChanged ){
+        dispatch('REQUEST_PAGE_CURRENT')
+        .then( () => {
+          dispatch('MAIL_LIST_UPDATE');
+        });
+      }else{
+        dispatch('MAIL_LIST_UPDATE');
+      }
     })
     .catch(err => {
       throw(err);
@@ -383,14 +390,14 @@ export default({
               loaderBar.innerText = 'DONE';
             }, 400)
 
-            setTimeout(()=>{
-              loaderBar.style.right = "100%";
-              loaderBar.style.opacity = 0;
-            }, 3000);
+            // setTimeout(()=>{
+            //   loaderBar.style.right = "100%";
+            //   loaderBar.style.opacity = 0;
+            // }, 3000);
 
-            setTimeout(()=>{
-              loaderBar.innerText = '';
-            }, 3300);
+            // setTimeout(()=>{
+            //   loaderBar.innerText = '';
+            // }, 3300);
           }
         },
       })
