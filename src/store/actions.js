@@ -226,13 +226,14 @@ export default({
       });
   },
   // UPDATE
-  [types.UPDATE_PAGE_STATE]: ({commit}, payload) => {
+  [types.UPDATE_PAGE_STATE]: ({commit, dispatch}, payload) => {
     commit('TRANSITIONS_UPDATE', payload.pageTransitionStates);
     commit('GAME_STATE_UPDATE', payload.gameState);
     commit('PAGE_COMPONENTS_UPDATE', payload.pageComponents);
     commit('PAGE_UPDATE', payload.page);
     commit('DIALOG_UPDATE', payload.dialogNotifications);
     commit('MAIL_NOTIFICATION_UPDATE', payload.mailNotifications);
+    dispatch('UPDATE_NOTEBOOK');
   },
   [types.REQUEST_PAGE_CURRENT]: ({commit, dispatch}) => {
     return apiService.get('/pages/current')

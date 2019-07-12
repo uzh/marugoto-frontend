@@ -84,7 +84,7 @@ export default {
   methods: {
     requester: function() {
       this.$store.dispatch('LAYOUT_OPEN');
-      this.$store.dispatch('UPDATE_NOTEBOOK');
+      //this.$store.dispatch('UPDATE_NOTEBOOK');
 
       if( this.transitioned ){
         this.$store.dispatch('CLEAR_TEXT_FOR_EXERCISE');
