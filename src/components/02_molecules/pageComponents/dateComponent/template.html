@@ -1,0 +1,12 @@
+<div
+  class="date-picker mb-40">
+  <v-date-picker
+    :formats='formats'
+    :mode="pickerMode"
+    @dayclick="dateEmit($event)"
+    v-model='selectedDate'>
+  </v-date-picker>
+  <div class="calendar">
+    <SvgIcon name="calendar" customColor="#8C8B89" />
+  </div>
+</div>

@@ -1,0 +1,88 @@
+.date-picker {
+    position: relative;
+    height: 50px;
+    width: 232px;
+    border: 1px solid $white;
+
+    &:hover {
+        border: 1px solid $base-primary;
+        border-bottom: none;
+    }
+
+    &.ranged {
+        width: 380px;
+
+        .c-pane-container {
+            width: 380px;
+        }
+    }
+
+    input {
+        width: 230px;
+        height: 50px;
+        padding-left: 10px;
+        box-shadow: inset 0 -1px 0 0 $base-primary;
+        z-index: 2;
+    }
+
+    .calendar {
+        position: absolute;
+        top: 4px;
+        left: 192px;
+    }
+
+    .popover-origin {
+        div {
+            border-radius: 0 !important;
+        }
+    }
+
+    .c-pane-container {
+        position: absolute;
+        top: -12px;
+        left: -2px;
+        width: 232px;
+        background-color: $white;
+        border: 1px solid $base-primary;
+        border-top: none;
+        z-index: 1;
+
+        .c-pane {
+            min-width: unset !important;
+        }
+    }
+
+    .c-header, .c-weekdays, .c-day-content {
+        height: 50px;
+        color: $black;
+        font-family: $font;
+        font-size: 16px;
+        line-height: 20px;
+
+        .c-weekday {
+            color: $black;
+        }
+    }
+
+    .c-header, .c-weekdays {
+        border-bottom: 1px solid $base-ghost;
+    }
+
+    .c-header {
+        border-top: 1px solid $base-ghost;
+    }
+    
+    .c-day-content {
+        border-radius: 0;
+        width: 50px;
+    }
+
+    .c-day-backgrounds .c-day-layer {
+        background-color: $base-primary !important;
+    }
+
+    .c-day-background {
+        border-radius: 0 !important;
+        background-color: $base-primary !important;
+    }
+}
