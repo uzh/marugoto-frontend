@@ -95,6 +95,7 @@
 
 <script>
 import { mapGetters } from 'vuex';
+import apiService from '@/apiService'
 import Btn from '@/components/01_atoms/buttons';
 import SvgIcon from '@/components/01_atoms/svgicon';
 import Student from '@/components/01_atoms/classroom/student';
@@ -154,7 +155,7 @@ export default {
         this.classStudents = resp.data.gameStates;
 
       }).then(() => {
-        this.$store.dispatch('REQUEST_CLASSROOM_MEMBERS', this.classId)
+        //this.$store.dispatch('REQUEST_CLASSROOM_MEMBERS', this.classId)
       })
   },
   methods: {
@@ -216,8 +217,21 @@ export default {
       this.newEnd = `${d}.${m}.${event.year}`;
       this.updateClasses();
     },
-    selectStudent: function() {
-      alert('Student selected');
+    selectStudent: function(student) {
+      let userId = student.user.id.slice( student.user.id.indexOf('/') + 1, student.user.id.length);
+      apiService.get(`${this.apiPath}classroom/${this.$route.params.id}/files/${userId}`,{
+        responseType: 'blob'})
+        .then(resp => {
+          const url = window.URL.createObjectURL(new Blob([resp.data]));
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', 'student.zip');
+          document.body.appendChild(link);
+          link.click();
+        })
+        .catch(err => {
+          throw(err);
+        });
     },
     goToMap: function() {
       alert('Go to map');
@@ -231,7 +245,20 @@ export default {
       this.$refs.classnameDescription.focus();
     },
     downloadAll: function() {
-      window.open(`${this.apiPath}classroom/${this.$route.params.id}/files`,'_blank')
+      // window.open(`${this.apiPath}classroom/${this.$route.params.id}/files`,'_blank')
+      apiService.get(`${this.apiPath}classroom/${this.$route.params.id}/files`,{
+        responseType: 'blob'})
+        .then(resp => {
+          const url = window.URL.createObjectURL(new Blob([resp.data]));
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', 'game.zip');
+          document.body.appendChild(link);
+          link.click();
+        })
+        .catch(err => {
+          throw(err);
+        });
     },
   }
 }

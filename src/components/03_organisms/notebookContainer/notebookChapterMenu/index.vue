@@ -17,11 +17,16 @@ export default {
     };
   },
   methods: {
-    downloadPDF: function() {
-      //window.open(this.resourcesPath + 'api/notebook/pdf/current','_blank');
-      apiService.get(`${this.resourcesPath}api/notebook/pdf/current`)
-        .then(() => {
-          //console.log(resp);
+    downloadZip: function(item) {
+      apiService.get(`${this.resourcesPath}api/notebook/pdf/current`,{
+        responseType: 'blob'})
+        .then(resp => {
+          const url = window.URL.createObjectURL(new Blob([resp.data]));
+          const link = document.createElement('a');
+          link.href = url;
+          link.setAttribute('download', 'notebook.zip');
+          document.body.appendChild(link);
+          link.click();
         })
         .catch(err => {
           throw(err);
