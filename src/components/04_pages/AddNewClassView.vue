@@ -40,7 +40,7 @@
           v-clipboard:error="clipboardErrorHandler">
           <Btn white="true" :text="invitationLink" iconName="copy" />
         </div>
-        <!-- Date Picker Separated Component -->
+        <!-- Date Picker -->
         <DateComponent
           pickerMode="range"
           @emitDateChange="changeDates" />

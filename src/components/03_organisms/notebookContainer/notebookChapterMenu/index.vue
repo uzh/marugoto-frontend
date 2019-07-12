@@ -17,7 +17,7 @@ export default {
     };
   },
   methods: {
-    downloadZip: function(item) {
+    downloadZip: function() {
       apiService.get(`${this.resourcesPath}api/notebook/pdf/current`,{
         responseType: 'blob'})
         .then(resp => {

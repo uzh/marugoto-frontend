@@ -38,28 +38,9 @@
           <Btn white="true" :text="invitationLink" iconName="copy" />
         </div>
         <!-- Date Picker -->
-        <div class="date-picker">
-          <v-date-picker
-            class="start-date"
-            :max-date="classEndDate"
-            :formats='formats'
-            @dayclick="startDateEmit($event)"
-            v-model="classStartDate">
-          </v-date-picker>
-          <div class="arrow-icon">
-            <SvgIcon name="arrow-right" customColor="#8C8B89" sizeH="20px" sizeW="20px" />
-          </div>
-          <v-date-picker
-            class="end-date"
-            :min-date="classStartDate"
-            :formats='formats'
-            @dayclick="endDateEmit($event)"
-            v-model="classEndDate">
-          </v-date-picker>
-          <div class="calendar">
-            <SvgIcon name="calendar" customColor="#8C8B89" />
-          </div>
-        </div>
+        <DateComponent
+          pickerMode="range"
+          @emitDateChange="changeDates" />
         <!-- Class description -->
         <div class="classname-description">
           <input
@@ -99,10 +80,11 @@ import apiService from '@/apiService'
 import Btn from '@/components/01_atoms/buttons';
 import SvgIcon from '@/components/01_atoms/svgicon';
 import Student from '@/components/01_atoms/classroom/student';
+import DateComponent from '@/components/02_molecules/pageComponents/dateComponent';
 
 export default {
   name: 'classroom',
-  components: { Btn, SvgIcon, Student },
+  components: { Btn, SvgIcon, Student, DateComponent },
   data() {
     return {
       localPath: process.env.VUE_APP_LOCAL_PATH,
@@ -119,14 +101,6 @@ export default {
       newStart: null,
       newEnd: null,
       invitationLink: '',
-      formats: {
-        title: 'MMMM YYYY',
-        weekdays: 'WW',
-        navMonths: 'MMM',
-        input: ['DD.MM.YYYY'],
-        dayPopover: 'L',
-        data: ['DD.MM.YYYY'],
-      },
       classStudents: [],
     }
   },
@@ -203,18 +177,7 @@ export default {
       }
       this.updateClasses();
     },
-    startDateEmit: function(event) {
-      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
-      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-      this.classStartDate = `${d}.${m}.${event.year}`;
-      this.newStart = `${d}.${m}.${event.year}`;
-      this.updateClasses();
-    },
-    endDateEmit: function(event) {
-      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
-      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-      this.classEndDate = `${d}.${m}.${event.year}`;
-      this.newEnd = `${d}.${m}.${event.year}`;
+    changeDates: function() {
       this.updateClasses();
     },
     selectStudent: function(student) {
