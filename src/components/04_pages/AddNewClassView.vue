@@ -40,29 +40,10 @@
           v-clipboard:error="clipboardErrorHandler">
           <Btn white="true" :text="invitationLink" iconName="copy" />
         </div>
-        <!-- Date Picker -->
-        <div class="date-picker">
-          <v-date-picker
-            class="start-date"
-            :max-date="classEndDate"
-            :formats='formats'
-            @dayclick="startDateEmit($event)"
-            v-model="classStartDate">
-          </v-date-picker>
-          <div class="arrow-icon">
-            <SvgIcon name="arrow-right" customColor="#8C8B89" sizeH="20px" sizeW="20px" />
-          </div>
-          <v-date-picker
-            class="end-date"
-            :min-date="classStartDate"
-            :formats='formats'
-            @dayclick="endDateEmit($event)"
-            v-model="classEndDate">
-          </v-date-picker>
-          <div class="calendar">
-            <SvgIcon name="calendar" customColor="#8C8B89" />
-          </div>
-        </div>
+        <!-- Date Picker Separated Component -->
+        <DateComponent
+          pickerMode="range"
+          @emitDateChange="changeDates" />
         <!-- Class description -->
         <div class="classname-description">
           <input
@@ -91,10 +72,11 @@
 <script>
 import Btn from '@/components/01_atoms/buttons';
 import SvgIcon from '@/components/01_atoms/svgicon';
+import DateComponent from '@/components/02_molecules/pageComponents/dateComponent';
 
 export default {
   name: 'add-new-class',
-  components: { Btn, SvgIcon },
+  components: { Btn, SvgIcon, DateComponent },
   data() {
     return {
       localPath: process.env.VUE_APP_LOCAL_PATH,
@@ -154,18 +136,6 @@ export default {
         throw error;
       });
     },
-    startDateEmit: function(event) {
-      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
-      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-      this.classStartDate = `${d}.${m}.${event.year}`;
-      this.newStart = `${d}.${m}.${event.year}`;
-    },
-    endDateEmit: function(event) {
-      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
-      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-      this.classEndDate = `${d}.${m}.${event.year}`;
-      this.newEnd = `${d}.${m}.${event.year}`;
-    },
     changeClassname: function() {
       this.nameFocused = true;
       this.$refs.classname.focus();
@@ -173,6 +143,19 @@ export default {
     changeClassnameDescription: function() {
       this.descriptionFocused = true;
       this.$refs.classnameDescription.focus();
+    },
+    changeDates: function(dates) {
+      if(dates.length == 2) {
+        dates.sort(function(a, b) {
+          let c = a.split('.').reverse().join('');
+          let d = b.split('.').reverse().join('');
+          return c > d ? 1 : c < d ? -1 : 0;
+        });
+      }
+      this.classStartDate = dates[0];
+      this.classEndDate = dates[1];
+      this.newStart = dates[0];
+      this.newEnd = dates[1];
     },
     startCourse: function() {
       this.$store.dispatch('ADD_NEW_CLASS', {
