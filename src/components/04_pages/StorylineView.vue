@@ -4,7 +4,7 @@
       <div class="storyline-title col-xs-12">
         <div 
           class="page-title-icon-container"
-          :class="get_layoutState.notebook.opened ? 'col-xs-2' : 'col-xs-1 col-xs-offset-1'"> 
+          :class="get_layoutState.notebook.opened ? 'col-xs-1 notebook-opened' : 'col-xs-1 col-xs-offset-1'"> 
           <img 
             v-if="get_page.chapter && get_page.chapter.icon" 
             class="icon" 

@@ -19,12 +19,25 @@
 
             .page-title-icon-container {
                 display: block;
-                text-align: left;
+                text-align: right;
                 transition: all 0.3s;
 
                 .icon {
                     width: 72px;
                     height: 62px;
+                }
+
+                &.notebook-opened {
+                    height: 72px;
+                    padding: 0;
+
+                    .icon {
+                        position: relative;
+                        top: 50%;
+                        width: 100%;
+                        height: auto;
+                        transform: translateY(-50%);
+                    }
                 }
             }
 

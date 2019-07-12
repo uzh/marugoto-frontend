@@ -234,7 +234,6 @@ $chapterHeight: 80px;
     position: relative;
     width: 100%;
     height: $chapterHeight;
-    padding-top: 5px;
     background-color: #0C0C0D;
     z-index: 1;
 
@@ -246,9 +245,11 @@ $chapterHeight: 80px;
         display: inline-block;
         width: 20%;
         text-align: center;
-        padding-top: 15px;
         
         .svg-icon {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
             cursor: pointer;
         }
     }
