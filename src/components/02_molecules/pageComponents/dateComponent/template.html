@@ -1,6 +1,8 @@
-<div class="date-picker mb-40">
+<div
+  class="date-picker mb-40">
   <v-date-picker
     :formats='formats'
+    :mode="pickerMode"
     @dayclick="dateEmit($event)"
     v-model='selectedDate'>
   </v-date-picker>

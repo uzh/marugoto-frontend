@@ -2,13 +2,21 @@
     position: relative;
     width: 100%;
     min-height: 50px;
-    padding: 0 40px;
+    padding: 0 10px;
     text-align: center;
     cursor: pointer;
+
+    span {
+        display: block;
+    }
 
     &:disabled, &.disabled {
         opacity: 0.3;
         pointer-events: none;
+    }
+
+    &.icon-paddings {
+        padding: 0 45px;
     }
 }
 

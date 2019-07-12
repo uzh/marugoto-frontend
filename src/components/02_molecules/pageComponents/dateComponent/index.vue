@@ -5,7 +5,7 @@ import SvgIcon from '@/components/01_atoms/svgicon'
 
 export default {
   name: 'DateComponent',
-  props: [ 'exerciseId' ],
+  props: [ 'exerciseId', 'pickerMode' ],
   components: { SvgIcon },
   data: function() {
     return{
