@@ -3,6 +3,7 @@
     height: 50px;
     width: 232px;
     border: 1px solid $white;
+    margin-bottom: 40px;
 
     &:hover {
         border: 1px solid $base-primary;
@@ -10,10 +11,21 @@
     }
 
     &.ranged {
+        float: right;
         width: 380px;
+        margin-bottom: 0px;
+
+        input {
+            width: 378px;
+        }
 
         .c-pane-container {
             width: 380px;
+        }
+
+        .calendar {
+            left: unset;
+            right: 0;
         }
     }
 
@@ -84,5 +96,21 @@
     .c-day-background {
         border-radius: 0 !important;
         background-color: $base-primary !important;
+    }
+
+    .arrow-icon {
+        display: none;
+        position: absolute;
+        top: 19px;
+        left: 130px;
+        width: 12px;
+        height: 12px;
+        background-color: white;
+
+        svg {
+            position: relative;
+            top: -4px;
+            left: -4px;
+        }
     }
 }

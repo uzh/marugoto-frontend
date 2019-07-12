@@ -1,12 +1,17 @@
 <div
-  class="date-picker mb-40">
+  class="date-picker"
+  :class="pickerMode == 'range' ? 'ranged' : ''">
   <v-date-picker
-    :formats='formats'
+    :formats="formats"
     :mode="pickerMode"
     @dayclick="dateEmit($event)"
-    v-model='selectedDate'>
+    v-model="selectedDate">
   </v-date-picker>
   <div class="calendar">
     <SvgIcon name="calendar" customColor="#8C8B89" />
   </div>
+  <!-- Not displayed -->
+  <!-- <div class="arrow-icon">
+    <SvgIcon name="arrow-right" customColor="#8C8B89" sizeH="20px" sizeW="20px" />
+  </div> -->
 </div>

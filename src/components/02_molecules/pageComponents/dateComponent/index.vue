@@ -20,6 +20,7 @@ export default {
         data: ['YYYY-MM-DD'],
       },
       dateFormated: '',
+      datesFormated: [],
     }
   },
   methods: {
@@ -27,10 +28,20 @@ export default {
       this.$emit('emitDateChange', date, this.stateID);
     },
     dateEmit: function(event) {
-      let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
-      let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-      this.dateFormated = `${d}.${m}.${event.year}`;
-      this.emitDate(this.dateFormated);
+      if(this.pickerMode == 'range') {
+        if(this.datesFormated.length >= 2) {
+          this.datesFormated = [];
+        }
+        let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
+        let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
+        this.datesFormated.push(`${d}.${m}.${event.year}`);
+        this.emitDate(this.datesFormated);
+      } else {
+        let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
+        let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
+        this.dateFormated = `${d}.${m}.${event.year}`;
+        this.emitDate(this.dateFormated);
+      }
     },
   },
 }
