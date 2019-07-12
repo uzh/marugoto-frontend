@@ -36,7 +36,7 @@
       :id="item.id"
       :startedAt="item.startedAt"
       :title="item.topic.title"
-      @emitDownload="downloadPDF(item)"
+      @emitDownload="downloadZip(item)"
       @emitContinue="continueGame(item.id, item)" />
     </div>
 
@@ -48,7 +48,7 @@
         :startedAt="item.startedAt"
         :title="item.topic.title"
         :key="index"
-        @emitDownload="downloadPDF(item)" />
+        @emitDownload="downloadZip(item)" />
     </div>
   </div>
 </template>
@@ -85,23 +85,22 @@ export default {
         this.$router.push('/overview');
       });
     },
-    downloadPDF: function(item) {
+    downloadZip: function(item) {
       let gameStateId = item.id.slice( item.id.indexOf('/') + 1, item.id.length);
-      // window.open(`${this.resourcesPath}api/game/files/${gameStateId}`,'_blank');
-      apiService.get(`${this.resourcesPath}api/game/files/${gameStateId}`)
+      
+      apiService.get(`${this.resourcesPath}api/game/files/${gameStateId}`,{
+        responseType: 'blob'})
         .then(resp => {
           const url = window.URL.createObjectURL(new Blob([resp.data]));
           const link = document.createElement('a');
           link.href = url;
-          link.setAttribute('download', 'test.zip');
+          link.setAttribute('download', 'marugoto.zip');
           document.body.appendChild(link);
           link.click();
         })
         .catch(err => {
           throw(err);
         });
-
-        
     },
     continueGame: function(gameID, item) {
       this.$store.dispatch('CONTINUE_GAME', gameID).then(() => {
