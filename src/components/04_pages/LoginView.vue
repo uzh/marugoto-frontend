@@ -213,7 +213,8 @@ export default {
             If you don’t see the email, check other places it might be, like your junk, spam, social, or other folders.
           `;
         })
-        .catch(() => {
+        .catch(err => {
+          this.errorText = err.response.data.message;
           this.forgottenPassword = true;
         });
       }

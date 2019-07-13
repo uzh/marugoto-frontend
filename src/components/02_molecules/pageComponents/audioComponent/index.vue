@@ -69,6 +69,9 @@ export default {
       } else {
         this.audioCurrentTime = `${minutes}:${seconds}`;
       }
+      if(this.audioID.currentTime == this.audioID.duration) {
+        this.audioPaused = true;
+      }
     },
   },
 }

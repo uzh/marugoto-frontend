@@ -217,6 +217,20 @@
                     color: $black;
                 }
             }
+
+            @media only screen and (max-width: 1400px) {
+                input {
+                    max-width: 35%;
+                    width: 20%;
+                }
+            }
+
+            @media only screen and (max-width: 1120px) {
+                input {
+                    max-width: 30%;
+                    width: 25%;
+                }
+            }
             
             .icon {
                 display: none;
@@ -230,7 +244,7 @@
 
             input {
                 @extend .p;
-                width: 14%;
+                width: 15%;
                 max-width: 45%;
                 float: left;
                 text-overflow: ellipsis;
@@ -253,6 +267,20 @@
                 display: none;
                 float: left;
                 cursor: pointer;
+            }
+
+            @media only screen and (max-width: 1400px) {
+                input {
+                    max-width: 35%;
+                    width: 20%;
+                }
+            }
+
+            @media only screen and (max-width: 1120px) {
+                input {
+                    max-width: 30%;
+                    width: 25%;
+                }
             }
         }
 

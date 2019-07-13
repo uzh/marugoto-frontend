@@ -24,11 +24,13 @@
       </div>
       <div class="topic-folder">
         <div class="title"><p>{{ topic.title }}</p></div>
-        <Btn
+        <div class="button-wrapper">
+          <Btn
           @click.native="$emit('openTopic', topic.id)"
           class="topic-button"
           text="Preview this Topic" 
           primary="true" />
+        </div>
       </div>
       <div class="folder-frontside"></div>
     </div>

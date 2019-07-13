@@ -123,6 +123,28 @@ $elements-space: 90px;
           width: 10%;
           background: url('assets/images/divider-line.png') center no-repeat;
         }
+
+        @media only screen and (max-width: 1266px) {
+          .account {
+            width: 48%;
+            text-align: left;
+          }
+
+          .middle-arrow {
+            width: 4%;
+          }
+        }
+
+        @media only screen and (max-width: 1200px) {
+          .account {
+            width: 40%;
+            text-align: left;
+          }
+
+          .middle-arrow {
+            width: 20%;
+          }
+        }
       }
 
       .login-error-message {

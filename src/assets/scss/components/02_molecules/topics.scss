@@ -38,7 +38,7 @@
                     }
                 }
 
-                .topic-button {
+                .button-wrapper {
                     display: block;
                 }
             }
@@ -106,17 +106,17 @@
                     }
                 }
             }
-            
-            .topic-button {
+
+            .button-wrapper {
                 display: none;
                 position: absolute;
                 bottom: 30px;
-                left: 10%;
-                width: 80%;
-                overflow: hidden;
+                left: 0;
+                width: 100%;
+                padding: 0 20px;
                 transition: all 0.3s;
+                overflow: hidden;
             }
         }
-
     }
 }
