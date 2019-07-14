@@ -3,7 +3,7 @@
     <div class="supervisor-container col-xs-12">
       <!-- Page Header -->
       <div class="header">
-        <div class="title h5">Classes</div>
+        <h5 class="title">Classes</h5>
         <router-link class="sign-out small" to="/games">Sign Out</router-link>
       </div>
       <!-- Add new class -->

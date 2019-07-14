@@ -7,7 +7,7 @@
 			</div>
 		</div>
 		<div class="right">
-			<div class="name h6">{{ item.user.name }}</div>
+			<h6 class="name">{{ item.user.name }}</h6>
 			<div class="files small">
 				<span v-if="item.startedAt && !item.finishedAt">Playing</span>
 				<span v-if="item.finishedAt">Finished</span>

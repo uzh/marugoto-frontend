@@ -4,12 +4,10 @@
       <!-- Page Header -->
       <div class="header">
         <div class="title">
-          <div
-            class="h6"
-            @click="returnToClasses">Classes</div>
+          <h6 @click="returnToClasses">Classes</h6>
           <div class="line-divide"></div>
-          <p v-if="classname.length < 1" class="h5">Class Name</p>
-          <p v-if="classname.length > 0" class="h5">{{ classname }}</p>
+          <h5 v-if="classname.length < 1">Class Name</h5>
+          <h5 v-if="classname.length > 0">{{ classname }}</h5>
         </div>
         <router-link class="sign-out small" to="/games">Sign Out</router-link>
       </div>
@@ -30,7 +28,7 @@
         </div>
         <!-- Invitation Link -->
         <div 
-          class="invitation-link"
+          class="invitation-link displayed"
           :class="copied ? 'copied' : '' "
           v-clipboard="`${this.localPath}class/${this.invitationLink}`"
           v-clipboard:success="clipboardSuccessHandler"

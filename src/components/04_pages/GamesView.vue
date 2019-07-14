@@ -11,7 +11,7 @@
       </div>
     </div>
     <!-- Lead text -->
-    <div class="lead lead-text">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</div>
+    <p class="lead lead-text">Please have a look at all the topics and choose the one that interests you the most. Choose wisely, you won’t be able to go back after you start with one of the topics!</p>
     <!-- Content -->
     <div class="start-game">
       <Btn text="Start New Game" primary="true" iconName="plus" iconColor="#fff" @click.native="goToTopics" />

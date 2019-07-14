@@ -3,7 +3,6 @@
     <div v-if="get_invitationExpired" class="error-box">
       <div class="error-body">
         <p>Invitation link has expired</p>
-        
         <Btn 
           text="OK"
           primary="true"

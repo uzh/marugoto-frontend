@@ -5,12 +5,12 @@
     @dragenter.prevent.stop
     @dragleave.prevent.stop
     @drop="handleDrop">
-    <div id="loader-bar" class="loader-bar"></div>
-    <div class="left h6">Drag and drop your files here</div>
-    <div class="center h5">or</div>
-    <div class="right h6">
+    <div id="loader-bar" class="loader-bar h5"></div>
+    <h6 class="left">Drag and drop your files here</h6>
+    <h5 class="center">or</h5>
+    <h6 class="right">
       <input type="file" id="file" ref="file" v-on:change="handleFileUpload"/>
       <label for="file">click here and choose your files</label>
-    </div>
+    </h6>
   </div>
 </div>

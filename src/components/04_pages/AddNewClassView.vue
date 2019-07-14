@@ -5,12 +5,10 @@
       <!-- Page Header -->
       <div class="header">
         <div class="title">
-          <div
-            class="h6"
-            @click="returnToClasses">Classes</div>
+          <h6 @click="returnToClasses">Classes</h6>
           <div class="line-divide"></div>
-          <p v-if="classname.length < 1" class="h5">Class Name</p>
-          <p v-if="classname.length > 0" class="h5">{{ classname }}</p>
+          <h5 v-if="classname.length < 1">Class Name</h5>
+          <h5 v-if="classname.length > 0">{{ classname }}</h5>
         </div>
         <router-link class="sign-out small" to="/games">Sign Out</router-link>
         <div class="profile-photo"></div>
@@ -33,8 +31,11 @@
         </div>
         <!-- Invitation Link -->
         <div 
-          class="invitation-link" 
-          :class="copied ? 'copied' : '' "
+          class="invitation-link"
+          :class="[
+            copied ? 'copied' : '',
+            invitationLink != '' ? 'displayed' : ''
+          ]"
           v-clipboard="`${this.localPath}class/${this.invitationLink}`"
           v-clipboard:success="clipboardSuccessHandler"
           v-clipboard:error="clipboardErrorHandler">
@@ -62,7 +63,6 @@
       </div>
       <!-- Buttons -->
       <div class="buttons-footer">
-        <!-- <Btn text="Go to Map" primary="true" disabled="true" /> -->
         <Btn text="Create Class" primary="true" :disabled="enableStartCourse" @click.native="startCourse" />
       </div>
     </div>
@@ -91,14 +91,6 @@ export default {
       newStart: null,
       newEnd: null,
       invitationLink: '',
-      formats: {
-        title: 'MMMM YYYY',
-        weekdays: 'WW',
-        navMonths: 'MMM',
-        input: ['DD.MM.YYYY'],
-        dayPopover: 'L',
-        data: ['DD.MM.YYYY']
-      },
     }
   },
   computed: {

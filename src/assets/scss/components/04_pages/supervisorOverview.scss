@@ -45,8 +45,7 @@
                 background: url('assets/images/divider-line.png') center no-repeat;
             } 
 
-            p {
-                @extend .h5;
+            h5 {
                 float: left;
                 min-width: 20%;
                 line-height: 48px;
@@ -285,6 +284,7 @@
         }
 
         .invitation-link {
+            display: none;
             position: relative;
             width: 20%;
             float: right;
@@ -303,6 +303,10 @@
                 text-align: center;
                 padding-top: 15px;
                 font-family: $font-secondary;
+            }
+
+            &.displayed {
+                display: block;
             }
         }
 
