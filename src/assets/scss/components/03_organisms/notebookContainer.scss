@@ -265,17 +265,14 @@ $chapterHeight: 80px;
 // Notebook pages
 .notebook-content {
     position: relative;
-    height: calc(100vh + 20px);
+    // height: calc(100vh + 20px);
     background-color: #000;
-    overflow-x: hidden;
+    overflow: visible;
     z-index: 10;
 
-    &.changed-height {
-        height: calc(100vh + 10px);
-    }
-
     .pageDisplay{
-        display: none;
+        min-height: 100vh;
+        
 
         .notebook-header {
             display: table;
@@ -619,43 +616,38 @@ $chapterHeight: 80px;
             }
         }
     }
+    .np-page{
+        position: relative;
+        background: linear-gradient(-90deg, rgba(230,227,225,1) 0%, rgba(230,227,225,1) 80%, rgba(236,234,232,1) 100%);
+        
+        .page-behind-one, .page-behind-two{
+            content: '';
+            display: block;
+            position: absolute;
+            height: 5px;
+            background: linear-gradient(-90deg, rgba(230,227,225,1) 0%, rgba(230,227,225,1) 80%, rgba(236,234,232,1) 100%);
+        }
+        .page-behind-one{
+            left: 0;
+            bottom: -5px;
+            width: 95%;
+            opacity: 0.75;
+            transform: translateX(2.5%);
+        }
+        .page-behind-two{
+            left: 0;
+            bottom: -10px;
+            width: 90%;
+            opacity: 0.5;
+            transform: translateX(5%);
+        }
 
-    .np-page.no-offset-top {
+    }
+    &.no-offset-top {
+        
         top: 0;
     }
 
-    .np-back, .np-middle, .np-front {
-        display: block;
-        position: absolute;
-        top: 10px;
-        left: 0;
-        height: 100vh;
-        width: 100%;
-        background: linear-gradient(-90deg, rgba(230,227,225,1) 0%, rgba(230,227,225,1) 80%, rgba(236,234,232,1) 100%);
-        overflow-x: hidden;
-        overflow-y: scroll;
-        transition: all 0.3s;
-    }
-    .np-back{
-        z-index: 1;
-        transform: scale(0.9, 1.02);
-        div {
-            opacity: 0;
-        }
-    }
-    .np-middle{
-        z-index: 2;
-        transform: scale(0.95, 1.01);
-        box-shadow: 0 0 15px #000;
-        div {
-            opacity: 0;
-        }
-    }
-    .np-front{
-        z-index: 3;
-        transform: scale(1, 1);
-        box-shadow: 0 0 15px #000;
-    }
 }
 
 // Personal notes boxes

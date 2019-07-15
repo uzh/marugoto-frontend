@@ -5,7 +5,7 @@ import SvgIcon from '@/components/01_atoms/svgicon'
 
 export default {
   name: 'DateComponent',
-  props: [ 'exerciseId', 'pickerMode' ],
+  props: [ 'exerciseId', 'pickerMode', 'existingDate' ],
   components: { SvgIcon },
   data: function() {
     return{
@@ -21,6 +21,13 @@ export default {
       },
       dateFormated: '',
       datesFormated: [],
+    }
+  },
+  mounted: function() {
+    // console.log('slected: ', this.selectedDate)
+    if( this.existingDate != undefined ){
+      let from = this.existingDate.split(".")
+      this.selectedDate = new Date(from[2], from[1] - 1, from[0]);
     }
   },
   methods: {
