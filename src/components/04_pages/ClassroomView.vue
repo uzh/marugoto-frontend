@@ -188,7 +188,7 @@ export default {
           const url = window.URL.createObjectURL(new Blob([resp.data]));
           const link = document.createElement('a');
           link.href = url;
-          link.setAttribute('download', 'student.zip');
+          link.setAttribute('download', 'marugoto-student.zip');
           document.body.appendChild(link);
           link.click();
         })
@@ -215,7 +215,7 @@ export default {
           const url = window.URL.createObjectURL(new Blob([resp.data]));
           const link = document.createElement('a');
           link.href = url;
-          link.setAttribute('download', 'game.zip');
+          link.setAttribute('download', 'marugoto-class.zip');
           document.body.appendChild(link);
           link.click();
         })
