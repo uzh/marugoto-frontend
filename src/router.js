@@ -135,17 +135,14 @@ router.beforeEach((to, from, next) => {
     next('/topics');
     return;
   }
-  // console.log('=============== GUARD ON ===============')
   if( !store.getters.get_status.isLoged ){
     document.body.classList = 'sidebar-page-padding-right';
     store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
     store.dispatch('LAYOUT_CLOSE');
     if( to.name == 'register' || to.name == 'login' || to.name == 'reset' ){
-      // console.log('Go to: ', to.name)
       next();
       return;
     }else{
-      // console.log('Go to: LOGIN')
       next('/login')
     }
   }else{
@@ -153,39 +150,32 @@ router.beforeEach((to, from, next) => {
       document.body.classList = 'sidebar-page-padding-top sidebar-page-padding-right';
 
       if( to.name === 'home' && store.getters.get_topic.id != undefined ){
-        // console.log('Go to: STORYLINE from home, coz we have alreaady selected topic active')
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', true);
         next('/storyline');
       }else if( to.name === 'home' && store.getters.get_topic.id === undefined ){
-        // console.log('Go to: GAMES from home, coz there is no selected topic')
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next('/games');
       }else if( to.name === 'games' ){
-        // console.log('Go to: ', to.name)
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next();
       }else if( to.name === 'topics' ){
-        // console.log('Go to: ', to.name)
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next();
       }else if( to.name === 'storyline' && store.getters.get_topic.id != undefined ){
-        // console.log('Go to: ', to.name)
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', true);
         next();
       }else if( to.name === 'storyline' && store.getters.get_topic.id === undefined ){
-        // console.log('Go to: GAMES from stopryline, coz for storyline is not selected topic!')
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next('/games');
       }else{
-        // console.log('Go to: from, ', from.name)
         next(from.path);
       }
     }

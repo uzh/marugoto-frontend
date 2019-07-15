@@ -214,7 +214,11 @@ export default {
           `;
         })
         .catch(err => {
-          this.errorText = err.response.data.message;
+          if(err.response.data.errorList.email) {
+            this.errorText = err.response.data.errorList.email;
+          } else {
+            this.errorText = err.response.data.message;
+          }
           this.forgottenPassword = true;
         });
       }

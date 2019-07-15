@@ -259,7 +259,6 @@ $chapterHeight: 80px;
 
 // Notebook pages
 .notebook-content {
-    // Height is set using JS as it is dinamic
     position: relative;
     height: calc(100vh + 20px);
     background-color: #000;
@@ -301,7 +300,6 @@ $chapterHeight: 80px;
 
         .notebook-page-image {
             height: auto;
-            // margin-bottom: 20px;
             position: relative;
 
             .image-sticker {
@@ -337,7 +335,6 @@ $chapterHeight: 80px;
 
         .notebook-page-text {
             color: #2F3133;
-            // margin-bottom: 40px;
             
             p {
                 font-size: 17px;
@@ -348,7 +345,6 @@ $chapterHeight: 80px;
 
         .notebook-page-text-exercise {
             color: #2F3133;
-            // margin-bottom: 40px;
 
             .title {
                 display: inline-block;
@@ -381,7 +377,6 @@ $chapterHeight: 80px;
             }
             
             p {
-                // padding-top: 30px;
                 font-size: 17px;
                 line-height: 26px;
                 letter-spacing: 0.2px;
@@ -461,7 +456,6 @@ $chapterHeight: 80px;
         }
 
         .notebook-radio-field {
-            // margin: 40px 0;
             min-height: 130px;
 
             .title {
@@ -519,7 +513,6 @@ $chapterHeight: 80px;
         }
 
         .notebook-checkbox-field {
-            // margin: 40px 0;
             min-height: 130px;
 
             .title {
@@ -625,7 +618,6 @@ $chapterHeight: 80px;
     }
 
     .np-back, .np-middle, .np-front {
-        // Height is set using JS as it is dinamic
         display: block;
         position: absolute;
         top: 10px;

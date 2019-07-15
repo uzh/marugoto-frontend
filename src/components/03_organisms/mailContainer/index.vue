@@ -26,16 +26,12 @@ export default {
         if( {autoOpen}.autoOpen == true ) {
           this.$store.dispatch('LAYOUT_OPEN','mail');
         }
-        // console.log('--------- Update mail index ---------- : ', indexMail )
         // CHECK SELECTED INDEX
         if(  indexMail === false && this.get_selectedMailIndex == undefined ){
-          // console.log('Update index if undefined: ', 'undefined')
           return;
         }else if( indexMail === false ){
-          // console.log('Update index if number NOT provided: ', this.get_selectedMailIndex + 1)
           this.$store.dispatch('UPDATE_SELECTED_MAIL', this.get_selectedMailIndex + 1);
         }else {
-          // console.log('Update index if number provided: ', indexMail)
           this.$store.dispatch('UPDATE_SELECTED_MAIL', indexMail);
         }
       });
