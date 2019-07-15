@@ -38,6 +38,13 @@ $width: 100%;
         padding-right: 40px;
         background-color: $base-uicolor-4;
         font-family: $font-secondary;
+
+        &:required {
+            box-shadow: none;
+        }
+        &:invalid {
+            box-shadow: none;
+        }
    }
 
    &.inputFocused {
