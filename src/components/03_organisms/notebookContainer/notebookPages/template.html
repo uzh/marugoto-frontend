@@ -1,8 +1,9 @@
 <div>
   <div
-    class="pageDisplay np-page"
+    class="pageDisplay np-page clearfix"
     v-for="(page, index) in list"
     :key="index"
+    v-if="index == currentEntry"
     :class="[ index == currentEntry ? 'np-front' : '',
               index == currentEntry + 1 ? 'np-middle' : '',
               index == currentEntry - 1 ? 'np-back' : '',
@@ -155,5 +156,7 @@
     </div>
     <!-- Personal notes list -->
     <PersonalNote :page="page" />
+    <div class="page-behind-one"></div>
+    <div class="page-behind-two"></div>
   </div>
 </div>

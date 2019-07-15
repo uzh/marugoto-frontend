@@ -26,6 +26,7 @@
         'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
         'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
       }"
+      :existingDate="component.state.formatedInput"
       :exerciseId="component.state.id"
       @emitDateChange="submitAnswer" />
     <!-- Exercise Radio -->

@@ -65,6 +65,7 @@ export default {
         answer: answer,
       })
       .then(resp => {
+        // this.checkState();
         if( resp.data.statesChanged ){
           this.checkState();
         }
