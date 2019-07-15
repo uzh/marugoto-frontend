@@ -71,11 +71,21 @@
       <!-- Login Form -->
       <div class="wrapper-container-right">
         <h3 class="page-title mb-60">Login</h3>
-        <div class="choose-account">
-          <div class="account" :class="accountType == 'university' ? '' : 'text-darker'" @click="accountType = 'university'" @focus="accountType = 'university'" tabindex="0">University Account
+        <div class="choose-account clearfix">
+          <div 
+            class="account block-left" 
+            :class="accountType == 'university' ? '' : 'text-darker'" 
+            @click="accountType = 'university'" 
+            @focus="accountType = 'university'" 
+            tabindex="0">University Account
           </div>
           <div class="middle-arrow"></div>
-          <div class="account" :class="accountType == 'guest' ? '' : 'text-darker'" @click="accountType = 'guest'" @focus="accountType = 'guest'" tabindex="0">Guest Account
+          <div 
+            class="account block-right" 
+            :class="accountType == 'guest' ? '' : 'text-darker'" 
+            @click="accountType = 'guest'" 
+            @focus="accountType = 'guest'" 
+            tabindex="0">Guest Account
           </div>
         </div>
 

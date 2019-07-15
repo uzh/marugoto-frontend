@@ -107,44 +107,57 @@ $elements-space: 90px;
       }
 
       .choose-account {
-        display: table;
+        display: block;
+        
 
         .account {
           @extend .lead;
           @extend .font-secondary;
-          width: 45%;
-          display: table-cell;
-          cursor: pointer;
+
+          display: inline-block;
           vertical-align: middle;
+          cursor: pointer;
+
+          &.block-left{
+            text-align: left;
+          }
+          &.block-right{
+            text-align: left;
+          }
         }
         
         .middle-arrow {
-          display: table-cell;
-          width: 10%;
+          display: inline-block;
+          width: 5%;
+          height: 20px;
+          margin: 0 2.5%;
+          vertical-align: middle;
           background: url('assets/images/divider-line.png') center no-repeat;
-        }
-
-        @media only screen and (max-width: 1266px) {
-          .account {
-            width: 48%;
-            text-align: left;
-          }
-
-          .middle-arrow {
-            width: 4%;
-          }
         }
 
         @media only screen and (max-width: 1200px) {
           .account {
-            width: 40%;
-            text-align: left;
-          }
+            font-size: 16px;
 
-          .middle-arrow {
-            width: 20%;
+            &.block-left{
+              text-align: left;
+            }
+            &.block-right{
+              text-align: right;
+            }
           }
         }
+
+        // @media only screen and (max-width: 1200px) {
+        //   .account {
+        //     width: 40%;
+        //     text-align: left;
+        //   }
+
+        //   .middle-arrow {
+        //     width: 20%;
+        //   }
+        // }
       }
 
       .login-error-message {
