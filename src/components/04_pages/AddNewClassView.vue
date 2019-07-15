@@ -11,20 +11,22 @@
           <h5 v-if="classname.length > 0">{{ classname }}</h5>
         </div>
         <router-link class="sign-out small" to="/games">Sign Out</router-link>
-        <div class="profile-photo"></div>
       </div>
       <!-- Add new class -->
       <div class="new-class-entry">
         <!-- Class name -->
         <div class="classname">
           <input
+            class="input-elem"
+            type="text"
             ref="classname"
-            placeholder="Class Name"
             :readonly="!nameFocused"
+            :size="classname.length"
             v-model="classname"
             @blur="nameFocused = false"
             @click="changeClassname"
-            onkeydown="this.style.width = ((this.value.length + 1) * 20) + 'px'">
+            @change="onClassnameChange">
+          <span ref="classnameSpan" class="classname-span"></span>
           <div class="icon" @click="changeClassname">
             <SvgIcon :class="nameFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>
@@ -48,14 +50,16 @@
         <!-- Class description -->
         <div class="classname-description">
           <input
-            class="p"
+            class="input-elem p"
+            type="text"
             ref="classnameDescription"
-            placeholder="Short Class Description"
+            :size="classnameDescription.length"
             :readonly="!descriptionFocused"
             v-model="classnameDescription"
             @blur="descriptionFocused = false"
             @click="changeClassnameDescription"
-            onkeydown="this.style.width = ((this.value.length + 1) * 10) + 'px'">
+            @change="onDescriptionChange">
+          <span ref="descriptionSpan" class="description-span"></span>
           <div class="icon" @click="changeClassnameDescription">
             <SvgIcon :class="descriptionFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>
@@ -82,8 +86,8 @@ export default {
       localPath: process.env.VUE_APP_LOCAL_PATH,
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       copied: false,
-      classname: '',
-      classnameDescription: '',
+      classname: 'Class Name',
+      classnameDescription: 'Short Class Description',
       nameFocused: false,
       descriptionFocused: false,
       classStartDate: null,
@@ -162,6 +166,18 @@ export default {
       .catch(error => {
         throw error;
       });
+    },
+    onClassnameChange: function () {
+      let input = this.$refs.classname;
+      let spanElm = this.$refs.classnameSpan;
+      spanElm.textContent = input.value;
+      input.style.width = spanElm.offsetWidth + 'px';
+    },
+    onDescriptionChange: function () {
+      let input = this.$refs.classnameDescription;
+      let spanElm = this.$refs.descriptionSpan;
+      spanElm.textContent = input.value;
+      input.style.width = spanElm.offsetWidth + 'px';
     },
   }
 }

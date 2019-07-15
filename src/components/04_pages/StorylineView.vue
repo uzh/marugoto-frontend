@@ -10,7 +10,7 @@
             class="icon" 
             :src="`${resourcesPath}${get_page.chapter.icon.path}`">
         </div>
-        <vue-markdown class="page-title col-xs-10" :source="get_page.title" />
+        <vue-markdown class="page-title col-xs-8" :source="get_page.title" />
       </div>
       <!-- Components -->
       <PageComponents />

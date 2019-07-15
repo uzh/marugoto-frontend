@@ -17,7 +17,7 @@
     opacity: 1;    
 }
 .supervisor-container {
-    padding-right: 100px;
+    padding: 0 20px;
     
     .header {
         display: table;
@@ -62,16 +62,6 @@
             &:hover {
                 text-decoration: underline;
             }
-        }
-
-        .profile-photo {
-            position: fixed;
-            top: 0;
-            right: 0;
-            width: 80px;
-            height: 90px;
-            border-bottom: $border;
-            background: url('assets/images/profile-photo.png') center no-repeat;
         }
     }
 
@@ -196,38 +186,30 @@
 
         .classname {
 
-            input {
+            .input-elem, .classname-span {
                 @extend .h3;
-                width: 15%;
-                max-width: 45%;
                 float: left;
+                max-width: 45% !important;
                 text-overflow: ellipsis;
+                white-space: pre;
+            }
 
-                &::placeholder {
-                    color: $black;
-                    opacity: 1;
-                }
-                
-                &:-ms-input-placeholder {
-                    color: $black;
-                }
-                
-                &::-ms-input-placeholder {
-                    color: $black;
-                }
+            .classname-span {  
+                position: absolute;
+                left: -9999px;
+                top: -9999px;
+                max-width: unset;
             }
 
             @media only screen and (max-width: 1400px) {
-                input {
-                    max-width: 35%;
-                    width: 20%;
+                .input-elem {
+                    max-width: 35% !important;
                 }
             }
 
             @media only screen and (max-width: 1120px) {
-                input {
-                    max-width: 30%;
-                    width: 25%;
+                .input-elem {
+                    max-width: 30% !important;
                 }
             }
             
@@ -241,44 +223,38 @@
         .classname-description {
             clear: both;
 
-            input {
+            .input-elem, .description-span {
                 @extend .p;
-                width: 15%;
-                max-width: 45%;
+                max-width: 45% !important;
                 float: left;
                 text-overflow: ellipsis;
+                white-space: pre;
+            }
 
-                &::placeholder {
-                    color: $black;
-                    opacity: 1;
-                }
-                
-                &:-ms-input-placeholder {
-                    color: $black;
-                }
-                
-                &::-ms-input-placeholder {
-                    color: $black;
-                }
+            .description-span {  
+                position: absolute;
+                left: -9999px;
+                top: -9999px;
+                max-width: unset;
             }
             
             .icon {
                 display: none;
                 float: left;
+                position: relative;
+                top: -4px;
                 cursor: pointer;
             }
 
             @media only screen and (max-width: 1400px) {
-                input {
-                    max-width: 35%;
-                    width: 20%;
+                .input-elem {
+                    max-width: 35% !important;
                 }
             }
 
             @media only screen and (max-width: 1120px) {
-                input {
-                    max-width: 30%;
-                    width: 25%;
+                .input-elem {
+                    max-width: 30% !important;
                 }
             }
         }

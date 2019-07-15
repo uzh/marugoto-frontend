@@ -15,13 +15,16 @@
         <!-- Class name -->
         <div class="classname">
           <input
+            class="input-elem"
+            type="text"
             ref="classname"
-            placeholder="Class Name"
             :readonly="!nameFocused"
+            :size="classname.length"
             v-model="classname"
             @blur="saveEdit('name')"
             @click="changeClassname"
-            onkeydown="this.style.width = ((this.value.length + 1) * 20) + 'px'">
+            @change="onClassnameChange">
+          <span ref="classnameSpan" class="classname-span"></span>
           <div class="icon" @click="changeClassname">
             <SvgIcon :class="nameFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>
@@ -42,14 +45,16 @@
         <!-- Class description -->
         <div class="classname-description">
           <input
-            class="p"
+            class="input-elem p"
+            type="text"
             ref="classnameDescription"
-            placeholder="Short Class Description"
+            :size="classnameDescription.length"
             :readonly="!descriptionFocused"
             v-model="classnameDescription"
             @blur="saveEdit('description')"
             @click="changeClassnameDescription"
-            onkeydown="this.style.width = ((this.value.length + 1) * 10) + 'px'">
+            @change="onDescriptionChange">
+          <span ref="descriptionSpan" class="description-span"></span>
           <div class="icon" @click="changeClassnameDescription">
             <SvgIcon :class="descriptionFocused ? 'no-display' : ''" name="pen" customColor="#8C8B89" />
           </div>
@@ -65,7 +70,6 @@
       </div>
       <!-- Buttons -->
       <div class="buttons-footer">
-        <!-- <Btn text="Go to Map" primary="true" @click.native="goToMap" /> -->
         <Btn text="Download all Notebooks & Files" primary="true" @click.native="downloadAll" />
       </div>
     </div>
@@ -204,6 +208,18 @@ export default {
     changeClassnameDescription: function() {
       this.descriptionFocused = true;
       this.$refs.classnameDescription.focus();
+    },
+    onClassnameChange: function () {
+      let input = this.$refs.classname;
+      let spanElm = this.$refs.classnameSpan;
+      spanElm.textContent = input.value;
+      input.style.width = spanElm.offsetWidth + 'px';
+    },
+    onDescriptionChange: function () {
+      let input = this.$refs.classnameDescription;
+      let spanElm = this.$refs.descriptionSpan;
+      spanElm.textContent = input.value;
+      input.style.width = spanElm.offsetWidth + 'px';
     },
     downloadAll: function() {
       // window.open(`${this.apiPath}classroom/${this.$route.params.id}/files`,'_blank')

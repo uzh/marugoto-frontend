@@ -250,7 +250,12 @@ $chapterHeight: 80px;
             position: absolute;
             top: 50%;
             transform: translateY(-50%);
+            fill: $base-primary;
             cursor: pointer;
+
+            &:hover {
+                fill: $white;
+            }
         }
     }
 }
@@ -487,6 +492,7 @@ $chapterHeight: 80px;
                 font-size: 20px;
                 line-height: 32px;
                 letter-spacing: 0.08px;
+                text-align: center;
 
                 .correct {
                     position: absolute;
@@ -544,6 +550,7 @@ $chapterHeight: 80px;
                 font-size: 20px;
                 line-height: 32px;
                 letter-spacing: 0.08px;
+                text-align: center;
 
                 .correct {
                     position: absolute;
