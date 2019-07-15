@@ -24,7 +24,7 @@ export default {
           const url = window.URL.createObjectURL(new Blob([resp.data]));
           const link = document.createElement('a');
           link.href = url;
-          link.setAttribute('download', 'notebook.zip');
+          link.setAttribute('download', 'marugoto-notebook.pdf');
           document.body.appendChild(link);
           link.click();
         })
