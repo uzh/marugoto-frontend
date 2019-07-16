@@ -2,7 +2,6 @@
   class="date-picker"
   :class="pickerMode == 'range' ? 'ranged' : ''">
   <v-date-picker
-    :is-inline="true"
     :formats="formats"
     :mode="pickerMode"
     @dayclick="dateEmit($event)"
