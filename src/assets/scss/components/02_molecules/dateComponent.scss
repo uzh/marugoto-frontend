@@ -1,7 +1,7 @@
 .date-picker {
     position: relative;
     height: 50px;
-    width: 260px;
+    width: 330px;
     border: 1px solid $white;
     margin-bottom: 40px;
 
@@ -34,7 +34,7 @@
     }
 
     input {
-        width: 258px;
+        width: 328px;
         height: 49px;
         padding-left: 10px;
         box-shadow: inset 0 -1px 0 0 $base-primary;
@@ -44,7 +44,7 @@
     .calendar {
         position: absolute;
         top: 4px;
-        left: 192px;
+        right: 0;
     }
 
     .popover-origin {
@@ -57,7 +57,7 @@
         position: absolute;
         top: -12px;
         left: -2px;
-        width: 260px;
+        width: 330px;
         background-color: $white;
         border: 1px solid $base-primary;
         border-top: none;
