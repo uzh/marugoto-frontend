@@ -24,7 +24,7 @@ export default {
     }
   },
   mounted: function() {
-    // console.log('slected: ', this.selectedDate)
+    // console.log('slected: ', this.existingDate)
     if( this.existingDate != undefined ){
       let from = this.existingDate.split(".")
       this.selectedDate = new Date(from[2], from[1] - 1, from[0]);
