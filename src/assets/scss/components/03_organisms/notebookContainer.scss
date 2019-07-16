@@ -188,7 +188,7 @@ $chapterHeight: 80px;
         color: #7d7d7d;
     }
     .title {
-        display: inline;
+        display: inline-block;
         overflow: hidden;
         text-overflow: clip;
         cursor: pointer;
