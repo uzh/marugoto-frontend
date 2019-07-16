@@ -23,7 +23,8 @@
     <div
       v-for="(component, index) in page.notebookContent"
       :key="index"
-      class="mb-40 col-xs-10 col-xs-offset-1">
+      :class=" component.type == 'TextComponent' ? 'mb-20' : 'mb-40'  "
+      class="col-xs-10 col-xs-offset-1">
       <!-- Image Component -->
       <div
         v-if="component.type == 'ImageComponent'"
@@ -39,7 +40,7 @@
       <!-- Personal Note -->
       <div
         v-if="component.type == 'PersonalNote'"
-        class="added-personal-notes-box mb-40">
+        class="added-personal-notes-box">
         <p>{{ component.personalNote.createdAt }}</p>
         <vue-markdown :source="component.personalNote.markdownContent" />
       </div>
@@ -48,7 +49,7 @@
         v-if="component.type == 'TextExercise'"
         class="notebook-page-text-exercise">
         <div>
-          <div class="title">My Answer</div>
+          <div class="section-title">My Answer</div>
           <vue-markdown class="text-exercise-answer" v-if="component.exerciseState.formatedInput" :source="component.exerciseState.formatedInput" />
         </div>
       </div>
@@ -63,7 +64,7 @@
         v-if="component.hasOwnProperty('mailState')"
         class="notebook-mail-response">
         <div v-for="(reply, index) in component.mailState.mailReplyList" :key="index">
-          <div class="title">{{component.mailState.mail.subject}}</div>
+          <div class="section-title">{{component.mailState.mail.subject}}</div>
           <div class="notebook-mail-reply-message-wrapper">
             <div class="sticker-wrapper">
               <div class="sticker"></div>
@@ -76,7 +77,7 @@
       </div>
       <!-- Radio Field Component -->
       <div v-if="component.type == 'RadioButtonExercise'" class="notebook-radio-field">
-        <div class="title">My Choice</div>
+        <div class="section-title">My Choice</div>
         <!-- <div class="question small">Question for exercise</div> -->
         <div v-for="(item, index) in component.component.options" :key="index">
           <div class="notebook-radio-field-item">
@@ -94,7 +95,7 @@
       </div>
       <!-- Checkbox Field Component -->
       <div v-if="component.type == 'CheckboxExercise'" class="notebook-checkbox-field">
-        <div class="title">My Choice</div>
+        <div class="section-title">My Choice</div>
         <!-- <div class="question small">Question for exercise</div> -->
         <div v-for="(item, index) in component.component.options" :key="index">
           <div class="notebook-checkbox-field-item">
@@ -115,7 +116,7 @@
       <!-- Date exercise -->
       <div v-if="component.type == 'DateExercise'" class="notebook-page-text-exercise">
         <div>
-          <div class="title">My Answer</div>
+          <div class="section-title">My Answer</div>
           <div class="question small">{{ component.component.placeholderText }}</div>
           <p>{{ component.exerciseState.formatedInput }}</p>
         </div>
@@ -128,6 +129,9 @@
       </div>
       <!-- Documents Upload Component -->
       <div v-if="component.type == 'UploadExercise'" class="notebook-documents-upload">
+        <div>
+          <div class="section-title">My Output</div>
+        </div>
         <div class="document-type">
           <div class="doc-type-type">
             {{ component.exerciseState.inputState.slice(component.exerciseState.inputState.indexOf('.') + 1) }}
@@ -139,12 +143,18 @@
       </div>
       <!-- Audio Exercise -->
       <div v-if="component.type == 'AudioComponent'">
+        <div>
+          <div class="section-title">My Output</div>
+        </div>
         <AudioComponent 
           :source="component.component.audio.path" 
           :componentID="component.component.audio.id" />
       </div>
       <!-- Video Exercise -->
       <div v-if="component.type == 'VideoComponent'">
+        <div>
+          <div class="section-title">My Output</div>
+        </div>
         <VideoComponent 
           :componentID="component.component.video.id"
           :numberOfColumns="component.component.numberOfColumns"

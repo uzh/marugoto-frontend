@@ -47,11 +47,19 @@ apiService.interceptors.response.use(function (response) {
   /**
    * DATABASE ERROR
    */
-  if( error.response.status === 500 && error.response.data.exception == 'ArangoDBException'){
-    store.dispatch('ERROR_NETWORK_CONNECTION', {
-      status: true,
-      message: error.response.data.message, //'Database not reachable, please try again later!',
-    });
+  // if( error.response.status === 500 && error.response.data.exception == 'ArangoDBException'){
+  //   store.dispatch('ERROR_NETWORK_CONNECTION', {
+  //     status: true,
+  //     message: error.response.data.message, //'Database not reachable, please try again later!',
+  //   });
+  //   return;
+  // }
+
+  /**
+   * INVITATION LINK EXPIRED
+   */
+  if( error.response.data.exception == 'GameStateBrokenException'){
+    
     return;
   }
 
@@ -60,7 +68,7 @@ apiService.interceptors.response.use(function (response) {
    */
   if( error.response.status === 400 && error.response.data.exception == 'ClassroomLinkExpiredException'){
     store.dispatch('CLEAR_INVITATION_LINK');
-    store.dispatch('INVITATION_EXPIRED', true);
+    store.dispatch('INVITATION_EXPIRED', error.response.data.message);
     return;
   }
 

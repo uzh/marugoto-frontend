@@ -279,7 +279,7 @@ $chapterHeight: 80px;
             height: 90px;
             margin-bottom: 40px;
             padding: 0;
-            border-bottom: 1px solid $base-uicolor-2;
+            border-bottom: 1px solid $base-primary-hover;
     
             .title{
                 display: table-cell;
@@ -297,7 +297,23 @@ $chapterHeight: 80px;
                 display: table-cell;
                 vertical-align: middle;
                 cursor: pointer;
+
+                svg:hover{
+                    fill: $base-primary-hover;
+                }
             }
+        }
+
+        .section-title {
+            display: inline-block;
+            height: 30px;
+            margin-bottom: 3px;
+            font-family: $font-tertiary, cursive;
+            font-weight: 300;
+            font-size: 20px;
+            line-height: 32px;
+            letter-spacing: 0.08px;
+            border-bottom: 2px solid $black;
         }
 
         .notebook-page-image {
@@ -348,18 +364,6 @@ $chapterHeight: 80px;
         .notebook-page-text-exercise {
             color: #2F3133;
 
-            .title {
-                display: inline-block;
-                height: 39px;
-                padding-top: 9px;
-                margin-bottom: 7px;
-                font-family: $font-tertiary, cursive;
-                font-size: 20px;
-                line-height: 32px;
-                letter-spacing: 0.08px;
-                border-bottom: 2px solid $black;
-            }
-
             .question {
                 margin-top: 6px;
                 display: block;
@@ -388,18 +392,6 @@ $chapterHeight: 80px;
         .notebook-mail-response {
             position: relative;
 
-            .title {
-                display: inline-block;
-                height: 39px;
-                padding-top: 9px;
-                margin-bottom: 20px;
-                font-family: $font-tertiary, cursive;
-                font-size: 20px;
-                line-height: 32px;
-                letter-spacing: 0.08px;
-                border-bottom: 2px solid $black;
-            }
-
             .notebook-mail-reply-message-wrapper {
                 height: auto;
 
@@ -425,6 +417,7 @@ $chapterHeight: 80px;
                     background: url('assets/images/notebook-mail-response-background.png') center no-repeat;
                     background-size: cover;
                     font-family: $font-tertiary, cursive;
+                    font-weight: 300;
                     font-size: 20px;
                     line-height: 32px;
                     letter-spacing: 0.08px;
@@ -458,19 +451,7 @@ $chapterHeight: 80px;
         }
 
         .notebook-radio-field {
-            min-height: 130px;
-
-            .title {
-                display: inline-block;
-                height: 39px;
-                padding-top: 9px;
-                margin-bottom: 7px;
-                font-family: $font-tertiary, cursive;
-                font-size: 20px;
-                line-height: 32px;
-                letter-spacing: 0.08px;
-                border-bottom: 2px solid $black;
-            }
+            // min-height: 130px;
 
             .question {
                 margin-top: 6px;
@@ -486,6 +467,7 @@ $chapterHeight: 80px;
                 margin-right: 20px;
                 padding-top: 17px;
                 font-family: $font-tertiary, cursive;
+                font-weight: 300;
                 font-size: 20px;
                 line-height: 32px;
                 letter-spacing: 0.08px;
@@ -516,19 +498,7 @@ $chapterHeight: 80px;
         }
 
         .notebook-checkbox-field {
-            min-height: 130px;
-
-            .title {
-                display: inline-block;
-                height: 39px;
-                padding-top: 9px;
-                margin-bottom: 7px;
-                font-family: $font-tertiary, cursive;
-                font-size: 20px;
-                line-height: 32px;
-                letter-spacing: 0.08px;
-                border-bottom: 2px solid $black;
-            }
+            // min-height: 130px;
 
             .question {
                 margin-top: 6px;
@@ -544,6 +514,7 @@ $chapterHeight: 80px;
                 margin-right: 20px;
                 padding-top: 17px;
                 font-family: $font-tertiary, cursive;
+                font-weight: 300;
                 font-size: 20px;
                 line-height: 32px;
                 letter-spacing: 0.08px;
@@ -575,17 +546,6 @@ $chapterHeight: 80px;
 
         .notebook-documents-upload {
 
-            .title {
-                display: inline-block;
-                height: 39px;
-                padding-top: 9px;
-                margin-bottom: 7px;
-                font-size: 20px;
-                line-height: 32px;
-                letter-spacing: 0.08px;
-                border-bottom: 2px solid $black;
-            }
-
             .question {
                 margin-top: 6px;
                 display: block;
@@ -593,6 +553,7 @@ $chapterHeight: 80px;
             .document-type {
                 width: 147px;
                 height: 217px;
+                margin-top: 17px;
                 color: $base-primary;
                 text-align: center;
                 background: url('assets/images/fileUpload.png') center no-repeat;
@@ -614,6 +575,10 @@ $chapterHeight: 80px;
                     font-family: $font-secondary, serif;
                 }
             }
+        }
+
+        .audio-container, .video-container{
+            margin-top: 17px;
         }
     }
     .np-page{
@@ -653,6 +618,7 @@ $chapterHeight: 80px;
 // Personal notes boxes
 .added-personal-notes-box{
     font-family: 'Kalam', cursive;
+    font-weight: 300;
     z-index: 9;
     top: 0;
     width: 100%;
@@ -665,6 +631,7 @@ $chapterHeight: 80px;
     div p{
         // This is for vue-markdown commponent
         font-family: 'Kalam', cursive;
+        font-weight: 300;
     }
 
     textarea {
@@ -672,8 +639,8 @@ $chapterHeight: 80px;
         height: 100%;
         resize: none;
         padding: 0 10px;
-
         font-family: $font-tertiary, cursive;
+        font-weight: 300;
         font-size: 20px;
         line-height: 32px;
         letter-spacing: 0.08px;
@@ -702,6 +669,7 @@ $chapterHeight: 80px;
                 resize: none;
                 padding: 0 10px;
                 font-family: $font-tertiary, cursive;
+                font-weight: 300;
                 font-size: 20px;
                 line-height: 32px;
                 letter-spacing: 0.2px;
@@ -722,6 +690,7 @@ $chapterHeight: 80px;
         resize: none;
         padding: 0 10px;
         font-family: $font-tertiary, cursive;
+        font-weight: 300;
         color: #2F3133;
         font-size: 20px;
         line-height: 32px;
