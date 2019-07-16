@@ -5,6 +5,10 @@
     border: 1px solid $white;
     margin-bottom: 40px;
 
+    .popover-container{
+        width: 100%;
+    }
+
     &:hover {
         border: 1px solid $base-primary;
         border-bottom: none;

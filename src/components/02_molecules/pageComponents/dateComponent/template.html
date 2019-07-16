@@ -2,7 +2,7 @@
   class="date-picker"
   :class="pickerMode == 'range' ? 'ranged' : ''">
   <v-date-picker
-    is-extended
+    :is-extended="true"
     :formats="formats"
     :mode="pickerMode"
     @dayclick="dateEmit($event)"
