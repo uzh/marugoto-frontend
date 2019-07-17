@@ -143,18 +143,12 @@
       </div>
       <!-- Audio Exercise -->
       <div v-if="component.type == 'AudioComponent'">
-        <div>
-          <div class="section-title">My Output</div>
-        </div>
         <AudioComponent 
           :source="component.component.audio.path" 
           :componentID="component.component.audio.id" />
       </div>
       <!-- Video Exercise -->
       <div v-if="component.type == 'VideoComponent'">
-        <div>
-          <div class="section-title">My Output</div>
-        </div>
         <VideoComponent 
           :componentID="component.component.video.id"
           :numberOfColumns="component.component.numberOfColumns"
