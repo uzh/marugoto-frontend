@@ -56,7 +56,7 @@ apiService.interceptors.response.use(function (response) {
   }
 
   /**
-   * INVITATION LINK EXPIRED
+   * GAMESTATE BROKEN
    */
   if( error.response.data.exception == 'GameStateBrokenException'){
     store.dispatch('LOGOUT');
@@ -67,6 +67,15 @@ apiService.interceptors.response.use(function (response) {
    * INVITATION LINK EXPIRED
    */
   if( error.response.status === 400 && error.response.data.exception == 'ClassroomLinkExpiredException'){
+    store.dispatch('CLEAR_INVITATION_LINK');
+    store.dispatch('INVITATION_EXPIRED', error.response.data.message);
+    return;
+  }
+
+  /**
+   * INVITATION LINK NOT POSSIBLE
+   */
+  if( error.response.status === 400 && error.response.data.exception == 'ClassroomNotWithSameUser'){
     store.dispatch('CLEAR_INVITATION_LINK');
     store.dispatch('INVITATION_EXPIRED', error.response.data.message);
     return;
