@@ -47,10 +47,21 @@
       <!-- Text Exercise Component -->
       <div
         v-if="component.type == 'TextExercise'"
-        class="notebook-page-text-exercise">
+        class="notebook-page-text-exercise paper-sheet-wrapper">
         <div>
           <div class="section-title">My Answer</div>
-          <vue-markdown class="text-exercise-answer" v-if="component.exerciseState.formatedInput" :source="component.exerciseState.formatedInput" />
+          <div class="paper-sheet">
+            <div class="sticker-wrapper">
+              <div class="sticker"></div>
+            </div>
+            <div class="message-wrapper">
+              <vue-markdown 
+                class="text-exercise-answer" 
+                v-if="component.exerciseState.formatedInput" 
+                :source="component.exerciseState.formatedInput" />
+            </div>
+          </div>
+          
         </div>
       </div>
       <!-- Text Component -->
@@ -62,14 +73,14 @@
       <!-- Mail Response Component -->
       <div
         v-if="component.hasOwnProperty('mailState')"
-        class="notebook-mail-response">
+        class="paper-sheet-wrapper">
         <div v-for="(reply, index) in component.mailState.mailReplyList" :key="index">
           <div class="section-title">{{component.mailState.mail.subject}}</div>
-          <div class="notebook-mail-reply-message-wrapper">
+          <div class="paper-sheet">
             <div class="sticker-wrapper">
               <div class="sticker"></div>
             </div>
-            <div class="notebook-mail-reply-message">
+            <div class="message-wrapper">
                 {{ reply.body }}
             </div>
           </div>

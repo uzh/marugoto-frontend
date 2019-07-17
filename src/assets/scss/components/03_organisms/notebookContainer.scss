@@ -389,16 +389,17 @@ $chapterHeight: 80px;
             }
         }
 
-        .notebook-mail-response {
+        .paper-sheet-wrapper {
             position: relative;
 
-            .notebook-mail-reply-message-wrapper {
+            .paper-sheet {
                 height: auto;
+                margin-top: 20px;
 
                 .sticker-wrapper {
                     position: absolute;
                     left: 50%;
-                    top: 5px;
+                    top: -7px;
                     height: 125px;
                     width: 44px;
                     z-index: 1;
@@ -412,8 +413,9 @@ $chapterHeight: 80px;
                     }
                 }
 
-                .notebook-mail-reply-message {
-                    padding: 50px 30px;
+                .message-wrapper {
+                    min-height: 200px;
+                    padding: 20px;
                     background: url('assets/images/notebook-mail-response-background.png') center no-repeat;
                     background-size: cover;
                     font-family: $font-tertiary, cursive;
@@ -423,30 +425,7 @@ $chapterHeight: 80px;
                     letter-spacing: 0.08px;
                     transform: rotate(-1deg);
                 }
-
-                @media only screen and (max-width: 768px) {
-                    .sticker-wrapper {
-                        top: 2%;
-                        transform: rotate(-90deg) translateY(-22px);
-                    }
-    
-                    .notebook-mail-reply-message {
-                        padding-bottom: 120px 30px;
-                        transform: rotate(0deg);
-                        font-size: 16px;
-                        line-height: 20px;
-                    }
-                }
                 
-                @media only screen and (max-width: 1024px) {
-                    .sticker-wrapper {
-                        top: 1.5%;
-                    }
-    
-                    .notebook-mail-reply-message {
-                        padding: 100px 30px;
-                    }
-                }
             }
         }
 
