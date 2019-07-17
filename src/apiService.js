@@ -47,19 +47,19 @@ apiService.interceptors.response.use(function (response) {
   /**
    * DATABASE ERROR
    */
-  // if( error.response.status === 500 && error.response.data.exception == 'ArangoDBException'){
-  //   store.dispatch('ERROR_NETWORK_CONNECTION', {
-  //     status: true,
-  //     message: error.response.data.message, //'Database not reachable, please try again later!',
-  //   });
-  //   return;
-  // }
+  if( error.response.status === 500 && error.response.data.exception == 'ArangoDBException'){
+    store.dispatch('ERROR_NETWORK_CONNECTION', {
+      status: true,
+      message: error.response.data.message, //'Database not reachable, please try again later!',
+    });
+    return;
+  }
 
   /**
    * INVITATION LINK EXPIRED
    */
   if( error.response.data.exception == 'GameStateBrokenException'){
-    
+    store.dispatch('LOGOUT');
     return;
   }
 
