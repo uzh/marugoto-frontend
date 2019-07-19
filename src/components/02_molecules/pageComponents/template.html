@@ -64,6 +64,7 @@
       v-if="component.type == 'TextExercise'"
       class="mb-40"
       :exerciseId="component.state.id"
+      :formatedInput="component.state.inputState"
       :placeholder="component.component.placeholderText"
       @emitInputAreaAnswer="submitAnswer" />
     <!-- Link component -->

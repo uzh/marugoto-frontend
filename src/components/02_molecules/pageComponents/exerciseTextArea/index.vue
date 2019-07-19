@@ -9,7 +9,7 @@ import svgIcon from '@/components/01_atoms/svgicon';
 export default {
   name: 'ExerciseTextArea',
   components: { svgIcon },
-  props: [ 'exerciseId', 'placeholder' ],
+  props: [ 'exerciseId', 'placeholder', 'formatedInput' ],
   data(){
     return {
       answer: '',
@@ -20,7 +20,11 @@ export default {
     ...mapGetters(['get_exerciseText']),
   },
   mounted: function(){
-    this.answer = this.get_exerciseText;
+    if( this.get_exerciseText != '' ){
+      this.answer = this.get_exerciseText;
+    }else if( this.formatedInput != '' ){
+      this.answer = this.formatedInput;
+    }
   },
   methods: {
     submitAnswer: function(){

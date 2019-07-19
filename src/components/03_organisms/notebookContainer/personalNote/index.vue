@@ -19,7 +19,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([ 'get_noteEditorState' ]),
+    ...mapGetters([ 'get_noteEditorState', 'get_personalNotes' ]),
   },
   updated: function(){
     this.$nextTick(function(){
@@ -27,6 +27,15 @@ export default {
         this.$refs[`note${this.page.id}`].focus();
       }
     });
+  },
+  mounted: function() {
+    let pageId = this.page.id.slice( this.page.id.indexOf('/') + 1, this.page.id.length);
+    let stateNote = this.get_personalNotes.findIndex( s => s.id == pageId );
+
+    if( stateNote != -1 ){
+      this.noteText = this.get_personalNotes[stateNote].text;
+      this.showTextarea = true;
+    }
   },
   methods: {
     blurEditor: function() {
