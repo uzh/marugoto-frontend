@@ -2,9 +2,10 @@ import axios from 'axios'
 import store from './store'
 
 const API_URL = process.env.VUE_APP_API_PATH;
-
+const timeoutRequest = 10000;
 const apiService = axios.create({
   baseURL: API_URL,
+  timeout: timeoutRequest,
 });
 
 if( localStorage.getItem('UHZ') ){
@@ -34,6 +35,13 @@ apiService.interceptors.response.use(function (response) {
   return response;
 }, function (error) {
   /**
+   * TIMEOUT ERROR
+   */
+  if( error.message == `timeout of ${timeoutRequest}ms exceeded` ){
+    store.dispatch('LOGOUT');
+  }
+
+  /**
    * SERVER ERROR
    */
   if( error.message == 'Network Error' ) {
@@ -60,6 +68,17 @@ apiService.interceptors.response.use(function (response) {
    */
   if( error.response.data.exception == 'GameStateBrokenException'){
     store.dispatch('LOGOUT');
+    return;
+  }
+
+  /**
+   * 503 error code
+   */
+  if( error.response.status === 500 ){
+    store.dispatch('ERROR_NETWORK_CONNECTION', {
+      status: true,
+      message: 'Service Unavailable',
+    });
     return;
   }
 
