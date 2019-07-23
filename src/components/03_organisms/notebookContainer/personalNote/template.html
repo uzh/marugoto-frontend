@@ -8,9 +8,10 @@
         @focus="focusEditor"
         @blur="blurEditor"
         v-model="noteText"
+        @keydown="typing = true"
         v-on:keyup="checkTyping"></textarea>
     </div>
-    <div v-if="noteText != '' && !isAutosaved">
+    <div v-if="typing">
       <div class="small go-right typing">Typing...</div>
     </div>
     <div v-if="noteText != '' && isAutosaved">

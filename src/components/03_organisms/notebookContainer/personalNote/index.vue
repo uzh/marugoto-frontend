@@ -14,6 +14,7 @@ export default {
     return {
       showTextarea: false,
       noteText: '',
+      typing: false,
       isAutosaved: false,
       editorActive: false,
     }
@@ -59,6 +60,7 @@ export default {
     typingFinished: _.debounce(function() {
       this.isAutosaved = true;
       this.submitPersonalNote();
+      this.typing = false;
     }, 500),
     autoGrow: function(element) {
       element.style.height = 'auto';
