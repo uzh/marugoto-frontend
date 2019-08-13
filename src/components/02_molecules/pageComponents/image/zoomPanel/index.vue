@@ -6,16 +6,12 @@ import SvgIcon from '@/components/01_atoms/svgicon';
 export default {
   name: 'ZoomPanel',
   components: { SvgIcon },
-  props: [ 'imagesList' ],
+  props: [ 'imagePath', 'slider' ],
   data() {
     return {
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       windowWidth: window.innerWidth,
       windowHeight: window.innerHeight,
-      prevX: 0,
-      prevY: 0,
-      calibratedX: 0,
-      calibratedY: 0,
       limitScrollX: 0,
       limitScrollY: 0,
       down: false,
@@ -95,7 +91,14 @@ export default {
       this.$refs.zoomImage.style.height = 'auto'; // this.$refs.zoomImage.height - 100 + 'px';
       this.countScrollDimensions();
     },
-
-  }
+    prevImage: function() {
+      this.$emit('zoomPrevImage');
+      this.$refs.zoomImage.style.width = "auto";
+    },
+    nextImage: function() {
+      this.$emit('zoomNextImage');
+      this.$refs.zoomImage.style.width = "auto";
+    },
+  },
 }
 </script>

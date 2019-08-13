@@ -10,13 +10,25 @@
           :class="hovered ? 'hovered' : '' "
           class="scroll-holder" ref="scroller">
             <img
-            :src="`${resourcesPath}${imagesList[0].path}`" 
+            :src="`${imagePath}`" 
             ref="zoomImage" />
         </div>
       </div>
     </div>
     <!-- Icons -->
     <div class="zoom-panel-controls">
+      <div 
+        v-if="slider"
+        class="zoom-panel-item"
+        @click="prevImage">
+        <SvgIcon class="icon" customColor="#fff" name="arrow-left" />
+      </div>
+      <div 
+        v-if="slider"
+        class="zoom-panel-item"
+        @click="nextImage" >
+        <SvgIcon class="icon" customColor="#fff" name="arrow-right" />
+      </div>
       <div class="zoom-out zoom-panel-item" @click="toogleZoom">
         <SvgIcon class="icon" name="zoom-out" customColor="#fff" />
       </div>

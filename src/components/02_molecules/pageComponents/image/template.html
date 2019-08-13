@@ -36,7 +36,10 @@
   </div>
   <ZoomPanel
     @closeZoomPanel="toggleZoom"
-    v-if="imageZoomed" 
-    :imagesList="sourceList" 
+    @zoomPrevImage="prevImage"
+    @zoomNextImage="nextImage"
+    v-if="imageZoomed"
+    :slider="sourceList.length > 1 ? true : false"
+    :imagePath="`${resourcesPath}${sourceList[sourceIndex].path}`"
     @zoomOut="toggleZoom" />
 </div>
