@@ -74,7 +74,7 @@ apiService.interceptors.response.use(function (response) {
   /**
    * 503 error code
    */
-  if( error.response.status === 500 ){
+  if( error.response.status === 503 ){
     store.dispatch('ERROR_NETWORK_CONNECTION', {
       status: true,
       message: 'Service Unavailable',
