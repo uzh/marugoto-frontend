@@ -61,7 +61,7 @@ export default {
     },
   },
   watch: {
-    selectedDate: function(newVal,oldVal ) {
+    selectedDate: function(newVal) {
       this.dateEmit(newVal);
     }
   }
