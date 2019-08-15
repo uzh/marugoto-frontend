@@ -3,9 +3,10 @@
   :class="pickerMode == 'range' ? 'ranged' : ''">
   <v-date-picker
     is-required
+    update-on-input
     :formats="formats"
     :mode="pickerMode"
-    @dayclick="dateEmit($event)"
+    input-debounce="4000"
     v-model="selectedDate">
   </v-date-picker>
   <div class="calendar">

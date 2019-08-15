@@ -59,7 +59,7 @@ export default {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
   },
   methods: {
-    submitAnswer: function(answer, exerciseId) {
+    submitAnswer: function(answer, exerciseId, forceCheck) {
       this.$store.dispatch('SUBMIT_EXERCISE_STATE', {
         id: exerciseId,
         answer: answer,
@@ -67,6 +67,8 @@ export default {
       .then(resp => {
         // this.checkState();
         if( resp.data.statesChanged ){
+          this.checkState();
+        }else if( forceCheck ){
           this.checkState();
         }
       })

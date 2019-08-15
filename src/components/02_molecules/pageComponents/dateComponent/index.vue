@@ -24,17 +24,26 @@ export default {
     }
   },
   mounted: function() {
-    // console.log('slected: ', this.existingDate)
-    if( this.existingDate != undefined ){
-      let from = this.existingDate.split(".")
-      this.selectedDate = new Date(from[2], from[1] - 1, from[0]);
-    }
+    this.$nextTick(()=>{
+      if( this.existingDate != undefined ){
+        let from = this.existingDate.split(".");
+        this.selectedDate = new Date(from[2], from[1] - 1, from[0]);
+      }
+    })
+    
   },
   methods: {
     emitDate: function(date){
-      this.$emit('emitDateChange', date, this.stateID);
+      this.$emit('emitDateChange', date, this.stateID, true);
     },
-    dateEmit: function(event) {
+    dateEmit: function(val) {
+      let newDate = new Date(val);
+      let event = {
+        day: newDate.getDate(),
+        month: newDate.getMonth() + 1,
+        year: newDate.getFullYear(),
+      }
+
       if(this.pickerMode == 'range') {
         if(this.datesFormated.length >= 2) {
           this.datesFormated = [];
@@ -51,5 +60,10 @@ export default {
       }
     },
   },
+  watch: {
+    selectedDate: function(newVal,oldVal ) {
+      this.dateEmit(newVal);
+    }
+  }
 }
 </script>
