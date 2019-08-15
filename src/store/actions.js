@@ -237,7 +237,7 @@ export default({
   [types.REQUEST_PAGE_CURRENT]: ({commit, dispatch}) => {
     return apiService.get('/pages/current')
     .then(resp => {
-      dispatch('UPDATE_PAGE_STATE', resp.data);
+        dispatch('UPDATE_PAGE_STATE', resp.data);
     })
     .catch(err => {
       throw(err);
@@ -246,7 +246,9 @@ export default({
   [types.REQUEST_PAGE_TRANSITION]: ({commit, dispatch}, payload) => {
     return apiService.post(`pageTransitions/doPageTransition/${payload.id}?chosenByPlayer=${payload.userTransition}`)
     .then(resp => {
-      dispatch('UPDATE_PAGE_STATE', resp.data);
+      dispatch('LAYOUT_CLOSE').then(() => {
+        dispatch('UPDATE_PAGE_STATE', resp.data);
+      });
     })
     .catch(err => {
       throw(err);

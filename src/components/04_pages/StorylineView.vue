@@ -58,7 +58,9 @@ export default {
       basePath: process.env.VUE_APP_BASE_PATH,
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       timerContainer: {},
+      timerDialogContainer: {},
       timerON: false,
+      timerDialogON: false,
       transitioned: false,
     };
   },
@@ -104,7 +106,12 @@ export default {
       if( this.timerON ){
         this.timerContainer.stop();
       }
+      if( this.timerDialogON ){
+        this.timerDialogContainer.stop();
+      }
+      
       this.timerON = false;
+      this.timerDialogON = false;
       this.updateNotebookPersonalNotesBeforePageTransition();
       
       if( this.get_textExerciseExists.exist ){
@@ -172,11 +179,19 @@ export default {
     },
     get_dialog: function(newVal) {
       if( this.get_layoutState.dialog.opened ) { return; }
+
       if( newVal.length > 0 && newVal[0].hasOwnProperty('receiveAfter') ){
-        new Timer(newVal[0].receiveAfter, // Transition time
-          this.setDialogVisibility,       // Callback
-          true)                           // Callback payload
-          .start();
+        this.timerDialogON = true;
+        
+        this.timerDialogContainer = new Timer( newVal[0].receiveAfter,    // Transition time
+          this.setDialogVisibility,                       // Callback
+          true);
+
+        this.timerDialogContainer.start();
+        // new Timer(newVal[0].receiveAfter, // Transition time
+        //   this.setDialogVisibility,       // Callback
+        //   true)                           // Callback payload
+        //   .start();
       }
     },
   },
