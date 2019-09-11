@@ -173,6 +173,7 @@ export default({
       state.personalNotes = state.personalNotes.map(note => {
         if( note.id == payload.id ){
           note.text = payload.text;
+          note.rows = payload.rows;
         }
         return note;
       });

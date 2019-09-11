@@ -297,7 +297,9 @@ export default({
     });
   },
   [types.ADD_PERSONAL_NOTE]: ({commit}, payload) => {
-    return apiService.post(`notebook/${payload.id}/personalNote?markdownContent=${payload.text}`)
+    return apiService.post(`notebook/${payload.id}/personalNote`, {
+      markdownContent: payload.text,
+    })
     .then(() => {
     })
     .catch(err => {

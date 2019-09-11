@@ -12,9 +12,11 @@ export default {
   props: [ 'page' ],
   data(){
     return {
+      textareaRows: 2,
+      minRows: 2,
       showTextarea: false,
       noteText: '',
-      typing: false,
+      isTyping: false,
       isAutosaved: false,
       editorActive: false,
     }
@@ -35,6 +37,7 @@ export default {
 
     if( stateNote != -1 ){
       this.noteText = this.get_personalNotes[stateNote].text;
+      this.textareaRows = this.get_personalNotes[stateNote].rows;
       this.showTextarea = true;
     }
   },
@@ -51,6 +54,9 @@ export default {
       this.showTextarea = true;
       this.editorActive = true;
     },
+    typing: function() {
+      this.isTyping = true;
+    },
     checkTyping: function(e) {
       this.isAutosaved = false;
       this.autoGrow(e.currentTarget);
@@ -60,16 +66,23 @@ export default {
     typingFinished: _.debounce(function() {
       this.isAutosaved = true;
       this.submitPersonalNote();
-      this.typing = false;
+      this.isTyping = false;
     }, 500),
     autoGrow: function(element) {
-      element.style.height = 'auto';
-      element.style.height = `${element.scrollHeight}px`;
+      this.textareaRows = this.minRows;
+      this.$nextTick(()=>{
+        let rows = Math.ceil(( element.scrollHeight / 32 ) - this.minRows);
+        this.textareaRows = this.minRows + rows;
+        if( this.textareaRows <= 1 ){
+          this.textareaRows = 2;
+        }
+      })
     },
     submitPersonalNote: function() {
       this.$store.dispatch('UPDATE_PERSONAL_NOTES', {
         id: this.page.id.split('/')[1],
         text: this.noteText,
+        rows: this.textareaRows,
       });
     },
   },
