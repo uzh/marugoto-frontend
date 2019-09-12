@@ -72,19 +72,17 @@
       </div>
       <!-- Mail Response Component -->
       <div
-        v-if="component.hasOwnProperty('mailState')"
+        v-if="component.hasOwnProperty('mail')"
         class="paper-sheet-wrapper">
-        <div v-for="(reply, index) in component.mailState.mailReplyList" :key="index">
-          <div class="section-title">{{component.mailState.mail.subject}}</div>
+          <div class="section-title">{{component.mail.subject}}</div>
           <div class="paper-sheet">
             <div class="sticker-wrapper">
               <div class="sticker"></div>
             </div>
             <div class="message-wrapper">
-                {{ reply.body }}
+                {{ component.mailReply.body }}
             </div>
           </div>
-        </div>
       </div>
       <!-- Radio Field Component -->
       <div v-if="component.type == 'RadioButtonExercise'" class="notebook-radio-field">
@@ -97,7 +95,7 @@
               <!-- width of circle is not dynamic but fixed -->
               <SvgIcon name="correct-answer" />
             </div>
-            <div v-if="component.exerciseState.inputState != index"" class="incorrect">
+            <div v-if="component.exerciseState.inputState != index" class="incorrect">
               <!-- width of line is not dynamic but fixed -->
               <SvgIcon name="incorrect-answer" />
             </div>
