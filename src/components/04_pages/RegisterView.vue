@@ -96,7 +96,7 @@
                 v-model="lastName" 
                 labelName="Lastname / Pseudonym" 
                 :required="errorMessage" />
-              <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
+              <!--<SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />-->
               <InputField 
                 autocomplete="off"
                 inputName="registerEmail" 
@@ -128,7 +128,7 @@
             <form class="full-width" @keydown.enter="register">
               <InputField inputName="unFirstName" v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
               <InputField inputName="unLastname" v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
-              <SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />
+              <!--<SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />-->
               <InputField inputName="unEmail" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
             </form>
             <div v-if="errorText" class="login-error-message">
@@ -172,17 +172,17 @@ export default {
       lastName: '',
       mail: '',
       password: '',
-      genderList: [
-        {
-          name: 'Male',
-          value: 'Male',
-        },
-        {
-          name: 'Female',
-          value: 'Female',
-        }
-      ],
-      gender: '',
+      // genderList: [
+      //   {
+      //     name: 'Male',
+      //     value: 'Male',
+      //   },
+      //   {
+      //     name: 'Female',
+      //     value: 'Female',
+      //   }
+      // ],
+      // gender: '',
       accountType: '',
       errorMessage: false,
       errorText: {
@@ -201,7 +201,7 @@ export default {
   methods: {
     ...mapActions(['REGISTER']),
     register(){
-      if ( this.firstName == '' || this.lastName == '' || this.mail == '' || this.password == '' || this.gender == '') {
+      if ( this.firstName == '' || this.lastName == '' || this.mail == '' || this.password == '') {
         this.errorMessage = true;
         this.errorText.text = 'Please fill in all information.';
       } else {
@@ -209,8 +209,7 @@ export default {
           firstName: this.firstName,
           lastName: this.lastName,
           mail: this.mail,
-          password: this.password,
-          gender: this.gender
+          password: this.password
         }).then(registerData => {
           this.$store.dispatch('LOGIN', registerData).then(() => this.$router.push('/games'));
         })
