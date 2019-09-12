@@ -29,6 +29,10 @@ export default {
       if( this.editorActive ){
         this.$refs[`note${this.page.id}`].focus();
       }
+
+      if( this.noteText == '' ){
+        this.textareaRows = 2;
+      }
     });
   },
   mounted: function() {
