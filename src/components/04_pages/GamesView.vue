@@ -88,7 +88,7 @@ export default {
     downloadZip: function(item) {
       let gameStateId = item.id.slice( item.id.indexOf('/') + 1, item.id.length);
       
-      apiService.get(`${this.resourcesPath}api/game/files/${gameStateId}`,{
+      apiService.get(`${this.basePath}api/game/files/${gameStateId}`,{
         responseType: 'blob'})
         .then(resp => {
           const url = window.URL.createObjectURL(new Blob([resp.data]));

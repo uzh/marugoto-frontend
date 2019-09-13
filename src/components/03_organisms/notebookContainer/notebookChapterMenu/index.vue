@@ -18,7 +18,7 @@
         },
         methods: {
             downloadZip: function () {
-                apiService.get(`${this.resourcesPath}api/notebook/pdf/current`, {
+                apiService.get(`${this.basePath}api/notebook/pdf/current`, {
                     responseType: 'blob'
                 })
                     .then(resp => {

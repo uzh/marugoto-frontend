@@ -141,6 +141,13 @@ $chapterHeight: 80px;
     }
 }
 
+.list-item:first-child{
+    padding-top: 22px;
+
+    svg{
+        top:  22px;
+    }
+}
 .list-item{
     position: relative;
     padding-left: 50px;
