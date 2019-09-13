@@ -18,9 +18,11 @@
         },
         methods: {
             downloadZip: function () {
-                apiService.get(`${this.basePath}api/notebook/pdf/current`, {
+                const config = {
+                    headers: { 'Accept': 'application/pdf, application/octet-stream' },
                     responseType: 'blob'
-                })
+                };
+                apiService.get(`${this.basePath}api/notebook/pdf/current`, config)
                     .then(resp => {
                         const url = window.URL.createObjectURL(new Blob([resp.data]));
                         const link = document.createElement('a');
