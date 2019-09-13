@@ -68,14 +68,48 @@ export default {
     },
     sizeImg: function() {
       let img = this.$refs.zoomImage;
+      let imgW = img.width;
+      let imgH = img.height;
 
-      // Check if image is bigger than window
-      if( this.windowWidth <= img.width ){
-        img.style.width = this.windowWidth + 'px';
-      }else if( this.windowHeight <= img.height ){
-        img.style.height = this.windowHeight + 'px';
+      if( imgW >= this.windowWidth ){
+        if( imgW > imgH ){
+          if( this.windowWidth > this.windowHeight ){
+            console.log('1a1')
+            img.style.height = this.windowHeight + 'px';
+          }else{
+            console.log('1a2')
+            img.style.width = this.windowWidth + 'px';
+          }
+        }else{
+          if( this.windowWidth > this.windowHeight ){
+            console.log('1b1')
+            img.style.height = this.windowHeight + 'px';
+          }else{
+            console.log('1b2')
+            img.style.width = this.windowWidth + 'px';
+          }
+        }
       }
-      
+      else if( imgH >= this.windowHeight ){
+        if( imgW > imgH ){
+          if( this.windowWidth > this.windowHeight ){
+            console.log('2a1')
+            img.style.width = this.windowWidth + 'px';
+          }else{
+            console.log('2a2')
+            img.style.height = this.windowHeight + 'px';
+          }
+        }else{
+          if( this.windowWidth > this.windowHeight ){
+            console.log('2b1')
+            img.style.width = this.windowWidth + 'px';
+          }else{
+            console.log('2b2')
+            img.style.height = this.windowHeight + 'px';
+          }
+        }
+      }
+
     },
     toogleZoom: function(){
       this.$emit('zoomOut');

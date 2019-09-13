@@ -15,11 +15,6 @@ export default {
       resourcesPath: process.env.VUE_APP_RESOURCES_PATH,
       imageZoomed: false,
       sourceIndex: 0,
-      dummyList: [
-        {path: 'http://s2.glbimg.com/-DBjjL8oYQwHmpEfsjpl-XwK068=/620x413/e.glbimg.com/og/ed/f/original/2016/11/04/troller-bold-12.jpg'},
-        {path: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTWHHABUD4qvBkAe3SIxa8QbbNhemwnieoTUgA8SkU_lSUGhLgg'},
-        {path: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT5r56z0K2SRdUdodhz7Yv7fGthoEHHvJ4bUpEHMzoI4HpVq0yn'}
-      ]
     }
   },
   computed: {
@@ -46,6 +41,13 @@ export default {
         this.sourceIndex++;
       }
     },
-  }
+  },
+  watch: {
+    sourceList: function(newVal, oldVal){
+      if( newVal != oldVal){
+        this.sourceIndex = 0;
+      }
+    }
+  },
 }
 </script>
