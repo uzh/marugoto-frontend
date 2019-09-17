@@ -3,34 +3,36 @@
   :class="[get_layoutState.notebook.opened ? 'in' : '', 
   !entriesMenuOpened ? 'open-entries-menu' : '']"
   ref="notebookContainer">
-  <!-- Empty Notebook -->
-  <div v-if="get_notebook.list.length == 0" class="empty-notebook h2">
-    <span>No notebook entries yet!</span>
-  </div>
-  <div v-if="get_notebook.list.length > 0">
-    <!-- Notebook List -->
-    <NotebookList
-      :selected="currentEntry"
-      :list="get_notebook.list"
-      @selectItem="setCurrentEntry"/>
-    <!-- Notebook Navigation -->
-    <NotebookChapterMenu
-      :class="entriesMenuOpened ? '' : 'displayed'"
-      @changeCurrentEntryTo="switchCurrentEntryTo" 
-      :currentEntry="currentEntry"
-      :list="get_notebook.list" />
-    <!-- Notebook entries -->
-    <div class="notebook-content" ref="notebookContent">
-      <NotebookPages 
-        :currentEntry="currentEntry"
-        :list="get_notebook.list" 
-        @toggleScroll="openEntriesMenu" />
+  
+    <!-- Empty Notebook -->
+    <div v-if="get_notebook.list.length == 0" class="empty-notebook h2">
+      <span>No notebook entries yet!</span>
     </div>
-    <!-- Notebook Navigation -->
-    <NotebookChapterMenu
-      class="displayed"
-      @changeCurrentEntryTo="switchCurrentEntryTo" 
-      :currentEntry="currentEntry"
-      :list="get_notebook.list" />
-  </div>
+    <div v-if="get_notebook.list.length > 0">
+      <!-- Notebook List -->
+      <NotebookList
+        :selected="currentEntry"
+        :list="get_notebook.list"
+        @selectItem="setCurrentEntry"/>
+      <!-- Notebook Navigation -->
+      <NotebookChapterMenu
+        :class="entriesMenuOpened ? '' : 'displayed'"
+        @changeCurrentEntryTo="switchCurrentEntryTo" 
+        :currentEntry="currentEntry"
+        :list="get_notebook.list" />
+      <!-- Notebook entries -->
+      <div class="notebook-content" ref="notebookContent">
+        <NotebookPages 
+          :currentEntry="currentEntry"
+          :list="get_notebook.list" 
+          @toggleScroll="openEntriesMenu" />
+      </div>
+      <!-- Notebook Navigation -->
+      <NotebookChapterMenu
+        class="displayed"
+        @changeCurrentEntryTo="switchCurrentEntryTo" 
+        :currentEntry="currentEntry"
+        :list="get_notebook.list" />
+    </div>
+  
 </div>

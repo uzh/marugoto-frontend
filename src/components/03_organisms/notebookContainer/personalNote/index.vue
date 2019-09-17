@@ -58,19 +58,23 @@ export default {
       this.showTextarea = true;
       this.editorActive = true;
     },
-    typing: function() {
-      this.isTyping = true;
-    },
-    checkTyping: function(e) {
+    typing: function(e) {
       this.isAutosaved = false;
+      this.isTyping = true;
       this.autoGrow(e.currentTarget);
+    },
+    paste: function(e){
+      this.autoGrow(e.currentTarget);
+    },
+    checkTyping: function() {
+      this.isAutosaved = false;
       this.typingFinished();
     },
     // eslint-disable-next-line
     typingFinished: _.debounce(function() {
+      this.isTyping = false;
       this.isAutosaved = true;
       this.submitPersonalNote();
-      this.isTyping = false;
     }, 500),
     autoGrow: function(element) {
       this.textareaRows = this.minRows;

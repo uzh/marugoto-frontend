@@ -10,15 +10,16 @@
         @blur="blurEditor"
         v-model="noteText"
         @keydown="typing"
+        v-on:paste="paste"
         v-on:keyup="checkTyping"></textarea>
     </div>
-    <!-- <div v-if="typing">
+    <div v-if="isTyping">
       <div class="small go-right typing">Typing...</div>
     </div>
     <div v-if="noteText != '' && isAutosaved">
       <svgIcon class="icon go-right" customColor="#8C8B89" name="check" />
       <div class="small go-right autosaved">Autosaved</div>
-    </div> -->
+    </div>
   </div>
   <!-- Create personal note button -->
   <div class="col-xs-10 col-xs-offset-1 mb-50">

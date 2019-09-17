@@ -650,6 +650,7 @@ $chapterHeight: 80px;
     z-index: 9;
     display: none;
     transition: all 0.3s linear;
+    overscroll-behavior: none;
 
     &.active {
         display: block;
