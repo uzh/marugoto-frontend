@@ -74,37 +74,37 @@ export default {
       if( imgW >= this.windowWidth ){
         if( imgW > imgH ){
           if( this.windowWidth > this.windowHeight ){
-            console.log('1a1')
+            // console.log('1a1')
             img.style.height = this.windowHeight + 'px';
           }else{
-            console.log('1a2')
+            // console.log('1a2')
             img.style.width = this.windowWidth + 'px';
           }
         }else{
           if( this.windowWidth > this.windowHeight ){
-            console.log('1b1')
+            // console.log('1b1')
             img.style.height = this.windowHeight + 'px';
           }else{
-            console.log('1b2')
+            // console.log('1b2')
             img.style.width = this.windowWidth + 'px';
           }
         }
       }
       else if( imgH >= this.windowHeight ){
         if( imgW > imgH ){
-          if( this.windowWidth > this.windowHeight ){
-            console.log('2a1')
+          if( this.windowHeight > this.windowHeight ){
+            // console.log('2a1')
             img.style.width = this.windowWidth + 'px';
           }else{
-            console.log('2a2')
+            // console.log('2a2')
             img.style.height = this.windowHeight + 'px';
           }
         }else{
-          if( this.windowWidth > this.windowHeight ){
-            console.log('2b1')
+          if( this.windowHeight > this.windowHeight ){
+            // console.log('2b1')
             img.style.width = this.windowWidth + 'px';
           }else{
-            console.log('2b2')
+            // console.log('2b2')
             img.style.height = this.windowHeight + 'px';
           }
         }
