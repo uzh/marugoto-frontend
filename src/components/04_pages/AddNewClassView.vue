@@ -141,6 +141,7 @@ export default {
       this.$refs.classnameDescription.focus();
     },
     changeDates: function(dates) {
+      
       if(dates.length == 2) {
         dates.sort(function(a, b) {
           let c = a.split('.').reverse().join('');

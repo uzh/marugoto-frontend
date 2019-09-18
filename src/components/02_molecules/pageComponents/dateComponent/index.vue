@@ -34,30 +34,37 @@ export default {
   },
   methods: {
     emitDate: function(date){
-      this.$emit('emitDateChange', date, this.stateID, true);
+      this.$emit('emitDateChange', date);
     },
     dateEmit: function(val) {
-      let newDate = new Date(val);
-      let event = {
-        day: newDate.getDate(),
-        month: newDate.getMonth() + 1,
-        year: newDate.getFullYear(),
+      
+      let datesF = [];
+      let newDateStart = new Date(val.start);
+      let newDateEnd = new Date(val.end);
+
+      let eventStart = {
+        day: newDateStart.getDate(),
+        month: newDateStart.getMonth() + 1,
+        year: newDateStart.getFullYear(),
       }
 
-      if(this.pickerMode == 'range') {
-        if(this.datesFormated.length >= 2) {
-          this.datesFormated = [];
-        }
-        let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
-        let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-        this.datesFormated.push(`${d}.${m}.${event.year}`);
-        this.emitDate(this.datesFormated);
-      } else {
-        let d = event.day.toString().length == 1 ? `0${event.day}` : event.day;
-        let m = event.month.toString().length == 1 ? `0${event.month}` : event.month;
-        this.dateFormated = `${d}.${m}.${event.year}`;
-        this.emitDate(this.dateFormated);
+      let eventEnd = {
+        day: newDateEnd.getDate(),
+        month: newDateEnd.getMonth() + 1,
+        year: newDateEnd.getFullYear(),
       }
+      
+      let dS = eventStart.day.toString().length == 1 ? `0${eventStart.day}` : eventStart.day;
+      let mS = eventStart.month.toString().length == 1 ? `0${eventStart.month}` : eventStart.month;
+      datesF.push(`${dS}.${mS}.${eventStart.year}`);
+
+      let dE = eventEnd.day.toString().length == 1 ? `0${eventEnd.day}` : eventEnd.day;
+      let mE = eventEnd.month.toString().length == 1 ? `0${eventEnd.month}` : eventEnd.month;
+      datesF.push(`${dE}.${mE}.${eventEnd.year}`);
+
+      
+      this.emitDate(datesF);
+      
     },
   },
   watch: {
