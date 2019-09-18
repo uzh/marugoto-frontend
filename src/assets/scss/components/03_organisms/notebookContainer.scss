@@ -652,6 +652,10 @@ $chapterHeight: 80px;
     transition: all 0.3s linear;
     overscroll-behavior: none;
 
+    &.no-transition{
+        transition: none;
+    }
+
     &.active {
         display: block;
     }

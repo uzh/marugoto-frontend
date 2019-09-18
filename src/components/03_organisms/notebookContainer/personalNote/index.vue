@@ -14,6 +14,7 @@ export default {
     return {
       textareaRows: 2,
       minRows: 2,
+      containerRows: 2,
       showTextarea: false,
       noteText: '',
       isTyping: false,
@@ -43,6 +44,7 @@ export default {
       this.noteText = this.get_personalNotes[stateNote].text;
       this.textareaRows = this.get_personalNotes[stateNote].rows;
       this.showTextarea = true;
+      this.containerRows = this.textareaRows;
     }
   },
   methods: {
@@ -77,6 +79,8 @@ export default {
       this.submitPersonalNote();
     }, 500),
     autoGrow: function(element) {
+      var self = this;
+      this.containerRows = this.textareaRows;
       this.textareaRows = this.minRows;
       this.$nextTick(()=>{
         let rows = Math.ceil(( element.scrollHeight / 32 ) - this.minRows);
@@ -85,6 +89,9 @@ export default {
           this.textareaRows = 2;
         }
       })
+      setTimeout(()=>{
+        self.containerRows = self.textareaRows;
+      }, 100)
     },
     submitPersonalNote: function() {
       this.$store.dispatch('UPDATE_PERSONAL_NOTES', {
