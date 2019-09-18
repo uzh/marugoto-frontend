@@ -88,10 +88,10 @@ export default {
         if( this.textareaRows <= 1 ){
           this.textareaRows = 2;
         }
+        setTimeout(function(){
+          self.containerRows = self.textareaRows;
+        }, 100);
       })
-      setTimeout(()=>{
-        self.containerRows = self.textareaRows;
-      }, 100)
     },
     submitPersonalNote: function() {
       this.$store.dispatch('UPDATE_PERSONAL_NOTES', {
