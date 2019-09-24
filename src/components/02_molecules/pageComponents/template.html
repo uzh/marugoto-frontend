@@ -20,7 +20,14 @@
       :captionOffset="component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '25%'"
       :zoomable="component.component.zoomable" />
     <!-- Date Component Separated Test -->
-    
+    <div
+      v-if="component.type == 'DateExercise'"
+      :style="{
+        'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
+        'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
+      }" >
+      <DateField :exerciseId="component.state.id" @emitDate="dateInputEmit" />
+    </div>
     <!-- <DateComponent
       v-if="component.type == 'DateExercise'"
       :style="{

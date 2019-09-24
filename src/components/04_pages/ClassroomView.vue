@@ -41,6 +41,7 @@
         <!-- Date Picker -->
         <DateComponent
           pickerMode="range"
+          :existingDate="newExistingDate"
           @emitDateChange="changeDates" />
         <!-- Class description -->
         <div class="classname-description">
@@ -100,10 +101,14 @@ export default {
       descriptionFocused: false,
       classStartDate: null,
       classEndDate: null,
-      newStart: null,
-      newEnd: null,
+      // newStart: null,
+      // newEnd: null,
       invitationLink: '',
       classStudents: [],
+      newExistingDate: {
+        start: null,
+        end: null,
+      },
     }
   },
   computed: {
@@ -113,26 +118,22 @@ export default {
     this.classId = this.$route.params.id;
     this.$store.dispatch('REQUEST_CLASSROOM_DATA', this.classId)
     .then(resp => {
-        let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
-        let parsedStartDate = resp.data.classroom.startClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');
-        let parsedEndDate = resp.data.classroom.endClassAt.replace(dateRegexp, '$<month>.$<day>.$<year>');
+        this.classname = resp.data.classroom.name;
+        this.classnameDescription = resp.data.classroom.description;
+        this.invitationLink = resp.data.classroom.invitationLinkId;
+        this.classStudents = resp.data.gameStates;
 
+        // Date parsing
+        let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
         let dayMonthYearStart = resp.data.classroom.startClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
         let dayMonthYearEnd = resp.data.classroom.endClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
         
-        this.classname = resp.data.classroom.name;
-        this.classnameDescription = resp.data.classroom.description;
-        this.newStart = dayMonthYearStart;
-        this.newEnd = dayMonthYearEnd;
-        this.classStartDate = new Date(parsedStartDate);
-        this.classEndDate = new Date(parsedEndDate);
-        this.invitationLink = resp.data.classroom.invitationLinkId;
-
-        this.classStudents = resp.data.gameStates;
-
-      }).then(() => {
-        //this.$store.dispatch('REQUEST_CLASSROOM_MEMBERS', this.classId)
-      })
+        let dateObj = {
+          start: dayMonthYearStart,
+          end: dayMonthYearEnd,
+        }
+        this.newExistingDate =  Object.assign({}, this.newExistingDate, dateObj);
+      });
   },
   methods: {
     clipboardSuccessHandler: function() {
@@ -147,7 +148,7 @@ export default {
       }, 2000);
     },
     clipboardErrorHandler: function() {
-      alert('Error cipy to clipboard! Link is: ' + this.invitationLink)
+      alert('Error copy to clipboard! Link is: ' + this.invitationLink)
     },
     returnToClasses: function() {
       this.$store.dispatch('UPDATE_CLASSES')
@@ -158,16 +159,16 @@ export default {
         throw error;
       });
     },
-    updateClasses: function() {
+    updateClasses: function(start, end) {
       this.$store.dispatch('EDIT_CLASS', {
         id: this.classId,
         data: {
           closeRegistrationOnStart: true,
           description: this.classnameDescription,
-          endClassAt: this.newEnd,
           invitationLinkId: this.invitationLink,
           name: this.classname,
-          startClassAt: this.newStart
+          endClassAt: end,
+          startClassAt: start
         },
       });
     },
@@ -179,8 +180,10 @@ export default {
       }
       this.updateClasses();
     },
-    changeDates: function() {
-      this.updateClasses();
+    changeDates: function(val) {
+      let startClass = val[0];
+      let endClass = val[1];
+      this.updateClasses(startClass, endClass);
     },
     selectStudent: function(student) {
       let userId = student.user.id.slice( student.user.id.indexOf('/') + 1, student.user.id.length);
@@ -237,7 +240,7 @@ export default {
           throw(err);
         });
     },
-  }
+  },
 }
 
 </script>

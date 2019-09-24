@@ -5,12 +5,11 @@ import SvgIcon from '@/components/01_atoms/svgicon'
 
 export default {
   name: 'DateComponent',
-  props: [ 'exerciseId', 'pickerMode', 'existingDate' ],
+  props: [ 'pickerMode', 'existingDate' ],
   components: { SvgIcon },
   data: function() {
     return{
-      stateID: this.exerciseId,
-      selectedDate: null,
+      selectedDate: this.existingDate,
       formats: {
         title: 'MMMM YYYY',
         weekdays: 'WW',
@@ -19,18 +18,7 @@ export default {
         dayPopover: 'L',
         data: ['YYYY-MM-DD'],
       },
-      dateFormated: '',
-      datesFormated: [],
     }
-  },
-  mounted: function() {
-    this.$nextTick(()=>{
-      if( this.existingDate != undefined ){
-        let from = this.existingDate.split(".");
-        this.selectedDate = new Date(from[2], from[1] - 1, from[0]);
-      }
-    })
-    
   },
   methods: {
     emitDate: function(date){
@@ -64,10 +52,17 @@ export default {
 
       
       this.emitDate(datesF);
-      
     },
   },
   watch: {
+    existingDate: function(newVal) {
+      let startDate = newVal.start.split(".");
+      let endDate = newVal.end.split(".");
+      this.selectedDate = {
+        start: new Date(startDate[2], startDate[1] - 1, startDate[0]),
+        end: new Date(endDate[2], endDate[1] - 1, endDate[0]),
+      }
+    },
     selectedDate: function(newVal) {
       this.dateEmit(newVal);
     }

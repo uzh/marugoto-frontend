@@ -1,0 +1,11 @@
+<div class="dateInput">
+  <InputComponent 
+    inputName="`dateField-${exerciseId}`" 
+    v-model="inputValue" 
+    typeProp="text" 
+    labelName="DD.MM.YYYY"
+    @input="dateInputEmit" />
+  <!-- <div class="calendar">
+    <SvgIcon name="calendar" customColor="#8C8B89" />
+  </div> -->
+</div>

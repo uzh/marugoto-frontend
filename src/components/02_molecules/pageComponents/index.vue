@@ -4,6 +4,7 @@
 import { mapGetters } from 'vuex'
 import apiService from '@/apiService'
 
+import DateField from '@/components/02_molecules/pageComponents/dateField'
 import VueMarkdown from 'vue-markdown'
 import ExerciseRadio from './exerciseRadio'
 import ExerciseCheckbox from './exerciseCheckbox'
@@ -15,7 +16,6 @@ import ExerciseTextArea from './exerciseTextArea'
 import ExerciseUpload from './exerciseUpload'
 import AudioComponent from '@/components/02_molecules/pageComponents/audioComponent'
 import VideoComponent from '@/components/02_molecules/pageComponents/videoComponent'
-import DateComponent from '@/components/02_molecules/pageComponents/dateComponent'
 import SvgIcon from '@/components/01_atoms/svgicon'
 
 export default {
@@ -25,7 +25,7 @@ export default {
     ExerciseCheckbox, ExerciseText, 
     TextComponent, ImageComponent, 
     ExerciseTextArea, SvgIcon, LinkComponent, ExerciseUpload,
-    AudioComponent, VideoComponent, DateComponent },
+    AudioComponent, VideoComponent, DateField },
   props: [ 'exercises' ],
   data: function() {
     return {
@@ -59,6 +59,13 @@ export default {
     ...mapGetters([ 'get_PageComponents', 'get_layoutState' ]),
   },
   methods: {
+    dateInputEmit: function(val) {
+      // eslint-disable-next-line
+      let regex = /^(0?[1-9]|[12][0-9]|3[01])[\/\.](0?[1-9]|1[012])[\/\.]\d{4}$/i;
+      if( regex.test(val.value) ){
+        this.submitAnswer(val.value, val.exerciseId, false);
+      }
+    },
     submitAnswer: function(answer, exerciseId, forceCheck) {
       this.$store.dispatch('SUBMIT_EXERCISE_STATE', {
         id: exerciseId,

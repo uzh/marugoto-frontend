@@ -135,6 +135,8 @@ export default {
           this.requester();
         });
       }
+
+      // Add else if for date input - check just for value, not required
     },
     logout(){
       this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));

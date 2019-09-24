@@ -1,19 +1,24 @@
-<div class="text-area-exercise font-secondary">
-    <textarea
-        autofocus
-        ref="textarea"
-        :placeholder="placeholder"
-        :id="exerciseId"
-        v-model="answer"
-        @keydown="typing = true"
-        v-on:keyup="checkTyping">
-    </textarea>
-    <!-- Typing -->
-    <div v-if="typing">
-        <div class="small go-right typing">Typing...</div>
+<div class="text-area-exercise font-secondary" >
+    <div :style="`height:${containerRows * 32}px`">
+        <textarea
+            :rows="textareaRows"
+            autofocus
+            ref="textarea"
+            :placeholder="placeholder"
+            :id="exerciseId"
+            v-model="answer"
+            @keydown="typing"
+            v-on:paste="paste"
+            v-on:keyup="checkTyping">
+        </textarea>
     </div>
-    <div v-if="answer != '' && isAutosaved">
-        <svgIcon class="icon go-right" customColor="#8C8B89" name="check" />
-        <div class="small go-right autosaved">Autosaved</div>
-    </div>
+        <!-- Typing -->
+        <div v-if="isTyping">
+            <div class="small go-right typing">Typing...</div>
+        </div>
+        <div v-if="answer != '' && isAutosaved">
+            <svgIcon class="icon go-right" customColor="#8C8B89" name="check" />
+            <div class="small go-right autosaved">Autosaved</div>
+        </div>
+    
 </div>

@@ -12,8 +12,11 @@ export default {
   props: [ 'exerciseId', 'placeholder', 'formatedInput' ],
   data(){
     return {
+      textareaRows: 5,
+      minRows: 5,
+      containerRows: 5,
       answer: '',
-      typing: false,
+      isTyping: false,
       isAutosaved: false,
     }
   },
@@ -21,8 +24,9 @@ export default {
     ...mapGetters(['get_exerciseText']),
   },
   mounted: function(){
-    if( this.get_exerciseText != '' ){
-      this.answer = this.get_exerciseText;
+    if( this.get_exerciseText.value != '' ){
+      this.answer = this.get_exerciseText.value;
+      this.textareaRows = this.get_exerciseText.rows;
     }else if( this.formatedInput != '' ){
       this.answer = this.formatedInput;
     }
@@ -30,23 +34,44 @@ export default {
   methods: {
     submitAnswer: function(){
       this.$emit('emitInputAreaAnswer', this.answer, this.exerciseId);
-      this.$store.dispatch('SAVE_TEXT_FOR_EXERCISE', this.answer);
+      this.$store.dispatch('SAVE_TEXT_FOR_EXERCISE', {
+        value: this.answer,
+        rows: this.textareaRows,
+      });
+    },
+    typing: function(e) {
+      this.isAutosaved = false;
+      this.isTyping = true;
+      this.autoGrow(e.currentTarget);
     },
     checkTyping: function() {
       this.isAutosaved = false;
-      this.autoGrow(this.$refs.textarea);
       this.typingFinished();
+    },
+    paste: function(e){
+      this.autoGrow(e.currentTarget);
     },
     // eslint-disable-next-line
     typingFinished: _.debounce(function() {
       this.isAutosaved = true;
       this.submitAnswer();
-      this.typing = false;
+      this.isTyping = false;
     }, 500),
     autoGrow: function(element) {
-      element.style.height = 'auto';
-      element.style.height = `${element.scrollHeight}px`;
-    }
+      var self = this;
+      this.containerRows = this.textareaRows;
+      this.textareaRows = this.minRows;
+      this.$nextTick(()=>{
+        let rows = Math.ceil(( element.scrollHeight / 32 ) - this.minRows);
+        this.textareaRows = this.minRows + rows;
+        if( this.textareaRows <= 1 ){
+          this.textareaRows = 2;
+        }
+        setTimeout(function(){
+          self.containerRows = self.textareaRows;
+        }, 100);
+      })
+    },
   },
   watch: {
     exerciseId: function(newVal, oldVal) {
