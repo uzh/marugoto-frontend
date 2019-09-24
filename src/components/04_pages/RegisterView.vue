@@ -149,7 +149,16 @@
         <div class="logo"></div>
       </div>
       <div class="footer-menu-right font-secondary">
-        <div class="item" :class="selectedTab == 'disclaimer' ? 'focused' : ''" @click="selectedTab = 'disclaimer'" @focus="selectedTab = 'disclaimer'" tabindex="0">Disclaimer</div>
+        <div 
+          class="item" 
+          :class="selectedTab == 'disclaimer' ? 'focused' : ''" 
+          @click="selectedTab = 'disclaimer'" 
+          @focus="selectedTab = 'disclaimer'" 
+          tabindex="0">
+          Disclaimer
+        </div>
+        <a class="item" href="https://twitter.com/TransitLives" target="_blank">Twitter</a>
+        <a class="item" href="https://github.com/uzh/marugoto" target="_blank">Github</a>
       </div>
     </div>
   </div>

@@ -250,6 +250,7 @@ $elements-space: 90px;
         @extend .text-darker;
         position: relative;
         top: 34px;
+        margin-left: 10px;
         float: right;
         text-align: right;
         font-size: 18px;
@@ -257,6 +258,10 @@ $elements-space: 90px;
         color: #2F3133;
         opacity: 0.7;
         cursor: pointer;
+
+        &:hover{
+          opacity: 1;
+        }
       }
 
       .focused {
