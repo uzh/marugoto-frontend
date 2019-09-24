@@ -1,6 +1,7 @@
 // Mutations
 
 import * as types from './types';
+// import store from '.';
 
 export default({
   // ERRORS
@@ -135,6 +136,9 @@ export default({
   },
   [types.TRANSITIONS_UPDATE] (state, payload) {
     state.pageTransitionStates = payload;
+  },
+  [types.TRANSITIONS_STATE] (state, payload) {
+    state.transitionsState = payload;
   },
   [types.GAME_STATE_UPDATE] (state, payload) {
     state.gameState = payload;

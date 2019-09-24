@@ -1,6 +1,7 @@
 <template src="./template.html"></template>
 
 <script>
+import { mapGetters } from 'vuex';
 import VueMarkdown from 'vue-markdown'
 import Btn from "@/components/01_atoms/buttons"
 
@@ -14,18 +15,26 @@ export default {
       mailRef: '',
     };
   },
+  computed: {
+    ...mapGetters([ 'get_transitions_state' ]),
+  },
   methods: {
     respondToMail: function() {
       this.sendingMail = true;
     },
     sendReply: function(id) {
-      this.$store.dispatch('SAVE_MAIL_REPLY', {
-        id,
-        text: this.$refs[`mailArea${id}`].value,
-      }).then(() => {
-        this.sendingMail = false;
-        this.$store.dispatch('LAYOUT_CLOSE', 'mail');
-      });
+      if( this.get_transitions_state.mail ){
+        this.$store.dispatch('TRANSITIONS_STATE', {mail: false, page: false}).then(() => {
+          this.$store.dispatch('SAVE_MAIL_REPLY', {
+            id,
+            text: this.$refs[`mailArea${id}`].value,
+          }).then(() => {
+            this.sendingMail = false;
+            this.$store.dispatch('LAYOUT_CLOSE', 'mail');
+            this.$store.dispatch('TRANSITIONS_STATE', {mail: true, page: true});
+          });
+        });
+      }
     },
     autoGrow: function(element) {
       element.style.height = 'auto';

@@ -73,6 +73,9 @@ export default({
   [types.TOGGLE_SIDEBAR_VISIBILITY]: (context, payload) => {
     context.commit(types.TOGGLE_SIDEBAR_VISIBILITY, payload);
   },
+  [types.TRANSITIONS_STATE]: (context, payload) => {
+    context.commit(types.TRANSITIONS_STATE, payload);
+  },
   // ERRORS
   [types.ERROR_NETWORK_CONNECTION]: (context, payload) => {
     context.commit(types.ERROR_NETWORK_CONNECTION, payload);
@@ -233,6 +236,7 @@ export default({
     commit('DIALOG_UPDATE', payload.dialogNotifications);
     commit('MAIL_NOTIFICATION_UPDATE', payload.mailNotifications);
     dispatch('UPDATE_NOTEBOOK');
+    dispatch('TRANSITIONS_STATE', {mail: true, page: true});
   },
   [types.REQUEST_PAGE_CURRENT]: ({commit, dispatch}) => {
     return apiService.get('/pages/current')
@@ -244,6 +248,7 @@ export default({
     })
   },
   [types.REQUEST_PAGE_TRANSITION]: ({commit, dispatch}, payload) => {
+    dispatch('TRANSITIONS_STATE', {mail: false, page: false});
     return apiService.post(`pageTransitions/doPageTransition/${payload.id}?chosenByPlayer=${payload.userTransition}`)
     .then(resp => {
       dispatch('LAYOUT_CLOSE').then(() => {

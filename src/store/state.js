@@ -25,6 +25,10 @@ export default ({
       opened: false,
     }
   },
+  transitionsState: {
+    mail: true,
+    page: true,
+  },
   invitationLink: '',
   invitationExpired: false,
   games: {},

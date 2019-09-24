@@ -9,11 +9,13 @@ export default {
   components: { Btn },
   props: [ 'optionsList' ],
   computed: {
-    ...mapGetters([ 'get_transitions', 'get_layoutState' ]),
+    ...mapGetters([ 'get_transitions', 'get_layoutState', 'get_transitions_state' ]),
   },
   methods: {
     emitTransition(id){
-      this.$emit('transitionChoosen', {'id': id, 'userTransition': true});
+      if( this.get_transitions_state.page ){
+        this.$emit('transitionChoosen', {'id': id, 'userTransition': true});
+      }
     },
   },
 }
