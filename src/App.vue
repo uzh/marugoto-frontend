@@ -1,5 +1,8 @@
 <template>
   <div id="app">
+    <div 
+      class="loading-status-bar" 
+      :class="get_loading_bar"></div>
     <Errors v-if="get_errors.status" />
     <div v-if="!get_errors.status">
       <div class="page-container" ref="pageContainer">
@@ -35,7 +38,8 @@ export default{
       'get_layoutState',
       'get_mails',
       'get_mailNotificationState',
-      'get_errors'
+      'get_errors',
+      'get_loading_bar',
     ]),
   },
   created: function() {
@@ -80,7 +84,7 @@ export default{
       if( newVal != oldVal ) {
         this.animateContainer();
       }
-    }
+    },
   },
 }
 </script>

@@ -90,6 +90,9 @@ export default({
   [types.TOGGLE_SIDEBAR_VISIBILITY] (state, payload) {
     state.layout.statusbarVisible = payload;
   },
+  [types.LOADING_BAR_UPDATE] (state, payload) {
+    state.loadingBar = payload;
+  },
   // EXERCISE
   [types.SAVE_TEXT_FOR_EXERCISE] (state, payload) {
     state.exerciseText = payload;

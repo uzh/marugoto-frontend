@@ -2,7 +2,7 @@ import axios from 'axios'
 import store from './store'
 
 const API_URL = process.env.VUE_APP_API_PATH;
-const timeoutRequest = 10000;
+const timeoutRequest = 30000;
 const apiService = axios.create({
   baseURL: API_URL,
   timeout: timeoutRequest,
@@ -27,13 +27,37 @@ const processQueue = (error, token = null) => {
   failedQueue = [];
 }
 
+const closeBar = function(){
+  setTimeout(()=>{
+    store.dispatch('LOADING_BAR_UPDATE', 'full');
+  }, 500);
+  setTimeout(()=>{
+    store.dispatch('LOADING_BAR_UPDATE', 'out');
+  }, 1000);
+  setTimeout(()=>{
+    store.dispatch('LOADING_BAR_UPDATE', '');
+  }, 1500);
+};
+// store.dispatch('LOADING_BAR_UPDATE', 'out');
+// store.dispatch('LOADING_BAR_UPDATE', 'in');
+
+apiService.interceptors.request.use(config => {
+  store.dispatch('LOADING_BAR_UPDATE', 'in');
+  return config;
+}, error => {
+  closeBar();
+  return Promise.reject(error);
+});
+
 apiService.interceptors.response.use(function (response) {
   store.dispatch('ERROR_NETWORK_CONNECTION', {
     status: false,
     message: '',
   });
+  closeBar();
   return response;
 }, function (error) {
+  closeBar();
   /**
    * TIMEOUT ERROR
    */

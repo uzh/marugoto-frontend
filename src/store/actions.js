@@ -73,6 +73,9 @@ export default({
   [types.TOGGLE_SIDEBAR_VISIBILITY]: (context, payload) => {
     context.commit(types.TOGGLE_SIDEBAR_VISIBILITY, payload);
   },
+  [types.LOADING_BAR_UPDATE]: (context, payload) => {
+    context.commit(types.LOADING_BAR_UPDATE, payload);
+  },
   [types.TRANSITIONS_STATE]: (context, payload) => {
     context.commit(types.TRANSITIONS_STATE, payload);
   },

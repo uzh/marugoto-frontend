@@ -13,6 +13,9 @@ export default{
   get_transitions_state: state => {
     return state.transitionsState;
   },
+  get_loading_bar: state => {
+    return state.loadingBar;
+  },
   get_page: state => {
     return state.page;
   },

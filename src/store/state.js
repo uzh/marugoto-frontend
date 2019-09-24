@@ -25,6 +25,7 @@ export default ({
       opened: false,
     }
   },
+  loadingBar: '',
   transitionsState: {
     mail: true,
     page: true,

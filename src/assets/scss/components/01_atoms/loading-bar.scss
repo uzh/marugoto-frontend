@@ -1,0 +1,25 @@
+.loading-status-bar{
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 9999;
+  width: 0;
+  height: 5px;
+  background: #000;
+  opacity: 0;
+
+  transition: all 0.5s;
+
+  &.in{
+    width: 90%;
+    opacity: 1;
+  }
+  &.full{
+    width: 100%;
+    opacity: 1;
+  }
+  &.out{
+    width: 100%;
+    opacity: 0;
+  }
+}
