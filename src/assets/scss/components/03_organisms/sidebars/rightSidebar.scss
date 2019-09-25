@@ -181,4 +181,14 @@
         transform: rotate(-90deg);
       }
   }
+
+  
+}
+
+.home-button{
+  position: fixed;
+  bottom: 30px;
+  z-index: 9999;
+  right: 24px;
+  display: block;
 }

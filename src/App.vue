@@ -16,6 +16,9 @@
         v-if="get_layoutState.statusbarVisible && get_mailNotificationState" 
         :mailArrived="get_mailNotificationState" 
         :mailSender="get_mails" />
+      <router-link v-if="get_layoutState.statusbarVisible" to="/games" class="home-button">
+        <SvgIcon name="ExitGame" customColor="#000" />
+      </router-link>
     </div>
   </div>
 </template>
@@ -28,10 +31,11 @@ import NotebookContainer from '@/components/03_organisms/notebookContainer';
 import MailContainer from '@/components/03_organisms/mailContainer';
 import Topbar from '@/components/03_organisms/sidebars/topbar';
 import RightSidebar from '@/components/03_organisms/sidebars/rightSidebar';
+import SvgIcon from '@/components/01_atoms/svgicon';
 
 /* eslint-disable */
 export default{
-  components: { Errors, NotebookContainer, MailContainer, Topbar, RightSidebar, NotificationCmpt },
+  components: { Errors, NotebookContainer, MailContainer, Topbar, RightSidebar, NotificationCmpt, SvgIcon },
   computed: {
     ...mapGetters([
       'get_status',

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="32px" height="29px" viewBox="0 0 32 29" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Shape</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Symbols" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="ExitGame" transform="translate(-24.000000, -31.000000)" fill="#2F3133" fill-rule="nonzero">
+            <path d="M40,43.2 L44.6,46.65 L43.4,48.25 L40.999305,46.4491312 L41,60 L29,60 L29,58 L39,58 L38.999305,46.4491312 L36.6,48.25 L35.4,46.65 L40,43.2 Z M40,31.2191312 L50.975305,39.9991312 L51,40 L50.999305,40.0181312 L55.624695,43.7188872 L54.375305,45.2806248 L50.999305,42.5791312 L51,54 L43,54 L43,52 L49,52 L48.999305,40.9791312 L40,33.7803809 L30.999305,40.9801312 L31,52 L37,52 L37,54 L29,54 L28.999305,42.5801312 L25.624695,45.2806248 L24.375305,43.7188872 L28.999305,40.0191312 L29,40 L29.024305,39.9991312 L40,31.2191312 Z" id="Shape"></path>
+        </g>
+    </g>
+</svg>
