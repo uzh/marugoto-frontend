@@ -27,7 +27,7 @@ export default {
   },
   updated: function(){
     this.$nextTick(function(){
-      if( this.editorActive && this.get_layoutState.notebook.opened ){
+      if( this.editorActive ){
         this.$refs[`note${this.page.id}`].focus();
       }
       if( this.noteText == '' ){
