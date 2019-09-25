@@ -75,6 +75,7 @@ export default{
         }, 150);
         setTimeout(function() {
           self.$refs.pageContainer.classList.remove('page-container-opacityOff');
+          self.$refs.pageContainer.classList.remove('page-container-transitionOn');
         }, 200);
       }
     }

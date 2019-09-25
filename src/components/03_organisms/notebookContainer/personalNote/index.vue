@@ -23,11 +23,11 @@ export default {
     }
   },
   computed: {
-    ...mapGetters([ 'get_noteEditorState', 'get_personalNotes' ]),
+    ...mapGetters([ 'get_noteEditorState', 'get_personalNotes', 'get_layoutState' ]),
   },
   updated: function(){
     this.$nextTick(function(){
-      if( this.editorActive ){
+      if( this.editorActive && this.get_layoutState.notebook.opened ){
         this.$refs[`note${this.page.id}`].focus();
       }
       if( this.noteText == '' ){

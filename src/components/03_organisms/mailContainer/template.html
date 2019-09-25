@@ -1,14 +1,16 @@
-<div class="mail-container" :class="get_layoutState.mail.opened ? 'in' : ''">
+<div 
+  class="mail-container" 
+  :class="get_layoutState.mail.opened ? 'in' : ''" >
   <div class="mail-container-body">
     <!-- Mail list -->
     <MailList
-      v-if="get_mails.length > 0"
+      v-if="get_mails.length > 0 && get_layoutState.mail.opened"
       :list="get_mails"
       :selectedIndex="get_selectedMailIndex"
       @selectedMail="selectByIndex" />
     <!-- Subject container -->
     <MailBody
-      v-if="get_mails.length > 0"
+      v-if="get_mails.length > 0 && get_layoutState.mail.opened"
       :mail="get_mails[get_selectedMailIndex]" />
     <!-- Empty mailbox display -->
     <div v-if="get_mails.length == 0" class="empty-mailbox h1">No mails in inbox yet!</div>
