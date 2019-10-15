@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="40px" height="40px" viewBox="0 0 40 40" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 57.1 (83088) - https://sketch.com -->
+    <title>Icon/Reset</title>
+    <desc>Created with Sketch.</desc>
+    <g id="Icon/Reset" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <rect id="Icon" x="0" y="0" width="40" height="40"></rect>
+        <g id="Group" transform="translate(9.500000, 12.000000)" stroke="#000000" stroke-width="2">
+            <path d="M10.5,16 C14.918278,16 18.5,12.418278 18.5,8 C18.5,3.581722 14.918278,0 10.5,0 C6.081722,0 2.5,3.581722 2.5,8 L2.5,9.5" id="Oval"></path>
+            <polyline id="Line-2" stroke-linecap="square" points="5 7.5 2.5 10 -2.83800761e-14 7.5"></polyline>
+        </g>
+    </g>
+</svg>
