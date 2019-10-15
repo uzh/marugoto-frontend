@@ -24,10 +24,12 @@ export default {
     ...mapGetters(['get_exerciseText']),
   },
   mounted: function(){
-    if( this.get_exerciseText.value != '' ){
+    if( this.get_exerciseText.length != 0 ){
+      console.log('apply getter vaalue!', )
       this.answer = this.get_exerciseText.value;
       this.textareaRows = this.get_exerciseText.rows;
     }else if( this.formatedInput != '' ){
+      console.log('apply prop vaalue!')
       this.answer = this.formatedInput;
     }
   },
