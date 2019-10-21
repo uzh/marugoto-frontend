@@ -6,7 +6,7 @@ import InputComponent from '@/components/01_atoms/inputs/text'
 
 export default {
   name: 'DateComponent',
-  props: [ 'exerciseId', 'existingDate' ],
+  props: [ 'exerciseId', 'existingDate', 'label' ],
   components: { SvgIcon, InputComponent },
   data: function() {
     return{

@@ -1,4 +1,5 @@
 <div class="dateInput">
+  <span class="input-out-label" v-if="label">{{ label }}</span>
   <InputComponent 
     inputName="`dateField-${exerciseId}`" 
     v-model="inputValue" 

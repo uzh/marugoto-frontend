@@ -1,6 +1,10 @@
 $height: 50px;
 $width: 100%;
-
+.input-out-label{
+    display: inline-block;
+    margin-bottom: 10px;
+    font-family: $font-secondary;
+}
 .input-field {
    position: relative;
    box-sizing: border-box;
