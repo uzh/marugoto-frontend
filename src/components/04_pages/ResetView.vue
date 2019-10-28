@@ -9,14 +9,14 @@
             <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'" @focus="selectedTab = 'welcome'" tabindex="0">
               Welcome
             </div>
+            <div class="item" :class="selectedTab == 'partners' ? 'focused' : ''" @click="selectedTab = 'partners'" @focus="selectedTab = 'partners'" tabindex="0">
+              Partners
+            </div>
             <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'" @focus="selectedTab = 'reviews'" tabindex="0">
               Reviews
             </div>
-            <div class="item" :class="selectedTab == 'collaborations' ? 'focused' : ''" @click="selectedTab = 'collaborations'" @focus="selectedTab = 'collaborations'" tabindex="0">
-              Collaborations
-            </div>
             <div class="item" :class="selectedTab == 'quotes' ? 'focused' : ''" @click="selectedTab = 'quotes'" @focus="selectedTab = 'quotes'" tabindex="0">
-              Quotes LiT
+              Citing LiT
             </div>
           </div>
           <!-- Left Text -->
@@ -33,15 +33,15 @@
             </div>
             <div v-show="selectedTab == 'reviews'">
               <h2 class="page-title mb-50">Reviews</h2>
-              <p>This is Reviews page.</p>
+              <p>This is the Reviews page.</p>
             </div>
-            <div v-show="selectedTab == 'collaborations'">
-              <h2 class="page-title mb-50">Collaborations</h2>
-              <p>This is Collaborations page.</p>
+            <div v-show="selectedTab == 'partners'">
+              <h2 class="page-title mb-50">Partners</h2>
+              <p>This is the Partners page.</p>
             </div>
             <div v-show="selectedTab == 'quotes'">
-              <h2 class="page-title mb-50">Quotes LiT</h2>
-              <p>This is Quotes LiT page.</p>
+              <h2 class="page-title mb-50">Citing LiT</h2>
+              <p>This is the Citing LiT page.</p>
             </div>
             <div v-show="selectedTab == 'disclaimer'">
               <h2 class="page-title mb-50">Disclaimer for Marugoto</h2>
