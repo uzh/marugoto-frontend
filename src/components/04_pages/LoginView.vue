@@ -193,11 +193,9 @@ export default {
   },
   methods: {
     mounted() {
-      console.log(this.shibEnabled)
     },
     ...mapActions(['LOGIN']),
     login(){
-      console.log(this.shibEnabled)
       if ( this.mail == '' && this.password == '') {
         this.errorMessage = true;
         this.errorText = 'Please enter your E-Mail and Password.';
