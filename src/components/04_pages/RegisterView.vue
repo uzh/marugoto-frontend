@@ -37,17 +37,17 @@
           </div>
           <div v-show="selectedTab == 'partners'">
             <h2 class="page-title mb-50">Partners</h2>
-            <p>This is the Partners page.</p>
+            <p>The development of “Lives in Transit” has been supported by <a href="http://www.snf.ch/en/Pages/default.aspx">Swiss National Science Foundation (SNF)</a> as part of the “Lives in Transit: Steamship Passages in the Late-19th and Early-20th Century World” project. This is a collaboration between Prof. Martin Dusinberre (University of Zurich) and Prof. Roland Wenzlhuemer (LMU Munich), jointly funded by the SNF and the <a href="https://www.dfg.de/en/">German Research Foundation (DFG)</a>, 2017-2020. Additional financial support has been provided by the <a href="https://www.hist.uzh.ch/de.html">UZH Department of History</a> and the <a href="https://www.dsi.uzh.ch/en.html">UZH Digital Society Initiative</a>.<br><br>“Lives in Transit” has been an interdisciplinary research project. In addition to the historical team led by Prof. Dusinberre, we have worked closely with the University of Zurich’s <a href="https://www.zi.uzh.ch/en/teaching-and-research/science-it/">S3IT</a> unit, Ansich GmbH, and <a href="https://vitamin2.ch/">Vitamin2</a> GmbH. We would like to thank all the colleagues, students and friends who have tested and offered feedback on the game since 2016.</p>
           </div>
           <div v-show="selectedTab == 'quotes'">
             <h2 class="page-title mb-50">Citing LiT</h2>
             <p>This is the Citing LiT page.</p>
           </div>
           <div v-show="selectedTab == 'disclaimer'">
-            <h2 class="page-title mb-50">Disclaimer for Marugoto</h2>
-            <p>If you require any more information or have any questions about our site's disclaimer, please feel free to contact us by email at marugoto@mail.com</p>
+            <h2 class="page-title mb-50">Data use agreement for Marugoto</h2>
+            <p>If you require any more information or have any questions about our site's data use agreement, please feel free to contact us by email at marugoto@mail.com</p>
             <br>
-            <h6>Disclaimers for Marugoto Game</h6>
+            <h6>Data use agreement for Marugoto Game</h6>
             <br>
             <p>All the information on this website - <span>www.marugoto.com</span> - is published in good faith and for general information purpose only. Marugoto Game does not make any warranties about the completeness, reliability and accuracy of this information. Any action you take upon the information you find on this website, is strictly at your own risk. Marugoto Game will not be liable for any losses and/or damages in connection with the use of our website.</p>
             <br>
@@ -57,7 +57,7 @@
             <br>
             <h6>Consent</h6>
             <br>
-            <p>By using our website, you hereby consent to our disclaimer and agree to its terms.</p>
+            <p>By using our website, you hereby consent to our data use agreement and agree to its terms.</p>
             <br>
             <h6>Update</h6>
             <br>
@@ -155,7 +155,7 @@
           @click="selectedTab = 'disclaimer'" 
           @focus="selectedTab = 'disclaimer'" 
           tabindex="0">
-          Disclaimer
+          Data use agreement
         </div>
         <a class="item" href="https://twitter.com/TransitLives" target="_blank">Twitter</a>
         <a class="item" href="https://github.com/uzh/marugoto" target="_blank">Github</a>
