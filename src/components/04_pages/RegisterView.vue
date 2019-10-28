@@ -121,7 +121,9 @@
           </div>
         </div>
         <!-- From University Account -->
-        <div v-show="accountType == 'university'">
+        <div 
+          v-if="!shibEnabled"
+          v-show="accountType == 'university'">
           <h3 class="page-title mb-60">Create University Account</h3>
           <p class="lead mb-10">Enter your Data</p>
           <div>
@@ -202,6 +204,7 @@ export default {
         },
       },
       selectedTab: 'welcome',
+      shibEnabled: process.env.VUE_APP_ENABLE_SHIB,
     }
   },
   created() {
