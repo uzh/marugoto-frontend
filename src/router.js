@@ -119,11 +119,17 @@ const router = new Router({
       path: '/404',
       name: 'pageNotFound',
       component: PageNotFound,
+      meta: {
+        requireAuth: false,
+      },
     },
     // Redirects Unknown Urls to 404
     {
       path: '*',
       redirect: '404',
+      meta: {
+        requireAuth: false,
+      },
     },
   ],
 })
@@ -139,7 +145,7 @@ router.beforeEach((to, from, next) => {
     document.body.classList = 'sidebar-page-padding-right';
     store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
     store.dispatch('LAYOUT_CLOSE');
-    if( to.name == 'register' || to.name == 'login' || to.name == 'reset' ){
+    if( to.name == 'register' || to.name == 'login' || to.name == 'reset'){
       next();
       return;
     }else{
