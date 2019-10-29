@@ -15,34 +15,17 @@
           <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'" @focus="selectedTab = 'reviews'" tabindex="0">
             Reviews
           </div>
-          <div class="item" :class="selectedTab == 'quotes' ? 'focused' : ''" @click="selectedTab = 'quotes'" @focus="selectedTab = 'quotes'" tabindex="0">
+          <div class="item" :class="selectedTab == 'citing' ? 'focused' : ''" @click="selectedTab = 'citing'" @focus="selectedTab = 'citing'" tabindex="0">
             Citing LiT
           </div>
         </div>
         <!-- Left Text -->
         <div class="wrapper-container-left">
-          <div v-show="selectedTab == 'welcome'">
-            <h2 class="page-title mb-50">Welcome to Lives in Transit!</h2>
-            <p>Lives in Transit is a <strong>text-based adventure game</strong> (in the words of one player). Or, to keep things respectably academic, it is an interactive E-learning tool which simulates the experience of researching and writing global history.</p>
-            <br>
-            <p>As a player, you will adopt the role of a university graduate student, choose a research topic, and work through a challenging set of storylines. You’ll collect real historical sources along the way and create a record of how your thinking changes during research. As a teacher, you can set your students to play in class, mapping their progress—and their frustrations—through the different storylines.</p>
-            <br>
-            <p>Like this historical map of Japan’s Yamashiro province, your research landscape will change as you decide which road you’ll take. So: get lost (as it were). We hope you learn and have fun.</p>
-            <br>
-            <p>The LiT Team, University of Zurich</p>
-          </div>
-          <div v-show="selectedTab == 'reviews'">
-            <h2 class="page-title mb-50">Reviews</h2>
-            <p>This is the Reviews page.</p>
-          </div>
-          <div v-show="selectedTab == 'partners'">
-            <h2 class="page-title mb-50">Partners</h2>
-            <p>The development of “Lives in Transit” has been supported by <a href="http://www.snf.ch/en/Pages/default.aspx">Swiss National Science Foundation (SNF)</a> as part of the “Lives in Transit: Steamship Passages in the Late-19th and Early-20th Century World” project. This is a collaboration between Prof. Martin Dusinberre (University of Zurich) and Prof. Roland Wenzlhuemer (LMU Munich), jointly funded by the SNF and the <a href="https://www.dfg.de/en/">German Research Foundation (DFG)</a>, 2017-2020. Additional financial support has been provided by the <a href="https://www.hist.uzh.ch/de.html">UZH Department of History</a> and the <a href="https://www.dsi.uzh.ch/en.html">UZH Digital Society Initiative</a>.<br><br>“Lives in Transit” has been an interdisciplinary research project. In addition to the historical team led by Prof. Dusinberre, we have worked closely with the University of Zurich’s <a href="https://www.zi.uzh.ch/en/teaching-and-research/science-it/">S3IT</a> unit, Ansich GmbH, and <a href="https://vitamin2.ch/">Vitamin2</a> GmbH. We would like to thank all the colleagues, students and friends who have tested and offered feedback on the game since 2016.</p>
-          </div>
-          <div v-show="selectedTab == 'quotes'">
-            <h2 class="page-title mb-50">Citing LiT</h2>
-            <p>This is the Citing LiT page.</p>
-          </div>
+          <Welcome v-show="selectedTab == 'welcome'"/>
+          <Reviews v-show="selectedTab == 'reviews'"/>
+          <Partners v-show="selectedTab == 'partners'"/>
+          <Citing v-show="selectedTab == 'citing'"/>
+          <Agreement v-show="selectedTab == 'agreement'"/>
         </div>
       </div>
     </div>
@@ -129,10 +112,14 @@
         <div class="logo"></div>
       </div>
       <div class="footer-menu-right font-secondary">
-        <a 
+        <div 
           class="item" 
-          target="_blank" href="/agreement">Data use agreement
-        </a>
+          :class="selectedTab == 'agreement' ? 'focused' : ''" 
+          @click="selectedTab = 'agreement'" 
+          @focus="selectedTab = 'agreement'" 
+          tabindex="0">
+          Data use agreement
+        </div>
         <a class="item" href="https://twitter.com/TransitLives" target="_blank">Twitter</a>
         <a class="item" href="https://github.com/uzh/marugoto" target="_blank">Github</a>
       </div>
@@ -147,10 +134,15 @@ import InputField from '@/components/01_atoms/inputs/text';
 import Btn from '@/components/01_atoms/buttons';
 import SelectField from '@/components/01_atoms/inputs/select';
 import SvgIcon from '@/components/01_atoms/svgicon';
+import Welcome from '@/components/00_static/welcome';
+import Agreement from '@/components/00_static/agreement';
+import Citing from '@/components/00_static/citing';
+import Reviews from '@/components/00_static/reviews';
+import Partners from '@/components/00_static/partners';
 
 export default {
   name: 'registerView',
-  components: { InputField, Btn, SelectField, SvgIcon },
+  components: { InputField, Btn, SelectField, SvgIcon, Welcome, Agreement, Citing, Reviews, Partners },
   data(){
     return{
       firstName: '',
