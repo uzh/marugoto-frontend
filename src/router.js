@@ -13,6 +13,7 @@ import SupervisorView from '@/components/04_pages/SupervisorView.vue'
 import AddNewClassView from '@/components/04_pages/AddNewClassView.vue'
 import ClassroomView from '@/components/04_pages/ClassroomView.vue'
 import PageNotFound from '@/components/04_pages/PageNotFound.vue'
+import Agreement from '@/components/04_pages/Agreement.vue'
 
 
 Vue.use(Router);
@@ -116,14 +117,28 @@ const router = new Router({
     //   component: LoginView,
     // },
     {
+      path: '/agreement',
+      name: 'agreement',
+      component: Agreement,
+      meta: {
+        requireAuth: false,
+      },
+    },
+    {
       path: '/404',
       name: 'pageNotFound',
       component: PageNotFound,
+      meta: {
+        requireAuth: false,
+      },
     },
     // Redirects Unknown Urls to 404
     {
       path: '*',
       redirect: '404',
+      meta: {
+        requireAuth: false,
+      },
     },
   ],
 })
@@ -139,7 +154,7 @@ router.beforeEach((to, from, next) => {
     document.body.classList = 'sidebar-page-padding-right';
     store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
     store.dispatch('LAYOUT_CLOSE');
-    if( to.name == 'register' || to.name == 'login' || to.name == 'reset' ){
+    if( to.name == 'register' || to.name == 'login' || to.name == 'reset' || to.name == 'agreement'){
       next();
       return;
     }else{
