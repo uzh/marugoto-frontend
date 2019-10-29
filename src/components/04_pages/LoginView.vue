@@ -73,6 +73,7 @@
         <h3 class="page-title mb-60">Login</h3>
         <div class="choose-account clearfix">
           <div 
+            v-if="!shibEnabled"
             class="account block-left" 
             :class="accountType == 'university' ? '' : 'text-darker'" 
             @click="accountType = 'university'" 
@@ -90,7 +91,10 @@
         </div>
 
         <!-- University Account Form -->
-        <div v-show="accountType == 'university'" class="mt-40">
+        <div 
+          v-if="!shibEnabled"
+          v-show="accountType == 'university'"
+          class="mt-40">
           <p class="lead mb-10">Account</p>
           <div>
             <SelectField labelName="Select University" :list="uniList" />
@@ -184,9 +188,12 @@ export default {
       successText: '',
       forgottenPassword: false,
       selectedTab: 'welcome',
+      shibEnabled: process.env.VUE_APP_ENABLE_SHIB,
     }
   },
   methods: {
+    mounted() {
+    },
     ...mapActions(['LOGIN']),
     login(){
       if ( this.mail == '' && this.password == '') {
