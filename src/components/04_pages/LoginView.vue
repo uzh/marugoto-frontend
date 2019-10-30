@@ -34,9 +34,8 @@
       <!-- Login Form -->
       <div class="wrapper-container-right">
         <h3 class="page-title mb-60">Login</h3>
-        <div class="choose-account clearfix">
-          <div 
-            v-if="!shibEnabled"
+        <div class="choose-account clearfix" v-if="!shibEnabled">
+          <div
             class="account block-left" 
             :class="accountType == 'university' ? '' : 'text-darker'" 
             @click="accountType = 'university'" 
