@@ -72,29 +72,15 @@
                 inputName="registerPassword" 
                 v-model="password" 
                 typeProp="password" 
-                labelName="Password" 
+                labelName="Password"
                 :required="errorMessage"/>
-            </form>
-            <div v-if="errorText" class="login-error-message">
-              <p>{{ errorText.text }}</p>
-              <p v-if="errorText.errorList.mail">- {{ errorText.errorList.mail }}</p>
-              <p v-if="errorText.errorList.password">- {{ errorText.errorList.password }}</p>
-            </div>
-            <Btn class="mt-30" @click.native="register" text="Create Account" primary="true" />
-          </div>
-        </div>
-        <!-- From University Account -->
-        <div 
-          v-if="!shibEnabled"
-          v-show="accountType == 'university'">
-          <h3 class="page-title mb-60">Create University Account</h3>
-          <p class="lead mb-10">Enter your Data</p>
-          <div>
-            <form class="full-width" @keydown.enter="register">
-              <InputField inputName="unFirstName" v-model="firstName" labelName="Name / Pseudonym" :required="errorMessage" />
-              <InputField inputName="unLastname" v-model="lastName" labelName="Lastname / Pseudonym" :required="errorMessage" />
-              <!--<SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />-->
-              <InputField inputName="unEmail" v-model="mail" typeProp="email" labelName="E-Mail" :required="errorMessage" iconName="info" />
+              <p class="lead mb-10">Answer this question to prove you are human</p>
+              <InputField
+                v-model="answer"
+                autocomplete="off"
+                inputName="answer" 
+                :labelName="question"
+                :required="errorMessage"/>
             </form>
             <div v-if="errorText" class="login-error-message">
               <p>{{ errorText.text }}</p>
@@ -141,6 +127,7 @@ import Agreement from '@/components/00_static/agreement';
 import Citing from '@/components/00_static/citing';
 import Reviews from '@/components/00_static/reviews';
 import Partners from '@/components/00_static/partners';
+import { question, answer } from 'acrion';
 
 export default {
   name: 'registerView',
@@ -151,17 +138,8 @@ export default {
       lastName: '',
       mail: '',
       password: '',
-      // genderList: [
-      //   {
-      //     name: 'Male',
-      //     value: 'Male',
-      //   },
-      //   {
-      //     name: 'Female',
-      //     value: 'Female',
-      //   }
-      // ],
-      // gender: '',
+      question: question(),
+      answer: '',
       accountType: '',
       errorMessage: false,
       errorText: {
@@ -181,24 +159,29 @@ export default {
   methods: {
     ...mapActions(['REGISTER']),
     register(){
-      if ( this.firstName == '' || this.lastName == '' || this.mail == '' || this.password == '') {
+      if ( this.firstName == '' || this.lastName == '' || this.mail == '' || this.password == '' || this.answer == '') {
         this.errorMessage = true;
         this.errorText.text = 'Please fill in all information.';
       } else {
-        this.$store.dispatch('REGISTER',{
-          firstName: this.firstName,
-          lastName: this.lastName,
-          mail: this.mail,
-          password: this.password
-        }).then(registerData => {
-          this.$store.dispatch('LOGIN', registerData).then(() => this.$router.push('/games'));
-        })
-        .catch(error => {
-          this.errorText.text = error.response.data.message;
-          this.errorText.errorList.mail = error.response.data.errorList.mail;
-          this.errorText.errorList.password = error.response.data.errorList.password;
+        if ( answer(this.question, this.answer)) {
+          this.$store.dispatch('REGISTER',{
+            firstName: this.firstName,
+            lastName: this.lastName,
+            mail: this.mail,
+            password: this.password,
+          }).then(registerData => {
+            this.$store.dispatch('LOGIN', registerData).then(() => this.$router.push('/games'));
+          })
+          .catch(error => {
+            this.errorText.text = error.response.data.message;
+            this.errorText.errorList.mail = error.response.data.errorList.mail;
+            this.errorText.errorList.password = error.response.data.errorList.password;
+            this.errorMessage = true;
+          });
+        } else {
+          this.errorText.text = "Incorrect answer";
           this.errorMessage = true;
-        });
+        }
       }
     },
     setGender(value){
