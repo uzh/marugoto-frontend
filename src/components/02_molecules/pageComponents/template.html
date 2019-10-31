@@ -6,10 +6,6 @@
     :class="`col-xs-${component.component.numberOfColumns} col-xs-offset-${component.component.offsetColumns}`" >
     <!-- Text -->
     <vue-markdown class="mb-40"
-      :style="{
-        'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
-        'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
-      }"
       v-if="component.type == 'TextComponent'" 
       :source="component.component.markdownContent" />
     <!-- Image -->
@@ -21,11 +17,7 @@
       :zoomable="component.component.zoomable" />
     <!-- Date Component Separated Test -->
     <div
-      v-if="component.type == 'DateExercise'"
-      :style="{
-        'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
-        'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
-      }" >
+      v-if="component.type == 'DateExercise'">
       <DateField :exerciseId="component.state.id" @emitDate="dateInputEmit" :label="component.component.label" />
     </div>
     <!-- <DateComponent
@@ -41,10 +33,6 @@
     <div v-if="component.type == 'RadioButtonExercise'">
       <ExerciseRadio
         class="mb-40"
-        :style="{
-          'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
-          'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
-        }"
         @emitRadioChange="submitAnswer"
         :exerciseId="component.state.id"
         :list="component.component.options"
@@ -54,10 +42,6 @@
     <div v-if="component.type == 'CheckboxExercise'">
       <ExerciseCheckbox
         class="mb-40"
-        :style="{
-          'margin-left': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : '',
-          'margin-right': component.component.numberOfColumns == 10 || get_layoutState.notebook.opened ? '10%' : ''
-        }"
         @emitCheckboxChange="submitAnswer"
         :exerciseId="component.state.id"
         :optionsList="component.component.options"
