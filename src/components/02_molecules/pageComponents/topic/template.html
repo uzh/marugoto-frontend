@@ -1,11 +1,12 @@
 <div class="topic-container">
   <div class="clearfix">
     <div class="topic-header col-xs-7 col-xs-offset-2">
-      <h1 class="topic-title">Topic Selection</h1>
+      <h1 class="topic-title">Select a game</h1>
       <p class="lead">
-        Please have a look at all the topics and choose the one that 
-        interests you the most. Choose wisely, you won’t be able to go 
-        back after you start with one of the topics!
+      When  <strong>Lives in Transit</strong> is launched in Spring 2020, there will be a selection of games for you to choose from here. In the meantime, you can get a playable preview of the <strong>Marugoto</strong> game engine by playing through a short extract from the beginning of the <strong>Defining Work</strong> game.
+      </p>
+      <p>
+        We are pleased to hear your feedback on both the Marugoto engine and the <strong>Defining Work</strong> demo content via either our <a class="underlined" :href="https://github.com/uzh/marugoto" target="_blank">GitHub</a> or <a class="underlined" :href="https://twitter.com/transitlives" target="_blank">Twitter</a> pages. Ideas, pull requests or general queries are all welcome.
       </p>
     </div>
   </div>
@@ -27,7 +28,7 @@
           <Btn
           @click.native="$emit('openTopic', topic.id)"
           class="topic-button"
-          text="Preview this Topic" 
+          text="Preview this game" 
           primary="true" />
         </div>
       </div>
