@@ -6,7 +6,6 @@
         <h5 class="title">Classes</h5>
         <div class="button-field">
           <router-link class="back-to-games small" to="/games">Back to games</router-link>
-          <router-link class="sign-out small" to="/logout">Sign out</router-link>
         </div>
       </div>
       <!-- Add new class -->
