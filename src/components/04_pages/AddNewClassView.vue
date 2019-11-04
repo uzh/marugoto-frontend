@@ -12,7 +12,6 @@
         </div>
         <div class="button-field">
           <router-link class="back-to-games small" to="/games">Back to games</router-link>
-          <router-link class="sign-out small" @click.native="logout">Sign out</router-link>
         </div>
       </div>
       <!-- Add new class -->
@@ -122,9 +121,6 @@ export default {
       setTimeout(() => {
         self.copied = false;
       }, 2000);
-    },
-    logout(){
-      this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
     },
     clipboardErrorHandler: function() {
       alert('Error cipy to clipboard! Link is: ' + this.invitationLink)

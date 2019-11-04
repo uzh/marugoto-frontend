@@ -127,7 +127,7 @@ const router = new Router({
       },
     },
   ],
-})
+});
 
 // Global Guard
 router.beforeEach((to, from, next) => {
@@ -140,37 +140,36 @@ router.beforeEach((to, from, next) => {
     document.body.classList = 'sidebar-page-padding-right';
     store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
     store.dispatch('LAYOUT_CLOSE');
-    if( to.name == 'register' || to.name == 'login' || to.name == 'reset'){
+    if (to.name === 'register' || to.name === 'login' || to.name === 'reset') {
       next();
-    }else{
+    } else {
       next('/login')
     }
-  }else{
-    if( !store.getters.get_supervision.selected ){
+  } else {
+    if (!store.getters.get_supervision.selected) {
       document.body.classList = 'sidebar-page-padding-top sidebar-page-padding-right';
-
-      if( to.name === 'home' && store.getters.get_topic.id != undefined ){
+      if (to.name === 'home' && store.getters.get_topic.id !== undefined) {
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', true);
         next('/storyline');
-      }else if( to.name === 'home' && store.getters.get_topic.id === undefined ){
+      }else if (to.name === 'home' && store.getters.get_topic.id === undefined) {
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next('/games');
-      }else if( to.name === 'games' ){
+      }else if (to.name === 'games') {
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next();
-      }else if( to.name === 'topics' ){
+      }else if (to.name === 'topics') {
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next();
-      }else if( to.name === 'storyline' && store.getters.get_topic.id != undefined ){
+      }else if (to.name === 'storyline' && store.getters.get_topic.id !== undefined) {
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', true);
         next();
-      }else if( to.name === 'storyline' && store.getters.get_topic.id === undefined ){
+      }else if (to.name === 'storyline' && store.getters.get_topic.id === undefined) {
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
@@ -179,39 +178,38 @@ router.beforeEach((to, from, next) => {
         next(from.path);
       }
     }
-    else if( store.getters.get_supervision.selected  ){
+    else if (store.getters.get_supervision.selected) {
       store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
-      if( to.name === 'home' ){
+      if (to.name === 'home') {
         document.body.classList = '';
         next('/overview');
       }
-      else if( to.name === 'topics' ){
+      else if (to.name === 'topics') {
         store.dispatch('UPDATE_SUPERVISION', false);
         store.dispatch('TOGGLE_SIDEBAR_VISIBILITY', false);
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next();
       }
-      else if( to.name === 'overview' ){
+      else if (to.name === 'overview') {
         document.body.classList = '';
         next();
       }
-      else if( to.name === 'add-new-class' ){
+      else if (to.name === 'add-new-class') {
         document.body.classList = '';
         next();
       }
-      else if( to.name === 'classroom' ){
+      else if (to.name === 'classroom') {
         document.body.classList = '';
         next();
       }
-      else if( to.name === 'games' ){
+      else if (to.name === 'games') {
         store.dispatch('UPDATE_SUPERVISION', false);
         store.dispatch('LAYOUT_CLOSE');
         next();
-      }else{
+      } else {
         next(from.path);
       }
-      
     }
   }
 });

@@ -23,9 +23,9 @@ const processQueue = (error, token = null) => {
     } else {
       prom.resolve(token);
     }
-  })
+  });
   failedQueue = [];
-}
+};
 
 const closeBar = function(){
   setTimeout(()=>{
@@ -38,8 +38,6 @@ const closeBar = function(){
     store.dispatch('LOADING_BAR_UPDATE', '');
   }, 1500);
 };
-// store.dispatch('LOADING_BAR_UPDATE', 'out');
-// store.dispatch('LOADING_BAR_UPDATE', 'in');
 
 apiService.interceptors.request.use(config => {
   store.dispatch('LOADING_BAR_UPDATE', 'in');
@@ -61,14 +59,14 @@ apiService.interceptors.response.use(function (response) {
   /**
    * TIMEOUT ERROR
    */
-  if( error.message == `timeout of ${timeoutRequest}ms exceeded` ){
+  if( error.message === `timeout of ${timeoutRequest}ms exceeded` ){
     store.dispatch('LOGOUT');
   }
 
   /**
    * SERVER ERROR
    */
-  if( error.message == 'Network Error' ) {
+  if( error.message === 'Network Error' ) {
     store.dispatch('ERROR_NETWORK_CONNECTION', {
       status: true,
       message: error.response.data.message, //"Ops we can't reach server right now. Please try again later.",
@@ -79,7 +77,7 @@ apiService.interceptors.response.use(function (response) {
   /**
    * DATABASE ERROR
    */
-  if( error.response.status === 500 && error.response.data.exception == 'ArangoDBException'){
+  if( error.response.status === 500 && error.response.data.exception === 'ArangoDBException'){
     store.dispatch('ERROR_NETWORK_CONNECTION', {
       status: true,
       message: error.response.data.message, //'Database not reachable, please try again later!',
@@ -90,7 +88,7 @@ apiService.interceptors.response.use(function (response) {
   /**
    * GAMESTATE BROKEN
    */
-  if( error.response.data.exception == 'GameStateBrokenException'){
+  if( error.response.data.exception === 'GameStateBrokenException'){
     store.dispatch('LOGOUT');
     return;
   }
@@ -109,7 +107,7 @@ apiService.interceptors.response.use(function (response) {
   /**
    * INVITATION LINK EXPIRED
    */
-  if( error.response.status === 400 && error.response.data.exception == 'ClassroomLinkExpiredException'){
+  if( error.response.status === 400 && error.response.data.exception === 'ClassroomLinkExpiredException'){
     store.dispatch('CLEAR_INVITATION_LINK');
     store.dispatch('INVITATION_EXPIRED', error.response.data.message);
     return;
@@ -118,7 +116,7 @@ apiService.interceptors.response.use(function (response) {
   /**
    * INVITATION LINK NOT POSSIBLE
    */
-  if( error.response.status === 400 && error.response.data.exception == 'ClassroomNotWithSameUser'){
+  if( error.response.status === 400 && error.response.data.exception === 'ClassroomNotWithSameUser'){
     store.dispatch('CLEAR_INVITATION_LINK');
     store.dispatch('INVITATION_EXPIRED', error.response.data.message);
     return;
@@ -130,7 +128,7 @@ apiService.interceptors.response.use(function (response) {
   
   const originalRequest = error.config;
   if (error.response.status === 401 && !originalRequest._retry) {
-    if( error.config.url == `${API_URL}auth/refresh-token` ){
+    if( error.config.url === `${API_URL}auth/refresh-token` ){
       failedQueue = [];
       store.dispatch('LOGOUT');
       return;
