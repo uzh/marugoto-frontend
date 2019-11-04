@@ -62,7 +62,7 @@
             <SelectField labelName="Select University" :list="uniList" />
             <Btn text="Login" primary="true" class="mb-40"/>
           </div>
-          <p class="lead mt-30 mb-10">I'm first time User</p>
+          <p class="lead mt-30 mb-10">I'm a first time user</p>
           <form class="mt-10">
             <SelectField labelName="Select University" :list="uniList" />
           </form>
@@ -92,7 +92,7 @@
             <Btn text="Login" primary="true" @click.native="login" />
             <Btn text="Forgot Password?" ghost="true" @click.native="forgotPassword" class="mt-10 mb-40" />
           </div>
-          <p class="lead mt-30 mb-10">I'm a first time User</p>
+          <p class="lead mt-30 mb-10">I'm a first time user</p>
           <Btn @click.native="goToRegister('guest')" text="Create Account" ghost="true" />
         </div>
       </div>
