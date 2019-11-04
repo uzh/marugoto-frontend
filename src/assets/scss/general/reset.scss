@@ -54,6 +54,9 @@ a {
   color: inherit;
   cursor: pointer;
 }
+.underlined:hover {
+  color: black;
+}
 :focus {
   outline: none;
 }
