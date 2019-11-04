@@ -7,7 +7,8 @@
         <h1>Your games</h1>
       </div>
       <div class="supervise-game">
-        <Btn text="Supervise Group Game" ghost="true" iconName="arrow-right" @click.native="goToOverview"/>
+        <Btn text="Supervise group game" ghost="true" iconName="arrow-right" @click.native="goToOverview"/>
+        <Btn text="Sign out" ghost="true" @click.native="logout"/>
       </div>
     </div>
     <!-- Lead text -->
@@ -80,6 +81,9 @@ export default {
   methods: {
     goToTopics: function() {
       this.$router.push('/topics');
+    },
+    logout(){
+      this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
     },
     goToOverview: function() {
       this.$store.dispatch('UPDATE_SUPERVISION', true)

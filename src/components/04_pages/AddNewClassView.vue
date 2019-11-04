@@ -10,7 +10,8 @@
           <h5 v-if="classname.length < 1">Class Name</h5>
           <h5 v-if="classname.length > 0">{{ classname }}</h5>
         </div>
-        <router-link class="sign-out small" to="/games">Sign Out</router-link>
+        <router-link class="sign-out small" to="/games">Back to games</router-link>
+        <router-link class="sign-out small" to="/logout">Sign out</router-link>
       </div>
       <!-- Add new class -->
       <div class="new-class-entry">

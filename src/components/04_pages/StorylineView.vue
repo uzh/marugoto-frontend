@@ -136,9 +136,6 @@ export default {
         });
       }
     },
-    logout(){
-      this.$store.dispatch('LOGOUT').then(() => this.$router.push('/'));
-    },
     dialogOptionEmited: function(answerID, dialogID) {
       this.$store.dispatch('DIALOG_ANSWER', {answerID, dialogID});
     },

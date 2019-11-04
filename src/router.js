@@ -35,6 +35,13 @@ const router = new Router({
       },
     },
     {
+      path: '/logout',
+      name: 'logout',
+      meta: {
+        requireAuth: true,
+      },
+    },
+    {
       path: '/register',
       name: 'register',
       component: RegisterView,
@@ -181,7 +188,10 @@ router.beforeEach((to, from, next) => {
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next('/games');
-      }else{
+      } else if( to.name == 'logout') {
+        store.dispatch('LOGOUT');
+        next('/');
+      } else {
         next(from.path);
       }
     }
