@@ -68,7 +68,7 @@
             Data use agreement
           </div>
           <a class="item" href="https://twitter.com/TransitLives" target="_blank">Twitter</a>
-          <a class="item" href="https://github.com/uzh/marugoto" target="_blank">Github</a>
+          <a class="item" href="https://github.com/uzh/marugoto" target="_blank">GitHub</a>
         </div>
       </div>
     </div>
