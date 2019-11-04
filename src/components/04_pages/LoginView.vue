@@ -21,6 +21,9 @@
           <div class="item" :class="selectedTab == 'about' ? 'focused' : ''" @click="selectedTab = 'about'" @focus="selectedTab = 'about'" tabindex="0">
             About
           </div>
+          <div class="item" :class="selectedTab == 'faq' ? 'focused' : ''" @click="selectedTab = 'faq'" @focus="selectedTab = 'faq'" tabindex="0">
+            FAQs
+          </div>
         </div>
         <!-- Left Text -->
         <div class="wrapper-container-left">
@@ -30,6 +33,7 @@
           <Citing v-show="selectedTab == 'citing'"/>
           <Agreement v-show="selectedTab == 'agreement'"/>
           <About v-show="selectedTab == 'about'"/>
+          <FAQs v-show="selectedTab == 'faq'"/>
         </div>
       </div>
     </div>
@@ -138,10 +142,11 @@ import Citing from '@/components/00_static/citing';
 import Reviews from '@/components/00_static/reviews';
 import Partners from '@/components/00_static/partners';
 import About from '@/components/00_static/about';
+import FAQs from '@/components/00_static/faq';
 
 export default {
   name: 'loginView',
-  components: { InputField, Btn, SelectField, SvgIcon, Welcome, Agreement, Citing, Reviews, Partners, About },
+  components: { InputField, Btn, SelectField, SvgIcon, Welcome, Agreement, Citing, Reviews, Partners, About, FAQs },
   data(){
     return{
       mail: '',
