@@ -35,13 +35,6 @@ const router = new Router({
       },
     },
     {
-      path: '/logout',
-      name: 'logout',
-      meta: {
-        requireAuth: true,
-      },
-    },
-    {
       path: '/register',
       name: 'register',
       component: RegisterView,
@@ -117,11 +110,6 @@ const router = new Router({
       name: 'invitationLink',
       component: TopicsView,
     },
-    // {
-    //   path: '/:id',
-    //   name: 'link',
-    //   component: LoginView,
-    // },
     {
       path: '/404',
       name: 'pageNotFound',
@@ -130,7 +118,7 @@ const router = new Router({
         requireAuth: false,
       },
     },
-    // Redirects Unknown Urls to 404
+    // Redirects Unknown Urls to 404, note that this only affects logged in users (others are redirected to login)
     {
       path: '*',
       redirect: '404',
@@ -154,7 +142,6 @@ router.beforeEach((to, from, next) => {
     store.dispatch('LAYOUT_CLOSE');
     if( to.name == 'register' || to.name == 'login' || to.name == 'reset'){
       next();
-      return;
     }else{
       next('/login')
     }
@@ -188,9 +175,6 @@ router.beforeEach((to, from, next) => {
         store.dispatch('LAYOUT_CLOSE');
         document.body.classList = '';
         next('/games');
-      } else if( to.name == 'logout') {
-        store.dispatch('LOGOUT');
-        next('/');
       } else {
         next(from.path);
       }

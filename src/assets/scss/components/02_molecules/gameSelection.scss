@@ -11,7 +11,7 @@
         .title {
             display: table-cell;
             vertical-align: middle;
-            width: 70%;
+            width: 50%;
 
             h1 {
                 font-weight: normal;
@@ -21,6 +21,12 @@
         .supervise-game {
             display: table-cell;
             vertical-align: middle;
+            width: 275px;
+        }
+        .sign-out {
+            display: table-cell;
+            vertical-align: middle;
+            width: 175px;
         }
     }
 

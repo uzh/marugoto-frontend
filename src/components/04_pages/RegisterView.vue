@@ -184,9 +184,6 @@ export default {
         }
       }
     },
-    setGender(value){
-      this.gender = value;
-    },
     goToLogin(){
       this.$router.push('/login');
     },

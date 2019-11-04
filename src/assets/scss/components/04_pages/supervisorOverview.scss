@@ -55,13 +55,45 @@
         .sign-out {
             display: table-cell;
             vertical-align: middle;
-            width: 30%;
+            width: 75px;
             text-align: right;
             cursor: pointer;
 
             &:hover {
                 text-decoration: underline;
             }
+        }
+
+        .back-to-games {
+            display: table-cell;
+            vertical-align: middle;
+            width: 110px;
+            text-align: right;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .back-to-classes {
+            display: table-cell;
+            vertical-align: middle;
+            width: 120px;
+            text-align: right;
+            cursor: pointer;
+
+            &:hover {
+                text-decoration: underline;
+            }
+        }
+
+        .button-field {
+            display: table-cell;
+            vertical-align: middle;
+            width: 100%;
+            padding-right: 20px;
+            text-align: right;
         }
     }
 
