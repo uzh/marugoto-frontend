@@ -4,8 +4,10 @@
       <!-- Page Header -->
       <div class="header">
         <h5 class="title">Classes</h5>
-        <router-link class="sign-out small" to="/games">Back to games</router-link>
-        <router-link class="sign-out small" to="/logout">Sign out</router-link>
+        <div>
+          <router-link class="sign-out small" to="/games">Back to games</router-link>
+          <router-link class="sign-out small" to="/logout">Sign out</router-link>
+        </div>
       </div>
       <!-- Add new class -->
       <div class="add-new-class-button">
