@@ -51,8 +51,8 @@
       <div class="wrapper-container-right">
         <!-- From Guest Account -->
         <div v-show="accountType == 'guest'">
-          <h3 class="page-title mb-60">Create LiT Account</h3>
-          <p class="lead mb-10">Enter your Data</p>
+          <h3 class="page-title mb-60">Create LiT account</h3>
+          <p class="lead mb-10">Enter your data</p>
           <div>
             <form class="full-width" @keydown.enter="register">
               <InputField 
@@ -95,7 +95,7 @@
               <p v-if="errorText.errorList.mail">- {{ errorText.errorList.mail }}</p>
               <p v-if="errorText.errorList.password">- {{ errorText.errorList.password }}</p>
             </div>
-            <Btn class="mt-30" @click.native="register" text="Create Account" primary="true" />
+            <Btn class="mt-30" @click.native="register" text="Create account" primary="true" />
           </div>
         </div>
       </div>
