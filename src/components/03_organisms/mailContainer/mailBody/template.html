@@ -5,7 +5,7 @@
     <div class="sender">
       <div v-if="sendingMail" class="send-mail-text-to small">To</div>
       <h5>{{ mail.mail.from.name }}</h5>
-      <button v-if="!sendingMail" class="respond-button" @click="respondToMail">Respond to E-Mail</button>
+      <button v-if="!sendingMail" class="respond-button" @click="respondToMail">Reply</button>
       <Btn 
         v-if="sendingMail" 
         class="send-mail-button" 
@@ -48,7 +48,7 @@
       v-if="!sendingMail" 
       class="respondMail"
       @click="respondToMail">
-      Respond to E-Mail
+      Reply
     </button>
   </div>
 </div>

@@ -18,6 +18,12 @@
             <div class="item" :class="selectedTab == 'citing' ? 'focused' : ''" @click="selectedTab = 'citing'" @focus="selectedTab = 'citing'" tabindex="0">
               Citing LiT
             </div>
+            <div class="item" :class="selectedTab == 'about' ? 'focused' : ''" @click="selectedTab = 'about'" @focus="selectedTab = 'about'" tabindex="0">
+              About
+            </div>
+            <div class="item" :class="selectedTab == 'faq' ? 'focused' : ''" @click="selectedTab = 'faq'" @focus="selectedTab = 'faq'" tabindex="0">
+              FAQs
+            </div>
           </div>
           <!-- Left Text -->
           <div class="wrapper-container-left">
@@ -26,6 +32,8 @@
             <Partners v-show="selectedTab == 'partners'"/>
             <Citing v-show="selectedTab == 'citing'"/>
             <Agreement v-show="selectedTab == 'agreement'"/>
+            <About v-show="selectedTab == 'about'"/>
+            <FAQs v-show="selectedTab == 'faq'"/>
           </div>
         </div>
       </div>
@@ -68,7 +76,7 @@
             Data use agreement
           </div>
           <a class="item" href="https://twitter.com/TransitLives" target="_blank">Twitter</a>
-          <a class="item" href="https://github.com/uzh/marugoto" target="_blank">Github</a>
+          <a class="item" href="https://github.com/uzh/marugoto" target="_blank">GitHub</a>
         </div>
       </div>
     </div>
@@ -86,10 +94,12 @@ import Agreement from '@/components/00_static/agreement';
 import Citing from '@/components/00_static/citing';
 import Reviews from '@/components/00_static/reviews';
 import Partners from '@/components/00_static/partners';
+import About from '@/components/00_static/about';
+import FAQs from '@/components/00_static/faq';
 
 export default {
   name: 'resetView',
-  components: { InputField, Btn, SelectField, SvgIcon, Welcome, Agreement, Citing, Reviews, Partners },
+  components: { InputField, Btn, SelectField, SvgIcon, Welcome, Agreement, Citing, Reviews, Partners, About, FAQs },
   data(){
     return{
       mail: '',
