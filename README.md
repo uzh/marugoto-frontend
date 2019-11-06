@@ -1,5 +1,7 @@
-# Vue Base Setup
+# Marugoto Frontend
 [![Build Status](https://travis-ci.org/uzh/marugoto-frontend.svg?branch=master)](https://travis-ci.org/uzh/marugoto-frontend)
+
+Frontend for the [Marugoto](https://github.com/uzh/marugoto) middleware (E-Learning Application for Story Telling).
 
 ### Project setup
 ```
