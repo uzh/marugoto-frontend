@@ -6,34 +6,34 @@
       <div class="left-container-div">
         <!-- Left menu -->
         <div class="left-container-menu">
-          <div class="item" :class="selectedTab == 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'" @focus="selectedTab = 'welcome'" tabindex="0">
+          <div class="item" :class="selectedTab === 'welcome' ? 'focused' : ''" @click="selectedTab = 'welcome'" @focus="selectedTab = 'welcome'" tabindex="0">
             Welcome
           </div>
-          <div class="item" :class="selectedTab == 'partners' ? 'focused' : ''" @click="selectedTab = 'partners'" @focus="selectedTab = 'partners'" tabindex="0">
+          <div class="item" :class="selectedTab === 'partners' ? 'focused' : ''" @click="selectedTab = 'partners'" @focus="selectedTab = 'partners'" tabindex="0">
             Partners
           </div>
-          <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'" @focus="selectedTab = 'reviews'" tabindex="0">
+          <div class="item" :class="selectedTab === 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'" @focus="selectedTab = 'reviews'" tabindex="0">
             Reviews
           </div>
-          <div class="item" :class="selectedTab == 'citing' ? 'focused' : ''" @click="selectedTab = 'citing'" @focus="selectedTab = 'citing'" tabindex="0">
+          <div class="item" :class="selectedTab === 'citing' ? 'focused' : ''" @click="selectedTab = 'citing'" @focus="selectedTab = 'citing'" tabindex="0">
             Citing LiT
           </div>
-          <div class="item" :class="selectedTab == 'about' ? 'focused' : ''" @click="selectedTab = 'about'" @focus="selectedTab = 'about'" tabindex="0">
+          <div class="item" :class="selectedTab === 'about' ? 'focused' : ''" @click="selectedTab = 'about'" @focus="selectedTab = 'about'" tabindex="0">
             About
           </div>
-          <div class="item" :class="selectedTab == 'faq' ? 'focused' : ''" @click="selectedTab = 'faq'" @focus="selectedTab = 'faq'" tabindex="0">
+          <div class="item" :class="selectedTab === 'faq' ? 'focused' : ''" @click="selectedTab = 'faq'" @focus="selectedTab = 'faq'" tabindex="0">
             FAQs
           </div>
         </div>
         <!-- Left Text -->
         <div class="wrapper-container-left">
-          <Welcome v-show="selectedTab == 'welcome'"/>
-          <Reviews v-show="selectedTab == 'reviews'"/>
-          <Partners v-show="selectedTab == 'partners'"/>
-          <Citing v-show="selectedTab == 'citing'"/>
-          <Agreement v-show="selectedTab == 'agreement'"/>
-          <About v-show="selectedTab == 'about'"/>
-          <FAQs v-show="selectedTab == 'faq'"/>
+          <Welcome v-show="selectedTab === 'welcome'"/>
+          <Reviews v-show="selectedTab === 'reviews'"/>
+          <Partners v-show="selectedTab === 'partners'"/>
+          <Citing v-show="selectedTab === 'citing'"/>
+          <Agreement v-show="selectedTab === 'agreement'"/>
+          <About v-show="selectedTab === 'about'"/>
+          <FAQs v-show="selectedTab === 'faq'"/>
         </div>
       </div>
     </div>
@@ -45,7 +45,7 @@
         <div class="choose-account clearfix" v-if="!shibEnabled">
           <div
             class="account block-left" 
-            :class="accountType == 'university' ? '' : 'text-darker'" 
+            :class="accountType === 'university' ? '' : 'text-darker'"
             @click="accountType = 'university'" 
             @focus="accountType = 'university'" 
             tabindex="0">University Account
@@ -53,7 +53,7 @@
           <div class="middle-arrow"></div>
           <div 
             class="account block-right" 
-            :class="accountType == 'guest' ? '' : 'text-darker'" 
+            :class="accountType === 'guest' ? '' : 'text-darker'"
             @click="accountType = 'guest'" 
             @focus="accountType = 'guest'" 
             tabindex="0">Guest Account
@@ -63,7 +63,7 @@
         <!-- University Account Form -->
         <div 
           v-if="!shibEnabled"
-          v-show="accountType == 'university'"
+          v-show="accountType === 'university'"
           class="mt-40">
           <p class="lead mb-10">Account</p>
           <div>
@@ -78,7 +78,7 @@
         </div>
 
         <!-- Guest Account Form -->
-        <div v-show="accountType == 'guest'" class="mt-40">
+        <div v-show="accountType === 'guest'" class="mt-40">
           <p class="lead mb-10">Account</p>
           <div>
             <form @keydown.enter="login">
@@ -115,7 +115,7 @@
       <div class="footer-menu-right font-secondary">
         <div 
           class="item" 
-          :class="selectedTab == 'agreement' ? 'focused' : ''" 
+          :class="selectedTab === 'agreement' ? 'focused' : ''"
           @click="selectedTab = 'agreement'" 
           @focus="selectedTab = 'agreement'" 
           tabindex="0">
@@ -173,15 +173,9 @@ export default {
     },
     ...mapActions(['LOGIN']),
     login(){
-      if ( this.mail == '' && this.password == '') {
+      if (this.mail === '' || this.password === '') {
         this.errorMessage = true;
-        this.errorText = 'Please enter your E-Mail and Password.';
-      } else if ( this.mail == '') {
-        this.errorMessage = true;
-        this.errorText = 'Please enter your E-Mail.';
-      } else if ( this.password == '') {
-        this.errorMessage = true;
-        this.errorText = 'Please enter your Password.';
+        this.errorText = 'Please enter your email and password.';
       } else {
         this.$store.dispatch('LOGIN', {
           mail: this.mail,
@@ -191,7 +185,7 @@ export default {
           this.$router.push('/games')
         })
         .catch(() => {
-          this.errorText = "Your E-Mail or Password are incorrect.";
+          this.errorText = "Your email or password are incorrect";
           this.errorMessage = true;
         });
       }
@@ -201,9 +195,9 @@ export default {
     },
     forgotPassword(){
       this.errorMessage = false;
-      if ( this.mail == '' ) {
+      if (this.mail === '') {
         this.forgottenPassword = true;
-        this.errorText = 'Please enter your E-Mail, so that we can send you the link to reset your password.';
+        this.errorText = 'Please enter your email, so that we can send you the link to reset your password.';
       } else {
         this.$store.dispatch('FORGOT_PASSWORD', {
           email: this.mail,
