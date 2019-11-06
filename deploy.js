@@ -35,7 +35,7 @@ const config = {
   remoteRoot: env.DEPLOY_REMOTE_ROOT, // DEPLOY_REMOTE_ROOT=./
   include: ['*', '**/*'], // filepattern to in dir
   deleteRemote: false // empty target folder on remote?
-}
+};
 
 ftpDeploy.on('uploading', function(data) { // while uploading a file
     process.stdout.write('Uploading File ' + data.transferredFileCount + ' / ' + data.totalFilesCount + ' -> ' + chalk.blue(data.filename) + '...');
@@ -59,4 +59,4 @@ fs.writeFile((rootDir + '/upload.md'), ('Last Upload: ' + date), function (err) 
 // DEPLOY
 ftpDeploy.deploy(config) // when all the files are uploaded or an error occurred
   .then(() => console.log(chalk.green('Uploaded ' + (newestFileData.transferredFileCount - 1) + ' / ' + newestFileData.totalFilesCount + ' Files!')))
-  .catch(err => console.log(err))
+  .catch(err => console.log(err));
