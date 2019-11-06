@@ -36,4 +36,4 @@ module.exports = {
             .use('svgo-loader')
             .loader('svgo-loader');
     }, 
-}
+};
