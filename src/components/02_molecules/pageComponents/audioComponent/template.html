@@ -32,6 +32,6 @@
     </div>
   </div>
   <div v-if="caption" class="audio-caption mb-40" :style="{'margin-left': numberOfColumns == 10 ? '10%' : ''}">
-    <p>{{ caption }}</p>
+    <p><vue-markdown :source="caption" /></p>
   </div>
 </div>

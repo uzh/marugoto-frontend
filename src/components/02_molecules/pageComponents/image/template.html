@@ -25,7 +25,7 @@
         {{ sourceIndex + 1 }} / {{ sourceList.length }}
     </div>
     <div class="image-caption" :style="{ 'margin-left': captionOffset }">
-      <p><vue-markdown :source="text"/></p>
+      <p><vue-markdown :source="text" /></p>
     </div>
     <div
       v-if="zoomable"
