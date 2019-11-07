@@ -5,6 +5,7 @@ install:
   - npm install
 script:
   - npm run lint
+  - if [ -z "$TRAVIS_TAG" ]; then echo "building test"; else echo "building production"; fi
   - if [ -z "$TRAVIS_TAG" ]; then npm run build-test; else npm run build-production; fi
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then docker login -u $DOCKER_USER -p $DOCKER_PASS; fi
