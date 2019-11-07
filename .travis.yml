@@ -5,7 +5,7 @@ install:
   - npm install
 script:
   - npm run lint
-  - if [ -z "$TRAVIS_TAG" ]; then npm run build-test; else npm run build-production; fi`
+  - if [ -z "$TRAVIS_TAG" ]; then npm run build-test; else npm run build-production; fi
 after_success:
   - docker login -u $DOCKER_USER -p $DOCKER_PASS
   - export TAG=`if [ -z "$TRAVIS_TAG" ]; then echo "test"; else echo "latest" ; fi`
