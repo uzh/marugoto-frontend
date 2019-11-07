@@ -9,8 +9,8 @@ script:
   - if [ -z "$TRAVIS_TAG" ]; then npm run build-test; else npm run build-production; fi
 after_success:
   - if [ "$TRAVIS_BRANCH" == "master" ]; then docker login -u $DOCKER_USER -p $DOCKER_PASS; fi
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then export TAG=`if [ -z "$TRAVIS_TAG" ]; then echo "test"; else echo "latest" ; fi`; fi
-  - if [ "$TRAVIS_BRANCH" == "master" ]; then docker build -t uzhlit/marugoto-frontend .; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then export TAG=`if [ -z "$TRAVIS_TAG" ]; then echo "test"; else echo "latest"; fi`; fi
+  - if [ "$TRAVIS_BRANCH" == "master" ]; then if [ -z "$TRAVIS_TAG" ]; then docker build -t uzhlit/marugoto-frontend . -f DockerfileTest; else docker build -t uzhlit/marugoto-frontend . -f DockerfileProduction; fi ; fi
   - if [ "$TRAVIS_BRANCH" == "master" ]; then docker tag uzhlit/marugoto-frontend uzhlit/marugoto-frontend:$TAG; fi
   - if [ "$TRAVIS_BRANCH" == "master" ]; then docker push uzhlit/marugoto-frontend:$TAG; fi
 env:
