@@ -11,7 +11,7 @@ after_success:
   - export TAG=`if [ -z "$TRAVIS_TAG" ]; then echo "test"; else echo "latest" ; fi`
   - docker build -t uzhlit/marugoto-frontend .
   - docker tag uzhlit/marugoto-frontend uzhlit/marugoto-frontend:$TAG
-  - docker push uzhlit/marugoto-frontend
+  - docker push uzhlit/marugoto-frontend:$TAG
 env:
   global:
     - secure: BVIuDdhu3x476Sd2GNUgYk/9VgYz6SFKiBIcCbkuknqc6XaYl2EmaqT4OIXjU05r6LneH61ZL0CHtvUf/tlVPFjDnPq/b9EU6v1KECdH/UNRkH628SrN/joTuInJdXytjd/x+/MSCtRCdqVOuviwWWisDoUxVK/VwHLZM47L6G5agBXFoSF3hdJGtORAqwjz93YmddEvZ7n8TPajlxKzAVp1s+daH39mlIX6bSD3CkeHhggkRuIQKSRUu/Ek5sYFq4OaN8yRouGi5XvL0AmeGlg7QIg4u4fiXElGzquo80egTfIYcOMHnDTdzzuzktIfOVR3f1LNO5foWiXVHXWfhpIlIJJFaFXqlgegzJ4J/hMBZrV0Q5ulckHMQKQKP+G50xqTL7TZ/B7gLYsqnjugSzx7isLMe8KslweVU1Bv0S4q+Qi0RgCHulXdebTkEnnGKtfiFIOr0DzOyiNqSqOzl61RqevRT2absGNaraTvmrDM3oLjob5znxvg5xZXtO+2ldGXjXOdPpdgv2DyaVbb5/6cv3Dt4acUSwRlLBiqTaK1gqsUiuiiAfAZD5SktegHNVuY6lS7xh5Eh4PCAGKAoZK/3+IS5cTAvCbSpXTHuIitpTg7bmL71GTgN8C0xvuXxviwQJPMPxprCivsCA1AWU0qICOROJBUSqHtymJcIkU=
