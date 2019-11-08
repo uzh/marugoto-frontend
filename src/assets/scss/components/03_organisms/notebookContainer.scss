@@ -645,6 +645,10 @@ $chapterHeight: 80px;
         background-color: $base-uicolor-4;
     }
 }
+// This makes links added by user underlined, therefore they look more clickable
+.added-personal-notes-box a {
+    text-decoration: underline;
+}
 
 .personal-note-box{
     z-index: 9;
