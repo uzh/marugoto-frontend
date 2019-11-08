@@ -11,6 +11,11 @@ import LinkComponent from '@/components/02_molecules/pageComponents/linkComponen
 import PersonalNote from '@/components/03_organisms/notebookContainer/personalNote';
 import VueMarkdown from 'vue-markdown';
 
+// add target blank to all links inside notebook?
+VueMarkdown.props.html.default = false;
+VueMarkdown.props.anchorAttributes.default = () => ({ target: '_blank' });
+Vue.component('vue-markdown', VueMarkdown);
+
 export default {
   name: 'NotebookPages',
   components: { SvgIcon, Btn, VueMarkdown, AudioComponent, VideoComponent, PersonalNote, LinkComponent },
@@ -26,15 +31,6 @@ export default {
       this.$emit('toggleScroll');
     },
   },
-}
-
-// add target blank to all links inside notebook?
-var links = document.links;
-
-for (var i = 0, linksLength = links.length; i < linksLength; i++) {
-   if (links[i].hostname != window.location.hostname) {
-       links[i].target = '_blank';
-   } 
 }
 
 </script>
