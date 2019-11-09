@@ -98,10 +98,10 @@
             <div v-if="errorText" class="login-error-message">{{ errorText }}</div>
             <div v-if="successText" class="login-success-message">{{ successText }}</div>
             <Btn text="Login" primary="true" @click.native="login" />
-            <Btn text="Forgot Password?" ghost="true" @click.native="forgotPassword" class="mt-10 mb-40" />
+            <Btn text="Forgot password?" ghost="true" @click.native="forgotPassword" class="mt-10 mb-40" />
           </div>
           <p class="lead mt-30 mb-10">I'm a first time user</p>
-          <Btn @click.native="goToRegister('guest')" text="Create Account" ghost="true" />
+          <Btn @click.native="goToRegister('guest')" text="Create account" ghost="true" />
         </div>
       </div>
     </div>
