@@ -12,9 +12,6 @@
           <div class="item" :class="selectedTab == 'partners' ? 'focused' : ''" @click="selectedTab = 'partners'" @focus="selectedTab = 'partners'" tabindex="0">
             Partners
           </div>
-          <div class="item" :class="selectedTab == 'reviews' ? 'focused' : ''" @click="selectedTab = 'reviews'" @focus="selectedTab = 'reviews'" tabindex="0">
-            Reviews
-          </div>
           <div class="item" :class="selectedTab == 'citing' ? 'focused' : ''" @click="selectedTab = 'citing'" @focus="selectedTab = 'citing'" tabindex="0">
             Citing LiT
           </div>
@@ -28,7 +25,6 @@
         <!-- Left Text -->
         <div class="wrapper-container-left">
           <Welcome v-show="selectedTab == 'welcome'"/>
-          <Reviews v-show="selectedTab == 'reviews'"/>
           <Partners v-show="selectedTab == 'partners'"/>
           <Citing v-show="selectedTab == 'citing'"/>
           <Agreement v-show="selectedTab == 'agreement'"/>
@@ -133,7 +129,6 @@ import SvgIcon from '@/components/01_atoms/svgicon';
 import Welcome from '@/components/00_static/welcome';
 import Agreement from '@/components/00_static/agreement';
 import Citing from '@/components/00_static/citing';
-import Reviews from '@/components/00_static/reviews';
 import Partners from '@/components/00_static/partners';
 import About from '@/components/00_static/about';
 import FAQs from '@/components/00_static/faq';
@@ -141,7 +136,7 @@ import { question, answer } from 'acrion';
 
 export default {
   name: 'registerView',
-  components: { InputField, Btn, SelectField, SvgIcon, Welcome, Agreement, Citing, Reviews, Partners, About, FAQs },
+  components: { InputField, Btn, SelectField, SvgIcon, Welcome, Agreement, Citing, Partners, About, FAQs },
   data(){
     return{
       firstName: '',
