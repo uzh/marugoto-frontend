@@ -10,7 +10,7 @@
       <Btn text="Sign out" class="sign-out" ghost="true" iconName="logout" @click.native="logout"/>
     </div>
     <!-- Lead text -->
-    <p>This is your Lives in Transit <strong>Home</strong> page. You can start your game(s) from here and you can return here at any point by clicking on the <strong>Home</strong> icon during gameplay. If you close a game, or accidentally hit the <strong>Back</strong> button on your browser during play, you will be returned here. But don't worry&mdash;your progress is automatically saved, so you can simply click on <strong>Continue</strong> to return to where you left off.</p>
+    <p>This is your <i>Lives in Transit</i> <i>Home</i> page. You can start your game(s) from here and you can return here at any point by clicking on the <i>Home</i> icon during gameplay. If you close a game, or accidentally hit the <i>Back</i> button on your browser during play, you will be returned here. But don't worry&mdash;your progress is automatically saved, so you can simply click on <i>Continue</i> to return to where you left off.</p>
     <br/>
     <p>
     Remember that you can always return here to start a new game, even if you have another in progress. At any time, you're also able to return here and download your current game state data as a zip archive. You can then use this data to explore your selected pathway through the game.
