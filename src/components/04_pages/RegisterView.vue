@@ -47,7 +47,7 @@
       <div class="wrapper-container-right">
         <!-- From Guest Account -->
         <div v-show="accountType == 'guest'">
-          <h3 class="page-title mb-60">Create LiT account</h3>
+          <h3 class="page-title mb-60">Create account</h3>
           <p class="lead mb-10">Enter your data</p>
           <div>
             <form class="full-width" @keydown.enter="register">

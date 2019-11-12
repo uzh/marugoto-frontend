@@ -6,8 +6,10 @@
       <div class="title">
         <h1>Your games</h1>
       </div>
-      <Btn text="Supervise group game" class="supervise-game" ghost="true" iconName="arrow-right" @click.native="goToOverview"/>
-      <Btn text="Sign out" class="sign-out" ghost="true" iconName="logout" @click.native="logout"/>
+      <span class="pull-right">
+        <Btn text="Supervise group game" class="supervise-game" ghost="true" iconName="arrow-right" @click.native="goToOverview"/>
+        <Btn text="Sign out" class="sign-out" ghost="true" iconName="logout" @click.native="logout"/>
+      </span>
     </div>
     <!-- Lead text -->
     <p>This is your <i>Lives in Transit</i>&nbsp;<i>Home</i> page. You can start your game(s) from here and you can return here at any point by clicking on the <i>Home</i> icon during gameplay. If you close a game, or accidentally hit the <i>Back</i> button on your browser during play, you will be returned here. But don't worry&mdash;your progress is automatically saved, so you can simply click on <i>Continue</i> to return to where you left off.</p>
