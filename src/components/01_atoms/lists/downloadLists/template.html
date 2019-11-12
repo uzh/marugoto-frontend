@@ -1,7 +1,7 @@
 <div class="download-list-item">
 	<div class="left">
 		<h6>{{ title }}</h6>
-		<p class="small">{{ [ startedAt, "DD.MM.YYYY - HH:mm" ] | moment('timezone', 'Europe/Zurich', "dddd, MMMM Do YYYY, HH:mm") }}</p>
+		<p class="small">{{ [ startedAt, "DD.MM.YYYY - HH:mm" ] | moment('timezone', Intl.DateTimeFormat().resolvedOptions().timeZone, "dddd, MMMM Do YYYY, HH:mm") }}</p>
 	</div>
 	<div class="right">
 		<div v-if="action.length > 0"
