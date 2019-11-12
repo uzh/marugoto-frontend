@@ -18,6 +18,8 @@ Vue.use(VueMoment, {
     moment: moment,
 })
 
+moment.tz.setDefault("UTC");
+
 new Vue({
   store,
   router,
