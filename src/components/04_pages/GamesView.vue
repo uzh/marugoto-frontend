@@ -7,8 +7,9 @@
         <h1>Your games</h1>
       </div>
       <span class="pull-right">
-        <Btn text="Supervise group game" class="pull-right supervise-game" ghost="true" iconName="arrow-right" @click.native="goToOverview"/>
+        <!--The first button here will pull-right furthest, so these appear out of order!-->
         <Btn text="Sign out" class="pull-right sign-out" ghost="true" iconName="logout" @click.native="logout"/>
+        <Btn text="Supervise group game" class="pull-right supervise-game" ghost="true" iconName="arrow-right" @click.native="goToOverview"/>
       </span>
     </div>
     <!-- Lead text -->
