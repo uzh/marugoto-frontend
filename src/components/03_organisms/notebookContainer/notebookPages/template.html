@@ -41,7 +41,7 @@
       <div
         v-if="component.type == 'PersonalNote'"
         class="added-personal-notes-box">
-        <p>{{ component.personalNote.createdAt }}</p>
+        <p>{{ [ component.personalNote.createdAt, "DD.MM.YYYY - HH:mm" ] | moment("dddd, MMMM Do YYYY, hh:mm") }}</p>
         <vue-markdown :source="component.personalNote.markdownContent" />
       </div>
       <!-- Text Exercise Component -->

@@ -10,6 +10,7 @@ import VideoComponent from '@/components/02_molecules/pageComponents/videoCompon
 import LinkComponent from '@/components/02_molecules/pageComponents/linkComponent'
 import PersonalNote from '@/components/03_organisms/notebookContainer/personalNote';
 import VueMarkdown from 'vue-markdown';
+import moment from 'vue-moment';
 
 // add target blank to all links inside notebook?
 VueMarkdown.props.anchorAttributes.default = () => ({ target: '_blank' });
