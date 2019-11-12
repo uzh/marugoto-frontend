@@ -7,8 +7,8 @@
         <h1>Your games</h1>
       </div>
       <span class="pull-right">
-        <Btn text="Supervise group game" class="supervise-game" ghost="true" iconName="arrow-right" @click.native="goToOverview"/>
-        <Btn text="Sign out" class="sign-out" ghost="true" iconName="logout" @click.native="logout"/>
+        <Btn text="Supervise group game" class="pull-right supervise-game" ghost="true" iconName="arrow-right" @click.native="goToOverview"/>
+        <Btn text="Sign out" class="pull-right sign-out" ghost="true" iconName="logout" @click.native="logout"/>
       </span>
     </div>
     <!-- Lead text -->
