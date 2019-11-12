@@ -22,7 +22,7 @@
         position: absolute;
         top: 50%;
         right: 0;
-        width: 120px;
+        width: 160px;
         display: inline-block;
         text-align: right;
         transform: translateY(-50%);
@@ -37,7 +37,7 @@
         .download {
             display: inline-block;
             vertical-align: middle;
-            height: 40px;
+            color: $base-primary;
             cursor: pointer;
         }
     }
