@@ -8,9 +8,15 @@ import 'v-calendar/lib/v-calendar.min.css';
 
 import Clipboard from 'v-clipboard';
 
+import VueMoment from 'vue-moment'
+import moment from 'moment-timezone'
+
 Vue.config.productionTip = false;
 Vue.use(VCalendar);
 Vue.use(Clipboard);
+Vue.use(VueMoment, {
+    moment: moment,
+})
 
 new Vue({
   store,
