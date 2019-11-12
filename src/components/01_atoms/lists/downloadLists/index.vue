@@ -10,7 +10,7 @@ export default {
   data: function() {
     return {
       months: ['January', 'February', 'March', 'April', 'May', 'June',
-      'July', 'August', ' September', 'October', 'December'],
+      'July', 'August', ' September', 'October', 'November', 'December'],
     };
   },
   computed: {
