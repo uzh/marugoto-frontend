@@ -17,7 +17,7 @@ VueMarkdown.props.anchorAttributes.default = () => ({ target: '_blank' });
 
 export default {
   name: 'NotebookPages',
-  components: { SvgIcon, Btn, VueMarkdown, AudioComponent, VideoComponent, PersonalNote, LinkComponent },
+  components: { SvgIcon, Btn, VueMarkdown, AudioComponent, VideoComponent, PersonalNote, LinkComponent, moment },
   props: [ 'currentEntry', 'list', 'direction' ],
   data(){
     return {
