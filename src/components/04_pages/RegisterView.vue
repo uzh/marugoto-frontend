@@ -37,10 +37,10 @@
     <div class="right-container">
       <!-- Arrow column -->
       <div class="login-arrow">
-        <SvgIcon 
-          @click.native="goToLogin" 
-          name="arrow-left" 
-          customColor="#8C8B89" 
+        <SvgIcon
+          @click.native="goToLogin"
+          name="arrow-left"
+          customColor="#8C8B89"
           class="back-to-login" />
       </div>
       <!-- Register Form -->
@@ -51,40 +51,41 @@
           <p class="lead mb-10">Enter your data</p>
           <div>
             <form class="full-width" @keydown.enter="register">
-              <InputField 
+              <InputField
                 autocomplete="off"
-                inputName="registerFirstName" 
-                v-model="firstName" 
-                labelName="Name / Pseudonym" 
+                inputName="registerFirstName"
+                v-model="firstName"
+                labelName="Name / Pseudonym"
                 :required="errorMessage" />
-              <InputField 
+              <InputField
                 autocomplete="off"
-                inputName="registerLastName" 
-                v-model="lastName" 
-                labelName="Lastname / Pseudonym" 
+                inputName="registerLastName"
+                v-model="lastName"
+                labelName="Lastname / Pseudonym"
                 :required="errorMessage" />
               <!--<SelectField :list="genderList" labelName="Gender" :required="errorMessage" @selectChange="setGender" />-->
-              <InputField 
+              <InputField
                 autocomplete="off"
-                inputName="registerEmail" 
-                v-model="mail" 
-                typeProp="email" 
-                labelName="E-Mail" 
+                inputName="registerEmail"
+                v-model="mail"
+                typeProp="email"
+                labelName="E-Mail"
                 :required="errorMessage" />
-              <InputField 
+              <InputField
                 autocomplete="off"
-                inputName="registerPassword" 
-                v-model="password" 
-                typeProp="password" 
+                inputName="registerPassword"
+                v-model="password"
+                typeProp="password"
                 labelName="Password"
                 :required="errorMessage"/>
               <p class="lead mb-10">Answer this question to prove you are human</p>
               <InputField
                 v-model="answer"
                 autocomplete="off"
-                inputName="answer" 
+                inputName="answer"
                 :labelName="question"
                 :required="errorMessage"/>
+              <Btn text="Other question" primary="true" iconName="rewind" iconColor="#fff" @click.native="refreshQuestion" />
             </form>
             <div v-if="errorText" class="login-error-message">
               <p>{{ errorText.text }}</p>
@@ -104,11 +105,11 @@
         <div class="logo"></div>
       </div>
       <div class="footer-menu-right font-secondary">
-        <div 
-          class="item" 
-          :class="selectedTab == 'agreement' ? 'focused' : ''" 
-          @click="selectedTab = 'agreement'" 
-          @focus="selectedTab = 'agreement'" 
+        <div
+          class="item"
+          :class="selectedTab == 'agreement' ? 'focused' : ''"
+          @click="selectedTab = 'agreement'"
+          @focus="selectedTab = 'agreement'"
           tabindex="0">
           Data use agreement
         </div>
@@ -191,6 +192,10 @@ export default {
     },
     goToLogin(){
       this.$router.push('/login');
+    },
+    refreshQuestion(){
+        this.question = question()
+
     },
   },
 }
