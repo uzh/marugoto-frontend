@@ -12,19 +12,16 @@
     </div>
   </div>
   <!-- Topics -->
-  <div 
-    class="topics"
-    :class="list.length > 4 ? 'listed-layout' : 'minimal-layout'">
-    <div 
+
+<div id="table-holder" class="topics">
+  <table style="width:100%">
+    <tr 
       v-for="(topic, index) in list"
       :key="index"
-      class="topic-box">
-      <div class="folder-backside"></div>
-      <div class="topic-image">
-        <img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image">
-      </div>
-      <div class="topic-folder">
-        <div class="title"><p>{{ topic.title }}</p></div>
+      class="table-row">
+      <td><img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image"></td>
+      <td><div class="title"><p>{{ topic.title }}</p></div></td>
+      <td>
         <div class="button-wrapper">
           <Btn
           @click.native="$emit('openTopic', topic.id)"
@@ -32,8 +29,7 @@
           text="Launch" 
           primary="true" />
         </div>
-      </div>
-      <div class="folder-frontside"></div>
-    </div>
-  </div>
+      </td>
+    </tr>
+  </table>
 </div>
