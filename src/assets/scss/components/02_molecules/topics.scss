@@ -14,98 +14,12 @@
     .topics {
         position: absolute;
         bottom: 0;
-        width: 100%;
-
-        .topic-box {
-            position: relative;
-            width: 33%;
-            float: left;
-            padding-left: 2px;
-            padding-right: 2px;
-
-            @include breakpoint(desktop){
-                width: 25%; 
-            }
-
-            &:hover {
-
-                .topic-image {
-                    box-shadow: 0 7px 16px 0px rgba(0,0,0, 0.5);
-                    transform: translateY(-90%);
-        
-                    .image {
-                        transform: rotate(2deg);
-                    }
-                }
-
-                .button-wrapper {
-                    display: block;
-                }
-            }
-
-            .topic-image {
-                position: absolute;
-                top: 0;
-                left: 5%;
-                width: 90%;
-                z-index: 2;
-                transform: translateY(-20%) ;
-                transition: all 0.3s;
+        width: 50%;
+        -webkit-transform: translate(-50%, -50%);
+        transform: translate(-50%, -50%);
     
-                .image {
-                    width: 100%;
-                    outline: 5px solid white;
-                    transform: rotate(-2deg);
-                    transition: all 0.3s;
-                }
-            }
-
-            .folder-frontside {
-                position: absolute;
-                top: 0;
-                left: 2px;
-                width: 60%;
-                padding-bottom: 8%;
-                background-color: $base-uicolor-4;
-                border-top-right-radius: 6px;
-                border-top-left-radius: 6px;
-                z-index: 4;
-                transform: translateY(-95%);
-            }
-
-            .folder-backside {
-                position: absolute;
-                top: 0;
-                right: 2px;
-                width: 60%;
-                padding-bottom: 8%;
-                background-color: #D9D7D4;
-                border-top-right-radius: 6px;
-                z-index: 1;
-                transform: translateY(-95%);
-            }
-
-            .topic-folder {
-                position: relative;
-                width: 100%;
-                padding: 30px;
-                padding-bottom: 75%;
-                background-color: $base-uicolor-4;
-                z-index: 2;
-                transition: all 0.3s;
-
-                .title {
-                    position: absolute;
-                    left: 0;
-                    width: 100%;
-                    padding: 0 20px;
-                    
-                    p {
-                        @extend .h5;
-                        font-family: inherit;
-                        word-wrap: break-word;
-                    }
-                }
+            .image {
+                height: 100px;
             }
 
             .button-wrapper {
