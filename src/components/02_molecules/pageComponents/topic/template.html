@@ -12,24 +12,24 @@
     </div>
   </div>
   <!-- Topics -->
-
-<div id="table-holder" class="topics">
-  <table style="width:100%">
-    <tr 
-      v-for="(topic, index) in list"
-      :key="index"
-      class="table-row">
-      <td><img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image"></td>
-      <td><div class="title"><p>{{ topic.title }}</p></div></td>
-      <td>
-        <div class="button-wrapper">
-          <Btn
-          @click.native="$emit('openTopic', topic.id)"
-          class="topic-button"
-          text="Launch" 
-          primary="true" />
-        </div>
-      </td>
-    </tr>
-  </table>
+  <div class="topics">
+    <table style="width:100%">
+      <tr 
+        v-for="(topic, index) in list"
+        :key="index"
+        class="table-row">
+        <td><img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image"></td>
+        <td><div class="title"><p>{{ topic.title }}</p></div></td>
+        <td>
+          <div class="button-wrapper">
+            <Btn
+            @click.native="$emit('openTopic', topic.id)"
+            class="topic-button"
+            text="Launch" 
+            primary="true" />
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
 </div>
