@@ -12,13 +12,13 @@
     </div>
   </div>
   <!-- Topics -->
-  <div class="topics">
+  <div>
     <table style="width:100%">
       <tr 
         v-for="(topic, index) in list"
         :key="index"
         class="table-row">
-        <td><img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image"></td>
+        <td><img height="100px" :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image"></td>
         <td><div class="title"><p>{{ topic.title }}</p></div></td>
         <td>
           <div class="button-wrapper">
