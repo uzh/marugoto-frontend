@@ -11,27 +11,29 @@
       </p>
     </div>
   </div>
-  <br/>
-  <br/>
-  <br/>
   <!-- Topics -->
-  <div class="topics">
-    <table style="width:60%">
-      <tr 
-        v-for="(topic, index) in list"
-        :key="index">
-        <td><img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image"></td>
-        <td><div class="title"><p>{{ topic.title }}</p></div></td>
-        <td>
-          <div class="button-wrapper">
-            <Btn
-            @click.native="$emit('openTopic', topic.id)"
-            class="topic-button"
-            text="Launch" 
-            primary="true" />
-          </div>
-        </td>
-      </tr>
-    </table>
+  <div 
+    class="topics"
+    :class="list.length > 4 ? 'listed-layout' : 'minimal-layout'">
+    <div 
+      v-for="(topic, index) in list"
+      :key="index"
+      class="topic-box">
+      <div class="folder-backside"></div>
+      <div class="topic-image">
+        <img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image">
+      </div>
+      <div class="topic-folder">
+        <div class="title"><p>{{ topic.title }}</p></div>
+        <div class="button-wrapper">
+          <Btn
+          @click.native="$emit('openTopic', topic.id)"
+          class="topic-button"
+          text="Launch" 
+          primary="true" />
+        </div>
+      </div>
+      <div class="folder-frontside"></div>
+    </div>
   </div>
 </div>
