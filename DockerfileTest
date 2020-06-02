@@ -1,6 +1,9 @@
 # build stage
 FROM node:8.15-alpine as build-stage
 
+# fix build problem
+RUN npm config set unsafe-perm true
+
 # install simple http server for serving static content
 RUN npm install -g http-server
 
