@@ -2,9 +2,7 @@ language: node_js
 node_js:
   - 10.17.0
 install:
-  - npm config set unsafe-perm true
   - npm install
-  - npm update caniuse-lite browserslist
 script:
   - npm run lint
   - if [ -z "$TRAVIS_TAG" ]; then echo "building test"; else echo "building production"; fi
