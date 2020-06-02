@@ -3,6 +3,7 @@ node_js:
   - 10
 install:
   - npm install
+  - npm update caniuse-lite browserslist
 script:
   - npm run lint
   - if [ -z "$TRAVIS_TAG" ]; then npm run build-test; else npm run build-production; fi
