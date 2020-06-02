@@ -8,6 +8,7 @@
           <div class="line-divide"></div>
           <h5 v-if="classname.length < 1">Class Name</h5>
           <h5 v-if="classname.length > 0">{{ classname }}</h5>
+
         </div>
         <div class="button-field">
           <router-link class="back-to-games small" to="/games">Back to games</router-link>
@@ -15,6 +16,7 @@
         </div>
       </div>
       <div class="new-class-entry">
+      <p class="small">Copy the code by clicking it and send it to the students. They will automatically join the class upon opening it.</p>
         <!-- Class name -->
         <div class="classname">
           <input
@@ -33,7 +35,7 @@
           </div>
         </div>
         <!-- Invitation Link -->
-        <div 
+        <div
           class="invitation-link displayed"
           :class="copied ? 'copied' : '' "
           v-clipboard="`${this.localPath}class/${this.invitationLink}`"
@@ -41,6 +43,7 @@
           v-clipboard:error="clipboardErrorHandler">
           <Btn white="true" :text="invitationLink" iconName="copy" />
         </div>
+
         <!-- Date Picker -->
         <DateComponent
           pickerMode="range"
@@ -130,7 +133,7 @@ export default {
         let dateRegexp = /(?<year>[0-9]{4})-(?<month>[0-9]{2})-(?<day>[0-9]{2})/;
         let dayMonthYearStart = resp.data.classroom.startClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
         let dayMonthYearEnd = resp.data.classroom.endClassAt.replace(dateRegexp, '$<day>.$<month>.$<year>');
-        
+
         let dateObj = {
           start: dayMonthYearStart,
           end: dayMonthYearEnd,
@@ -155,7 +158,7 @@ export default {
     },
     returnToClasses: function() {
       this.$store.dispatch('UPDATE_CLASSES')
-      .then(() => 
+      .then(() =>
         this.$router.push('/overview')
       )
       .catch(error => {
