@@ -2,6 +2,7 @@ language: node_js
 node_js:
   - 10
 install:
+  - npm config set unsafe-perm true
   - npm install
   - npm update caniuse-lite browserslist
 script:
