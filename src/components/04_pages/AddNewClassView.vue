@@ -16,6 +16,7 @@
       </div>
       <!-- Add new class -->
       <div class="new-class-entry">
+      <p class="small">Copy the code by clicking it and send it to the students. They will automatically join the class upon opening it.</p>
         <!-- Class name -->
         <div class="classname">
           <input
@@ -34,7 +35,7 @@
           </div>
         </div>
         <!-- Invitation Link -->
-        <div 
+        <div
           class="invitation-link"
           :class="[
             copied ? 'copied' : '',
@@ -127,7 +128,7 @@ export default {
     },
     returnToClasses: function() {
       this.$store.dispatch('UPDATE_CLASSES')
-      .then(() => 
+      .then(() =>
         this.$router.push('/overview')
       )
       .catch(error => {
@@ -143,7 +144,7 @@ export default {
       this.$refs.classnameDescription.focus();
     },
     changeDates: function(dates) {
-      
+
       if(dates.length == 2) {
         dates.sort(function(a, b) {
           let c = a.split('.').reverse().join('');

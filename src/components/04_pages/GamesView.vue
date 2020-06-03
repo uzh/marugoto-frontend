@@ -18,6 +18,7 @@
     <p>
     Remember that you can always return here to start a new game, even if you have another in progress. At any time, you're also able to return here and download your current game state data as a zip archive. You can then use this data to explore your selected pathway through the game.
     </p>
+    <p>If you are a teacher and want to generate a class game for your students (currently only available for Plantation Lives), please click on  "Supervise group game" above. There, you can set a class name, and a date-range for your students to play, and then you will be able to generate a link for you to email to your class. As soon as your students start playing, you will be able to see their player-names and email addresses listed under the class name you have chosen. You can either download an individual student's Notebook or the Notebooks from the whole class.</p>
     <br/>
     <!-- Content -->
     <div class="start-game">
