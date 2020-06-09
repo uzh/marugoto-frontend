@@ -20,11 +20,10 @@ import { mapGetters } from 'vuex';
 import VueMarkdown from 'vue-markdown';
 import Btn from '@/components/01_atoms/buttons';
 import TopicComponent from '@/components/02_molecules/pageComponents/topic';
-import TopicList from '@/components/01_atoms/lists/TopicLists';
 
 export default {
   name: 'topics',
-  components: { VueMarkdown, TopicComponent, Btn, TopicList },
+  components: { VueMarkdown, TopicComponent, Btn },
   data() {
     return {
       basePath: process.env.VUE_APP_BASE_PATH,
