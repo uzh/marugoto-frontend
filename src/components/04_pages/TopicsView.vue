@@ -24,7 +24,7 @@ import TopicList from '@/components/01_atoms/lists/TopicLists';
 
 export default {
   name: 'topics',
-  components: { VueMarkdown, TopicComponent, Btn, topicList },
+  components: { VueMarkdown, TopicComponent, Btn, TopicList },
   data() {
     return {
       basePath: process.env.VUE_APP_BASE_PATH,
