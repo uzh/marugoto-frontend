@@ -6,29 +6,19 @@
       </p>
     </div>
   </div>
-<!-- Topics -->
-  <div 
-    class="topics"
-    :class="list.length > 4 ? 'listed-layout' : 'minimal-layout'">
-    <div 
+  <!-- Topics -->
+  <div class="topics">
+    <div class="topic-box">
+      <h5>Available topics</h5>
+      <topicList
       v-for="(topic, index) in list"
+      action="Play"
       :key="index"
-      class="topic-box">
-      <div class="folder-backside"></div>
-      <div class="topic-image">
-        <img :src="`${resourcesPath}${topic.image.path}`" alt="Topic Image" class="image">
-      </div>
-      <div class="topic-folder">
-        <div class="title"><p>{{ topic.title }}</p></div>
-        <div class="button-wrapper">
-          <Btn
-          @click.native="$emit('openTopic', topic.id)"
-          class="topic-button"
-          text="Play" 
-          primary="true" />
-        </div>
-      </div>
-      <div class="folder-frontside"></div>
+      :id="topic.id"
+      :title="topic.title"
+      @click.native="$emit('openTopic', topic.id)"/>
     </div>
   </div>
 </div>
+
+
