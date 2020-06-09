@@ -23,7 +23,7 @@ import TopicComponent from '@/components/02_molecules/pageComponents/topic';
 
 export default {
   name: 'topics',
-  components: { VueMarkdown, TopicComponent, Btn },
+  components: { VueMarkdown, TopicComponent, Btn, topicList },
   data() {
     return {
       basePath: process.env.VUE_APP_BASE_PATH,
