@@ -1,3 +1,9 @@
+process.env.VUE_APP_BUILD_IMAGE = process.env.BUILD_IMAGE || 'uzhli/marugoto-frontend'
+process.env.VUE_APP_GIT_TAG = process.env.GIT_TAG || 'latest'
+process.env.VUE_APP_GIT_BRANCH = process.env.GIT_BRANCH || ''
+process.env.VUE_APP_GIT_REVISION = process.env.GIT_REVISION || ''
+
+
 module.exports = {
     devServer: {
         port: 4020,
@@ -35,5 +41,5 @@ module.exports = {
             .rule('svg-sprite')
             .use('svgo-loader')
             .loader('svgo-loader');
-    }, 
+    },
 };
