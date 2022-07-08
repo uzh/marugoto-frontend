@@ -1,0 +1,25 @@
+version: "3.7"
+services:
+  app:
+    build:
+      context: .
+      dockerfile: DockerfileDev
+    ports:
+      - "8090:8080"
+      - "4020:4020"
+    volumes:
+      - "./src:/app/src"
+      - "./public:/app/public"
+      - "./babel.config.js:/app/babel.config.js"
+      - "./.env:/app/.env"
+      - "./.env.development:/app/.env.development"
+      - "./vue.config.js:/app/vue.config.js"
+    tty: true
+    stdin_open: true
+    environment:
+      CHOKIDAR_USEPOLLING: "true"
+      BUILD_IMAGE: ${BUILD_IMAGE}
+      GIT_TAG: ${GIT_TAG}
+      GIT_BRANCH: ${GIT_BRANCH}
+      GIT_REVISION: ${GIT_REVISION}
+      PUBLIC_PATH: ${PUBLIC_PATH}
