@@ -22,3 +22,19 @@ npm run build
 ```
 npm run lint
 ```
+
+
+## Docker
+Using Makefile `make build` allow to build a custom image
+using a local env file, that is `env.production` or `env.test`
+
+```
+BUILD_IMAGE=<your namespace>/marugoto-frontend \
+NODE_ENV=local
+make build
+```
+
+Docker can also be used for development purposes (using .env file only)
+```
+BUILD_IMAGE=my-marugo-development make run-dev
+```

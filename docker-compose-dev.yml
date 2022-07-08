@@ -12,7 +12,6 @@ services:
       - "./public:/app/public"
       - "./babel.config.js:/app/babel.config.js"
       - "./.env:/app/.env"
-      - "./.env.development:/app/.env.development"
       - "./vue.config.js:/app/vue.config.js"
     tty: true
     stdin_open: true
