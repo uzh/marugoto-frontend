@@ -26,11 +26,12 @@ npm run lint
 
 ## Docker
 Using Makefile `make build` allow to build a custom image
-using a local env file, that is `env.production` or `env.test`
+using a local env file, forn instance `.env.production.local`
 
 ```
 BUILD_IMAGE=<your namespace>/marugoto-frontend \
-NODE_ENV=local
+NODE_ENV=test \
+ENV_FILE=.env.production.local \
 make build
 ```
 

@@ -6,6 +6,7 @@ ARG BUILD_IMAGE
 ARG GIT_TAG
 ARG GIT_BRANCH
 ARG GIT_REVISION
+ARG ENV_FILE=.env
 
 # fix build problem
 RUN npm config set unsafe-perm true
@@ -28,7 +29,7 @@ COPY coverage ./coverage
 COPY public ./public
 
 COPY vue.config.js ./
-COPY .env .env.${NODE_ENV} ./
+COPY ${ENV_FILE} ./.env
 
 ENV NODE_ENV=${NODE_ENV}
 ENV BUILD_IMAGE=${BUILD_IMAGE}
