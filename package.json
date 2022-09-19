@@ -16,7 +16,7 @@
     "acrion": "^0.1.5",
     "axios": "^0.18.0",
     "lodash": "^4.17.11",
-    "moment-timezone": "^0.5.27",
+    "moment-timezone": "^0.5.35",
     "v-calendar": "^0.9.7",
     "v-clipboard": "^2.2.1",
     "vue": "^2.5.17",
