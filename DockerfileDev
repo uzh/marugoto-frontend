@@ -1,0 +1,13 @@
+FROM node:8.15-alpine
+
+# fix build problem
+RUN npm config set unsafe-perm true
+
+WORKDIR /app
+
+RUN apk add --no-cache git build-base python2
+COPY package.json package-lock.json ./
+
+
+RUN npm install
+ENTRYPOINT ["npm",  "run", "serve"]
